@@ -8,7 +8,9 @@ Semeon (08-01-2018)
 
 ### 1601_all.png
 This provides an example of the stimulus used to extract roi images. The images were imbedded within a chart for convenience.
-
+| Attempt | #1  | #2  |
+| ------- | --- | --- |
+| Seconds | 301 | 283 |
 ### 1601.csv
 CSV files (named after corresponding image) are a list of each ROI xy-coordinate. Columns are id (unique id for each roi), x, y coordinates. 
 Note: y-axis uses reversed cartesian coordinates (origin starts at top left corner).
