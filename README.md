@@ -9,16 +9,10 @@ Semeon (08-01-2018)
 ### 1601_all.png
 This provides an example of the stimulus used to extract roi images. The images were imbedded within a chart for convenience.
 
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
-
-
 ### 1601.csv
 CSV files (named after corresponding image) are a list of each ROI xy-coordinate. Columns are id (unique id for each roi), x, y coordinates. 
 Note: y-axis uses reversed cartesian coordinates (origin starts at top left corner).
+
 | id | x | y |
 | ------ | ------ | ------ |
 | 16011 | 332 | 479 |
@@ -29,6 +23,7 @@ Note: y-axis uses reversed cartesian coordinates (origin starts at top left corn
 
 ### metadata.csv
 The metadata.csv file is a list of each ROI's relevant metadata (valence, resolution)
+
 | id | file | ROI | resolution | valence | … | … |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | 16011 | 1601 | 1 | (575, 767) | positive | … | … |
