@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl-eyelink &#8212; mdl-eyelink 2019-03-12 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing and getting started" href="install.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          mdl-eyelink</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-03-12</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="genindex.html">Glossary</a></li>
+                <li><a href="install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eyetracking.html">eyetracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">calibration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pylink.html">pylink</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">mdl-eyelink</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="mdl-eyelink">
+<h1>mdl-eyelink<a class="headerlink" href="#mdl-eyelink" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Created on Wed Feb 13 15:37:43 2019</span>
+<span class="c1"># @author: Semeon Risom</span>
+<span class="c1"># @email: semeon.risom@gmail.com.</span>
+<span class="c1"># Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000</span>
+<span class="c1"># Plus (5.0), but should be compatiable with earlier systems.</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To Do:</span>
+<span class="c1"># Finish eyetracking.drift_correction()</span>
+<span class="c1"># Finish eyetracking.roi()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import</span>
+<span class="kn">from</span> <span class="nn">psychopy</span> <span class="k">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">core</span>
+<span class="kn">import</span> <span class="nn">mdl</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the Eyelink.</span>
+<span class="c1"># Before initializing, ensure psychopy window instance has been created in the experiment file.</span>
+<span class="c1"># This window will be used in the calibration function.</span>
+<span class="c1">#</span>
+<span class="c1"># ```psychopy.visual.window.Window``` instance (for demonstration purposes only)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">],</span> <span class="n">fullscr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">screen</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allowGUI</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span>
+                       <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;Monitor&#39;</span><span class="p">,</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pyglet&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">],</span> <span class="n">colorSpace</span><span class="o">=</span><span class="s1">&#39;rgb255&#39;</span><span class="p">)</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">eyetracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="p">(</span><span class="n">libraries</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setting the dominant eye. This step is especially critical for transmitting gaze coordinates from Eyelink-&gt;Psychopy.</span>
+<span class="c1">#</span>
+<span class="n">dominant_eye</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span>
+<span class="n">eye_used</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">set_eye_used</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="n">dominant_eye</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start calibration.</span>
+<span class="c1"># Before running the calibration, ensure psychopy window instance has been created in the experiment file.</span>
+<span class="c1"># This window will be used in the calibration function.</span>
+<span class="c1">#</span>
+<span class="c1"># ```psychopy.visual.window.Window``` instance (for demonstration purposes only)</span>
+<span class="c1"># start</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">calibration</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter the key &quot;o&quot; on the ```psychopy.visual.window.Window``` instance. This will begin the task.</span>
+<span class="c1"># The Calibration, Validation, &#39;task-start&#39; events are controlled by the keyboard.</span>
+<span class="c1"># Calibration (&quot;c&quot;), Validation (&quot;v&quot;), task-start (&quot;o&quot;) respectively.</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (Optional) Print message to console/terminal. This may be useful for debugging issues.</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.calibration() started&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drift correction. This can be done at any point after calibration, including after</span>
+<span class="c1"># eyetracking.start_recording has started. #!! To do. Finish.</span>
+<span class="c1">#</span>
+<span class="n">attempt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">drift_correction</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">attempt</span><span class="o">=</span><span class="n">attempt</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">999</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="n">core</span><span class="p">,</span> <span class="n">thisExp</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Region of interest. This is used for realtime data collection from eyelink-&gt;psychopy.</span>
+<span class="c1"># For example, this can be used to require participant to look at the fixation cross for a duration</span>
+<span class="c1"># of 500 msec before continuing the task.</span>
+<span class="c1">#</span>
+<span class="c1"># Using the eyetracking.roi function to collect samples with the center of the screen.</span>
+<span class="n">roi</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">860</span><span class="p">,</span><span class="mi">1060</span><span class="p">,</span><span class="mi">640</span><span class="p">,</span><span class="mi">440</span><span class="p">])</span>
+<span class="c1"># start</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">roi</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">roi</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start recording. This should be run at the start of the trial.</span>
+<span class="c1"># Note: There is an intentional delay of 150 msec to allow the Eyelink to buffer gaze samples.</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">trial</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect current gaze coordinates from Eyelink (only if needed in experiment). This command should be</span>
+<span class="c1"># looped at an interval of sample/2.01 msec to prevent oversampling (500Hz).</span>
+<span class="c1">#</span>
+<span class="c1"># get time</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># set current time to 0</span>
+<span class="n">lgxy</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># create list of gaze coordinates (demonstration purposes only)</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># initial timestamp</span>
+<span class="c1"># repeat</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># if difference between starting and current time is greater than &gt; 2.01 msec, collect new sample</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="o">.</span><span class="mi">00201</span><span class="p">:</span>
+        <span class="n">gxy</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">eye_used</span><span class="o">=</span><span class="n">eye_used</span><span class="p">)</span> <span class="c1"># get gaze coordinates</span>
+        <span class="n">lgxy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gxy</span><span class="p">)</span> <span class="c1"># store in list</span>
+        <span class="n">s0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># update starting time</span>
+    <span class="c1">#else set current time</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+
+    <span class="c1">#break `while` statement if list of gaze coordiantes &gt;= 20 (demonstration purposes only)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lgxy</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span> <span class="k">break</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Send messages to Eyelink. This allows post-hoc processing of timing related events (i.e. &quot;stimulus onset&quot;).</span>
+<span class="c1"># Sending message &quot;stimulus onset&quot;.</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;stimulus onset&quot;</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stops Eyelink recording. Also allows transmission of trial-level variables (optional) to Eyelink.</span>
+<span class="c1"># Note: Variables sent are optional. If they being included, they must be in ```python dict``` format.</span>
+<span class="c1">#</span>
+<span class="c1"># set variables</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s1">&#39;001B_F.jpg&#39;</span><span class="p">,</span> <span class="n">trial_type</span><span class="o">=</span><span class="s1">&#39;encoding&#39;</span><span class="p">,</span> <span class="n">race</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="c1"># stop recording</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">(</span><span class="n">trial</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finish Eyelink recording.</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">finish_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/example.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright .<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

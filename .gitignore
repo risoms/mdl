@@ -1,0 +1,26 @@
+# folders
+_backup/
+_example/
+_resources/
+blocks/
+CFD/
+data/
+__pycache__/
+mdl/__pycache__/
+mdl/pylink/__pycache__/
+
+# files
+Rating Scale3.jpg
+todo.txt
+## jupyter
+distributions.ipynb
+## py
+notes.py
+RB_ContextET_Basketball.py
+RecogMem.py
+
+#file types
+*.ipynb_checkpoints
+*.DS_Store
+*.egg
+
