@@ -2,29 +2,25 @@
 # -*- coding: utf-8 -*-
 
 #----core
+import os
+import glob
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+
 #----photoshop
 from psd_tools import PSDImage
-#----json
-import os
-import glob
+
 #----base64
 import cv2
-
-#garbage collection
-import gc
 
 class roi():
     def __init__():
         pass
-        
+
 directory = glob.glob(os.path.join(raw_p + "*.psd"))
 
-"""
-for each image
-"""
+#----for each image
 meta_all = []
 for k in range(0, directory.__len__()):
     print('for each image')
@@ -33,7 +29,7 @@ for k in range(0, directory.__len__()):
     image_name = os.path.splitext(os.path.basename(directory[k]))[0]
     print(image_name)
     
-    #metadata
+    #----metadata
     s1 = pd.Series(name=image_name) #blank series
     s1['filename'] = '%s.png'%(image_name)
     s1['channels'] = psd.header[0] #read channels
@@ -44,27 +40,23 @@ for k in range(0, directory.__len__()):
     #white background
     #PSD.save('output/%s.png'%(image_name))
     
-    """
-    for each layer/ROI
-    """
+    #-------------------------------------------------------------for each layer/ROI
     coord_image = [] #roi coordinates list (per)
-    print('for each layer/ROI')
     for i in range(0, len(psd.layers)-1):
-        """get layer"""  
-        #prepare metadata
+        #----prepare metadata
         layer = psd.layers[i]
         meta_string = layer.name
         meta = pd.DataFrame(data=(item.split("=") for item in meta_string.split(";")),columns={'key','value'})
         s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
         
-        #roi name
-        s2['name'] = s2['name'].replace("roi","")
+        #----roi name
+        s2['name'] = s2['name'].replace("roi","") 
         
-        #valence
+        #----valence
         for r in (("pos", "positive"), ("neg", "negative")):
             s2['valence'] = s2['valence'].replace(*r)
         
-        """save layer/ROI as image"""
+        #----save layer/ROI as image
         print('saving %s as image'%(s2['name']))
         PSDlayer = layer.as_PIL()
         #create blank background               
@@ -73,7 +65,7 @@ for k in range(0, directory.__len__()):
         #background.paste(PSDlayer,mask=PSDlayer.split()[3])
         #background.save('output/%s-%s-L%s.jpg'%(image_name,layerName,i))
 
-        """search metadata string"""
+        #----search metadata string
         s2['human'] = None
         s2['animal'] = None
         s2['gender'] = None
@@ -284,13 +276,10 @@ for k in range(0, directory.__len__()):
     coord_image_df.to_csv('output/%s.csv'%(image_name), index=False)
     del coord_image_df
 
-    
-    """
-    for each layer: draw contours
-    """
+
+    #-------------------------------------------------------------for each layer: draw contours
     if contours:
-        #----------------------------------------------------------------------
-        #---------------------------------------------------------------------identify contours
+        #----identify contours
         #https://docs.opencv.org/3.4.1/dd/d49/tutorial_py_contour_features.html
         #https://docs.opencv.org/2.4.13.7/modules/imgproc/doc/structural_\
         #analysis_and_shape_descriptors.html#drawcontours
@@ -306,9 +295,8 @@ for k in range(0, directory.__len__()):
         l_box_a = [] #list of approx polygon areas
         l_hull_a = [] #list of approx polygon areas
         l_poly_a = [] #list of approx polygon areas
-        
-        print('for each layer')
-        print('draw %s contour as %s'%(image_name, draw_type))
+
+        print('draw %s contour as %s'%(image_name, shape))
         for i in range(0, len(psd.layers)-1):
             #-------------get layer  
             #get metadata
@@ -324,7 +312,7 @@ for k in range(0, directory.__len__()):
             #print(image.dtype)
             
             img = "" #setting blank img for unused contours
-            #-------------find contour
+            #----find contour
             # threshold the image
             ## if any pixels that have value higher than 127, assign it to 255
             ##convert to bw for countour and store original
@@ -333,8 +321,8 @@ for k in range(0, directory.__len__()):
             ## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
             cnt_img, contours, hierarchy = cv2.findContours(thr_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
-            #-------------draw raw
-            if draw_type=='raw':
+            #----draw raw
+            if shape=='raw':
                 print('draw raw for layer %s'%(s2['name']))
                 # for each contour
                 for ind, itm in enumerate(contours):
@@ -343,8 +331,8 @@ for k in range(0, directory.__len__()):
                 l_raw.append(img)
                 del img, image
         
-            #-------------draw approximate polygon
-            if draw_type=='polygon':
+            #----draw approximate polygon
+            elif shape=='polygon':
                 # for each contour
                 print('draw approximate polygon for layer %s'%(s2['name']))
                 for ind, itm in enumerate(contours):
@@ -359,8 +347,8 @@ for k in range(0, directory.__len__()):
                 l_poly_a.append(appx)
                 del img, image
               
-            #-------------draw convex hull
-            if draw_type=='hull':
+            #----draw convex hull
+            elif shape=='hull':
                 # for each contour
                 print('draw convex hull for layer %s'%(s2['name']))
                 for ind, itm in enumerate(contours):
@@ -373,8 +361,8 @@ for k in range(0, directory.__len__()):
                 l_hull_a.append(hull)
                 del img, image
         
-            #-------------draw bounding boxes   
-            if draw_type=='box': 
+            #----draw bounding boxes   
+            elif shape=='box': 
                 # for each contour
                 print('draw bounding boxes for layer %s'%(s2['name']))
                 for ind, itm in enumerate(contours):
@@ -387,15 +375,12 @@ for k in range(0, directory.__len__()):
                 l_box.append(img)
                 l_box_a.append(box)
                 del img, image
-    """
-    for each layer/ROI: save images and contours
-    """            
-    #-----------------------------------------------------------------------------------------------------------------
-    #--------------------------------------------------------------------------------------------------saving contours
+         
+    #-------------------------------------------------------------for each layer/ROI: save images and contours
     #plt.gcf().clear() #clear plots
     
     #-------------save image
-    if (draw_type=='image'):
+    if save_image:
         plt.imshow(psd.as_PIL())
         plt.savefig('output\\%s_all.png'%(image_name),dpi = 300)
     
@@ -403,15 +388,14 @@ for k in range(0, directory.__len__()):
     #any other drawContours function will overlay on the others if multiple functions are run
     
     #-------------save raw
-    if (contours==True) and (draw_type=='raw'):
+    if (contours==True) and (shape=='raw'):
         print('save contour')
         raw_all = l_raw[0] + l_raw[1] + l_raw[2]
         plt.imshow(cv2.cvtColor(raw_all, cv2.COLOR_BGR2RGB))
         plt.savefig('output\\%s_roi.png'%(image_name),dpi = 300)
     
-    
     #-------------1.) save approximate polygon
-    if (contours==True) and (draw_type=='polygon'):
+    elif ((contours==True) and (shape=='polygon')):
         print('save approximate polygon')
         poly_all = l_poly[0] + l_poly[1] + l_poly[2]
         plt.imshow(cv2.cvtColor(poly_all, cv2.COLOR_BGR2RGB))
@@ -420,17 +404,15 @@ for k in range(0, directory.__len__()):
         a,b,c = l_poly_a[0][:,0,:], l_poly_a[1][:,0,:], l_poly_a[2][:,0,:]
         poly_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
                                     np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                    np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])
-                                  ))
+                                    np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
         df = pd.DataFrame(poly_area)
         df.columns = ['x', 'y', 'ROI'] #rename
         df = df[['ROI','x','y']] #rearrange
         df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
         df.to_csv("output/%s_poly.csv"%(image_name), index=False)
     
-    
-    #-------------2.) save convex hull
-    if (contours==True) and (draw_type=='hull'):
+    #2.) save convex hull
+    elif (contours==True) and (shape=='hull'):
         print('save convex hull')
         hull_all = l_hull[0] + l_hull[1] + l_hull[2]
         plt.imshow(cv2.cvtColor(hull_all, cv2.COLOR_BGR2RGB))
@@ -439,16 +421,15 @@ for k in range(0, directory.__len__()):
         a,b,c = l_hull_a[0][:,0,:], l_hull_a[1][:,0,:], l_hull_a[2][:,0,:]
         hull_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
                                     np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                    np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])
-                                  ))
+                                    np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
         df = pd.DataFrame(hull_area)
         df.columns = ['x', 'y', 'ROI'] #rename
         df = df[['ROI','x','y']] #rearrange
         df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
         df.to_csv("output/%s_hull.csv"%(image_name), index=False)
     
-    #-------------3.) save bounding boxes
-    if (contours==True) and (draw_type=='box'):
+    #3.) save bounding boxes
+    elif (contours==True) and (shape=='box'):
         print('save bounding boxes')
         box_all = l_box[0] + l_box[1] + l_box[2]
         plt.imshow(cv2.cvtColor(box_all, cv2.COLOR_BGR2RGB))
@@ -457,8 +438,7 @@ for k in range(0, directory.__len__()):
         a,b,c = l_box_a[0], l_box_a[1], l_box_a[2]
         box_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
                                     np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                    np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])
-                                  ))
+                                    np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
         df = pd.DataFrame(box_area)
         df.columns = ['x', 'y', 'ROI'] #rename
         df = df[['ROI','x','y']] #rearrange
