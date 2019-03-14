@@ -19,18 +19,9 @@ import gc
 class roi():
     def __init__():
         pass
-#------------------------------------set directory
-try: #use _file_ in most cases
-    dir = os.path.dirname(__file__)
-except NameError:  #except when running python from py2exe script
-    dir = os.path.dirname(sys.argv[0])
+        
+directory = glob.glob(os.path.join(raw_p + "*.psd"))
 
-directory = glob.glob(os.path.join(dir + "/psd/*.psd"))
-
-#----start
-contours = False #create contours?
-draw_type = None # draw contour type: either raw, image, polygon, hull, box, or None
-#fig = plt.figure(1, dpi=100)
 """
 for each image
 """
