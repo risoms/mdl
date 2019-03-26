@@ -1,1 +1,4 @@
 id,file,ROI,resolution,valence,meanvalence,meanarousal,human,animal,gender,behavior,body,object,age,other,descriptors
+16012,1601,2,"(575, 767)",positive,6.8600001335144,3.92000007629394,True,[],['male'],[],['face'],[],[],[],name=roi2;valence=pos;tag=face;tag=human;tag=male
+16011,1601,1,"(575, 767)",positive,6.8600001335144,3.92000007629394,False,['giraffe'],[],[],[],[],[],[],name=roi1;valence=pos;tag=giraffe
+19101,1910,1,"(1024, 768)",positive,6.71000003814697,3.28999996185302,False,['fish'],[],[],[],[],[],[],name=roi1;valence=pos;tag=fish

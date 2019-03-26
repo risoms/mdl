@@ -42,14 +42,12 @@ for folder in ['raw','metadata','sample','output']:
 #----config
 config = {}
 #----parameters
-# draw contour type: either raw, image, polygon, hull, box, or None
-config['draw_type'] = 'polygon'
 # create contours?
 config['contours'] = True
 #save examples of output
 config['save_image'] = True 
-# shape: polygon, raw, hull, box
-config['shape'] = "box"
+# draw shape: either raw, image, polygon, hull, box, or None
+config['shape'] = "polygon"
 
 
 class roi():
@@ -308,196 +306,191 @@ for file in directory:
             #    string_file.write(PILstring)    
             #append base
             #s1['roi-%s'%(i)] = s2
-    
+
+            #-------------------------------------------------------------for each layer: draw contours
+            if config['contours']:
+                #----identify contours
+                #https://docs.opencv.org/3.4.1/dd/d49/tutorial_py_contour_features.html
+                #https://docs.opencv.org/2.4.13.7/modules/imgproc/doc/structural_\
+                #analysis_and_shape_descriptors.html#drawcontours
+                #https://loctv.wordpress.com/2017/02/17/learn-opencv3-python-contours-convex-contours-
+                #bounding-rect-min-area-rect-min-enclosing-circle-approximate-bounding-polygon/
+                
+                #images
+                l_raw = [] #list of raw images
+                l_box = [] #list of convex hulls images
+                l_hull = [] #list of bounding boxes images
+                l_poly = [] #list of approx polygon images
+                #areas
+                l_box_a = [] #list of approx polygon areas
+                l_hull_a = [] #list of approx polygon areas
+                l_poly_a = [] #list of approx polygon areas
+        
+                print('draw %s contour as %s'%(filename, config['shape']))
+                #-------------get layer  
+                #get metadata
+                meta_string = layer.name
+                meta = pd.DataFrame(data=(item.split("=") for item in meta_string.split(";")),columns={'key','value'})
+                s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
+                        
+                ##load image directly from PSD
+                image = layer.as_PIL()
+                w, h = image.size
+                image = np.array(image)
+                #print(image.dtype)
+                
+                img = "" #setting blank img for unused contours
+                
+                #----find contour
+                # threshold the image
+                ## if any pixels that have value higher than 127, assign it to 255
+                ##convert to bw for countour and store original
+                (thr, thr_img) = cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
+                # find contour in image
+                ## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
+                cnt_img, contours = cv2.findContours(thr_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            
+                #----draw raw
+                if config['shape']=='raw':
+                    print('draw raw for layer %s'%(s2['name']))
+                    # for each contour
+                    for ind, itm in enumerate(contours):
+                        img = cv2.drawContours(image=image,contours=[],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
+                        pass
+                    l_raw.append(img)
+                    del img, image
+            
+                #----draw approximate polygon
+                elif config['shape']=='polygon':
+                    # for each contour
+                    print('draw approximate polygon for layer %s'%(s2['name']))
+                    for ind, itm in enumerate(contours):
+                        cnt = contours[ind]
+                        epsilon = 0.01 * cv2.arcLength(cnt, True)
+                        # get approx polygons
+                        appx = cv2.approxPolyDP(cnt, epsilon, True)
+                        appx.shape
+                        # draw approx polygons
+                        img = cv2.drawContours(image=image,contours=[appx],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
+                    l_poly.append(img)
+                    l_poly_a.append(appx)
+                    del img, image
+                    
+                #----draw convex hull
+                elif config['shape']=='hull':
+                    # for each contour
+                    print('draw convex hull for layer %s'%(s2['name']))
+                    for ind, itm in enumerate(contours):
+                        cnt = contours[ind]
+                        # get convex hull
+                        hull = cv2.convexHull(itm)
+                        # draw hull
+                        img = cv2.drawContours(image=image,contours=[hull],contourIdx=-1,color=(0,0,255), thickness=cv2.FILLED)
+                    l_hull.append(img)
+                    l_hull_a.append(hull)
+                    del img, image
+            
+                #----draw bounding boxes   
+                elif config['shape']=='box': 
+                    # for each contour
+                    print('draw bounding boxes for layer %s'%(s2['name']))
+                    for ind, itm in enumerate(contours):
+                        cnt = contours[ind]
+                        rect = cv2.minAreaRect(cnt)
+                        box = cv2.boxPoints(rect)
+                        box = np.int0(box)
+                        #draw contours
+                        img = cv2.drawContours(image=image,contours=[box],contourIdx=0, color=(0,0,255), thickness=cv2.FILLED) 
+                    l_box.append(img)
+                    l_box_a.append(box)
+                    del img, image
+                
+            #-------------------------------------------------------------for each layer: save images and contours
+            #when saving the contours below, only one drawContours function from above can be run
+            #any other drawContours function will overlay on the others if multiple functions are run
+            #-------------save raw
+            if (config['contours']) and (config['shape']=='raw'):
+                print('save contour')
+                raw_all = l_raw[0] + l_raw[1] + l_raw[2]
+                plt.imshow(cv2.cvtColor(raw_all, cv2.COLOR_BGR2RGB))
+                plt.savefig('%s/%s_roi.png'%(output['output'], filename),dpi = 300)
+            
+            #-------------1.) save approximate polygon
+            elif ((config['contours']) and (config['shape']=='polygon')):
+                print('save approximate polygon')
+                poly_all = l_poly[0] + l_poly[1] + l_poly[2]
+                plt.imshow(cv2.cvtColor(poly_all, cv2.COLOR_BGR2RGB))
+                plt.savefig('%s/%s_poly.png'%(output['output'], filename),dpi = 300)
+                #save coordiantes
+                a,b,c = l_poly_a[0][:,0,:], l_poly_a[1][:,0,:], l_poly_a[2][:,0,:]
+                poly_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
+                                            np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
+                                            np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
+                df = pd.DataFrame(poly_area)
+                df.columns = ['x', 'y', 'ROI'] #rename
+                df = df[['ROI','x','y']] #rearrange
+                df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
+                df.to_csv("%s/%s_poly.csv"%(output['output'], filename), index=False)
+            
+            #2.) save convex hull
+            elif (config['contours']) and (config['shape']=='hull'):
+                print('save convex hull')
+                hull_all = l_hull[0] + l_hull[1] + l_hull[2]
+                plt.imshow(cv2.cvtColor(hull_all, cv2.COLOR_BGR2RGB))
+                plt.savefig('%s/%s_hull.png'%(output['output'], filename),dpi = 300)
+                #save coordiantes
+                a,b,c = l_hull_a[0][:,0,:], l_hull_a[1][:,0,:], l_hull_a[2][:,0,:]
+                hull_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
+                                            np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
+                                            np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
+                df = pd.DataFrame(hull_area)
+                df.columns = ['x', 'y', 'ROI'] #rename
+                df = df[['ROI','x','y']] #rearrange
+                df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
+                df.to_csv("%s/%s_hull.csv"%(output['output'], filename), index=False)
+            
+            #3.) save bounding boxes
+            elif (config['contours']) and (config['shape']=='box'):
+                print('save bounding boxes')
+                box_all = l_box[0] + l_box[1] + l_box[2]
+                plt.imshow(cv2.cvtColor(box_all, cv2.COLOR_BGR2RGB))
+                plt.savefig('%s/%s_box.png'%(output['output'], filename),dpi = 300)
+                #save coordiantes
+                a,b,c = l_box_a[0], l_box_a[1], l_box_a[2]
+                box_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
+                                            np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
+                                            np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
+                df = pd.DataFrame(box_area)
+                df.columns = ['x', 'y', 'ROI'] #rename
+                df = df[['ROI','x','y']] #rearrange
+                df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
+                df.to_csv("%s/%s_box.csv"%(output['output'], filename), index=False)
+            
+            #-------------------------------------------------------------for each layer: save image
+            #plt.gcf().clear() #clear plots
+            
+            #-------------save image
+            if config['save_image']:
+                plt.imshow(psd.as_PIL())
+                plt.savefig('%s/%s_all.png'%(output['output'], filename),dpi = 300)
+            
+            #plt.close()
+            
+            #draw image
+            #cv2.imshow('image',img)
+            #k = cv2.waitKey(0)
+            
+            #clear memory at end of iterable
+            gc.collect()
+            del l,m,r,g,b,a
+            
         #----save table of ROI coordinates
         print('exporting %s ROI coordinates'%(s2['name']))
         # create df
         headers=['id','x','y']
         coord_image_df = pd.DataFrame(coord_image, columns=headers)
         coord_image_df.to_csv('%s/%s.csv'%(output['output'], filename), index=False)
-        
         del coord_image_df
-        #-------------------------------------------------------------for each layer: draw contours
-        if config['contours']:
-            #----identify contours
-            #https://docs.opencv.org/3.4.1/dd/d49/tutorial_py_contour_features.html
-            #https://docs.opencv.org/2.4.13.7/modules/imgproc/doc/structural_\
-            #analysis_and_shape_descriptors.html#drawcontours
-            #https://loctv.wordpress.com/2017/02/17/learn-opencv3-python-contours-convex-contours-
-            #bounding-rect-min-area-rect-min-enclosing-circle-approximate-bounding-polygon/
-            
-            #images
-            l_raw = [] #list of raw images
-            l_box = [] #list of convex hulls images
-            l_hull = [] #list of bounding boxes images
-            l_poly = [] #list of approx polygon images
-            #areas
-            l_box_a = [] #list of approx polygon areas
-            l_hull_a = [] #list of approx polygon areas
-            l_poly_a = [] #list of approx polygon areas
-    
-            print('draw %s contour as %s'%(filename, config['shape']))
-            for layer in psd:
-                #----skip if layer is main image
-                if Path(layer.name).stem == filename:
-                    continue
-                else:
-                    #-------------get layer  
-                    #get metadata
-                    meta_string = layer.name
-                    meta = pd.DataFrame(data=(item.split("=") for item in meta_string.split(";")),columns={'key','value'})
-                    s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
-                            
-                    ##load image directly from PSD
-                    image = layer.as_PIL()
-                    w, h = image.size
-                    image = np.array(image)
-                    #print(image.dtype)
-                    
-                    img = "" #setting blank img for unused contours
-                    #----find contour
-                    # threshold the image
-                    ## if any pixels that have value higher than 127, assign it to 255
-                    ##convert to bw for countour and store original
-                    (thr, thr_img) = cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
-                    # find contour in image
-                    ## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
-                    cnt_img, contours, hierarchy = cv2.findContours(thr_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-                
-                    #----draw raw
-                    if config['shape']=='raw':
-                        print('draw raw for layer %s'%(s2['name']))
-                        # for each contour
-                        for ind, itm in enumerate(contours):
-                            img = cv2.drawContours(image=image,contours=[],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
-                            pass
-                        l_raw.append(img)
-                        del img, image
-                
-                    #----draw approximate polygon
-                    elif config['shape']=='polygon':
-                        # for each contour
-                        print('draw approximate polygon for layer %s'%(s2['name']))
-                        for ind, itm in enumerate(contours):
-                            cnt = contours[ind]
-                            epsilon = 0.01 * cv2.arcLength(cnt, True)
-                            # get approx polygons
-                            appx = cv2.approxPolyDP(cnt, epsilon, True)
-                            appx.shape
-                            # draw approx polygons
-                            img = cv2.drawContours(image=image,contours=[appx],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
-                        l_poly.append(img)
-                        l_poly_a.append(appx)
-                        del img, image
-                      
-                    #----draw convex hull
-                    elif config['shape']=='hull':
-                        # for each contour
-                        print('draw convex hull for layer %s'%(s2['name']))
-                        for ind, itm in enumerate(contours):
-                            cnt = contours[ind]
-                            # get convex hull
-                            hull = cv2.convexHull(itm)
-                            # draw hull
-                            img = cv2.drawContours(image=image,contours=[hull],contourIdx=-1,color=(0,0,255), thickness=cv2.FILLED)
-                        l_hull.append(img)
-                        l_hull_a.append(hull)
-                        del img, image
-                
-                    #----draw bounding boxes   
-                    elif config['shape']=='box': 
-                        # for each contour
-                        print('draw bounding boxes for layer %s'%(s2['name']))
-                        for ind, itm in enumerate(contours):
-                            cnt = contours[ind]
-                            rect = cv2.minAreaRect(cnt)
-                            box = cv2.boxPoints(rect)
-                            box = np.int0(box)
-                            #draw contours
-                            img = cv2.drawContours(image=image,contours=[box],contourIdx=0, color=(0,0,255), thickness=cv2.FILLED) 
-                        l_box.append(img)
-                        l_box_a.append(box)
-                        del img, image
-             
-        #-------------------------------------------------------------for each layer/ROI: save images and contours
-        #plt.gcf().clear() #clear plots
-        
-        #-------------save image
-        if config['save_image']:
-            plt.imshow(psd.as_PIL())
-            plt.savefig('%s/%s_all.png'%(output['output'], filename),dpi = 300)
-        
-        #when saving the contours below, only one drawContours function from above can be run
-        #any other drawContours function will overlay on the others if multiple functions are run
-        
-        #-------------save raw
-        if (contours==True) and (config['shape']=='raw'):
-            print('save contour')
-            raw_all = l_raw[0] + l_raw[1] + l_raw[2]
-            plt.imshow(cv2.cvtColor(raw_all, cv2.COLOR_BGR2RGB))
-            plt.savefig('%s/%s_roi.png'%(output['output'], filename),dpi = 300)
-        
-        #-------------1.) save approximate polygon
-        elif ((contours==True) and (config['shape']=='polygon')):
-            print('save approximate polygon')
-            poly_all = l_poly[0] + l_poly[1] + l_poly[2]
-            plt.imshow(cv2.cvtColor(poly_all, cv2.COLOR_BGR2RGB))
-            plt.savefig('%s/%s_poly.png'%(output['output'], filename),dpi = 300)
-            #save coordiantes
-            a,b,c = l_poly_a[0][:,0,:], l_poly_a[1][:,0,:], l_poly_a[2][:,0,:]
-            poly_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
-                                        np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                        np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
-            df = pd.DataFrame(poly_area)
-            df.columns = ['x', 'y', 'ROI'] #rename
-            df = df[['ROI','x','y']] #rearrange
-            df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-            df.to_csv("%s/%s_poly.csv"%(output['output'], filename), index=False)
-        
-        #2.) save convex hull
-        elif (contours==True) and (config['shape']=='hull'):
-            print('save convex hull')
-            hull_all = l_hull[0] + l_hull[1] + l_hull[2]
-            plt.imshow(cv2.cvtColor(hull_all, cv2.COLOR_BGR2RGB))
-            plt.savefig('%s/%s_hull.png'%(output['output'], filename),dpi = 300)
-            #save coordiantes
-            a,b,c = l_hull_a[0][:,0,:], l_hull_a[1][:,0,:], l_hull_a[2][:,0,:]
-            hull_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
-                                        np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                        np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
-            df = pd.DataFrame(hull_area)
-            df.columns = ['x', 'y', 'ROI'] #rename
-            df = df[['ROI','x','y']] #rearrange
-            df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-            df.to_csv("%s/%s_hull.csv"%(output['output'], filename), index=False)
-        
-        #3.) save bounding boxes
-        elif (contours==True) and (config['shape']=='box'):
-            print('save bounding boxes')
-            box_all = l_box[0] + l_box[1] + l_box[2]
-            plt.imshow(cv2.cvtColor(box_all, cv2.COLOR_BGR2RGB))
-            plt.savefig('%s/%s_box.png'%(output['output'], filename),dpi = 300)
-            #save coordiantes
-            a,b,c = l_box_a[0], l_box_a[1], l_box_a[2]
-            box_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
-                                        np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                        np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
-            df = pd.DataFrame(box_area)
-            df.columns = ['x', 'y', 'ROI'] #rename
-            df = df[['ROI','x','y']] #rearrange
-            df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-            df.to_csv("%s/%s_box.csv"%(output['output'], filename), index=False)
-        
-        #plt.close()
-        
-        #draw image
-        #cv2.imshow('image',img)
-        #k = cv2.waitKey(0)
-        
-        #clear memory at end of iterable
-        gc.collect()
-        del i,l,m,r,g,b,a
-        
    
 
 print('exporting all ROI metadata')
