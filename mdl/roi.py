@@ -4,17 +4,16 @@
 #----core
 import os
 import gc
-import glob
 from pathlib import Path
+
+#----data
+import cv2
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 
 #----photoshop
+import matplotlib.pyplot as plt
 from psd_tools import PSDImage
-
-#----base64
-import cv2
 
 #----libraries
 library = ['opencv-python','psd_tools']
@@ -22,6 +21,40 @@ library = ['opencv-python','psd_tools']
 #----default
 path = None
 
+#----todo
+"""
+- Draw image on top of presentation resolution (i.e. 1920x1080)
+- use this as method for properly aligning image as roi (i.e. image is in center of screen)
+"""
+class roi():
+    def __init__(path, screensize, scale, coordinates, shape='box', dpi=300, save_data=True, save_image=True, save_roi=False, save_all=True):
+        """Create single subject trial bokeh plots.
+        
+        Parameters
+        ----------
+        path : :class:`str`
+            Path to save data.
+        screensize : :class:`list` of `int`
+            Monitor size is being presented. Default is [1920, 1080].
+        scale : :class:`int`
+            If image is scaled during presentation, set scale. Default is 1.
+        coordinates : :class:`list` of `int`
+           Center point of image. Default is [960, 540].
+        shape : :class:`str`
+            ROI bounds. Either raw, image, polygon, hull, box, or None. Default is box.
+        dpi : :class:`int` or `None`
+            Dots Per Inch measure for images. Default is 300 (if `save_image`=True).
+        save_image : :class:`bool`
+            Save images. Default is False.
+        save_data : :class:`bool`
+            Save coordinates. Default is False.
+        save_roi : :class:`bool`
+            Save ROI level images and coordinates. Default is False.
+        save_all : :class:`bool`
+            Save combined coordinates and images for each ROI level. Default is True.
+        """
+        pass
+#------------------------------------------------------------------------------------------------------------------init start
 #----path
 if path is None:
     path = os.getcwd() + "/dist/example/"
@@ -42,26 +75,34 @@ for folder in ['raw','metadata','sample','output']:
 #----config
 config = {}
 #----parameters
+# screensize
+if screensize is None:
+    screensize = [1920, 1080]
 # create contours?
 config['contours'] = True
 #save examples of output
-config['save_image'] = True 
+config['save']['image'] = True 
 # draw shape: either raw, image, polygon, hull, box, or None
-config['shape'] = "polygon"
-
-
-class roi():
-    def __init__():
-        pass
+config['shape'] = "hull"
+# dots per inch
+dpi = dpi
+# save image:roi level data
+config['save']['roi'] = True if save_roi else False
+config['save']['image'] = True if save_image else False
+config['save']['data'] = True if save_data else False
+config['save']['all'] = True if save_all else False
+#----store
+l_roi = []
+img = "" #setting blank img for unused contours
+#--------------------------------------------------------------------------------------------------------------------init end
 
 #----for each image
 meta_all = []
+print('for each image----------')
 for file in directory:
-    print('for each image')
     #read image
     psd = PSDImage.open(file)    
     filename = os.path.splitext(os.path.basename(file))[0]
-    print(filename)
     
     #----metadata
     s1 = pd.Series(name=filename) #blank series
@@ -70,233 +111,232 @@ for file in directory:
     s1['resolution'] = [psd.width, psd.height] #length and width
     
     #save image
-    #PSD = psd.as_PIL()
+    #PSD = psd.topil()
     #white background
     #PSD.save('output/%s.png'%(filename))
-    
-    #-------------------------------------------------------------for each layer/ROI
+    print('#--------file: %s'%(filename))
+    #------------------------------------------------------------------------------------------------------for each layer/ROI
     coord_image = [] #roi coordinates list (per)
     for layer in psd:
-        print(layer.name)
         #skip if layer is main image
         if Path(layer.name).stem == filename:
             continue
         else:
+            print('roi: %s:%s'%(filename, layer.name))
             #----prepare metadata
-            meta_string = layer.name
-            meta = pd.DataFrame(data=(item.split("=") for item in meta_string.split(";")),columns={'key','value'})
+            metadata = pd.DataFrame(data=(item.split("=") for item in layer.name.split(";")),columns={'key','value'})
             s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
-            
-            #----roi name
-            s2['name'] = s2['name'].replace("roi","") 
-            
-            #----valence
-            for r in (("pos", "positive"), ("neg", "negative")):
-                s2['valence'] = s2['valence'].replace(*r)
-            
-            #----save layer/ROI as image
-            print('saving %s as image'%(s2['name']))
-            PSDlayer = layer.as_PIL()
-            #create blank background               
-            #background = Image.new('RGB', PSD.size, (255, 255, 255))
-            #paste layer and blank background
-            #background.paste(PSDlayer,mask=PSDlayer.split()[3])
-            #background.save('output/%s-%s-L%s.jpg'%(filename,layerName,i))
-    
-            #----search metadata string
-            s2['human'] = None
-            s2['animal'] = None
-            s2['gender'] = None
-            s2['behavior'] = None
-            s2['body'] = None
-            s2['object'] = None
-            s2['age'] = None
-            s2['other'] = None
-            
-            #human
-            if meta_string.find('tag=human') != -1:
-                s2['human'] = True
-            else:
-                s2['human'] = False
                 
-            #animal
-            if meta_string.find('tag=fish') != -1:
-                s2['animal'] = ['fish']
-            elif meta_string.find('tag=giraffe') != -1:
-                s2['animal'] = ['giraffe']
-            elif meta_string.find('tag=flies') != -1:
-                s2['animal'] = ['fly']
-            elif meta_string.find('tag=bird') != -1:
-                s2['animal'] = ['bird']
-            elif meta_string.find('tag=dog') != -1:
-                s2['animal'] = ['dog']
-            else:
-                s2['animal'] = []
+            # #----roi name
+            # s2['name'] = s2['name'].replace("roi","") 
             
-            #gender
-            l_gender = []
-            ##female
-            if (meta_string.find('tag=woman') != -1) or\
-            (meta_string.find('tag=women') != -1) or\
-            (meta_string.find('tag=female') != -1):
-                l_gender.append('female')
-            ##male
-            if (meta_string.find('tag=man') != -1) or\
-            (meta_string.find('tag=men') != -1) or\
-            (meta_string.find('tag=male') != -1):
-                l_gender.append('male')
-            s2['gender'] = l_gender
-            l_gender = []
+            # #----valence
+            # for r in (("pos", "positive"), ("neg", "negative")):
+            #     s2['valence'] = s2['valence'].replace(*r)
             
-            #behavior
-            l_behavior = []
-            if meta_string.find('tag=waving') != -1:
-                l_behavior.append('waving')
-            if meta_string.find('tag=crying') != -1:
-                l_behavior.append('crying')
-            if meta_string.find('tag=pickup') != -1:
-                l_behavior.append('pickup')
-            if meta_string.find('tag=angry') != -1:
-                l_behavior.append('angry')
-            if meta_string.find('tag=grief') != -1:
-                l_behavior.append('grief')
-            if meta_string.find('tag=happy') != -1:
-                l_behavior.append('happy')
-            if meta_string.find('tag=kiss') != -1:
-                l_behavior.append('kiss')
-            if meta_string.find('tag=sad') != -1:
-                l_behavior.append('sad')
-            if meta_string.find('tag=hiding') != -1:
-                l_behavior.append('hiding')
-            if meta_string.find('tag=injured') != -1:
-                l_behavior.append('injured')
-            if meta_string.find('tag=starving') != -1:
-                l_behavior.append('starving')
-            if meta_string.find('tag=death') != -1:
-                l_behavior.append('death')
-            s2['behavior'] = l_behavior
-            l_behavior = []
+            # #----save layer/ROI as image
+            # print('saving %s as image'%(s2['name']))
+            # PSDlayer = layer.layer.topil()
+            # #create blank background               
+            # #background = Image.new('RGB', PSD.size, (255, 255, 255))
+            # #paste layer and blank background
+            # #background.paste(PSDlayer,mask=PSDlayer.split()[3])
+            # #background.save('output/%s-%s-L%s.jpg'%(filename,layerName,i))
+    
+            # #----search metadata string
+            # s2['human'] = None
+            # s2['animal'] = None
+            # s2['gender'] = None
+            # s2['behavior'] = None
+            # s2['body'] = None
+            # s2['object'] = None
+            # s2['age'] = None
+            # s2['other'] = None
             
-            #body
-            l_body = []
-            if meta_string.find('tag=face') != -1:
-                l_body.append('face')
-            if meta_string.find('tag=arm') != -1:
-                l_body.append('arm')
-            if (meta_string.find('tag=hand') != -1) or (meta_string.find('tag=hands') != -1):
-                l_body.append('hands')
-            if (meta_string.find('tag=foot') != -1) or (meta_string.find('tag=feet') != -1):
-                l_body.append('feet')
-            if meta_string.find('tag=tears') != -1:
-                l_body.append('tears')
-            if meta_string.find('tag=bruises') != -1:
-                l_body.append('bruises')
-            s2['body'] = l_body
-            l_body = []
+            # #human
+            # if meta_string.find('tag=human') != -1:
+            #     s2['human'] = True
+            # else:
+            #     s2['human'] = False
+                
+            # #animal
+            # if meta_string.find('tag=fish') != -1:
+            #     s2['animal'] = ['fish']
+            # elif meta_string.find('tag=giraffe') != -1:
+            #     s2['animal'] = ['giraffe']
+            # elif meta_string.find('tag=flies') != -1:
+            #     s2['animal'] = ['fly']
+            # elif meta_string.find('tag=bird') != -1:
+            #     s2['animal'] = ['bird']
+            # elif meta_string.find('tag=dog') != -1:
+            #     s2['animal'] = ['dog']
+            # else:
+            #     s2['animal'] = []
             
-            #object     
-            l_object = []
-            if meta_string.find('tag=boat') != -1:
-                l_object.append('boat')
-            if meta_string.find('tag=trophy') != -1:
-                l_object.append('trophy')
-            if meta_string.find('tag=mountains') != -1:
-                l_object.append('mountains')
-            if meta_string.find('tag=branches') != -1:
-                l_object.append('branches')
-            if meta_string.find('tag=teddybear') != -1:
-                l_object.append('teddybear')
-            if meta_string.find('tag=sky') != -1:
-                l_object.append('sky')
-            if meta_string.find('tag=outdoors') != -1:
-                l_object.append('outdoors')
-            if (meta_string.find('tag=cigarette') != -1) or (meta_string.find('tag=cigarettes') != -1):
-                l_object.append('cigarette')
-            if meta_string.find('tag=medal') != -1:
-                l_object.append('medal')
-            if meta_string.find('tag=oil') != -1:
-                l_object.append('oil')
-            if meta_string.find('tag=water') != -1:
-                l_object.append('water')
-            if meta_string.find('tag=trash') != -1:
-                l_object.append('trash')
-            if meta_string.find('tag=tubing') != -1:
-                l_object.append('tubing')
-            if meta_string.find('tag=ventilator') != -1:
-                l_object.append('ventilator')
-            if meta_string.find('tag=bandages') != -1:
-                l_object.append('bandages')            
-            if meta_string.find('tag=bottle') != -1:
-                l_object.append('bottle')
-            if meta_string.find('tag=alcohol') != -1:
-                l_object.append('alcohol')
-            if meta_string.find('tag=rock') != -1:
-                l_object.append('rock')                   
-            if meta_string.find('tag=smoke') != -1:
-                l_object.append('smoke')
-            if meta_string.find('tag=money') != -1:
-                l_object.append('money')
-            if meta_string.find('tag=drugs') != -1:
-                l_object.append('drugs')
-            s2['object'] = l_object
-            l_object = []
+            # #gender
+            # l_gender = []
+            # ##female
+            # if (meta_string.find('tag=woman') != -1) or\
+            # (meta_string.find('tag=women') != -1) or\
+            # (meta_string.find('tag=female') != -1):
+            #     l_gender.append('female')
+            # ##male
+            # if (meta_string.find('tag=man') != -1) or\
+            # (meta_string.find('tag=men') != -1) or\
+            # (meta_string.find('tag=male') != -1):
+            #     l_gender.append('male')
+            # s2['gender'] = l_gender
+            # l_gender = []
             
-            #age
-            l_age = []
-            if meta_string.find('tag=baby') != -1:
-                l_age.append('baby')
-            if meta_string.find('tag=child') != -1:
-                l_age.append('child')
-            if meta_string.find('tag=elderly') != -1:
-                l_age.append('elderly')
-            s2['age'] = l_age
-            l_age = []
+            # #behavior
+            # l_behavior = []
+            # if meta_string.find('tag=waving') != -1:
+            #     l_behavior.append('waving')
+            # if meta_string.find('tag=crying') != -1:
+            #     l_behavior.append('crying')
+            # if meta_string.find('tag=pickup') != -1:
+            #     l_behavior.append('pickup')
+            # if meta_string.find('tag=angry') != -1:
+            #     l_behavior.append('angry')
+            # if meta_string.find('tag=grief') != -1:
+            #     l_behavior.append('grief')
+            # if meta_string.find('tag=happy') != -1:
+            #     l_behavior.append('happy')
+            # if meta_string.find('tag=kiss') != -1:
+            #     l_behavior.append('kiss')
+            # if meta_string.find('tag=sad') != -1:
+            #     l_behavior.append('sad')
+            # if meta_string.find('tag=hiding') != -1:
+            #     l_behavior.append('hiding')
+            # if meta_string.find('tag=injured') != -1:
+            #     l_behavior.append('injured')
+            # if meta_string.find('tag=starving') != -1:
+            #     l_behavior.append('starving')
+            # if meta_string.find('tag=death') != -1:
+            #     l_behavior.append('death')
+            # s2['behavior'] = l_behavior
+            # l_behavior = []
             
-            #other
-            l_other = []
-            if meta_string.find('tag=crowd') != -1:
-                l_other.append('crowd')
-            if meta_string.find('tag=family') != -1:
-                l_other.append('family')
-            s2['other'] = l_other
-            l_other = []
+            # #body
+            # l_body = []
+            # if meta_string.find('tag=face') != -1:
+            #     l_body.append('face')
+            # if meta_string.find('tag=arm') != -1:
+            #     l_body.append('arm')
+            # if (meta_string.find('tag=hand') != -1) or (meta_string.find('tag=hands') != -1):
+            #     l_body.append('hands')
+            # if (meta_string.find('tag=foot') != -1) or (meta_string.find('tag=feet') != -1):
+            #     l_body.append('feet')
+            # if meta_string.find('tag=tears') != -1:
+            #     l_body.append('tears')
+            # if meta_string.find('tag=bruises') != -1:
+            #     l_body.append('bruises')
+            # s2['body'] = l_body
+            # l_body = []
             
-            """store table of each roi metadata"""
-            roi_id = filename+s2['name']
-            meta_all.append([str(roi_id), #relational key in both metadata xy-coodinate tables (per image)
-                             filename, #image name
-                             int(s2['name']), #roi name
-                             (PSDlayer.size[0],PSDlayer.size[1]), #resolution
-                             s2['valence'],
-                             s2['human'],
-                             s2['animal'],
-                             s2['gender'],
-                             s2['behavior'],
-                             s2['body'],
-                             s2['object'],
-                             s2['age'],
-                             s2['other'],
-                             meta_string, #descriptors
-                             ])
-            #reset
-            s2['human'] = None
-            s2['animal'] = None
-            s2['gender'] = None
-            s2['behavior'] = None
-            s2['body'] = None
-            s2['object'] = None
-            s2['age'] = None
-            s2['other'] = None
+            # #object     
+            # l_object = []
+            # if meta_string.find('tag=boat') != -1:
+            #     l_object.append('boat')
+            # if meta_string.find('tag=trophy') != -1:
+            #     l_object.append('trophy')
+            # if meta_string.find('tag=mountains') != -1:
+            #     l_object.append('mountains')
+            # if meta_string.find('tag=branches') != -1:
+            #     l_object.append('branches')
+            # if meta_string.find('tag=teddybear') != -1:
+            #     l_object.append('teddybear')
+            # if meta_string.find('tag=sky') != -1:
+            #     l_object.append('sky')
+            # if meta_string.find('tag=outdoors') != -1:
+            #     l_object.append('outdoors')
+            # if (meta_string.find('tag=cigarette') != -1) or (meta_string.find('tag=cigarettes') != -1):
+            #     l_object.append('cigarette')
+            # if meta_string.find('tag=medal') != -1:
+            #     l_object.append('medal')
+            # if meta_string.find('tag=oil') != -1:
+            #     l_object.append('oil')
+            # if meta_string.find('tag=water') != -1:
+            #     l_object.append('water')
+            # if meta_string.find('tag=trash') != -1:
+            #     l_object.append('trash')
+            # if meta_string.find('tag=tubing') != -1:
+            #     l_object.append('tubing')
+            # if meta_string.find('tag=ventilator') != -1:
+            #     l_object.append('ventilator')
+            # if meta_string.find('tag=bandages') != -1:
+            #     l_object.append('bandages')            
+            # if meta_string.find('tag=bottle') != -1:
+            #     l_object.append('bottle')
+            # if meta_string.find('tag=alcohol') != -1:
+            #     l_object.append('alcohol')
+            # if meta_string.find('tag=rock') != -1:
+            #     l_object.append('rock')                   
+            # if meta_string.find('tag=smoke') != -1:
+            #     l_object.append('smoke')
+            # if meta_string.find('tag=money') != -1:
+            #     l_object.append('money')
+            # if meta_string.find('tag=drugs') != -1:
+            #     l_object.append('drugs')
+            # s2['object'] = l_object
+            # l_object = []
             
-            """store table of ROI coordinates"""
-            print('storing %s ROI coordinates for export'%(s2['name']))
-            for l in range(PSDlayer.size[0]):
-                for m in range(PSDlayer.size[1]):
-                    r,g,b,a=PSDlayer.getpixel((l,m))
-                    if not r==g==b:
-                        coord_image.append([str(roi_id),int(l),int(m)])
+            # #age
+            # l_age = []
+            # if meta_string.find('tag=baby') != -1:
+            #     l_age.append('baby')
+            # if meta_string.find('tag=child') != -1:
+            #     l_age.append('child')
+            # if meta_string.find('tag=elderly') != -1:
+            #     l_age.append('elderly')
+            # s2['age'] = l_age
+            # l_age = []
             
-            """save layer/ROI as base64 string"""
+            # #other
+            # l_other = []
+            # if meta_string.find('tag=crowd') != -1:
+            #     l_other.append('crowd')
+            # if meta_string.find('tag=family') != -1:
+            #     l_other.append('family')
+            # s2['other'] = l_other
+            # l_other = []
+            
+            # """store table of each roi metadata"""
+            # roi_id = filename+s2['name']
+            # meta_all.append([str(roi_id), #relational key in both metadata xy-coodinate tables (per image)
+            #                     filename, #image name
+            #                     int(s2['name']), #roi name
+            #                     (PSDlayer.size[0],PSDlayer.size[1]), #resolution
+            #                     s2['valence'],
+            #                     s2['human'],
+            #                     s2['animal'],
+            #                     s2['gender'],
+            #                     s2['behavior'],
+            #                     s2['body'],
+            #                     s2['object'],
+            #                     s2['age'],
+            #                     s2['other'],
+            #                     meta_string, #descriptors
+            #                     ])
+            # #reset
+            # s2['human'] = None
+            # s2['animal'] = None
+            # s2['gender'] = None
+            # s2['behavior'] = None
+            # s2['body'] = None
+            # s2['object'] = None
+            # s2['age'] = None
+            # s2['other'] = None
+            #
+            # """store table of ROI coordinates"""
+            # print('storing %s ROI coordinates for export'%(s2['name']))
+            # for l in range(PSDlayer.size[0]):
+            #     for m in range(PSDlayer.size[1]):
+            #         r,g,b,a=PSDlayer.getpixel((l,m))
+            #         if not r==g==b:
+            #             coord_image.append([str(roi_id),int(l),int(m)])
+            #
+            #"""save layer/ROI as base64 string"""
             #output = BytesIO() ##convert to machine readable string
             #output = cStringIO.StringIO() ##convert to machine readable string
             #PILbackground.save(output, format="PNG")
@@ -317,39 +357,34 @@ for file in directory:
                 #bounding-rect-min-area-rect-min-enclosing-circle-approximate-bounding-polygon/
                 
                 #images
-                l_raw = [] #list of raw images
-                l_box = [] #list of convex hulls images
-                l_hull = [] #list of bounding boxes images
-                l_poly = [] #list of approx polygon images
+                l_img = [] #list of raw images
                 #areas
-                l_box_a = [] #list of approx polygon areas
-                l_hull_a = [] #list of approx polygon areas
-                l_poly_a = [] #list of approx polygon areas
+                l_area = [] #list of approx polygon areas
         
                 print('draw %s contour as %s'%(filename, config['shape']))
-                #-------------get layer  
-                #get metadata
+                #---------------------------------------------------------------------------------------------------get layer
+                #----get metadata
                 meta_string = layer.name
                 meta = pd.DataFrame(data=(item.split("=") for item in meta_string.split(";")),columns={'key','value'})
                 s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
                         
-                ##load image directly from PSD
-                image = layer.as_PIL()
+                #----load image directly from PSD
+                image = layer.topil()
                 w, h = image.size
                 image = np.array(image)
                 #print(image.dtype)
-                
-                img = "" #setting blank img for unused contours
                 
                 #----find contour
                 # threshold the image
                 ## if any pixels that have value higher than 127, assign it to 255
                 ##convert to bw for countour and store original
                 (thr, thr_img) = cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
-                # find contour in image
+                
+                #----find contour in image
                 ## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
-                cnt_img, contours = cv2.findContours(thr_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                contours, hierarchy = cv2.findContours(thr_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
             
+                #--------------------------------------------------------------------------------------------------draw image
                 #----draw raw
                 if config['shape']=='raw':
                     print('draw raw for layer %s'%(s2['name']))
@@ -357,7 +392,7 @@ for file in directory:
                     for ind, itm in enumerate(contours):
                         img = cv2.drawContours(image=image,contours=[],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
                         pass
-                    l_raw.append(img)
+                    l_img.append(img)
                     del img, image
             
                 #----draw approximate polygon
@@ -372,9 +407,9 @@ for file in directory:
                         appx.shape
                         # draw approx polygons
                         img = cv2.drawContours(image=image,contours=[appx],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
-                    l_poly.append(img)
-                    l_poly_a.append(appx)
-                    del img, image
+                    l_img.append(img)
+                    l_area.append(appx)
+                    del img, image, cnt, appx, epsilon
                     
                 #----draw convex hull
                 elif config['shape']=='hull':
@@ -386,9 +421,9 @@ for file in directory:
                         hull = cv2.convexHull(itm)
                         # draw hull
                         img = cv2.drawContours(image=image,contours=[hull],contourIdx=-1,color=(0,0,255), thickness=cv2.FILLED)
-                    l_hull.append(img)
-                    l_hull_a.append(hull)
-                    del img, image
+                    l_img.append(img)
+                    l_area.append(hull)
+                    del img, image, cnt, hull
             
                 #----draw bounding boxes   
                 elif config['shape']=='box': 
@@ -401,96 +436,109 @@ for file in directory:
                         box = np.int0(box)
                         #draw contours
                         img = cv2.drawContours(image=image,contours=[box],contourIdx=0, color=(0,0,255), thickness=cv2.FILLED) 
-                    l_box.append(img)
-                    l_box_a.append(box)
-                    del img, image
+                    l_img.append(img)
+                    l_area.append(box)
+                    del img, image, cnt, rect, box
                 
-            #-------------------------------------------------------------for each layer: save images and contours
+                #----finish
+                del ind, itm, thr
+            #------------------------------------------------------------------------for each layer: save images and contours
             #when saving the contours below, only one drawContours function from above can be run
             #any other drawContours function will overlay on the others if multiple functions are run
-            #-------------save raw
+            #----save raw
             if (config['contours']) and (config['shape']=='raw'):
                 print('save contour')
-                raw_all = l_raw[0] + l_raw[1] + l_raw[2]
-                plt.imshow(cv2.cvtColor(raw_all, cv2.COLOR_BGR2RGB))
+                flat = sum(l_img)
+                plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
                 plt.savefig('%s/%s_roi.png'%(output['output'], filename),dpi = 300)
             
-            #-------------1.) save approximate polygon
-            elif ((config['contours']) and (config['shape']=='polygon')):
-                print('save approximate polygon')
-                poly_all = l_poly[0] + l_poly[1] + l_poly[2]
-                plt.imshow(cv2.cvtColor(poly_all, cv2.COLOR_BGR2RGB))
-                plt.savefig('%s/%s_poly.png'%(output['output'], filename),dpi = 300)
-                #save coordiantes
-                a,b,c = l_poly_a[0][:,0,:], l_poly_a[1][:,0,:], l_poly_a[2][:,0,:]
-                poly_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
-                                            np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                            np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
-                df = pd.DataFrame(poly_area)
-                df.columns = ['x', 'y', 'ROI'] #rename
-                df = df[['ROI','x','y']] #rearrange
-                df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-                df.to_csv("%s/%s_poly.csv"%(output['output'], filename), index=False)
+            #----save approximate polygon
+            # elif ((config['contours']) and (config['shape']=='polygon')):
+            #     print('save approximate polygon')
+            #     flat = sum(l_img)
+            #     plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
+            #     plt.savefig('%s/%s_poly.png'%(output['output'], filename),dpi = 300)
+            #     #save coordiantes
+            #     coordinates = l_area[0][:,0,:]
+            #     area = np.concatenate((np.hstack([coordinates, np.tile("ROI1", coordinates.shape[0])[None].T])))
+            #     df = pd.DataFrame(area)
+            #     df.columns = ['x', 'y', 'ROI'] #rename
+            #     df = df[['ROI','x','y']] #rearrange
+            #     df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
+            #     df.to_csv("%s/%s_poly.csv"%(output['output'], filename), index=False)
             
-            #2.) save convex hull
+            #----save bounding boxes
+            # elif (config['contours']) and (config['shape']=='box'):
+            #    print('save bounding boxes')
+            #    flat = sum(l_img)
+            #    plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
+            #    plt.savefig('%s/%s_box.png'%(output['output'], filename),dpi = 300)
+            #    #save coordiantes
+            #    a,b,c = l_area[0]
+            #    area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T])))
+            #    df = pd.DataFrame(area)
+            #    df.columns = ['x', 'y', 'ROI'] #rename
+            #    df = df[['ROI','x','y']] #rearrange
+            #    df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
+            #    df.to_csv("%s/%s_box.csv"%(output['output'], filename), index=False)        
+            
+            #----convex hull
             elif (config['contours']) and (config['shape']=='hull'):
                 print('save convex hull')
-                hull_all = l_hull[0] + l_hull[1] + l_hull[2]
-                plt.imshow(cv2.cvtColor(hull_all, cv2.COLOR_BGR2RGB))
-                plt.savefig('%s/%s_hull.png'%(output['output'], filename),dpi = 300)
-                #save coordiantes
-                a,b,c = l_hull_a[0][:,0,:], l_hull_a[1][:,0,:], l_hull_a[2][:,0,:]
-                hull_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
-                                            np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                            np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
-                df = pd.DataFrame(hull_area)
-                df.columns = ['x', 'y', 'ROI'] #rename
-                df = df[['ROI','x','y']] #rearrange
-                df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-                df.to_csv("%s/%s_hull.csv"%(output['output'], filename), index=False)
+                flat = sum(l_img)
+                
+            #----store coordinates as df
+            coordinates = l_area[0][:,0,:]
+            area = np.concatenate((np.hstack([coordinates, np.tile("ROI1", coordinates.shape[0])[None].T])))
+            df = pd.DataFrame(area)
+            df.columns = ['x', 'y'] #rename
+            # add roi and type of contour
+            df['ROI'] = metadata['name']
+            df['shape'] = config['shape']
+            # clean-up
+            df = df[['ROI','shape','x','y']] #sort
+            df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
+            # append to list of df
+            l_roi.append(df)
+
+            #----save image:roi level data
+            if config['save']['roi']:
+                #----save roi image
+                if config['save']['image']:
+                    plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
+                    plt.savefig('%s/roi/%s_hull.png'%(output['output'], filename), dpi=dpi)
+                if config['save']['data']:
+                    #----save roi df
+                    df.to_csv("%s/roi/%s_all.csv"%(output['output'], filename), index=False)
+        
+        #-------------save combined roi data
+        if config['save']['all']:
+            #----save all roi image
+            if config['save']['image']:
+                plt.imshow(psd.topil())
+                plt.savefig('%s/%s_all.png'%(output['output'], filename), dpi=dpi)
             
-            #3.) save bounding boxes
-            elif (config['contours']) and (config['shape']=='box'):
-                print('save bounding boxes')
-                box_all = l_box[0] + l_box[1] + l_box[2]
-                plt.imshow(cv2.cvtColor(box_all, cv2.COLOR_BGR2RGB))
-                plt.savefig('%s/%s_box.png'%(output['output'], filename),dpi = 300)
-                #save coordiantes
-                a,b,c = l_box_a[0], l_box_a[1], l_box_a[2]
-                box_area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T]), 
-                                            np.hstack([b, np.tile("ROI2", b.shape[0])[None].T]), 
-                                            np.hstack([c, np.tile("ROI3", c.shape[0])[None].T])))
-                df = pd.DataFrame(box_area)
-                df.columns = ['x', 'y', 'ROI'] #rename
-                df = df[['ROI','x','y']] #rearrange
-                df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-                df.to_csv("%s/%s_box.csv"%(output['output'], filename), index=False)
-            
-            #-------------------------------------------------------------for each layer: save image
-            #plt.gcf().clear() #clear plots
-            
-            #-------------save image
-            if config['save_image']:
-                plt.imshow(psd.as_PIL())
-                plt.savefig('%s/%s_all.png'%(output['output'], filename),dpi = 300)
-            
-            #plt.close()
-            
-            #draw image
-            #cv2.imshow('image',img)
-            #k = cv2.waitKey(0)
-            
-            #clear memory at end of iterable
-            gc.collect()
-            del l,m,r,g,b,a
+            #----save data
+            df = pd.Dataframe(l_roi)
+            df.to_csv("%s/%s_all.csv"%(output['output'], filename), index=False)
+
+        #plt.gcf().clear() #clear plots
+        #plt.close()
+        
+        #draw image
+        #cv2.imshow('image',img)
+        #k = cv2.waitKey(0)
+        
+        #clear memory at end of iterable
+        gc.collect()
             
         #----save table of ROI coordinates
-        print('exporting %s ROI coordinates'%(s2['name']))
-        # create df
-        headers=['id','x','y']
-        coord_image_df = pd.DataFrame(coord_image, columns=headers)
-        coord_image_df.to_csv('%s/%s.csv'%(output['output'], filename), index=False)
-        del coord_image_df
+        # print('exporting %s ROI coordinates'%(s2['name']))
+        # # create df
+        # headers=['id','x','y']
+        # coord_image_df = pd.DataFrame(coord_image, columns=headers)
+        # coord_image_df.to_csv('%s/%s.csv'%(output['output'], filename), index=False)
+        # del coord_image_df
    
 
 print('exporting all ROI metadata')
