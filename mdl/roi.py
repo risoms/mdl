@@ -20,6 +20,15 @@ library = ['opencv-python','psd_tools']
 
 #----default
 path = None
+screensize = None
+scale = 1.0
+coordinates = None
+shape = 'box'
+dpi = 300
+save_data = True
+save_contour_image = True
+save_raw_image = True
+level = 'both'
 
 #----todo
 """
@@ -27,7 +36,8 @@ path = None
 - use this as method for properly aligning image as roi (i.e. image is in center of screen)
 """
 class roi():
-    def __init__(path, screensize, scale, coordinates, shape='box', dpi=300, save_data=True, save_image=True, save_roi=False, save_all=True):
+    def __init__(path, screensize, scale, coordinates, shape='hull', dpi=300, save_data=True, save_contour_image=True, 
+                 save_raw_image=True, level='both'):
         """Create single subject trial bokeh plots.
         
         Parameters
@@ -41,17 +51,40 @@ class roi():
         coordinates : :class:`list` of `int`
            Center point of image. Default is [960, 540].
         shape : :class:`str`
-            ROI bounds. Either raw, image, polygon, hull, box, or None. Default is box.
+            ROI bounds. Either polygon, hull, or box. Default is box.
         dpi : :class:`int` or `None`
             Dots Per Inch measure for images. Default is 300 (if `save_image`=True).
-        save_image : :class:`bool`
-            Save images. Default is False.
         save_data : :class:`bool`
-            Save coordinates. Default is False.
-        save_roi : :class:`bool`
-            Save ROI level images and coordinates. Default is False.
-        save_all : :class:`bool`
-            Save combined coordinates and images for each ROI level. Default is True.
+            Save coordinates. Default is True.
+        save_raw_image : :class:`bool`
+            Save images. Default is False.
+        save_contour_image : :class:`bool`
+            Save generated contours as images. Default is False.
+        level : :class:`str`
+            Either combine output for each roi (`stimulus`) or seperate by roi (`roi`) or both (`both`). Default is `both`.
+        
+        Parameters
+        ----------
+        retval, threshold : :class:`numpy.ndarray`
+            Returns from `cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)`. The function 
+            applies fixed-level thresholding to a multiple-channel array. 
+            `retval` provides an optimal threshold only if cv2.THRESH_OTSU is passed. `threshold` is an image after applying 
+            a binary threshold (cv2.THRESH_BINARY) removing all greyscale pixels < 127. The output matches the same image 
+            channel as the original image.
+            See <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`_ and
+            `<https://www.learnopencv.com/opencv-threshold-python-cpp>`_
+        contours, hierarchy : :class:`numpy.ndarray`
+            Returns from `cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)`. This function returns 
+            contours from the provided binary image (threshold). This is used here for later shape detection. `contours` are 
+            the detected contours, while hierarchy containing information about the image topology.
+            See <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`_
+        image_contours : :class:`numpy.ndarray`
+            Returns from `cv2.drawContours(image=image,contours=[polygon],contourIdx=-1,color=(0,0,255), thickness=cv2.FILLED)`.
+            This draws filled contours from the image.
+            
+        Examples
+        --------
+        
         """
         pass
 #------------------------------------------------------------------------------------------------------------------init start
@@ -64,7 +97,8 @@ directory = [x for x in Path(path).glob("*.psd") if x.is_file()]
 
 #----output
 output = {}
-for folder in ['raw','metadata','sample','output']:
+for folder in ['metadata','output','output/stimulus','output/stimulus/raw','output/stimulus/csv','output/roi','output/roi/raw',
+               'output/roi/contour','output/roi/csv']:
     p = Path('%s/%s/'%(path, folder))
     #check if path exists
     if not os.path.exists(p):
@@ -73,27 +107,36 @@ for folder in ['raw','metadata','sample','output']:
     output[folder] = p
 
 #----config
-config = {}
+config = {
+    'contours':'',
+    'shape':'',
+    'save':{},
+}
 #----parameters
 # screensize
 if screensize is None:
-    screensize = [1920, 1080]
-# create contours?
-config['contours'] = True
-#save examples of output
-config['save']['image'] = True 
+    config['screensize'] = [1920, 1080]
+#coordiantes
+if coordinates is None:
+    config['coordinates'] = [config['screensize'][0]/2, config['screensize'][1]/2]
+# scale
+if scale is None:
+    config['scale'] = 1.0
 # draw shape: either raw, image, polygon, hull, box, or None
-config['shape'] = "hull"
+config['shape'] = shape
 # dots per inch
-dpi = dpi
-# save image:roi level data
-config['save']['roi'] = True if save_roi else False
-config['save']['image'] = True if save_image else False
+if dpi is None:
+    config['dpi'] = 300
+# save csv
 config['save']['data'] = True if save_data else False
-config['save']['all'] = True if save_all else False
+# save contour images
+config['save']['contours'] = True if save_contour_image else False
+# save raw images
+config['save']['raw'] = True if save_contour_image else False
+# save level
+config['save']['level'] = level
 #----store
 l_roi = []
-img = "" #setting blank img for unused contours
 #--------------------------------------------------------------------------------------------------------------------init end
 
 #----for each image
@@ -102,11 +145,11 @@ print('for each image----------')
 for file in directory:
     #read image
     psd = PSDImage.open(file)    
-    filename = os.path.splitext(os.path.basename(file))[0]
+    imagename = os.path.splitext(os.path.basename(file))[0]
     
     #----metadata
-    s1 = pd.Series(name=filename) #blank series
-    s1['filename'] = '%s.png'%(filename)
+    s1 = pd.Series(name=imagename) #blank series
+    s1['filename'] = '%s.png'%(imagename)
     s1['channels'] = psd.channels #read channels
     s1['resolution'] = [psd.width, psd.height] #length and width
     
@@ -114,387 +157,95 @@ for file in directory:
     #PSD = psd.topil()
     #white background
     #PSD.save('output/%s.png'%(filename))
-    print('#--------file: %s'%(filename))
+    print('#--------file: %s'%(imagename))
     #------------------------------------------------------------------------------------------------------for each layer/ROI
-    coord_image = [] #roi coordinates list (per)
     for layer in psd:
         #skip if layer is main image
-        if Path(layer.name).stem == filename:
+        if Path(layer.name).stem == imagename:
             continue
         else:
-            print('roi: %s:%s'%(filename, layer.name))
+            #----store lists
+            l_raw = [] #list of raw images
+            l_polygon = [] #list of approx polygon areas
+            
+            print('roi: %s:%s'%(imagename, layer.name))
             #----prepare metadata
             metadata = pd.DataFrame(data=(item.split("=") for item in layer.name.split(";")),columns={'key','value'})
-            s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
-                
-            # #----roi name
-            # s2['name'] = s2['name'].replace("roi","") 
+            metadata.set_index('key', inplace=True)
+            metadata.loc['name']['value'] = metadata.loc['name']['value'].replace("roi","")
             
-            # #----valence
-            # for r in (("pos", "positive"), ("neg", "negative")):
-            #     s2['valence'] = s2['valence'].replace(*r)
+            #----get constants
+            roiname = metadata.loc['name']['value']
+            shape = config['shape']
             
-            # #----save layer/ROI as image
-            # print('saving %s as image'%(s2['name']))
-            # PSDlayer = layer.layer.topil()
-            # #create blank background               
-            # #background = Image.new('RGB', PSD.size, (255, 255, 255))
-            # #paste layer and blank background
-            # #background.paste(PSDlayer,mask=PSDlayer.split()[3])
-            # #background.save('output/%s-%s-L%s.jpg'%(filename,layerName,i))
-    
-            # #----search metadata string
-            # s2['human'] = None
-            # s2['animal'] = None
-            # s2['gender'] = None
-            # s2['behavior'] = None
-            # s2['body'] = None
-            # s2['object'] = None
-            # s2['age'] = None
-            # s2['other'] = None
+            #----load image directly from PSD
+            image = np.array(layer.topil())
+            #print(image.dtype)
             
-            # #human
-            # if meta_string.find('tag=human') != -1:
-            #     s2['human'] = True
-            # else:
-            #     s2['human'] = False
-                
-            # #animal
-            # if meta_string.find('tag=fish') != -1:
-            #     s2['animal'] = ['fish']
-            # elif meta_string.find('tag=giraffe') != -1:
-            #     s2['animal'] = ['giraffe']
-            # elif meta_string.find('tag=flies') != -1:
-            #     s2['animal'] = ['fly']
-            # elif meta_string.find('tag=bird') != -1:
-            #     s2['animal'] = ['bird']
-            # elif meta_string.find('tag=dog') != -1:
-            #     s2['animal'] = ['dog']
-            # else:
-            #     s2['animal'] = []
+            #----find contour
+            # threshold the image
+            ## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
+            retval, threshold = cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
             
-            # #gender
-            # l_gender = []
-            # ##female
-            # if (meta_string.find('tag=woman') != -1) or\
-            # (meta_string.find('tag=women') != -1) or\
-            # (meta_string.find('tag=female') != -1):
-            #     l_gender.append('female')
-            # ##male
-            # if (meta_string.find('tag=man') != -1) or\
-            # (meta_string.find('tag=men') != -1) or\
-            # (meta_string.find('tag=male') != -1):
-            #     l_gender.append('male')
-            # s2['gender'] = l_gender
-            # l_gender = []
-            
-            # #behavior
-            # l_behavior = []
-            # if meta_string.find('tag=waving') != -1:
-            #     l_behavior.append('waving')
-            # if meta_string.find('tag=crying') != -1:
-            #     l_behavior.append('crying')
-            # if meta_string.find('tag=pickup') != -1:
-            #     l_behavior.append('pickup')
-            # if meta_string.find('tag=angry') != -1:
-            #     l_behavior.append('angry')
-            # if meta_string.find('tag=grief') != -1:
-            #     l_behavior.append('grief')
-            # if meta_string.find('tag=happy') != -1:
-            #     l_behavior.append('happy')
-            # if meta_string.find('tag=kiss') != -1:
-            #     l_behavior.append('kiss')
-            # if meta_string.find('tag=sad') != -1:
-            #     l_behavior.append('sad')
-            # if meta_string.find('tag=hiding') != -1:
-            #     l_behavior.append('hiding')
-            # if meta_string.find('tag=injured') != -1:
-            #     l_behavior.append('injured')
-            # if meta_string.find('tag=starving') != -1:
-            #     l_behavior.append('starving')
-            # if meta_string.find('tag=death') != -1:
-            #     l_behavior.append('death')
-            # s2['behavior'] = l_behavior
-            # l_behavior = []
-            
-            # #body
-            # l_body = []
-            # if meta_string.find('tag=face') != -1:
-            #     l_body.append('face')
-            # if meta_string.find('tag=arm') != -1:
-            #     l_body.append('arm')
-            # if (meta_string.find('tag=hand') != -1) or (meta_string.find('tag=hands') != -1):
-            #     l_body.append('hands')
-            # if (meta_string.find('tag=foot') != -1) or (meta_string.find('tag=feet') != -1):
-            #     l_body.append('feet')
-            # if meta_string.find('tag=tears') != -1:
-            #     l_body.append('tears')
-            # if meta_string.find('tag=bruises') != -1:
-            #     l_body.append('bruises')
-            # s2['body'] = l_body
-            # l_body = []
-            
-            # #object     
-            # l_object = []
-            # if meta_string.find('tag=boat') != -1:
-            #     l_object.append('boat')
-            # if meta_string.find('tag=trophy') != -1:
-            #     l_object.append('trophy')
-            # if meta_string.find('tag=mountains') != -1:
-            #     l_object.append('mountains')
-            # if meta_string.find('tag=branches') != -1:
-            #     l_object.append('branches')
-            # if meta_string.find('tag=teddybear') != -1:
-            #     l_object.append('teddybear')
-            # if meta_string.find('tag=sky') != -1:
-            #     l_object.append('sky')
-            # if meta_string.find('tag=outdoors') != -1:
-            #     l_object.append('outdoors')
-            # if (meta_string.find('tag=cigarette') != -1) or (meta_string.find('tag=cigarettes') != -1):
-            #     l_object.append('cigarette')
-            # if meta_string.find('tag=medal') != -1:
-            #     l_object.append('medal')
-            # if meta_string.find('tag=oil') != -1:
-            #     l_object.append('oil')
-            # if meta_string.find('tag=water') != -1:
-            #     l_object.append('water')
-            # if meta_string.find('tag=trash') != -1:
-            #     l_object.append('trash')
-            # if meta_string.find('tag=tubing') != -1:
-            #     l_object.append('tubing')
-            # if meta_string.find('tag=ventilator') != -1:
-            #     l_object.append('ventilator')
-            # if meta_string.find('tag=bandages') != -1:
-            #     l_object.append('bandages')            
-            # if meta_string.find('tag=bottle') != -1:
-            #     l_object.append('bottle')
-            # if meta_string.find('tag=alcohol') != -1:
-            #     l_object.append('alcohol')
-            # if meta_string.find('tag=rock') != -1:
-            #     l_object.append('rock')                   
-            # if meta_string.find('tag=smoke') != -1:
-            #     l_object.append('smoke')
-            # if meta_string.find('tag=money') != -1:
-            #     l_object.append('money')
-            # if meta_string.find('tag=drugs') != -1:
-            #     l_object.append('drugs')
-            # s2['object'] = l_object
-            # l_object = []
-            
-            # #age
-            # l_age = []
-            # if meta_string.find('tag=baby') != -1:
-            #     l_age.append('baby')
-            # if meta_string.find('tag=child') != -1:
-            #     l_age.append('child')
-            # if meta_string.find('tag=elderly') != -1:
-            #     l_age.append('elderly')
-            # s2['age'] = l_age
-            # l_age = []
-            
-            # #other
-            # l_other = []
-            # if meta_string.find('tag=crowd') != -1:
-            #     l_other.append('crowd')
-            # if meta_string.find('tag=family') != -1:
-            #     l_other.append('family')
-            # s2['other'] = l_other
-            # l_other = []
-            
-            # """store table of each roi metadata"""
-            # roi_id = filename+s2['name']
-            # meta_all.append([str(roi_id), #relational key in both metadata xy-coodinate tables (per image)
-            #                     filename, #image name
-            #                     int(s2['name']), #roi name
-            #                     (PSDlayer.size[0],PSDlayer.size[1]), #resolution
-            #                     s2['valence'],
-            #                     s2['human'],
-            #                     s2['animal'],
-            #                     s2['gender'],
-            #                     s2['behavior'],
-            #                     s2['body'],
-            #                     s2['object'],
-            #                     s2['age'],
-            #                     s2['other'],
-            #                     meta_string, #descriptors
-            #                     ])
-            # #reset
-            # s2['human'] = None
-            # s2['animal'] = None
-            # s2['gender'] = None
-            # s2['behavior'] = None
-            # s2['body'] = None
-            # s2['object'] = None
-            # s2['age'] = None
-            # s2['other'] = None
-            #
-            # """store table of ROI coordinates"""
-            # print('storing %s ROI coordinates for export'%(s2['name']))
-            # for l in range(PSDlayer.size[0]):
-            #     for m in range(PSDlayer.size[1]):
-            #         r,g,b,a=PSDlayer.getpixel((l,m))
-            #         if not r==g==b:
-            #             coord_image.append([str(roi_id),int(l),int(m)])
-            #
-            #"""save layer/ROI as base64 string"""
-            #output = BytesIO() ##convert to machine readable string
-            #output = cStringIO.StringIO() ##convert to machine readable string
-            #PILbackground.save(output, format="PNG")
-            #PILstring = base64.b64encode(output.getvalue())
-            #PILstring = "data:image/png;base64," + PILstring.decode("utf-8")
-            #with open(('output/%s-%s-L%s-base64.txt'%(filename,layerName,i)), "w") as string_file:
-            #    string_file.write(PILstring)    
-            #append base
-            #s1['roi-%s'%(i)] = s2
+            #----find contour in image
+            ## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
+            contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-            #-------------------------------------------------------------for each layer: draw contours
-            if config['contours']:
-                #----identify contours
-                #https://docs.opencv.org/3.4.1/dd/d49/tutorial_py_contour_features.html
-                #https://docs.opencv.org/2.4.13.7/modules/imgproc/doc/structural_\
-                #analysis_and_shape_descriptors.html#drawcontours
-                #https://loctv.wordpress.com/2017/02/17/learn-opencv3-python-contours-convex-contours-
-                #bounding-rect-min-area-rect-min-enclosing-circle-approximate-bounding-polygon/
-                
-                #images
-                l_img = [] #list of raw images
-                #areas
-                l_area = [] #list of approx polygon areas
-        
-                print('draw %s contour as %s'%(filename, config['shape']))
-                #---------------------------------------------------------------------------------------------------get layer
-                #----get metadata
-                meta_string = layer.name
-                meta = pd.DataFrame(data=(item.split("=") for item in meta_string.split(";")),columns={'key','value'})
-                s2 = pd.Series(meta['value'].tolist(),meta['key'].tolist())
-                        
-                #----load image directly from PSD
-                image = layer.topil()
-                w, h = image.size
-                image = np.array(image)
-                #print(image.dtype)
-                
-                #----find contour
-                # threshold the image
-                ## if any pixels that have value higher than 127, assign it to 255
-                ##convert to bw for countour and store original
-                (thr, thr_img) = cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
-                
-                #----find contour in image
-                ## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
-                contours, hierarchy = cv2.findContours(thr_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-            
-                #--------------------------------------------------------------------------------------------------draw image
-                #----draw raw
-                if config['shape']=='raw':
-                    print('draw raw for layer %s'%(s2['name']))
-                    # for each contour
-                    for ind, itm in enumerate(contours):
-                        img = cv2.drawContours(image=image,contours=[],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
-                        pass
-                    l_img.append(img)
-                    del img, image
-            
-                #----draw approximate polygon
-                elif config['shape']=='polygon':
-                    # for each contour
-                    print('draw approximate polygon for layer %s'%(s2['name']))
-                    for ind, itm in enumerate(contours):
-                        cnt = contours[ind]
-                        epsilon = 0.01 * cv2.arcLength(cnt, True)
-                        # get approx polygons
-                        appx = cv2.approxPolyDP(cnt, epsilon, True)
-                        appx.shape
-                        # draw approx polygons
-                        img = cv2.drawContours(image=image,contours=[appx],contourIdx=-1,color=(0,0,255),thickness=cv2.FILLED)
-                    l_img.append(img)
-                    l_area.append(appx)
-                    del img, image, cnt, appx, epsilon
-                    
-                #----draw convex hull
-                elif config['shape']=='hull':
-                    # for each contour
-                    print('draw convex hull for layer %s'%(s2['name']))
-                    for ind, itm in enumerate(contours):
-                        cnt = contours[ind]
-                        # get convex hull
-                        hull = cv2.convexHull(itm)
-                        # draw hull
-                        img = cv2.drawContours(image=image,contours=[hull],contourIdx=-1,color=(0,0,255), thickness=cv2.FILLED)
-                    l_img.append(img)
-                    l_area.append(hull)
-                    del img, image, cnt, hull
-            
-                #----draw bounding boxes   
-                elif config['shape']=='box': 
-                    # for each contour
-                    print('draw bounding boxes for layer %s'%(s2['name']))
-                    for ind, itm in enumerate(contours):
-                        cnt = contours[ind]
-                        rect = cv2.minAreaRect(cnt)
-                        box = cv2.boxPoints(rect)
-                        box = np.int0(box)
-                        #draw contours
-                        img = cv2.drawContours(image=image,contours=[box],contourIdx=0, color=(0,0,255), thickness=cv2.FILLED) 
-                    l_img.append(img)
-                    l_area.append(box)
-                    del img, image, cnt, rect, box
-                
-                #----finish
-                del ind, itm, thr
             #------------------------------------------------------------------------for each layer: save images and contours
             #when saving the contours below, only one drawContours function from above can be run
             #any other drawContours function will overlay on the others if multiple functions are run
-            #----save raw
-            if (config['contours']) and (config['shape']=='raw'):
-                print('save contour')
-                flat = sum(l_img)
-                plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
-                plt.savefig('%s/%s_roi.png'%(output['output'], filename),dpi = 300)
+            #----approximate polygon
+            if shape=='polygon':
+                print('save approximate polygon')
+                # for each contour
+                for ind, itm in enumerate(contours):
+                    cnt = contours[ind]
+                    epsilon = 0.01 * cv2.arcLength(cnt, True)
+                    # get approx polygons
+                    polygon = cv2.approxPolyDP(cnt, epsilon, True)
+                    # draw approx polygons
+                    image_contours = cv2.drawContours(image=image, contours=[polygon], contourIdx=-1 ,color=(0,0,255), thickness=cv2.FILLED)
+                del ind, itm, cnt, epsilon
             
-            #----save approximate polygon
-            # elif ((config['contours']) and (config['shape']=='polygon')):
-            #     print('save approximate polygon')
-            #     flat = sum(l_img)
-            #     plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
-            #     plt.savefig('%s/%s_poly.png'%(output['output'], filename),dpi = 300)
-            #     #save coordiantes
-            #     coordinates = l_area[0][:,0,:]
-            #     area = np.concatenate((np.hstack([coordinates, np.tile("ROI1", coordinates.shape[0])[None].T])))
-            #     df = pd.DataFrame(area)
-            #     df.columns = ['x', 'y', 'ROI'] #rename
-            #     df = df[['ROI','x','y']] #rearrange
-            #     df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-            #     df.to_csv("%s/%s_poly.csv"%(output['output'], filename), index=False)
-            
-            #----save bounding boxes
-            # elif (config['contours']) and (config['shape']=='box'):
-            #    print('save bounding boxes')
-            #    flat = sum(l_img)
-            #    plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
-            #    plt.savefig('%s/%s_box.png'%(output['output'], filename),dpi = 300)
-            #    #save coordiantes
-            #    a,b,c = l_area[0]
-            #    area = np.concatenate((np.hstack([a, np.tile("ROI1", a.shape[0])[None].T])))
-            #    df = pd.DataFrame(area)
-            #    df.columns = ['x', 'y', 'ROI'] #rename
-            #    df = df[['ROI','x','y']] #rearrange
-            #    df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
-            #    df.to_csv("%s/%s_box.csv"%(output['output'], filename), index=False)        
+            #----bounding boxes
+            if shape=='box':
+                print('save bounding boxes')
+                # for each contour
+                for ind, itm in enumerate(contours):
+                    cnt = contours[ind]
+                    rect = cv2.minAreaRect(cnt)
+                    polygon = cv2.boxPoints(rect)
+                    polygon = np.int0(polygon)
+                    #draw contours
+                    image_contours = cv2.drawContours(image=image, contours=[polygon], contourIdx=0, color=(0,0,255), thickness=cv2.FILLED)
+                del ind, itm, cnt, rect
             
             #----convex hull
-            elif (config['contours']) and (config['shape']=='hull'):
-                print('save convex hull')
-                flat = sum(l_img)
+            elif shape=='hull':
+                print('save hull')
+                # for each contour
+                for ind, itm in enumerate(contours):
+                    cnt = contours[ind]
+                    # get convex hull
+                    polygon = cv2.convexHull(itm)
+                    # draw hull
+                    image_contours = cv2.drawContours(image=image,contours=[polygon],contourIdx=-1,color=(0,0,255), thickness=cv2.FILLED)
+                del ind, itm, cnt
+            
+            #----store raw data and polygons to list
+            l_raw.append(image_contours)
+            l_polygon.append(polygon)
+            # flatten all raw data
+            flat = sum(l_raw)
                 
             #----store coordinates as df
-            coordinates = l_area[0][:,0,:]
-            area = np.concatenate((np.hstack([coordinates, np.tile("ROI1", coordinates.shape[0])[None].T])))
-            df = pd.DataFrame(area)
+            #coordinates = l_polygon[0][:,0,:]
+            coordinates = l_polygon[0]
+            df = pd.DataFrame(coordinates)
             df.columns = ['x', 'y'] #rename
             # add roi and type of contour
-            df['ROI'] = metadata['name']
-            df['shape'] = config['shape']
+            df['ROI'] = roiname
+            df['shape'] = shape
             # clean-up
             df = df[['ROI','shape','x','y']] #sort
             df[['x', 'y']] = df[['x', 'y']].astype(int) #convert to int
@@ -502,25 +253,33 @@ for file in directory:
             l_roi.append(df)
 
             #----save image:roi level data
-            if config['save']['roi']:
-                #----save roi image
-                if config['save']['image']:
+            if ((config['save']['level'] == 'both') or (config['save']['level'] == 'roi')):
+                #----save roi raw image
+                if config['save']['raw']:
+                    #convert image from pil [nparray] > matplotlib 
+                    plt.imshow(np.asarray(layer.topil()))
+                    plt.savefig('%s/roi/raw/%s_%s.png'%(output['output'], imagename, roiname), dpi=dpi)
+                    plt.close()
+                #----save roi contour image
+                if config['save']['contours']:
                     plt.imshow(cv2.cvtColor(flat, cv2.COLOR_BGR2RGB))
-                    plt.savefig('%s/roi/%s_hull.png'%(output['output'], filename), dpi=dpi)
+                    plt.savefig('%s/roi/contour/%s_%s_%s.png'%(output['output'], imagename, roiname, shape), dpi=dpi)
+                    plt.close()
+                #----save roi df
                 if config['save']['data']:
-                    #----save roi df
-                    df.to_csv("%s/roi/%s_all.csv"%(output['output'], filename), index=False)
+                    df.to_csv("%s/roi/csv/%s_%s.csv"%(output['output'], imagename, roiname), index=False)
         
         #-------------save combined roi data
-        if config['save']['all']:
+        if ((config['save']['level'] == 'both') or (config['save']['level'] == 'stimulus')):
             #----save all roi image
-            if config['save']['image']:
+            if config['save']['raw']:
                 plt.imshow(psd.topil())
-                plt.savefig('%s/%s_all.png'%(output['output'], filename), dpi=dpi)
+                plt.savefig('%s/stimulus/raw/%s.png'%(output['output'], imagename), dpi=dpi)
+                plt.close()
             
             #----save data
-            df = pd.Dataframe(l_roi)
-            df.to_csv("%s/%s_all.csv"%(output['output'], filename), index=False)
+            df = pd.DataFrame(l_roi)
+            df.to_csv("%s/stimulus/csv/%s.csv"%(output['output'], imagename), index=False)
 
         #plt.gcf().clear() #clear plots
         #plt.close()
