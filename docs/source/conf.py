@@ -14,8 +14,8 @@ import sphinx_bootstrap_theme
 
 # module directory
 #osx
-sys.path.append('/Users/mdl-admin/Desktop/mdl-eyelink/')
-sys.path.append('/anaconda3/lib/python3.6/site-packages/')
+sys.path.append('/Users/mdl-admin/Desktop/mdl-roi/')
+sys.path.append('/anaconda/lib/python3.6/site-packages/')
 sys.path.append(os.path.abspath('../../mdl'))
 
 # -- Path setup --------------------------------------------------------------
@@ -23,7 +23,7 @@ autodoc_mock_imports = ["numpy","pandas","scipy","PIL","psychopy","pylink"]
 
 # -- Project information -----------------------------------------------------
 
-project = 'mdl-eyelink'
+project = 'mdl-roi'
 author = 'Semeon Risom'
 
 #datetime = datetime.datetime.now().replace(microsecond=0).replace(second=0).isoformat()
@@ -144,14 +144,14 @@ pngmath_dvipng_args = ['-gamma 1.5', '-D 96', '-bg Transparent']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mdl-eyelink'
+htmlhelp_basename = 'mdl-roi'
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'mdl-eyelink', 'mdl-eyelink', [author], 1)
+    (master_doc, 'mdl-roi', 'mdl-roi', [author], 1)
 ]
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -159,7 +159,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'mdl-eyelink', 'mdl-eyelink', author, 'mdl-eyelink', 'One line description of project.', 'Miscellaneous'),
+    (master_doc, 'mdl-roi', 'mdl-roi', author, 'mdl-roi', 'One line description of project.', 'Miscellaneous'),
 ]
 # -- Options for Epub output -------------------------------------------------
 

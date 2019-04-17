@@ -53,13 +53,11 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
    :glob:
    :hidden:
 
-   eyetracking <eyetracking>
-   calibration <calibration>
+   index <genindex>
+   install <install>
    example <example>
-   installation <install>
-   pylink <pylink>
-   EyeLink Programmers Guide <_static/pdf/Eyelink Programmers Guide.pdf>
-   Eyelink 1000 Plus Manual <_static/pdf/Eyelink 1000 Plus User Manual 1.0.12.pdf>
+   tutorial <tutorial>
+   area of interest <roi>
 
 .. raw:: html
 
@@ -71,10 +69,7 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					</div>
 					<div class="panel-body">
 
-* Relational: :ref:`API <eyetracking>` | :ref:`Tutorial <eyetracking>`
-* eyetracking: :py:mod:`API <eyetracking>` | :py:func:`Tutorial <eyetracking>`
-* calibration: :py:class:`API <calibration>` | :ref:`<calibration>`
-* pylink: `API <pylink>` | `Tutorial <pylink>`
+* Relational: :ref:`API <roi>` | :ref:`Tutorial <roi>`
 
 .. raw:: html
 
