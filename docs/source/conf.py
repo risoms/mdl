@@ -170,11 +170,6 @@ pygments_style = 'sphinx'
 autodoc_member_order = 'bysource'
 
 # -- Options for HTML output -------------------------------------------------
-# The style sheet to use for HTML and HTML Help pages. A file of that name
-# must exist either in Sphinx' static/ path, or in one of the custom paths
-# given in html_static_path.
-#html_style = 'user.css'
-
 # Path to favicon
 html_favicon = '_static/img/imhr.ico'
 
@@ -197,7 +192,7 @@ html_theme_options = {
 }
 #no 'searchresults.html' 
 # #localtoc #fulltoc #globaltoc 
-html_sidebars = {'**': ['localtoc.html']}
+html_sidebars = {'**': ['flocaltoculltoc.html']}
 # -- nbsphinx -------------------------------------------------
 nbsphinx_allow_errors = False
 nbsphinx_execute = 'never'

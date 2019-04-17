@@ -1,7 +1,7 @@
-.. live:
+.. _live:
 
 Live
-====
+""""
 
 .. raw:: html
 

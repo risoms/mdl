@@ -1,4 +1,4 @@
-.. intro:
+.. _intro:
 
 Introduction
-============
+""""""""""""

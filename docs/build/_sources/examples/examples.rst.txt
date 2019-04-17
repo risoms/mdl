@@ -1,7 +1,9 @@
+.. _examples:
+
 .. title: examples
 
 Examples
-========
+""""""""
 
 .. toctree::
    :maxdepth: 1

@@ -3,14 +3,14 @@
 
 .. toctree::
 	:hidden:
-	:maxdepth: 1
+	:maxdepth: 4
 	:glob:
 
 	intro
 	install
 	features
 	examples/examples.rst
-	Current Data <data/index.html>
+	Current Data <data/index.rst>
 	live
 	API Reference <api/mdl.rst>
 
@@ -32,7 +32,7 @@
     </style>
 
 mdl-R33
------------------
+"""""""
 
 .. title:: mdl-R33
 
@@ -60,8 +60,8 @@ at `the University of Texas at Austin <http://www.utexas.edu/>`_ by `Semeon Riso
 For a brief introduction to the ideas behind the library, you can read the
 :ref:`introduction <intro>`. Visit the :ref:`installation page
 <install>` to see how you can download the package. You can browse the
-:ref:`examples <example>` to see what you can do with this package,
-and then check out the :ref:`API reference <R33>` to find out how.
+:ref:`examples <examples>` to see what you can do with this package,
+and then check out the :ref:`API reference <mdl>` to find out how.
 
 To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl-R33>`_ repository.
 
@@ -75,7 +75,7 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					</div>
 					<div class="panel-body">
 					<ul>
-					<li><a href="api/R33.html">api</a></li>
+					<li><a href="features.html">features</a></li>
 					<li><a href="api/modules.html">modules</a></li>
 					<li><a href="genindex.html">glossary</a></li>
 					<li><a href="install.html">install</a></li>
@@ -91,11 +91,11 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					</div>
 					<div class="panel-body">
 					<ul>
-					<li><a href="example/download.html">download data</a></li>
-					<li><a href="example/process.html">process data</a></li>
-					<li><a href="example/demographics.html">demographics</a></li>
-					<li><a href="example/plots.html">create plots</a></li>
-					<li><a href="example/model.html">build model</a></li>
+					<li><a href="examples/download_.html">download data</a></li>
+					<li><a href="examples/process_.html">process data</a></li>
+					<li><a href="examples/demographics_.html">demographics</a></li>
+					<li><a href="examples/plots_.html">create plots</a></li>
+					<li><a href="examples/model_.html">build model</a></li>
 					</ul>
 					</div>
 				</div>

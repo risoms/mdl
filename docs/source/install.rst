@@ -1,9 +1,9 @@
-.. install:
+.. _install:
 
 .. currentmodule:: mdl
 
 Install
--------
+"""""""
 
 .. raw:: html
 
