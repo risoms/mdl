@@ -9,10 +9,10 @@
 	intro
 	install
 	features
-	examples/examples.rst
+	examples/index.rst
 	Current Data <data/index.rst>
 	live
-	API Reference <api/mdl.rst>
+	API Reference <api/modules.rst>
 
 .. raw:: html
 

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.roi &#8212; mdl-R33 2019-04-17 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          mdl-R33</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-17</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../genindex.html">Glossary</a></li>
+                <li><a href="../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/process_.html#start">start</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.html">mdl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.config.html">mdl.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.roi.html">mdl.roi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.settings.html">mdl.settings</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.model.html">mdl.R33.model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.eyetracking.calibration.html">mdl.eyetracking.calibration</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.eyetracking.eyetracking.html">mdl.eyetracking.eyetracking</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/setup.html">setup</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+  <div class="row">
+      <div class="toc col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <h1>Source code for mdl.roi</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1">#----imports</span>
+<span class="c1"># main</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+
+<span class="c1"># package</span>
+<span class="kn">from</span> <span class="nn">settings</span> <span class="k">import</span> <span class="n">settings</span>
+<span class="n">console</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">console</span>
+
+<span class="c1">#----external library</span>
+<span class="n">library</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;opencv-python&#39;</span><span class="p">,</span><span class="s1">&#39;psd_tools&#39;</span><span class="p">,</span> <span class="s1">&#39;pathlib&#39;</span><span class="p">,</span> <span class="s1">&#39;gc&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;PIL&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="roi"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.roi">[docs]</a><span class="k">class</span> <span class="nc">roi</span><span class="p">():</span>
+<div class="viewcode-block" id="roi.__init__"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.roi.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Create single subject trial bokeh plots.</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		source : :class:`str`</span>
+<span class="sd">			Source of image files.</span>
+<span class="sd">		destination : :class:`str`</span>
+<span class="sd">			Folder to save data.</span>
+<span class="sd">		shape : :class:`str` {polygon, hull, circle, rotate, straight}</span>
+<span class="sd">			ROI bounds. Default is straight. `polygon` creates a Contour Approximation  and will most closely match the orginal</span>
+<span class="sd">			shape of the roi. `hull` creates a Convex Hull, which is similar to but not as complex as a Contour Approximation</span>
+<span class="sd">			and will include bulges for areas that are convex. `circle` creates a mininum enclosing circle. Finally, both</span>
+<span class="sd">			`rotate` and `straight` create a Bounding Rectangle, with the only  difference being compensation for the mininum</span>
+<span class="sd">			enclosing area for the box when using `rotate`.</span>
+<span class="sd">		**kwargs : optional</span>
+<span class="sd">			Additional properties. Here&#39;s a list of available properties:</span>
+
+<span class="sd">			.. list-table::</span>
+<span class="sd">				:class: kwargs</span>
+<span class="sd">				:widths: 25 50</span>
+<span class="sd">				header-rows: 1</span>
+
+
+<span class="sd">				* - Property</span>
+<span class="sd">					- Description</span>
+<span class="sd">				* - isLibrary : :class:`bool`</span>
+<span class="sd">					- Check if required packages have been installed. Default is False.</span>
+<span class="sd">				* - save_data : :class:`bool`</span>
+<span class="sd">					- Save coordinates. Default is True.</span>
+<span class="sd">				* - save_raw_image : :class:`bool`</span>
+<span class="sd">					- Save images. Default is False.</span>
+<span class="sd">				* - save_contour_image : :class:`bool`</span>
+<span class="sd">					- Save generated contours as images. Default is False.</span>
+<span class="sd">				* - level : :class:`str`</span>
+<span class="sd">					- Either combine output for each roi (`stimulus`) or seperate by roi (`roi`) or both (`both`). Default is `both`.</span>
+<span class="sd">				* - sep : :class:`str`</span>
+<span class="sd">					-  (If `source` == `psd`) How is metadata delimited, options are: `;` `,` `|` `tab` or `space` Default is `;`.</span>
+<span class="sd">				* - source : :class:`str`</span>
+<span class="sd">					- Metadata source, options are from a spreadsheet or a  Default is `psd`.</span>
+<span class="sd">				* - screensize : :class:`list` of `int`</span>
+<span class="sd">					- Monitor size is being presented. Default is [1920, 1080].</span>
+<span class="sd">				* - scale : :class:`int`</span>
+<span class="sd">					- If image is scaled during presentation, set scale. Default is 1.</span>
+<span class="sd">				* - center : :class:`list` of `int`</span>
+<span class="sd">					- Center point of image, relative to screensize. Default is [960, 540].</span>
+<span class="sd">				* - dpi : :class:`int` or `None`</span>
+<span class="sd">					- Quality of exported images, refers to &#39;dots per inch&#39;. Default is 300 (if `save_image`=True).</span>
+
+<span class="sd">		Attributes</span>
+<span class="sd">		----------</span>
+<span class="sd">		psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`__</span>
+<span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</span>
+<span class="sd">		retval, threshold : :class:`numpy.ndarray`</span>
+<span class="sd">			Returns from :py:class:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.</span>
+<span class="sd">			`retval` provides an optimal threshold only if :py:class:`cv2.THRESH_OTSU` is passed. `threshold` is an image after applying</span>
+<span class="sd">			a binary threshold (cv2.THRESH_BINARY) removing all greyscale pixels &lt; 127. The output matches the same image</span>
+<span class="sd">			channel as the original image.</span>
+<span class="sd">			See &lt;https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57&gt;`_ and</span>
+<span class="sd">			`&lt;https://www.learnopencv.com/opencv-threshold-python-cpp&gt;`_</span>
+<span class="sd">		contours, hierarchy : :class:`numpy.ndarray`</span>
+<span class="sd">			Returns from :py:class:`cv2.findContours`. This function returns</span>
+<span class="sd">			contours from the provided binary image (threshold). This is used here for later shape detection. `contours` are</span>
+<span class="sd">			the detected contours, while hierarchy containing information about the image topology.</span>
+<span class="sd">			See &lt;https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07&gt;`_ for more information.</span>
+<span class="sd">		image_contours : :class:`numpy.ndarray`</span>
+<span class="sd">			Returns from :py:class:`cv2.drawContours`. This draws filled contours from the image.</span>
+<span class="sd">		image_contours : :class:`numpy.ndarray`</span>
+<span class="sd">			Returns from :py:class:`cv2.drawContours`. This draws filled contours from the image.</span>
+
+<span class="sd">		Examples</span>
+<span class="sd">		--------</span>
+<span class="sd">		&gt;&gt;&gt; s=&quot;/dist/example/raw/&quot;; d=&quot;/dist/example/&quot;</span>
+<span class="sd">		&gt;&gt;&gt; IMHR.roi(source=s, destination=d, shape=&#39;box&#39;)</span>
+
+<span class="sd">		Notes</span>
+<span class="sd">		-----</span>
+<span class="sd">		**Resources**</span>
+<span class="sd">		- See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.</span>
+<span class="sd">		- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.</span>
+<span class="sd">		- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are</span>
+<span class="sd">		created.</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="c1"># check library</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">isLibrary</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;isLibrary&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;isLibrary&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isLibrary</span><span class="p">:</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
+
+		<span class="c1">#----parameters</span>
+		<span class="c1"># delimiter</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span> <span class="k">if</span> <span class="s1">&#39;delimiter&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;delimiter&#39;</span><span class="p">]</span>
+		<span class="c1"># screensize</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">screensize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;screensize&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;screensize&#39;</span><span class="p">]</span>
+		<span class="c1"># scale</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="s1">&#39;scale&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">]</span>
+		<span class="c1">#center</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">cy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cy</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;coordinates&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span>
+		<span class="c1"># shape</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span> <span class="k">if</span> <span class="n">shape</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;polygon&#39;</span><span class="p">,</span> <span class="s1">&#39;hull&#39;</span><span class="p">,</span> <span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39;straight&#39;</span>
+		<span class="c1"># dpi</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">300</span> <span class="k">if</span> <span class="s1">&#39;dpi&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;dpi&#39;</span><span class="p">]</span>
+		<span class="c1"># save</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="p">{}</span>
+		<span class="c1"># save csv</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_data&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_data&#39;</span> <span class="ow">in</span>  <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
+		<span class="c1"># save contour images</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;contours&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_contour_image&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_contour_image&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
+		<span class="c1"># save raw images</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_contour_image&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_contour_image&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
+		<span class="c1"># save level</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;level&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;both&#39;</span>
+		<span class="c1"># source</span>
+		<span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/dist/example/raw/&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+		<span class="c1"># destination</span>
+		<span class="k">if</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/dist/example/&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span></div>
+
+<div class="viewcode-block" id="roi.run"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.roi.run">[docs]</a>	<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="c1">#----data</span>
+		<span class="kn">import</span> <span class="nn">cv2</span>
+		<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+		<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+		<span class="c1">#----plot</span>
+		<span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span>
+		<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+		<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+		<span class="kn">from</span> <span class="nn">psd_tools</span> <span class="k">import</span> <span class="n">PSDImage</span>
+
+		<span class="c1">#----directory</span>
+		<span class="n">directory</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.psd&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">()]</span>
+
+		<span class="c1">#----output</span>
+		<span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;output/stim/raw&#39;</span><span class="p">,</span><span class="s1">&#39;output/stim/data&#39;</span><span class="p">,</span> <span class="s1">&#39;output/roi/contours&#39;</span><span class="p">,</span><span class="s1">&#39;output/roi/data&#39;</span><span class="p">]:</span>
+			<span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="n">folder</span><span class="p">))</span>
+			<span class="c1">#check if path exists</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+				<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+		<span class="c1">#----for each image</span>
+		<span class="n">console</span><span class="p">(</span><span class="s1">&#39;for each image&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">directory</span><span class="p">:</span>
+			<span class="c1">#----start image</span>
+			<span class="c1"># read image</span>
+			<span class="n">psd</span> <span class="o">=</span> <span class="n">PSDImage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+			<span class="n">imagename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+			<span class="c1"># metadata</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">imagename</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">imagename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">imagename</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">channels</span> <span class="c1">#read channels</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">width</span> <span class="c1">#width and height</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">height</span>
+
+			<span class="c1"># clear lists</span>
+			<span class="n">l_roi_bounds</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="n">l_roi_contours</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="n">l_error</span> <span class="o">=</span> <span class="p">[]</span>
+
+			<span class="c1">#save image</span>
+			<span class="c1">#PSD = psd.topil()</span>
+			<span class="c1">#white background</span>
+			<span class="c1">#PSD.save(&#39;output/%s.png&#39;%(filename))</span>
+			<span class="n">console</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"># file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">imagename</span><span class="p">),</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+			<span class="c1">#------------------------------------------------------------------------------------------------------for each layer/ROI</span>
+			<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">psd</span><span class="p">:</span>
+				<span class="c1">#skip if layer is main image</span>
+				<span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="n">imagename</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="k">else</span><span class="p">:</span>
+					<span class="c1">#----start roi</span>
+					<span class="c1"># clear plot</span>
+					<span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+					<span class="c1"># prepare metadata</span>
+					<span class="n">metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delimiter</span><span class="p">)),</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+					<span class="n">metadata</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+					<span class="n">metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;roi&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+					<span class="c1"># get constants</span>
+					<span class="n">roiname</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+					<span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span>
+
+					<span class="c1"># print results</span>
+					<span class="n">console</span><span class="p">(</span><span class="s1">&#39;## roi: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">roiname</span><span class="p">),</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+					<span class="n">console</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metadata</span><span class="p">),</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+					<span class="c1"># load image directly from PSD</span>
+					<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">topil</span><span class="p">())</span>
+					<span class="c1">#console(image.dtype)</span>
+
+					<span class="c1">#----find contour</span>
+					<span class="k">try</span><span class="p">:</span>
+						<span class="c1"># threshold the image</span>
+						<span class="c1">## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original</span>
+						<span class="n">retval</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">),</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+						<span class="c1"># cv2.imshow(&#39;image&#39;,threshold)</span>
+
+						<span class="c1">#----find contour in image</span>
+						<span class="c1">## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL</span>
+						<span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>
+
+						<span class="c1">#---if contours empty raise Exception</span>
+						<span class="k">if</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+							<span class="n">_err</span> <span class="o">=</span> <span class="p">[</span><span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="s1">&#39;Not able to identify contours&#39;</span><span class="p">]</span>
+							<span class="n">l_error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_err</span><span class="p">)</span>
+							<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">; </span><span class="si">%s</span><span class="s1">; </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_err</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">_err</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">_err</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+					<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+						<span class="n">console</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">error</span><span class="p">),</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+						<span class="k">continue</span>
+
+					<span class="c1">#------------------------------------------------------------------------for each layer: save images and contours</span>
+					<span class="c1">#when saving the contours below, only one drawContours function from above can be run</span>
+					<span class="c1">#any other drawContours function will overlay on the others if multiple functions are run</span>
+					<span class="c1">#----param</span>
+					<span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+
+					<span class="c1">#----straight bounding box</span>
+					<span class="k">if</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+						<span class="n">console</span><span class="p">(</span><span class="s1">&#39;## generate straight bounding box&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+						<span class="c1"># for each contour</span>
+						<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">itm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+							<span class="n">cnt</span> <span class="o">=</span> <span class="n">contours</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+							<span class="c1"># get bounds</span>
+							<span class="n">_x</span><span class="p">,</span><span class="n">_y</span><span class="p">,</span><span class="n">_w</span><span class="p">,</span><span class="n">_h</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">boundingRect</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+							<span class="c1"># convert all coordinates floating point values to int</span>
+							<span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int0</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">boxPoints</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">minAreaRect</span><span class="p">(</span><span class="n">cnt</span><span class="p">)))</span>
+							<span class="c1">#draw contours</span>
+							<span class="n">roi_contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">pt1</span><span class="o">=</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span><span class="n">_y</span><span class="p">),</span> <span class="n">pt2</span><span class="o">=</span><span class="p">(</span><span class="n">_x</span><span class="o">+</span><span class="n">_w</span><span class="p">,</span><span class="n">_y</span><span class="o">+</span><span class="n">_h</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+						<span class="c1"># create bounds</span>
+						<span class="n">_bounds</span> <span class="o">=</span> <span class="n">roi_bounds</span>
+						<span class="c1"># create contours</span>
+						<span class="n">_contours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">roi_contours</span><span class="p">])</span>
+
+					<span class="c1">#----rotated bounding box</span>
+					<span class="k">elif</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;rotate&#39;</span><span class="p">:</span>
+						<span class="n">console</span><span class="p">(</span><span class="s1">&#39;## generate rotated bounding box&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+						<span class="c1"># for each contour</span>
+						<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">itm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+							<span class="n">cnt</span> <span class="o">=</span> <span class="n">contours</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+							<span class="c1"># get bounds</span>
+							<span class="n">rect</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">minAreaRect</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+							<span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">boxPoints</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+							<span class="c1"># convert all coordinates floating point values to int</span>
+							<span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int0</span><span class="p">(</span><span class="n">roi_bounds</span><span class="p">)</span>
+							<span class="c1">#draw contours</span>
+							<span class="n">roi_contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">contours</span><span class="o">=</span><span class="p">[</span><span class="n">roi_bounds</span><span class="p">],</span> <span class="n">contourIdx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+						<span class="c1"># create bounds</span>
+						<span class="n">_bounds</span> <span class="o">=</span> <span class="n">roi_bounds</span>
+						<span class="c1"># create contours</span>
+						<span class="n">_contours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">roi_contours</span><span class="p">])</span>
+
+					<span class="c1">#----circle enclosing</span>
+					<span class="k">elif</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;circle&#39;</span><span class="p">:</span>
+						<span class="n">console</span><span class="p">(</span><span class="s1">&#39;## generate bounding circle&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+						<span class="c1"># for each contour</span>
+						<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">itm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+							<span class="n">cnt</span> <span class="o">=</span> <span class="n">contours</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+							<span class="p">(</span><span class="n">_x</span><span class="p">,</span><span class="n">_y</span><span class="p">),</span><span class="n">_r</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">minEnclosingCircle</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+							<span class="c1">#draw contours</span>
+							<span class="n">roi_contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">_x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">_y</span><span class="p">)),</span> <span class="n">radius</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">_r</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+						<span class="c1"># create bounds</span>
+						<span class="n">_bounds</span> <span class="o">=</span> <span class="n">roi_bounds</span>
+						<span class="c1"># create contours</span>
+						<span class="n">_contours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">roi_contours</span><span class="p">])</span>
+
+					<span class="c1">#----Contour Approximation</span>
+					<span class="k">elif</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span>
+						<span class="n">console</span><span class="p">(</span><span class="s1">&#39;## generate approximate polygon&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+						<span class="c1"># for each contour</span>
+						<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">itm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+							<span class="n">cnt</span> <span class="o">=</span> <span class="n">contours</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+							<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">cv2</span><span class="o">.</span><span class="n">arcLength</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+							<span class="c1"># get approx polygons</span>
+							<span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">approxPolyDP</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+							<span class="c1"># draw approx polygons</span>
+							<span class="n">roi_contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">contours</span><span class="o">=</span><span class="p">[</span><span class="n">roi_bounds</span><span class="p">],</span> <span class="n">contourIdx</span><span class="o">=-</span><span class="mi">1</span> <span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+						<span class="c1"># create bounds</span>
+						<span class="n">_bounds</span> <span class="o">=</span> <span class="n">roi_bounds</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:]</span>
+						<span class="c1"># create contours</span>
+						<span class="n">_contours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">roi_contours</span><span class="p">])</span>
+
+					<span class="c1">#----convex hull</span>
+					<span class="k">elif</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;hull&#39;</span><span class="p">:</span>
+						<span class="n">console</span><span class="p">(</span><span class="s1">&#39;generate hull&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+						<span class="c1"># for each contour</span>
+						<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">itm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+							<span class="n">cnt</span> <span class="o">=</span> <span class="n">contours</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+							<span class="c1"># get convex hull</span>
+							<span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">convexHull</span><span class="p">(</span><span class="n">itm</span><span class="p">)</span>
+							<span class="c1"># draw hull</span>
+							<span class="n">roi_contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="p">[</span><span class="n">roi_bounds</span><span class="p">],</span> <span class="n">contourIdx</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+						<span class="c1"># create bounds</span>
+						<span class="n">_bounds</span> <span class="o">=</span> <span class="n">roi_bounds</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:]</span>
+						<span class="c1"># create contours</span>
+						<span class="n">_contours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">roi_contours</span><span class="p">])</span>
+
+					<span class="k">else</span><span class="p">:</span>
+						<span class="k">pass</span>
+						<span class="c1">#!!!Put after creating as function return console(&#39;Please select either polygon, box, or hull shape&#39;)</span>
+
+					<span class="c1">#----store bounds as df</span>
+					<span class="n">bounds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_bounds</span><span class="p">)</span>
+					<span class="c1">#rename</span>
+					<span class="n">bounds</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
+					<span class="c1"># add image, roi, and shape</span>
+					<span class="n">bounds</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">imagename</span>
+					<span class="n">bounds</span><span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roiname</span>
+					<span class="n">bounds</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shape</span>
+					<span class="c1"># clean-up</span>
+					<span class="c1">## arrange</span>
+					<span class="n">bounds</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;ROI&#39;</span><span class="p">,</span><span class="s1">&#39;shape&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span>
+					<span class="c1">## convert to int</span>
+					<span class="n">bounds</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+					<span class="c1">## sort by x,y values</span>
+					<span class="n">bounds</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+					<span class="c1"># append to list of df</span>
+					<span class="n">l_roi_bounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
+
+					<span class="c1">#----store contours as df</span>
+					<span class="c1"># _x, _y = _contours[:,0,0], _contours[:,0,1]</span>
+					<span class="c1"># contours = pd.DataFrame(_contours)</span>
+					<span class="c1"># contours.columns = [&#39;x&#39;, &#39;y&#39;] #rename</span>
+					<span class="c1"># # add image, roi, and shape</span>
+					<span class="c1"># contours[&#39;image&#39;] = imagename</span>
+					<span class="c1"># contours[&#39;ROI&#39;] = roiname</span>
+					<span class="c1"># contours[&#39;shape&#39;] = shape</span>
+					<span class="c1"># # clean-up</span>
+					<span class="c1"># contours = contours[[&#39;image&#39;,&#39;ROI&#39;,&#39;shape&#39;,&#39;x&#39;,&#39;y&#39;]] #sort</span>
+					<span class="c1"># contours[[&#39;x&#39;, &#39;y&#39;]] = contours[[&#39;x&#39;, &#39;y&#39;]].astype(int) #convert to int</span>
+					<span class="c1"># # append to list of df</span>
+					<span class="c1"># l_roi_contours.append(contours)</span>
+
+					<span class="c1">#----save image:roi level image bounds and coordinates</span>
+					<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;both&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;roi&#39;</span><span class="p">)):</span>
+						<span class="c1">#----save roi contour image</span>
+						<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;contours&#39;</span><span class="p">]:</span>
+							<span class="c1">#----from source</span>
+							<span class="c1"># create matplotlib plot</span>
+							<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+							<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span>
+							<span class="c1">## original</span>
+							<span class="n">_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">topil</span><span class="p">())</span>
+							<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">_arr</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+							<span class="c1">## contours</span>
+							<span class="n">_arr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">_contours</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+							<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">_arr</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+							<span class="c1">## check if path exists</span>
+							<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="se">\\</span><span class="s1">output</span><span class="se">\\</span><span class="s1">roi</span><span class="se">\\</span><span class="s1">contours</span><span class="se">\\</span><span class="s1">final</span><span class="se">\\</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+							<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
+								<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">_folder</span><span class="p">)</span>
+							<span class="c1">## save</span>
+							<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\\</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_source.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+							<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+							<span class="c1">#----recreated from dataframe bounds</span>
+							<span class="c1">## from https://stackoverflow.com/questions/44593729/how-to-plot-rectangle-in-python</span>
+							<span class="c1">##!!!Todo:get working</span>
+							<span class="c1"># create matplotlib plot</span>
+							<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+							<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span>
+
+							<span class="c1"># create blank image</span>
+							<span class="n">_img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+							<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">_img</span><span class="p">)</span>
+							<span class="c1"># draw bounds</span>
+							<span class="n">_x</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+							<span class="n">_y</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+							<span class="n">_width</span> <span class="o">=</span> <span class="n">_x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">_x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+							<span class="n">_height</span> <span class="o">=</span> <span class="n">_y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">_y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+							<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">),</span> <span class="n">_width</span><span class="p">,</span> <span class="n">_height</span><span class="p">))</span>
+							<span class="c1">## check if path exists</span>
+							<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="se">\\</span><span class="s1">output</span><span class="se">\\</span><span class="s1">roi</span><span class="se">\\</span><span class="s1">contours</span><span class="se">\\</span><span class="s1">debug</span><span class="se">\\</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+							<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
+								<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">_folder</span><span class="p">)</span>
+							<span class="c1">## save</span>
+							<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\\</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_source.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+							<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+							<span class="c1"># recreated from dataframe countours</span>
+							<span class="c1">#!!!Todo:get working</span>
+							<span class="c1">#plt.imshow(cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB))</span>
+							<span class="c1">#plt.savefig(&#39;%s/output/roi/contours/%s/%s_%s_recreated.png&#39;%(destination, shape, imagename, roiname), dpi=dpi)</span>
+							<span class="c1">## close plt.cla() #plt.clf() #plt.close()</span>
+							<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+						<span class="c1">#----save roi df</span>
+						<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]:</span>
+							<span class="c1">#bounds</span>
+							<span class="n">bounds</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/data/</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">_bounds.csv&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+							<span class="c1">#coordinates</span>
+							<span class="c1">#contours.to_csv(&quot;%s/output/roi/data/%s_%s_bounds.csv&quot;%(destination, imagename, roiname), index=False)</span>
+
+			<span class="c1">#----save all roi data</span>
+			<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;both&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;stimulus&#39;</span><span class="p">)):</span>
+				<span class="c1">#----save all roi image</span>
+				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]:</span>
+					<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">())</span>
+					<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/output/stim/raw/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+					<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+				<span class="c1">#----save data</span>
+				<span class="c1">#bounds</span>
+				<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">l_roi_bounds</span><span class="p">)</span>
+				<span class="c1">## sort by x,y values</span>
+				<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+				<span class="c1">## to csv</span>
+				<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/output/stim/data/</span><span class="si">%s</span><span class="s2">_bounds.csv&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+				<span class="c1">#coord</span>
+				<span class="c1"># df = pd.concat(l_roi_contours)</span>
+				<span class="c1"># df.to_csv(&quot;%s/output/stim/data/%s_coord.csv&quot;%(destination, imagename), index=False)</span>
+
+				<span class="c1">#----finish</span>
+				<span class="c1"># clear plot</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+				<span class="c1"># clear memory at end of iterable</span>
+				<span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+				<span class="c1">#draw image</span>
+				<span class="c1">#cv2.imshow(&#39;image&#39;,img)</span>
+				<span class="c1">#k = cv2.waitKey(0)</span>
+
+
+				<span class="c1">#----save table of ROI coordinates</span>
+				<span class="c1"># console(&#39;exporting %s ROI coordinates&#39;%(s2[&#39;name&#39;]))</span>
+				<span class="c1"># # create df</span>
+				<span class="c1"># headers=[&#39;id&#39;,&#39;x&#39;,&#39;y&#39;]</span>
+				<span class="c1"># coord_image_df = pd.DataFrame(coord_image, columns=headers)</span>
+				<span class="c1"># coord_image_df.to_csv(&#39;%s/%s.csv&#39;%(output[&#39;output&#39;], filename), index=False)</span>
+				<span class="c1"># del coord_image_df</span>
+
+		<span class="c1">#----error log</span>
+		<span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">l_error</span><span class="p">):</span>
+			<span class="n">_filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/error.csv&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">))</span>
+			<span class="n">console</span><span class="p">(</span><span class="s2">&quot;Errors found. See log </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">_filename</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+			<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">l_error</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+			<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">_filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
+
+		<span class="c1">#%% test</span>
+		<span class="c1"># drawing image</span>
+		<span class="c1"># img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)</span>
+		<span class="c1"># cv2.imshow(&#39;image&#39;,img)</span>
+
+		<span class="c1"># convert img to np array</span>
+		<span class="c1"># np_img = np.array(img)</span>
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Semeon Risom.<br/>
+      Last updated on Apr 17, 2019.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

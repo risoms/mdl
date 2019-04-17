@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.R33.config &#8212; mdl-R33 2019-04-17 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../../../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../../../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          mdl-R33</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-17</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../genindex.html">Glossary</a></li>
+                <li><a href="../../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/process_.html#start">start</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/mdl.html">mdl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.config.html">mdl.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.download.html">mdl.download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.roi.html">mdl.roi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.settings.html">mdl.settings</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.R33.html">mdl.R33</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.model.html">mdl.R33.model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.eyetracking.calibration.html">mdl.eyetracking.calibration</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.eyetracking.eyetracking.html">mdl.eyetracking.eyetracking</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/setup.html">setup</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+  <div class="row">
+      <div class="toc col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <h1>Source code for mdl.R33.config</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">| @purpose: Default settings for processing.py   </span>
+<span class="sd">| @date: Created on Sat May 1 15:12:38 2019</span>
+<span class="sd">| @author: Semeon Risom</span>
+<span class="sd">| @email: semeon.risom@gmail.com</span>
+<span class="sd">| @url: https://semeon.io/d/R33-analysis</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">StrictVersion</span>
+<span class="kn">import</span> <span class="nn">importlib</span><span class="o">,</span> <span class="nn">pkg_resources</span><span class="o">,</span> <span class="nn">pip</span><span class="o">,</span> <span class="nn">platform</span>
+
+<div class="viewcode-block" id="settings"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings">[docs]</a><span class="k">class</span> <span class="nc">settings</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Provide resource for creating links, anchors, calculate significant figures, user-friendly console.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="settings.__init__"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_library</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provide resource for creating links, anchors, calculate significant figures, user-friendly console.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span></div>
+        
+<div class="viewcode-block" id="settings.console"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.console">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allows user-friend console logging using ANSI escape codes.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        message : :class:`str`</span>
+<span class="sd">            Message to send to console.</span>
+<span class="sd">        color : :class:`str`</span>
+<span class="sd">            Name of color or ANSI escape event to use.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : :class:`str`</span>
+<span class="sd">            ANSI escape code.</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; console(self, message, color=&#39;blue)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Colors are produced using ASCII Oct format. For example: &#39;\033[40m&#39;</span>
+<span class="sd">        See http://jafrog.com/2013/11/23/colors-in-terminal.html</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">c_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">black</span> <span class="o">=</span> <span class="s1">&#39;40m&#39;</span><span class="p">,</span>
+            <span class="n">red</span> <span class="o">=</span>  <span class="s1">&#39;41m&#39;</span><span class="p">,</span>
+            <span class="n">green</span> <span class="o">=</span>  <span class="s1">&#39;42m&#39;</span><span class="p">,</span>
+            <span class="n">orange</span> <span class="o">=</span> <span class="s1">&#39;43m&#39;</span><span class="p">,</span>
+            <span class="n">purple</span> <span class="o">=</span> <span class="s1">&#39;45m&#39;</span><span class="p">,</span>
+            <span class="n">blue</span> <span class="o">=</span>  <span class="s1">&#39;46m&#39;</span><span class="p">,</span>
+            <span class="n">grey</span> <span class="o">=</span>  <span class="s1">&#39;47m&#39;</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># result will be in this format: [&lt;PREFIX&gt;];[&lt;COLOR&gt;];[&lt;TEXT DECORATION&gt;][&lt;MESSAGE&gt;][&lt;FINISHING SYMBOL&gt;]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[&#39;</span> <span class="o">+</span> <span class="n">c_</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>
+        
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="settings.link"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.link">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">link</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create popover of variable in html.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : :class:`str`</span>
+<span class="sd">            Name of variable.</span>
+<span class="sd">        url : :class:`str`</span>
+<span class="sd">            URL to link to.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        link : :class:`str`</span>
+<span class="sd">            HTML &lt;a&gt; element.</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt;&#39;&#39;&#39;&lt;a href=&quot;#boxplot&quot; class=&quot;anchor&quot;&gt;boxplot&lt;/a&gt;&#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;&lt;a href=&quot;</span><span class="si">%s</span><span class="s1">&quot; class=&quot;anchor&quot;&gt;</span><span class="si">%s</span><span class="s1">&lt;/a&gt;&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">link</span></div>
+    
+<div class="viewcode-block" id="settings.popover"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.popover">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">popover</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create popover of variable in html.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : :class:`str`</span>
+<span class="sd">            Local name of variable.</span>
+<span class="sd">        title : :class:`str`</span>
+<span class="sd">            Title of variable in popover.</span>
+<span class="sd">        description : :class:`str`</span>
+<span class="sd">            Description of variable in popover.</span>
+<span class="sd">        url : :class:`str` or `str`</span>
+<span class="sd">            URL to include. Default `None`.</span>
+<span class="sd">        </span>
+<span class="sd">        Other Parameters</span>
+<span class="sd">        ----------------</span>
+<span class="sd">        **kwargs : :class:`str`</span>
+<span class="sd">            HTML &lt;a&gt; element.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        link : :class:`str`</span>
+<span class="sd">            HTML &lt;a&gt; element.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; name = &quot;anova&quot;</span>
+<span class="sd">        &gt;&gt;&gt; title = &quot;Statistical Models in S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; description = &quot;Chambers, J., Hastie, T. (1992). Statistical Models in S. Wadsworth &amp; Brooks/Cole.&quot;</span>
+<span class="sd">        &gt;&gt;&gt;popover(name=name, title=title, description=description)</span>
+<span class="sd">        &lt;a tabindex=&quot;0&quot; class=&quot;popover-anchor&quot; link-id=&quot;anova&quot; data-toggle=&quot;popover&quot; data-content=&quot;Chambers, J., Hastie, T. (1992). \</span>
+<span class="sd">        Statistical Models in S. Wadsworth &amp; Brooks/Cole.&quot; title=&quot;&quot; data-original-title=&quot;Statistical Models in S&quot;&gt;Chambers, Hastie, 1992&lt;/a&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="n">url</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;&lt;a class=&quot;anchor&quot; href=&quot;</span><span class="si">%s</span><span class="s1">&quot;&gt;</span><span class="si">%s</span><span class="s1">&lt;/a&gt;&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+            <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&lt;br&gt;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+            
+        <span class="c1">#create link</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;&lt;a tabindex=&quot;0&quot; class=&quot;popover-anchor&quot; link-id=&quot;</span><span class="si">%s</span><span class="s1">&quot; data-toggle=&quot;popover&quot; data-content=&quot;</span><span class="si">%s</span><span class="s1">&quot; title=&quot;&quot; data-original-title=&quot;</span><span class="si">%s</span><span class="s1">&quot;&gt;</span><span class="si">%s</span><span class="s1">&lt;/a&gt;&#39;</span>\
+        <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+        <span class="c1">#format</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="n">link</span></div>
+    
+<div class="viewcode-block" id="settings.stn"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.stn">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">stn</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to scientific notation.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        source : :class:`float`</span>
+<span class="sd">            Original number.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        output : :class:`str`</span>
+<span class="sd">            Number in scientific notation, if (number &lt; 0.0001) or (if number &gt; 9999).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#convert to float</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        
+        <span class="c1">#if less than 0.0001, use scientific notation</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">source</span> <span class="o">&lt;</span> <span class="mf">0.0001</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.2E</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">source</span>
+        <span class="c1">#else if greater than 9999, use scientific notation</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">source</span> <span class="o">&gt;</span> <span class="mi">9999</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.2E</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">source</span>
+        <span class="c1">#else round number to 4th digit</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+            
+        <span class="k">return</span> <span class="n">output</span></div>
+    
+<div class="viewcode-block" id="settings.library"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.library">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">library</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if required libraries are available.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        required : :class:`list`</span>
+<span class="sd">            List of required libraries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;settings.library()&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+        
+        <span class="c1">#----for timestamp</span>
+        <span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">_f</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
+    
+        <span class="c1">#check libraries for missing</span>
+        
+        <span class="c1">#list of possibly missing packages to install</span>
+        <span class="k">if</span> <span class="n">required</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">required</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;numpy&#39;</span><span class="p">,</span><span class="s1">&#39;scipy&#39;</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span><span class="s1">&#39;rpy2&#39;</span><span class="p">,</span><span class="s1">&#39;pytz&#39;</span><span class="p">,</span><span class="s1">&#39;seaborn&#39;</span><span class="p">,</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span><span class="s1">&#39;bokeh&#39;</span><span class="p">,</span> <span class="s1">&#39;nslr_hmm&#39;</span><span class="p">,</span><span class="s1">&#39;PyGraphviz&#39;</span><span class="p">]</span>
+        
+        <span class="c1">#for geting os variables</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+            <span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;win32api&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span><span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
+            <span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;pyobjc&#39;</span><span class="p">)</span>
+        
+        <span class="c1">#try installing and/or importing packages</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1">#if pip &gt;= 10.01</span>
+            <span class="n">pip_</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;pip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+            <span class="k">if</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="n">pip_</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="s1">&#39;10.0.0&#39;</span><span class="p">):</span>
+                <span class="kn">from</span> <span class="nn">pip._internal</span> <span class="k">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">_main</span>
+                <span class="c1">#for required packages check if package exists on device</span>
+                <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
+                    <span class="c1">#if missing, install</span>
+                    <span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span><span class="n">package</span><span class="p">])</span>
+                        
+            <span class="c1">#else pip &lt; 10.01          </span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1">#for required packages check if package exists on device</span>
+                <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
+                    <span class="c1">#if missing</span>
+                    <span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span><span class="n">package</span><span class="p">])</span>
+                
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">e</span>
+            <span class="c1">#----finished</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> finished in </span><span class="si">%s</span><span class="s1"> msec&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_f</span><span class="p">,((</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">_t0</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">*</span><span class="mi">1000</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="settings.debug"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.debug">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;debug&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get function or class for console print.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        message : :class:`str`</span>
+<span class="sd">            Log message.</span>
+<span class="sd">        source : :class:`str`</span>
+<span class="sd">            Origin of call. Either debug or timestamp.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">source</span><span class="o">==</span><span class="s1">&#39;debug&#39;</span><span class="p">:</span>
+            <span class="n">caller</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getframeinfo</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, line </span><span class="si">%d</span><span class="s2">, in processing.</span><span class="si">%s</span><span class="s2">(), </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caller</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">caller</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="n">caller</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">source</span><span class="o">==</span><span class="s1">&#39;timestamp&#39;</span><span class="p">:</span>
+            <span class="n">caller</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getframeinfo</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="s2">&quot;processing.</span><span class="si">%s</span><span class="s2">()&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caller</span><span class="o">.</span><span class="n">function</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">event</span></div>
+    
+<div class="viewcode-block" id="settings.definitions"><a class="viewcode-back" href="../../../api/mdl.R33.config.html#mdl.R33.config.settings.definitions">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">definitions</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Store definitions.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        message : :class:`str`</span>
+<span class="sd">            Log message.</span>
+<span class="sd">        source : :class:`str`</span>
+<span class="sd">            Origin of call. Either debug or timestamp.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        config : :class:`dict`</span>
+<span class="sd">            Returned dictionary</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        CESD Group</span>
+<span class="sd">            in-text: m_[&#39;short&#39;][&#39;cesd_group&#39;] = &#39;CESD Group&#39;</span>
+<span class="sd">            title: m_[&#39;long&#39;][&#39;cesd_group&#39;] = &#39;CESD Group&#39;</span>
+<span class="sd">            definition: m_[&#39;def&#39;][&#39;cesd_group&#39;] &quot;a binary measure of CESD score (between subjects; &#39;Low&#39; (&amp;lt16) and &#39;High&#39; (≥16))&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#----prepare dictionary</span>
+        <span class="n">m_</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;var&#39;</span><span class="p">:{},</span>
+            <span class="s1">&#39;short&#39;</span><span class="p">:{},</span>
+            <span class="s1">&#39;long&#39;</span><span class="p">:{},</span>
+            <span class="s1">&#39;def&#39;</span><span class="p">:{},</span>
+            <span class="s1">&#39;url&#39;</span><span class="p">:{},</span>
+            <span class="s1">&#39;cite&#39;</span><span class="p">:{},</span>
+            <span class="s1">&#39;img&#39;</span><span class="p">:{},</span>
+        <span class="p">}</span>
+        <span class="c1">#----methods</span>
+        <span class="c1"># task design</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;task_design&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Treatment stimuli include pairs of faces, each from a different actor and each expressing sad and </span><span class="se">\</span>
+<span class="s2">        neutral emotions, from the Pictures of Facial Affect (POFA; [27]) collection and dysphoric and neutral images from the </span><span class="se">\</span>
+<span class="s2">        International Affective Picture System (IAPS; [28]). Each POFA and IAPS scene will be equalized (12.0 cd/m2) to match </span><span class="se">\</span>
+<span class="s2">        mean luminance distribution. Task-related screens will be matched to mean luminance as well. Each trial will begin with </span><span class="se">\</span>
+<span class="s2">        the appearance of a central fixation cross (FC) for 1500 ms, followed by an image pair. POFA pairs will be presented </span><span class="se">\</span>
+<span class="s2">        for 3000 ms and IAPS pairs will be presented for 4500 ms. IAPS images will be presented for a longer duration because </span><span class="se">\</span>
+<span class="s2">        they are typically more complex than the POFA faces. Following offset of the images, a small single or double asterisk </span><span class="se">\</span>
+<span class="s2">        probe will appear in the location of one of the images and remain on the screen until the participant indicates whether </span><span class="se">\</span>
+<span class="s2">        they detected one or two asterisks, with a maximum duration of 10,000 msec. Latency and accuracy of each response will </span><span class="se">\</span>
+<span class="s2">        be recorded.&quot;</span>
+        
+        <span class="c1">#----exclude</span>
+        <span class="n">_exc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">])</span>
+        <span class="n">_pct</span> <span class="o">=</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;eyetracking&#39;</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Participants with &#39;Dotloc&#39; or &#39;Stimulus&#39; Onset Error median above 3SD (&lt;i&gt;n&lt;/i&gt; = </span><span class="si">%s</span><span class="s2">, </span><span class="si">%.1f%%</span><span class="s2">) </span><span class="se">\</span>
+<span class="s2">        were excluded from analysis </span><span class="se">\</span>
+<span class="s2">        (see &lt;a class=&#39;anchor&#39; href=&#39;../../methods.html#outliers&#39;&gt;methods&lt;/a&gt;).&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">_exc</span><span class="p">,</span> <span class="n">_pct</span><span class="p">)</span>
+        
+        <span class="c1">#----stimuli</span>
+        <span class="c1"># iaps</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;iaps&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;International Affective Picture System (IAPS)&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Lang, P., Bradley, M., Cuthbert, B. (2008). International affective picture system (IAPS): Affective </span><span class="se">\</span>
+<span class="s1">        ratings of pictures and instruction manual. Technical Report A-8. University of Florida, Gainesville, FL.&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;IAPS&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;img/iaps.png&#39;</span>
+        <span class="c1"># pofa</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;pofa&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Pictures of Facial Affect (POFA)&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Ekman, P., Friesen, W., (1976). Pictures of facial affect. Consulting Psychologist Press, Palo Alto.&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;POFA&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;img/pofa.png&#39;</span>
+        
+        <span class="c1">#----variables</span>
+        <span class="c1"># os</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;os&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Operating System&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Operating System (Microsoft OS, Mac OS)&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Microsoft OS, Mac OS&#39;</span>
+        <span class="c1">#stimulus</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;trialType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;trialType&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;trialType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Stimulus&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;trialType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Stimulus (IAPS, POFA)&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;trialType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt;</span><span class="si">%s</span><span class="s1">&lt;/b&gt;: </span><span class="si">%s</span><span class="s1">&lt;br&gt;&lt;b&gt;</span><span class="si">%s</span><span class="s1">&lt;/b&gt;: </span><span class="si">%s</span><span class="s1">&#39;</span>\
+        <span class="o">%</span><span class="p">(</span><span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;iaps&#39;</span><span class="p">],</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;iaps&#39;</span><span class="p">],</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;pofa&#39;</span><span class="p">],</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;pofa&#39;</span><span class="p">])</span>
+        <span class="c1"># aoi</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;aoi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;aoi&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;aoi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Area of Interest&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;aoi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Area of Interest (sad, neutral images)&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;aoi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sad, neutral (categorical).&#39;</span>
+        <span class="c1"># participant</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;participant&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Participant&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Participant&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Participant number (categorical).&#39;</span>
+        <span class="c1"># trial</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;TrialNum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;TrialNum&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;TrialNum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Trial&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;TrialNum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Trial&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;TrialNum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;: 0-197 (categorical).&#39;</span>
+        <span class="c1"># cesd group</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cesd_group&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CESD Score&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CESD Score (&#39;Low&#39; (&amp;lt16) and &#39;High&#39; (≥16))&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: Binary measure of CESD score (&#39;Low&#39; (&amp;lt16) and &#39;High&#39; (≥16))&quot;</span>
+        <span class="c1"># diff_stim</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;diff_stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;diff_stim&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;diff_stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Stimulus Onset Error&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;diff_stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Stimulus Onset Error&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;diff_stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: The difference in time (msec) between predicted and true &#39;Stimulus&#39; onset.&quot;</span>
+        <span class="c1"># diff_dotloc</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;diff_dotloc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;diff_dotloc&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;diff_dotloc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Dotloc Onset Error&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;diff_dotloc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Dotloc Onset Error&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;diff_dotloc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: The difference in time (msec) between predicted and true &#39;Dotloc&#39; onset.&quot;</span>
+        <span class="c1"># dotprobe bias score</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;dp_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dp_bias&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;dp_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Dotprobe Bias Score&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;dp_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Dotprobe Bias Score&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;dp_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;: Trial level bias score, using the weighted method. From the R itrak package.&#39;</span>
+        <span class="c1"># dotprobe bias score</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;gaze_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gaze_bias&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;gaze_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Gaze Bias Score&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;gaze_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Gaze Bias Score&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;gaze_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;: Trial level bias score, using the weighted method. From the R itrak package.&#39;</span>
+        <span class="c1"># dwell_time</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">][</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dwell_time&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Dwell Time&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Dwell Time&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: The duration (msec) during a trial gaze has been within an area of interest.&quot;</span>
+        
+        <span class="c1">#----modelling</span>
+        <span class="c1">#lmer</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;lmer&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Bates, Mächler, Bolker, &amp; Walker, 2015&#39;</span>
+        <span class="n">doi</span> <span class="o">=</span> <span class="s1">&#39;https://doi.org/10.18637/jss.v067.i01&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using lme4. 2015, 67(1), 48. </span><span class="se">\</span>
+<span class="s1">        doi: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">doi</span>
+        <span class="c1">#glmer</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;glmer&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Bates, Mächler, Bolker, &amp; Walker, 2015&#39;</span>
+        <span class="n">doi</span> <span class="o">=</span> <span class="s1">&#39;https://doi.org/10.18637/jss.v067.i01&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using lme4. 2015, 67(1), 48. </span><span class="se">\</span>
+<span class="s1">        doi: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">doi</span>
+        <span class="c1">#anova</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;anova&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Chambers, Hastie, 1992&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Chambers, J., Hastie, T. (1992). Statistical Models in S. Wadsworth &amp; Brooks/Cole.&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        
+    	<span class="c1">#----assumptions</span>
+        <span class="c1"># lmer</span>
+    	<span class="c1">## residual normal distribution</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;rnd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Residuals are normally distributed&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;rnd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: Residuals are drawn from a normally distributed population. Can be checked with a QQ plot. </span><span class="se">\</span>
+<span class="s2">        Statistical tests, such as Anderson-Darling and Kolmogorov–Smirnov are also possible.&quot;</span>
+    	<span class="c1">## independent observations</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;rio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Residuals are independent&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;rio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: Residuals have been drawn independently of each other. This can be checked by plotting residuals </span><span class="se">\</span>
+<span class="s2">        against covariates - especially time-varying or spatial covariates.&quot;</span>
+    	
+        <span class="c1"># anova</span>
+        <span class="c1">## normal distribution</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;nd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Samples are normally distributed&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;nd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: Samples are drawn from a normally distributed population.&quot;</span>
+    	<span class="c1">## Homogeneity of variance</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;hv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Homogeneity of variance&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;hv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: Amount of variance for a IV is constant across the sample.&quot;</span>
+    	<span class="c1">## independent observations</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="s1">&#39;io&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Independent observations&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;io&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;: Samples have been drawn independently of each other.&quot;</span>
+    	
+        <span class="c1"># Estimated Marginal Means</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;emm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;The &#39;Estimated Marginal Means&#39; table provides a list pairwise comparisons for each level and factor </span><span class="se">\</span>
+<span class="s2">        in our model (&lt;a class=&#39;anchor&#39; href=&#39;</span><span class="si">%s</span><span class="s2">&#39;&gt;emmeans package, Version 1.3.2&lt;/a&gt;).&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    	<span class="c1"># residuals vs fitted</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;rvf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;The Residuals vs Fitted plot is used to identify residual distribution. </span><span class="se">\</span>
+<span class="s2">        If residuals are following a visible trend on the graph, then the homogeneity assumption was violated.&quot;</span>
+    	<span class="c1"># qq</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;qq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;The Normal Q-Q plot compares the standardized residuals against the theoretical quantiles from </span><span class="se">\</span>
+<span class="s2">        a standard normal distribution. If the model residuals are normally distributed, then the points </span><span class="se">\</span>
+<span class="s2">        on this graph will be plotted in a generally straight line.&quot;</span>
+        
+        <span class="c1">#----calibration, validation</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;calibration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Symbols: square = mouse click, circle = calibration point, cross = gaze coordinates.&lt;br&gt;</span><span class="se">\</span>
+<span class="s2">        To use the interactive plot, drag the mouse along the calibration point chart. Each pair of dots repersents gaze coordinates </span><span class="se">\</span>
+<span class="s2">        recorded during the presentation of one of the calibration points.&quot;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;validation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Symbols: circle = calibration point, cross = gaze coordinates.&lt;br&gt;</span><span class="se">\</span>
+<span class="s2">        To use the interactive plot, drag the mouse along the calibration point chart. Each pair of dots repersents gaze coordinates </span><span class="se">\</span>
+<span class="s2">        recorded during the presentation of one of the calibration points.&quot;</span>
+        
+        <span class="c1">#----data processing: classify, filter (processing.py)</span>
+        <span class="c1"># hmm</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;hmm&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Pekkanen &amp; Lappi, 2017&#39;</span>
+        <span class="n">doi</span> <span class="o">=</span> <span class="s1">&#39;doi: 10.1038/s41598-017-17983-x&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Pekkanen, J., &amp; Lappi, O. (2017). A new and general approach to signal denoising and eye movement classification </span><span class="se">\</span>
+<span class="s1">        based on segmented linear regression. Scientific Reports, 7(1).&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">doi</span>
+        <span class="c1"># how preprocessing was planned</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;preprocessing&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Larsson, Nystrom, &amp; Stridh, 2013&#39;</span>
+        <span class="n">doi</span> <span class="o">=</span> <span class="s1">&#39;doi: 10.1109/tbme.2013.2258918&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Larsson, L., Nystrom, M., &amp; Stridh, M. (2013). Detection of Saccades and Postsaccadic Oscillations in the Presence </span><span class="se">\</span>
+<span class="s1">        of Smooth Pursuit. IEEE Transactions On Biomedical Engineering, 60(9), 2484-2493.&#39;</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">doi</span>
+        <span class="c1"># example</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;As conventional in eye tracking research, eye movement data were filtered according to </span><span class="se">\</span>
+<span class="s2">        predetermined cut-offs (e.g. Juhasz and Rayner, 2006; Kliegl, Grabner, Rolfs, and Engbert, 2004; Rayner, Reichle, Stroud, </span><span class="se">\</span>
+<span class="s2">        Williams, and Pollatsek, 2006; Rayner et al., 2011; Schattka, Radach, and Huber, 2010). Fixations smaller than 80 ms </span><span class="se">\</span>
+<span class="s2">        and adjacent to a larger neighbouring fixation (within 0.3° of a visual angle) were merged. Fixations shorter than </span><span class="se">\</span>
+<span class="s2">        80 ms that were not adjacent to a larger neighbouring fixation and fixations longer than 1200 ms were excluded </span><span class="se">\</span>
+<span class="s2">        (Juhasz et al., 2006). Trials with gross track loss were also excluded, leading to an elimination of 4.47</span><span class="si">% o</span><span class="s2">f the </span><span class="se">\</span>
+<span class="s2">        data overall (3.68</span><span class="si">% f</span><span class="s2">or NHI and 4.80</span><span class="si">% f</span><span class="s2">or PWA). Trials with blinks were not excluded since a comparison of trials </span><span class="se">\</span>
+<span class="s2">        with blinks to trials without blinks showed no significant differences in gaze durations in a previous experiment (Huck, 2016).&quot;</span>
+    
+        <span class="c1">#----software</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;R Core Team, 2013&#39;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.R-project.org/&#39;</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Core Team, R., (2013). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna,</span><span class="se">\</span>
+<span class="s1">        Austria. (Version 3.2.1) [Software]. Available from URL </span><span class="si">%s</span><span class="s1">.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+        <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
+    
+        <span class="c1">#----remove whitespaces</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="c1">#create metadata variable</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;short&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;short&#39;</span><span class="p">]</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;long&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;long&#39;</span><span class="p">]</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;def&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">]</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;cite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;cite&#39;</span><span class="p">]</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;img&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">config</span></div></div>
+
+<span class="n">config</span><span class="o">=</span><span class="p">{</span>
+    <span class="c1">#!!!----path</span>
+    <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;home&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()),</span>
+        <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()),</span>
+        <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;dist/_R/&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="o">+</span> <span class="s1">&#39;dist/output&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;processed&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="o">+</span> <span class="s1">&#39;dist/output/data/process/&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;summary&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="o">+</span> <span class="s1">&#39;dist/output/data/R33-dotprobe-js.csv&#39;</span><span class="p">),</span>
+    <span class="p">},</span>
+    <span class="c1">#!!!----multiprocessing</span>
+    <span class="s1">&#39;cores&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="c1">#number of cpu cores to use for multiprocessing (all subjects only)</span>
+    <span class="c1">#!!!----style</span>
+    <span class="s1">&#39;style&#39;</span><span class="p">:{</span>
+        <span class="s1">&#39;seaborn&#39;</span><span class="p">:</span><span class="s1">&#39;ticks&#39;</span>
+    <span class="p">},</span>
+    <span class="c1">#!!!----metadata</span>
+    <span class="s1">&#39;metadata&#39;</span><span class="p">:{</span>
+        <span class="c1">#----analysis</span>
+        <span class="s1">&#39;subjects&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;is&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">#bool</span>
+        <span class="s1">&#39;var&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">#raw variable name</span>
+        <span class="s1">&#39;short&#39;</span><span class="p">:{},</span> <span class="c1">#short-hand name of variable</span>
+        <span class="s1">&#39;long&#39;</span><span class="p">:{},</span> <span class="c1">#long name of variable</span>
+        <span class="s1">&#39;def&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">#variable definition</span>
+        <span class="s1">&#39;cite&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">#variable citation</span>
+        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">#url</span>
+        <span class="s1">&#39;img&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">#image example</span>
+        <span class="s1">&#39;events&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;fixation&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;stimulus&#39;</span><span class="p">:{</span><span class="s1">&#39;iaps&#39;</span><span class="p">:</span><span class="mi">4500</span><span class="p">,</span><span class="s1">&#39;pofa&#39;</span><span class="p">:</span><span class="mi">3000</span><span class="p">}},</span>
+        <span class="s1">&#39;redcap&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;token&#39;</span><span class="p">:</span><span class="s1">&#39;D04484634409375EA8CC34F5B71BC14A&#39;</span><span class="p">},</span>
+        <span class="c1">#----lab equipment</span>
+        <span class="s1">&#39;lab&#39;</span><span class="p">:{</span>
+            <span class="s1">&#39;monitor.cm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mf">29.5</span><span class="p">],</span> <span class="c1">#screensize (cm)</span>
+            <span class="s1">&#39;resolution.px&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">],</span> <span class="c1">#screensize (px)</span>
+            <span class="s1">&#39;lab_monitor_device&#39;</span><span class="p">:</span> <span class="s1">&#39;Dell UltraSharp U2414H&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;eyelink_webcam&#39;</span><span class="p">:</span> <span class="s1">&#39;Eyelink 1000 Plus&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;lab_monitor_device&#39;</span><span class="p">:</span> <span class="s1">&#39;Dell UltraSharp U2414H&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;lab_webcam&#39;</span><span class="p">:</span> <span class="s1">&#39;Logitech C922 Pro Stream Webcam&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="mf">615.0</span><span class="p">,</span> <span class="c1">#distance from screen (mm)</span>
+        <span class="p">},</span>
+        <span class="c1">#----articles, notes</span>
+        <span class="s1">&#39;articles&#39;</span><span class="p">:[</span>
+            <span class="s1">&#39;One algorithm to rule them all? An evaluation and discussion of ten eye movement event-detection algorithms&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Comparison of eye movement filters used in HCI&#39;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="c1">#!!!----processing (for processing.py)</span>
+    <span class="s1">&#39;processing&#39;</span><span class="p">:{</span>
+        <span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="s1">&#39;gRT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eyetracking&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;single_subject&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;single_trial&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">#!!!----preprocessing (for processing.py)</span>
+    <span class="s1">&#39;preprocessing&#39;</span><span class="p">:{</span>
+        <span class="s1">&#39;remove_missing&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># remove missing data</span>
+        <span class="s1">&#39;remove_bounds&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># remove samples out of bounds (i.e. gx=(2255, -322)</span>
+        <span class="s1">&#39;remove_spikes&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># remove one-sample spikes</span>
+        <span class="s1">&#39;spike_delta&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">#!!!----filtering parameters</span>
+    <span class="s1">&#39;filter&#39;</span><span class="p">:{</span>
+        <span class="s1">&#39;f_b&#39;</span><span class="p">:{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Wn&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span><span class="s1">&#39;btype&#39;</span><span class="p">:</span><span class="s1">&#39;low&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;f_g&#39;</span><span class="p">:{</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;f_m&#39;</span><span class="p">:{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span>
+        <span class="s1">&#39;f_sg&#39;</span><span class="p">:{</span><span class="s1">&#39;window&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;order&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span> <span class="c1">#default window=11,order=3</span>
+        <span class="s1">&#39;f_a&#39;</span><span class="p">:{</span><span class="s1">&#39;weights&#39;</span><span class="p">:([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])},</span>
+    <span class="p">},</span>
+    <span class="c1">#!!!---classifcation parameters</span>
+    <span class="s1">&#39;classify&#39;</span><span class="p">:{</span>
+        <span class="s1">&#39;is_classify&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;classify_eyelink_data&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># if data is from eyelink, so we self classify fixations (True) or use original (False)</span>
+        <span class="s1">&#39;ctype&#39;</span><span class="p">:</span> <span class="s1">&#39;hmm&#39;</span><span class="p">,</span> <span class="c1">#if self classifying fixations, what classification technique should we use #either hmm, simple, ivt, or idt</span>
+        <span class="c1">#simple parameters</span>
+        <span class="s1">&#39;missing&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="c1">#value to be used for missing data (simple)</span>
+        <span class="s1">&#39;maxdist&#39;</span><span class="p">:</span> <span class="mi">360</span><span class="p">,</span> <span class="c1">#maximal inter sample distance in pixels (simple)</span>
+        <span class="s1">&#39;mindur&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="c1">#minimal duration of a fixation in milliseconds</span>
+        <span class="c1">#ivt parameters</span>
+        <span class="s1">&#39;v_th&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">#Velocity threshold in px/sec (ivt; default 20)</span>
+        <span class="c1">#idt parameters</span>
+        <span class="s1">&#39;dr_th&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="c1">#Fixation duration threshold in px/msec (idt; default 100)</span>
+        <span class="s1">&#39;di_th&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="c1">#Dispersion threshold in px (idt; default 20)</span>
+        <span class="s1">&#39;filters&#39;</span><span class="p">:[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span><span class="s1">&#39;sg&#39;</span><span class="p">]]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Semeon Risom.<br/>
+      Last updated on Apr 17, 2019.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

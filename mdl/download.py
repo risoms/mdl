@@ -66,17 +66,17 @@ class download():
                   - Description
                 * - report_id : :obj:`str`
                   - (report, record) The report ID number provided next to the report name on the report list page.
-                * - format_ : :obj:`str` {csv, json, xml, odm}
+                * - cformat : :obj:`str` {csv, json, xml, odm}
                   - Format to return data, either csv, json, xml, or odm. Default is json.
-                * - type_ : :obj:`str`
+                * - ctype : :obj:`str`
                   - Shape of data. Default is flat.
-                * - rawOrLabel_ : :obj:`str` {raw, label}
+                * - rawOrLabel: :obj:`str` {raw, label}
                   - (report, record) TExport the raw coded values or labels for the options of multiple choice fields.
-                * - rawOrLabelHeaders_ : :obj:`str`
+                * - rawOrLabelHeaders: :obj:`str`
                   - (report, record) TExport the variable/field names (raw) or the field labels (label).
-                * - exportCheckboxLabel_ : :obj:`str`
+                * - exportCheckboxLabel: :obj:`str`
                   - Specifies the format of checkbox field values specifically when exporting the data as labels (i.e., when rawOrLabel=label).
-                * - returnFormat_ : :obj:`str`
+                * - returnFormat : :obj:`str`
                   -  Format to return errors. Default is `json`.
                  
         Returns
@@ -111,17 +111,17 @@ class download():
         
         #----kwargs
         # general
-        format_ = kwargs['format'] if "format" in kwargs else 'json'
-        type_ = kwargs['content'] if "content" in kwargs else 'flat'
-        rawOrLabel_ = kwargs['rawOrLabel'] if "rawOrLabel" in kwargs else 'raw'
-        rawOrLabelHeaders_ = kwargs['rawOrLabelHeaders'] if "rawOrLabelHeaders" in kwargs else 'raw'
-        exportCheckboxLabel_ = kwargs['exportCheckboxLabel'] if "exportCheckboxLabel" in kwargs else 'false'
-        returnFormat_ = kwargs['returnFormat'] if "returnFormat" in kwargs else 'json'
+        cformat = kwargs['cformat'] if "cformat" in kwargs else 'json'
+        ctype = kwargs['ctype'] if "ctype" in kwargs else 'flat'
+        rawOrLabel = kwargs['rawOrLabel'] if "rawOrLabel" in kwargs else 'raw'
+        rawOrLabelHeaders = kwargs['rawOrLabelHeaders'] if "rawOrLabelHeaders" in kwargs else 'raw'
+        exportCheckboxLabel = kwargs['exportCheckboxLabel'] if "exportCheckboxLabel" in kwargs else 'false'
+        returnFormat = kwargs['returnFormat'] if "returnFormat" in kwargs else 'json'
         # report
         report_id = kwargs['report_id'] if "report_id" in kwargs else 'None'
         # participantList
-        instrument_ = kwargs['instrument'] if "instrument" in kwargs else 'cssrs'
-        event_ = kwargs['event'] if "event" in kwargs else 'online_eligibility_arm_1'
+        instrument = kwargs['instrument'] if "instrument" in kwargs else 'cssrs'
+        event = kwargs['event'] if "event" in kwargs else 'online_eligibility_arm_1'
 
         #----start
         settings.console('connecting to REDCap', 'blue')
@@ -140,36 +140,36 @@ class download():
                 payload = {
                     'token': token,
                     'content': content,
-                    'format': format_,
-                    'type': type_, 
-                    'returnFormat': returnFormat_,
+                    'format': cformat,
+                    'type': ctype, 
+                    'returnFormat': returnFormat,
                     'report_id': report_id,
-                    'rawOrLabel': rawOrLabel_,
-                    'rawOrLabelHeaders': rawOrLabelHeaders_,
-                    'exportCheckboxLabel': exportCheckboxLabel_
+                    'rawOrLabel': rawOrLabel,
+                    'rawOrLabelHeaders': rawOrLabelHeaders,
+                    'exportCheckboxLabel': exportCheckboxLabel
                 }
             elif content == 'participantList':
                 payload = {
                     'token': token,
                     'content': content,
-                    'format': format_,
-                    'returnFormat': returnFormat_,
-                    'instrument': instrument_ ,
-                    'event': event_,
+                    'format': cformat,
+                    'returnFormat': returnFormat,
+                    'instrument': instrument,
+                    'event': event,
                 }
             elif content == 'metadata':
                 payload = {
                     'token': token,
                     'content': content,
-                    'format': format_,
-                    'returnFormat': returnFormat_,
+                    'format': cformat,
+                    'returnFormat': returnFormat,
                 }
             elif content == 'project':
                 payload = {
                     'token': token,
                     'content': content,
-                    'format': format_,
-                    'returnFormat': returnFormat_,
+                    'format': cformat,
+                    'returnFormat': returnFormat,
                 }
             else:
                 raise Exception('Not finished. Content `%s` unavailable.'%(content))

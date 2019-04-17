@@ -9,6 +9,7 @@ mdl.R33.model
     :members:
     :undoc-members:
     :member-order: bysource
-	:titlesonly:
+	:titles-only:
+	:private-members:
 
    

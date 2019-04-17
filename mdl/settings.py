@@ -221,7 +221,7 @@ class settings():
         except Exception as e:
             return e
             #----finished
-            self.console('%s finished in %s msec'%(_f,((datetime.now()-_t0).total_seconds()*1000)), 'blue')
+            cls.console('%s finished in %s msec'%(_f,((datetime.now()-_t0).total_seconds()*1000)), 'blue')
     
     @classmethod
     def debug(cls, message, source='debug'):

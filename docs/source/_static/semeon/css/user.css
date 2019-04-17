@@ -5,6 +5,11 @@ html, body {
 	overflow-x: hidden;
 	background: #5b96be !important;
 }
+@media (min-width: 1200px){
+	.container {
+		width: 75%;
+	}
+}
 body>.container{
 	background: #B4D1E0;
     margin-top: 10px !important;
@@ -69,7 +74,7 @@ a{
 	top: 40px;
 }
 .toc.col-md-3 {
-    width: 175px;
+    width: 225px;
 }
 @media (max-width: 991px) {
 	.body>.container{
@@ -79,22 +84,22 @@ a{
 		display: none;
 	}
 }
-.bs-sidenav>.nav {
-	font-size: 15px;
+#sidebar>.nav {
+	font-size: 13px;
 	font-weight: 400 !important;
-}
-.bs-sidenav>.nav>.toctree-l1>.nav {
-    font-size: 90%;
-}
-#sidebar>.nav-list>.toctree-l2>.internal{
-	font-size: 15px;
 }
 #sidebar>.nav-list>.toctree-l1>.internal,
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.internal,
-#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.internal{
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.internal,
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.nav>.toctree-l4>.internal{
 	color: #595959 !important;
 	font-weight: 400 !important;
 	text-shadow: none !important;
+}
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.internal,
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.internal,
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.nav>.toctree-l4>.internal{
+	padding-left: 30px;
 }
 #imhr-r33>.toctree-wrapper>ul,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul,
@@ -105,8 +110,8 @@ a{
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>.internal,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul>.toctree-l2>.internal,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul>.toctree-l2>ul>.toctree-l3>.internal{
-	font-size: 14px;
-	color: #1c75b1 !important;
+    font-size: 13px;
+    color: #2196f3 !important;
 	font-weight: 400 !important;
 }
 /*--class and methods--*/
@@ -294,4 +299,56 @@ footer>.container{
 #api-reference>.toctree-wrapper>ul>.toctree-l1>.internal{
 	color: #1c75b1 !important;
 	font-weight: 600 !important;
+}
+
+/*--copy button--*/
+/* Copy buttons */
+a.copybtn {
+	box-sizing: content-box !important;
+	position: absolute !important;
+	top: 2px !important;;
+	right: 2px !important;;
+	width: 14px !important;;
+	height: 14px !important;;
+	padding: .3em !important;;
+	opacity: .3;
+	transition: opacity 0.5s !important;
+}
+.copybtn>img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+div.highlight  {
+    position: relative;
+}
+.highlight:hover .copybtn {
+	opacity: 1;
+}
+ .o-tooltip--left {
+	position: relative;
+ }
+ .o-tooltip--left:after {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    content: attr(data-tooltip);
+	padding: 5px;
+    top: 0;
+    left: 0;
+    background: grey;
+    font-size: 1rem;
+    color: white;
+    white-space: nowrap;
+    z-index: 2;
+    border-radius: 2px;
+    transform: translateX(-102%) translateY(0);
+    transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+.o-tooltip--left:hover:after {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-100%) translateY(0);
+    transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
 }

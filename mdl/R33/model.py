@@ -74,7 +74,7 @@ def anova(config, y, f, df, csv, path, effects, is_html=True):
     -----
     **Resources**
         - https://rpsychologist.com/r-guide-longitudinal-lme-lmer
-        - https://sites.ualberta.ca/~lkgray/uploads/7/3/6/2/7362679/slides_- anova_assumptions.pdf
+        - https://sites.ualberta.ca/~lkgray/uploads/7/3/6/2/7362679/slides_-anova_assumptions.pdf
         - https://rpubs.com/tmcurley/twowayanova
         - https://rstudio-pubs-static.s3.amazonaws.com/158708_78d414c091fc47bd99f6f75e3bd8f4cb.html
         - https://m-clark.github.io/docs/mixedModels/anovamixed.html

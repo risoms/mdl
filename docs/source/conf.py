@@ -107,12 +107,11 @@ extensions = [
 ]
 # extensopm parameters
 # autosummary
-autosummary_generate = False
+autosummary_generate = True
 autodoc_default_options = {
     'member-order': 'bysource',
     'private-members': True,
     'undoc-members': False,
-    'special-members': True,
 }
 
 # -- apidoc --------------------------------------------------------------	
@@ -130,18 +129,30 @@ def run_apidoc(app):
         os.path.abspath(path) #module path
     ])	
 
+html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.
+html_show_sourcelink = True #If true (and html_copy_source is true as well), links to the reST sources will be added to the sidebar.
+
+# -- allow __init__ --------------------------------------------------------------
+autoclass_content = 'both'
+# allows inclusion of -_init__
+def skip(app, what, name, obj, skip, options):
+    if name == "__init__":
+        return False
+    return skip
+
 # -- Path setup --------------------------------------------------------------
 def setup(app):
 	# copybutton
 	app.add_javascript("semeon/js/clipboard.js")
 	app.add_stylesheet('semeon/css/user.css')
 	app.add_javascript("semeon/js/user.js")
-	app.add_stylesheet('semeon/css/copybutton.css')
 	app.add_javascript("semeon/js/copybutton.js")
 	# better apidoc
 	app.connect('builder-inited', run_apidoc)
 	# auto add function in toctree
 	app.add_directive('autoautosummary', AutoAutoSummary)
+	#
+	app.connect("autodoc-skip-member", skip)
 
 # -- General configuration ---------------------------------------------------
 # Sphinx will warn about all references where the target cannot be found.
@@ -162,7 +173,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.py','notes.py','setup.py','dist','pylink']
+exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.py','notes.py','setup.py','dist','pylink','setup']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -180,8 +191,8 @@ html_theme = 'bootstrap'
 html_static_path = ['_static']
 # for more: https://github.com/ryan-roemer/sphinx-bootstrap-theme
 html_theme_options = {
-    'source_link_position': "footer", 
-	'globaltoc_includehidden': True, # Include hidden TOCs in Site navbar
+    'source_link_position': "footer",  # Location of source link
+	'globaltoc_includehidden': False, # Include hidden TOCs in Site navbar
     'bootswatch_theme': "paper", # Bootswatch (http://bootswatch.com/) theme.
     'navbar_sidebarrel': False, # Render the next and previous page links in navbar.
 	'navbar_pagenav': True, # Render the current pages TOC in the navbar
@@ -193,7 +204,7 @@ html_theme_options = {
 }
 #no 'searchresults.html' 
 # #localtoc #fulltoc #globaltoc 
-html_sidebars = {'**': ['flocaltoculltoc.html']}
+html_sidebars = {'**': ['localtoc.html']}
 # -- nbsphinx -------------------------------------------------
 nbsphinx_allow_errors = False
 nbsphinx_execute = 'never'

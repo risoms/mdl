@@ -8,6 +8,18 @@ mdl
 
 
 
+    Submodules
+	----------
+
+    .. toctree::
+       :maxdepth: 1
+
+       mdl.config
+       mdl.download
+       mdl.plot
+       mdl.roi
+       mdl.settings
+
     Subpackages
 	-----------
 
@@ -16,12 +28,6 @@ mdl
 
        mdl.R33
        mdl.eyetracking
-
-
-
-
-
-
 
 
 

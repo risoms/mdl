@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    ".. demographics_\n",
+    ".. _demographics:\n",
     " \n",
     ".. title:: Demographics\n",
     "\n",
@@ -31,7 +31,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -49,7 +49,7 @@
     "from pdb import set_trace as breakpoint\n",
     "import pandas as pd\n",
     "import gc, glob, string, pytz\n",
-    "from datetime import datetime\n"
+    "from datetime import datetime"
    ]
   },
   {
@@ -61,7 +61,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -78,7 +78,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -99,7 +99,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -241,7 +241,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -396,7 +396,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -420,7 +420,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -536,7 +536,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -618,7 +618,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 0,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [

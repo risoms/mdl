@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-@purpose: Analysis methods for mdl.processing.preprocesing.   
-@date: Created on Sat May 1 15:12:38 2019   
-@author: Semeon Risom   
-@email: semeon.risom@gmail.com   
-@url: https://semeon.io/d/R33-analysis  
+| @purpose: Analysis methods for mdl.processing.preprocesing.   
+| @date: Created on Sat May 1 15:12:38 2019   
+| @author: Semeon Risom   
+| @email: semeon.risom@gmail.com   
+| @url: https://semeon.io/d/R33-analysis  
 """
 
 from __future__ import division
@@ -17,13 +17,13 @@ class classify():
     """Analysis methods for mdl.processing.preprocesing."""
     def __init__(self):
         pass
-    def VisualAngle(g_x,g_y,config):
+    def VisualAngle(self,g_x,g_y,config):
         """
         Convert pixel eye-coordinates to visual angle.
         
         Parameters
         ----------
-        g_x,g_y : :class:`ndarray`
+        g_x,g_y : :class:`numpy.ndarray`
             List of gaze coordinates.
         drift : :obj:`dict`
             Counter of drift correct runs.
@@ -62,16 +62,16 @@ class classify():
     
         return np.rad2deg(Ah), np.rad2deg(Av)   
     
-    def Velocity(time,d_x,d_y=None):
+    def Velocity(self,time,d_x,d_y=None):
         """
         Calculate the instantaneous velocity (degrees / second) for data points in 
         d_x and (optionally) d_y, using the time numpy array for time delta information.
         
         Parameters
         ----------
-        time : :class:`ndarray`
+        time : :class:`numpy.ndarray`
             Timestamp of each coordinate.
-        d_x,d_y : :class:`ndarray`
+        d_x,d_y : :class:`numpy.ndarray`
             List of gaze coordinates.
     
         Notes
@@ -95,7 +95,7 @@ class classify():
         velocity = (velocity_between[1:]+velocity_between[:-1])/2.0
         return velocity
     
-    def Acceleration(time,data_x,data_y=None):
+    def Acceleration(self,time,data_x,data_y=None):
         """
         Calculate the acceleration (deg/sec/sec) for data points in 
         d_x and (optionally) d_y, using the time numpy array for 
@@ -105,8 +105,7 @@ class classify():
         accel = Velocity(time[1:-1],velocity)
         return accel
     
-    # savitzky_golay implementation from http://wiki.scipy.org/Cookbook/SavitzkyGolay
-    def savitzky_golay(y, window_size, order, deriv=0, rate=1):
+    def savitzky_golay(self, y, window_size, order, deriv=0, rate=1):
         """
         Smooth (and optionally differentiate) data with a Savitzky-Golay filter.
         The Savitzky-Golay filter removes high frequency noise from data.
@@ -116,7 +115,7 @@ class classify():
         
         Parameters
         ----------
-        y : :class:`ndarray`, shape (N,)
+        y : :class:`numpy.ndarray`, shape (N,)
             the values of the time history of the signal.
         window_size : :obj:`int`
             the length of the window. Must be an odd integer number.
@@ -128,7 +127,7 @@ class classify():
         
         Returns
         -------
-        ys : :class:`ndarray`, shape (N)
+        ys : :class:`numpy.ndarray`, shape (N)
             the smoothed signal (or it's n-th derivative).
         
         Notes
@@ -138,6 +137,7 @@ class classify():
         approach is to make for each point a least-square fit with a
         polynomial of high order over a odd-sized window centered at
         the point.
+		For more information, see: http://wiki.scipy.org/Cookbook/SavitzkyGolay.
         
         Examples
         --------
@@ -190,7 +190,7 @@ class classify():
         y = np.concatenate((firstvals, y, lastvals))
         return np.convolve( m[::-1], y, mode='valid')
     
-    def ivt(data, v_threshold, config):
+    def ivt(self,data, v_threshold, config):
         """Identification with Velocity Threshold.
         In the I-VT model, the velocity value is computed for every eye position sample. 
         The velocity value is then compared to the threshold. If the sampled velocity is less 
@@ -199,14 +199,14 @@ class classify():
         
         Parameters
         ----------
-        data : :class:`ndarray`, shape (N,)
+        data : :class:`numpy.ndarray`, shape (N,)
             the smoothed signal (or it's n-th derivative).
         v_threshold : :obj:`str`
             Velocity threshold in pix/sec
         
         Returns
         -------
-        ys : :class:`ndarray`, shape (N,)
+        ys : :class:`numpy.ndarray`, shape (N,)
             the smoothed signal (or it's n-th derivative).
         
         Notes
@@ -310,14 +310,14 @@ class classify():
         
         return cxy_df
 
-    def hmm(data, config, filter_type):
+    def hmm(self,data, config, filter_type):
         '''
         Hidden Makov Models
         url: https://gitlab.com/nslr/nslr-hmm
         
         Attributes
         ----------
-        data : :class:`ndarray`
+        data : :class:`numpy.ndarray`
             the smoothed signal (or it's n-th derivative).
         dr_th : :obj:`str`
        
@@ -367,13 +367,13 @@ class classify():
         
         return data, class_df
     
-    def idt(data, dis_threshold, dur_threshold):
+    def idt(self,data, dis_threshold, dur_threshold):
         """
         Identification with Dispersion Threshold
         
         Parameters
         ----------
-        data : :class:`ndarray`
+        data : :class:`numpy.ndarray`
             The smoothed signal (or it's n-th derivative).
         dr_th : :obj:`str`
             Fixation duration threshold in pix/msec
@@ -382,7 +382,7 @@ class classify():
         
         Returns
         -------
-        ys : :class:`ndarray`
+        ys : :class:`numpy.ndarray`
             The smoothed signal (or it's n-th derivative).
         
         Notes
@@ -477,7 +477,7 @@ class classify():
         
         return cxy_df
     
-    def simple(df, missing, maxdist, mindur):
+    def simple(self,df, missing, maxdist, mindur):
         """Detects fixations, defined as consecutive samples with an inter-sample
         distance of less than a set amount of pixels (disregarding missing data).
            
@@ -495,9 +495,9 @@ class classify():
         
         Returns
         -------
-        Sfix : :class:`ndarray` shape (N)
+        Sfix : :class:`numpy.ndarray` shape (N)
             list of lists, each containing [starttime]
-        Efix : :class:`ndarray` shape (N)
+        Efix : :class:`numpy.ndarray` shape (N)
             list of lists, each containing [starttime, endtime, duration, endx, endy]
         
         Notes

@@ -10,6 +10,6 @@ Examples
 
    demographics_
    download_
-   model_
-   plot_
+   models_
+   plots_
    process_

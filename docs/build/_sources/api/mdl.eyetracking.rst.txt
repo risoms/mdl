@@ -8,20 +8,14 @@ mdl.eyetracking
 
 
 
-    Modules
-	-------
+    Submodules
+	----------
 
     .. toctree::
        :maxdepth: 1
 
        mdl.eyetracking.calibration
        mdl.eyetracking.eyetracking
-
-
-
-
-
-
 
 
 

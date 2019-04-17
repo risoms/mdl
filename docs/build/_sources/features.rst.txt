@@ -1,12 +1,12 @@
 Features
-========
+""""""""
 
 .. features:
 
 Accesesing Raw Data
--------------------
+~~~~~~~~~~~~~~~~~~~
 
-.. currentmodule:: R33.download
+.. currentmodule:: mdl.download
 
 .. autosummary::
 
@@ -15,19 +15,19 @@ Accesesing Raw Data
     download.box
 
 Preprocessing
--------------
+~~~~~~~~~~~~~
 
-.. currentmodule:: R33.processing
+.. currentmodule:: mdl.R33.processing
 
 .. autosummary::
 
     processing.preprocess
     processing.run
 
-Data analysis
--------------
+Data Analysis
+~~~~~~~~~~~~~
 
-.. currentmodule:: R33
+.. currentmodule:: mdl.R33
 
 .. autosummary::
 
@@ -36,9 +36,9 @@ Data analysis
     model.logistic
 
 Relational plots
-----------------
+~~~~~~~~~~~~~~~~
 
-.. currentmodule:: R33
+.. currentmodule:: mdl
 
 .. autosummary::
 
