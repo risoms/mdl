@@ -1,6 +1,0 @@
-numpy
-scipy
-pandas
-cv2
-psd_tools
-opencv-python
