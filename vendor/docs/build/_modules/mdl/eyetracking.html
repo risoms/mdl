@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.eyetracking &#8212; mdl-eyelink 2019-03-12 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          mdl-eyelink</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-03-12</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../genindex.html">Glossary</a></li>
+                <li><a href="../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../eyetracking.html">eyetracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../calibration.html">calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pylink.html">pylink</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for mdl.eyetracking</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">| Created on Wed Feb 13 15:37:43 2019</span>
+<span class="sd">| @author: Semeon Risom</span>
+<span class="sd">| @email: semeon.risom@gmail.com.</span>
+
+<span class="sd">| Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0),</span>
+<span class="sd">| but should be compatiable with earlier systems.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ---debug</span>
+<span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
+
+<span class="c1"># ---main</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+
+<span class="c1"># ---bridging</span>
+<span class="kn">import</span> <span class="nn">pylink</span>
+<span class="kn">from</span> <span class="nn">calibration</span> <span class="k">import</span> <span class="n">calibration</span>
+<span class="c1">#---------------------------------------------start</span>
+<div class="viewcode-block" id="eyetracking"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking">[docs]</a><span class="k">class</span> <span class="nc">eyetracking</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">isPsychopy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">libraries</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">calibration_type</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+                 <span class="n">automatic_calibration_pacing</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">saccade_velocity_threshold</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">saccade_acceleration_threshold</span><span class="o">=</span><span class="mi">9500</span><span class="p">,</span>
+                 <span class="n">sound</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">select_parser_configuration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">recording_parse_type</span><span class="o">=</span><span class="s2">&quot;GAZE&quot;</span><span class="p">,</span> <span class="n">enable_search_limits</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start eyetracker.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        libraries : :class:`bool`</span>
+<span class="sd">            Should the code check if required libraries are available.</span>
+<span class="sd">        window : :class:`psychopy.visual.window.Window`</span>
+<span class="sd">            PsychoPy window instance.</span>
+<span class="sd">        isPsychopy : :class:`bool`</span>
+<span class="sd">            Is Psychopy being used.</span>
+<span class="sd">        sound : :class:`bool`</span>
+<span class="sd">           Should eyetracker play sounds during calibration/validation. Default False.</span>
+<span class="sd">        calibration_type : :class:`int`</span>
+<span class="sd">            Calibration type. Default is 13-point. [see Eyelink 1000 Plus User Manual, 3.7 Calibration]</span>
+<span class="sd">        automatic_calibration_pacing : :class:`int`</span>
+<span class="sd">            Select the delay in milliseconds, between successive calibration or validation targets </span>
+<span class="sd">            if automatic target detection is activeSet automatic calibration pacing. [see pylink.chm]</span>
+<span class="sd">        saccade_velocity_threshold : :class:`int`</span>
+<span class="sd">            Sets velocity threshold of saccade detector: usually 30 for cognitive research, 22 for </span>
+<span class="sd">            pursuit and neurological work. Default is 35. Note: EyeLink II and EyeLink 1000,</span>
+<span class="sd">            select select_parser_configuration should be used instead. [see EyeLink Programmer’s Guide, </span>
+<span class="sd">            Section 25.9: Parser Configuration; Eyelink 1000 Plus User Manual, Section 4.3.5 </span>
+<span class="sd">            Saccadic Thresholds]</span>
+<span class="sd">        saccade_acceleration_threshold : :class:`int`</span>
+<span class="sd">            Sets acceleration threshold of saccade detector: usually 9500 for cognitive research, 5000 </span>
+<span class="sd">            for pursuit and neurological work. Default is 9500. Note: For EyeLink II and EyeLink 1000,</span>
+<span class="sd">            select select_parser_configuration should be used instead. [see EyeLink Programmer’s Guide,</span>
+<span class="sd">            Section 25.9: Parser Configuration; Eyelink 1000 Plus User Manual, Section 4.3.5 </span>
+<span class="sd">            Saccadic Thresholds]</span>
+<span class="sd">        select_parser_configuration : :class:`int`</span>
+<span class="sd">            Selects the preset standard parser setup (0) or more sensitive (1). These are equivalent</span>
+<span class="sd">            to the cognitive and psychophysical configurations. Default is 0. [see EyeLink Programmer’s </span>
+<span class="sd">            Guide, Section 25.9: Parser Configuration]</span>
+<span class="sd">        recording_parse_type : :class:`str`</span>
+<span class="sd">            Sets how velocity information for saccade detection is to be computed.</span>
+<span class="sd">            Enter either &#39;GAZE&#39; or &#39;HREF&#39;. Default is &#39;GAZE&#39;. [see Eyelink 1000 Plus User Manual, </span>
+<span class="sd">            Section 4.4: File Data Types]</span>
+<span class="sd">        enable_search_limits : :class:`bool`</span>
+<span class="sd">            Enables tracking of pupil to global search limits. Default is True. [see Eyelink 1000 Plus </span>
+<span class="sd">            User Manual, Section 4.4: File Data Types]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">#----screen size</span>
+        <span class="k">if</span> <span class="n">isPsychopy</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">win32api</span> <span class="k">import</span> <span class="n">GetSystemMetrics</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">GetSystemMetrics</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">GetSystemMetrics</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">AppKit</span> <span class="k">import</span> <span class="n">NSScreen</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">NSScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">frame</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">NSScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">frame</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span>
+
+        <span class="c1">#----parameters</span>
+        <span class="c1"># instants</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="c1"># flags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isDriftCorrection</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># counters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drift_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trial</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="c1"># pupil</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_eye</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_eye</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># check if subject number has been entered</span>
+        <span class="k">if</span> <span class="n">subject</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span>
+                <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Subject number not entered. Please enter the subject number.&#39;</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="n">subject</span>
+        
+        <span class="c1">#----check if required libraries are available</span>
+        <span class="k">if</span> <span class="n">libraries</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">libraries</span><span class="p">()</span>
+
+        <span class="c1">#----edf filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">subject</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># check if interger</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+$&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;Name must only include A-Z, 0-9, or _&#39;</span><span class="p">)</span>
+        <span class="c1"># check length</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;Name must be &lt;= 8 characters.&#39;</span><span class="p">)</span>
+        <span class="c1"># store name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.edf&#39;</span>
+
+        <span class="c1">#----initiate connection with eyetracker</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span> <span class="o">=</span> <span class="n">pylink</span><span class="o">.</span><span class="n">EyeLink</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Eyelink Connected&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span> <span class="o">=</span> <span class="n">pylink</span><span class="o">.</span><span class="n">EyeLink</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Eyelink RuntimeError&quot;</span><span class="p">)</span>
+
+        <span class="c1">#----tracker metadata</span>
+        <span class="c1"># get eyelink version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">getTrackerVersion</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Eyelink Tracker: Version </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span>
+                     <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tracker_version</span><span class="p">))</span>
+
+        <span class="c1"># get host tracking software version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host_version</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker_version</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">tvstr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">getTrackerVersionString</span><span class="p">()</span>
+            <span class="n">vindex</span> <span class="o">=</span> <span class="n">tvstr</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;EYELINK CL&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">host_version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">tvstr</span><span class="p">[(</span><span class="n">vindex</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;EYELINK CL&quot;</span><span class="p">)):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Eyelink Host: Version </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                     <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host_version</span><span class="p">))</span>
+
+        <span class="c1">#----preset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">select_parser_configuration</span> <span class="o">=</span> <span class="n">select_parser_configuration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saccade_acceleration_threshold</span> <span class="o">=</span> <span class="n">saccade_acceleration_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saccade_velocity_threshold</span> <span class="o">=</span> <span class="n">saccade_velocity_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recording_parse_type</span> <span class="o">=</span> <span class="n">recording_parse_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable_search_limits</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span> <span class="k">if</span> <span class="n">enable_search_limits</span> <span class="k">else</span> <span class="s2">&quot;NO&quot;</span>
+        <span class="c1"># calibration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibration_type</span> <span class="o">=</span> <span class="n">calibration_type</span>  <span class="c1"># []-point calibration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">automatic_calibration_pacing</span> <span class="o">=</span> <span class="n">automatic_calibration_pacing</span>
+        <span class="c1"># specify the EVENT and SAMPLE data that are stored in EDF or retrievable from the Link</span>
+        <span class="c1"># [see Section 4.6 Data Files of the  EyeLink 1000 Plus user manual]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fef</span> <span class="o">=</span> <span class="s2">&quot;LEFT,RIGHT,FIXATION,SACCADE,BLINK,MESSAGE,BUTTON,INPUT&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lef</span> <span class="o">=</span> <span class="s2">&quot;LEFT,RIGHT,FIXATION,FIXUPDATE,SACCADE,BLINK,BUTTON,INPUT&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">host_version</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fsd</span> <span class="o">=</span> <span class="s2">&quot;LEFT,RIGHT,GAZE,AREA,GAZERES,STATUS,HTARGET,INPUT&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lsd</span> <span class="o">=</span> <span class="s2">&quot;LEFT,RIGHT,GAZE,GAZERES,AREA,STATUS,HTARGET,INPUT&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fsd</span> <span class="o">=</span> <span class="s2">&quot;LEFT,RIGHT,GAZE,AREA,GAZERES,STATUS&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lsd</span> <span class="o">=</span> <span class="s2">&quot;LEFT,RIGHT,GAZE,GAZERES,AREA,STATUS&quot;</span>
+
+        <span class="c1">#----set tracker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<div class="viewcode-block" id="eyetracking.console"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.console">[docs]</a>    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow color print to console.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        color : :class:`str`</span>
+<span class="sd">            Color to use (black, red, green, orange, purple, blue, grey).</span>
+<span class="sd">        msg : :class:`str`</span>
+<span class="sd">            Message to be color printed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">color</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">black</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[40m&#39;</span><span class="p">,</span>
+            <span class="n">red</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[41m&#39;</span><span class="p">,</span>
+            <span class="n">green</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[42m&#39;</span><span class="p">,</span>
+            <span class="n">orange</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[43m&#39;</span><span class="p">,</span>
+            <span class="n">purple</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[45m&#39;</span><span class="p">,</span>
+            <span class="n">blue</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[46m&#39;</span><span class="p">,</span>
+            <span class="n">grey</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\33</span><span class="s1">[47m&#39;</span><span class="p">,</span>
+            <span class="n">ENDC</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="n">color</span><span class="p">[</span><span class="s1">&#39;ENDC&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="eyetracking.libraries"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.libraries">[docs]</a>    <span class="k">def</span> <span class="nf">libraries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check if required libraries to run eyelink and Psychopy are available.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.libraries()&quot;</span><span class="p">)</span>
+        <span class="c1"># check libraries for missing</span>
+        <span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">StrictVersion</span>
+        <span class="kn">import</span> <span class="nn">importlib</span>
+        <span class="kn">import</span> <span class="nn">pkg_resources</span>
+        <span class="kn">import</span> <span class="nn">pip</span>
+
+        <span class="c1"># list of possibly missing packages to install</span>
+        <span class="n">required</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;psychopy&#39;</span><span class="p">,</span> <span class="s1">&#39;importlib&#39;</span><span class="p">,</span> <span class="s1">&#39;glfw&#39;</span><span class="p">]</span>
+
+        <span class="c1"># for geting os variables</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+            <span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;win32api&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
+            <span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;pyobjc&#39;</span><span class="p">)</span>
+
+        <span class="c1"># try installing and/or importing packages</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># if pip &gt;= 10.01</span>
+            <span class="n">pip_</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;pip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+            <span class="k">if</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="n">pip_</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="s1">&#39;10.0.0&#39;</span><span class="p">):</span>
+                <span class="kn">from</span> <span class="nn">pip._internal</span> <span class="k">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">_main</span>
+                <span class="c1"># for required packages check if package exists on device</span>
+                <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
+                    <span class="c1"># if missing, install</span>
+                    <span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+
+            <span class="c1"># else pip &lt; 10.01</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># for required packages check if package exists on device</span>
+                <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
+                    <span class="c1"># if missing</span>
+                    <span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="eyetracking.setup"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set Eyelink configuration.</span>
+
+<span class="sd">        Attributes</span>
+<span class="sd">        ----------</span>
+<span class="sd">        calibration_type : :class:`int`</span>
+<span class="sd">            Calibration type. Default is 13-point. [see Eyelink 1000 Plus User Manual, 3.7 Calibration]</span>
+<span class="sd">        automatic_calibration_pacing : :class:`int`</span>
+<span class="sd">            Select the delay in milliseconds, between successive calibration or validation targets </span>
+<span class="sd">            if automatic target detection is activeSet automatic calibration pacing. [see pylink.chm]</span>
+<span class="sd">        saccade_velocity_threshold : :class:`int`</span>
+<span class="sd">            Sets velocity threshold of saccade detector: usually 30 for cognitive research, 22 for </span>
+<span class="sd">            pursuit and neurological work. Default is 35. Note: EyeLink II and EyeLink 1000,</span>
+<span class="sd">            select select_parser_configuration should be used instead. [see EyeLink Programmer’s Guide, </span>
+<span class="sd">            Section 25.9: Parser Configuration; Eyelink 1000 Plus User Manual, Section 4.3.5 </span>
+<span class="sd">            Saccadic Thresholds]</span>
+<span class="sd">        saccade_acceleration_threshold : :class:`int`</span>
+<span class="sd">            Sets acceleration threshold of saccade detector: usually 9500 for cognitive research, 5000 </span>
+<span class="sd">            for pursuit and neurological work. Default is 9500. Note: For EyeLink II and EyeLink 1000,</span>
+<span class="sd">            select select_parser_configuration should be used instead. [see EyeLink Programmer’s Guide,</span>
+<span class="sd">            Section 25.9: Parser Configuration; Eyelink 1000 Plus User Manual, Section 4.3.5 </span>
+<span class="sd">            Saccadic Thresholds]</span>
+<span class="sd">        select_parser_configuration : :class:`int`</span>
+<span class="sd">            Selects the preset standard parser setup (0) or more sensitive (1). These are equivalent</span>
+<span class="sd">            to the cognitive and psychophysical configurations. Default is 0. [see EyeLink Programmer’s </span>
+<span class="sd">            Guide, Section 25.9: Parser Configuration]</span>
+<span class="sd">        recording_parse_type : :class:`str`</span>
+<span class="sd">            Sets how velocity information for saccade detection is to be computed.</span>
+<span class="sd">            Enter either &#39;GAZE&#39; or &#39;HREF&#39;. Default is &#39;GAZE&#39;. [see Eyelink 1000 Plus User Manual, </span>
+<span class="sd">            Section 4.4: File Data Types]</span>
+<span class="sd">        enable_search_limits : :class:`bool`</span>
+<span class="sd">            Enables tracking of pupil to global search limits. Default is True. [see Eyelink 1000 Plus </span>
+<span class="sd">            User Manual, Section 4.4: File Data Types]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">#----open edf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">openDataFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">flushGetkeyQueue</span><span class="p">()</span>
+
+        <span class="c1">#----send settings to eyelink</span>
+        <span class="c1"># place EyeLink tracker in offline (idle) mode before changing settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">setOfflineMode</span><span class="p">()</span>
+        <span class="c1"># Set the tracker to parse events using either GAZE or HREF</span>
+        <span class="c1"># note: [see Data Viewer User Manual, Section 7: Protocol for EyeLink Data to Viewer Integration]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;recording_parse_type = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recording_parse_type</span><span class="p">))</span>
+        <span class="c1"># inform the tracker the resolution of the subject display</span>
+        <span class="c1"># note: [see Eyelink Installation Guide, Section 8.4: Customizing Your PHYSICAL.INI Settings]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span>
+            <span class="s2">&quot;screen_pixel_coords = 0 0 </span><span class="si">%d</span><span class="s2"> </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="c1"># save display resolution in EDF data file for Data Viewer integration purposes</span>
+        <span class="c1"># note: [see Data Viewer User Manual, Section 7: Protocol for EyeLink Data to Viewer Integration]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span>
+            <span class="s2">&quot;DISPLAY_COORDS = 0 0 </span><span class="si">%d</span><span class="s2"> </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="c1"># set calibration type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;calibration_type = HV</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calibration_type</span><span class="p">))</span>
+        <span class="c1"># set automatic calibraiton pacing interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;automatic_calibration_pacing = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">automatic_calibration_pacing</span><span class="p">))</span>
+
+        <span class="c1"># if using tracker version 2 or greater</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker_version</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;select_parser_configuration </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">select_parser_configuration</span><span class="p">))</span>
+            <span class="c1"># turn of scene link</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker_version</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;scene_camera_gazemap = NO&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;saccade_velocity_threshold = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">saccade_velocity_threshold</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;saccade_acceleration_threshold = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">saccade_acceleration_threshold</span><span class="p">))</span>
+
+        <span class="c1"># if using tracker version 3 or above</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker_version</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span>
+                <span class="s2">&quot;enable_search_limits=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enable_search_limits</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;track_search_limits=YES&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;autothreshold_click=YES&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;autothreshold_repeat=YES&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;enable_camera_position_detect=YES&quot;</span><span class="p">)</span>
+
+        <span class="c1"># set content of edf file</span>
+        <span class="c1"># edf filters #event types</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s1">&#39;file_event_filter = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fef</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s1">&#39;file_sample_data = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fsd</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s1">&#39;link_event_filter = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lef</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s1">&#39;link_sample_data = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lsd</span><span class="p">))</span>
+
+        <span class="c1"># program button &#39;5&#39; for drift correction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s2">&quot;button_function 5 &#39;accept_target_fixation&#39;&quot;</span><span class="p">)</span>
+
+        <span class="c1"># select sound for calibration and drift correct</span>
+        <span class="c1"># &quot;&quot; = sound, &quot;off&quot; = no sound</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">setCalibrationSounds</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">setDriftCorrectSounds</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="eyetracking.set_eye_used"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.set_eye_used">[docs]</a>    <span class="k">def</span> <span class="nf">set_eye_used</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eye</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set dominant eye.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        eye : :obj:`str`</span>
+<span class="sd">            Dominant eye (left, right). This will be used for outputting Eyelink gaze samples.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.set_eye_used()&quot;</span><span class="p">)</span>
+        <span class="n">eye_entered</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">eye_entered</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;LEFT&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eye_entered = </span><span class="si">%s</span><span class="s2">(left)&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">eye_entered</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_eye</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eye_entered = </span><span class="si">%s</span><span class="s2">(right)&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">eye_entered</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_eye</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span></div>
+
+<div class="viewcode-block" id="eyetracking.calibration"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.calibration">[docs]</a>    <span class="k">def</span> <span class="nf">calibration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize mdl.calibration module.</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.calibration()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.calibration()&quot;</span><span class="p">)</span>
+        <span class="c1"># if connected to eyetracker</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;connected&quot;</span><span class="p">)</span>
+            <span class="c1"># put the tracker in offline mode before we change its configrations</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">setOfflineMode</span><span class="p">()</span>
+            <span class="c1"># Generate custom calibration stimuli</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">genv</span> <span class="o">=</span> <span class="n">calibration</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+            <span class="c1"># execute custom calibration display</span>
+            <span class="n">pylink</span><span class="o">.</span><span class="n">openGraphicsEx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genv</span><span class="p">)</span>
+            <span class="c1"># calibrate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">doTrackerSetup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="eyetracking.drift_correction"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.drift_correction">[docs]</a>    <span class="k">def</span> <span class="nf">drift_correction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starts drift correction, and calibrates eyetracker using psychopy stimuli.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        window : :class:`psychopy.visual.window.Window`</span>
+<span class="sd">            PsychoPy window instance.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.drift_correction(window=window)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.drift_correction()&quot;</span><span class="p">)</span>
+
+        <span class="c1">#update counter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drift_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drift_count</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="c1">#check if recording</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span><span class="p">:</span>
+            <span class="c1"># end of trial message</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;drift correction&#39;</span><span class="p">)</span>
+
+            <span class="c1"># end realtime mode</span>
+            <span class="n">pylink</span><span class="o">.</span><span class="n">endRealTimeMode</span><span class="p">()</span>
+            <span class="n">pylink</span><span class="o">.</span><span class="n">msecDelay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+            <span class="c1"># send trial-level variables</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_variable</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">trial</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">))</span>
+
+            <span class="c1"># specify end of trial</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s2">&quot;TRIAL_RESULT 1&quot;</span><span class="p">)</span>
+
+            <span class="c1"># stop recording eye data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">stopRecording</span><span class="p">()</span>
+
+            <span class="c1"># flag isRecording</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        <span class="c1"># initiate drift correction, flag isDriftCorrection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isDriftCorrection</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">doDriftCorrect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="eyetracking.roi"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.roi">[docs]</a>    <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create regions of interest. This is used for online data processing from eyelink-&gt;psychopy.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        window : :class:`psychopy.visual.window.Window`</span>
+<span class="sd">            PsychoPy window instance.</span>
+<span class="sd">        duration : :class:`str`</span>
+<span class="sd">            Duration window in msec of how long trial should be collecting samples.</span>
+<span class="sd">        region : :class:`dict` of {str : [left, top, right, bottom]}</span>
+<span class="sd">            Dictionary of the bounding box for each region of interest. Bounds are</span>
+<span class="sd">            by their left, top, right, and bottom coordinates in pixels.</span>
+<span class="sd">            &gt;&gt;&gt; # region of interest in the center of the screen, 200 by 200 pixels in size</span>
+<span class="sd">            &gt;&gt;&gt; region = dict(center=[860, 440, 1060, 640])</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bbb[item] : :class:`aaa`</span>
+<span class="sd">            [Description]</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="eyetracking.sample"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.sample">[docs]</a>    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eye_used</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects new gaze coordinates from Eyelink.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        eye_used : :obj:`str`</span>
+<span class="sd">            Checks if eye used is available.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.sample(eye_used=eye_used)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check for new sample update</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">getNewestSample</span><span class="p">()</span>  <span class="c1"># check for new sample update</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># Gets the gaze position of the latest sample</span>
+            <span class="c1"># pupil area</span>
+            <span class="k">if</span> <span class="n">eye_used</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_eye</span><span class="p">:</span>
+                <span class="n">ps</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">getRightEye</span><span class="p">()</span><span class="o">.</span><span class="n">getPupilSize</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ps</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">getLeftEye</span><span class="p">()</span><span class="o">.</span><span class="n">getPupilSize</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">ps</span></div>
+
+<div class="viewcode-block" id="eyetracking.send_message"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.send_message">[docs]</a>    <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       send message to eyelink.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        msg : :obj:`str`</span>
+<span class="sd">            Message to be recieved by eyelink.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; msg = &quot;stimulus onset&quot;</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.send_message(msg=msg)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="eyetracking.send_variable"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.send_variable">[docs]</a>    <span class="k">def</span> <span class="nf">send_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        send trial variable to eyelink at the end of trial.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        variable : :obj:`dict` or `None`</span>
+<span class="sd">            Trial-related variables to be read by eyelink.          </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">variables</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;!V TRIAL_VAR </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="n">pylink</span><span class="o">.</span><span class="n">msecDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># finished</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;variables sent&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;no variables entered&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="eyetracking.start_recording"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.start_recording">[docs]</a>    <span class="k">def</span> <span class="nf">start_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starts recording of eyelink.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        trial : :obj:`str`</span>
+<span class="sd">            Trial Number.</span>
+<span class="sd">        block : :obj:`str`</span>
+<span class="sd">            Block Number.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        ----- </span>
+<span class="sd">        tracker.beginRealTimeMode():</span>
+<span class="sd">            To ensure that no data is missed before the important part of the trial starts. The EyeLink </span>
+<span class="sd">            tracker requires 10 to 30 milliseconds after the recording command to begin writing data. </span>
+<span class="sd">            This extra data also allows the detection of blinks or saccades just before the trial start, </span>
+<span class="sd">            allowing bad trials to be discarded in saccadic RT analysis. A &quot;SYNCTIME&quot; message later </span>
+<span class="sd">            in the trial marks the actual zero-time in the trial&#39;s data record for analysis.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        TrialID:</span>
+<span class="sd">            The &quot;TRIALID&quot; message is sent to the EDF file next. This message must be placed </span>
+<span class="sd">            in the EDF file before the drift correction and before recording begins, and is critical </span>
+<span class="sd">            for data analysis. The viewer will not parse any messages, events, or samples that exist</span>
+<span class="sd">            in the data file prior to this message. The command identifier can be changed in the data</span>
+<span class="sd">            loading preference settings.</span>
+<span class="sd">            [see Data Viewer User Manual, Section 7: Protocol for EyeLink Data to Viewer Integration]</span>
+<span class="sd">        SYNCTIME:</span>
+<span class="sd">            Marks the zero-time in a trial. A number may follow, which is interpreted as the delay of </span>
+<span class="sd">            the message from the actual stimulus onset. It is suggested that recording start 100 </span>
+<span class="sd">            milliseconds before the display is drawn or unblanked at zero-time, so that no data at the </span>
+<span class="sd">            trial start is lost.</span>
+<span class="sd">            [see pylink.chm]</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.start_recording(block=1, trial=1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.start_recording()&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Message to post to Eyelink Display Monitor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span>
+            <span class="s2">&quot;record_status_message &#39;Trial </span><span class="si">%s</span><span class="s2"> Block </span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trial</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">block</span><span class="p">)))</span>
+
+        <span class="c1"># indicates start of trial</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;TRIALID </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trial</span><span class="p">)))</span>
+
+        <span class="c1"># start recording, parameters specify whether events and samples are</span>
+        <span class="c1"># stored in file, and available over the link</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">startRecording</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># buffer to prevent loss of data</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">beginRealTimeMode</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+        <span class="c1"># indicates zero-time of trial</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;SYNCTIME&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;start recording&#39;</span><span class="p">)</span>
+
+        <span class="c1"># flag isDriftCorrection, isRecording, trial, block</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isDriftCorrection</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trial</span> <span class="o">=</span> <span class="n">trial</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">block</span></div>
+
+<div class="viewcode-block" id="eyetracking.stop_recording"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.stop_recording">[docs]</a>    <span class="k">def</span> <span class="nf">stop_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stops recording of eyelink. Also allows transmission of trial-level variables to Eyelink.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        trial : :obj:`int`</span>
+<span class="sd">            Trial Number.</span>
+<span class="sd">        block : :obj:`int`</span>
+<span class="sd">            Block Number.</span>
+<span class="sd">        variables : :obj:`dict` or `None`</span>
+<span class="sd">            Dict of variables to send to eyelink (variable name, value).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        pylink.pumpDelay():</span>
+<span class="sd">            Does a unblocked delay using currentTime(). This is the preferred delay function </span>
+<span class="sd">            when accurate timing is not needed.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        pylink.msecDelay():</span>
+<span class="sd">            During calls to pylink.msecDelay(), Windows is not able to handle messages. One result of </span>
+<span class="sd">            this is that windows may not appear. This is the preferred delay function when accurate </span>
+<span class="sd">            timing is needed.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        tracker.endRealTimeMode():</span>
+<span class="sd">            Returns the application to a priority slightly above normal, to end realtime mode. This </span>
+<span class="sd">            function should execute rapidly, but there is the possibility that Windows will allow other </span>
+<span class="sd">            tasks to run after this call, causing delays of 1-20 milliseconds. This function is equivalent </span>
+<span class="sd">            to the C API void end_realtime_mode(void).</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        TRIAL_VAR: </span>
+<span class="sd">            Lets users specify a trial variable and value for the given trial. One</span>
+<span class="sd">            message should be sent for each trial condition variable and its corresponding value. If</span>
+<span class="sd">            this command is used there is no need to use TRIAL_VAR_LABELS. The default command identifier </span>
+<span class="sd">            can be changed in the data loading preference settings. Please note that the eye tracker </span>
+<span class="sd">            can handle about 20 messages every 10 milliseconds. So be careful not to send too many </span>
+<span class="sd">            messages too quickly if you have many trial condition messages to send. Add one millisecond </span>
+<span class="sd">            delay between message lines if this is the case.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        TRIAL_RESULT: </span>
+<span class="sd">            Defines the end of a trial. The viewer will not parse any messages, events, or samples that </span>
+<span class="sd">            exist in the data file after this message. The command identifier can be changed in the </span>
+<span class="sd">            data loading preference settings.</span>
+<span class="sd">            [see Data Viewer User Manual, Section 7: Protocol for EyeLink Data to Viewer Integration]</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; variables = dict(stimulus=&#39;face.png&#39;, event=&#39;stimulus&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.stop_recording(trial=trial, block=block, variables=variables)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.stop_recording()&quot;</span><span class="p">)</span>
+
+        <span class="c1"># end of trial message</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;end recording&#39;</span><span class="p">)</span>
+
+        <span class="c1"># end realtime mode</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">endRealTimeMode</span><span class="p">()</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">msecDelay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+        <span class="c1"># send trial-level variables</span>
+        <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;trial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span>
+        <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">block</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_variable</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">)</span>
+
+        <span class="c1"># specify end of trial</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s2">&quot;TRIAL_RESULT 1&quot;</span><span class="p">)</span>
+
+        <span class="c1"># stop recording eye data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">stopRecording</span><span class="p">()</span>
+
+        <span class="c1"># flag isRecording</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="eyetracking.finish_recording"><a class="viewcode-back" href="../../eyetracking.html#mdl.eyetracking.eyetracking.finish_recording">[docs]</a>    <span class="k">def</span> <span class="nf">finish_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finish recording of eyelink.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        subject : :obj:`int`</span>
+<span class="sd">            subject number.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        pylink.pumpDelay():</span>
+<span class="sd">            Does a unblocked delay using currentTime(). This is the preferred delay function </span>
+<span class="sd">            when accurate timing is not needed.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        pylink.msecDelay():</span>
+<span class="sd">            During calls to pylink.msecDelay(), Windows is not able to handle messages. One result of </span>
+<span class="sd">            this is that windows may not appear. This is the preferred delay function when accurate </span>
+<span class="sd">            timing is needed.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        tracker.setOfflineMode():</span>
+<span class="sd">            Places EyeLink tracker in offline (idle) mode. Wait till the tracker has finished the </span>
+<span class="sd">            mode transition.</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        tracker.endRealTimeMode():</span>
+<span class="sd">            Returns the application to a priority slightly above normal, to end realtime mode. This </span>
+<span class="sd">            function should execute rapidly, but there is the possibility that Windows will allow other </span>
+<span class="sd">            tasks to run after this call, causing delays of 1-20 milliseconds. This function is </span>
+<span class="sd">            equivalent to the C API void end_realtime_mode(void).</span>
+<span class="sd">            [see pylink.chm]</span>
+<span class="sd">        tracker.receiveDataFile():</span>
+<span class="sd">            This receives a data file from the EyeLink tracker PC. Source filename and destination </span>
+<span class="sd">            filename should be given.</span>
+<span class="sd">            [see pylink.chm]</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; #end recording session</span>
+<span class="sd">        &gt;&gt;&gt; eyetracking.finish_recording()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.finish_recording()&quot;</span><span class="p">)</span>
+        <span class="c1"># generate file path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/data/edf/&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="c1"># double check realtime mode has ended</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">endRealTimeMode</span><span class="p">()</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">pumpDelay</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+        <span class="c1"># rlaces eyeLink tracker in offline (idle) mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">setOfflineMode</span><span class="p">()</span>
+
+        <span class="c1"># allow buffer to prepare data for closing</span>
+        <span class="n">pylink</span><span class="o">.</span><span class="n">msecDelay</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+        <span class="c1"># closes any currently opened EDF file on the EyeLink tracker computer&#39;s hard disk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">closeDataFile</span><span class="p">()</span>
+
+        <span class="c1"># This receives a data file from the eyelink tracking computer</span>
+        <span class="n">destination</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">fname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">receiveDataFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+
+        <span class="c1"># wends a disconnect message to the EyeLink tracker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright .<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
