@@ -1,0 +1,10 @@
+[{
+	"external": {
+		"webgazer": "https://github.com/brownhci/WebGazer",
+		"redcap": "https://redcap.prc.utexas.edu/redcap/redcap_v7.5.2/ProjectSetup/index.php?pid=1397"
+	},
+	"internal": {
+		"task": "https://mdl.psy.utexas.edu/a/r33",
+		"dashboard": "https://mdl.psy.utexas.edu/a/r33/data/a"
+	}
+}]

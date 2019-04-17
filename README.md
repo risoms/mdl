@@ -9,11 +9,16 @@ mdl-R33: an extensive library for the exploration, visualization, and analysis o
 --------------------------------------
 [![PyPI Version](https://img.shields.io/pypi/v/mdl-R33.svg)](https://pypi.org/project/mdl-R33/)
 [![License](https://img.shields.io/pypi/l/mdl-R33.svg)](https://github.com/mwaskom/risoms/blob/master/LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313201.svg)](https://doi.org/10.5281/zenodo.1313201)
-[![Build Status](https://travis-ci.org/risoms/mdl-R33.svg?branch=master)](https://travis-ci.org/risoms/seaborn)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313201.svg)](https://doi.org/10.1016/j.cct.2018.10.014)
+[![Build Status](https://travis-ci.org/risoms/mdl-R33.svg?branch=master)](https://travis-ci.org/risoms/mdl-R33)
 [![Code Coverage](https://codecov.io/gh/risoms/seaborn/branch/master/graph/badge.svg)](https://codecov.io/gh/risoms/mdl-R33)
 
-mdl-R33 provides a methods for analysis, data cleaning, and visualization of R33. This package was created at the [Institute for Mental Health Research](http://mdl.psy.utexas.edu/), at [the University of Texas at Austin](http://www.utexas.edu/) by [Semeon Risom](https://semeon.io).
+This study is funded by NIMH grant MH109600. 
+Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018). 
+	Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial. 
+	Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
+
+This package was created at the [Institute for Mental Health Research](http://mdl.psy.utexas.edu/), at [the University of Texas at Austin](http://www.utexas.edu/) by [Semeon Risom](https://semeon.io).
 
 
 Documentation

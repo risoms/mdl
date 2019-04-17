@@ -1,1 +1,0 @@
-subject	block	task	trial_no	datapoint	time	condition	x	y	tx	ty	status

@@ -112,6 +112,7 @@ autodoc_default_options = {
     'member-order': 'bysource',
     'private-members': True,
     'undoc-members': False,
+    'special-members': True,
 }
 
 # -- apidoc --------------------------------------------------------------	

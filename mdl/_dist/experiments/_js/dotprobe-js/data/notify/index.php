@@ -1,1 +1,0 @@
-/*check for upcoming participants then send email reminder*/
