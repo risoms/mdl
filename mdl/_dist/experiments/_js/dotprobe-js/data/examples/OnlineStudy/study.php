@@ -1,0 +1,3 @@
+<?php
+$_STUDY = "tolcam";
+

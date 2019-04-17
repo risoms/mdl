@@ -1,0 +1,10 @@
+#progress {
+	display: block;
+	width: 200px;
+  	height: 200px;
+	position: fixed;
+  	top: 45%;
+  	left: 50%;
+  	margin-top: -50px;
+  	margin-left: -100px;
+}

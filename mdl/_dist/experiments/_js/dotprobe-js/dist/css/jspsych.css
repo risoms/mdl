@@ -1,0 +1,119 @@
+/* fonts and type */
+html {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6em;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+p {
+  clear: both;
+}
+.very-small {
+  font-size: 50%;
+}
+.small {
+  font-size: 75%;
+}
+.large {
+  font-size: 125%;
+}
+.very-large {
+  font-size: 150%;
+}
+
+/* Classes for changing location of things */
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center-content {
+  text-align: center;
+}
+.block-center {
+  margin: 1em auto;
+  display: block;
+}
+/* Form elements like input fields and buttons */
+
+input[type="text"] {
+  font-family: 'Open Sans', 'Arial', sans-sefif;
+  font-size: 14px;
+}
+
+/* borrowing Bootstrap style for btn elements, but combining styles a bit */
+.jspsych-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 0px 8px;
+  font-size: 75%;
+  font-weight: 400;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  cursor: pointer;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #6e6e6e;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.jspsych-btn:hover {
+  background-color: #ddd;
+  border-color: #aaa;
+}
+
+/* Container holding jsPsych content */
+.jspsych-display-element {
+	margin:auto;
+}
+.jspsych-top {
+  align-items: flex-start;
+}
+.jspsych-middle {
+  align-items: center;
+}
+.jspsych-content {
+    max-width: 100%;
+    text-align: center;
+    margin: auto;
+}
+.jspsych-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.parallax {
+    display: inline-block;
+    width: 600px;
+    height: 600px;
+}
+
+.scene {
+	  	position: relative;
+	  	max-width: 600px;
+		max-height: 600px;
+	  	margin: auto;
+	  	padding: 0;
+}
+
+/* PLUGIN: jspsych-instructions */
+.jspsych-instructions-nav {
+  text-align: center;
+  margin-top: 2em;
+}
+.jspsych-instructions-nav button {
+  margin: 20px;
+}

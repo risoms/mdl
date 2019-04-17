@@ -1,0 +1,32 @@
+# redcap qualify criteria
+* es_qualify - score value (28)
+	sum(if (([online_eligibility_arm_1][es_consent] = "1"), 1, 0), 
+	if (([online_eligibility_arm_1][es_austin] = "1" OR [online_eligibility_arm_1][es_commute] = "1"), 1, 0),
+	if (([online_eligibility_arm_1][es_age] = "1"), 1, 0),
+	if (([online_eligibility_arm_1][es_vision] = "1" OR [online_eligibility_arm_1][es_corrected_vision] = "1") , 1, 0),
+	if (([online_eligibility_arm_1][es_cigarettes] = "0" OR [online_eligibility_arm_1][es_cigs_number] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_meds] = "0" OR [online_eligibility_arm_1][es_medchange] = "3"), 1, 0),
+	if (([online_eligibility_arm_1][es_bipolar] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_english] = "1"), 1, 0),
+	if (([online_eligibility_arm_1][es_psychotherapy] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_neuralhx] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_headtrauma] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_bipolar] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_aneurysm] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_pacemaker] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_defibrillator] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_electronic_implant] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_mag_activated_implant] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_neurostimulator] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_cord_stimulator] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_wires] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_bone_stimulator] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_ear_implant] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_insulin_pump] = "0"), 1, 0),
+	if (([online_eligibility_arm_1][es_pdsq_psych_sum] < 2), 1, 0),
+	if (([online_eligibility_arm_1][es_pdsq_alc_sum] < 2), 1, 0),
+	if (([online_eligibility_arm_1][es_pdsq_drug_sum] < 2), 1, 0),
+	if (([online_eligibility_arm_1][es_qidssr_total] >= 13), 1, 0),
+	if (([online_eligibility_arm_1][no_participate] = "1"), 1, 0))
+	
+https://mdl.psy.utexas.edu/a/r33/?uname=[record_id]&code=[baseline_arm_1][tx_condition]&rtco=[rtco]

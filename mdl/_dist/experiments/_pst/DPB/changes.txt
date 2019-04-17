@@ -1,0 +1,68 @@
+SMR-------------------------------------
+5.3 (8/24/17)
+FaceStim
+- duration: 8 sec
+- offset: vertical blank
+  *Notes: this was done to allow the event to efficiently be generated and move on to the following inline statement.
+
+checkfacestim
+- nTimeOut = 998
+  *notes: this was done to account for vertical blank
+
+- endRecord
+- FaceStimOffset = timeEnd - DotLoc.OnsetTime
+  *notes: this was done because FaceStim duration was being controlled by inline
+
+New Events
+- EngageStim: If subject gaze isnt within window, then WindowCounter value increases incrimentally. Once WindowCounter=5, event will engage.
+
+New Variables
+Edat
+- GazeLocation [Left,Right,NULL]: Location of gaze during FaceStim
+- WindowCounter [0-5]: counter (1-5) that controls appearance of EngageStim. If gaze is within window, then WindowCounter=0
+- EngageCorrect: If EngageStim event is displayed, this variable stores the correct response
+Edf
+- FaceStimOffsetTest: test of FaceStim offset
+
+
+5.2 (8/16/17)
+Updated from r56 dotprobe
+updated instructions (left, right)
+skip block info at end of last block
+
+5.1 (3/1/17)
+updated datafile name to output session+subject
+
+5.0 (8/19/16)
+- enabled 5-digit subject numbers (up to 99999)
+
+4.0 (4/6/16)
+- added fixation window (500msec) for each trial
+-- task continues once window is met (different from pupil dilation, which waits for 2000msec)
+-- if window is not met in 2000, task goes into drift correct
+
+3.0 (2/28/16)
+- fix timing issue: changed recorded offset for facestim to actual offset, instead of dotloc onset
+i.e. Dotlockoffet to FaceStimOffset
+and DotLoc.OnsetTime to FaceStim.OffsetTime
+
+- added cresp, resp, acc variables to eyetracker data
+
+- enabled keyboard for use during E-Run test
+
+- logging (facestim, dotloc)
+/action delay
+/action time
+/duration
+/duration error
+/start time
+/finish time
+/offset delay
+/offset time
+/onset delay
+/onset time
+
+2.0 (1/20/16)
+- made images greyscale (1/20)
+- allow participant to control task (gamepad)
+- sending trial variable to dataviewer TrialVar

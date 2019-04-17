@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.R33.download &#8212; mdl-R33 2019-04-16 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/semeon/css/user.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/semeon/css/copybutton.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          mdl-R33</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-16</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../genindex.html">Glossary</a></li>
+                <li><a href="../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#data-analysis">Data analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+  <div class="row">
+      <div class="toc col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#data-analysis">Data analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="module-mdl.R33.download">
+<span id="mdl-r33-download"></span><h1>mdl.R33.download<a class="headerlink" href="#module-mdl.R33.download" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">&#64;purpose: Resource for downloading files from Box, SSH, REDCap and others.   </div>
+<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019   </div>
+<div class="line">&#64;author: Semeon Risom   </div>
+<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>   </div>
+<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>   </div>
+</div>
+<dl class="class">
+<dt id="mdl.R33.download.download">
+<em class="property">class </em><code class="descclassname">mdl.R33.download.</code><code class="descname">download</code><span class="sig-paren">(</span><em>is_library=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mdl/R33/download.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.download.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource for downloading files from Box, SSH, REDCap and others.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.download.download.REDCap" title="mdl.R33.download.download.REDCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REDCap</span></code></a>(path,&nbsp;token,&nbsp;url,&nbsp;content[,&nbsp;payload])</td>
+<td>Download data from an Research Electronic Data Capture (REDCap) server.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.download.download.SFTP" title="mdl.R33.download.download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
+<td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.download.download.box" title="mdl.R33.download.download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;username,&nbsp;…)</td>
+<td>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</td>
+</tr>
+</tbody>
+</table>
+<dl class="classmethod">
+<dt id="mdl.R33.download.download.REDCap">
+<em class="property">classmethod </em><code class="descname">REDCap</code><span class="sig-paren">(</span><em>path</em>, <em>token</em>, <em>url</em>, <em>content</em>, <em>payload=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mdl/R33/download.html#download.REDCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.download.download.REDCap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download data from an Research Electronic Data Capture (REDCap) server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first">Path to save data.
+For example:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/r33/redcap&#39;</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>token</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first">The API token specific to your REDCap project and username. This is usually found on the Applications &gt; API page. 
+For example:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;D19859823032SFDMR24395298&#39;</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>url</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first">The URL of the REDCap project. 
+For example:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://redcap.prc.utexas.edu/redcap/api/&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>content</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {report, file, raw, arm, instrument, returnFormat, metadata, project, surveyLink, user, participantList}</span></dt>
+<dd><p class="first last">Type of export. Examples include exporting a report (<cite>report</cite>), file (<cite>file</cite>), or project info (<cite>project</cite>).</p>
+</dd>
+<dt><strong>payload_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> or <cite>None</cite>, optional</span></dt>
+<dd><p class="first last">Manually submit parameters for exporting or importing data. Can be entered within the function for convenience.</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <cite>None</cite>, optional</span></dt>
+<dd><p class="first">Additional properties, relevent for specific content types. Here’s a list of available properties:</p>
+<table border="1" class="colwidths-given kwargs last docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>report_id : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>(report, record) The report ID number provided next to the report name on the report list page.</td>
+</tr>
+<tr class="row-odd"><td><a href="#id1"><span class="problematic" id="id2">format_</span></a> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {csv, json, xml, odm}</td>
+<td>Format to return data, either csv, json, xml, or odm. Default is json.</td>
+</tr>
+<tr class="row-even"><td><a href="#id3"><span class="problematic" id="id4">type_</span></a> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>Shape of data. Default is flat.</td>
+</tr>
+<tr class="row-odd"><td><a href="#id5"><span class="problematic" id="id6">rawOrLabel_</span></a> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {raw, label}</td>
+<td>(report, record) TExport the raw coded values or labels for the options of multiple choice fields.</td>
+</tr>
+<tr class="row-even"><td><a href="#id7"><span class="problematic" id="id8">rawOrLabelHeaders_</span></a> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>(report, record) TExport the variable/field names (raw) or the field labels (label).</td>
+</tr>
+<tr class="row-odd"><td><a href="#id9"><span class="problematic" id="id10">exportCheckboxLabel_</span></a> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>Specifies the format of checkbox field values specifically when exporting the data as labels (i.e., when rawOrLabel=label).</td>
+</tr>
+<tr class="row-even"><td><a href="#id11"><span class="problematic" id="id12">returnFormat_</span></a> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>Format to return errors. Default is <cite>json</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>log</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Pandas dataframe of each download request.</p>
+</dd>
+<dt><strong>content</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Pandas dataframe of all data downloaded.</p>
+</dd>
+<dt><strong>start, end</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Timestamp (ISO format) and name of most recent (<cite>end</cite>) and first (<cite>start</cite>) file created in folder.</p>
+</dd>
+<dt><strong>now</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Current timestamp in ISO format.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="mdl.R33.download.download.SFTP">
+<em class="property">classmethod </em><code class="descname">SFTP</code><span class="sig-paren">(</span><em>source</em>, <em>destination</em>, <em>hostname</em>, <em>username</em>, <em>password</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mdl/R33/download.html#download.SFTP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.download.download.SFTP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path to retrieve paticipant data.</p>
+</dd>
+<dt><strong>destination</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path to save paticipant data.</p>
+</dd>
+<dt><strong>hostname</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">SFTP hostname.</p>
+</dd>
+<dt><strong>username</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">SFTP username.</p>
+</dd>
+<dt><strong>password</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">SFTP password.</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <cite>None</cite>, optional</span></dt>
+<dd><p class="first">Additional properties, relevent for specific content types. Here’s a list of available properties:</p>
+<table border="1" class="colwidths-given kwargs last docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>filetype : :<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <cite>None</cite></td>
+<td>Filetype to download. Default is csv.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>log</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Pandas dataframe of each download request.</p>
+</dd>
+<dt><strong>content</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Pandas dataframe of all files downloaded.</p>
+</dd>
+<dt><strong>start, end</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Timestamp (ISO format) and name of most recent (<cite>end</cite>) and first (<cite>start</cite>) file created in folder.</p>
+</dd>
+<dt><strong>now</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Current timestamp in ISO format.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;r33&#39;</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;/home/utweb/utw1211/public_html/r33&#39;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;/Users/mdl/Desktop/r33/&#39;</span><span class="p">;</span> <span class="n">un</span><span class="o">=</span><span class="s1">&#39;utw1211&#39;</span><span class="p">;</span> <span class="n">pwd</span><span class="o">=</span><span class="s1">&#39;43#!9amZ?K$&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">download</span><span class="o">.</span><span class="n">SFTP</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">un</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pwd</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="mdl.R33.download.download.box">
+<em class="property">classmethod </em><code class="descname">box</code><span class="sig-paren">(</span><em>source</em>, <em>destination</em>, <em>server</em>, <em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mdl/R33/download.html#download.box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.download.download.box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The remoate path on box to retrieve data.</p>
+</dd>
+<dt><strong>destination</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The local path to download data.</p>
+</dd>
+<dt><strong>server</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Name of box server.</p>
+</dd>
+<dt><strong>username</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Box account email address.</p>
+</dd>
+<dt><strong>password</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Box account password.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li>The username and password must be seperate from your ‘Secure Sign On’ associated with your UT login.</li>
+<li>box only allows connections via FTPS for downloading and uploading data.</li>
+<li>For more information: <a class="reference external" href="https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050">https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050</a></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/api/mdl/mdl.R33.download.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Semeon Risom.<br/>
+      Last updated on Apr 16, 2019.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

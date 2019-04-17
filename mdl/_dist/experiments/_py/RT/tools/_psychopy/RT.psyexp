@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="1.85.1">
+  <Settings>
+    <Param name="Monitor" updates="None" val="Experiment" valType="str"/>
+    <Param name="color" updates="None" val="$[1.000,1.000,1.000]" valType="str"/>
+    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="Experiment info" updates="None" val="{u'session': u'001', u'participant': u'001'}" valType="code"/>
+    <Param name="JS libs" updates="None" val="packaged" valType="str"/>
+    <Param name="Units" updates="None" val="norm" valType="str"/>
+    <Param name="Save excel file" updates="None" val="False" valType="bool"/>
+    <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
+    <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
+    <Param name="Window size (pixels)" updates="None" val="[1366, 768]" valType="code"/>
+    <Param name="Full-screen window" updates="None" val="False" valType="bool"/>
+    <Param name="blendMode" updates="None" val="avg" valType="str"/>
+    <Param name="Use version" updates="None" val="1.85.1" valType="str"/>
+    <Param name="HTML path" updates="None" val="html" valType="str"/>
+    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="OSF Project ID" updates="None" val="" valType="str"/>
+    <Param name="Save log file" updates="None" val="False" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
+    <Param name="Show mouse" updates="None" val="False" valType="bool"/>
+    <Param name="Data filename" updates="None" val="'data/%s_%s' %(expInfo['participant'],expInfo['session'])" valType="code"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="expName" updates="None" val="RT" valType="str"/>
+    <Param name="logging level" updates="None" val="exp" valType="code"/>
+    <Param name="Screen" updates="None" val="1" valType="num"/>
+  </Settings>
+  <Routines>
+    <Routine name="Finish">
+      <ImageComponent name="End_Screen">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="End_Screen" valType="code"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="$&quot;Instructions/Finished.png&quot;" valType="str"/>
+        <Param name="size" updates="constant" val="" valType="code"/>
+      </ImageComponent>
+    </Routine>
+    <Routine name="Introduction">
+      <ImageComponent name="intro_image">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="intro_image" valType="code"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$&quot;Instructions/&quot;+Introduction_image" valType="str"/>
+        <Param name="size" updates="constant" val="" valType="code"/>
+      </ImageComponent>
+      <KeyboardComponent name="intro_key">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="intro_key" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="set every repeat" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="task_code">
+        <Param name="Begin Experiment" updates="constant" val="#intro block&amp;#10;intro_slide = [{'Introduction_image': u'Introduction_1.png'}, {'Introduction_image': u'Introduction_2.png'},\&amp;#10; {'Introduction_image': u'Introduction_3.png'}]&amp;#10;&amp;#10;#practice block&amp;#10;practice_slide = [{'Practice_image': u'practice_start.png'}, {'Practice_image': u'outdoor.png'}]&amp;#10;practice_block = [{'nontarget': u'male_neutral_046', 'target': u'outdoor_046', 'order': 1}, {'nontarget': u'male_neutral_047', 'target': u'outdoor_047', 'order': 1}, {'nontarget': u'male_neutral_048', 'target': u'outdoor_048', 'order': 1}, {'nontarget': u'male_neutral_049', 'target': u'outdoor_049', 'order': 1}, {'nontarget': u'male_neutral_050', 'target': u'outdoor_050', 'order': 1}, {'nontarget': u'female_neutral_046', 'target': u'outdoor_051', 'order': 1}, {'nontarget': u'female_neutral_047', 'target': u'outdoor_052', 'order': 1}, {'nontarget': u'female_neutral_048', 'target': u'outdoor_053', 'order': 1}, {'nontarget': u'female_neutral_049', 'target': u'outdoor_054', 'order': 1}, {'nontarget': u'female_neutral_050', 'target': u'outdoor_055', 'order': 1}]&amp;#10;&amp;#10;&amp;#10;#-------------generating stimuli&amp;#10;import copy&amp;#10;import csv&amp;#10;import itertools&amp;#10;&amp;#10;participant = expInfo['participant']&amp;#10;&amp;#10;#create both target and lure for gender&amp;#10;gender_0 = ['male','female']&amp;#10;np.random.shuffle(gender_0)&amp;#10;gender_t = gender_0[-len(gender_0)]&amp;#10;gender_l = gender_0[1]&amp;#10;&amp;#10;#create both target and lure for scene&amp;#10;scene_0 = ['indoor','outdoor']&amp;#10;np.random.shuffle(scene_0)&amp;#10;scene_t = scene_0[-len(scene_0)]&amp;#10;scene_l = scene_0[1]&amp;#10;&amp;#10;&amp;#10;#-------------------#neutral-only blocks------------------------------------------&amp;#10;#running iteration for attended stimuli&amp;#10;#target and lure&amp;#10;target_aN = &quot;%s_neutral %s_neutral %s_neutral %s_neutral %s %s %s %s&quot; %(gender_t,gender_t,gender_t,gender_t,scene_t,scene_t,scene_t,scene_t)&amp;#10;lure_aN = &quot;%s_neutral %s_neutral %s_neutral %s_neutral %s %s %s %s&quot; %(gender_l,gender_l,gender_l,gender_l,scene_l,scene_l,scene_l,scene_l)&amp;#10;target_aN = target_aN.split() #creating list&amp;#10;lure_aN = lure_aN.split() #combining lists&amp;#10;block_attendedN = zip(target_aN,lure_aN) #combining lists&amp;#10;&amp;#10;#running iteration for attended stimuli&amp;#10;target_uN = &quot;%s %s %s %s %s_neutral %s_neutral %s_neutral %s_neutral&quot; %(scene_t,scene_t,scene_t,scene_t,gender_t,gender_t,gender_t,gender_t)&amp;#10;lure_uN = &quot;%s %s %s %s %s_neutral %s_neutral %s_neutral %s_neutral&quot; %(scene_l,scene_l,scene_l,scene_l,gender_l,gender_l,gender_l,gender_l)&amp;#10;target_uN = target_uN.split() #creating lists&amp;#10;lure_uN = lure_uN.split() #creating lists&amp;#10;block_unattendedN = zip(target_uN,lure_uN) #combining lists&amp;#10;&amp;#10;#generating list of blocks&amp;#10;##combining attended and unattended lists&amp;#10;attended_unattended_blockN = zip(block_attendedN, block_unattendedN)&amp;#10;&amp;#10;&amp;#10;#-------------------#neutral-sad blocks------------------------------------------&amp;#10;#running iteration for attended stimuli&amp;#10;#target and lure&amp;#10;target_aNS = &quot;%s_sad %s_sad %s_neutral %s_neutral %s %s %s %s&quot; %(gender_t,gender_t,gender_t,gender_t,scene_t,scene_t,scene_t,scene_t)&amp;#10;lure_aNS = &quot;%s_sad %s_sad %s_neutral %s_neutral %s %s %s %s&quot; %(gender_l,gender_l,gender_l,gender_l,scene_l,scene_l,scene_l,scene_l)&amp;#10;target_aNS = target_aNS.split() #creating list&amp;#10;lure_aNS = lure_aNS.split() #combining lists&amp;#10;block_attendedNS = zip(target_aNS,lure_aNS) #combining lists&amp;#10;&amp;#10;#running iteration for attended stimuli&amp;#10;target_uNS = &quot;%s %s %s %s %s_sad %s_sad %s_neutral %s_neutral&quot; %(scene_t,scene_t,scene_t,scene_t,gender_t,gender_t,gender_t,gender_t)&amp;#10;lure_uNS = &quot;%s %s %s %s %s_sad %s_sad %s_neutral %s_neutral&quot; %(scene_l,scene_l,scene_l,scene_l,gender_l,gender_l,gender_l,gender_l)&amp;#10;target_uNS = target_uNS.split() #creating lists&amp;#10;lure_uNS = lure_uNS.split() #creating lists&amp;#10;block_unattendedNS = zip(target_uNS,lure_uNS) #combining lists&amp;#10;&amp;#10;#generating list of blocks&amp;#10;##combining attended and unattended lists&amp;#10;attended_unattended_blockNS = zip(block_attendedNS,block_unattendedNS)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;#task order&amp;#10;ltaskOrder = [] #order of each subblock within a block&amp;#10;ltaskType = [] #whether block will include combination of neutral and sad stimuli or just neutral&amp;#10;for k in range(0,4):&amp;#10;    ltaskOrder_ = range(0,8)&amp;#10;    np.random.shuffle(ltaskOrder_)&amp;#10;    ltaskOrder.append(ltaskOrder_)&amp;#10;    ltaskType_ = ['neutral','neutral','sad','sad']&amp;#10;    np.random.shuffle(ltaskType_)&amp;#10;    ltaskType.append(ltaskType_)&amp;#10;&amp;#10;#generating lists&amp;#10;lblocksNS = []&amp;#10;ltrialsNS = []&amp;#10;lblocksN = []&amp;#10;ltrialsN = []&amp;#10;dictSetN = []&amp;#10;dictSetNS = []&amp;#10;&amp;#10;#generating neutral blocks&amp;#10;p=0&amp;#10;for j in range(0,2):&amp;#10;    ltrials_ = []&amp;#10;    lblocks_ = []&amp;#10;    dictBlock_ = []&amp;#10;    for k in range(0,8):&amp;#10;        #pulling first item from target_nontarget list&amp;#10;        #t_nt = target_nontarget1[-len(target_nontarget1)]&amp;#10;        t_nt = attended_unattended_blockN[k]&amp;#10;    &amp;#10;        #stripping target, nontarget data from each block&amp;#10;        t_ = [i[0] for i in t_nt]&amp;#10;        _nt = [i[1] for i in t_nt]&amp;#10;    &amp;#10;        #-------------------#attended target------------------------------------------&amp;#10;        #list of targets and non-targets, as well as lures for each target (t_list)&amp;#10;        target_comp = [t_[0]]&amp;#10;        aT_list = list(range(1,46))&amp;#10;        formatter = '{0:03d}'.format&amp;#10;        aT_list = map(formatter, aT_list)#leading zeros&amp;#10;        aT_list = ['{}_{}'.format(a, b) for b in aT_list for a in target_comp] #list comprehension&amp;#10;    &amp;#10;        #-------------------#attended lure------------------------------------------&amp;#10;        lure_comp = [_nt[0]]&amp;#10;        aL_list = list(range(1,46))&amp;#10;        aL_list = map(formatter, aL_list)#leading zeros&amp;#10;        np.random.shuffle(aL_list)&amp;#10;        aL_list = aL_list[:5]#first 5 items&amp;#10;        aL_list = ['{}_{}'.format(a, b) for b in aL_list for a in lure_comp] #list comprehension&amp;#10;    &amp;#10;        #combining attended target and lure&amp;#10;        attended = aT_list + aL_list #combining lists&amp;#10;        np.random.shuffle(attended)&amp;#10;    &amp;#10;        #-------------------#unattended target------------------------------------------&amp;#10;        ##list of nontargets and non-nontargets, as well as lures for each nontarget (n_list)&amp;#10;        nontarget_comp = [t_[1]]&amp;#10;        uT_list = list(range(1,46))&amp;#10;        formatter = '{0:03d}'.format&amp;#10;        uT_list = map(formatter, uT_list)#leading zeros&amp;#10;        np.random.shuffle(uT_list)&amp;#10;        uT_list = uT_list[:25]#first 5 items&amp;#10;        uT_list = ['{}_{}'.format(a, b) for b in uT_list for a in nontarget_comp] #list comprehension&amp;#10;    &amp;#10;        #-------------------#unattended lure------------------------------------------&amp;#10;        #nontarget_lure (nl_list)&amp;#10;        lure_comp = [_nt[1]]&amp;#10;        uL_list = list(range(1,46))&amp;#10;        formatter = '{0:03d}'.format&amp;#10;        uL_list = map(formatter, uL_list)#leading zeros&amp;#10;        np.random.shuffle(uL_list)&amp;#10;        uL_list = uL_list[:25]#first 5 items&amp;#10;        uL_list = ['{}_{}'.format(a, b) for b in uL_list for a in lure_comp] #list comprehension&amp;#10;    &amp;#10;        #combining unattended target and lure&amp;#10;        unattended = uT_list + uL_list #combining lists&amp;#10;        np.random.shuffle(unattended)&amp;#10;    &amp;#10;       #-------------------#create iterated list------------------------------------------ &amp;#10;        t_ = t_[0] #first value of tuple pair&amp;#10;        t_block = t_.split('_', 1)[0]&amp;#10;        #lblocks_.append([k,t_,t_block]) #order, #target, #target type (indoor, male, female, outdoor)&amp;#10;        lblocks_.append(copy.deepcopy({&quot;order&quot;:k,&quot;target&quot;:t_,&quot;face_scene&quot;:t_block}))&amp;#10;        ltrials_.append([attended,unattended])&amp;#10;&amp;#10;        dictTrials_ = []&amp;#10;        dictEvent_ = {}&amp;#10;        for f in range(0,50):&amp;#10;            dictEvent_ = {'#set':j, '#Block':k, 'type':'sad', 'nontarget':unattended[f], 'target':attended[f]}&amp;#10;            dictTrials_.append(copy.deepcopy(dictEvent_))&amp;#10;        &amp;#10;        dictBlock_.append(copy.deepcopy(dictTrials_))&amp;#10;&amp;#10;        #saving to csv&amp;#10;        #file variable&amp;#10;        if not os.path.exists(&quot;procedure\participant\%s\\n&quot;%(participant)):&amp;#10;            os.makedirs(&quot;procedure\participant\%s\\n&quot;%(participant))&amp;#10;            &amp;#10;        f_name = 'procedure\participant\%s\\n\%s_%s.csv'%(participant,k,t_)&amp;#10;    &amp;#10;        #outputting set_list procedure&amp;#10;        with open('procedure\participant\%s\#set_list.csv'%(participant), 'a') as set_list:&amp;#10;            writer = csv.writer(set_list,lineterminator='\n')&amp;#10;            if j==0 and k==0:&amp;#10;                header=[&quot;face_scene&quot;,&quot;target&quot;,&quot;set&quot;,&quot;block&quot;, &quot;set_directory&quot;]&amp;#10;                writer.writerow(header)&amp;#10;            writer.writerow([t_block,t_,j,k,f_name])&amp;#10;    &amp;#10;        #outputting block procedure&amp;#10;        with open('procedure\participant\%s\\n\%s_%s.csv'%(participant,k,t_), 'wb') as target_sch:&amp;#10;            writer = csv.writer(target_sch)&amp;#10;            header=[&quot;target&quot;,&quot;nontarget&quot;,&quot;order&quot;]&amp;#10;            writer.writerow(header)&amp;#10;            for row,row1 in itertools.izip(attended,unattended):&amp;#10;                writer.writerow([row,row1,k])&amp;#10;                &amp;#10;    #-------------------#appending block and trial values to lists------------------------------------------ &amp;#10;    ltrialsN.append(ltrials_)&amp;#10;    lblocksN.append(lblocks_)&amp;#10;    dictSetN.append(copy.deepcopy(dictBlock_))&amp;#10;&amp;#10;&amp;#10;#generating emotional blocks&amp;#10;for j in range(2,4):&amp;#10;    ltrials_ = []&amp;#10;    lblocks_ = []&amp;#10;    dictBlock_ = []&amp;#10;    for k in range(0,8):&amp;#10;        #pulling first item from target_nontarget list&amp;#10;        #t_nt = target_nontarget1[-len(target_nontarget1)]&amp;#10;        t_nt = attended_unattended_blockNS[k]&amp;#10;    &amp;#10;        #stripping target, nontarget data from each block&amp;#10;        t_ = [i[0] for i in t_nt]&amp;#10;        _nt = [i[1] for i in t_nt]&amp;#10;    &amp;#10;        #-------------------#attended target------------------------------------------&amp;#10;        #list of targets and non-targets, as well as lures for each target (t_list)&amp;#10;        target_comp = [t_[0]]&amp;#10;        aT_list = list(range(1,46))&amp;#10;        formatter = '{0:03d}'.format&amp;#10;        aT_list = map(formatter, aT_list)#leading zeros&amp;#10;        aT_list = ['{}_{}'.format(a, b) for b in aT_list for a in target_comp] #list comprehension&amp;#10;    &amp;#10;        #-------------------#attended lure------------------------------------------&amp;#10;        lure_comp = [_nt[0]]&amp;#10;        aL_list = list(range(1,46))&amp;#10;        aL_list = map(formatter, aL_list)#leading zeros&amp;#10;        np.random.shuffle(aL_list)&amp;#10;        aL_list = aL_list[:5]#first 5 items&amp;#10;        aL_list = ['{}_{}'.format(a, b) for b in aL_list for a in lure_comp] #list comprehension&amp;#10;    &amp;#10;        #combining attended target and lure&amp;#10;        attended = aT_list + aL_list #combining lists&amp;#10;        np.random.shuffle(attended)&amp;#10;    &amp;#10;        #-------------------#unattended target------------------------------------------&amp;#10;        ##list of nontargets and non-nontargets, as well as lures for each nontarget (n_list)&amp;#10;        nontarget_comp = [t_[1]]&amp;#10;        uT_list = list(range(1,46))&amp;#10;        formatter = '{0:03d}'.format&amp;#10;        uT_list = map(formatter, uT_list)#leading zeros&amp;#10;        np.random.shuffle(uT_list)&amp;#10;        uT_list = uT_list[:25]#first 5 items&amp;#10;        uT_list = ['{}_{}'.format(a, b) for b in uT_list for a in nontarget_comp] #list comprehension&amp;#10;    &amp;#10;        #-------------------#unattended lure------------------------------------------&amp;#10;        #nontarget_lure (nl_list)&amp;#10;        lure_comp = [_nt[1]]&amp;#10;        uL_list = list(range(1,46))&amp;#10;        formatter = '{0:03d}'.format&amp;#10;        uL_list = map(formatter, uL_list)#leading zeros&amp;#10;        np.random.shuffle(uL_list)&amp;#10;        uL_list = uL_list[:25]#first 5 items&amp;#10;        uL_list = ['{}_{}'.format(a, b) for b in uL_list for a in lure_comp] #list comprehension&amp;#10;    &amp;#10;        #combining unattended target and lure&amp;#10;        unattended = uT_list + uL_list #combining lists&amp;#10;        np.random.shuffle(unattended)&amp;#10;    &amp;#10;       #-------------------#create iterated list------------------------------------------ &amp;#10;        t_ = t_[0] #first value of tuple pair&amp;#10;        t_block = t_.split('_', 1)[0]&amp;#10;        #lblocks_.append([k,t_,t_block]) #order, #target, #target type (indoor, male, female, outdoor)&amp;#10;        lblocks_.append(copy.deepcopy({&quot;order&quot;:k,&quot;target&quot;:t_,&quot;face_scene&quot;:t_block}))&amp;#10;        ltrials_.append([attended,unattended])&amp;#10;&amp;#10;        dictTrials_ = []&amp;#10;        dictEvent_ = {}&amp;#10;        for f in range(0,50):&amp;#10;            dictEvent_ = {'#set':j, '#Block':k, 'type':'sad', 'nontarget':unattended[f], 'target':attended[f]}&amp;#10;            dictTrials_.append(copy.deepcopy(dictEvent_))&amp;#10;        &amp;#10;        dictBlock_.append(copy.deepcopy(dictTrials_))&amp;#10;        &amp;#10;        #saving to csv&amp;#10;        #file variable&amp;#10;        if not os.path.exists(&quot;procedure\participant\%s\s&quot;%(participant)):&amp;#10;            os.makedirs(&quot;procedure\participant\%s\s&quot;%(participant))&amp;#10;            &amp;#10;        f_name = 'procedure\participant\%s\s\%s_%s.csv'%(participant,k,t_)&amp;#10;    &amp;#10;        #outputting set_list procedure&amp;#10;        with open('procedure\participant\%s\#set_list.csv'%(participant), 'a') as set_list:&amp;#10;            writer = csv.writer(set_list,lineterminator='\n')&amp;#10;            writer.writerow([t_block,t_,j,k,f_name])&amp;#10;    &amp;#10;        #outputting block procedure&amp;#10;        with open('procedure\participant\%s\s\%s_%s.csv'%(participant,k,t_), 'wb') as target_sch:&amp;#10;            writer = csv.writer(target_sch)&amp;#10;            header=[&quot;target&quot;,&quot;nontarget&quot;,&quot;order&quot;]&amp;#10;            writer.writerow(header)&amp;#10;            for row,row1 in itertools.izip(attended,unattended):&amp;#10;                writer.writerow([row,row1,k])&amp;#10;            &amp;#10;    #-------------------#appending block and trial values to lists------------------------------------------ &amp;#10;    ltrialsNS.append(ltrials_)&amp;#10;    lblocksNS.append(lblocks_)&amp;#10;    dictSetNS.append(copy.deepcopy(dictBlock_))&amp;#10;&amp;#10;#------------------------------------------------------------- &amp;#10;#------------------------------------------------------------- &amp;#10;#-------------------#sum of all blocks, sum of all trials------------------------------------------ &amp;#10;lblocks = lblocksNS + lblocksN&amp;#10;ltrials = ltrialsNS + ltrialsN&amp;#10;dictTask = dictSetNS + dictSetN&amp;#10;del attended_unattended_blockN, attended_unattended_blockNS, b, block_attendedN, block_attendedNS,\&amp;#10;block_unattendedN, block_unattendedNS, formatter, gender_0, gender_l, gender_t, lblocksN, lblocksNS, dictSetN, dictSetNS,\&amp;#10;lblocks_, ltrialsNS, ltrialsN, ltrials_, ltaskOrder_, ltaskType_, lure_aN, lure_aNS, lure_comp, lure_uN,\&amp;#10;lure_uNS, aT_list, aL_list, nontarget_comp, scene_0, scene_l, scene_t, t_, t_block, uL_list, uT_list,\&amp;#10;t_nt, target_aN, target_aNS, target_comp, target_uN, target_uNS, a, f, i, j, k, attended, unattended, dictBlock_, dictEvent_, dictTrials_" valType="extendedCode"/>
+        <Param name="name" updates="None" val="task_code" valType="code"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="MRI_Fixation">
+      <ImageComponent name="ready_image">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="ready_image" valType="code"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$&quot;Instructions/ready.png&quot;" valType="str"/>
+        <Param name="size" updates="constant" val="" valType="code"/>
+      </ImageComponent>
+      <KeyboardComponent name="ready_key">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="ready_key" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'5'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="Fixation">
+      <ImageComponent name="fixation_image">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="fixation_image" valType="code"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="stopVal" updates="constant" val="8.333" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$&quot;Instructions/Fixation.png&quot;" valType="str"/>
+        <Param name="size" updates="constant" val="" valType="code"/>
+      </ImageComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <LoopInitiator loopType="TrialHandler" name="Introduction_Loop">
+      <Param name="conditionsFile" updates="None" val="procedure\Introduction_list.csv" valType="str"/>
+      <Param name="name" updates="None" val="Introduction_Loop" valType="code"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="conditions" updates="None" val="[{'Introduction_image': u'introduction.png'}]" valType="str"/>
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+    </LoopInitiator>
+    <Routine name="Introduction"/>
+    <LoopTerminator name="Introduction_Loop"/>
+    <Routine name="MRI_Fixation"/>
+    <Routine name="Fixation"/>
+  </Flow>
+</PsychoPy2experiment>

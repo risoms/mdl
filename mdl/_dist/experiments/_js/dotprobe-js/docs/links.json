@@ -1,0 +1,25 @@
+[{
+	"external": {
+		"webgazer": "https://github.com/brownhci/WebGazer",
+		"jspsych": "https://github.com/jspsych/jsPsych",
+		"google_calendar": "https://developers.google.com/google-apps/calendar/quickstart/js"
+	},
+	"internal": {
+		"experiment":{
+			"task": "https://mdl.psy.utexas.edu/a/r33",
+			"dashboard": "https://mdl.psy.utexas.edu/a/r33/data/a"
+		},
+		"utexas":{
+			"vitamin": "https://panel.utweb.utexas.edu:10000/",
+			"phpmyadmin": "https://utweb.utexas.edu/phpmyadmin/db_structure.php",
+			"redcap": "https://redcap.prc.utexas.edu/redcap/redcap_v7.5.2/ProjectSetup/index.php?pid=1397"
+		},
+		"api":{
+			"google": "https://console.developers.google.com/apis/credentials?project=aware-170816&authuser=1&pli=1"
+		}
+	},
+	"references":{
+		"online_webcam": "https://osf.io/jmz79//",
+		"jsdoc": "https://github.com/shri/JSDoc-Style-Guide"
+	}  
+}]

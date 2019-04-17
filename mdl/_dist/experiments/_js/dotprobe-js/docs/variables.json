@@ -1,0 +1,267 @@
+{
+	"trialType": {
+		"Example": "iaps",
+		"Description": "",
+		"Type": "string\n"
+	},
+	"internal_node_id": {
+		"Example": "0.0-31.0",
+		"Description": "",
+		"Type": "string"
+	},
+	"participant": {
+		"Example": "placebo",
+		"Description": "",
+		"Type": "string"
+	},
+	"session": {
+		"Example": "2",
+		"Description": "",
+		"Type": "string\n"
+	},
+	"subsession": {
+		"Example": "a",
+		"Description": "",
+		"Type": "string"
+	},
+	"condition": {
+		"Example": "[a,b,c,d]",
+		"Description": "Type of condition in task.",
+		"Type": "string"
+	},
+	"code": {
+		"Example": "bbb",
+		"Description": "",
+		"Type": "string"
+	},
+	"expName": {
+		"Example": "dotprobe_js",
+		"Description": "Experiment name.",
+		"Type": "string"
+	},
+	"date": {
+		"Example": "2017_08_17_1634",
+		"Description": "Starting time of experiment, in ISO date format.",
+		"Type": "string"
+	},
+	"os": {
+		"Example": "Windows 7",
+		"Description": "Operating system.",
+		"Type": "string"
+	},
+	"gpu": {
+		"Example": "ANGLE (NVIDIA GeForce GTX 780M Direct3D11 vs_5_0 ps_5_0)",
+		"Description": "Graphical Processing Unit. Only available in Chrome.",
+		"Type": "string"
+	},
+	"heap.limit": {
+		"Example": "2190MB",
+		"Description": "Estimation of total available RAM. Only available in Chrome.",
+		"Type": "string"
+	},
+	"heap.used": {
+		"Example": "23.1MB",
+		"Description": "Estimation of used RAM. Only available in Chrome.",
+		"Type": "string"
+	},	
+	"browser": {
+		"Example": "Chrome 60",
+		"Description": "Browser type.",
+		"Type": "string"
+	},
+	"isWebcamUsed": {
+		"Example": "[TRUE,FALSE]",
+		"Description": "Was webcam used in task.",
+		"Type": "string"
+	},
+	"WebcamMessage": {
+		"Example": "NotAllowedError",
+		"Description": "Status Message from eyetraking attempt.",
+		"Type": "string"
+	},
+	"WebcamDevice": {
+		"Example": "FaceTime HD Camera (Built-in) (05ac:8511)",
+		"Description": "Name of webcam device. Only in eyetracking version, otherwise value = -1.",
+		"Type": "string"
+	},
+	"webcamSize.px": {
+		"Example": "640x480",
+		"Description": "",
+		"Type": "string"
+	},
+	"lum": {
+		"Example": "0.44313725490196",
+		"Description": "Measured luminence from webcam. Only eyetracking version. Values range from 0-1 [-1 if not eyetracking].",
+		"Type": "string"
+	},
+	"isWindowSuccess": {
+		"Example": "FALSE",
+		"Description": "Whether or not webcam calibration (green/red boxes was successful during timelimit)",
+		"Type": "string"
+	},
+	"monitorSize.px": {
+		"Example": "2560x1440",
+		"Description": "Monitor dimensions.",
+		"Type": "string"
+	},	
+	"windowSize.px": {
+		"Example": "2560x1440",
+		"Description": "",
+		"Type": "string"
+	},
+	"diagonalSize.in": {
+		"Example": "30.6",
+		"Description": "Estimated diagonal size of screen. Derived from window size and devicePixelRatio.",
+		"Type": "string"
+	},	
+	"devicePixelRatio": {
+		"Example": "NotAllowedError",
+		"Description": "",
+		"Type": "string"
+	},
+	"isPageVisible": {
+		"Example": "FALSE",
+		"Description": "Is subject looking at differnt browser window. Available in all versions of task.",
+		"Type": "string"
+	},	
+	"isFullscreen": {
+		"Example": "TRUE",
+		"Description": "Is subject looking at task in fullscreen. Available in all versions of task.",
+		"Type": "string"
+	},
+	"scaling": {
+		"Example": "1",
+		"Description": "Scaling of display elements. Done to make sure task is proprotionally similar for smaller screens.",
+		"Type": "string"
+	},
+	"sampleNum": {
+		"Example": "3321",
+		"Description": "SampleNum at relavant timepoint (see sample_time) in trial. Only in eyetracking version",
+		"Type": "string"
+	},	
+	"sample_time": {
+		"Example": "107",
+		"Description": "Time since begining trial. Used in eyetracking version only, otherwise value=-1.",
+		"Type": "string"
+	},
+	"y": {
+		"Example": "432",
+		"Description": "Gaze y coodinate. Eyetracking version only.",
+		"Type": "string"
+	},
+	"x": {
+		"Example": "461",
+		"Description": "Gaze x coodinate. Eyetracking version only.",
+		"Type": "string"
+	},	
+	"duration.t": {
+		"Example": "16522",
+		"Description": "",
+		"Type": "string"
+	},
+	"Stim_onset.t": {
+		"Example": "2003",
+		"Description": "",
+		"Type": "string"
+	},
+	"DotLoc_onset.t": {
+		"Example": "7007",
+		"Description": "",
+		"Type": "string"
+	},
+	"blockNum": {
+		"Example": "1",
+		"Description": "Block number [0-8]",
+		"Type": "string"
+	},
+	"trialNum": {
+		"Example": "6",
+		"Description": "Block level trial number [0-21].",
+		"Type": "string"
+	},	
+	"trialNumTask": {
+		"Example": "44",
+		"Description": "Task level trial number.[0-197]",
+		"Type": "string"
+	},
+	"trialID": {
+		"Example": "i6",
+		"Description": "",
+		"Type": "string"
+	},	
+	"Key_Resp.rt": {
+		"Example": "-1",
+		"Description": "",
+		"Type": "string"
+	},
+	"Key_Resp.resp": {
+		"Example": "NotAllowedError",
+		"Description": "",
+		"Type": "string"
+	},	
+	"Key_Resp.cresp": {
+		"Example": "9",
+		"Description": "",
+		"Type": "string"
+	},
+	"Key_Resp.acc": {
+		"Example": "0",
+		"Description": "",
+		"Type": "string"
+	},	
+	"baseline": {
+		"Example": "1",
+		"Description": "",
+		"Type": "string"
+	},
+	"DotLoc": {
+		"Example": "RightD",
+		"Description": "",
+		"Type": "string"
+	},
+	"LEmotion": {
+		"Example": "Neutral",
+		"Description": "",
+		"Type": "string"
+	},
+	"LStim": {
+		"Example": "i2102.jpg",
+		"Description": "",
+		"Type": "string"
+	},
+	"LDescription": {
+		"Example": "ManonDeck",
+		"Description": "",
+		"Type": "string"
+	},
+	"RStim": {
+		"Example": "i2703.jpg",
+		"Description": "",
+		"Type": "string"
+	},
+	"REmotion": {
+		"Example": "Sad",
+		"Description": "",
+		"Type": "string"
+	},
+	"RDescription": {
+		"Example": "SadKids",
+		"Description": "",
+		"Type": "string"
+	},	
+	"trial_type": {
+		"Example": "dotprobe-task",
+		"Description": "",
+		"Type": "string"
+	},
+	"isCongruent": {
+		"Example": "TRUE",
+		"Description": "",
+		"Type": "string"
+	},
+	"Event": {
+		"Example": "Practice",
+		"Description": "Event type [Behavioral: Practice, Task; Eyetracking: Stim, DotLoc]",
+		"Type": "string"
+	}
+}

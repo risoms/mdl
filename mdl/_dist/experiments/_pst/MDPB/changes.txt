@@ -1,0 +1,14 @@
+8/16/17
+gamepad
+- gamepad responses recorded
+- list created to include gamepad variable for correct resp
+- instructions updated to include gamepad
+
+8/1/17
+- task modified by adding eyetracking code SMR
+- stimuli cropped to include correct color background for eyetracking (192,192,192) SMR
+- cue/probe images manually converted to 192,192,192 using paint.net
+
+
+
+any questions contact semeon.risom@gmail.com

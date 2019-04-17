@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><?xml-stylesheet type='text/xsl' href='experiment-transform.xsl'?>
+<Experiment xmlns:ns2="NDA.experiment" experiment_id="885" experiment_name="SART">
+    <fMRI>
+        <SECTIONS>
+            <ACQUISITION>
+                <HIERARCHICAL_TREES>
+                    <Equipment_Scanner>
+                        <Tree_Element id="7516" selected="false" value="Equipment/Scanner">
+                            <Tree_Element id="6972" selected="false" value="Siemens">
+<Tree_Element id="988" selected="false" value="3T">
+    <Tree_Element id="7417" selected="true" value="MAGNETOM Skyra"/>
+</Tree_Element>
+                            </Tree_Element>
+                        </Tree_Element>
+                    </Equipment_Scanner>
+                    <Software>
+                        <Tree_Element id="7518" selected="false" value="Software">
+                            <Tree_Element id="7570" selected="false" value="Siemens">
+<Tree_Element id="7784" selected="true" value="Magnetom Syngo"/>
+                            </Tree_Element>
+                        </Tree_Element>
+                    </Software>
+                    <Equipment_Stimuli>
+                        <Tree_Element id="7517" selected="false" value="Equipment/Stimuli">
+                            <Tree_Element id="7761" selected="false" value="Open Source">
+<Tree_Element id="7758" selected="true" value="PsychoPy"/>
+                            </Tree_Element>
+                        </Tree_Element>
+                    </Equipment_Stimuli>
+                </HIERARCHICAL_TREES>
+            </ACQUISITION>
+            <BLOCK_EVENT_DESIGN>
+                <BLOCK block_id="1">
+                    <EXPERIMENT_ELEMENTS>
+                        <trial_count>60</trial_count>
+                        <trial_duration>2 seconds</trial_duration>
+                        <video_stimuli>Overlapping face and scene stimuli. </video_stimuli>
+                        <audio_stimuli>N/A</audio_stimuli>
+                        <block_design_file_id description="Experiment: Block Design File" file_name="SART_Sequence File.docx" file_path="https://s3.amazonaws.com/gpop//gpop/ndar_data/experiments/experiment_885/block_1/Block_Design_File/SART_Sequence+File.docx">4862</block_design_file_id>
+                        <has_eeg>false</has_eeg>
+                        <has_eye_tracking>false</has_eye_tracking>
+                        <event_name>Attend Faces, Neutral Faces</event_name>
+                    </EXPERIMENT_ELEMENTS>
+                </BLOCK>
+                <BLOCK block_id="2">
+                    <EXPERIMENT_ELEMENTS>
+                        <trial_count>60</trial_count>
+                        <trial_duration>2 seconds</trial_duration>
+                        <video_stimuli>Overlapping face and scene stimuli.</video_stimuli>
+                        <audio_stimuli>N/A</audio_stimuli>
+                        <block_design_file_id description="Experiment: Block Design File" file_name="SART_Sequence File.docx" file_path="https://s3.amazonaws.com/gpop//gpop/ndar_data/experiments/experiment_885/block_2/Block_Design_File/SART_Sequence+File.docx">4863</block_design_file_id>
+                        <has_eeg>false</has_eeg>
+                        <has_eye_tracking>false</has_eye_tracking>
+                        <event_name>Attend Scenes, Neutral Faces</event_name>
+                    </EXPERIMENT_ELEMENTS>
+                </BLOCK>
+                <BLOCK block_id="3">
+                    <EXPERIMENT_ELEMENTS>
+                        <trial_count>60</trial_count>
+                        <trial_duration>2 seconds</trial_duration>
+                        <video_stimuli>Overlapping face and scene stimuli.</video_stimuli>
+                        <audio_stimuli>N/A</audio_stimuli>
+                        <block_design_file_id description="Experiment: Block Design File" file_name="SART_Sequence File.docx" file_path="https://s3.amazonaws.com/gpop//gpop/ndar_data/experiments/experiment_885/block_3/Block_Design_File/SART_Sequence+File.docx">4864</block_design_file_id>
+                        <has_eeg>false</has_eeg>
+                        <has_eye_tracking>false</has_eye_tracking>
+                        <event_name>Attend Faces, Sad Faces</event_name>
+                    </EXPERIMENT_ELEMENTS>
+                </BLOCK>
+                <BLOCK block_id="4">
+                    <EXPERIMENT_ELEMENTS>
+                        <trial_count>60</trial_count>
+                        <trial_duration>2 seconds</trial_duration>
+                        <video_stimuli>Overlapping face and scene stimuli.</video_stimuli>
+                        <audio_stimuli>N/A</audio_stimuli>
+                        <block_design_file_id description="Experiment: Block Design File" file_name="SART_Sequence File.docx" file_path="https://s3.amazonaws.com/gpop//gpop/ndar_data/experiments/experiment_885/block_4/Block_Design_File/SART_Sequence+File.docx">4865</block_design_file_id>
+                        <has_eeg>false</has_eeg>
+                        <has_eye_tracking>false</has_eye_tracking>
+                        <event_name>Attend Scenes, Sad Faces </event_name>
+                    </EXPERIMENT_ELEMENTS>
+                </BLOCK>
+            </BLOCK_EVENT_DESIGN>
+            <POST_PROCESSING>
+                <NO_POST_PROCESSING/>
+            </POST_PROCESSING>
+        </SECTIONS>
+    </fMRI>
+    <collections>
+        <collection>
+            <id>2594</id>
+            <link href="https://ndar.nih.gov/edit_collection.html?id=2594"/>
+            <owner>Christopher Beevers</owner>
+            <title>Development of Attention Bias Modification for Depression</title>
+        </collection>
+    </collections>
+    <link href="https://ndar.nih.gov/experiment.html?id=885"/>
+</Experiment>

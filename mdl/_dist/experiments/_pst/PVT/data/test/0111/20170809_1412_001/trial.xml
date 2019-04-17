@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trial>
+   <id>20170809_1412_001</id>
+   <created>09-Aug-2017 14:12:11</created>
+   <timezone>CDT</timezone>
+   <num>1</num>
+   <day>1</day>
+   <practice>0</practice>
+   <pre_mood>10</pre_mood>
+   <post_mood>-1</post_mood>
+   <status>2</status>
+   <app>
+      <root>C:\Users\sr38553\projects\work\R33\_pst\1-PVT\data</root>
+      <version>1.1.0</version>
+      <study>test</study>
+      <pvt_args>-p0 -u</pvt_args>
+      <sn>9999</sn>
+      <demo>0</demo>
+      <analysis>
+         <anticipation>100</anticipation>
+         <deadline>65000</deadline>
+         <minor_lapse>500</minor_lapse>
+         <major_lapse>1000</major_lapse>
+      </analysis>
+   </app>
+   <study>
+      <name>test</name>
+      <created>09-Aug-2017 14:09:59</created>
+      <owner>test</owner>
+      <desc>test</desc>
+      <day1>09-Aug-2017</day1>
+      <ntrials>100</ntrials>
+      <rate>1</rate>
+      <mood>How sleepy are you? (1 = not at all, 10 = very)</mood>
+      <isi>
+         <min>2</min>
+         <max>10</max>
+         <step>0.001</step>
+      </isi>
+      <ttt>600</ttt>
+      <subject>'0111'</subject>
+      <nextid>113</nextid>
+      <analysis>
+         <anticipation/>
+         <deadline/>
+         <minor_lapse/>
+         <major_lapse/>
+      </analysis>
+   </study>
+   <subject>
+      <id>'0111'</id>
+      <created>09-Aug-2017 14:10:07</created>
+      <hand>right</hand>
+      <info/>
+      <ntrials>1</ntrials>
+   </subject>
+</trial>

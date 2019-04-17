@@ -1,0 +1,3 @@
+6/9/17
+- cropped images per schnyer request (original images in "stimuli-original" folder, uncropped images in "stimuli-uncropped" folder, and new images in "stimuli" folder)
+- created all possible combinations of faces and scenes. this is so the task can request the file pairs without having to generate it at runtime

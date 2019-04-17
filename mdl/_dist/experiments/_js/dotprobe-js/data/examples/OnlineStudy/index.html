@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/jquery-ui.css" type="text/css" rel="stylesheet">
+    <link href="css/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet">
+    <link href="css/tolcam.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/tolcam.js"></script>
+    <script src="js/simpleheat.js"></script>
+    <!----
+        This code from OSF repository https://osf.io/jmz79/ accompanies the publication "Online webcam-based eye tracking in cognitive science: a first look" by Semmelmann & Weigelt, published in Behavior Research Methods in 2017. Please find the abstract and information about the code, analyses, and data below. This work is intended for scientific use only.
+        Written by Kilian Semmelmann, tolcam@ksemmelm.de, 2017
+    -->
+</head>
+<body>
+    <div id="instruction">
+        <img src="imgs/rublogo.png" id="instruction_logo" />
+        <div id="instruction_1" class="instruction_page">
+            <h1>Welcome</h1>
+            <div style="text-align: center;">
+                What attracts the attention of humans?<br />
+                How can we help to improve these skills?<br />
+                <img src="imgs/intro.png" id="intro_image" /><br />
+
+                This scientific study tries to find out, whether we are able to use consumer-grade webcams to conduct research data in cognitive psychology. It is a simple viewing task, in which you will be shown dots and faces and only have to look at them.<br />
+            </div>
+            <br />
+        </div>
+        <div id="instruction_2" class="instruction_page">
+            <h1>Consent</h1>
+            Before continuing, please accept this consent form.<br />
+            <br />
+            Hereby you allow us to record and analyze eye movements and other <a href="#popupInfo" data-rel="popup" data-transition="pop" class="" title="Informationen"> information</a> that you indicate for a scientific study.
+            [INSERT OTHER CONSENT FORM INFORMATION HERE] <br />
+
+            <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+                <p style="font-size: 0.7em;">Other data we are saving:<br />
+                    - Your age, if you provide it<br />
+                    - etc..
+                </p>
+            </div>
+            <br />
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal" >
+                    <input type="radio" name="consent" id="consent_n" value="no" checked="checked" />
+                    <label for="consent_n">I do not consent or<br /> I am under 18 years old</label>
+
+                    <input type="radio" name="consent" id="consent_y" value="yes" />
+                    <label for="consent_y">I am older than 18 years and <br /> consent to the statements above</label>
+                </fieldset>
+            </div>
+        </div>
+        <div id="instruction_3" class="instruction_page">
+            <h1>Data</h1>
+            <br />
+            Thank your very much for your participation. Please fill out the following form:
+            <br />
+            <br />
+            <div data-role="fieldcontain">
+                <label for="f_birthday">Alter:</label>
+                <select name="f_birthday" id="f_birthday">
+                    <option value="">Choose:</option>
+                    <option value="0">Else / withheld</option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain">
+                <label for="f_gender" class="select">Gender:</label>
+                <select name="f_gender" id="f_gender" data-native-menu="false">
+                    <option value="">Choose:</option>
+                    <option value="female">female</option>
+                    <option value="male">male</option>
+                    <option value="other">other</option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain">
+                <label for="f_visual" class="select">Visual acuitiy:</label>
+                <select name="f_visual" id="f_visual" data-native-menu="false">
+                    <option value="">Choose:</option>
+                    <option value="none">perfect sight</option>
+                    <option value="glasses">glasses (corrected)</option>
+                    <option value="lenses">contact lenses (corrected)</option>
+                    <option value="uncorrected">not corrected</option>
+                </select>
+            </div>
+
+            <div id="asd_reference">
+                <div data-role="fieldcontain">
+                    <label for="f_asd" class="select">Diagnosis autism spectrum:</label>
+                    <select name="f_asd" id="f_asd" data-native-menu="false">
+                        <option value="">Choose:</option>
+                        <option value="none">no diagnosis</option>
+                        <option value="autism">Autism</option>
+                        <option value="aspergers">Aspergers</option>
+                        <option value="other">other ASD diagnosis</option>
+                    </select>
+                </div>
+                Please note: There will be no diagnosis of psychological of cognitive factors. For further information on the topic Autism, please visit <a href="http://www.autism.com">www.autism.com</a>.
+            </div>
+
+            <div data-role="fieldcontain" id="cf_reference">
+                <label for="f_crowdflowerid">crowdflower id:</label>
+                <input type="text" name="f_crowdflowerid" id="f_crowdflowerid" value="" />
+            </div>
+
+            <div data-role="fieldcontain" id="rub_reference">
+                <label for="f_rubid">VP:</label>
+                <input type="text" name="f_rubid" id="f_rubid" value="" />
+            </div>
+
+        </div>
+
+        <div id="instruction_4" class="instruction_page">
+            <h1>Webcam Setup</h1>
+            <br />
+            <div id="setup_after">
+                You can take a short break and move your head. Before continuing, please follow the instructions noted below.<br />
+            </div>
+            <br />
+            Please turn off your mobile phone and close all other programs and websites. Then carefully read and follow these instructions:<br />
+            <img src="imgs/instructions_donttilt.png" style = "width: 100%; margin-top: 20px; margin-bottom: 20px;"/>
+            <br />
+            <span id="webcam_insert"></span>
+            <br />
+            <div id="setup_first">
+                This studdy consists of multiple five-minute parts with pauses inbetween. After you clicked "start", please avoid moving your head. If you move too much, the calibration can fail and you might not be able to finish the study.
+            </div>
+            <br />
+        </div>
+
+        <div id="instruction_5" class="instruction_page">
+            <div id="beforetherest">
+                <h1>Foto</h1>
+                <br />
+                It would be benificial to our study to know how you are seated and what quality your webcam has. May we save a picture through your webcam for these questions?<br />
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal" >
+                        <input type="radio" name="takephoto" id="takephoto_n" value="no"/>
+                        <label for="takephoto_n">No</label>
+
+                        <input type="radio" name="takephoto" id="takephoto_y" value="yes" />
+                        <label for="takephoto_y">Yes</label>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div id="therest">
+                <h1>Thank you!</h1>
+                Thank you very much for your participation in this study.<br />
+                <br />
+                The study is completed. If you want to tell us something, please use the form below. If you want us to respond, please also note an e-mail address we can reach you at.
+                <div class="ui-field-contain">
+                    <label for="emailtext">comment:</label>
+                    <textarea name="textarea" id="emailtext"></textarea>
+                </div>
+                <button id="sendemail">send message</button>
+                <br />
+                <br />
+
+                If you want to be notified about the results of the study, please click <a href="results.php" target="_blank">here</a>.
+                <br /><br />
+
+                <div id="cf_code">
+                    Crowdflower code: j8ehAi<br />
+                    <br />
+                </div>
+                <br />
+
+                Access to your webcam will automatically be terminated through closing this browser tab.
+            </div>
+        </div>
+
+        <div id="instruction_back" class="instruction_navigation">
+            <div id="instruction_back_text">
+                &lt;
+            </div>
+        </div>
+        <div id="instruction_continue" class="instruction_navigation">
+            <div id="instruction_continue_text">
+                &gt;
+            </div>
+        </div>
+    </div>
+
+    <div id="calibration_dot" class="stimuli"><div id="calibration_cnt">0</div></div>
+    <div id="stimulus" class="stimuli"><img src="imgs/talking.jpg" /></div>
+    <div id="stimuli_dot" class="stimuli"></div>
+    <div id="stimuli_bar" class="stimuli"></div>
+    <div id="stimuli_fixation" class="stimuli">+</div>
+    <div id="stimuli_prime" class="stimuli"></div>
+    <div id="stimuli_target" class="stimuli">X</div>
+    <div id="stimuli_img" class="stimuli"></div>
+    <div id="instruction_message"></div>
+
+    <div id="message">
+        no message
+    </div>
+
+
+</body>
+</html>

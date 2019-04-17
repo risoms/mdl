@@ -1,0 +1,29 @@
+*** Installation started 2016/09/05 15:54 ***
+Source: C:\Users\lpzjwp\Downloads\pyHook-1.5.1.win32-py2.7 (1).exe
+999 Root Key: HKEY_CURRENT_USER
+020 Reg DB Key: [Software\Microsoft\Windows\CurrentVersion\Uninstall]pyHook-py2.7
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyHook-py2.7]DisplayName=Python 2.7 pyHook-1.5.1
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyHook-py2.7]UninstallString="C:\Python27\RemovepyHook.exe" -u "C:\Python27\pyHook-wininst.log"
+100 Made Dir: C:\Python27\Lib\site-packages\pyHook
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\LICENSE.txt
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\README.txt
+200 File Copy: C:\Python27\Lib\site-packages\pyHook-1.5.1-py2.7.egg-info
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\aa hook.py
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\cpyHook.py
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\doc.py
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\example.py
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\HookManager.py
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\_cpyHook.pyd
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\__init__.py
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\__init__.pyc
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\HookManager.pyc
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\example.pyc
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\doc.pyc
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\cpyHook.pyc
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\aa hook.pyc
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\__init__.pyo
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\HookManager.pyo
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\example.pyo
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\doc.pyo
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\cpyHook.pyo
+200 File Copy: C:\Python27\Lib\site-packages\pyHook\aa hook.pyo
