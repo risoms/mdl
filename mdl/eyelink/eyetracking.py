@@ -29,7 +29,7 @@ from psychopy.constants import (NOT_STARTED, STARTED, FINISHED)
 
 #----package
 # calibration
-from mdl.eyetracking.calibration import calibration as _calibration
+from mdl.eyelink.calibration import calibration as _calibration
 
 if __name__ == '__main__':
 	import pylink

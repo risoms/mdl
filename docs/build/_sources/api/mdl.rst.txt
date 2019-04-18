@@ -27,7 +27,7 @@ mdl
        :maxdepth: 1
 
        mdl.R33
-       mdl.eyetracking
+       mdl.eyelink
 
 
 

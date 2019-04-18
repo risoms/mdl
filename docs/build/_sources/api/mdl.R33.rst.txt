@@ -15,11 +15,11 @@ mdl.R33
        :maxdepth: 1
 
        mdl.R33.classify
-       mdl.R33.config
        mdl.R33.metadata
        mdl.R33.model
        mdl.R33.nslr_hmm
        mdl.R33.processing
+       mdl.R33.settings
 
 
 
