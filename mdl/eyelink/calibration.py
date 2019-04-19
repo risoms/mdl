@@ -7,7 +7,7 @@
 | This allows mdl.eyetracking package to initiate calibration/validation/drift correction.
 """
 
-__all__ = ['calibration']
+__all__ = ['Calibration']
 
 #----debug
 from pdb import set_trace as breakpoint
@@ -26,7 +26,7 @@ from psychopy import visual, event, sound
 if __name__ == '__main__':
 	import pylink
 #----------------------------------------------------------------------------------------------------------------------------start
-class calibration():
+class Calibration():
     """This allows mdl.eyetracking package to initiate calibration/validation/drift correction."""
     def __init__(self, w, h, tracker, window):
         """

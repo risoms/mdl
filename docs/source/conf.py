@@ -78,7 +78,7 @@ version = '%s'%(date)
 # The full version, including alpha/beta/rc tags
 release = version
 # 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
-html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%s'%(date)
 
 # -- Extensions ----------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
@@ -173,7 +173,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.py','notes.py','setup.py','dist','pylink','setup']
+exclude_patterns = ['_build','**.ipynb_checkpoints','run.rst','notes.rst','api/setup.rst','setup','api/pylink.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'

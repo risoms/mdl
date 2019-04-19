@@ -7,6 +7,15 @@
 | @email: semeon.risom@gmail.com   
 | @url: https://semeon.io/d/R33-analysis   
 """
+
+# available functions
+__all__ = ['ObservationModel','gaze_observation_model','gaze_transition_model','safelog','viterbi','forward_backward',
+'dataset_features','transition_estimates','reestimate_observations_baum_welch','reestimate_observations_viterbi_robust',
+'segment_features','classify_segments','classify_gaze']
+
+# required external library
+__required__ = ['numpy','scipy','nslr','pandas']
+
 import numpy as np
 import scipy.stats
 import nslr

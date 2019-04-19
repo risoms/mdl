@@ -8,7 +8,7 @@
 | but should be compatiable with earlier systems.
 """
 
-__all__ = ['run']
+__all__ = ['Eyetracking']
 
 #----debug
 from pdb import set_trace as breakpoint
@@ -27,14 +27,15 @@ from pathlib import Path
 from psychopy import visual, core, event
 from psychopy.constants import (NOT_STARTED, STARTED, FINISHED)
 
-#----package
+#----local
+from mdl import settings
 # calibration
 from mdl.eyelink.calibration import calibration as _calibration
 
 if __name__ == '__main__':
 	import pylink
 #---------------------------------------------------------------------------------------------------------------------------start
-class run():
+class Eyetracking():
     """
     Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the 
     Eyelink 1000 Plus (5.0), but should be compatiable with earlier systems.

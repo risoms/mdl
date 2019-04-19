@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# available functions
+__all__ = ['ROI']
+
+# required external library
+__required__ = ['opencv-python','psd_tools', 'pathlib', 'gc', 'matplotlib', 'PIL']
+
 #----imports
 # main
 import gc
 import os
-import sys
-from pathlib import Path
 
-# package
-from settings import settings
+# local libraries
+from mdl import settings
 console = settings.console
 
-#----external library
-library = ['opencv-python','psd_tools', 'pathlib', 'gc', 'matplotlib', 'PIL']
-
-class roi():
+class ROI():
 	def __init__(self, source=None, destination=None, shape='box', **kwargs):
 		"""
 		Create single subject trial bokeh plots.
@@ -39,7 +40,6 @@ class roi():
 				:class: kwargs
 				:widths: 25 50
 				header-rows: 1
-
 
 				* - Property
 					- Description
@@ -68,7 +68,7 @@ class roi():
 
 		Attributes
 		----------
-		psd: `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`__
+		psd: `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
 		retval, threshold : :class:`numpy.ndarray`
 			Returns from :py:class:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.
@@ -95,17 +95,15 @@ class roi():
 		Notes
 		-----
 		**Resources**
-		- See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.
-		- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
-		- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are
-		created.
-
+		    - See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.
+		    - See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
+		    - See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds arecreated.
 		"""
 
 		# check library
 		self.isLibrary = kwargs['isLibrary'] if 'isLibrary' in kwargs else False
 		if self.isLibrary:
-			settings.library(library)
+			settings.library(__required__)
 
 		#----parameters
 		# delimiter
@@ -119,13 +117,14 @@ class roi():
 		self.cy = self.screensize[1]/2
 		self.coordinates = [self.cx, self.cy] if 'coordinates' not in kwargs else kwargs['coordinates']
 		# shape
-		self.shape = shape if shape in ['polygon', 'hull', 'circle', 'rotate', 'straight'] else 'straight'
+		self.shape = shape if shape in [
+			'polygon', 'hull', 'circle', 'rotate', 'straight'] else 'straight'
 		# dpi
 		self.dpi = 300 if 'dpi' not in kwargs else kwargs['dpi']
 		# save
 		self.save = {}
 		# save csv
-		self.save['data'] = kwargs['save_data'] if 'save_data' in  kwargs else True
+		self.save['data'] = kwargs['save_data'] if 'save_data' in kwargs else True
 		# save contour images
 		self.save['contours'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
 		# save raw images
@@ -143,8 +142,9 @@ class roi():
 		else:
 			self.destination = destination
 
-	def run(self):
+	def __new__(self):
 		#----data
+		from pathlib import Path
 		import cv2
 		import pandas as pd
 		import numpy as np
@@ -169,7 +169,7 @@ class roi():
 		console('for each image','green')
 		for file in directory:
 			#----start image
-			# read image
+			# read image 
 			psd = PSDImage.open(file)
 			imagename = os.path.splitext(os.path.basename(file))[0]
 
@@ -179,7 +179,7 @@ class roi():
 			self.channels = psd.channels #read channels
 			self.width = psd.width #width and height
 			self.height = psd.height
-
+			
 			# clear lists
 			l_roi_bounds = []
 			l_roi_contours = []
@@ -459,13 +459,15 @@ class roi():
 				# coord_image_df = pd.DataFrame(coord_image, columns=headers)
 				# coord_image_df.to_csv('%s/%s.csv'%(output['output'], filename), index=False)
 				# del coord_image_df
-
+				
 		#----error log
 		if bool(l_error):
 			_filename = Path('%s/error.csv'%(self.destination))
 			console("Errors found. See log %s"%(_filename), 'red')
-			df = pd.DataFrame(l_error, columns=['image','roi','message'])
-			df.to_csv(_filename, index=False)
+			error = pd.DataFrame(l_error, columns=['image','roi','message'])
+			error.to_csv(_filename, index=False)
+		else:
+			error = None
 
 		#%% test
 		# drawing image
@@ -474,6 +476,7 @@ class roi():
 
 		# convert img to np array
 		# np_img = np.array(img)
+		return roi, error
 
 
 

@@ -7,12 +7,19 @@
 | @email: semeon.risom@gmail.com   
 | @url: https://semeon.io/d/R33-analysis     
 """
+
+# available functions
+__all__ = ['bokeh_trial','bokeh_calibration','onset_diff_plot','density_plot','corr_matrix','boxplot','cooks_plot',
+'residual_plot','qq_plot','logit_plot','html']
+
 #-------global
 from pdb import set_trace as breakpoint
 from distutils import dir_util
 import datetime
 import importlib
 import os
+import sys
+import shutil
 
 #-------data
 import pandas as pd
@@ -33,11 +40,39 @@ from bokeh.embed import components
 import re
 
 #-------local
-from settings import settings
+from mdl import settings
 
 #-------constants
 console = settings.console
 debug = settings.debug
+
+def _font():
+	"""Add Helvetica to matplotlib."""
+	from matplotlib import matplotlib_fname, rcParams
+	import matplotlib.font_manager as font_manager
+	
+	directory = matplotlib_fname().replace("/matplotlibrc", "")
+	destination = f'{directory}/fonts/ttf'
+	print(settings.path)
+	file = settings.path['home'] + "/dist/resources/Helvetica.ttf"
+	
+	#add to matplotlib font folder
+	shutil.copy(file, destination)
+	
+	#add to computer font folder
+	##if running osx
+	if sys.platform == "darwin":
+		shutil.copy(file, '/Library/Fonts/')
+	##if running win32
+	if sys.platform == "win32":
+		shutil.copy(file, 'c:\windows\fonts')
+	
+	#rebuild fonts
+	prop = font_manager.FontProperties(fname=file)
+	prop.set_weight = 'light'
+	rcParams['font.family'] = prop.get_name()
+	rcParams['font.weight'] = 'light'
+	font_manager._rebuild()
 
 def bokeh_trial(config, df, stim_bounds, roi_bounds, flt):
     """Create single subject trial bokeh plots.
@@ -1933,3 +1968,6 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
     #--------finished
     console('%s finished in %s msec'%(_f,((datetime.datetime.now()-_t0).total_seconds()*1000)), 'blue')
     return html
+
+# initiate
+_font()

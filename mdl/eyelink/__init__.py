@@ -6,17 +6,13 @@ from pkgutil import extend_path
 import pkg_resources
 
 # set as module
-__all__ = ['eyetracking','calibration','__version__']
+__all__ = ['Eyetracking','Calibration','__version__']
 pkg_resources.declare_namespace(__name__)
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
-#----imports
-# pylink
-#import pylink
-
-#----versioning
+# versioning
 from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions

@@ -4,20 +4,18 @@
 import os, sys
 
 # set as module
-__all__ = ['classify','download','model','nslr_hmm','plot','processing','settings']
+__all__ = ['Classify','metadata','model','nslr_hmm','Processing','Settings']
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 #----imports
-from classify import classify
-from download import download
-from processing import processing
-import metadata
-import model
+from classify import Classify
+from processing import Processing
+from . import metadata
+from . import model
 import nslr_hmm
-import plot
-from settings import settings
+from settings import Settings
 
 #----versioning
 from ._version import get_versions

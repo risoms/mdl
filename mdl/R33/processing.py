@@ -7,6 +7,12 @@
 | @email: semeon.risom@gmail.com   
 | @url: https://semeon.io/d/R33-analysis   
 """
+# available functions
+__all__ = ['Processing']
+
+# required external libraries
+__required__ = ['datetime','distutils','importlib']
+
 #-------core
 from pdb import set_trace as breakpoint
 from pathlib import Path
@@ -20,7 +26,8 @@ import glob
 import importlib
 
 #-------local
-from classify import classify
+from mdl import settings
+#from mdl.classify import Classify
 import metadata
 
 #-------logging
@@ -32,9 +39,7 @@ import datetime
 from scipy.ndimage.filters import gaussian_filter1d
 from scipy.signal import butter,filtfilt,medfilt,savgol_filter
 
-__all__ = ["processing"]
-
-class processing():
+class Processing():
     """Processing raw eyetracking, behavioral, and clinical data."""
     # reading csv files
     try:  # use _file_ in most cases
@@ -58,101 +63,7 @@ class processing():
         self.thisCore = 0
         self.config = config
         self.filters = [['SavitzkyGolay', 'sg']]
-        self.console = dict(
-            black = '\33[40m',
-            red =  '\33[41m',
-            green =  '\33[42m',
-            orange = '\33[43m',
-            purple = '\33[45m',
-            blue =  '\33[46m',
-            grey =  '\33[47m',
-            ENDC = '\033[0m')
-        
-        #get Helvetica font
-        self.font()
-        
-    def font(self):
-        """add Helvetica to matplotlib"""
-        from matplotlib import matplotlib_fname, rcParams
-        import matplotlib.font_manager as font_manager
-        
-        directory = matplotlib_fname().replace("/matplotlibrc", "")
-        destination = f'{directory}/fonts/ttf'
-        file = self.config['path']['home'] + "/dist/_resources/Helvetica.ttf"
-        
-        #add to matplotlib font folder
-        shutil.copy(file, destination)
-        
-        #add to computer font folder
-        ##if running osx
-        if sys.platform == "darwin":
-            shutil.copy(file, '/Library/Fonts/')
-        ##if running win32
-        if sys.platform == "win32":
-            shutil.copy(file, 'c:\windows\fonts')
-        
-        #rebuild fonts
-        prop = font_manager.FontProperties(fname=file)
-        prop.set_weight = 'light'
-        rcParams['font.family'] = prop.get_name()
-        rcParams['font.weight'] = 'light'
-        font_manager._rebuild()
-    
-    def pydoc(self, path=None, source=None, build=None, copy=False):
-        """Generate pydoc docmentation
-
-        Attributes
-        ----------
-        path : :class:`str`
-            Location to save the pydoc to.
-        """
-        import subprocess
-        print(self.console['green'] + 'processing.pydoc()' + self.console['ENDC'])
-        #----for timestamp
-        _t0 = datetime.datetime.now()
-        _f = self.debug(message='t', source="timestamp")
-        
-        #create pydoc
-        #if osx
-        print(source)
-        print(build)
-        if sys.platform == "darwin":
-            subprocess.call(['sphinx-build "%s" "%s"'%(source, build)], stdout=subprocess.PIPE, shell=True)
-        #if windows
-        else:
-            #set location of makefile
-            #sys.path.append('/Users/mdl-admin/Desktop/R33-analysis-master/output/docs/')
-        
-            file = path + 'make.bat'
-            p = subprocess.Popen([file], cwd=path, shell=False)
-            stdout, stderr = p.communicate()
-            os.system("C:\Windows\System32\cmd.exe /c %s"%(path))
-            
-        print('created pydoc at ' + build)
-        print(self.console['blue']+'%s finished in %s msec'%(_f,((datetime.datetime.now()-_t0).total_seconds()*1000))+self.console['ENDC'])
-        
-    def debug(self, message, source='debug'):
-        """Get timing information for function.
-
-        Attributes
-        ----------
-        message : :class:`str`
-                Log message.
-        source : :class:`str`
-                Origin of call. Either debug or timestamp.
-        
-        """
-        if source=='debug':
-            caller = inspect.getframeinfo(inspect.stack()[1][0])
-            event = "%s, line %d, in processing.%s(), %s" % (caller.filename, caller.lineno, caller.function, message)
-            self.log.error(event, exc_info=True)
-            print(event)
-        elif source=='timestamp':
-            caller = inspect.getframeinfo(inspect.stack()[1][0])
-            event = "processing.%s()" % (caller.function)
-        
-        return event
-
+		
     def getEstimatedMonitor(self, diagonal, window):
         """calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).
 

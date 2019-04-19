@@ -8,14 +8,20 @@
 | @url: https://semeon.io/d/R33-analysis
 """
 
+# available functions
+__all__ = ['anova','logistic','lmer']
+
+# required external library
+__required__ = ['opencv-python','psd_tools', 'pathlib', 'gc', 'matplotlib', 'PIL']
+
 #-------global
 from pdb import set_trace as breakpoint
 import os, re
 import datetime
 
 #-------local
-import plot
-from settings import settings
+from mdl import plot
+from mdl import settings
 
 #-------constants
 #settings.py
@@ -34,8 +40,6 @@ pandas2ri.activate()
 #-------Notes
 # Resources:
 # - https://stats.idre.ucla.edu/other/mult-pkg/whatstat/
-
-__all__ = ['anova','logistic','lmer']
 
 def anova(config, y, f, df, csv, path, effects, is_html=True):
     """Run analysis of variance model using rpy2, seaborn and pandas.

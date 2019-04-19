@@ -8,15 +8,27 @@
 | @url: https://semeon.io/d/R33-analysis  
 """
 
-from __future__ import division
+# available functions
+__all__ = ['Classify']
+
+# required external library
+__required__ = ['numpy','pandas']
+
 from pdb import set_trace as breakpoint
 import numpy as np
 import pandas as pd
 
-class classify():
+# local libraries
+from mdl import settings
+
+class Classify():
     """Analysis methods for mdl.processing.preprocesing."""
-    def __init__(self):
-        pass
+    def __init__(self, is_library=False):
+        
+        #check libraries
+        if is_library:
+            settings.library(__required__)
+
     def VisualAngle(self,g_x,g_y,config):
         """
         Convert pixel eye-coordinates to visual angle.

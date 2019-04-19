@@ -4,32 +4,21 @@ mdl
 ~~~~~~~~~~~
 
 .. automodule:: mdl
-    
 
+	
 
+	.. toctree::
+		:maxdepth: 1
 
-    Submodules
-	----------
-
-    .. toctree::
-       :maxdepth: 1
-
-       mdl.config
-       mdl.download
-       mdl.plot
-       mdl.roi
-       mdl.settings
-
-    Subpackages
-	-----------
-
-    .. toctree::
-       :maxdepth: 1
-
-       mdl.R33
-       mdl.eyelink
-
-
-
-
-
+	
+	
+		mdl.download
+		mdl.plot
+		mdl.roi
+		mdl.settings
+	
+		mdl.R33
+		mdl.eyelink
+	
+	
+	

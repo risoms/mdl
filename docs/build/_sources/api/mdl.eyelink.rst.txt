@@ -4,20 +4,16 @@ mdl.eyelink
 ~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: mdl.eyelink
-    
 
+	
 
+	.. toctree::
+		:maxdepth: 1
 
-    Submodules
-	----------
-
-    .. toctree::
-       :maxdepth: 1
-
-       mdl.eyelink.calibration
-       mdl.eyelink.eyetracking
-
-
-
-
-
+	
+	
+		mdl.eyelink.calibration
+		mdl.eyelink.eyetracking
+	
+	
+	

@@ -7,37 +7,44 @@
 | @email: semeon.risom@gmail.com
 | @url: https://semeon.io/d/R33-analysis
 """
+# available functions
+__all__ = ['Settings']
+
+# required external library
+__required__ = ['datetime','distutils','importlib']
 
 from pdb import set_trace as breakpoint
-import os, re, inspect
+import os
+import re
+import inspect
 import numpy as np
 from datetime import datetime
 from distutils.version import StrictVersion
 import importlib, pkg_resources, pip, platform
 
-class settings():
+class Settings():
     """Provide resource for creating links, anchors, calculate significant figures, user-friendly console."""
     def __init__(self, is_library=False):
         """Provide resource for creating links, anchors, calculate significant figures, user-friendly console."""
-        self.config = config
-    
+        self.config = CONFIG
+
     @classmethod
     def definitions(cls, config):
         """
         Store definitions.
-    
+
         Parameters
         ----------
         message : :class:`str`
             Log message.
         source : :class:`str`
             Origin of call. Either debug or timestamp.
-    
+
         Returns
         -------
         config : :class:`dict`
             Returned dictionary
-            
+
         Examples
         --------
         CESD Group
@@ -285,7 +292,7 @@ class settings():
         
         return config
 
-config={
+CONFIG={
     #!!!----path
     'path': {
         'home': os.path.abspath(os.getcwd()),

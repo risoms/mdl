@@ -7,17 +7,19 @@
 | @email: semeon.risom@gmail.com   
 | @url: https://semeon.io/d/R33-analysis   
 """
+# global
 from pdb import set_trace as breakpoint
 import os
 from datetime import datetime
 from pathlib import Path
-from settings import settings
 
-#----required external
-_required = ['paramiko', 'openpyxl', 'requests', 'ftplib', 'pandas']
-#import paramiko, openpyxl, requests, ftplib
+# local libraries
+from mdl import settings
 
-class download():
+# required external libraries
+__required__ = ['paramiko','openpyxl','requests','ftplib','pandas']
+
+class Download():
     """Resource for downloading files from Box, SSH, REDCap and others."""
     @classmethod
     def __init__(cls, is_library=False):
@@ -30,7 +32,7 @@ class download():
         """
         #check libraries
         if is_library:
-            settings.library(_required)
+            settings.library(__required__)
 
     @classmethod
     def REDCap(cls, path, token, url, content, payload=None, **kwargs):

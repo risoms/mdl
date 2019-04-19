@@ -3,8 +3,7 @@
 
 .. toctree::
 	:hidden:
-	:maxdepth: 4
-	:glob:
+	:maxdepth: 1
 
 	intro
 	install
