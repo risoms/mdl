@@ -30,11 +30,11 @@
 # directories #
 ######################
 #all csv files within output subdirectory
-mdl/_dist/output/**/*.csv
+mdl/dist/output/**/*.csv
 
 # directories #
 ######################
-mdl/_dist/output/data/**
+mdl/dist/output/data/**
 mdl/**/__pycache__*
 **/__pycache__
 __pycache__
