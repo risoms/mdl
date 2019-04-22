@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.R33.nslr_hmm &#8212; mdl-R33 2019-04-18 documentation</title>
+    <title>mdl.R33.nslr_hmm &#8212; mdl-R33 2019-04-22 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -51,7 +51,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-18</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -116,11 +116,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.roi.html">mdl.roi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
@@ -129,9 +130,6 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -176,13 +174,13 @@
 <li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.model.html">mdl.R33.model</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.R33.nslr_hmm</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.processing.html">mdl.R33.processing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.eyelink.html">mdl.eyelink</a></li>
@@ -239,13 +237,13 @@
 <li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.model.html">mdl.R33.model</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.R33.nslr_hmm</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.processing.html">mdl.R33.processing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.eyelink.html">mdl.eyelink</a></li>
@@ -346,35 +344,6 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="mdl.R33.nslr_hmm.classify_gaze">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">classify_gaze</code><span class="sig-paren">(</span><em>ts</em>, <em>xs</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#classify_gaze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.classify_gaze" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt>
-<code class="descname">classify_segments(segments, observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object at 0x12e0d1358&gt;, transition_model=array([[0.4       , 0.4       , 0.        , 0.2       ],</code></dt>
-<dt>
-<code class="descname">[0.25      , 0.25      , 0.25      , 0.25      ],</code></dt>
-<dt>
-<code class="descname">[0.33333333, 0.        , 0.33333333, 0.33333333],</code></dt>
-<dt>
-<code class="descname">[0.2       , 0.4       , 0.        , 0.4       ]]), initial_probabilities=None)</code></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.dataset_features">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">dataset_features</code><span class="sig-paren">(</span><em>data</em>, <em>**nslrargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#dataset_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.dataset_features" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.forward_backward">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">forward_backward</code><span class="sig-paren">(</span><em>transition_probs</em>, <em>observations</em>, <em>initial_probs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#forward_backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.forward_backward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="mdl.R33.nslr_hmm.gaze_observation_model">
 <code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">gaze_observation_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#gaze_observation_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.gaze_observation_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Include this - Semeon</p>
@@ -387,6 +356,34 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="mdl.R33.nslr_hmm.safelog">
+<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">safelog</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#safelog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.safelog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include this - Semeon</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mdl.R33.nslr_hmm.viterbi">
+<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">viterbi</code><span class="sig-paren">(</span><em>initial_probs</em>, <em>transition_probs</em>, <em>emissions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#viterbi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.viterbi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include this - Semeon</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mdl.R33.nslr_hmm.forward_backward">
+<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">forward_backward</code><span class="sig-paren">(</span><em>transition_probs</em>, <em>observations</em>, <em>initial_probs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#forward_backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.forward_backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include this - Semeon</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mdl.R33.nslr_hmm.dataset_features">
+<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">dataset_features</code><span class="sig-paren">(</span><em>data</em>, <em>**nslrargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#dataset_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.dataset_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mdl.R33.nslr_hmm.transition_estimates">
+<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">transition_estimates</code><span class="sig-paren">(</span><em>obs</em>, <em>trans</em>, <em>forward</em>, <em>backward</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#transition_estimates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.transition_estimates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt>
 <code class="descname">reestimate_observations_baum_welch(sessions, transition_probs=array([[0.4       , 0.4       , 0.        , 0.2       ],</code></dt>
 <dt>
@@ -394,7 +391,7 @@
 <dt>
 <code class="descname">[0.33333333, 0.        , 0.33333333, 0.33333333],</code></dt>
 <dt>
-<code class="descname">[0.2       , 0.4       , 0.        , 0.4       ]]), observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object at 0x12e0d1358&gt;, initial_probs=None, estimate_observation_model=True, estimate_transition_model=True, n_iterations=30, plot_process=False)</code></dt>
+<code class="descname">[0.2       , 0.4       , 0.        , 0.4       ]]), observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object at 0x1318a72e8&gt;, initial_probs=None, estimate_observation_model=True, estimate_transition_model=True, n_iterations=30, plot_process=False)</code></dt>
 <dd><p>Include this - Semeon</p>
 </dd></dl>
 
@@ -406,13 +403,7 @@
 <dt>
 <code class="descname">[0.33333333, 0.        , 0.33333333, 0.33333333],</code></dt>
 <dt>
-<code class="descname">[0.2       , 0.4       , 0.        , 0.4       ]]), observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object at 0x12e0d1358&gt;, initial_probs=None, estimate_observation_model=True, estimate_transition_model=True, n_iterations=30, plot_process=False)</code></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.safelog">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">safelog</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#safelog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.safelog" title="Permalink to this definition">¶</a></dt>
+<code class="descname">[0.2       , 0.4       , 0.        , 0.4       ]]), observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object at 0x1318a72e8&gt;, initial_probs=None, estimate_observation_model=True, estimate_transition_model=True, n_iterations=30, plot_process=False)</code></dt>
 <dd><p>Include this - Semeon</p>
 </dd></dl>
 
@@ -423,13 +414,20 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="mdl.R33.nslr_hmm.transition_estimates">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">transition_estimates</code><span class="sig-paren">(</span><em>obs</em>, <em>trans</em>, <em>forward</em>, <em>backward</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#transition_estimates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.transition_estimates" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt>
+<code class="descname">classify_segments(segments, observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object at 0x1318a72e8&gt;, transition_model=array([[0.4       , 0.4       , 0.        , 0.2       ],</code></dt>
+<dt>
+<code class="descname">[0.25      , 0.25      , 0.25      , 0.25      ],</code></dt>
+<dt>
+<code class="descname">[0.33333333, 0.        , 0.33333333, 0.33333333],</code></dt>
+<dt>
+<code class="descname">[0.2       , 0.4       , 0.        , 0.4       ]]), initial_probabilities=None)</code></dt>
+<dd><p>Include this - Semeon</p>
+</dd></dl>
 
 <dl class="function">
-<dt id="mdl.R33.nslr_hmm.viterbi">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">viterbi</code><span class="sig-paren">(</span><em>initial_probs</em>, <em>transition_probs</em>, <em>emissions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#viterbi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.viterbi" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.nslr_hmm.classify_gaze">
+<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">classify_gaze</code><span class="sig-paren">(</span><em>ts</em>, <em>xs</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#classify_gaze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.classify_gaze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Include this - Semeon</p>
 </dd></dl>
 
@@ -444,7 +442,7 @@
 	<div class="container">
 		<div>
 			&copy; Copyright 2019, Semeon Risom.<br/>
-			Updated 2019-04-18.<br/>
+			Updated 2019-04-22.<br/>
 			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
 		</div>
 	</div>

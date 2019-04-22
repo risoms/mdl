@@ -5,7 +5,7 @@
 | @date: Created on Sat May 1 15:12:38 2019
 | @author: Semeon Risom
 | @email: semeon.risom@gmail.com
-| @url: https://semeon.io/d/R33-analysis
+| @url: https://semeon.io/d/mdl  
 """
 import os
 import re
@@ -17,11 +17,11 @@ from pdb import set_trace as breakpoint
 __all__ = ['console','link','popover','stn','library','path']
 
 # required external library
-__required__ = ['opencv-python','psd_tools', 'pathlib', 'gc', 'matplotlib', 'PIL']
+__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
 
 # path
 path = {
-	'home': os.path.abspath(__file__)
+	'home': os.path.dirname(os.path.abspath(__file__))
 }
 
 # start
@@ -317,3 +317,5 @@ def pydoc(path=None, source=None, build=None, copy=False):
 
 	print('created pydoc at ' + build)
 	print(console('%s finished in %s msec' %(_f, ((datetime.datetime.now()-_t0).total_seconds()*1000))))
+
+del breakpoint

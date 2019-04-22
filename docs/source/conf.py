@@ -6,7 +6,7 @@
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
-# -- Sphinx toctree include functions--------------------------------------------------------------
+# Sphinx toctree include functions -------------------------------------------------------------------------------------
 from sphinx.ext.autosummary import Autosummary
 from sphinx.ext.autosummary import get_documenter
 from docutils.parsers.rst import directives
@@ -49,7 +49,7 @@ class AutoAutoSummary(Autosummary):
         finally:
             return super(AutoAutoSummary, self).run()
 
-# -- Path setup --------------------------------------------------------------
+# Path setup -----------------------------------------------------------------------------------------------------------
 import re
 import os
 import sys
@@ -60,10 +60,10 @@ print('path %s'%(path))
 sys.path.append(path)
 sys.path.append('/anaconda3/lib/python3.6/site-packages/')
 
-# -- Path setup --------------------------------------------------------------
+# Path setup -----------------------------------------------------------------------------------------------------------
 autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL"]
 
-# -- Project information -----------------------------------------------------
+# Project information --------------------------------------------------------------------------------------------------
 import mdl
 
 project = 'mdl-R33'
@@ -80,7 +80,7 @@ release = version
 # 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
 html_last_updated_fmt = '%s'%(date)
 
-# -- Extensions ----------------------------------------------------------------
+# Extensions -----------------------------------------------------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -181,7 +181,7 @@ pygments_style = 'sphinx'
 # Sort by source
 autodoc_member_order = 'bysource'
 
-# -- Options for HTML output -------------------------------------------------
+# Options for HTML output ----------------------------------------------------------------------------------------------
 # Path to favicon
 html_favicon = '_static/img/imhr.ico'
 
@@ -205,30 +205,30 @@ html_theme_options = {
 #no 'searchresults.html' 
 # #localtoc #fulltoc #globaltoc 
 html_sidebars = {'**': ['localtoc.html']}
-# -- nbsphinx -------------------------------------------------
+# nbsphinx -------------------------------------------------------------------------------------------------------------
 nbsphinx_allow_errors = False
 nbsphinx_execute = 'never'
 pngmath_use_preview = True
 pngmath_dvipng_args = ['-gamma 1.5', '-D 96', '-bg Transparent']
 
-# -- Options for HTMLHelp output ---------------------------------------------
+# Options for HTMLHelp output ------------------------------------------------------------------------------------------
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'mdl-R33'
 
-# -- Options for manual page output ------------------------------------------
+# Options for manual page output ---------------------------------------------------------------------------------------
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'mdl-R33', 'mdl-R33', [author], 1)
 ]
-# -- Options for Texinfo output ----------------------------------------------
+# Options for Texinfo output -------------------------------------------------------------------------------------------
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'mdl-R33', 'mdl-R33', author, 'mdl-R33', 'One line description of project.', 'Miscellaneous'),
 ]
-# -- Options for Epub output -------------------------------------------------
+# Options for Epub output ----------------------------------------------------------------------------------------------
 # Bibliographic Dublin Core info.
 epub_title = project
 
@@ -242,7 +242,7 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-# -- Extension configuration -------------------------------------------------
+# Extension configuration ----------------------------------------------------------------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
@@ -254,16 +254,8 @@ intersphinx_mapping = {
 	'pandas' : ('http://pandas.pydata.org/pandas-docs/stable/', None),
 	'matplotlib': ('https://matplotlib.org/', None),
 	'psd_tools': ('https://psd-tools.readthedocs.io/en/latest/', None),
-	# 'psychopy':{
-	# 	'py:function':{
-	# 		'psychopy.visual.Window': ('psychopy', '3.05', 'https://www.psychopy.org/api/visual/window.html#psychopy.visual.Window', '-'),
-	# 		'psychopy.visual.TextStim': ('psychopy', '3.05', 'https://www.psychopy.org/api/visual/textstim.html#psychopy.visual.TextStim', '-'),
-	# 		'psychopy.visual.ImageStim': ('psychopy', '3.05', 'https://www.psychopy.org/api/visual/imagestim.html#psychopy.visual.ImageStim', '-'),
-	# 		'psychopy.clock.Clock': ('psychopy', '3.05', 'https://www.psychopy.org/api/clock.html#psychopy.clock.Clock', '-'),
-	# 	},
-	# }
 }
 
-# -- Options for todo extension ----------------------------------------------
+# Options for todo extension -------------------------------------------------------------------------------------------
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True

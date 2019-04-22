@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.R33.processing &#8212; mdl-R33 2019-04-18 documentation</title>
+    <title>mdl.R33.processing &#8212; mdl-R33 2019-04-22 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-18</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,11 +115,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.roi.html">mdl.roi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
@@ -128,9 +129,6 @@
 </ul>
 </li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -175,13 +173,13 @@
 <li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.model.html">mdl.R33.model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.R33.processing</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.eyelink.html">mdl.eyelink</a></li>
@@ -238,13 +236,13 @@
 <li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.model.html">mdl.R33.model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.R33.processing</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.eyelink.html">mdl.eyelink</a></li>
@@ -278,8 +276,8 @@
 <div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>   </div>
 </div>
 <dl class="class">
-<dt id="mdl.R33.processing.processing">
-<em class="property">class </em><code class="descclassname">mdl.R33.processing.</code><code class="descname">processing</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing">
+<em class="property">class </em><code class="descclassname">mdl.R33.processing.</code><code class="descname">Processing</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processing raw eyetracking, behavioral, and clinical data.</p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -288,55 +286,46 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.append_classify" title="mdl.R33.processing.processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(self,&nbsp;df,&nbsp;cg_df)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(self,&nbsp;df,&nbsp;cg_df)</td>
 <td>Appending classification to Dataframe.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.classify" title="mdl.R33.processing.processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(self,&nbsp;config,&nbsp;df[,&nbsp;ctype,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(self,&nbsp;config,&nbsp;df[,&nbsp;ctype,&nbsp;…])</td>
 <td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.debug" title="mdl.R33.processing.processing.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a>(self,&nbsp;message[,&nbsp;source])</td>
-<td>Get timing information for function.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.dwell" title="mdl.R33.processing.processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(self,&nbsp;df[,&nbsp;cores])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(self,&nbsp;df[,&nbsp;cores])</td>
 <td>Calculate dwell time for sad and neutral images.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.filter_data" title="mdl.R33.processing.processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(self,&nbsp;df,&nbsp;filter_type,&nbsp;config,&nbsp;…)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(self,&nbsp;df,&nbsp;filter_type,&nbsp;config,&nbsp;…)</td>
 <td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.font" title="mdl.R33.processing.processing.font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">font</span></code></a>(self)</td>
-<td>add Helvetica to matplotlib</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.getData" title="mdl.R33.processing.processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>(self[,&nbsp;path])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>(self[,&nbsp;path])</td>
 <td>preparing data for use in analysis</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.getEstimatedMonitor" title="mdl.R33.processing.processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(self,&nbsp;diagonal,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(self,&nbsp;diagonal,&nbsp;window)</td>
 <td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.onset_diff" title="mdl.R33.processing.processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(self,&nbsp;df0[,&nbsp;merge,&nbsp;cores])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(self,&nbsp;df0[,&nbsp;merge,&nbsp;cores])</td>
 <td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.preprocess" title="mdl.R33.processing.processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
 <td>Initial data cleaning.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.process" title="mdl.R33.processing.processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self,&nbsp;window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self,&nbsp;window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial)</td>
 <td>Plotting and preparing data for classification.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.pydoc" title="mdl.R33.processing.processing.pydoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydoc</span></code></a>(self[,&nbsp;path,&nbsp;source,&nbsp;build,&nbsp;copy])</td>
-<td>Generate pydoc docmentation</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.roi" title="mdl.R33.processing.processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>(self[,&nbsp;filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>(self[,&nbsp;filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;…])</td>
 <td>Check if fixation is within bounds.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.run" title="mdl.R33.processing.processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
 <td>Processing of data.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.single_subject" title="mdl.R33.processing.processing.single_subject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_subject</span></code></a>(self,&nbsp;df,&nbsp;path)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.single_subject" title="mdl.R33.processing.Processing.single_subject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_subject</span></code></a>(self,&nbsp;df,&nbsp;path)</td>
 <td>Create single subject scatterplot using seaborn and pandas.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.subject_metadata" title="mdl.R33.processing.processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(self,&nbsp;fpath,&nbsp;spath)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(self,&nbsp;fpath,&nbsp;spath)</td>
 <td>Collect all subjects metadata.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.variables" title="mdl.R33.processing.processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(self,&nbsp;df)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(self,&nbsp;df)</td>
 <td>Output list of variables for easy html viewing.</td>
 </tr>
 </tbody>
@@ -362,62 +351,53 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.append_classify" title="mdl.R33.processing.processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(self,&nbsp;df,&nbsp;cg_df)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(self,&nbsp;df,&nbsp;cg_df)</td>
 <td>Appending classification to Dataframe.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.classify" title="mdl.R33.processing.processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(self,&nbsp;config,&nbsp;df[,&nbsp;ctype,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(self,&nbsp;config,&nbsp;df[,&nbsp;ctype,&nbsp;…])</td>
 <td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.debug" title="mdl.R33.processing.processing.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a>(self,&nbsp;message[,&nbsp;source])</td>
-<td>Get timing information for function.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.dwell" title="mdl.R33.processing.processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(self,&nbsp;df[,&nbsp;cores])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(self,&nbsp;df[,&nbsp;cores])</td>
 <td>Calculate dwell time for sad and neutral images.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.filter_data" title="mdl.R33.processing.processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(self,&nbsp;df,&nbsp;filter_type,&nbsp;config,&nbsp;…)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(self,&nbsp;df,&nbsp;filter_type,&nbsp;config,&nbsp;…)</td>
 <td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.font" title="mdl.R33.processing.processing.font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">font</span></code></a>(self)</td>
-<td>add Helvetica to matplotlib</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.getData" title="mdl.R33.processing.processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>(self[,&nbsp;path])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>(self[,&nbsp;path])</td>
 <td>preparing data for use in analysis</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.getEstimatedMonitor" title="mdl.R33.processing.processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(self,&nbsp;diagonal,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(self,&nbsp;diagonal,&nbsp;window)</td>
 <td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.onset_diff" title="mdl.R33.processing.processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(self,&nbsp;df0[,&nbsp;merge,&nbsp;cores])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(self,&nbsp;df0[,&nbsp;merge,&nbsp;cores])</td>
 <td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.preprocess" title="mdl.R33.processing.processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
 <td>Initial data cleaning.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.process" title="mdl.R33.processing.processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self,&nbsp;window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self,&nbsp;window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial)</td>
 <td>Plotting and preparing data for classification.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.pydoc" title="mdl.R33.processing.processing.pydoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydoc</span></code></a>(self[,&nbsp;path,&nbsp;source,&nbsp;build,&nbsp;copy])</td>
-<td>Generate pydoc docmentation</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.roi" title="mdl.R33.processing.processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>(self[,&nbsp;filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>(self[,&nbsp;filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;…])</td>
 <td>Check if fixation is within bounds.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.run" title="mdl.R33.processing.processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
 <td>Processing of data.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.single_subject" title="mdl.R33.processing.processing.single_subject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_subject</span></code></a>(self,&nbsp;df,&nbsp;path)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.single_subject" title="mdl.R33.processing.Processing.single_subject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_subject</span></code></a>(self,&nbsp;df,&nbsp;path)</td>
 <td>Create single subject scatterplot using seaborn and pandas.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.processing.subject_metadata" title="mdl.R33.processing.processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(self,&nbsp;fpath,&nbsp;spath)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(self,&nbsp;fpath,&nbsp;spath)</td>
 <td>Collect all subjects metadata.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.processing.variables" title="mdl.R33.processing.processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(self,&nbsp;df)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(self,&nbsp;df)</td>
 <td>Output list of variables for easy html viewing.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="mdl.R33.processing.processing.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>These are the configuration parameters you can set in for analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -435,8 +415,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.append_classify">
-<code class="descname">append_classify</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.append_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.append_classify" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.append_classify">
+<code class="descname">append_classify</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.append_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.append_classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appending classification to Dataframe.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -457,8 +437,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.classify">
-<code class="descname">classify</code><span class="sig-paren">(</span><em>self</em>, <em>config</em>, <em>df</em>, <em>ctype='ivt'</em>, <em>filter_type=None</em>, <em>v_th=None</em>, <em>dr_th=None</em>, <em>di_th=None</em>, <em>missing=None</em>, <em>maxdist=None</em>, <em>mindur=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.classify" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.classify">
+<code class="descname">classify</code><span class="sig-paren">(</span><em>self</em>, <em>config</em>, <em>df</em>, <em>ctype='ivt'</em>, <em>filter_type=None</em>, <em>v_th=None</em>, <em>dr_th=None</em>, <em>di_th=None</em>, <em>missing=None</em>, <em>maxdist=None</em>, <em>mindur=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>I-DT algorithm takes into account the distribution or spatial proximity of
 eye position points in the eye-movement trace.</p>
 <p>In the I-VT model, the velocity value is computed for every eye position
@@ -529,36 +509,14 @@ cadidates will be disregarded if they are below this duration  (simple)</p>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mdl.R33.processing.processing.debug">
-<code class="descname">debug</code><span class="sig-paren">(</span><em>self</em>, <em>message</em>, <em>source='debug'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.debug" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get timing information for function.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>message</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Log message.</p>
-</dd>
-<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Origin of call. Either debug or timestamp.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="attribute">
-<dt id="mdl.R33.processing.processing.dir">
-<code class="descname">dir</code><em class="property"> = '/Users/mdl-admin/Desktop/IMHR-R33/mdl/R33'</em><a class="headerlink" href="#mdl.R33.processing.processing.dir" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.dir">
+<code class="descname">dir</code><em class="property"> = '/Users/mdl-admin/Desktop/IMHR-R33/mdl/R33'</em><a class="headerlink" href="#mdl.R33.processing.Processing.dir" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.dwell">
-<code class="descname">dwell</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.dwell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.dwell" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.dwell">
+<code class="descname">dwell</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.dwell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.dwell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate dwell time for sad and neutral images.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -589,8 +547,8 @@ cadidates will be disregarded if they are below this duration  (simple)</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.filter_data">
-<code class="descname">filter_data</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>filter_type</em>, <em>config</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.filter_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.filter_data" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.filter_data">
+<code class="descname">filter_data</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>filter_type</em>, <em>config</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.filter_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.filter_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Butterworth: Design an Nth-order digital or analog Butterworth filter and return
 the filter coefficients.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -618,14 +576,8 @@ the filter coefficients.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.font">
-<code class="descname">font</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.font"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.font" title="Permalink to this definition">¶</a></dt>
-<dd><p>add Helvetica to matplotlib</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="mdl.R33.processing.processing.getData">
-<code class="descname">getData</code><span class="sig-paren">(</span><em>self</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.getData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.getData" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.getData">
+<code class="descname">getData</code><span class="sig-paren">(</span><em>self</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.getData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.getData" title="Permalink to this definition">¶</a></dt>
 <dd><p>preparing data for use in analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -677,8 +629,8 @@ the filter coefficients.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.getEstimatedMonitor">
-<code class="descname">getEstimatedMonitor</code><span class="sig-paren">(</span><em>self</em>, <em>diagonal</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.getEstimatedMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.getEstimatedMonitor" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.getEstimatedMonitor">
+<code class="descname">getEstimatedMonitor</code><span class="sig-paren">(</span><em>self</em>, <em>diagonal</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.getEstimatedMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -696,8 +648,8 @@ the filter coefficients.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.onset_diff">
-<code class="descname">onset_diff</code><span class="sig-paren">(</span><em>self</em>, <em>df0</em>, <em>merge=None</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.onset_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.onset_diff" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.onset_diff">
+<code class="descname">onset_diff</code><span class="sig-paren">(</span><em>self</em>, <em>df0</em>, <em>merge=None</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.onset_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.onset_diff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -734,8 +686,8 @@ the filter coefficients.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.preprocess">
-<code class="descname">preprocess</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.preprocess" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.preprocess">
+<code class="descname">preprocess</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.preprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial data cleaning.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -778,8 +730,8 @@ the filter coefficients.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.process">
-<code class="descname">process</code><span class="sig-paren">(</span><em>self</em>, <em>window</em>, <em>filters</em>, <em>gxy_df</em>, <em>trial</em>, <em>_classify=True</em>, <em>ctype='simple'</em>, <em>_param=''</em>, <em>log=False</em>, <em>draw_plot=False</em>, <em>draw_heatmap=False</em>, <em>draw_gazeplot=False</em>, <em>draw_fixplot=False</em>, <em>v_th=20</em>, <em>dr_th=200</em>, <em>di_th=20</em>, <em>_missing=0.0</em>, <em>_maxdist=25</em>, <em>_mindur=50</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.process" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>self</em>, <em>window</em>, <em>filters</em>, <em>gxy_df</em>, <em>trial</em>, <em>_classify=True</em>, <em>ctype='simple'</em>, <em>_param=''</em>, <em>log=False</em>, <em>draw_plot=False</em>, <em>draw_heatmap=False</em>, <em>draw_gazeplot=False</em>, <em>draw_fixplot=False</em>, <em>v_th=20</em>, <em>dr_th=200</em>, <em>di_th=20</em>, <em>_missing=0.0</em>, <em>_maxdist=25</em>, <em>_mindur=50</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plotting and preparing data for classification. Combined plot of each filter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -867,27 +819,8 @@ cadidates will be disregarded if they are below this duration  (simple)
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.pydoc">
-<code class="descname">pydoc</code><span class="sig-paren">(</span><em>self</em>, <em>path=None</em>, <em>source=None</em>, <em>build=None</em>, <em>copy=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.pydoc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.pydoc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate pydoc docmentation</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Location to save the pydoc to.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mdl.R33.processing.processing.roi">
-<code class="descname">roi</code><span class="sig-paren">(</span><em>self, filters=[['SavitzkyGolay', 'sg']], flt=None, df=None, manual=False, monitorSize=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.roi" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.roi">
+<code class="descname">roi</code><span class="sig-paren">(</span><em>self, filters=[['SavitzkyGolay', 'sg']], flt=None, df=None, manual=False, monitorSize=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.roi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if fixation is within bounds.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -921,8 +854,8 @@ cadidates will be disregarded if they are below this duration  (simple)
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>self</em>, <em>path</em>, <em>task_type='eyetracking'</em>, <em>single_subject=False</em>, <em>single_trial=False</em>, <em>subject=0</em>, <em>trial=0</em>, <em>isMultiprocessing=True</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.run" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>self</em>, <em>path</em>, <em>task_type='eyetracking'</em>, <em>single_subject=False</em>, <em>single_trial=False</em>, <em>subject=0</em>, <em>trial=0</em>, <em>isMultiprocessing=True</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processing of data. Steps here include: cleaning data, fixation identification, and exporting data.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -968,8 +901,8 @@ cadidates will be disregarded if they are below this duration  (simple)
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.single_subject">
-<code class="descname">single_subject</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.single_subject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.single_subject" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.single_subject">
+<code class="descname">single_subject</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.single_subject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.single_subject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create single subject scatterplot using seaborn and pandas.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -997,8 +930,8 @@ cadidates will be disregarded if they are below this duration  (simple)
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.subject_metadata">
-<code class="descname">subject_metadata</code><span class="sig-paren">(</span><em>self</em>, <em>fpath</em>, <em>spath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.subject_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.subject_metadata" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.subject_metadata">
+<code class="descname">subject_metadata</code><span class="sig-paren">(</span><em>self</em>, <em>fpath</em>, <em>spath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.subject_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.subject_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collect all subjects metadata.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1026,8 +959,8 @@ cadidates will be disregarded if they are below this duration  (simple)
 </dd></dl>
 
 <dl class="method">
-<dt id="mdl.R33.processing.processing.variables">
-<code class="descname">variables</code><span class="sig-paren">(</span><em>self</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#processing.variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.processing.variables" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.R33.processing.Processing.variables">
+<code class="descname">variables</code><span class="sig-paren">(</span><em>self</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output list of variables for easy html viewing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1066,7 +999,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 	<div class="container">
 		<div>
 			&copy; Copyright 2019, Semeon Risom.<br/>
-			Updated 2019-04-18.<br/>
+			Updated 2019-04-22.<br/>
 			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
 		</div>
 	</div>

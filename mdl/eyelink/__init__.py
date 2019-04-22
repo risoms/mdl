@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#!/usr/bin/python3
 
-import os, sys
-from pkgutil import extend_path
+from pdb import set_trace as breakpoint
 import pkg_resources
+import os
+import sys
 
 # set as module
 __all__ = ['Eyetracking','Calibration','__version__']
@@ -12,9 +13,13 @@ pkg_resources.declare_namespace(__name__)
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
+# imports
+from .eyetracking import Eyetracking
+from .calibration import Calibration
+
 # versioning
 from ._version import get_versions
 __version__ = get_versions()['version']
-del get_versions
 
-del os, sys, extend_path, pkg_resources
+# finished
+del os, sys, get_versions, breakpoint, pkg_resources

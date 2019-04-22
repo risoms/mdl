@@ -10,9 +10,9 @@ Accesesing Raw Data
 
 .. autosummary::
 
-    download.SFTP
-    download.REDCap
-    download.box
+    Download.SFTP
+    Download.REDCap
+    Download.box
 
 Preprocessing
 ~~~~~~~~~~~~~
@@ -21,8 +21,8 @@ Preprocessing
 
 .. autosummary::
 
-    processing.preprocess
-    processing.run
+    Processing.preprocess
+    Processing.run
 
 Data Analysis
 ~~~~~~~~~~~~~

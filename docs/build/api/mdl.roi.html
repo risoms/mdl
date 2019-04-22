@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.roi &#8212; mdl-R33 2019-04-18 documentation</title>
+    <title>mdl.roi &#8212; mdl-R33 2019-04-22 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-18</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -117,11 +117,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">mdl.roi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
@@ -130,9 +131,6 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.settings.html">mdl.R33.settings</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -252,9 +250,16 @@
 			
   <div class="section" id="module-mdl.roi">
 <span id="mdl-roi"></span><h1>mdl.roi<a class="headerlink" href="#module-mdl.roi" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">&#64;purpose: Create regions of interest that can be used for data processing and analysis.  </div>
+<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019  </div>
+<div class="line">&#64;author: Semeon Risom  </div>
+<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
+<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></div>
+</div>
 <dl class="class">
-<dt id="mdl.roi.roi">
-<em class="property">class </em><code class="descclassname">mdl.roi.</code><code class="descname">roi</code><span class="sig-paren">(</span><em>source=None</em>, <em>destination=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.roi" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.roi.ROI">
+<em class="property">class </em><code class="descclassname">mdl.roi.</code><code class="descname">ROI</code><span class="sig-paren">(</span><em>source=None</em>, <em>destination=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#ROI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.ROI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create single subject trial bokeh plots.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -283,11 +288,15 @@ enclosing area for the box when using <cite>rotate</cite>.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p><strong>Resources</strong>
-- See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.
-- See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.
-- See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds are
-created.</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds arecreated.</li>
+</ul>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">IMHR</span><span class="o">.</span><span class="n">roi</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
@@ -298,7 +307,7 @@ created.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`__</strong></dt>
+<dt><strong>psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</strong></dt>
 <dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
 </dd>
 <dt><strong>retval, threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
@@ -326,21 +335,9 @@ See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0
 </tr>
 </tbody>
 </table>
-<p class="rubric">Methods</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="41%" />
-<col width="59%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>run</strong></td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
-<dt id="mdl.roi.roi.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>source=None</em>, <em>destination=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#roi.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.roi.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="mdl.roi.ROI.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>source=None</em>, <em>destination=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#ROI.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.ROI.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create single subject trial bokeh plots.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -369,11 +366,15 @@ enclosing area for the box when using <cite>rotate</cite>.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p><strong>Resources</strong>
-- See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.
-- See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.
-- See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds are
-created.</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds arecreated.</li>
+</ul>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">IMHR</span><span class="o">.</span><span class="n">roi</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
@@ -384,7 +385,7 @@ created.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`__</strong></dt>
+<dt><strong>psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</strong></dt>
 <dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
 </dd>
 <dt><strong>retval, threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
@@ -413,11 +414,6 @@ See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0
 </tbody>
 </table>
 </dd></dl>
-
-<dl class="method">
-<dt id="mdl.roi.roi.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#roi.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.roi.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -432,7 +428,7 @@ See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0
 	<div class="container">
 		<div>
 			&copy; Copyright 2019, Semeon Risom.<br/>
-			Updated 2019-04-18.<br/>
+			Updated 2019-04-22.<br/>
 			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
 		</div>
 	</div>

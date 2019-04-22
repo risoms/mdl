@@ -5,7 +5,7 @@
 | @date: Created on Sat May 1 15:12:38 2019   
 | @author: Semeon Risom   
 | @email: semeon.risom@gmail.com   
-| @url: https://semeon.io/d/R33-analysis     
+| @url: https://semeon.io/d/mdl
 """
 
 # available functions
@@ -36,9 +36,6 @@ from bokeh.models import HoverTool, Range1d, BoxAnnotation, ColumnDataSource, CD
 from bokeh.layouts import gridplot
 from bokeh.embed import components
 
-#-------other
-import re
-
 #-------local
 from mdl import settings
 
@@ -53,7 +50,6 @@ def _font():
 	
 	directory = matplotlib_fname().replace("/matplotlibrc", "")
 	destination = f'{directory}/fonts/ttf'
-	print(settings.path)
 	file = settings.path['home'] + "/dist/resources/Helvetica.ttf"
 	
 	#add to matplotlib font folder
@@ -65,7 +61,7 @@ def _font():
 		shutil.copy(file, '/Library/Fonts/')
 	##if running win32
 	if sys.platform == "win32":
-		shutil.copy(file, 'c:\windows\fonts')
+		shutil.copy(file, 'c:\\windows\\fonts')
 	
 	#rebuild fonts
 	prop = font_manager.FontProperties(fname=file)
@@ -1971,3 +1967,5 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
 
 # initiate
 _font()
+
+del breakpoint

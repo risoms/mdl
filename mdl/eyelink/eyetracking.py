@@ -1,37 +1,40 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| Created on Wed Feb 13 15:37:43 2019
-| @author: Semeon Risom
-| @email: semeon.risom@gmail.com.
-| Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0),
-| but should be compatiable with earlier systems.
+| @purpose: Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0),
+| but should be compatiable with earlier systems.  
+| @date: Created on Wed Feb 13 15:37:43 2019  
+| @author: Semeon Risom  
+| @email: semeon.risom@gmail.com.  
+| @url: https://semeon.io/d/mdl
 """
 
+# available functions
 __all__ = ['Eyetracking']
 
-#----debug
+# required external libraries
+__required__ = ['IPython','psychopy','platform','pandas','pathlib']
+
+# debug
 from pdb import set_trace as breakpoint
 from IPython.display import display
 
-#----main
+# main
 import time
 import os
-import sys
 import re
 import platform
 import pandas as pd
 from pathlib import Path
 
-#----psychopy
+# psychopy
 from psychopy import visual, core, event
 from psychopy.constants import (NOT_STARTED, STARTED, FINISHED)
 
-#----local
+# local libraries
 from mdl import settings
-# calibration
-from mdl.eyelink.calibration import calibration as _calibration
 
+# pylink
 if __name__ == '__main__':
 	import pylink
 #---------------------------------------------------------------------------------------------------------------------------start
@@ -52,7 +55,7 @@ class Eyetracking():
         6) Blank the display, stop recording after an additional 100 milliseconds of data has been collected.
         7) Report the trial result, and return an appropriate error code.
     """
-    def __init__(self, window, timer, isPsychopy=True, libraries=False, subject=None, **kwargs):
+    def __init__(self, window, timer, isPsychopy=True, isLibrary=False, subject=None, **kwargs):
         """
         Initialize eyetracker.
 
@@ -64,7 +67,7 @@ class Eyetracking():
             Psychopy timer instance.
         isPsychopy : :obj:`bool`
             Is Psychopy being used.
-        libraries : :obj:`bool`
+        isLibrary : :obj:`bool`
             Should the code check if required libraries are available.
         subject : :obj:`int`
             Subject number.
@@ -164,104 +167,12 @@ class Eyetracking():
             os.makedirs(self.path)
         
         #----check if required libraries are available
-        if libraries == True:
-            self.library()
+        if isLibrary:
+            settings.library(__required__)
         
         #----kwargs
         # demo
         self.demo = kwargs['demo'] if 'demo' in kwargs else False
-
-    def library(self):
-        """Check if required libraries to run eyelink and Psychopy are available."""
-
-        self.console(msg="eyetracking.library()")
-        # check libraries for missing
-        from distutils.version import StrictVersion
-        import importlib
-        import pkg_resources
-        import pip
-
-        # list of possibly missing packages to install
-        required = ['psychopy', 'importlib', 'glfw', 'pandas']
-
-        # for geting os variables
-        if platform.system() == "Windows":
-            required.append('win32api')
-        elif platform.system() == 'Darwin':
-            required.append('pyobjc')
-
-        # try installing and/or importing packages
-        try:
-            # if pip >= 10.01
-            pip_ = pkg_resources.get_distribution("pip").version
-            if StrictVersion(pip_) > StrictVersion('10.0.0'):
-                from pip._internal import main as _main
-                # for required packages check if package exists on device
-                for package in required:
-                    # if missing, install
-                    if importlib.util.find_spec(package) is None:
-                        _main(['install', package])
-                    # package available    
-                    else:
-                        self.console(msg="eyetracking.library(): package % found."%(package))
-
-            # else pip < 10.01
-            else:
-                # for required packages check if package exists on device
-                for package in required:
-                    # if missing
-                    if importlib.util.find_spec(package) is None:
-                        pip.main(['install', package])
-                    # package available    
-                    else:
-                        self.console(msg="eyetracking.library(): package % found."%(package))
-                        
-        except Exception as e:
-            return e
-            
-    @classmethod
-    def console(cls, c='green', msg=''):
-        """
-        Allows user-friend console logging using ANSI escape codes.
-        
-        Attributes
-        ----------
-        message : :class:`str`
-            Message to send to console.
-        color : :class:`str`
-            Name of color or ANSI escape event to use.
-        
-        Returns
-        -------
-        result : :class:`str`
-            ANSI escape code.
-            
-        Examples
-        --------
-        >>> console(self, message, color='blue)
-        >>>
-        >>>
-            
-        Notes
-        -----
-        Colors are produced using ASCII Oct format. For example: '\033[40m'
-        See http://jafrog.com/2013/11/23/colors-in-terminal.html
-        """
-        
-        c_ = dict(
-            black = '40m',
-            red =  '41m',
-            green =  '42m',
-            orange = '43m',
-            purple = '45m',
-            blue =  '46m',
-            grey =  '47m'
-        )
-        
-        # result will be in this format: [<PREFIX>];[<COLOR>];[<TEXT DECORATION>][<MESSAGE>][<FINISHING SYMBOL>]
-        result = '\033[' + c_[c] + msg + '\033[0m'
-        
-        return print(result)
 
     def connect(self, calibration_type=13, automatic_calibration_pacing=1000, saccade_velocity_threshold=35,
                 saccade_acceleration_threshold=9500, sound=True, select_parser_configuration=0,
@@ -488,7 +399,10 @@ class Eyetracking():
         Examples
         --------
         >>> eyetracking.calibration()
-        """
+        """		
+        # calibration
+        from mdl.eyelink import Calibration
+
         self.console(msg="eyetracking.calibration()")
         
         #----if connected to eyetracker
@@ -496,7 +410,7 @@ class Eyetracking():
             # put the tracker in offline mode before we change its configurations
             self.tracker.setOfflineMode()
             # Generate custom calibration stimuli
-            self.genv = _calibration(w=self.w, h=self.h, tracker=self.tracker, window=self.window)
+            self.genv = Calibration(w=self.w, h=self.h, tracker=self.tracker, window=self.window)
             # execute custom calibration display
             pylink.openGraphicsEx(self.genv)
             # calibrate
@@ -1046,3 +960,5 @@ class Eyetracking():
 
         #---finish
         return self.isFinished
+
+del breakpoint

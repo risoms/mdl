@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| Created on Wed Feb 13 15:37:43 2019
-| @author: Semeon Risom
-| @email: semeon.risom@gmail.com.
-| This allows mdl.eyetracking package to initiate calibration/validation/drift correction.
+| @purpose: This allows mdl.eyetracking package to initiate calibration/validation/drift correction.  
+| @date: Created on Wed Feb 13 15:37:43 2019  
+| @author: Semeon Risom  
+| @email: semeon.risom@gmail.com.  
+| @url: https://semeon.io/d/mdl  
 """
 
 __all__ = ['Calibration']
@@ -13,11 +14,12 @@ __all__ = ['Calibration']
 from pdb import set_trace as breakpoint
 
 #---main
-import string, os, array
+import string
+import os
+import array
 from math import sin, cos, pi
 from PIL import Image
 import numpy as np
-import sys
 
 #---psychopy
 from psychopy import visual, event, sound
@@ -25,7 +27,7 @@ from psychopy import visual, event, sound
 #----package
 if __name__ == '__main__':
 	import pylink
-#----------------------------------------------------------------------------------------------------------------------------start
+
 class Calibration():
     """This allows mdl.eyetracking package to initiate calibration/validation/drift correction."""
     def __init__(self, w, h, tracker, window):
@@ -81,7 +83,8 @@ class Calibration():
         
         #----title
         self.msgHeight = self.size[1]/20.0
-        self.title = visual.TextStim(win=self.window, text='', pos=(0,-self.size[1]/2-self.msgHeight), 
+        y = (-self.size[1]) / 2 - self.msgHeight
+        self.title = visual.TextStim(win=self.window, text='', pos=(0,y), 
                                     units='pix', height=self.msgHeight, bold=False, color='black', 
                                     colorSpace='rgb', opacity=1, alignVert='center', wrapWidth=self.w)
         self.title.fontFiles = [self.path + "dist\\utils\\Helvetica.ttf"]
@@ -192,10 +195,14 @@ class Calibration():
         self.line.draw()
 
     def draw_lozenge(self, x, y, width, height, colorindex):
-        print('draw_lozenge')
-        """Draw a lozenge to show the defined search limits (x,y) is 
-        top-left corner of the bounding box."""
-
+        """
+        Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.
+		
+        Returns
+        -------
+        [type]
+			[description]
+        """
         width = width * self.img_scaling_factor
         height = height * self.img_scaling_factor
         y = (-y + self.size[1]/2)* self.img_scaling_factor
@@ -344,3 +351,5 @@ class Calibration():
             bf = int(r[i])
             self.pal.append((rf<<16) | (gf<<8) | (bf))
             i = i + 1
+
+del breakpoint

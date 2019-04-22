@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+| @purpose: Create regions of interest that can be used for data processing and analysis.  
+| @date: Created on Sat May 1 15:12:38 2019  
+| @author: Semeon Risom  
+| @email: semeon.risom@gmail.com  
+| @url: https://semeon.io/d/mdl
+"""
+
+import os
+import gc
+from pdb import set_trace as breakpoint
 
 # available functions
 __all__ = ['ROI']
 
 # required external library
-__required__ = ['opencv-python','psd_tools', 'pathlib', 'gc', 'matplotlib', 'PIL']
-
-#----imports
-# main
-import gc
-import os
+__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
 
 # local libraries
 from mdl import settings
@@ -89,8 +95,9 @@ class ROI():
 
 		Examples
 		--------
+		>>> import mdl.roi.ROI
 		>>> s="/dist/example/raw/"; d="/dist/example/"
-		>>> IMHR.roi(source=s, destination=d, shape='box')
+		>>> mdl.roi.ROI(source=s, destination=d, shape='box')
 
 		Notes
 		-----
@@ -133,16 +140,19 @@ class ROI():
 		self.save['level'] = kwargs['level'] if 'level' in kwargs else 'both'
 		# source
 		if source is None:
-			self.source = os.getcwd() + "/dist/example/raw/"
+			self.source = os.getcwd() + "./dist/example/raw/"
 		else:
 			self.source = source
 		# destination
 		if destination is None:
-			self.destination = os.getcwd() + "/dist/example/"
+			self.destination = os.getcwd() + "./dist/example/"
 		else:
 			self.destination = destination
+			
+		#start code
+		self.__run__()
 
-	def __new__(self):
+	def __run__(self):
 		#----data
 		from pathlib import Path
 		import cv2
@@ -154,7 +164,7 @@ class ROI():
 		import matplotlib.pyplot as plt
 		import matplotlib.patches as patches
 		from psd_tools import PSDImage
-
+		breakpoint()
 		#----directory
 		directory = [x for x in Path(self.source).glob("*.psd") if x.is_file()]
 
@@ -477,15 +487,3 @@ class ROI():
 		# convert img to np array
 		# np_img = np.array(img)
 		return roi, error
-
-
-
-
-
-
-
-
-
-
-
-

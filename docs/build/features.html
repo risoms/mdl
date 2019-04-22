@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Features &#8212; mdl-R33 2019-04-18 documentation</title>
+    <title>Features &#8212; mdl-R33 2019-04-22 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-18</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -117,11 +117,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/mdl.plot.html">mdl.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mdl.roi.html">mdl.roi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/mdl.settings.html">mdl.settings</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="api/mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mdl.R33.html">mdl.R33</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
@@ -130,9 +131,6 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.settings.html">mdl.R33.settings</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -250,13 +248,13 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.download.SFTP" title="mdl.download.download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download.SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
+<tr class="row-odd"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.Download.SFTP" title="mdl.download.Download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Download.SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
 <td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.download.REDCap" title="mdl.download.download.REDCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download.REDCap</span></code></a>(path,&nbsp;token,&nbsp;url,&nbsp;content[,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.Download.REDCap" title="mdl.download.Download.REDCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Download.REDCap</span></code></a>(path,&nbsp;token,&nbsp;url,&nbsp;content[,&nbsp;…])</td>
 <td>Download data from an Research Electronic Data Capture (REDCap) server.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.download.box" title="mdl.download.download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download.box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;…)</td>
+<tr class="row-odd"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.Download.box" title="mdl.download.Download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Download.box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;…)</td>
 <td>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</td>
 </tr>
 </tbody>
@@ -270,10 +268,10 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.processing.html#mdl.R33.processing.processing.preprocess" title="mdl.R33.processing.processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">processing.preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
+<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.processing.html#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing.preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
 <td>Initial data cleaning.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="api/mdl.R33.processing.html#mdl.R33.processing.processing.run" title="mdl.R33.processing.processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">processing.run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="api/mdl.R33.processing.html#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing.run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;…])</td>
 <td>Processing of data.</td>
 </tr>
 </tbody>
@@ -348,7 +346,7 @@
 	<div class="container">
 		<div>
 			&copy; Copyright 2019, Semeon Risom.<br/>
-			Updated 2019-04-18.<br/>
+			Updated 2019-04-22.<br/>
 			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
 		</div>
 	</div>

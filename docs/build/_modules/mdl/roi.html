@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.roi &#8212; mdl-R33 2019-04-18 documentation</title>
+    <title>mdl.roi &#8212; mdl-R33 2019-04-22 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-18</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-22</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,11 +115,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.plot.html">mdl.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.roi.html">mdl.roi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.settings.html">mdl.settings</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.settings.html">mdl.settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
@@ -128,9 +129,6 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.settings.html">mdl.R33.settings</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -225,23 +223,30 @@
   <h1>Source code for mdl.roi</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">| @purpose: Create regions of interest that can be used for data processing and analysis.  </span>
+<span class="sd">| @date: Created on Sat May 1 15:12:38 2019  </span>
+<span class="sd">| @author: Semeon Risom  </span>
+<span class="sd">| @email: semeon.risom@gmail.com  </span>
+<span class="sd">| @url: https://semeon.io/d/mdl</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1">#----imports</span>
-<span class="c1"># main</span>
-<span class="kn">import</span> <span class="nn">gc</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
 
-<span class="c1"># package</span>
-<span class="kn">from</span> <span class="nn">settings</span> <span class="k">import</span> <span class="n">settings</span>
+<span class="c1"># available functions</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">]</span>
+
+<span class="c1"># required external library</span>
+<span class="n">__required__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;opencv-python&#39;</span><span class="p">,</span><span class="s1">&#39;psd_tools&#39;</span><span class="p">,</span> <span class="s1">&#39;pathlib&#39;</span><span class="p">,</span> <span class="s1">&#39;gc&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;PIL&#39;</span><span class="p">]</span>
+
+<span class="c1"># local libraries</span>
+<span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">settings</span>
 <span class="n">console</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">console</span>
 
-<span class="c1">#----external library</span>
-<span class="n">library</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;opencv-python&#39;</span><span class="p">,</span><span class="s1">&#39;psd_tools&#39;</span><span class="p">,</span> <span class="s1">&#39;pathlib&#39;</span><span class="p">,</span> <span class="s1">&#39;gc&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;PIL&#39;</span><span class="p">]</span>
-
-<div class="viewcode-block" id="roi"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.roi">[docs]</a><span class="k">class</span> <span class="nc">roi</span><span class="p">():</span>
-<div class="viewcode-block" id="roi.__init__"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.roi.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.ROI">[docs]</a><span class="k">class</span> <span class="nc">ROI</span><span class="p">():</span>
+<div class="viewcode-block" id="ROI.__init__"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.ROI.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Create single subject trial bokeh plots.</span>
 
@@ -264,7 +269,6 @@
 <span class="sd">				:class: kwargs</span>
 <span class="sd">				:widths: 25 50</span>
 <span class="sd">				header-rows: 1</span>
-
 
 <span class="sd">				* - Property</span>
 <span class="sd">					- Description</span>
@@ -293,7 +297,7 @@
 
 <span class="sd">		Attributes</span>
 <span class="sd">		----------</span>
-<span class="sd">		psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`__</span>
+<span class="sd">		psd: `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
 <span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</span>
 <span class="sd">		retval, threshold : :class:`numpy.ndarray`</span>
 <span class="sd">			Returns from :py:class:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.</span>
@@ -320,17 +324,15 @@
 <span class="sd">		Notes</span>
 <span class="sd">		-----</span>
 <span class="sd">		**Resources**</span>
-<span class="sd">		- See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.</span>
-<span class="sd">		- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.</span>
-<span class="sd">		- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are</span>
-<span class="sd">		created.</span>
-
+<span class="sd">		    - See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.</span>
+<span class="sd">		    - See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.</span>
+<span class="sd">		    - See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds arecreated.</span>
 <span class="sd">		&quot;&quot;&quot;</span>
 
 		<span class="c1"># check library</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">isLibrary</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;isLibrary&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;isLibrary&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isLibrary</span><span class="p">:</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">(</span><span class="n">__required__</span><span class="p">)</span>
 
 		<span class="c1">#----parameters</span>
 		<span class="c1"># delimiter</span>
@@ -344,13 +346,14 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">cy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cy</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;coordinates&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span>
 		<span class="c1"># shape</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span> <span class="k">if</span> <span class="n">shape</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;polygon&#39;</span><span class="p">,</span> <span class="s1">&#39;hull&#39;</span><span class="p">,</span> <span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39;straight&#39;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span> <span class="k">if</span> <span class="n">shape</span> <span class="ow">in</span> <span class="p">[</span>
+			<span class="s1">&#39;polygon&#39;</span><span class="p">,</span> <span class="s1">&#39;hull&#39;</span><span class="p">,</span> <span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39;straight&#39;</span>
 		<span class="c1"># dpi</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">300</span> <span class="k">if</span> <span class="s1">&#39;dpi&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;dpi&#39;</span><span class="p">]</span>
 		<span class="c1"># save</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="p">{}</span>
 		<span class="c1"># save csv</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_data&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_data&#39;</span> <span class="ow">in</span>  <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_data&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_data&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
 		<span class="c1"># save contour images</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;contours&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_contour_image&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_contour_image&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
 		<span class="c1"># save raw images</span>
@@ -368,8 +371,9 @@
 		<span class="k">else</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span></div>
 
-<div class="viewcode-block" id="roi.run"><a class="viewcode-back" href="../../api/mdl.roi.html#mdl.roi.roi.run">[docs]</a>	<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="c1">#----data</span>
+		<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
 		<span class="kn">import</span> <span class="nn">cv2</span>
 		<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 		<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -394,7 +398,7 @@
 		<span class="n">console</span><span class="p">(</span><span class="s1">&#39;for each image&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 		<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">directory</span><span class="p">:</span>
 			<span class="c1">#----start image</span>
-			<span class="c1"># read image</span>
+			<span class="c1"># read image </span>
 			<span class="n">psd</span> <span class="o">=</span> <span class="n">PSDImage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 			<span class="n">imagename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -404,7 +408,7 @@
 			<span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">channels</span> <span class="c1">#read channels</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">width</span> <span class="c1">#width and height</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">height</span>
-
+			
 			<span class="c1"># clear lists</span>
 			<span class="n">l_roi_bounds</span> <span class="o">=</span> <span class="p">[]</span>
 			<span class="n">l_roi_contours</span> <span class="o">=</span> <span class="p">[]</span>
@@ -684,13 +688,15 @@
 				<span class="c1"># coord_image_df = pd.DataFrame(coord_image, columns=headers)</span>
 				<span class="c1"># coord_image_df.to_csv(&#39;%s/%s.csv&#39;%(output[&#39;output&#39;], filename), index=False)</span>
 				<span class="c1"># del coord_image_df</span>
-
+				
 		<span class="c1">#----error log</span>
 		<span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">l_error</span><span class="p">):</span>
 			<span class="n">_filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/error.csv&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">))</span>
 			<span class="n">console</span><span class="p">(</span><span class="s2">&quot;Errors found. See log </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">_filename</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-			<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">l_error</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
-			<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">_filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
+			<span class="n">error</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">l_error</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+			<span class="n">error</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">_filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
 
 		<span class="c1">#%% test</span>
 		<span class="c1"># drawing image</span>
@@ -699,18 +705,9 @@
 
 		<span class="c1"># convert img to np array</span>
 		<span class="c1"># np_img = np.array(img)</span>
+		<span class="k">return</span> <span class="n">roi</span><span class="p">,</span> <span class="n">error</span></div>
 
-
-
-
-
-
-
-
-
-
-
-
+<span class="k">del</span> <span class="n">breakpoint</span>
 </pre></div>
 
 		</div>
@@ -721,7 +718,7 @@
 	<div class="container">
 		<div>
 			&copy; Copyright 2019, Semeon Risom.<br/>
-			Updated 2019-04-18.<br/>
+			Updated 2019-04-22.<br/>
 			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
 		</div>
 	</div>
