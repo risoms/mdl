@@ -1,0 +1,5 @@
+scenestim,valence,valmean,arousal,arousalmean,outliers,blocknum
+2235.bmp,Neutral,5.64,Low,3.36,0,0
+2020.bmp,Neutral,5.68,Low,3.34,0,0
+2214.bmp,Neutral,5.01,Low,3.46,1,0
+2215.bmp,Neutral,4.63,Low,3.38,1,0

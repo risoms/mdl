@@ -1,0 +1,352 @@
+0.3474 	WARNING 	Movie2 stim could not be imported and won't be available
+8.3724 	WARNING 	Monitor specification not found. Creating a temporary one...
+9.0413 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([-0.137, -0.137, -0.137]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x17D82710>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+9.0414 	EXP 	window1: recordFrameIntervals = False
+9.1240 	EXP 	window1: recordFrameIntervals = True
+9.2157 	DEBUG 	Screen (0) actual frame rate measured at 119.99
+9.2157 	EXP 	window1: recordFrameIntervals = False
+9.2758 	INFO 	sound is using audioLib: pyo
+9.3082 	EXP 	Created task_instr_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='task_instr_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+9.3103 	EXP 	Created Block_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Block_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+9.3123 	EXP 	Created composite_display = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='composite_display', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+9.4698 	EXP 	Created fixation_cross = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/fixation.png', interpolate=True, mask=None, maskParams=None, name='fixation_cross', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+9.4725 	EXP 	Created iaps_cue = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='iaps_cue', opacity=0.25, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+9.4747 	EXP 	Created iaps_display = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='iaps_display', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+9.6251 	EXP 	Created blank = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='Instructions/blank.png', interpolate=True, mask=None, maskParams=None, name='blank', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+9.6272 	EXP 	Created break_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='break_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+9.7649 	EXP 	Created End_Screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='Instructions/finished.png', interpolate=True, mask=None, maskParams=None, name='End_Screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+10.8952 	EXP 	Created unnamed Circle = Circle(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0, fillColor=array([ 1.,  1.,  1.]), fillColorSpace='rgb', fillRGB=array([ 1.,  1.,  1.]), interpolate=True, lineColor=array([ 1.,  1.,  1.]), lineColorSpace='rgb', lineRGB=array([ 1.,  1.,  1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 1.,  1.]), units='pix', vertices=ndarray(...), win=Window(...))
+10.8990 	EXP 	Created unnamed Circle = Circle(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0, fillColor=array([-1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([-1., -1., -1.]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1., -1., -1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 1.,  1.]), units='pix', vertices=ndarray(...), win=Window(...))
+11.5354 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+11.9214 	DATA 	Mouse: Left button down, pos=(934,500)
+12.0334 	DATA 	Mouse: Left button up, pos=(934,500)
+17.6313 	DATA 	Keypress: c
+17.7724 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+17.8569 	EXP 	unnamed Circle: pos = (0, 0)
+17.8569 	EXP 	unnamed Circle: pos = (0, 0)
+18.5112 	DATA 	Keypress: return
+18.5485 	EXP 	unnamed Circle: pos = (422, 225)
+18.5485 	EXP 	unnamed Circle: pos = (422, 225)
+19.0712 	DATA 	Keypress: return
+19.4072 	DATA 	Keypress: return
+19.4485 	EXP 	unnamed Circle: pos = (-845, 449)
+19.4485 	EXP 	unnamed Circle: pos = (-845, 449)
+19.8552 	DATA 	Keypress: return
+20.1912 	DATA 	Keypress: return
+20.2151 	EXP 	unnamed Circle: pos = (-845, 0)
+20.2151 	EXP 	unnamed Circle: pos = (-845, 0)
+20.5752 	DATA 	Keypress: return
+20.9432 	DATA 	Keypress: return
+20.9734 	EXP 	unnamed Circle: pos = (844, -448)
+20.9734 	EXP 	unnamed Circle: pos = (844, -448)
+21.4071 	DATA 	Keypress: return
+21.8552 	DATA 	Keypress: return
+21.8817 	EXP 	unnamed Circle: pos = (844, 0)
+21.8817 	EXP 	unnamed Circle: pos = (844, 0)
+22.2871 	DATA 	Keypress: return
+22.7031 	DATA 	Keypress: return
+22.7400 	EXP 	unnamed Circle: pos = (-423, -224)
+22.7400 	EXP 	unnamed Circle: pos = (-423, -224)
+23.0871 	DATA 	Keypress: return
+23.4551 	DATA 	Keypress: return
+23.4816 	EXP 	unnamed Circle: pos = (844, 449)
+23.4816 	EXP 	unnamed Circle: pos = (844, 449)
+23.8070 	DATA 	Keypress: return
+24.1431 	DATA 	Keypress: return
+24.4470 	DATA 	Keypress: return
+24.4816 	EXP 	unnamed Circle: pos = (422, -224)
+24.4816 	EXP 	unnamed Circle: pos = (422, -224)
+24.8150 	DATA 	Keypress: return
+25.1351 	DATA 	Keypress: return
+25.1815 	EXP 	unnamed Circle: pos = (0, -448)
+25.1815 	EXP 	unnamed Circle: pos = (0, -448)
+25.4710 	DATA 	Keypress: return
+25.8390 	DATA 	Keypress: return
+25.8648 	EXP 	unnamed Circle: pos = (-845, -448)
+25.8648 	EXP 	unnamed Circle: pos = (-845, -448)
+26.1750 	DATA 	Keypress: return
+26.5430 	DATA 	Keypress: return
+26.6148 	EXP 	unnamed Circle: pos = (-423, 225)
+26.6148 	EXP 	unnamed Circle: pos = (-423, 225)
+26.9110 	DATA 	Keypress: return
+27.2789 	DATA 	Keypress: return
+27.3148 	EXP 	unnamed Circle: pos = (0, 449)
+27.3148 	EXP 	unnamed Circle: pos = (0, 449)
+27.6469 	DATA 	Keypress: return
+27.9830 	DATA 	Keypress: return
+28.0064 	EXP 	unnamed Circle: pos = (0, 0)
+28.0064 	EXP 	unnamed Circle: pos = (0, 0)
+28.3029 	DATA 	Keypress: return
+28.6229 	DATA 	Keypress: return
+29.0230 	DATA 	Keypress: return
+29.2759 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+30.2230 	DATA 	Keypress: o
+30.3587 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+30.3743 	EXP 	Imported procedure\Introduction_list.csv as conditions, 1 conditions, 1 params
+30.3746 	EXP 	Created sequence: sequential, trialTypes=1, nReps=1, seed=None
+30.4763 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+30.4768 	EXP 	New trial (rep=0, index=0): {'Introduction_image': 'inst_1'}
+30.6230 	EXP 	task_instr_image: size = array([1920, 1080])
+30.6230 	EXP 	task_instr_image: image = 'Instructions/inst_1.png'
+30.6230 	EXP 	task_instr_image: autoDraw = True
+30.8513 	DATA 	Keypress: return
+30.8532 	EXP 	Imported procedure\#set_list.csv as conditions, 3 conditions, 5 params
+30.8534 	EXP 	Created sequence: sequential, trialTypes=3, nReps=1, seed=None
+30.8542 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+30.8549 	EXP 	New trial (rep=0, index=0): {'block_event': 'comp_1', 'order': 0, 'block_display': 'inst_2', 'block_file': 'procedure\\0.csv', 'break_display': 'break'}
+31.0063 	EXP 	task_instr_image: autoDraw = False
+31.0063 	EXP 	Block_image: size = array([1920, 1080])
+31.0063 	EXP 	Block_image: image = 'Instructions/inst_2.png'
+31.0063 	EXP 	Block_image: autoDraw = True
+31.2227 	DATA 	Keypress: return
+31.3063 	EXP 	Block_image: autoDraw = False
+31.3063 	EXP 	composite_display: size = array([1024,  768])
+31.3063 	EXP 	composite_display: image = 'instructions/comp_1.png'
+31.3063 	EXP 	composite_display: autoDraw = True
+36.2254 	EXP 	Imported procedure\0.csv as conditions, 4 conditions, 7 params
+36.2256 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+36.2264 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+36.2271 	EXP 	New trial (rep=0, index=0): {'valmean': 6.8799999999999999, 'valence': 'Positive', 'scenestim': '2655.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.5700000000000003}
+36.3894 	EXP 	composite_display: autoDraw = False
+36.3894 	EXP 	composite_display: autoDraw = False
+36.3894 	EXP 	fixation_cross: autoDraw = True
+38.5060 	EXP 	fixation_cross: autoDraw = False
+38.5060 	EXP 	iaps_display: size = array([826, 768])
+38.5060 	EXP 	iaps_display: image = 'stimulus/2655.bmp'
+38.5060 	EXP 	iaps_display: autoDraw = True
+40.2976 	EXP 	iaps_cue: size = array([826, 768])
+40.2976 	EXP 	iaps_cue: image = 'red.png'
+40.2976 	EXP 	iaps_cue: autoDraw = True
+41.2725 	EXP 	iaps_cue: size = array([826, 768])
+41.2725 	EXP 	iaps_cue: image = 'blue.png'
+41.2725 	EXP 	iaps_cue: autoDraw = True
+41.5225 	EXP 	iaps_cue: size = array([826, 768])
+41.5225 	EXP 	iaps_cue: image = 'green.png'
+41.5225 	EXP 	iaps_cue: autoDraw = True
+42.0225 	EXP 	iaps_cue: size = array([826, 768])
+42.0225 	EXP 	iaps_cue: image = 'blue.png'
+42.0225 	EXP 	iaps_cue: autoDraw = True
+43.2724 	EXP 	iaps_cue: size = array([826, 768])
+43.2724 	EXP 	iaps_cue: image = 'green.png'
+43.2724 	EXP 	iaps_cue: autoDraw = True
+43.5224 	EXP 	iaps_cue: size = array([826, 768])
+43.5224 	EXP 	iaps_cue: image = 'red.png'
+43.5224 	EXP 	iaps_cue: autoDraw = True
+43.7724 	EXP 	iaps_cue: size = array([826, 768])
+43.7724 	EXP 	iaps_cue: image = 'blue.png'
+43.7724 	EXP 	iaps_cue: autoDraw = True
+45.2723 	EXP 	iaps_cue: size = array([826, 768])
+45.2723 	EXP 	iaps_cue: image = 'green.png'
+45.2723 	EXP 	iaps_cue: autoDraw = True
+45.7723 	EXP 	iaps_cue: size = array([826, 768])
+45.7723 	EXP 	iaps_cue: image = 'blue.png'
+45.7723 	EXP 	iaps_cue: autoDraw = True
+46.7723 	EXP 	iaps_cue: size = array([826, 768])
+46.7723 	EXP 	iaps_cue: image = 'green.png'
+46.7723 	EXP 	iaps_cue: autoDraw = True
+47.5222 	EXP 	iaps_cue: size = array([826, 768])
+47.5222 	EXP 	iaps_cue: image = 'blue.png'
+47.5222 	EXP 	iaps_cue: autoDraw = True
+48.0305 	EXP 	iaps_cue: size = array([826, 768])
+48.0305 	EXP 	iaps_cue: image = 'green.png'
+48.0305 	EXP 	iaps_cue: autoDraw = True
+49.7805 	EXP 	iaps_cue: size = array([826, 768])
+49.7805 	EXP 	iaps_cue: image = 'red.png'
+49.7805 	EXP 	iaps_cue: autoDraw = True
+51.2804 	EXP 	iaps_cue: size = array([826, 768])
+51.2804 	EXP 	iaps_cue: image = 'green.png'
+51.2804 	EXP 	iaps_cue: autoDraw = True
+51.5304 	EXP 	iaps_cue: size = array([826, 768])
+51.5304 	EXP 	iaps_cue: image = 'red.png'
+51.5304 	EXP 	iaps_cue: autoDraw = True
+52.0304 	EXP 	iaps_cue: size = array([826, 768])
+52.0304 	EXP 	iaps_cue: image = 'green.png'
+52.0304 	EXP 	iaps_cue: autoDraw = True
+52.2803 	EXP 	iaps_cue: size = array([826, 768])
+52.2803 	EXP 	iaps_cue: image = 'red.png'
+52.2803 	EXP 	iaps_cue: autoDraw = True
+57.2885 	EXP 	iaps_cue: size = array([826, 768])
+57.2885 	EXP 	iaps_cue: image = 'green.png'
+57.2885 	EXP 	iaps_cue: autoDraw = True
+57.5385 	EXP 	iaps_cue: size = array([826, 768])
+57.5385 	EXP 	iaps_cue: image = 'blue.png'
+57.5385 	EXP 	iaps_cue: autoDraw = True
+57.7885 	EXP 	iaps_cue: size = array([826, 768])
+57.7885 	EXP 	iaps_cue: image = 'green.png'
+57.7885 	EXP 	iaps_cue: autoDraw = True
+58.0384 	EXP 	iaps_cue: size = array([826, 768])
+58.0384 	EXP 	iaps_cue: image = 'red.png'
+58.0384 	EXP 	iaps_cue: autoDraw = True
+58.2801 	EXP 	iaps_display: autoDraw = False
+58.2801 	EXP 	iaps_cue: autoDraw = False
+58.2801 	EXP 	blank: autoDraw = True
+61.1269 	EXP 	New trial (rep=0, index=1): {'valmean': 3.3399999999999999, 'valence': 'Negative', 'scenestim': '2120.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 5.1799999999999997}
+61.2879 	EXP 	iaps_display: autoDraw = False
+61.2879 	EXP 	iaps_cue: autoDraw = False
+61.2879 	EXP 	blank: autoDraw = False
+61.2879 	EXP 	fixation_cross: autoDraw = True
+66.2861 	DATA 	Keypress: return
+71.3420 	DATA 	Keypress: return
+71.6291 	EXP 	fixation_cross: autoDraw = False
+71.6291 	EXP 	fixation_cross: autoDraw = True
+78.2378 	DATA 	Keypress: return
+78.4958 	EXP 	fixation_cross: autoDraw = False
+78.4958 	EXP 	fixation_cross: autoDraw = True
+80.5624 	EXP 	fixation_cross: autoDraw = False
+80.5624 	EXP 	iaps_display: size = array([1024,  768])
+80.5624 	EXP 	iaps_display: image = 'stimulus/2120.bmp'
+80.5624 	EXP 	iaps_display: autoDraw = True
+82.3790 	EXP 	iaps_cue: size = array([1024,  768])
+82.3790 	EXP 	iaps_cue: image = 'blue.png'
+82.3790 	EXP 	iaps_cue: autoDraw = True
+85.8372 	EXP 	iaps_cue: size = array([1024,  768])
+85.8372 	EXP 	iaps_cue: image = 'green.png'
+85.8372 	EXP 	iaps_cue: autoDraw = True
+86.3372 	EXP 	iaps_cue: size = array([1024,  768])
+86.3372 	EXP 	iaps_cue: image = 'blue.png'
+86.3372 	EXP 	iaps_cue: autoDraw = True
+94.5951 	EXP 	iaps_cue: size = array([1024,  768])
+94.5951 	EXP 	iaps_cue: image = 'green.png'
+94.5951 	EXP 	iaps_cue: autoDraw = True
+94.8451 	EXP 	iaps_cue: size = array([1024,  768])
+94.8451 	EXP 	iaps_cue: image = 'blue.png'
+94.8451 	EXP 	iaps_cue: autoDraw = True
+97.3450 	EXP 	iaps_cue: size = array([1024,  768])
+97.3450 	EXP 	iaps_cue: image = 'green.png'
+97.3450 	EXP 	iaps_cue: autoDraw = True
+97.5950 	EXP 	iaps_cue: size = array([1024,  768])
+97.5950 	EXP 	iaps_cue: image = 'blue.png'
+97.5950 	EXP 	iaps_cue: autoDraw = True
+100.3532 	EXP 	iaps_display: autoDraw = False
+100.3532 	EXP 	iaps_cue: autoDraw = False
+100.3532 	EXP 	blank: autoDraw = True
+103.1850 	EXP 	New trial (rep=0, index=2): {'valmean': 6.71, 'valence': 'Positive', 'scenestim': '2030.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.54}
+103.3610 	EXP 	iaps_display: autoDraw = False
+103.3610 	EXP 	iaps_cue: autoDraw = False
+103.3610 	EXP 	blank: autoDraw = False
+103.3610 	EXP 	fixation_cross: autoDraw = True
+105.4609 	EXP 	fixation_cross: autoDraw = False
+105.4609 	EXP 	iaps_display: size = array([1024,  768])
+105.4609 	EXP 	iaps_display: image = 'stimulus/2030.bmp'
+105.4609 	EXP 	iaps_display: autoDraw = True
+107.2277 	EXP 	iaps_cue: size = array([1024,  768])
+107.2277 	EXP 	iaps_cue: image = 'blue.png'
+107.2277 	EXP 	iaps_cue: autoDraw = True
+108.4777 	EXP 	iaps_cue: size = array([1024,  768])
+108.4777 	EXP 	iaps_cue: image = 'green.png'
+108.4777 	EXP 	iaps_cue: autoDraw = True
+109.4861 	EXP 	iaps_cue: size = array([1024,  768])
+109.4861 	EXP 	iaps_cue: image = 'blue.png'
+109.4861 	EXP 	iaps_cue: autoDraw = True
+109.9861 	EXP 	iaps_cue: size = array([1024,  768])
+109.9861 	EXP 	iaps_cue: image = 'green.png'
+109.9861 	EXP 	iaps_cue: autoDraw = True
+110.9860 	EXP 	iaps_cue: size = array([1024,  768])
+110.9860 	EXP 	iaps_cue: image = 'blue.png'
+110.9860 	EXP 	iaps_cue: autoDraw = True
+111.9860 	EXP 	iaps_cue: size = array([1024,  768])
+111.9860 	EXP 	iaps_cue: image = 'green.png'
+111.9860 	EXP 	iaps_cue: autoDraw = True
+112.4860 	EXP 	iaps_cue: size = array([1024,  768])
+112.4860 	EXP 	iaps_cue: image = 'blue.png'
+112.4860 	EXP 	iaps_cue: autoDraw = True
+113.4859 	EXP 	iaps_cue: size = array([1024,  768])
+113.4859 	EXP 	iaps_cue: image = 'green.png'
+113.4859 	EXP 	iaps_cue: autoDraw = True
+113.9859 	EXP 	iaps_cue: size = array([1024,  768])
+113.9859 	EXP 	iaps_cue: image = 'blue.png'
+113.9859 	EXP 	iaps_cue: autoDraw = True
+115.2359 	EXP 	iaps_cue: size = array([1024,  768])
+115.2359 	EXP 	iaps_cue: image = 'green.png'
+115.2359 	EXP 	iaps_cue: autoDraw = True
+115.7442 	EXP 	iaps_cue: size = array([1024,  768])
+115.7442 	EXP 	iaps_cue: image = 'blue.png'
+115.7442 	EXP 	iaps_cue: autoDraw = True
+116.9941 	EXP 	iaps_cue: size = array([1024,  768])
+116.9941 	EXP 	iaps_cue: image = 'green.png'
+116.9941 	EXP 	iaps_cue: autoDraw = True
+117.4941 	EXP 	iaps_cue: size = array([1024,  768])
+117.4941 	EXP 	iaps_cue: image = 'blue.png'
+117.4941 	EXP 	iaps_cue: autoDraw = True
+118.9940 	EXP 	iaps_cue: size = array([1024,  768])
+118.9940 	EXP 	iaps_cue: image = 'green.png'
+118.9940 	EXP 	iaps_cue: autoDraw = True
+119.4940 	EXP 	iaps_cue: size = array([1024,  768])
+119.4940 	EXP 	iaps_cue: image = 'blue.png'
+119.4940 	EXP 	iaps_cue: autoDraw = True
+120.9940 	EXP 	iaps_cue: size = array([1024,  768])
+120.9940 	EXP 	iaps_cue: image = 'green.png'
+120.9940 	EXP 	iaps_cue: autoDraw = True
+121.4939 	EXP 	iaps_cue: size = array([1024,  768])
+121.4939 	EXP 	iaps_cue: image = 'blue.png'
+121.4939 	EXP 	iaps_cue: autoDraw = True
+123.2522 	EXP 	iaps_cue: size = array([1024,  768])
+123.2522 	EXP 	iaps_cue: image = 'green.png'
+123.2522 	EXP 	iaps_cue: autoDraw = True
+123.7521 	EXP 	iaps_cue: size = array([1024,  768])
+123.7521 	EXP 	iaps_cue: image = 'blue.png'
+123.7521 	EXP 	iaps_cue: autoDraw = True
+125.0021 	EXP 	iaps_cue: size = array([1024,  768])
+125.0021 	EXP 	iaps_cue: image = 'green.png'
+125.0021 	EXP 	iaps_cue: autoDraw = True
+125.2437 	EXP 	iaps_display: autoDraw = False
+125.2437 	EXP 	iaps_cue: autoDraw = False
+125.2437 	EXP 	blank: autoDraw = True
+128.0820 	EXP 	New trial (rep=0, index=3): {'valmean': 1.95, 'valence': 'Negative', 'scenestim': '2205.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.5300000000000002}
+128.2434 	EXP 	iaps_display: autoDraw = False
+128.2434 	EXP 	iaps_cue: autoDraw = False
+128.2434 	EXP 	blank: autoDraw = False
+128.2434 	EXP 	fixation_cross: autoDraw = True
+130.3517 	EXP 	fixation_cross: autoDraw = False
+130.3517 	EXP 	iaps_display: size = array([1024,  768])
+130.3517 	EXP 	iaps_display: image = 'stimulus/2205.bmp'
+130.3517 	EXP 	iaps_display: autoDraw = True
+132.1267 	EXP 	iaps_cue: size = array([1024,  768])
+132.1267 	EXP 	iaps_cue: image = 'green.png'
+132.1267 	EXP 	iaps_cue: autoDraw = True
+134.1266 	EXP 	iaps_cue: size = array([1024,  768])
+134.1266 	EXP 	iaps_cue: image = 'red.png'
+134.1266 	EXP 	iaps_cue: autoDraw = True
+134.3765 	EXP 	iaps_cue: size = array([1024,  768])
+134.3765 	EXP 	iaps_cue: image = 'green.png'
+134.3765 	EXP 	iaps_cue: autoDraw = True
+135.8764 	EXP 	iaps_cue: size = array([1024,  768])
+135.8764 	EXP 	iaps_cue: image = 'red.png'
+135.8764 	EXP 	iaps_cue: autoDraw = True
+136.8764 	EXP 	iaps_cue: size = array([1024,  768])
+136.8764 	EXP 	iaps_cue: image = 'green.png'
+136.8764 	EXP 	iaps_cue: autoDraw = True
+137.3764 	EXP 	iaps_cue: size = array([1024,  768])
+137.3764 	EXP 	iaps_cue: image = 'red.png'
+137.3764 	EXP 	iaps_cue: autoDraw = True
+137.6264 	EXP 	iaps_cue: size = array([1024,  768])
+137.6264 	EXP 	iaps_cue: image = 'green.png'
+137.6264 	EXP 	iaps_cue: autoDraw = True
+138.8763 	EXP 	iaps_cue: size = array([1024,  768])
+138.8763 	EXP 	iaps_cue: image = 'red.png'
+138.8763 	EXP 	iaps_cue: autoDraw = True
+150.1341 	EXP 	iaps_display: autoDraw = False
+150.1341 	EXP 	iaps_cue: autoDraw = False
+150.1341 	EXP 	blank: autoDraw = True
+152.9879 	EXP 	Created sequence: random, trialTypes=1, nReps=1, seed=None
+152.9887 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+152.9892 	EXP 	New trial (rep=0, index=0): None
+153.1339 	EXP 	iaps_display: autoDraw = False
+153.1339 	EXP 	iaps_cue: autoDraw = False
+153.1339 	EXP 	blank: autoDraw = False
+153.1339 	EXP 	break_image: size = array([1920, 1080])
+153.1339 	EXP 	break_image: image = 'Instructions/break.png'
+153.1339 	EXP 	break_image: autoDraw = True
+154.5088 	DATA 	Keypress: return
+154.5095 	EXP 	New trial (rep=0, index=1): {'block_event': 'comp_2', 'order': 1, 'block_display': 'cont_inst', 'block_file': 'procedure\\1.csv', 'break_display': 'break'}
+154.5503 	EXP 	break_image: autoDraw = False
+154.5503 	EXP 	Block_image: size = array([1920, 1080])
+154.5503 	EXP 	Block_image: image = 'Instructions/cont_inst.png'
+154.5503 	EXP 	Block_image: autoDraw = True
+154.8338 	DATA 	Keypress: return
+154.8753 	EXP 	Block_image: autoDraw = False
+154.8753 	EXP 	composite_display: size = array([1024,  768])
+154.8753 	EXP 	composite_display: image = 'instructions/comp_2.png'
+154.8753 	EXP 	composite_display: autoDraw = True
+159.8343 	DATA 	Keypress: escape
+159.8344 	DATA 	Keypress: escape

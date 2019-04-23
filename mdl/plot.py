@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Hub for creating plots. 
+| @purpose: Hub for creating plots.  
 | @date: Created on Sat May 1 15:12:38 2019   
 | @author: Semeon Risom   
 | @email: semeon.risom@gmail.com   
@@ -18,8 +18,8 @@ from distutils import dir_util
 import datetime
 import importlib
 import os
-import sys
 import shutil
+import sys
 
 #-------data
 import pandas as pd
@@ -28,13 +28,6 @@ import numpy as np
 #-------seaborn
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-#-------bokeh
-from bokeh.core.properties import value
-from bokeh.plotting import reset_output, figure
-from bokeh.models import HoverTool, Range1d, BoxAnnotation, ColumnDataSource, CDSView, BooleanFilter, CustomJS
-from bokeh.layouts import gridplot
-from bokeh.embed import components
 
 #-------local
 from mdl import settings
@@ -47,14 +40,14 @@ def _font():
 	"""Add Helvetica to matplotlib."""
 	from matplotlib import matplotlib_fname, rcParams
 	import matplotlib.font_manager as font_manager
-	
+
 	directory = matplotlib_fname().replace("/matplotlibrc", "")
 	destination = f'{directory}/fonts/ttf'
 	file = settings.path['home'] + "/dist/resources/Helvetica.ttf"
-	
+
 	#add to matplotlib font folder
 	shutil.copy(file, destination)
-	
+
 	#add to computer font folder
 	##if running osx
 	if sys.platform == "darwin":
@@ -62,7 +55,7 @@ def _font():
 	##if running win32
 	if sys.platform == "win32":
 		shutil.copy(file, 'c:\\windows\\fonts')
-	
+
 	#rebuild fonts
 	prop = font_manager.FontProperties(fname=file)
 	prop.set_weight = 'light'
@@ -83,8 +76,15 @@ def bokeh_trial(config, df, stim_bounds, roi_bounds, flt):
         ROI bounds on screen.
     flt : :class:`str`
         Filter type.
-
     """
+
+	#-------bokeh
+    from bokeh.core.properties import value
+    from bokeh.plotting import reset_output, figure
+    from bokeh.models import HoverTool, Range1d, BoxAnnotation, ColumnDataSource, CDSView, BooleanFilter
+    from bokeh.layouts import gridplot
+    from bokeh.embed import components
+
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -337,12 +337,11 @@ def bokeh_trial(config, df, stim_bounds, roi_bounds, flt):
                     sizing_mode="fixed")
 
     #get html
-    from bokeh.embed import components
     script, div = components(grid)
-    
+
     ##convert seperate plots and div to single string
     plots = (''.join(map(str, [div, '\n', script])))
-        
+
     #clear cache
     reset_output()
 
@@ -366,6 +365,11 @@ def bokeh_calibration(config, df, cxy, event, monitorSize=[1920,1080]):
     monitorSize : :obj:`list`
         Monitor size, in pixels.
     """
+
+    from bokeh.plotting import reset_output, figure
+    from bokeh.models import Range1d, ColumnDataSource
+    from bokeh.embed import components
+
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -411,14 +415,14 @@ def bokeh_calibration(config, df, cxy, event, monitorSize=[1920,1080]):
     ##tools = "box_select,save,pan,box_zoom,reset"
     tools="save,reset"
     p2 = figure(
-            output_backend="webgl",
-            tools=tools,
-            plot_width=1200,
-            plot_height=600,
-            x_axis_label = 'x (px)', y_axis_label = 'y (px)',
-            x_range=Range1d(0, monitorSize[0], bounds="auto"),
-            y_range=Range1d(0, monitorSize[1], bounds="auto"),
-            sizing_mode="scale_width"
+        output_backend="webgl",
+        tools=tools,
+        plot_width=1200,
+        plot_height=600,
+        x_axis_label = 'x (px)', y_axis_label = 'y (px)',
+        x_range=Range1d(0, monitorSize[0], bounds="auto"),
+        y_range=Range1d(0, monitorSize[1], bounds="auto"),
+        sizing_mode="scale_width"
     )
     
     ###---------line plots
@@ -509,7 +513,7 @@ def bokeh_calibration(config, df, cxy, event, monitorSize=[1920,1080]):
 
 def onset_diff_plot(config, df, meta, drop, y, clip=None):
     """Plot onset differences using pandas and seaborn.
-    
+
     Parameters
     ----------
     config : :obj:`dict`
@@ -616,7 +620,8 @@ def onset_diff_plot(config, df, meta, drop, y, clip=None):
     return html_plots
 
 def density_plot(config, df, title):
-    """Create density plot (draws kernel density estimate), using seaborn and pandas
+    """
+	Create density plot (draws kernel density estimate), using seaborn and pandas.
 
     Parameters
     ----------
@@ -687,7 +692,8 @@ def density_plot(config, df, title):
     return density, html_plots
 
 def corr_matrix(config, df, path, title, method, footnote=None):
-    """Create correlation matrix using bokeh and pandas
+    """
+	Create correlation matrix using bokeh and pandas.
 
     Parameters
     ----------
@@ -712,26 +718,24 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
-
     console('running bokeh corr_matrix()', 'blue')
-    import bisect
+
     # math
+    import bisect
     from math import pi
     from numpy import arange
     from itertools import chain
     from collections import OrderedDict
+    
     # bokeh
-    from bokeh.models import ColorBar, LinearColorMapper, TapTool
-    from bokeh.plotting import figure
+    from bokeh.models import ColorBar, LinearColorMapper, TapTool, HoverTool, Range1d, ColumnDataSource
+    from bokeh.models.callbacks import CustomJS
+    from bokeh.plotting import reset_output, figure
+    from bokeh.embed import components
 
     #create color palette
-    from matplotlib.colors import ListedColormap
     import matplotlib.colors
     from matplotlib import cm as mpl_cmap
-    
-    #individual correlation plots
-    import seaborn as sns
-    import matplotlib.pyplot as plt
     
     #p-values
     if method == "pearson":
@@ -748,7 +752,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
             for column in df.columns:
                 pvalues[row][column] = round(cf(df[row], df[column])[1], 4)
         return pvalues
-    
+
     #Gets bounds for quads with n features
     def get_bounds(n):
         bottom = list(chain.from_iterable(
@@ -795,7 +799,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     #create seaborn plots for each possible correlation combinations
     def get_corr_plot(df, x, y):
         importlib.reload(plt); importlib.reload(sns)
-        
+
         #----parameters
         #figure
         fig, ax = plt.subplots(1, 1, figsize=(10,10))
@@ -821,7 +825,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
         #place text 90% of max-x and 90% of max-y
         fig.text(0.85, 0.05, corr_t, size=16, horizontalalignment='center',
                 verticalalignment='center', transform=ax.transAxes)
-        
+
         #----save
         #check if path exists
         file = "%s.png"%(title)
@@ -837,7 +841,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     #get color map
     RdYlBu = mpl_cmap.get_cmap('RdBu', 32)
     colors_np = np.vstack(RdYlBu(np.linspace(0, 1, 32)))
-    cmap = ListedColormap(colors_np, name='RedBlue')
+    cmap = matplotlib.colors.ListedColormap(colors_np, name='RedBlue')
     colors = [matplotlib.colors.rgb2hex(cmap(x/32)[:3]) for x in range(32)]
 
     # calculate correlation coefficients
@@ -860,7 +864,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     l_labels_y = np.concatenate(l_labels_y_split).ravel().tolist()
     ##combine
     l_labels = list(zip(l_labels_x, l_labels_y))
-    
+
     #create coeff label coordinates
     num = np.arange(0, nlabels, 0.5).tolist()
     num = [x for x in num if x not in np.arange(0, nlabels).tolist()]
@@ -870,13 +874,13 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     ##y
     num_y = [(x + .125) for x in num]
     num_y = [y for y in num_y if y not in np.arange(0, nlabels).tolist()] * nlabels
-    
+
     ###split into chunks
     num_y_split = np.hsplit(np.array(np.array_split(num_y, nlabels)), nlabels)
     num_y = np.concatenate(num_y_split).ravel().tolist()
     ##combine
-    #num_labels = list(zip(num_x, num_y)) 
-    
+    #num_labels = list(zip(num_x, num_y))
+
     #plot
     tools="box_select,save,reset"
     cm = figure(tools=tools, plot_width=1200, plot_height=1200, x_range=(0, nlabels), y_range=(0, nlabels), 
@@ -903,21 +907,21 @@ def corr_matrix(config, df, path, title, method, footnote=None):
 
     #turn off scientific notation
     cm.left[0].formatter.use_scientific = False
-    
+
     # prepare squares for plot
     top, bottom, left, right, corr_items = get_bounds(nlabels)
     color_list,corr,p_color,pvalues,factor = get_colors_corr(corr_coeff.values.flatten(),p_value.values.flatten(),colors)
-    
+
     #prepare corr_coeff label for plot
     coeff_color = ["#444444"] * (nlabels * nlabels)
     coeff_color = ['#f9f9f9' if cr >= np.float64(0.74) else cof for cof, cr in zip(coeff_color, corr)]
     coeff_num = ["%.2f"%(x) for x in corr]
-    
+
     #prepare pvalue for plot
     p_color = ["#444444"] * (nlabels * nlabels)
     p_color = ['#F44336' if p <= np.float64(0.05) else cof for pcol, cof, p in zip(p_color, coeff_color, pvalues)]
     p_num = ["(%.2f)"%(y) for y in pvalues]
-    
+
     #data source
     source = ColumnDataSource(data=dict(left=left, right=right, top=top, bottom=bottom,
                                         x=num_x, y=num_y, coeff_num=coeff_num, coeff_color=coeff_color,
@@ -925,7 +929,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     #create squares
     cm.quad(top='top', bottom='bottom', left='left', right='right', 
             line_color='white', color='square_color', source=source)
-    
+
     #create text
     #correlation coefficient
     cm.text(x='x', y='y', source=source, text_color="coeff_color", text='coeff_num', 
@@ -935,7 +939,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     cm.text(x='x', y='y', source=source, text_color="p_color", text='p_num', 
             text_font_style='normal', text_font_size = '1.0em', text_align='center',
             y_offset=20, x_offset=1, text_line_height=1)
-            
+
     #callback
     link = CustomJS(args = dict(source = source), code="""
         console.log("second")
@@ -982,25 +986,20 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     )
     color_bar = ColorBar(color_mapper=mapper, location=(0, 0))
     cm.add_layout(color_bar, 'right')
-    
+
     #create link for each comparison
     all_columns = [[x,y] for x in list(labels) for y in list(labels)]
     for idx, clm in enumerate(all_columns):
         get_corr_plot(df=df, x=clm[0], y=clm[1])
-        
+
     #get html
-    from bokeh.embed import components
     script, div = components(cm)
     
     ##convert seperate plots and div to single string
     plots = (''.join(map(str, [div, '\n', script])))
-    
+
     #create html
     html(config, path=path, plots=plots, source='bokeh', title=title, footnote=footnote)
-    
-    #save
-    #output_file(path, mode='inline')
-    #save(cm, path)
 
     #reset
     reset_output()
@@ -1967,5 +1966,3 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
 
 # initiate
 _font()
-
-del breakpoint

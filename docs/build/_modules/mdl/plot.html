@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.plot &#8212; mdl-R33 2019-04-22 documentation</title>
+    <title>mdl.plot &#8212; mdl-R33 2019-04-23 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-22</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-23</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -81,29 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/demographics_.html">Demographics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#get-metadata">get metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#prepare-data">prepare data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#demographic-statistics">demographic statistics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#list-of-variables">list of variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#descriptive-device">descriptive device</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#descriptive-task">descriptive task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/demographics_.html#summary-data">summary data</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/download_.html">Download data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#imports">imports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#REDCap">REDCap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/download_.html#box">box</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../examples/process_.html">Process</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/process_.html#imports">imports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/process_.html#start">start</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
@@ -224,7 +202,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">| @purpose: Hub for creating plots. </span>
+<span class="sd">| @purpose: Hub for creating plots.  </span>
 <span class="sd">| @date: Created on Sat May 1 15:12:38 2019   </span>
 <span class="sd">| @author: Semeon Risom   </span>
 <span class="sd">| @email: semeon.risom@gmail.com   </span>
@@ -241,8 +219,8 @@
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">importlib</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="c1">#-------data</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -251,13 +229,6 @@
 <span class="c1">#-------seaborn</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#-------bokeh</span>
-<span class="kn">from</span> <span class="nn">bokeh.core.properties</span> <span class="k">import</span> <span class="n">value</span>
-<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">reset_output</span><span class="p">,</span> <span class="n">figure</span>
-<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="n">HoverTool</span><span class="p">,</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">BoxAnnotation</span><span class="p">,</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">CDSView</span><span class="p">,</span> <span class="n">BooleanFilter</span><span class="p">,</span> <span class="n">CustomJS</span>
-<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="k">import</span> <span class="n">gridplot</span>
-<span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="k">import</span> <span class="n">components</span>
 
 <span class="c1">#-------local</span>
 <span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">settings</span>
@@ -270,14 +241,14 @@
 	<span class="sd">&quot;&quot;&quot;Add Helvetica to matplotlib.&quot;&quot;&quot;</span>
 	<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">matplotlib_fname</span><span class="p">,</span> <span class="n">rcParams</span>
 	<span class="kn">import</span> <span class="nn">matplotlib.font_manager</span> <span class="k">as</span> <span class="nn">font_manager</span>
-	
+
 	<span class="n">directory</span> <span class="o">=</span> <span class="n">matplotlib_fname</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/matplotlibrc&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 	<span class="n">destination</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{directory}</span><span class="s1">/fonts/ttf&#39;</span>
 	<span class="n">file</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="s1">&#39;home&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/dist/resources/Helvetica.ttf&quot;</span>
-	
+
 	<span class="c1">#add to matplotlib font folder</span>
 	<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
-	
+
 	<span class="c1">#add to computer font folder</span>
 	<span class="c1">##if running osx</span>
 	<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
@@ -285,7 +256,7 @@
 	<span class="c1">##if running win32</span>
 	<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
 		<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;c:</span><span class="se">\\</span><span class="s1">windows</span><span class="se">\\</span><span class="s1">fonts&#39;</span><span class="p">)</span>
-	
+
 	<span class="c1">#rebuild fonts</span>
 	<span class="n">prop</span> <span class="o">=</span> <span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
 	<span class="n">prop</span><span class="o">.</span><span class="n">set_weight</span> <span class="o">=</span> <span class="s1">&#39;light&#39;</span>
@@ -306,8 +277,15 @@
 <span class="sd">        ROI bounds on screen.</span>
 <span class="sd">    flt : :class:`str`</span>
 <span class="sd">        Filter type.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
+
+	<span class="c1">#-------bokeh</span>
+    <span class="kn">from</span> <span class="nn">bokeh.core.properties</span> <span class="k">import</span> <span class="n">value</span>
+    <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">reset_output</span><span class="p">,</span> <span class="n">figure</span>
+    <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="n">HoverTool</span><span class="p">,</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">BoxAnnotation</span><span class="p">,</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">CDSView</span><span class="p">,</span> <span class="n">BooleanFilter</span>
+    <span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="k">import</span> <span class="n">gridplot</span>
+    <span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="k">import</span> <span class="n">components</span>
+
     <span class="c1">#timestamp</span>
     <span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">_f</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
@@ -560,12 +538,11 @@
                     <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">&quot;fixed&quot;</span><span class="p">)</span>
 
     <span class="c1">#get html</span>
-    <span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="k">import</span> <span class="n">components</span>
     <span class="n">script</span><span class="p">,</span> <span class="n">div</span> <span class="o">=</span> <span class="n">components</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-    
+
     <span class="c1">##convert seperate plots and div to single string</span>
     <span class="n">plots</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="n">div</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">script</span><span class="p">])))</span>
-        
+
     <span class="c1">#clear cache</span>
     <span class="n">reset_output</span><span class="p">()</span>
 
@@ -589,6 +566,11 @@
 <span class="sd">    monitorSize : :obj:`list`</span>
 <span class="sd">        Monitor size, in pixels.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">reset_output</span><span class="p">,</span> <span class="n">figure</span>
+    <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">ColumnDataSource</span>
+    <span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="k">import</span> <span class="n">components</span>
+
     <span class="c1">#timestamp</span>
     <span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">_f</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
@@ -634,14 +616,14 @@
     <span class="c1">##tools = &quot;box_select,save,pan,box_zoom,reset&quot;</span>
     <span class="n">tools</span><span class="o">=</span><span class="s2">&quot;save,reset&quot;</span>
     <span class="n">p2</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span>
-            <span class="n">output_backend</span><span class="o">=</span><span class="s2">&quot;webgl&quot;</span><span class="p">,</span>
-            <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
-            <span class="n">plot_width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
-            <span class="n">plot_height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-            <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">&#39;x (px)&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">&#39;y (px)&#39;</span><span class="p">,</span>
-            <span class="n">x_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">monitorSize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">),</span>
-            <span class="n">y_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">monitorSize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">),</span>
-            <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">&quot;scale_width&quot;</span>
+        <span class="n">output_backend</span><span class="o">=</span><span class="s2">&quot;webgl&quot;</span><span class="p">,</span>
+        <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+        <span class="n">plot_width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+        <span class="n">plot_height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+        <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">&#39;x (px)&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">&#39;y (px)&#39;</span><span class="p">,</span>
+        <span class="n">x_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">monitorSize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">),</span>
+        <span class="n">y_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">monitorSize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">),</span>
+        <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">&quot;scale_width&quot;</span>
     <span class="p">)</span>
     
     <span class="c1">###---------line plots</span>
@@ -732,7 +714,7 @@
 
 <div class="viewcode-block" id="onset_diff_plot"><a class="viewcode-back" href="../../api/mdl.plot.html#mdl.plot.onset_diff_plot">[docs]</a><span class="k">def</span> <span class="nf">onset_diff_plot</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">drop</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plot onset differences using pandas and seaborn.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    config : :obj:`dict`</span>
@@ -839,7 +821,8 @@
     <span class="k">return</span> <span class="n">html_plots</span></div>
 
 <div class="viewcode-block" id="density_plot"><a class="viewcode-back" href="../../api/mdl.plot.html#mdl.plot.density_plot">[docs]</a><span class="k">def</span> <span class="nf">density_plot</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create density plot (draws kernel density estimate), using seaborn and pandas</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Create density plot (draws kernel density estimate), using seaborn and pandas.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -910,7 +893,8 @@
     <span class="k">return</span> <span class="n">density</span><span class="p">,</span> <span class="n">html_plots</span></div>
 
 <div class="viewcode-block" id="corr_matrix"><a class="viewcode-back" href="../../api/mdl.plot.html#mdl.plot.corr_matrix">[docs]</a><span class="k">def</span> <span class="nf">corr_matrix</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">footnote</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create correlation matrix using bokeh and pandas</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Create correlation matrix using bokeh and pandas.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -935,26 +919,24 @@
     <span class="c1">#timestamp</span>
     <span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">_f</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
-
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;running bokeh corr_matrix()&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-    <span class="kn">import</span> <span class="nn">bisect</span>
+
     <span class="c1"># math</span>
+    <span class="kn">import</span> <span class="nn">bisect</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
     <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">arange</span>
     <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">chain</span>
     <span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+    
     <span class="c1"># bokeh</span>
-    <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="n">ColorBar</span><span class="p">,</span> <span class="n">LinearColorMapper</span><span class="p">,</span> <span class="n">TapTool</span>
-    <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">figure</span>
+    <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="n">ColorBar</span><span class="p">,</span> <span class="n">LinearColorMapper</span><span class="p">,</span> <span class="n">TapTool</span><span class="p">,</span> <span class="n">HoverTool</span><span class="p">,</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">ColumnDataSource</span>
+    <span class="kn">from</span> <span class="nn">bokeh.models.callbacks</span> <span class="k">import</span> <span class="n">CustomJS</span>
+    <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">reset_output</span><span class="p">,</span> <span class="n">figure</span>
+    <span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="k">import</span> <span class="n">components</span>
 
     <span class="c1">#create color palette</span>
-    <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="k">import</span> <span class="n">ListedColormap</span>
     <span class="kn">import</span> <span class="nn">matplotlib.colors</span>
     <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span> <span class="k">as</span> <span class="n">mpl_cmap</span>
-    
-    <span class="c1">#individual correlation plots</span>
-    <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
     
     <span class="c1">#p-values</span>
     <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pearson&quot;</span><span class="p">:</span>
@@ -971,7 +953,7 @@
             <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
                 <span class="n">pvalues</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">cf</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">row</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">])[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pvalues</span>
-    
+
     <span class="c1">#Gets bounds for quads with n features</span>
     <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">bottom</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
@@ -1018,7 +1000,7 @@
     <span class="c1">#create seaborn plots for each possible correlation combinations</span>
     <span class="k">def</span> <span class="nf">get_corr_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">plt</span><span class="p">);</span> <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">sns</span><span class="p">)</span>
-        
+
         <span class="c1">#----parameters</span>
         <span class="c1">#figure</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -1044,7 +1026,7 @@
         <span class="c1">#place text 90% of max-x and 90% of max-y</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">corr_t</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
                 <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
-        
+
         <span class="c1">#----save</span>
         <span class="c1">#check if path exists</span>
         <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
@@ -1060,7 +1042,7 @@
     <span class="c1">#get color map</span>
     <span class="n">RdYlBu</span> <span class="o">=</span> <span class="n">mpl_cmap</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdBu&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
     <span class="n">colors_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">RdYlBu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">)))</span>
-    <span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors_np</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;RedBlue&#39;</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors_np</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;RedBlue&#39;</span><span class="p">)</span>
     <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">32</span><span class="p">)[:</span><span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">)]</span>
 
     <span class="c1"># calculate correlation coefficients</span>
@@ -1083,7 +1065,7 @@
     <span class="n">l_labels_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">l_labels_y_split</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="c1">##combine</span>
     <span class="n">l_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">l_labels_x</span><span class="p">,</span> <span class="n">l_labels_y</span><span class="p">))</span>
-    
+
     <span class="c1">#create coeff label coordinates</span>
     <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nlabels</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nlabels</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
@@ -1093,13 +1075,13 @@
     <span class="c1">##y</span>
     <span class="n">num_y</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">+</span> <span class="o">.</span><span class="mi">125</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num</span><span class="p">]</span>
     <span class="n">num_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">num_y</span> <span class="k">if</span> <span class="n">y</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nlabels</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span> <span class="o">*</span> <span class="n">nlabels</span>
-    
+
     <span class="c1">###split into chunks</span>
     <span class="n">num_y_split</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">num_y</span><span class="p">,</span> <span class="n">nlabels</span><span class="p">)),</span> <span class="n">nlabels</span><span class="p">)</span>
     <span class="n">num_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">num_y_split</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="c1">##combine</span>
-    <span class="c1">#num_labels = list(zip(num_x, num_y)) </span>
-    
+    <span class="c1">#num_labels = list(zip(num_x, num_y))</span>
+
     <span class="c1">#plot</span>
     <span class="n">tools</span><span class="o">=</span><span class="s2">&quot;box_select,save,reset&quot;</span>
     <span class="n">cm</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span> <span class="n">plot_width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nlabels</span><span class="p">),</span> <span class="n">y_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nlabels</span><span class="p">),</span> 
@@ -1126,21 +1108,21 @@
 
     <span class="c1">#turn off scientific notation</span>
     <span class="n">cm</span><span class="o">.</span><span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">formatter</span><span class="o">.</span><span class="n">use_scientific</span> <span class="o">=</span> <span class="kc">False</span>
-    
+
     <span class="c1"># prepare squares for plot</span>
     <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">corr_items</span> <span class="o">=</span> <span class="n">get_bounds</span><span class="p">(</span><span class="n">nlabels</span><span class="p">)</span>
     <span class="n">color_list</span><span class="p">,</span><span class="n">corr</span><span class="p">,</span><span class="n">p_color</span><span class="p">,</span><span class="n">pvalues</span><span class="p">,</span><span class="n">factor</span> <span class="o">=</span> <span class="n">get_colors_corr</span><span class="p">(</span><span class="n">corr_coeff</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">p_value</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">colors</span><span class="p">)</span>
-    
+
     <span class="c1">#prepare corr_coeff label for plot</span>
     <span class="n">coeff_color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#444444&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">nlabels</span> <span class="o">*</span> <span class="n">nlabels</span><span class="p">)</span>
     <span class="n">coeff_color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#f9f9f9&#39;</span> <span class="k">if</span> <span class="n">cr</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.74</span><span class="p">)</span> <span class="k">else</span> <span class="n">cof</span> <span class="k">for</span> <span class="n">cof</span><span class="p">,</span> <span class="n">cr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coeff_color</span><span class="p">,</span> <span class="n">corr</span><span class="p">)]</span>
     <span class="n">coeff_num</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">corr</span><span class="p">]</span>
-    
+
     <span class="c1">#prepare pvalue for plot</span>
     <span class="n">p_color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#444444&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">nlabels</span> <span class="o">*</span> <span class="n">nlabels</span><span class="p">)</span>
     <span class="n">p_color</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#F44336&#39;</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span> <span class="k">else</span> <span class="n">cof</span> <span class="k">for</span> <span class="n">pcol</span><span class="p">,</span> <span class="n">cof</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p_color</span><span class="p">,</span> <span class="n">coeff_color</span><span class="p">,</span> <span class="n">pvalues</span><span class="p">)]</span>
     <span class="n">p_num</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;(</span><span class="si">%.2f</span><span class="s2">)&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">pvalues</span><span class="p">]</span>
-    
+
     <span class="c1">#data source</span>
     <span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span>
                                         <span class="n">x</span><span class="o">=</span><span class="n">num_x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">num_y</span><span class="p">,</span> <span class="n">coeff_num</span><span class="o">=</span><span class="n">coeff_num</span><span class="p">,</span> <span class="n">coeff_color</span><span class="o">=</span><span class="n">coeff_color</span><span class="p">,</span>
@@ -1148,7 +1130,7 @@
     <span class="c1">#create squares</span>
     <span class="n">cm</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> 
             <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;square_color&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
-    
+
     <span class="c1">#create text</span>
     <span class="c1">#correlation coefficient</span>
     <span class="n">cm</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;coeff_color&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;coeff_num&#39;</span><span class="p">,</span> 
@@ -1158,7 +1140,7 @@
     <span class="n">cm</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;p_color&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;p_num&#39;</span><span class="p">,</span> 
             <span class="n">text_font_style</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">text_font_size</span> <span class="o">=</span> <span class="s1">&#39;1.0em&#39;</span><span class="p">,</span> <span class="n">text_align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
             <span class="n">y_offset</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">x_offset</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">text_line_height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            
+
     <span class="c1">#callback</span>
     <span class="n">link</span> <span class="o">=</span> <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="p">),</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">        console.log(&quot;second&quot;)</span>
@@ -1205,25 +1187,20 @@
     <span class="p">)</span>
     <span class="n">color_bar</span> <span class="o">=</span> <span class="n">ColorBar</span><span class="p">(</span><span class="n">color_mapper</span><span class="o">=</span><span class="n">mapper</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">cm</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">color_bar</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
-    
+
     <span class="c1">#create link for each comparison</span>
     <span class="n">all_columns</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels</span><span class="p">)]</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">clm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_columns</span><span class="p">):</span>
         <span class="n">get_corr_plot</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">clm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">clm</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        
+
     <span class="c1">#get html</span>
-    <span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="k">import</span> <span class="n">components</span>
     <span class="n">script</span><span class="p">,</span> <span class="n">div</span> <span class="o">=</span> <span class="n">components</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
     
     <span class="c1">##convert seperate plots and div to single string</span>
     <span class="n">plots</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="n">div</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">script</span><span class="p">])))</span>
-    
+
     <span class="c1">#create html</span>
     <span class="n">html</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">plots</span><span class="o">=</span><span class="n">plots</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bokeh&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">footnote</span><span class="o">=</span><span class="n">footnote</span><span class="p">)</span>
-    
-    <span class="c1">#save</span>
-    <span class="c1">#output_file(path, mode=&#39;inline&#39;)</span>
-    <span class="c1">#save(cm, path)</span>
 
     <span class="c1">#reset</span>
     <span class="n">reset_output</span><span class="p">()</span>
@@ -2190,8 +2167,6 @@
 
 <span class="c1"># initiate</span>
 <span class="n">_font</span><span class="p">()</span>
-
-<span class="k">del</span> <span class="n">breakpoint</span>
 </pre></div>
 
 		</div>
@@ -2202,7 +2177,7 @@
 	<div class="container">
 		<div>
 			&copy; Copyright 2019, Semeon Risom.<br/>
-			Updated 2019-04-22.<br/>
+			Updated 2019-04-23.<br/>
 			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
 		</div>
 	</div>

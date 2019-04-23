@@ -1,0 +1,2111 @@
+0.3474 	WARNING 	Movie2 stim could not be imported and won't be available
+3.8779 	WARNING 	Monitor specification not found. Creating a temporary one...
+4.6026 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([-0.137, -0.137, -0.137]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x165B48C8>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.6026 	EXP 	window1: recordFrameIntervals = False
+4.6852 	EXP 	window1: recordFrameIntervals = True
+4.7771 	DEBUG 	Screen (0) actual frame rate measured at 119.89
+4.7771 	EXP 	window1: recordFrameIntervals = False
+4.8406 	INFO 	sound is using audioLib: pyo
+4.8701 	EXP 	Created task_instr_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='task_instr_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+4.8722 	EXP 	Created Block_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Block_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+4.8743 	EXP 	Created composite_display = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='composite_display', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.0387 	EXP 	Created fixation_cross = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/fixation.png', interpolate=True, mask=None, maskParams=None, name='fixation_cross', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+5.0416 	EXP 	Created iaps_cue = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='iaps_cue', opacity=0.25, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.0439 	EXP 	Created iaps_display = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='iaps_display', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.2057 	EXP 	Created blank = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='Instructions/blank.png', interpolate=True, mask=None, maskParams=None, name='blank', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+5.2079 	EXP 	Created break_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='break_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.3460 	EXP 	Created End_Screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='Instructions/finished.png', interpolate=True, mask=None, maskParams=None, name='End_Screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+6.0384 	EXP 	Created unnamed Circle = Circle(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0, fillColor=array([ 1.,  1.,  1.]), fillColorSpace='rgb', fillRGB=array([ 1.,  1.,  1.]), interpolate=True, lineColor=array([ 1.,  1.,  1.]), lineColorSpace='rgb', lineRGB=array([ 1.,  1.,  1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 1.,  1.]), units='pix', vertices=ndarray(...), win=Window(...))
+6.0420 	EXP 	Created unnamed Circle = Circle(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0, fillColor=array([-1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([-1., -1., -1.]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1., -1., -1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 1.,  1.]), units='pix', vertices=ndarray(...), win=Window(...))
+6.6964 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+34.7669 	DATA 	Keypress: up
+36.3349 	DATA 	Keypress: return
+36.5325 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+36.6992 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+36.9302 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='top', antialias=True, autoLog=True, bold=False, color=array([ 0.137,  0.137,  0.137]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=28, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([   0.,  525.]), rgb=array([ 0.137,  0.137,  0.137]), text=unicode(...), units='pix', win=Window(...), wrapWidth=1536.0)
+37.2263 	EXP 	Created unnamed ImageStim = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, image=str(...), interpolate=False, mask=None, maskParams=None, name='unnamed ImageStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 960.,  800.]), texRes=128, units='pix', win=Window(...))
+37.2338 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=52    CR=207 '
+37.2839 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=207 '
+37.2839 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.3502 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.4756 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=207 '
+37.4756 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.5505 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=207 '
+37.5505 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.6506 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=207 '
+37.6506 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.7506 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=207 '
+37.7506 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.8338 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+37.9422 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=207 '
+37.9422 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.0422 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=207 '
+38.0422 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.1422 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=207 '
+38.1422 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.2338 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=207 '
+38.2338 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.3255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.4255 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=206 '
+38.4255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.5255 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=207 '
+38.5255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.6255 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=208 '
+38.6255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.7299 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=209 '
+38.7299 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.8255 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=210 '
+38.8255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+38.9171 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=209 '
+38.9171 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.0255 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=209 '
+39.0255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.1255 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=208 '
+39.1255 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.2254 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=208 '
+39.2254 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.3004 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.4088 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.5007 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.6088 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=208 '
+39.6088 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.7005 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.8004 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.8921 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+39.9921 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=208 '
+39.9921 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.1005 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=208 '
+40.1005 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.2004 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=207 '
+40.2004 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.2921 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.3921 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=207 '
+40.3921 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.4921 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=206 '
+40.4921 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.5921 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=206 '
+40.5921 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.6837 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=207 '
+40.6837 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.7837 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=207 '
+40.7837 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.8837 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=207 '
+40.8837 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+40.9754 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+41.0842 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+41.1188 	DATA 	Keypress: right
+41.2997 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+41.6449 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=174    CR=210 '
+41.6449 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=173    CR=210 '
+41.6449 	EXP 	unnamed TextStim: text = 'TARGET T=173    D=602 mm '
+41.6449 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+41.6920 	EXP 	unnamed TextStim: text = 'TARGET T=173    D=602 mm '
+41.6920 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+41.7674 	EXP 	unnamed TextStim: text = 'TARGET T=173    D=602 mm '
+41.7674 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+41.8753 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=174    CR=210 '
+41.8753 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=602 mm '
+41.8753 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+41.9753 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=602 mm '
+41.9753 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.0587 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=602 mm '
+42.0587 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.1587 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=602 mm '
+42.1587 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.2670 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=175    CR=210 '
+42.2670 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=602 mm '
+42.2670 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.3522 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=602 mm '
+42.3522 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.4503 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=602 mm '
+42.4503 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.5503 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=602 mm '
+42.5503 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.6503 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=602 mm '
+42.6503 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.7433 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=602 mm '
+42.7433 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.8503 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=176    CR=210 '
+42.8503 	EXP 	unnamed TextStim: text = 'TARGET T=176    D=602 mm '
+42.8503 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+42.9419 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=178    CR=210 '
+42.9419 	EXP 	unnamed TextStim: text = 'TARGET T=178    D=602 mm '
+42.9419 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.0432 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=180    CR=210 '
+43.0432 	EXP 	unnamed TextStim: text = 'TARGET T=180    D=601 mm '
+43.0432 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.1503 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=181    CR=210 '
+43.1503 	EXP 	unnamed TextStim: text = 'TARGET T=181    D=600 mm '
+43.1503 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.2336 	EXP 	unnamed TextStim: text = 'TARGET T=181    D=600 mm '
+43.2336 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.3253 	EXP 	unnamed TextStim: text = 'TARGET T=181    D=599 mm '
+43.3253 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.4420 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=180    CR=210 '
+43.4420 	EXP 	unnamed TextStim: text = 'TARGET T=180    D=598 mm '
+43.4420 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.5336 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=177    CR=210 '
+43.5336 	EXP 	unnamed TextStim: text = 'TARGET T=177    D=598 mm '
+43.5336 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.6336 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=174    CR=210 '
+43.6336 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=597 mm '
+43.6336 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.7336 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=171    CR=210 '
+43.7336 	EXP 	unnamed TextStim: text = 'TARGET T=171    D=594 mm '
+43.7336 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+43.8258 	DATA 	Keypress: right
+43.8336 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=169    CR=210 '
+43.8336 	EXP 	unnamed TextStim: text = 'TARGET T=169    D=594 mm '
+43.8336 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.1328 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+44.4419 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.5002 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=203     TARGET T=176    D=596 mm '
+44.5002 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.6002 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=203     TARGET T=176    D=596 mm '
+44.6002 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.7085 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=203     TARGET T=176    D=596 mm '
+44.7085 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.8002 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=203     TARGET T=177    D=596 mm '
+44.8002 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.9002 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=204     TARGET T=177    D=597 mm '
+44.9002 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+44.9918 	EXP 	unnamed TextStim: text = 'LEFT P=56    CR=204     TARGET T=177    D=597 mm '
+44.9918 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.1252 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=205     TARGET T=178    D=597 mm '
+45.1252 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.1918 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=206     TARGET T=178    D=597 mm '
+45.1918 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.2918 	EXP 	unnamed TextStim: text = 'LEFT P=58    CR=208     TARGET T=180    D=597 mm '
+45.2918 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.3918 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=211     TARGET T=183    D=597 mm '
+45.3918 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.4835 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=213     TARGET T=185    D=598 mm '
+45.4835 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.5919 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=214     TARGET T=186    D=599 mm '
+45.5919 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.6835 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=215     TARGET T=187    D=602 mm '
+45.6835 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.7835 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=215     TARGET T=188    D=604 mm '
+45.7835 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.8752 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=215     TARGET T=189    D=606 mm '
+45.8752 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+45.9751 	EXP 	unnamed TextStim: text = 'LEFT P=66    CR=214     TARGET T=189    D=609 mm '
+45.9751 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+46.0835 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=213     TARGET T=188    D=610 mm '
+46.0835 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+46.1752 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=187    D=611 mm '
+46.1752 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+46.2573 	DATA 	Keypress: left
+46.2668 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=187    D=611 mm '
+46.2668 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+46.4578 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+46.7834 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=186    CR=210 '
+46.7834 	EXP 	unnamed TextStim: text = 'TARGET T=186    D=612 mm '
+46.7834 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+46.8418 	EXP 	unnamed TextStim: text = 'TARGET T=186    D=613 mm '
+46.8418 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+46.9501 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=185    CR=210 '
+46.9501 	EXP 	unnamed TextStim: text = 'TARGET T=185    D=613 mm '
+46.9501 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.0417 	EXP 	unnamed TextStim: text = 'TARGET T=185    D=613 mm '
+47.0417 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.1334 	EXP 	unnamed TextStim: text = 'TARGET T=185    D=613 mm '
+47.1334 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.2346 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=184    CR=210 '
+47.2346 	EXP 	unnamed TextStim: text = 'TARGET T=184    D=613 mm '
+47.2346 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.3251 	EXP 	unnamed TextStim: text = 'TARGET T=184    D=614 mm '
+47.3251 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.4334 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=183    CR=210 '
+47.4334 	EXP 	unnamed TextStim: text = 'TARGET T=183    D=614 mm '
+47.4334 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.5251 	EXP 	unnamed TextStim: text = 'TARGET T=183    D=614 mm '
+47.5251 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.6251 	EXP 	unnamed TextStim: text = 'TARGET T=183    D=614 mm '
+47.6251 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+47.6306 	DATA 	Keypress: left
+47.8389 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+48.1750 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=210 '
+48.1750 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=211 '
+48.1750 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=211 '
+48.1750 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.2250 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.3083 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.4000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.5083 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=211 '
+48.5083 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.6000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.6546 	DATA 	Keypress: left
+48.7083 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=211 '
+48.7083 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+48.9025 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+49.2167 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=186    D=612 mm '
+49.2167 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.3000 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=211     TARGET T=182    D=616 mm '
+49.3000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.4000 	EXP 	unnamed TextStim: text = 'LEFT P=44    CR=211     TARGET T=182    D=616 mm '
+49.4000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.5000 	EXP 	unnamed TextStim: text = 'LEFT P=59    CR=211     TARGET T=181    D=616 mm '
+49.5000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.6000 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=211     TARGET T=181    D=616 mm '
+49.6000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.7000 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=210     TARGET T=179    D=616 mm '
+49.7000 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.7916 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=210     TARGET T=177    D=616 mm '
+49.7916 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.8916 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=211     TARGET T=176    D=615 mm '
+49.8916 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+49.9916 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=211     TARGET T=176    D=615 mm '
+49.9916 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.1007 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=210     TARGET T=176    D=615 mm '
+50.1007 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.1916 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=211     TARGET T=176    D=615 mm '
+50.1916 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.2833 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=211     TARGET T=176    D=613 mm '
+50.2833 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.3833 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=211     TARGET T=176    D=611 mm '
+50.3833 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.4833 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=212     TARGET T=177    D=608 mm '
+50.4833 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.5749 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=212     TARGET T=178    D=607 mm '
+50.5749 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.6760 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=178    D=606 mm '
+50.6760 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.7833 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=178    D=606 mm '
+50.7833 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.8833 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=178    D=606 mm '
+50.8833 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+50.9749 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=212     TARGET T=178    D=606 mm '
+50.9749 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+51.0226 	DATA 	Keypress: right
+51.0751 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=178    D=606 mm '
+51.0751 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+51.2483 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+51.5582 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=212 '
+51.5582 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+51.6416 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=211 '
+51.6416 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+51.7415 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=212 '
+51.7415 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+51.8332 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+51.9332 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=212 '
+51.9332 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.0332 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=213 '
+52.0332 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.1332 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=212 '
+52.1332 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.2332 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=212 '
+52.2332 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.3248 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=52    CR=212 '
+52.3248 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.4249 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=212 '
+52.4249 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.5248 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=52    CR=212 '
+52.5248 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.6248 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=211 '
+52.6248 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.7165 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=53    CR=211 '
+52.7165 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.8165 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=212 '
+52.8165 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+52.9165 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=211 '
+52.9165 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.0165 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=212 '
+53.0165 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.1081 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=211 '
+53.1081 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.1999 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.3081 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.3998 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.4998 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=211 '
+53.4998 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.5998 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=210 '
+53.5998 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.6914 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.7997 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=210 '
+53.7997 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.8914 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+53.9831 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.0915 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=210 '
+54.0915 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.1915 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=66    CR=210 '
+54.1915 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.2914 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=210 '
+54.2914 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.3914 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=210 '
+54.3914 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.4831 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+54.4831 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.5748 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.6748 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.7747 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.8747 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=210 '
+54.8747 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+54.9747 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=209 '
+54.9747 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.0664 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.1664 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=209 '
+55.1664 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.2580 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.3581 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.4580 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.5580 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.6580 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.7581 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=209 '
+55.7581 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.8581 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=209 '
+55.8581 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+55.9497 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=210 '
+55.9497 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.0497 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=209 '
+56.0497 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.1413 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.2413 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.3413 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.4330 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.5413 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=209 '
+56.5413 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.6330 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.7413 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+56.7413 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.8243 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+56.9247 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.0330 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=209 '
+57.0330 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.1246 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.2246 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+57.2246 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.3163 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.4246 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=209 '
+57.4246 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.5246 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+57.5246 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.6163 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.7163 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=209 '
+57.7163 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.8162 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+57.8162 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+57.9163 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=209 '
+57.9163 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.0663 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.1246 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+58.1246 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.2079 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=209 '
+58.2079 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.3162 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+58.3162 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.3996 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.4996 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=209 '
+58.4996 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.5997 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+58.5997 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.7079 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=209 '
+58.7079 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.7912 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.8829 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+58.9829 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.0829 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.1825 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=208 '
+59.1825 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.2829 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.3745 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.4829 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=208 '
+59.4829 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.5745 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.6745 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=207 '
+59.6745 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.7745 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=207 '
+59.7745 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.8828 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=208 '
+59.8828 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+59.9828 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+59.9828 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.0662 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.1662 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=48    CR=209 '
+60.1662 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.2662 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=48    CR=210 '
+60.2662 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.3661 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=210 '
+60.3661 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.4578 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.5745 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=209 '
+60.5745 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.6578 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=209 '
+60.6578 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.7578 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=209 '
+60.7578 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.8495 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=208 '
+60.8495 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+60.9411 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.0494 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=207 '
+61.0494 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.1578 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=208 '
+61.1578 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.2494 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=208 '
+61.2494 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.3411 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.4494 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=208 '
+61.4494 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.5411 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=209 '
+61.5411 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.6411 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=209 '
+61.6411 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.7328 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.8244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+61.9244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.0244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.1244 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=209 '
+62.1244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.2244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.3244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.4244 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=209 '
+62.4244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.5244 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=209 '
+62.5244 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.6160 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=209 '
+62.6160 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.6383 	DATA 	Keypress: up
+62.7160 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=208 '
+62.7160 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.8160 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=208 '
+62.8160 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+62.8782 	DATA 	Keypress: up
+62.9077 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.0077 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=208 '
+63.0077 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.0704 	DATA 	Keypress: up
+63.1077 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.2077 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=208 '
+63.2077 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.2143 	DATA 	Keypress: up
+63.3077 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=208 '
+63.3077 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.4076 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=208 '
+63.4076 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.4993 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=209 '
+63.4993 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.5993 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=209 '
+63.5993 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.6993 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=208 '
+63.6993 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.7910 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=208 '
+63.7910 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.8827 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+63.9993 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=43    CR=208 '
+63.9993 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.0827 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.1827 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=208 '
+64.1827 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.2910 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=208 '
+64.2910 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.3743 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.4826 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=208 '
+64.4826 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.5826 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=208 '
+64.5826 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.6743 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=208 '
+64.6743 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.7375 	DATA 	Keypress: up
+64.7743 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=209 '
+64.7743 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.8743 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=66    CR=208 '
+64.8743 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+64.9422 	DATA 	Keypress: up
+64.9659 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=208 '
+64.9659 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.0743 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=66    CR=208 '
+65.0743 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.1508 	DATA 	Keypress: up
+65.1576 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.2659 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=67    CR=208 '
+65.2659 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.2942 	DATA 	Keypress: up
+65.3659 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=68    CR=207 '
+65.3659 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.4576 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.4702 	DATA 	Keypress: up
+65.5576 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=68    CR=208 '
+65.5576 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.6492 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.6495 	DATA 	Keypress: up
+65.7493 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=68    CR=207 '
+65.7493 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.8406 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+65.8862 	DATA 	Keypress: up
+65.9492 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=69    CR=207 '
+65.9492 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.0409 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.1492 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=70    CR=206 '
+66.1492 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.1582 	DATA 	Keypress: up
+66.2492 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=71    CR=207 '
+66.2492 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.3492 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=71    CR=206 '
+66.3492 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.4325 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.5409 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=70    CR=207 '
+66.5409 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.6325 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.7408 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=66    CR=207 '
+66.7408 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.8325 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=67    CR=208 '
+66.8325 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+66.9242 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.0242 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.1325 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=208 '
+67.1325 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.2242 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=67    CR=208 '
+67.2242 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.3158 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.4242 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=68    CR=208 '
+67.4242 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.5158 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=207 '
+67.5158 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.6241 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.7158 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.8075 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.9075 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=212 '
+67.9075 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+67.9077 	DATA 	Keypress: right
+68.1035 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+68.4325 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=175    CR=210 '
+68.4325 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=174    CR=210 '
+68.4325 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=627 mm '
+68.4325 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+68.4991 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=628 mm '
+68.4991 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+68.5991 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=627 mm '
+68.5991 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+68.6908 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=627 mm '
+68.6908 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+68.7908 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=627 mm '
+68.7908 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+68.7911 	DATA 	Keypress: right
+68.9896 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+69.2991 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=212     TARGET T=178    D=608 mm '
+69.2991 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.3991 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.3991 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.4907 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.4907 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.5907 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.5907 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.6907 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.6907 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.7824 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.7824 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.8824 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.8824 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+69.9824 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=174    D=628 mm '
+69.9824 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.0824 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=206     TARGET T=174    D=628 mm '
+70.0824 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.1824 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=205     TARGET T=173    D=628 mm '
+70.1824 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.2824 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=206     TARGET T=173    D=628 mm '
+70.2824 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.3740 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=206     TARGET T=174    D=628 mm '
+70.3740 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.4740 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=209     TARGET T=175    D=628 mm '
+70.4740 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.5657 	EXP 	unnamed TextStim: text = 'LEFT P=71    CR=210     TARGET T=176    D=628 mm '
+70.5657 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.6657 	EXP 	unnamed TextStim: text = 'LEFT P=73    CR=210     TARGET T=177    D=628 mm '
+70.6657 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.7657 	EXP 	unnamed TextStim: text = 'LEFT P=59    CR=210     TARGET T=177    D=629 mm '
+70.7657 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.8657 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=210     TARGET T=177    D=630 mm '
+70.8657 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+70.9573 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=210     TARGET T=177    D=631 mm '
+70.9573 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+71.0602 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=210     TARGET T=177    D=631 mm '
+71.0602 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+71.1574 	EXP 	unnamed TextStim: text = 'LEFT P=71    CR=210     TARGET T=177    D=631 mm '
+71.1574 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+71.2573 	EXP 	unnamed TextStim: text = 'LEFT P=72    CR=210     TARGET T=177    D=631 mm '
+71.2573 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+71.3573 	EXP 	unnamed TextStim: text = 'LEFT P=71    CR=210     TARGET T=176    D=631 mm '
+71.3573 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+71.4490 	EXP 	unnamed TextStim: text = 'LEFT P=71    CR=209     TARGET T=176    D=631 mm '
+71.4490 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+71.4541 	DATA 	Keypress: left
+71.6237 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+71.9573 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=176    CR=210 '
+71.9573 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=175    CR=210 '
+71.9573 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=631 mm '
+71.9573 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+72.0239 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=631 mm '
+72.0239 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+72.1323 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=631 mm '
+72.1323 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+72.2109 	DATA 	Keypress: right
+72.2156 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=631 mm '
+72.2156 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+72.4209 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+72.7323 	EXP 	unnamed TextStim: text = 'LEFT P=71    CR=209     TARGET T=176    D=631 mm '
+72.7323 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+72.8239 	EXP 	unnamed TextStim: text = 'LEFT P=67    CR=209     TARGET T=175    D=631 mm '
+72.8239 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+72.9240 	EXP 	unnamed TextStim: text = 'LEFT P=71    CR=209     TARGET T=175    D=631 mm '
+72.9240 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.0156 	EXP 	unnamed TextStim: text = 'LEFT P=72    CR=209     TARGET T=175    D=631 mm '
+73.0156 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.0380 	DATA 	Keypress: down
+73.1322 	EXP 	unnamed TextStim: text = 'LEFT P=72    CR=209     TARGET T=175    D=631 mm '
+73.1322 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.2156 	EXP 	unnamed TextStim: text = 'LEFT P=70    CR=209     TARGET T=175    D=631 mm '
+73.2156 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.3155 	EXP 	unnamed TextStim: text = 'LEFT P=69    CR=209     TARGET T=176    D=631 mm '
+73.3155 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.3159 	DATA 	Keypress: down
+73.4072 	EXP 	unnamed TextStim: text = 'LEFT P=68    CR=209     TARGET T=175    D=631 mm '
+73.4072 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.5072 	EXP 	unnamed TextStim: text = 'LEFT P=66    CR=209     TARGET T=175    D=632 mm '
+73.5072 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.5340 	DATA 	Keypress: down
+73.6073 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=209     TARGET T=175    D=632 mm '
+73.6073 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.7072 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=209     TARGET T=175    D=632 mm '
+73.7072 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.7989 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=209     TARGET T=175    D=633 mm '
+73.7989 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+73.8380 	DATA 	Keypress: down
+73.9072 	EXP 	unnamed TextStim: text = 'LEFT P=65    CR=209     TARGET T=175    D=633 mm '
+73.9072 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.0072 	EXP 	unnamed TextStim: text = 'LEFT P=64    CR=209     TARGET T=175    D=633 mm '
+74.0072 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.1038 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=209     TARGET T=175    D=633 mm '
+74.1038 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.1260 	DATA 	Keypress: down
+74.1989 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=209     TARGET T=175    D=633 mm '
+74.1989 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.2905 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=209     TARGET T=175    D=633 mm '
+74.2905 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.3827 	DATA 	Keypress: down
+74.3905 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=209     TARGET T=175    D=633 mm '
+74.3905 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.4905 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=209     TARGET T=175    D=633 mm '
+74.4905 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.5801 	DATA 	Keypress: down
+74.5905 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=209     TARGET T=175    D=633 mm '
+74.5905 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.6822 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=209     TARGET T=175    D=633 mm '
+74.6822 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.7822 	EXP 	unnamed TextStim: text = 'LEFT P=59    CR=208     TARGET T=175    D=633 mm '
+74.7822 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.8460 	DATA 	Keypress: down
+74.8822 	EXP 	unnamed TextStim: text = 'LEFT P=58    CR=209     TARGET T=175    D=633 mm '
+74.8822 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+74.9821 	EXP 	unnamed TextStim: text = 'LEFT P=58    CR=208     TARGET T=174    D=633 mm '
+74.9821 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.0752 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=208     TARGET T=174    D=633 mm '
+75.0752 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.1340 	DATA 	Keypress: down
+75.1821 	EXP 	unnamed TextStim: text = 'LEFT P=58    CR=209     TARGET T=175    D=633 mm '
+75.1821 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.2738 	EXP 	unnamed TextStim: text = 'LEFT P=57    CR=209     TARGET T=175    D=633 mm '
+75.2738 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.3606 	DATA 	Keypress: down
+75.3655 	EXP 	unnamed TextStim: text = 'LEFT P=56    CR=209     TARGET T=175    D=633 mm '
+75.3655 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.4655 	EXP 	unnamed TextStim: text = 'LEFT P=56    CR=209     TARGET T=175    D=633 mm '
+75.4655 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.5655 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+75.5655 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.5819 	DATA 	Keypress: down
+75.6655 	EXP 	unnamed TextStim: text = 'LEFT P=55    CR=209     TARGET T=175    D=633 mm '
+75.6655 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.7654 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+75.7654 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.8655 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+75.8655 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+75.9571 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+75.9571 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.0610 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+76.0610 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.1571 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+76.1571 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.2487 	EXP 	unnamed TextStim: text = 'LEFT P=53    CR=209     TARGET T=175    D=633 mm '
+76.2487 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.3488 	EXP 	unnamed TextStim: text = 'LEFT P=53    CR=209     TARGET T=175    D=633 mm '
+76.3488 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.4488 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+76.4488 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.4619 	DATA 	Keypress: down
+76.5487 	EXP 	unnamed TextStim: text = 'LEFT P=54    CR=209     TARGET T=175    D=633 mm '
+76.5487 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.6404 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=209     TARGET T=175    D=633 mm '
+76.6404 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.7488 	EXP 	unnamed TextStim: text = 'LEFT P=51    CR=209     TARGET T=175    D=633 mm '
+76.7488 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.8404 	EXP 	unnamed TextStim: text = 'LEFT P=51    CR=209     TARGET T=175    D=633 mm '
+76.8404 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+76.9404 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=209     TARGET T=175    D=634 mm '
+76.9404 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.0321 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=209     TARGET T=175    D=634 mm '
+77.0321 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.1320 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=208     TARGET T=175    D=634 mm '
+77.1320 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.2321 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=208     TARGET T=175    D=633 mm '
+77.2321 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.3320 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=208     TARGET T=175    D=633 mm '
+77.3320 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.4320 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=208     TARGET T=175    D=632 mm '
+77.4320 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.4379 	DATA 	Keypress: left
+77.6090 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+77.9237 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=174    CR=210 '
+77.9237 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=633 mm '
+77.9237 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+77.9987 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=633 mm '
+77.9987 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+78.0987 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=633 mm '
+78.0987 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+78.1987 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=633 mm '
+78.1987 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+78.2987 	EXP 	unnamed TextStim: text = 'TARGET T=174    D=633 mm '
+78.2987 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+78.3987 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=175    CR=210 '
+78.3987 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=633 mm '
+78.3987 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+78.4903 	EXP 	unnamed TextStim: text = 'TARGET T=175    D=633 mm '
+78.4903 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+78.5099 	DATA 	Keypress: left
+78.6789 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+78.9987 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=208 '
+78.9987 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=209 '
+78.9987 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=209 '
+78.9987 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.0736 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.1820 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=209 '
+79.1820 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.2736 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.3653 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.4653 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.5653 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.6653 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=208 '
+79.6653 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.7569 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.8653 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+79.9569 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.0611 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.1569 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=209 '
+80.1569 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.2486 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.3569 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=52    CR=209 '
+80.3569 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.4486 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=209 '
+80.4486 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.5486 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=208 '
+80.5486 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.6402 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.7486 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=52    CR=208 '
+80.7486 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.8485 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=208 '
+80.8485 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+80.9319 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.0319 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.1402 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=208 '
+81.1402 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.2319 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.3319 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.4342 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=49    CR=208 '
+81.4342 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.5319 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=208 '
+81.5319 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.6319 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=49    CR=208 '
+81.6319 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.7235 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=208 '
+81.7235 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.8235 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=208 '
+81.8235 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+81.9152 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.0235 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=208 '
+82.0235 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.1152 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.1738 	DATA 	Keypress: up
+82.2068 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.3151 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=52    CR=208 '
+82.3151 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.4068 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.4618 	DATA 	Keypress: up
+82.5068 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.6068 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=53    CR=208 '
+82.6068 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.6985 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.7985 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.8881 	DATA 	Keypress: up
+82.8985 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+82.9985 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.0901 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.1018 	DATA 	Keypress: up
+83.1985 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=208 '
+83.1985 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.2985 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=53    CR=208 '
+83.2985 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.3901 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=208 '
+83.3901 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.4217 	DATA 	Keypress: up
+83.4818 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.5901 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=208 '
+83.5901 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.6818 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.7097 	DATA 	Keypress: up
+83.7818 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.8818 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=208 '
+83.8818 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+83.9734 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.0825 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=208 '
+84.0825 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.1734 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.2651 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.3734 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=208 '
+84.3734 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.4650 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.5651 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=50    CR=208 '
+84.5651 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.6650 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=208 '
+84.6650 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.7650 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=208 '
+84.7650 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.8567 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+84.9567 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=207 '
+84.9567 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.0610 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.1484 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.2567 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=207 '
+85.2567 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.3484 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=207 '
+85.3484 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.4400 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.5177 	DATA 	Keypress: up
+85.5483 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=207 '
+85.5483 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.6483 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=207 '
+85.6483 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.7400 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.8400 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+85.9400 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=53    CR=207 '
+85.9400 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.0400 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=212 '
+86.0400 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.1400 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=212 '
+86.1400 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.2317 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.3233 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.4233 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.5316 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=212 '
+86.5316 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.6233 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=212 '
+86.6233 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.7233 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=212 '
+86.7233 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.8233 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=212 '
+86.8233 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+86.9150 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.0150 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=212 '
+87.0150 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.1149 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=212 '
+87.1149 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.2150 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=212 '
+87.2150 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.3066 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.4149 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=47    CR=207 '
+87.4149 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.5066 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=206 '
+87.5066 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.6066 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=207 '
+87.6066 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.6982 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.8066 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=207 '
+87.8066 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.8899 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+87.9016 	DATA 	Keypress: equal
+87.9899 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.0983 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=207 '
+88.0983 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.1256 	DATA 	Keypress: equal
+88.1982 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=208 '
+88.1982 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.2899 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.3816 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.4899 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=208 '
+88.4899 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.5899 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=208 '
+88.5899 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.6815 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.7815 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=207 '
+88.7815 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.7976 	DATA 	Keypress: minus
+88.8815 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=207 '
+88.8815 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+88.9732 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.0056 	DATA 	Keypress: minus
+89.0732 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=206 '
+89.0732 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.1649 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.1816 	DATA 	Keypress: minus
+89.2732 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=205 '
+89.2732 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.3256 	DATA 	Keypress: minus
+89.3649 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.4649 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=205 '
+89.4649 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.4696 	DATA 	Keypress: minus
+89.5648 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=204 '
+89.5648 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.6136 	DATA 	Keypress: minus
+89.6565 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.7648 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=203 '
+89.7648 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.8245 	DATA 	Keypress: minus
+89.8566 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=204 '
+89.8566 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.9565 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=203 '
+89.9565 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+89.9816 	DATA 	Keypress: minus
+90.0565 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=202 '
+90.0565 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.1481 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.1896 	DATA 	Keypress: minus
+90.2481 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.3481 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=201 '
+90.3481 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.3656 	DATA 	Keypress: minus
+90.4398 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.5379 	DATA 	Keypress: minus
+90.5481 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=201 '
+90.5481 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.6481 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=200 '
+90.6481 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.6856 	DATA 	Keypress: minus
+90.7398 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.8314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.9314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+90.9316 	DATA 	Keypress: minus
+91.0398 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=46    CR=194 '
+91.0398 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.1314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.1656 	DATA 	Keypress: minus
+91.2314 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=192 '
+91.2314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.3314 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=193 '
+91.3314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.3736 	DATA 	Keypress: minus
+91.4314 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=190 '
+91.4314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.5314 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=191 '
+91.5314 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.5496 	DATA 	Keypress: minus
+91.6231 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=188 '
+91.6231 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.6936 	DATA 	Keypress: minus
+91.7231 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=187 '
+91.7231 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.8231 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=185 '
+91.8231 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.8376 	DATA 	Keypress: minus
+91.9147 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=181 '
+91.9147 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+91.9816 	DATA 	Keypress: minus
+92.0064 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.1147 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=179 '
+92.1147 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.1415 	DATA 	Keypress: minus
+92.2147 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=175 '
+92.2147 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.3064 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=176 '
+92.3064 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.3335 	DATA 	Keypress: minus
+92.4064 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=174 '
+92.4064 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.4775 	DATA 	Keypress: minus
+92.5064 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=173 '
+92.5064 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.6063 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=171 '
+92.6063 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.6375 	DATA 	Keypress: minus
+92.7064 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=169 '
+92.7064 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.7772 	DATA 	Keypress: minus
+92.8147 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=168 '
+92.8147 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.8980 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=164 '
+92.8980 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+92.9896 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.0980 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=163 '
+93.0980 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.1980 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=54    CR=169 '
+93.1980 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.2897 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=53    CR=162 '
+93.2897 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.3896 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=164 '
+93.3896 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.4813 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.5813 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=164 '
+93.5813 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.6730 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.7730 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.7735 	DATA 	Keypress: up
+93.8813 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=163 '
+93.8813 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+93.9730 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.0911 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=55    CR=163 '
+94.0911 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.1255 	DATA 	Keypress: up
+94.1646 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.2730 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=163 '
+94.2730 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.3335 	DATA 	Keypress: up
+94.3646 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=163 '
+94.3646 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.4646 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=57    CR=163 '
+94.4646 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.5646 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=58    CR=163 '
+94.5646 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.5648 	DATA 	Keypress: up
+94.6646 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=163 '
+94.6646 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.7562 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.8134 	DATA 	Keypress: up
+94.8563 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=164 '
+94.8563 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+94.9563 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=164 '
+94.9563 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.0446 	DATA 	Keypress: up
+95.0564 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=162 '
+95.0564 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.1562 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=163 '
+95.1562 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.1814 	DATA 	Keypress: up
+95.2479 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=164 '
+95.2479 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.3479 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=163 '
+95.3479 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.4376 	DATA 	Keypress: up
+95.4479 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=162 '
+95.4479 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.5479 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=162 '
+95.5479 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.6396 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=162 '
+95.6396 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.7396 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=162 '
+95.7396 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.8313 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+95.9312 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.0187 	DATA 	Keypress: up
+96.0312 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.1312 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=163 '
+96.1312 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.2312 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=163 '
+96.2312 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.2374 	DATA 	Keypress: up
+96.3312 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=164 '
+96.3312 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.4229 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=164 '
+96.4229 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.5229 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=163 '
+96.5229 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.6145 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.7228 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=164 '
+96.7228 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.8145 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=163 '
+96.8145 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+96.9145 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=162 '
+96.9145 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.0145 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=163 '
+97.0145 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.1145 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=163 '
+97.1145 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.2062 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=162 '
+97.2062 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.3062 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.4061 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=162 '
+97.4061 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.5061 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=163 '
+97.5061 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.6062 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=164 '
+97.6062 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.6978 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=165 '
+97.6978 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.7886 	DATA 	Keypress: down
+97.7978 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=163 '
+97.7978 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.8978 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=164 '
+97.8978 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+97.9978 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=169 '
+97.9978 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.0895 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=175 '
+98.0895 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.1894 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=176 '
+98.1894 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.2894 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=176 '
+98.2894 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.3895 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=177 '
+98.3895 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.4811 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=176 '
+98.4811 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.5727 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.6811 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=177 '
+98.6811 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.7811 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=178 '
+98.7811 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.8728 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+98.9728 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=56    CR=164 '
+98.9728 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.0727 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=163 '
+99.0727 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.0730 	DATA 	Keypress: minus
+99.1728 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=160 '
+99.1728 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.2644 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=65    CR=160 '
+99.2644 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.3644 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=64    CR=161 '
+99.3644 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.4644 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=161 '
+99.4644 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.5644 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=160 '
+99.5644 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.6561 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=160 '
+99.6561 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.7561 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=160 '
+99.7561 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.8560 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=160 '
+99.8560 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+99.9560 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=161 '
+99.9560 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.0477 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=160 '
+100.0477 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.1477 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=159 '
+100.1477 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.2477 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=162 '
+100.2477 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.3372 	DATA 	Keypress: equal
+100.3477 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=162 '
+100.3477 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.4477 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=166 '
+100.4477 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.5394 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=164 '
+100.5394 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.6310 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.7310 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.8393 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=166 '
+100.8393 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+100.9394 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=167 '
+100.9394 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.0310 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=51    CR=166 '
+101.0310 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.1310 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=46    CR=166 '
+101.1310 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.2310 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=61    CR=165 '
+101.2310 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.3227 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=162 '
+101.3227 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.4227 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=161 '
+101.4227 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.5226 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=162 '
+101.5226 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.6143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.7143 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=162 '
+101.7143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.8143 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=162 '
+101.8143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+101.9143 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=63    CR=161 '
+101.9143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.0143 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=161 '
+102.0143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.1143 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=62    CR=160 '
+102.1143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.2059 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=60    CR=162 '
+102.2059 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.3059 	EXP 	unnamed TextStim: text = 'Camera:  LEFT      Threshold:  P=59    CR=162 '
+102.3059 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.3173 	DATA 	Keypress: right
+102.4946 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+102.8143 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=171    CR=210 '
+102.8143 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=172    CR=210 '
+102.8143 	EXP 	unnamed TextStim: text = 'TARGET T=172    D=640 mm '
+102.8143 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.8892 	EXP 	unnamed TextStim: text = 'TARGET T=172    D=640 mm '
+102.8892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+102.9892 	EXP 	unnamed TextStim: text = 'TARGET T=172    D=640 mm '
+102.9892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.0892 	EXP 	unnamed TextStim: text = 'TARGET T=172    D=640 mm '
+103.0892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.1892 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=171    CR=210 '
+103.1892 	EXP 	unnamed TextStim: text = 'TARGET T=171    D=640 mm '
+103.1892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.2892 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=172    CR=210 '
+103.2892 	EXP 	unnamed TextStim: text = 'TARGET T=172    D=640 mm '
+103.2892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.3809 	EXP 	unnamed TextStim: text = 'TARGET T=172    D=639 mm '
+103.3809 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.4892 	EXP 	unnamed TextStim: text = 'Camera:  RIGHT     Threshold:  P=171    CR=210 '
+103.4892 	EXP 	unnamed TextStim: text = 'TARGET T=171    D=639 mm '
+103.4892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.5809 	EXP 	unnamed TextStim: text = 'TARGET T=171    D=640 mm '
+103.5809 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.6726 	EXP 	unnamed TextStim: text = 'TARGET T=171    D=640 mm '
+103.6726 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.7656 	DATA 	Keypress: right
+103.7725 	EXP 	unnamed TextStim: text = 'TARGET T=171    D=640 mm '
+103.7725 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+103.9748 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+104.2892 	EXP 	unnamed TextStim: text = 'LEFT P=52    CR=208     TARGET T=175    D=633 mm '
+104.2892 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.3808 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=162     TARGET T=171    D=640 mm '
+104.3808 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.4725 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=163     TARGET T=171    D=640 mm '
+104.4725 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.5725 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=163     TARGET T=172    D=640 mm '
+104.5725 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.6725 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=163     TARGET T=172    D=640 mm '
+104.6725 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.7725 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=164     TARGET T=172    D=640 mm '
+104.7725 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.8641 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=164     TARGET T=172    D=640 mm '
+104.8641 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+104.9642 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=163     TARGET T=171    D=640 mm '
+104.9642 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.0649 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=163     TARGET T=171    D=640 mm '
+105.0649 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.1641 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=162     TARGET T=171    D=640 mm '
+105.1641 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.1652 	DATA 	Keypress: equal
+105.2558 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=163     TARGET T=171    D=640 mm '
+105.2558 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.3641 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=167     TARGET T=171    D=640 mm '
+105.3641 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.4558 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=167     TARGET T=172    D=640 mm '
+105.4558 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.4692 	DATA 	Keypress: equal
+105.5558 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=167     TARGET T=171    D=640 mm '
+105.5558 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.6558 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=170     TARGET T=171    D=640 mm '
+105.6558 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.6772 	DATA 	Keypress: equal
+105.7475 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=169     TARGET T=171    D=640 mm '
+105.7475 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.8474 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=172     TARGET T=171    D=640 mm '
+105.8474 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+105.9013 	DATA 	Keypress: equal
+105.9474 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=172     TARGET T=171    D=640 mm '
+105.9474 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.0474 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=172     TARGET T=171    D=641 mm '
+106.0474 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.0932 	DATA 	Keypress: equal
+106.1474 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=176     TARGET T=171    D=641 mm '
+106.1474 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.2391 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=176     TARGET T=171    D=641 mm '
+106.2391 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.2852 	DATA 	Keypress: equal
+106.3391 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=178     TARGET T=171    D=641 mm '
+106.3391 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.4391 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=179     TARGET T=171    D=641 mm '
+106.4391 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.4772 	DATA 	Keypress: equal
+106.5307 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=181     TARGET T=171    D=641 mm '
+106.5307 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.6307 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=182     TARGET T=171    D=641 mm '
+106.6307 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.6532 	DATA 	Keypress: equal
+106.7307 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=184     TARGET T=171    D=641 mm '
+106.7307 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.8225 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=186     TARGET T=171    D=641 mm '
+106.8225 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+106.8292 	DATA 	Keypress: equal
+106.9224 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=186     TARGET T=171    D=641 mm '
+106.9224 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.0224 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=189     TARGET T=171    D=641 mm '
+107.0224 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.0692 	DATA 	Keypress: equal
+107.1224 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=188     TARGET T=171    D=641 mm '
+107.1224 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.2223 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=190     TARGET T=171    D=641 mm '
+107.2223 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.3159 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=192     TARGET T=171    D=641 mm '
+107.3159 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.3732 	DATA 	Keypress: equal
+107.4140 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=192     TARGET T=171    D=641 mm '
+107.4140 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.5140 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=192     TARGET T=171    D=641 mm '
+107.5140 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.6140 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=195     TARGET T=171    D=641 mm '
+107.6140 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.7057 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=196     TARGET T=171    D=641 mm '
+107.7057 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.8057 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=195     TARGET T=171    D=641 mm '
+107.8057 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.9057 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=195     TARGET T=171    D=641 mm '
+107.9057 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+107.9652 	DATA 	Keypress: equal
+108.0057 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=196     TARGET T=171    D=641 mm '
+108.0057 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.1057 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=196     TARGET T=171    D=641 mm '
+108.1057 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.1973 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=198     TARGET T=171    D=641 mm '
+108.1973 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.2973 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=198     TARGET T=171    D=641 mm '
+108.2973 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.3973 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=199     TARGET T=170    D=642 mm '
+108.3973 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.4922 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=199     TARGET T=170    D=642 mm '
+108.4922 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.5890 	EXP 	unnamed TextStim: text = 'LEFT P=63    CR=198     TARGET T=170    D=642 mm '
+108.5890 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.6371 	DATA 	Keypress: equal
+108.6890 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=198     TARGET T=170    D=642 mm '
+108.6890 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.7890 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=199     TARGET T=170    D=642 mm '
+108.7890 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.8890 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=200     TARGET T=170    D=642 mm '
+108.8890 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+108.8932 	DATA 	Keypress: equal
+108.9806 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=200     TARGET T=170    D=642 mm '
+108.9806 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.0890 	EXP 	unnamed TextStim: text = 'LEFT P=60    CR=201     TARGET T=170    D=642 mm '
+109.0890 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.1762 	DATA 	Keypress: equal
+109.1889 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=642 mm '
+109.1889 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.2806 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=642 mm '
+109.2806 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.3806 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=643 mm '
+109.3806 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.4723 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=643 mm '
+109.4723 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.5723 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=643 mm '
+109.5723 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.6722 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=643 mm '
+109.6722 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.7639 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=643 mm '
+109.7639 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.8639 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=201     TARGET T=170    D=643 mm '
+109.8639 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+109.9639 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=202     TARGET T=170    D=642 mm '
+109.9639 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.0653 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=202     TARGET T=170    D=642 mm '
+110.0653 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.1556 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=201     TARGET T=170    D=642 mm '
+110.1556 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.2558 	EXP 	unnamed TextStim: text = 'LEFT P=47    CR=201     TARGET T=170    D=642 mm '
+110.2558 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.3556 	EXP 	unnamed TextStim: text = 'LEFT P=51    CR=202     TARGET T=170    D=642 mm '
+110.3556 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.4469 	EXP 	unnamed TextStim: text = 'LEFT P=61    CR=202     TARGET T=170    D=642 mm '
+110.4469 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.5472 	EXP 	unnamed TextStim: text = 'LEFT P=62    CR=202     TARGET T=170    D=642 mm '
+110.5472 	EXP 	unnamed ImageStim: image = 'c:\\users\\sr38553\\appdata\\local\\temp\\_eleye.png'
+110.5891 	DATA 	Keypress: return
+110.7328 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+110.8780 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+111.8851 	DATA 	Keypress: c
+112.0161 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+112.0471 	EXP 	unnamed Circle: pos = (0, 0)
+112.0471 	EXP 	unnamed Circle: pos = (0, 0)
+112.3811 	DATA 	Keypress: return
+112.4054 	EXP 	unnamed Circle: pos = (-845, -448)
+112.4054 	EXP 	unnamed Circle: pos = (-845, -448)
+112.7970 	DATA 	Keypress: return
+113.2450 	DATA 	Keypress: return
+113.2721 	EXP 	unnamed Circle: pos = (0, 449)
+113.2721 	EXP 	unnamed Circle: pos = (0, 449)
+113.6930 	DATA 	Keypress: return
+114.0930 	DATA 	Keypress: return
+114.1304 	EXP 	unnamed Circle: pos = (-845, 449)
+114.1304 	EXP 	unnamed Circle: pos = (-845, 449)
+114.4610 	DATA 	Keypress: return
+114.8290 	DATA 	Keypress: return
+114.8637 	EXP 	unnamed Circle: pos = (-845, 0)
+114.8637 	EXP 	unnamed Circle: pos = (-845, 0)
+115.1810 	DATA 	Keypress: return
+115.5490 	DATA 	Keypress: return
+115.5887 	EXP 	unnamed Circle: pos = (844, 449)
+115.5887 	EXP 	unnamed Circle: pos = (844, 449)
+115.9169 	DATA 	Keypress: return
+116.3010 	DATA 	Keypress: return
+116.3469 	EXP 	unnamed Circle: pos = (422, -224)
+116.3469 	EXP 	unnamed Circle: pos = (422, -224)
+116.6689 	DATA 	Keypress: return
+117.0049 	DATA 	Keypress: return
+117.0652 	EXP 	unnamed Circle: pos = (844, -448)
+117.0652 	EXP 	unnamed Circle: pos = (844, -448)
+117.3569 	DATA 	Keypress: return
+117.6609 	DATA 	Keypress: return
+117.7135 	EXP 	unnamed Circle: pos = (422, 225)
+117.7135 	EXP 	unnamed Circle: pos = (422, 225)
+118.0289 	DATA 	Keypress: return
+118.3489 	DATA 	Keypress: return
+118.3969 	EXP 	unnamed Circle: pos = (-423, -224)
+118.3969 	EXP 	unnamed Circle: pos = (-423, -224)
+118.6849 	DATA 	Keypress: return
+119.0049 	DATA 	Keypress: return
+119.1005 	EXP 	unnamed Circle: pos = (0, -448)
+119.1005 	EXP 	unnamed Circle: pos = (0, -448)
+119.3569 	DATA 	Keypress: return
+119.7409 	DATA 	Keypress: return
+119.7885 	EXP 	unnamed Circle: pos = (844, 0)
+119.7885 	EXP 	unnamed Circle: pos = (844, 0)
+120.0929 	DATA 	Keypress: return
+120.3809 	DATA 	Keypress: return
+120.4884 	EXP 	unnamed Circle: pos = (-423, 225)
+120.4884 	EXP 	unnamed Circle: pos = (-423, 225)
+120.7809 	DATA 	Keypress: return
+121.0849 	DATA 	Keypress: return
+121.1467 	EXP 	unnamed Circle: pos = (0, 0)
+121.1467 	EXP 	unnamed Circle: pos = (0, 0)
+121.4208 	DATA 	Keypress: return
+121.7728 	DATA 	Keypress: return
+122.1888 	DATA 	Keypress: return
+122.4294 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+123.4208 	DATA 	Keypress: o
+123.5613 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+123.5730 	EXP 	Imported procedure\Introduction_list.csv as conditions, 1 conditions, 1 params
+123.5732 	EXP 	Created sequence: sequential, trialTypes=1, nReps=1, seed=None
+123.6778 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+123.6784 	EXP 	New trial (rep=0, index=0): {'Introduction_image': 'inst_1'}
+123.8216 	EXP 	task_instr_image: size = array([1920, 1080])
+123.8216 	EXP 	task_instr_image: image = 'Instructions/inst_1.png'
+123.8216 	EXP 	task_instr_image: autoDraw = True
+124.4466 	DATA 	Keypress: return
+124.4485 	EXP 	Imported procedure\#set_list.csv as conditions, 3 conditions, 5 params
+124.4487 	EXP 	Created sequence: sequential, trialTypes=3, nReps=1, seed=None
+124.4495 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+124.4501 	EXP 	New trial (rep=0, index=0): {'block_event': 'comp_1', 'order': 0, 'block_display': 'inst_2', 'block_file': 'procedure\\0.csv', 'break_display': 'break'}
+124.5965 	EXP 	task_instr_image: autoDraw = False
+124.5965 	EXP 	Block_image: size = array([1920, 1080])
+124.5965 	EXP 	Block_image: image = 'Instructions/inst_2.png'
+124.5965 	EXP 	Block_image: autoDraw = True
+124.8966 	DATA 	Keypress: return
+124.9796 	EXP 	Block_image: autoDraw = False
+124.9796 	EXP 	composite_display: size = array([1024,  768])
+124.9796 	EXP 	composite_display: image = 'instructions/comp_1.png'
+124.9796 	EXP 	composite_display: autoDraw = True
+129.8994 	EXP 	Imported procedure\0.csv as conditions, 4 conditions, 7 params
+129.8997 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+129.9005 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+129.9011 	EXP 	New trial (rep=0, index=0): {'valmean': 3.3399999999999999, 'valence': 'Negative', 'scenestim': '2120.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 5.1799999999999997}
+130.0630 	EXP 	composite_display: autoDraw = False
+130.0630 	EXP 	composite_display: autoDraw = False
+130.0630 	EXP 	fixation_cross: autoDraw = True
+132.1796 	EXP 	fixation_cross: autoDraw = False
+132.1796 	EXP 	iaps_display: size = array([1024,  768])
+132.1796 	EXP 	iaps_display: image = 'stimulus/2120.bmp'
+132.1796 	EXP 	iaps_display: autoDraw = True
+133.9879 	EXP 	iaps_cue: size = array([1024,  768])
+133.9879 	EXP 	iaps_cue: image = 'green.png'
+133.9879 	EXP 	iaps_cue: autoDraw = True
+134.1964 	EXP 	iaps_cue: size = array([1024,  768])
+134.1964 	EXP 	iaps_cue: image = 'red.png'
+134.1964 	EXP 	iaps_cue: autoDraw = True
+134.9461 	EXP 	iaps_cue: size = array([1024,  768])
+134.9461 	EXP 	iaps_cue: image = 'green.png'
+134.9461 	EXP 	iaps_cue: autoDraw = True
+135.4461 	EXP 	iaps_cue: size = array([1024,  768])
+135.4461 	EXP 	iaps_cue: image = 'red.png'
+135.4461 	EXP 	iaps_cue: autoDraw = True
+135.9461 	EXP 	iaps_cue: size = array([1024,  768])
+135.9461 	EXP 	iaps_cue: image = 'blue.png'
+135.9461 	EXP 	iaps_cue: autoDraw = True
+136.4461 	EXP 	iaps_cue: size = array([1024,  768])
+136.4461 	EXP 	iaps_cue: image = 'red.png'
+136.4461 	EXP 	iaps_cue: autoDraw = True
+136.6961 	EXP 	iaps_cue: size = array([1024,  768])
+136.6961 	EXP 	iaps_cue: image = 'blue.png'
+136.6961 	EXP 	iaps_cue: autoDraw = True
+137.9544 	EXP 	iaps_cue: size = array([1024,  768])
+137.9544 	EXP 	iaps_cue: image = 'green.png'
+137.9544 	EXP 	iaps_cue: autoDraw = True
+138.7043 	EXP 	iaps_cue: size = array([1024,  768])
+138.7043 	EXP 	iaps_cue: image = 'blue.png'
+138.7043 	EXP 	iaps_cue: autoDraw = True
+139.4543 	EXP 	iaps_cue: size = array([1024,  768])
+139.4543 	EXP 	iaps_cue: image = 'green.png'
+139.4543 	EXP 	iaps_cue: autoDraw = True
+140.2042 	EXP 	iaps_cue: size = array([1024,  768])
+140.2042 	EXP 	iaps_cue: image = 'blue.png'
+140.2042 	EXP 	iaps_cue: autoDraw = True
+140.9542 	EXP 	iaps_cue: size = array([1024,  768])
+140.9542 	EXP 	iaps_cue: image = 'green.png'
+140.9542 	EXP 	iaps_cue: autoDraw = True
+141.7042 	EXP 	iaps_cue: size = array([1024,  768])
+141.7042 	EXP 	iaps_cue: image = 'blue.png'
+141.7042 	EXP 	iaps_cue: autoDraw = True
+142.2042 	EXP 	iaps_cue: size = array([1024,  768])
+142.2042 	EXP 	iaps_cue: image = 'green.png'
+142.2042 	EXP 	iaps_cue: autoDraw = True
+142.9541 	EXP 	iaps_cue: size = array([1024,  768])
+142.9541 	EXP 	iaps_cue: image = 'blue.png'
+142.9541 	EXP 	iaps_cue: autoDraw = True
+143.4624 	EXP 	iaps_cue: size = array([1024,  768])
+143.4624 	EXP 	iaps_cue: image = 'green.png'
+143.4624 	EXP 	iaps_cue: autoDraw = True
+143.7124 	EXP 	iaps_cue: size = array([1024,  768])
+143.7124 	EXP 	iaps_cue: image = 'red.png'
+143.7124 	EXP 	iaps_cue: autoDraw = True
+143.9624 	EXP 	iaps_cue: size = array([1024,  768])
+143.9624 	EXP 	iaps_cue: image = 'green.png'
+143.9624 	EXP 	iaps_cue: autoDraw = True
+144.2124 	EXP 	iaps_cue: size = array([1024,  768])
+144.2124 	EXP 	iaps_cue: image = 'blue.png'
+144.2124 	EXP 	iaps_cue: autoDraw = True
+145.7123 	EXP 	iaps_cue: size = array([1024,  768])
+145.7123 	EXP 	iaps_cue: image = 'green.png'
+145.7123 	EXP 	iaps_cue: autoDraw = True
+146.4623 	EXP 	iaps_cue: size = array([1024,  768])
+146.4623 	EXP 	iaps_cue: image = 'blue.png'
+146.4623 	EXP 	iaps_cue: autoDraw = True
+151.4704 	EXP 	iaps_cue: size = array([1024,  768])
+151.4704 	EXP 	iaps_cue: image = 'green.png'
+151.4704 	EXP 	iaps_cue: autoDraw = True
+151.9704 	EXP 	iaps_cue: size = array([1024,  768])
+151.9704 	EXP 	iaps_cue: image = 'blue.png'
+151.9704 	EXP 	iaps_cue: autoDraw = True
+151.9788 	EXP 	iaps_display: autoDraw = False
+151.9788 	EXP 	iaps_cue: autoDraw = False
+151.9788 	EXP 	blank: autoDraw = True
+154.7979 	EXP 	New trial (rep=0, index=1): {'valmean': 1.95, 'valence': 'Negative', 'scenestim': '2205.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.5300000000000002}
+154.9699 	EXP 	iaps_display: autoDraw = False
+154.9699 	EXP 	iaps_cue: autoDraw = False
+154.9699 	EXP 	blank: autoDraw = False
+154.9699 	EXP 	fixation_cross: autoDraw = True
+157.0698 	EXP 	fixation_cross: autoDraw = False
+157.0698 	EXP 	iaps_display: size = array([1024,  768])
+157.0698 	EXP 	iaps_display: image = 'stimulus/2205.bmp'
+157.0698 	EXP 	iaps_display: autoDraw = True
+158.8451 	EXP 	iaps_cue: size = array([1024,  768])
+158.8451 	EXP 	iaps_cue: image = 'green.png'
+158.8451 	EXP 	iaps_cue: autoDraw = True
+159.8450 	EXP 	iaps_cue: size = array([1024,  768])
+159.8450 	EXP 	iaps_cue: image = 'blue.png'
+159.8450 	EXP 	iaps_cue: autoDraw = True
+160.0950 	EXP 	iaps_cue: size = array([1024,  768])
+160.0950 	EXP 	iaps_cue: image = 'green.png'
+160.0950 	EXP 	iaps_cue: autoDraw = True
+160.5950 	EXP 	iaps_cue: size = array([1024,  768])
+160.5950 	EXP 	iaps_cue: image = 'blue.png'
+160.5950 	EXP 	iaps_cue: autoDraw = True
+161.0950 	EXP 	iaps_cue: size = array([1024,  768])
+161.0950 	EXP 	iaps_cue: image = 'green.png'
+161.0950 	EXP 	iaps_cue: autoDraw = True
+164.6032 	EXP 	iaps_cue: size = array([1024,  768])
+164.6032 	EXP 	iaps_cue: image = 'blue.png'
+164.6032 	EXP 	iaps_cue: autoDraw = True
+164.8531 	EXP 	iaps_cue: size = array([1024,  768])
+164.8531 	EXP 	iaps_cue: image = 'green.png'
+164.8531 	EXP 	iaps_cue: autoDraw = True
+165.3531 	EXP 	iaps_cue: size = array([1024,  768])
+165.3531 	EXP 	iaps_cue: image = 'blue.png'
+165.3531 	EXP 	iaps_cue: autoDraw = True
+166.3531 	EXP 	iaps_cue: size = array([1024,  768])
+166.3531 	EXP 	iaps_cue: image = 'green.png'
+166.3531 	EXP 	iaps_cue: autoDraw = True
+167.1030 	EXP 	iaps_cue: size = array([1024,  768])
+167.1030 	EXP 	iaps_cue: image = 'blue.png'
+167.1030 	EXP 	iaps_cue: autoDraw = True
+168.3614 	EXP 	iaps_cue: size = array([1024,  768])
+168.3614 	EXP 	iaps_cue: image = 'green.png'
+168.3614 	EXP 	iaps_cue: autoDraw = True
+169.1110 	EXP 	iaps_cue: size = array([1024,  768])
+169.1110 	EXP 	iaps_cue: image = 'blue.png'
+169.1110 	EXP 	iaps_cue: autoDraw = True
+169.6113 	EXP 	iaps_cue: size = array([1024,  768])
+169.6113 	EXP 	iaps_cue: image = 'green.png'
+169.6113 	EXP 	iaps_cue: autoDraw = True
+170.3613 	EXP 	iaps_cue: size = array([1024,  768])
+170.3613 	EXP 	iaps_cue: image = 'blue.png'
+170.3613 	EXP 	iaps_cue: autoDraw = True
+170.6112 	EXP 	iaps_cue: size = array([1024,  768])
+170.6112 	EXP 	iaps_cue: image = 'green.png'
+170.6112 	EXP 	iaps_cue: autoDraw = True
+171.3612 	EXP 	iaps_cue: size = array([1024,  768])
+171.3612 	EXP 	iaps_cue: image = 'blue.png'
+171.3612 	EXP 	iaps_cue: autoDraw = True
+171.8612 	EXP 	iaps_cue: size = array([1024,  768])
+171.8612 	EXP 	iaps_cue: image = 'green.png'
+171.8612 	EXP 	iaps_cue: autoDraw = True
+172.6112 	EXP 	iaps_cue: size = array([1024,  768])
+172.6112 	EXP 	iaps_cue: image = 'blue.png'
+172.6112 	EXP 	iaps_cue: autoDraw = True
+173.1195 	EXP 	iaps_cue: size = array([1024,  768])
+173.1195 	EXP 	iaps_cue: image = 'green.png'
+173.1195 	EXP 	iaps_cue: autoDraw = True
+173.3695 	EXP 	iaps_cue: size = array([1024,  768])
+173.3695 	EXP 	iaps_cue: image = 'blue.png'
+173.3695 	EXP 	iaps_cue: autoDraw = True
+175.1194 	EXP 	iaps_cue: size = array([1024,  768])
+175.1194 	EXP 	iaps_cue: image = 'green.png'
+175.1194 	EXP 	iaps_cue: autoDraw = True
+175.6193 	EXP 	iaps_cue: size = array([1024,  768])
+175.6193 	EXP 	iaps_cue: image = 'blue.png'
+175.6193 	EXP 	iaps_cue: autoDraw = True
+176.8609 	EXP 	iaps_display: autoDraw = False
+176.8609 	EXP 	iaps_cue: autoDraw = False
+176.8609 	EXP 	blank: autoDraw = True
+179.6969 	EXP 	New trial (rep=0, index=2): {'valmean': 6.8799999999999999, 'valence': 'Positive', 'scenestim': '2655.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.5700000000000003}
+179.8604 	EXP 	iaps_display: autoDraw = False
+179.8604 	EXP 	iaps_cue: autoDraw = False
+179.8604 	EXP 	blank: autoDraw = False
+179.8604 	EXP 	fixation_cross: autoDraw = True
+181.9687 	EXP 	fixation_cross: autoDraw = False
+181.9687 	EXP 	iaps_display: size = array([826, 768])
+181.9687 	EXP 	iaps_display: image = 'stimulus/2655.bmp'
+181.9687 	EXP 	iaps_display: autoDraw = True
+183.7773 	EXP 	iaps_cue: size = array([826, 768])
+183.7773 	EXP 	iaps_cue: image = 'blue.png'
+183.7773 	EXP 	iaps_cue: autoDraw = True
+183.9862 	EXP 	iaps_cue: size = array([826, 768])
+183.9862 	EXP 	iaps_cue: image = 'green.png'
+183.9862 	EXP 	iaps_cue: autoDraw = True
+184.7356 	EXP 	iaps_cue: size = array([826, 768])
+184.7356 	EXP 	iaps_cue: image = 'blue.png'
+184.7356 	EXP 	iaps_cue: autoDraw = True
+184.9939 	EXP 	iaps_cue: size = array([826, 768])
+184.9939 	EXP 	iaps_cue: image = 'red.png'
+184.9939 	EXP 	iaps_cue: autoDraw = True
+185.7439 	EXP 	iaps_cue: size = array([826, 768])
+185.7439 	EXP 	iaps_cue: image = 'green.png'
+185.7439 	EXP 	iaps_cue: autoDraw = True
+185.9939 	EXP 	iaps_cue: size = array([826, 768])
+185.9939 	EXP 	iaps_cue: image = 'red.png'
+185.9939 	EXP 	iaps_cue: autoDraw = True
+189.7437 	EXP 	iaps_cue: size = array([826, 768])
+189.7437 	EXP 	iaps_cue: image = 'blue.png'
+189.7437 	EXP 	iaps_cue: autoDraw = True
+189.9937 	EXP 	iaps_cue: size = array([826, 768])
+189.9937 	EXP 	iaps_cue: image = 'red.png'
+189.9937 	EXP 	iaps_cue: autoDraw = True
+190.4937 	EXP 	iaps_cue: size = array([826, 768])
+190.4937 	EXP 	iaps_cue: image = 'blue.png'
+190.4937 	EXP 	iaps_cue: autoDraw = True
+191.5020 	EXP 	iaps_cue: size = array([826, 768])
+191.5020 	EXP 	iaps_cue: image = 'green.png'
+191.5020 	EXP 	iaps_cue: autoDraw = True
+191.7538 	EXP 	iaps_cue: size = array([826, 768])
+191.7538 	EXP 	iaps_cue: image = 'red.png'
+191.7538 	EXP 	iaps_cue: autoDraw = True
+192.2519 	EXP 	iaps_cue: size = array([826, 768])
+192.2519 	EXP 	iaps_cue: image = 'green.png'
+192.2519 	EXP 	iaps_cue: autoDraw = True
+192.7544 	EXP 	iaps_cue: size = array([826, 768])
+192.7544 	EXP 	iaps_cue: image = 'red.png'
+192.7544 	EXP 	iaps_cue: autoDraw = True
+201.7515 	EXP 	iaps_display: autoDraw = False
+201.7515 	EXP 	iaps_cue: autoDraw = False
+201.7515 	EXP 	blank: autoDraw = True
+204.5979 	EXP 	New trial (rep=0, index=3): {'valmean': 6.71, 'valence': 'Positive', 'scenestim': '2030.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.54}
+204.7593 	EXP 	iaps_display: autoDraw = False
+204.7593 	EXP 	iaps_cue: autoDraw = False
+204.7593 	EXP 	blank: autoDraw = False
+204.7593 	EXP 	fixation_cross: autoDraw = True
+206.8676 	EXP 	fixation_cross: autoDraw = False
+206.8676 	EXP 	iaps_display: size = array([1024,  768])
+206.8676 	EXP 	iaps_display: image = 'stimulus/2030.bmp'
+206.8676 	EXP 	iaps_display: autoDraw = True
+208.7095 	EXP 	iaps_cue: size = array([1024,  768])
+208.7095 	EXP 	iaps_cue: image = 'green.png'
+208.7095 	EXP 	iaps_cue: autoDraw = True
+209.1427 	EXP 	iaps_cue: size = array([1024,  768])
+209.1427 	EXP 	iaps_cue: image = 'red.png'
+209.1427 	EXP 	iaps_cue: autoDraw = True
+209.3926 	EXP 	iaps_cue: size = array([1024,  768])
+209.3926 	EXP 	iaps_cue: image = 'green.png'
+209.3926 	EXP 	iaps_cue: autoDraw = True
+209.8927 	EXP 	iaps_cue: size = array([1024,  768])
+209.8927 	EXP 	iaps_cue: image = 'blue.png'
+209.8927 	EXP 	iaps_cue: autoDraw = True
+210.3926 	EXP 	iaps_cue: size = array([1024,  768])
+210.3926 	EXP 	iaps_cue: image = 'green.png'
+210.3926 	EXP 	iaps_cue: autoDraw = True
+210.6426 	EXP 	iaps_cue: size = array([1024,  768])
+210.6426 	EXP 	iaps_cue: image = 'blue.png'
+210.6426 	EXP 	iaps_cue: autoDraw = True
+212.3925 	EXP 	iaps_cue: size = array([1024,  768])
+212.3925 	EXP 	iaps_cue: image = 'green.png'
+212.3925 	EXP 	iaps_cue: autoDraw = True
+212.8924 	EXP 	iaps_cue: size = array([1024,  768])
+212.8924 	EXP 	iaps_cue: image = 'blue.png'
+212.8924 	EXP 	iaps_cue: autoDraw = True
+214.4008 	EXP 	iaps_cue: size = array([1024,  768])
+214.4008 	EXP 	iaps_cue: image = 'green.png'
+214.4008 	EXP 	iaps_cue: autoDraw = True
+214.9007 	EXP 	iaps_cue: size = array([1024,  768])
+214.9007 	EXP 	iaps_cue: image = 'blue.png'
+214.9007 	EXP 	iaps_cue: autoDraw = True
+216.1517 	EXP 	iaps_cue: size = array([1024,  768])
+216.1517 	EXP 	iaps_cue: image = 'green.png'
+216.1517 	EXP 	iaps_cue: autoDraw = True
+216.6507 	EXP 	iaps_cue: size = array([1024,  768])
+216.6507 	EXP 	iaps_cue: image = 'blue.png'
+216.6507 	EXP 	iaps_cue: autoDraw = True
+221.9088 	EXP 	iaps_cue: size = array([1024,  768])
+221.9088 	EXP 	iaps_cue: image = 'green.png'
+221.9088 	EXP 	iaps_cue: autoDraw = True
+222.4088 	EXP 	iaps_cue: size = array([1024,  768])
+222.4088 	EXP 	iaps_cue: image = 'blue.png'
+222.4088 	EXP 	iaps_cue: autoDraw = True
+225.4169 	EXP 	iaps_cue: size = array([1024,  768])
+225.4169 	EXP 	iaps_cue: image = 'green.png'
+225.4169 	EXP 	iaps_cue: autoDraw = True
+225.9170 	EXP 	iaps_cue: size = array([1024,  768])
+225.9170 	EXP 	iaps_cue: image = 'blue.png'
+225.9170 	EXP 	iaps_cue: autoDraw = True
+226.6586 	EXP 	iaps_display: autoDraw = False
+226.6586 	EXP 	iaps_cue: autoDraw = False
+226.6586 	EXP 	blank: autoDraw = True
+229.5089 	EXP 	Created sequence: random, trialTypes=1, nReps=1, seed=None
+229.5102 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+229.5108 	EXP 	New trial (rep=0, index=0): None
+229.6582 	EXP 	iaps_display: autoDraw = False
+229.6582 	EXP 	iaps_cue: autoDraw = False
+229.6582 	EXP 	blank: autoDraw = False
+229.6582 	EXP 	break_image: size = array([1920, 1080])
+229.6582 	EXP 	break_image: image = 'Instructions/break.png'
+229.6582 	EXP 	break_image: autoDraw = True
+232.4582 	DATA 	Keypress: return
+232.4588 	EXP 	New trial (rep=0, index=1): {'block_event': 'comp_2', 'order': 1, 'block_display': 'cont_inst', 'block_file': 'procedure\\1.csv', 'break_display': 'break'}
+232.4997 	EXP 	break_image: autoDraw = False
+232.4997 	EXP 	Block_image: size = array([1920, 1080])
+232.4997 	EXP 	Block_image: image = 'Instructions/cont_inst.png'
+232.4997 	EXP 	Block_image: autoDraw = True
+232.8915 	DATA 	Keypress: return
+232.9413 	EXP 	Block_image: autoDraw = False
+232.9413 	EXP 	composite_display: size = array([1024,  768])
+232.9413 	EXP 	composite_display: image = 'instructions/comp_2.png'
+232.9413 	EXP 	composite_display: autoDraw = True
+237.8921 	DATA 	Keypress: escape
+237.8922 	DATA 	Keypress: escape
+0.3384 	WARNING 	Movie2 stim could not be imported and won't be available
+4.0700 	WARNING 	Monitor specification not found. Creating a temporary one...
+4.7072 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([-0.137, -0.137, -0.137]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x16A67148>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.7072 	EXP 	window1: recordFrameIntervals = False
+4.7898 	EXP 	window1: recordFrameIntervals = True
+4.8817 	DEBUG 	Screen (0) actual frame rate measured at 119.93
+4.8817 	EXP 	window1: recordFrameIntervals = False
+4.9413 	INFO 	sound is using audioLib: pyo
+4.9694 	EXP 	Created task_instr_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='task_instr_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+4.9715 	EXP 	Created Block_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Block_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+4.9734 	EXP 	Created composite_display = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='composite_display', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.1643 	EXP 	Created fixation_cross = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/fixation.png', interpolate=True, mask=None, maskParams=None, name='fixation_cross', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+5.1671 	EXP 	Created iaps_cue = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='iaps_cue', opacity=0.25, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.1694 	EXP 	Created iaps_display = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='iaps_display', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.3231 	EXP 	Created blank = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='Instructions/blank.png', interpolate=True, mask=None, maskParams=None, name='blank', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+5.3252 	EXP 	Created break_image = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='break_image', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.5,  0.5]), texRes=128, units='pix', win=Window(...))
+5.4620 	EXP 	Created End_Screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='Instructions/finished.png', interpolate=True, mask=None, maskParams=None, name='End_Screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+6.1624 	EXP 	Created unnamed Circle = Circle(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0, fillColor=array([ 1.,  1.,  1.]), fillColorSpace='rgb', fillRGB=array([ 1.,  1.,  1.]), interpolate=True, lineColor=array([ 1.,  1.,  1.]), lineColorSpace='rgb', lineRGB=array([ 1.,  1.,  1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 1.,  1.]), units='pix', vertices=ndarray(...), win=Window(...))
+6.1660 	EXP 	Created unnamed Circle = Circle(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0, fillColor=array([-1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([-1., -1., -1.]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1., -1., -1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 1.,  1.]), units='pix', vertices=ndarray(...), win=Window(...))
+6.8032 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+14.2160 	DATA 	Keypress: c
+14.3494 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+14.3978 	EXP 	unnamed Circle: pos = (0, 0)
+14.3978 	EXP 	unnamed Circle: pos = (0, 0)
+14.9360 	DATA 	Keypress: return
+14.9561 	EXP 	unnamed Circle: pos = (0, 449)
+14.9561 	EXP 	unnamed Circle: pos = (0, 449)
+15.3520 	DATA 	Keypress: return
+15.7359 	DATA 	Keypress: return
+15.7728 	EXP 	unnamed Circle: pos = (844, 449)
+15.7728 	EXP 	unnamed Circle: pos = (844, 449)
+16.1039 	DATA 	Keypress: return
+16.4238 	DATA 	Keypress: return
+16.4561 	EXP 	unnamed Circle: pos = (0, -448)
+16.4561 	EXP 	unnamed Circle: pos = (0, -448)
+16.7599 	DATA 	Keypress: return
+17.0799 	DATA 	Keypress: return
+17.1644 	EXP 	unnamed Circle: pos = (-423, -224)
+17.1644 	EXP 	unnamed Circle: pos = (-423, -224)
+17.4479 	DATA 	Keypress: return
+17.7839 	DATA 	Keypress: return
+17.8310 	EXP 	unnamed Circle: pos = (-845, -448)
+17.8310 	EXP 	unnamed Circle: pos = (-845, -448)
+18.1839 	DATA 	Keypress: return
+18.5678 	DATA 	Keypress: return
+18.6144 	EXP 	unnamed Circle: pos = (422, -224)
+18.6144 	EXP 	unnamed Circle: pos = (422, -224)
+18.9359 	DATA 	Keypress: return
+19.2719 	DATA 	Keypress: return
+19.3143 	EXP 	unnamed Circle: pos = (-423, 225)
+19.3143 	EXP 	unnamed Circle: pos = (-423, 225)
+19.6239 	DATA 	Keypress: return
+19.9438 	DATA 	Keypress: return
+20.0226 	EXP 	unnamed Circle: pos = (422, 225)
+20.0226 	EXP 	unnamed Circle: pos = (422, 225)
+20.2958 	DATA 	Keypress: return
+20.6478 	DATA 	Keypress: return
+20.7059 	EXP 	unnamed Circle: pos = (844, -448)
+20.7059 	EXP 	unnamed Circle: pos = (844, -448)
+21.0158 	DATA 	Keypress: return
+21.3679 	DATA 	Keypress: return
+21.7518 	DATA 	Keypress: return
+21.7975 	EXP 	unnamed Circle: pos = (844, 0)
+21.7975 	EXP 	unnamed Circle: pos = (844, 0)
+22.2158 	DATA 	Keypress: return
+22.5997 	DATA 	Keypress: return
+22.6305 	EXP 	unnamed Circle: pos = (-845, 449)
+22.6305 	EXP 	unnamed Circle: pos = (-845, 449)
+22.9677 	DATA 	Keypress: return
+23.3038 	DATA 	Keypress: return
+23.3474 	EXP 	unnamed Circle: pos = (-845, 0)
+23.3474 	EXP 	unnamed Circle: pos = (-845, 0)
+23.6558 	DATA 	Keypress: return
+23.9598 	DATA 	Keypress: return
+24.0307 	EXP 	unnamed Circle: pos = (0, 0)
+24.0307 	EXP 	unnamed Circle: pos = (0, 0)
+24.3438 	DATA 	Keypress: return
+24.6797 	DATA 	Keypress: return
+25.2398 	DATA 	Keypress: return
+25.4916 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+26.1037 	DATA 	Keypress: o
+26.2360 	EXP 	Created menu_screen = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='Instructions/menu.png', interpolate=True, mask=None, maskParams=None, name='menu_screen', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([1920, 1080]), texRes=128, units='pix', win=Window(...))
+26.2486 	EXP 	Imported procedure\Introduction_list.csv as conditions, 1 conditions, 1 params
+26.2488 	EXP 	Created sequence: sequential, trialTypes=1, nReps=1, seed=None
+26.3603 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+26.3609 	EXP 	New trial (rep=0, index=0): {'Introduction_image': 'inst_1'}
+26.5057 	EXP 	task_instr_image: size = array([1920, 1080])
+26.5057 	EXP 	task_instr_image: image = 'Instructions/inst_1.png'
+26.5057 	EXP 	task_instr_image: autoDraw = True
+26.8641 	DATA 	Keypress: return
+26.8660 	EXP 	Imported procedure\#set_list.csv as conditions, 3 conditions, 5 params
+26.8663 	EXP 	Created sequence: sequential, trialTypes=3, nReps=1, seed=None
+26.8670 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+26.8676 	EXP 	New trial (rep=0, index=0): {'block_event': 'comp_1', 'order': 0, 'block_display': 'inst_2', 'block_file': 'procedure\\0.csv', 'break_display': 'break'}
+27.0136 	EXP 	task_instr_image: autoDraw = False
+27.0136 	EXP 	Block_image: size = array([1920, 1080])
+27.0136 	EXP 	Block_image: image = 'Instructions/inst_2.png'
+27.0136 	EXP 	Block_image: autoDraw = True
+27.2304 	DATA 	Keypress: return
+27.3140 	EXP 	Block_image: autoDraw = False
+27.3140 	EXP 	composite_display: size = array([1024,  768])
+27.3140 	EXP 	composite_display: image = 'instructions/comp_1.png'
+27.3140 	EXP 	composite_display: autoDraw = True
+32.2331 	EXP 	Imported procedure\0.csv as conditions, 4 conditions, 7 params
+32.2334 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+32.2342 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+32.2349 	EXP 	New trial (rep=0, index=0): {'valmean': 6.8799999999999999, 'valence': 'Positive', 'scenestim': '2655.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.5700000000000003}
+32.4137 	EXP 	composite_display: autoDraw = False
+32.4137 	EXP 	composite_display: autoDraw = False
+32.4137 	EXP 	fixation_cross: autoDraw = True
+34.5137 	EXP 	fixation_cross: autoDraw = False
+34.5137 	EXP 	iaps_display: size = array([826, 768])
+34.5137 	EXP 	iaps_display: image = 'stimulus/2655.bmp'
+34.5137 	EXP 	iaps_display: autoDraw = True
+36.3052 	EXP 	iaps_cue: size = array([826, 768])
+36.3052 	EXP 	iaps_cue: image = 'green.png'
+36.3052 	EXP 	iaps_cue: autoDraw = True
+36.7719 	EXP 	iaps_cue: size = array([826, 768])
+36.7719 	EXP 	iaps_cue: image = 'red.png'
+36.7719 	EXP 	iaps_cue: autoDraw = True
+37.0218 	EXP 	iaps_cue: size = array([826, 768])
+37.0218 	EXP 	iaps_cue: image = 'green.png'
+37.0218 	EXP 	iaps_cue: autoDraw = True
+37.5219 	EXP 	iaps_cue: size = array([826, 768])
+37.5219 	EXP 	iaps_cue: image = 'blue.png'
+37.5219 	EXP 	iaps_cue: autoDraw = True
+40.5301 	EXP 	iaps_cue: size = array([826, 768])
+40.5301 	EXP 	iaps_cue: image = 'green.png'
+40.5301 	EXP 	iaps_cue: autoDraw = True
+41.0300 	EXP 	iaps_cue: size = array([826, 768])
+41.0300 	EXP 	iaps_cue: image = 'blue.png'
+41.0300 	EXP 	iaps_cue: autoDraw = True
+43.5382 	EXP 	iaps_cue: size = array([826, 768])
+43.5382 	EXP 	iaps_cue: image = 'green.png'
+43.5382 	EXP 	iaps_cue: autoDraw = True
+44.0382 	EXP 	iaps_cue: size = array([826, 768])
+44.0382 	EXP 	iaps_cue: image = 'blue.png'
+44.0382 	EXP 	iaps_cue: autoDraw = True
+45.0382 	EXP 	iaps_cue: size = array([826, 768])
+45.0382 	EXP 	iaps_cue: image = 'red.png'
+45.0382 	EXP 	iaps_cue: autoDraw = True
+45.5381 	EXP 	iaps_cue: size = array([826, 768])
+45.5381 	EXP 	iaps_cue: image = 'green.png'
+45.5381 	EXP 	iaps_cue: autoDraw = True
+45.7881 	EXP 	iaps_cue: size = array([826, 768])
+45.7881 	EXP 	iaps_cue: image = 'blue.png'
+45.7881 	EXP 	iaps_cue: autoDraw = True
+46.7881 	EXP 	iaps_cue: size = array([826, 768])
+46.7881 	EXP 	iaps_cue: image = 'green.png'
+46.7881 	EXP 	iaps_cue: autoDraw = True
+47.0381 	EXP 	iaps_cue: size = array([826, 768])
+47.0381 	EXP 	iaps_cue: image = 'red.png'
+47.0381 	EXP 	iaps_cue: autoDraw = True
+47.2881 	EXP 	iaps_cue: size = array([826, 768])
+47.2881 	EXP 	iaps_cue: image = 'green.png'
+47.2881 	EXP 	iaps_cue: autoDraw = True
+47.5381 	EXP 	iaps_cue: size = array([826, 768])
+47.5381 	EXP 	iaps_cue: image = 'blue.png'
+47.5381 	EXP 	iaps_cue: autoDraw = True
+48.2964 	EXP 	iaps_cue: size = array([826, 768])
+48.2964 	EXP 	iaps_cue: image = 'green.png'
+48.2964 	EXP 	iaps_cue: autoDraw = True
+48.5464 	EXP 	iaps_cue: size = array([826, 768])
+48.5464 	EXP 	iaps_cue: image = 'red.png'
+48.5464 	EXP 	iaps_cue: autoDraw = True
+49.0463 	EXP 	iaps_cue: size = array([826, 768])
+49.0463 	EXP 	iaps_cue: image = 'blue.png'
+49.0463 	EXP 	iaps_cue: autoDraw = True
+49.5464 	EXP 	iaps_cue: size = array([826, 768])
+49.5464 	EXP 	iaps_cue: image = 'red.png'
+49.5464 	EXP 	iaps_cue: autoDraw = True
+50.2962 	EXP 	iaps_cue: size = array([826, 768])
+50.2962 	EXP 	iaps_cue: image = 'blue.png'
+50.2962 	EXP 	iaps_cue: autoDraw = True
+50.5462 	EXP 	iaps_cue: size = array([826, 768])
+50.5462 	EXP 	iaps_cue: image = 'green.png'
+50.5462 	EXP 	iaps_cue: autoDraw = True
+50.7962 	EXP 	iaps_cue: size = array([826, 768])
+50.7962 	EXP 	iaps_cue: image = 'red.png'
+50.7962 	EXP 	iaps_cue: autoDraw = True
+54.2961 	EXP 	iaps_display: autoDraw = False
+54.2961 	EXP 	iaps_cue: autoDraw = False
+54.2961 	EXP 	blank: autoDraw = True
+57.1289 	EXP 	New trial (rep=0, index=1): {'valmean': 1.95, 'valence': 'Negative', 'scenestim': '2205.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.5300000000000002}
+57.2872 	EXP 	iaps_display: autoDraw = False
+57.2872 	EXP 	iaps_cue: autoDraw = False
+57.2872 	EXP 	blank: autoDraw = False
+57.2872 	EXP 	fixation_cross: autoDraw = True
+59.4038 	EXP 	fixation_cross: autoDraw = False
+59.4038 	EXP 	iaps_display: size = array([1024,  768])
+59.4038 	EXP 	iaps_display: image = 'stimulus/2205.bmp'
+59.4038 	EXP 	iaps_display: autoDraw = True
+61.2124 	EXP 	iaps_cue: size = array([1024,  768])
+61.2124 	EXP 	iaps_cue: image = 'blue.png'
+61.2124 	EXP 	iaps_cue: autoDraw = True
+78.7033 	EXP 	iaps_cue: size = array([1024,  768])
+78.7033 	EXP 	iaps_cue: image = 'red.png'
+78.7033 	EXP 	iaps_cue: autoDraw = True
+79.2033 	EXP 	iaps_cue: size = array([1024,  768])
+79.2033 	EXP 	iaps_cue: image = 'blue.png'
+79.2033 	EXP 	iaps_cue: autoDraw = True
+79.2117 	EXP 	iaps_display: autoDraw = False
+79.2117 	EXP 	iaps_cue: autoDraw = False
+79.2117 	EXP 	blank: autoDraw = True
+82.0259 	EXP 	New trial (rep=0, index=2): {'valmean': 6.71, 'valence': 'Positive', 'scenestim': '2030.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 4.54}
+82.3444 	EXP 	iaps_display: autoDraw = False
+82.3444 	EXP 	iaps_cue: autoDraw = False
+82.3444 	EXP 	blank: autoDraw = False
+82.3444 	EXP 	fixation_cross: autoDraw = True
+84.2943 	EXP 	fixation_cross: autoDraw = False
+84.2943 	EXP 	iaps_display: size = array([1024,  768])
+84.2943 	EXP 	iaps_display: image = 'stimulus/2030.bmp'
+84.2943 	EXP 	iaps_display: autoDraw = True
+86.0695 	EXP 	iaps_cue: size = array([1024,  768])
+86.0695 	EXP 	iaps_cue: image = 'red.png'
+86.0695 	EXP 	iaps_cue: autoDraw = True
+86.8195 	EXP 	iaps_cue: size = array([1024,  768])
+86.8195 	EXP 	iaps_cue: image = 'green.png'
+86.8195 	EXP 	iaps_cue: autoDraw = True
+87.5695 	EXP 	iaps_cue: size = array([1024,  768])
+87.5695 	EXP 	iaps_cue: image = 'blue.png'
+87.5695 	EXP 	iaps_cue: autoDraw = True
+87.8194 	EXP 	iaps_cue: size = array([1024,  768])
+87.8194 	EXP 	iaps_cue: image = 'green.png'
+87.8194 	EXP 	iaps_cue: autoDraw = True
+89.3193 	EXP 	iaps_cue: size = array([1024,  768])
+89.3193 	EXP 	iaps_cue: image = 'blue.png'
+89.3193 	EXP 	iaps_cue: autoDraw = True
+89.5694 	EXP 	iaps_cue: size = array([1024,  768])
+89.5694 	EXP 	iaps_cue: image = 'red.png'
+89.5694 	EXP 	iaps_cue: autoDraw = True
+89.8193 	EXP 	iaps_cue: size = array([1024,  768])
+89.8193 	EXP 	iaps_cue: image = 'green.png'
+89.8193 	EXP 	iaps_cue: autoDraw = True
+90.0693 	EXP 	iaps_cue: size = array([1024,  768])
+90.0693 	EXP 	iaps_cue: image = 'blue.png'
+90.0693 	EXP 	iaps_cue: autoDraw = True
+90.8276 	EXP 	iaps_cue: size = array([1024,  768])
+90.8276 	EXP 	iaps_cue: image = 'green.png'
+90.8276 	EXP 	iaps_cue: autoDraw = True
+91.3276 	EXP 	iaps_cue: size = array([1024,  768])
+91.3276 	EXP 	iaps_cue: image = 'blue.png'
+91.3276 	EXP 	iaps_cue: autoDraw = True
+91.8276 	EXP 	iaps_cue: size = array([1024,  768])
+91.8276 	EXP 	iaps_cue: image = 'red.png'
+91.8276 	EXP 	iaps_cue: autoDraw = True
+92.0776 	EXP 	iaps_cue: size = array([1024,  768])
+92.0776 	EXP 	iaps_cue: image = 'green.png'
+92.0776 	EXP 	iaps_cue: autoDraw = True
+92.3275 	EXP 	iaps_cue: size = array([1024,  768])
+92.3275 	EXP 	iaps_cue: image = 'blue.png'
+92.3275 	EXP 	iaps_cue: autoDraw = True
+93.5775 	EXP 	iaps_cue: size = array([1024,  768])
+93.5775 	EXP 	iaps_cue: image = 'green.png'
+93.5775 	EXP 	iaps_cue: autoDraw = True
+94.0775 	EXP 	iaps_cue: size = array([1024,  768])
+94.0775 	EXP 	iaps_cue: image = 'blue.png'
+94.0775 	EXP 	iaps_cue: autoDraw = True
+94.8358 	EXP 	iaps_cue: size = array([1024,  768])
+94.8358 	EXP 	iaps_cue: image = 'green.png'
+94.8358 	EXP 	iaps_cue: autoDraw = True
+95.3274 	EXP 	iaps_cue: size = array([1024,  768])
+95.3274 	EXP 	iaps_cue: image = 'blue.png'
+95.3274 	EXP 	iaps_cue: autoDraw = True
+96.0858 	EXP 	iaps_cue: size = array([1024,  768])
+96.0858 	EXP 	iaps_cue: image = 'green.png'
+96.0858 	EXP 	iaps_cue: autoDraw = True
+96.8357 	EXP 	iaps_cue: size = array([1024,  768])
+96.8357 	EXP 	iaps_cue: image = 'blue.png'
+96.8357 	EXP 	iaps_cue: autoDraw = True
+97.0857 	EXP 	iaps_cue: size = array([1024,  768])
+97.0857 	EXP 	iaps_cue: image = 'green.png'
+97.0857 	EXP 	iaps_cue: autoDraw = True
+97.3357 	EXP 	iaps_cue: size = array([1024,  768])
+97.3357 	EXP 	iaps_cue: image = 'red.png'
+97.3357 	EXP 	iaps_cue: autoDraw = True
+97.8357 	EXP 	iaps_cue: size = array([1024,  768])
+97.8357 	EXP 	iaps_cue: image = 'green.png'
+97.8357 	EXP 	iaps_cue: autoDraw = True
+98.5856 	EXP 	iaps_cue: size = array([1024,  768])
+98.5856 	EXP 	iaps_cue: image = 'red.png'
+98.5856 	EXP 	iaps_cue: autoDraw = True
+104.0853 	EXP 	iaps_display: autoDraw = False
+104.0853 	EXP 	iaps_cue: autoDraw = False
+104.0853 	EXP 	blank: autoDraw = True
+106.9239 	EXP 	New trial (rep=0, index=3): {'valmean': 3.3399999999999999, 'valence': 'Negative', 'scenestim': '2120.bmp', 'arousal': 'High', 'outliers': 0, 'blocknum': 0, 'arousalmean': 5.1799999999999997}
+107.0850 	EXP 	iaps_display: autoDraw = False
+107.0850 	EXP 	iaps_cue: autoDraw = False
+107.0850 	EXP 	blank: autoDraw = False
+107.0850 	EXP 	fixation_cross: autoDraw = True
+109.2016 	EXP 	fixation_cross: autoDraw = False
+109.2016 	EXP 	iaps_display: size = array([1024,  768])
+109.2016 	EXP 	iaps_display: image = 'stimulus/2120.bmp'
+109.2016 	EXP 	iaps_display: autoDraw = True
+110.9685 	EXP 	iaps_cue: size = array([1024,  768])
+110.9685 	EXP 	iaps_cue: image = 'red.png'
+110.9685 	EXP 	iaps_cue: autoDraw = True
+111.4685 	EXP 	iaps_cue: size = array([1024,  768])
+111.4685 	EXP 	iaps_cue: image = 'green.png'
+111.4685 	EXP 	iaps_cue: autoDraw = True
+111.7185 	EXP 	iaps_cue: size = array([1024,  768])
+111.7185 	EXP 	iaps_cue: image = 'blue.png'
+111.7185 	EXP 	iaps_cue: autoDraw = True
+116.4766 	EXP 	iaps_cue: size = array([1024,  768])
+116.4766 	EXP 	iaps_cue: image = 'green.png'
+116.4766 	EXP 	iaps_cue: autoDraw = True
+116.9766 	EXP 	iaps_cue: size = array([1024,  768])
+116.9766 	EXP 	iaps_cue: image = 'blue.png'
+116.9766 	EXP 	iaps_cue: autoDraw = True
+128.9844 	EXP 	iaps_display: autoDraw = False
+128.9844 	EXP 	iaps_cue: autoDraw = False
+128.9844 	EXP 	blank: autoDraw = True
+131.8250 	EXP 	Created sequence: random, trialTypes=1, nReps=1, seed=None
+131.8258 	DEBUG 	Using C:/Users/sr38553/Desktop/new task/task/6.7.02.py as origin file
+131.8262 	EXP 	New trial (rep=0, index=0): None
+131.9673 	EXP 	iaps_display: autoDraw = False
+131.9673 	EXP 	iaps_cue: autoDraw = False
+131.9673 	EXP 	blank: autoDraw = False
+131.9673 	EXP 	break_image: size = array([1920, 1080])
+131.9673 	EXP 	break_image: image = 'Instructions/break.png'
+131.9673 	EXP 	break_image: autoDraw = True
+133.1925 	DATA 	Keypress: space
+133.1933 	EXP 	New trial (rep=0, index=1): {'block_event': 'comp_2', 'order': 1, 'block_display': 'cont_inst', 'block_file': 'procedure\\1.csv', 'break_display': 'break'}
+133.2340 	EXP 	break_image: autoDraw = False
+133.2340 	EXP 	Block_image: size = array([1920, 1080])
+133.2340 	EXP 	Block_image: image = 'Instructions/cont_inst.png'
+133.2340 	EXP 	Block_image: autoDraw = True
+133.5758 	DATA 	Keypress: space
+133.6174 	EXP 	Block_image: autoDraw = False
+133.6174 	EXP 	composite_display: size = array([1024,  768])
+133.6174 	EXP 	composite_display: image = 'instructions/comp_2.png'
+133.6174 	EXP 	composite_display: autoDraw = True
+138.5765 	DATA 	Keypress: grave
+138.5767 	DATA 	Keypress: escape
