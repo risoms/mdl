@@ -81,7 +81,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
@@ -231,7 +260,7 @@
 
 <div class="viewcode-block" id="ObservationModel"><a class="viewcode-back" href="../../../api/mdl.R33.nslr_hmm.html#mdl.R33.nslr_hmm.ObservationModel">[docs]</a><span class="k">class</span> <span class="nc">ObservationModel</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Include this - Semeon&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="ObservationModel.__init__"><a class="viewcode-back" href="../../../api/mdl.R33.nslr_hmm.html#mdl.R33.nslr_hmm.ObservationModel.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dists</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dists</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Include this - Semeon&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">classidx</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">idxclass</span> <span class="o">=</span> <span class="p">[]</span>
@@ -240,7 +269,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">idxclass</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">classidx</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dists</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">idxclass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idxclass</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idxclass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idxclass</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ObservationModel.liks"><a class="viewcode-back" href="../../../api/mdl.R33.nslr_hmm.html#mdl.R33.nslr_hmm.ObservationModel.liks">[docs]</a>    <span class="k">def</span> <span class="nf">liks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Include this - Semeon&quot;&quot;&quot;</span>

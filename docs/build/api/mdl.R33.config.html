@@ -81,7 +81,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -256,21 +285,7 @@
 <dl class="class">
 <dt id="mdl.R33.config.Settings">
 <em class="property">class </em><code class="descclassname">mdl.R33.config.</code><code class="descname">Settings</code><span class="sig-paren">(</span><em>is_library=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/config.html#Settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.config.Settings" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide resource for creating links, anchors, calculate significant figures, user-friendly console.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_library</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <cite>list</cite></span></dt>
-<dd><p class="first last">Check if required libraries are available. Default False.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
+<dd><p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
@@ -282,25 +297,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="mdl.R33.config.Settings.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>is_library=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/config.html#Settings.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.config.Settings.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide resource for creating links, anchors, calculate significant figures, user-friendly console.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_library</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <cite>list</cite></span></dt>
-<dd><p class="first last">Check if required libraries are available. Default False.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="classmethod">
 <dt id="mdl.R33.config.Settings.definitions">
 <em class="property">classmethod </em><code class="descname">definitions</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/config.html#Settings.definitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.config.Settings.definitions" title="Permalink to this definition">¶</a></dt>

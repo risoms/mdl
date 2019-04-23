@@ -81,7 +81,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
@@ -249,7 +278,7 @@
         <span class="kn">import</span> <span class="nn">sys</span>
         <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-<div class="viewcode-block" id="Processing.__init__"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;These are the configuration parameters you can set in for analysis.</span>
 
 <span class="sd">        Attributes</span>
@@ -263,7 +292,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">thisCore</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span> <span class="s1">&#39;sg&#39;</span><span class="p">]]</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span> <span class="s1">&#39;sg&#39;</span><span class="p">]]</span>
 		
 <div class="viewcode-block" id="Processing.getEstimatedMonitor"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.getEstimatedMonitor">[docs]</a>    <span class="k">def</span> <span class="nf">getEstimatedMonitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diagonal</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</span>

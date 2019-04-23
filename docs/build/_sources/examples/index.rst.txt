@@ -8,8 +8,10 @@ Examples
 .. toctree::
    :maxdepth: 1
 
-   demographics_
-   download_
-   model_
-   plot_
-   process_
+   R33/demographics_
+   R33/download_
+   R33/model_
+   R33/plot_
+   R33/process_
+   eyetracking/demo/demo
+   roi/roi_

@@ -82,7 +82,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -242,38 +271,6 @@
 <dt id="mdl.download.Download">
 <em class="property">class </em><code class="descclassname">mdl.download.</code><code class="descname">Download</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/download.html#Download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.download.Download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resource for downloading files from Box, SSH, REDCap and others.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.download.Download.REDCap" title="mdl.download.Download.REDCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REDCap</span></code></a>(path,&nbsp;token,&nbsp;url,&nbsp;content[,&nbsp;payload])</td>
-<td>Download data from an Research Electronic Data Capture (REDCap) server.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.download.Download.SFTP" title="mdl.download.Download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
-<td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.download.Download.box" title="mdl.download.Download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;username,&nbsp;…)</td>
-<td>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</td>
-</tr>
-</tbody>
-</table>
-<p>Download raw data from apache, Box, or REDCap servers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Check if required libraries are available.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -458,25 +455,6 @@ For example:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">download</span><span class="o">.</span><span class="n">SFTP</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">un</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pwd</span><span class="p">)</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="mdl.download.Download.__init__">
-<em class="property">classmethod </em><code class="descname">__init__</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/download.html#Download.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.download.Download.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download raw data from apache, Box, or REDCap servers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Check if required libraries are available.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="classmethod">

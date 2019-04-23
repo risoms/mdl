@@ -81,7 +81,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -308,129 +337,6 @@ trial duration expires ‘ESCAPE’ is pressed, the program is interrupted, or a
 </tr>
 </tbody>
 </table>
-<p>Initialize eyetracker.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psychopy.visual.window.Window</span></code></span></dt>
-<dd><p class="first last">PsychoPy window instance.</p>
-</dd>
-<dt><strong>timer</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psychopy.clock.CountdownTimer</span></code></span></dt>
-<dd><p class="first last">Psychopy timer instance.</p>
-</dd>
-<dt><strong>isPsychopy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Is Psychopy being used.</p>
-</dd>
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Should the code check if required libraries are available.</p>
-</dd>
-<dt><strong>subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">Subject number.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Other Parameters:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><dl class="first last docutils">
-<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
-<dd><p class="first last">List of optional parameters.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eytracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="p">(</span><span class="n">libraries</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>  
-</pre></div>
-</div>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.calibration" title="mdl.eyelink.eyetracking.Eyetracking.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>(self)</td>
-<td>Start calibration procedure.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.connect" title="mdl.eyelink.eyetracking.Eyetracking.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(self[,&nbsp;calibration_type,&nbsp;…])</td>
-<td>Connect to Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.drift_correction" title="mdl.eyelink.eyetracking.Eyetracking.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>(self[,&nbsp;source])</td>
-<td>Starts drift correction.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.finish_recording" title="mdl.eyelink.eyetracking.Eyetracking.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>(self[,&nbsp;path])</td>
-<td>Ending Eyelink recording.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.gc" title="mdl.eyelink.eyetracking.Eyetracking.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(self,&nbsp;bound,&nbsp;t_min[,&nbsp;t_max])</td>
-<td>Creates gaze contigent event.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.sample" title="mdl.eyelink.eyetracking.Eyetracking.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(self)</td>
-<td>Collects new gaze coordinates from Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.send_message" title="mdl.eyelink.eyetracking.Eyetracking.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(self,&nbsp;msg)</td>
-<td>Send message to Eyelink.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.send_variable" title="mdl.eyelink.eyetracking.Eyetracking.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(self,&nbsp;variables)</td>
-<td>send trial variable to eyelink at the end of trial.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.set_eye_used" title="mdl.eyelink.eyetracking.Eyetracking.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(self,&nbsp;eye)</td>
-<td>Set dominant eye.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.start_recording" title="mdl.eyelink.eyetracking.Eyetracking.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(self,&nbsp;trial,&nbsp;block)</td>
-<td>Starts recording of Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.eyetracking.Eyetracking.stop_recording" title="mdl.eyelink.eyetracking.Eyetracking.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>(self[,&nbsp;trial,&nbsp;block,&nbsp;variables])</td>
-<td>Stops recording of Eyelink.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mdl.eyelink.eyetracking.Eyetracking.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>window</em>, <em>timer</em>, <em>isPsychopy=True</em>, <em>isLibrary=False</em>, <em>subject=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyelink/eyetracking.html#Eyetracking.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyelink.eyetracking.Eyetracking.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize eyetracker.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psychopy.visual.window.Window</span></code></span></dt>
-<dd><p class="first last">PsychoPy window instance.</p>
-</dd>
-<dt><strong>timer</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psychopy.clock.CountdownTimer</span></code></span></dt>
-<dd><p class="first last">Psychopy timer instance.</p>
-</dd>
-<dt><strong>isPsychopy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Is Psychopy being used.</p>
-</dd>
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Should the code check if required libraries are available.</p>
-</dd>
-<dt><strong>subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">Subject number.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Other Parameters:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><dl class="first last docutils">
-<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
-<dd><p class="first last">List of optional parameters.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eytracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="p">(</span><span class="n">libraries</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>  
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="mdl.eyelink.eyetracking.Eyetracking._drift_message">
 <code class="descname">_drift_message</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyelink/eyetracking.html#Eyetracking._drift_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyelink.eyetracking.Eyetracking._drift_message" title="Permalink to this definition">¶</a></dt>

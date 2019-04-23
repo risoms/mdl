@@ -82,7 +82,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -321,122 +350,6 @@
 </tr>
 </tbody>
 </table>
-<p>Initialize mdl.calibration module.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>w,h</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">Screen width, height.</p>
-</dd>
-<dt><strong>tracker</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></span></dt>
-<dd><p class="first last">Eyelink tracker instance.</p>
-</dd>
-<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">psychopy.visual.window.Window</span></code></span></dt>
-<dd><p class="first last">PsychoPy window instance.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.alert_printf" title="mdl.eyelink.calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(self,&nbsp;msg)</td>
-<td>Print error messages.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.draw_image_line" title="mdl.eyelink.calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(self,&nbsp;width,&nbsp;line,&nbsp;totlines,&nbsp;…)</td>
-<td>Display image pixel by pixel, line by line.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.draw_line" title="mdl.eyelink.calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(self,&nbsp;x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
-<td>Draw a line.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.draw_lozenge" title="mdl.eyelink.calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(self,&nbsp;x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;…)</td>
-<td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.erase_cal_target" title="mdl.eyelink.calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>(self)</td>
-<td>Erase the calibration/validation target.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.exit_image_display" title="mdl.eyelink.calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>(self)</td>
-<td>Clear the camera image.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.getColorFromIndex" title="mdl.eyelink.calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(self,&nbsp;colorindex)</td>
-<td>Return psychopy colors for elements in the camera image.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.get_input_key" title="mdl.eyelink.calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>(self)</td>
-<td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.get_mouse_state" title="mdl.eyelink.calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>(self)</td>
-<td>Get the current mouse position and status</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.play_beep" title="mdl.eyelink.calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(self,&nbsp;beepid)</td>
-<td>Play a sound during calibration/drift correction.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.set_image_palette" title="mdl.eyelink.calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(self,&nbsp;r,&nbsp;g,&nbsp;b)</td>
-<td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyelink.calibration.Calibration.setup_image_display" title="mdl.eyelink.calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(self,&nbsp;width,&nbsp;height)</td>
-<td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="68%" />
-<col width="32%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>clear_cal_display</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>draw_cal_target</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>exit_cal_display</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>image_title</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>record_abort_hide</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>setup_cal_display</strong></td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mdl.eyelink.calibration.Calibration.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>w</em>, <em>h</em>, <em>tracker</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyelink/calibration.html#Calibration.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyelink.calibration.Calibration.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize mdl.calibration module.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>w,h</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">Screen width, height.</p>
-</dd>
-<dt><strong>tracker</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></span></dt>
-<dd><p class="first last">Eyelink tracker instance.</p>
-</dd>
-<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">psychopy.visual.window.Window</span></code></span></dt>
-<dd><p class="first last">PsychoPy window instance.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="method">
 <dt id="mdl.eyelink.calibration.Calibration.alert_printf">
 <code class="descname">alert_printf</code><span class="sig-paren">(</span><em>self</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyelink/calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyelink.calibration.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>

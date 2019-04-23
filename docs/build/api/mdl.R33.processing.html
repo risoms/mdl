@@ -81,7 +81,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/demographics_.html">Demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/demographics_.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_.html">Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -308,90 +337,6 @@
 </tr>
 </tbody>
 </table>
-<p>These are the configuration parameters you can set in for analysis.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
-<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(self,&nbsp;df,&nbsp;cg_df)</td>
-<td>Appending classification to Dataframe.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(self,&nbsp;config,&nbsp;df[,&nbsp;ctype,&nbsp;…])</td>
-<td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(self,&nbsp;df[,&nbsp;cores])</td>
-<td>Calculate dwell time for sad and neutral images.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(self,&nbsp;df,&nbsp;filter_type,&nbsp;config,&nbsp;…)</td>
-<td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>(self[,&nbsp;path])</td>
-<td>preparing data for use in analysis</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(self,&nbsp;diagonal,&nbsp;window)</td>
-<td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(self,&nbsp;df0[,&nbsp;merge,&nbsp;cores])</td>
-<td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(self,&nbsp;df,&nbsp;window)</td>
-<td>Initial data cleaning.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self,&nbsp;window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial)</td>
-<td>Plotting and preparing data for classification.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>(self[,&nbsp;filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;…])</td>
-<td>Check if fixation is within bounds.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
-<td>Processing of data.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.single_subject" title="mdl.R33.processing.Processing.single_subject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_subject</span></code></a>(self,&nbsp;df,&nbsp;path)</td>
-<td>Create single subject scatterplot using seaborn and pandas.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(self,&nbsp;fpath,&nbsp;spath)</td>
-<td>Collect all subjects metadata.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(self,&nbsp;df)</td>
-<td>Output list of variables for easy html viewing.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mdl.R33.processing.Processing.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>These are the configuration parameters you can set in for analysis.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
-<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="method">
 <dt id="mdl.R33.processing.Processing.append_classify">
 <code class="descname">append_classify</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.append_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.append_classify" title="Permalink to this definition">¶</a></dt>
