@@ -108,8 +108,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
 </ul>
 </li>
 </ul>
@@ -270,7 +268,20 @@
 <dl class="class">
 <dt id="mdl.download.Download">
 <em class="property">class </em><code class="descclassname">mdl.download.</code><code class="descname">Download</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/download.html#Download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.download.Download" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resource for downloading files from Box, SSH, REDCap and others.</p>
+<dd><p>Download raw data from apache, Box, or REDCap servers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Check if required libraries are available.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -455,6 +466,25 @@ For example:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">download</span><span class="o">.</span><span class="n">SFTP</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">un</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pwd</span><span class="p">)</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="mdl.download.Download.__init__">
+<em class="property">classmethod </em><code class="descname">__init__</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/download.html#Download.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.download.Download.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download raw data from apache, Box, or REDCap servers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Check if required libraries are available.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="classmethod">

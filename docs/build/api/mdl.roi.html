@@ -109,8 +109,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
 </ul>
 </li>
 </ul>
@@ -267,7 +265,198 @@
 <dl class="class">
 <dt id="mdl.roi.ROI">
 <em class="property">class </em><code class="descclassname">mdl.roi.</code><code class="descname">ROI</code><span class="sig-paren">(</span><em>source=None</em>, <em>destination=None</em>, <em>metadata=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#ROI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.ROI" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><blockquote>
+<div>Create single subject trial bokeh plots.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><blockquote class="first">
+<div><p>Source of image files.</p>
+</div></blockquote>
+<dl class="last docutils">
+<dt>destination <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Path to save data.</p>
+</dd>
+<dt>metadata <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Path of metadata, if metadata is read from a seperate file. If metadata is stored within the images, metadata = None.</p>
+</dd>
+<dt>shape <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {polygon, hull, circle, rotate, straight}</span></dt>
+<dd><p class="first last">ROI bounds. Default is straight. <cite>polygon</cite> creates a Contour Approximation  and will most closely match the orginal
+shape of the roi. <cite>hull</cite> creates a Convex Hull, which is similar to but not as complex as a Contour Approximation
+and will include bulges for areas that are convex. <cite>circle</cite> creates a mininum enclosing circle. Finally, both
+<cite>rotate</cite> and <cite>straight</cite> create a Bounding Rectangle, with the only  difference being compensation for the mininum
+enclosing area for the box when using <cite>rotate</cite>.</p>
+</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs <span class="classifier-delimiter">:</span> <span class="classifier">optional</span></dt>
+<dd><p class="first last">Additional properties. Here’s a list of available properties:</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>- Quality of exported images, refers to ‘dots per inch’. Default is 300 (if `save_image`=True).</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds arecreated.</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">mdl.roi.ROI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mdl</span><span class="o">.</span><span class="n">roi</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape_d</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><blockquote class="first">
+<div><p>DataViewer shape, either <cite>ELLIPSE</cite>, <cite>FREEHAND</cite>, or <cite>RECTANGLE</cite>.</p>
+</div></blockquote>
+<dl class="last docutils">
+<dt>psd: <a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
+</dd>
+<dt>retval, threshold <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.threshold</span></code>. The function applies a fixed-level thresholding to a multiple-channel array.
+<cite>retval</cite> provides an optimal threshold only if <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.THRESH_OTSU</span></code> is passed. <cite>threshold</cite> is an image after applying
+a binary threshold (cv2.THRESH_BINARY) removing all greyscale pixels &lt; 127. The output matches the same image
+channel as the original image.
+See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57">https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57</a>&gt;`_ and
+<a class="reference external" href="https://www.learnopencv.com/opencv-threshold-python-cpp">https://www.learnopencv.com/opencv-threshold-python-cpp</a></p>
+</dd>
+<dt>contours, hierarchy <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.findContours</span></code>. This function returns
+contours from the provided binary image (threshold). This is used here for later shape detection. <cite>contours</cite> are
+the detected contours, while hierarchy containing information about the image topology.
+See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07">https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07</a>&gt;`_ for more information.</p>
+</dd>
+<dt>image_contours <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.drawContours</span></code>. This draws filled contours from the image.</p>
+</dd>
+<dt>image_contours <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.drawContours</span></code>. This draws filled contours from the image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mdl.roi.ROI.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>source=None</em>, <em>destination=None</em>, <em>metadata=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/roi.html#ROI.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.roi.ROI.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Create single subject trial bokeh plots.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><blockquote class="first">
+<div><p>Source of image files.</p>
+</div></blockquote>
+<dl class="last docutils">
+<dt>destination <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Path to save data.</p>
+</dd>
+<dt>metadata <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Path of metadata, if metadata is read from a seperate file. If metadata is stored within the images, metadata = None.</p>
+</dd>
+<dt>shape <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {polygon, hull, circle, rotate, straight}</span></dt>
+<dd><p class="first last">ROI bounds. Default is straight. <cite>polygon</cite> creates a Contour Approximation  and will most closely match the orginal
+shape of the roi. <cite>hull</cite> creates a Convex Hull, which is similar to but not as complex as a Contour Approximation
+and will include bulges for areas that are convex. <cite>circle</cite> creates a mininum enclosing circle. Finally, both
+<cite>rotate</cite> and <cite>straight</cite> create a Bounding Rectangle, with the only  difference being compensation for the mininum
+enclosing area for the box when using <cite>rotate</cite>.</p>
+</dd>
+<dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs <span class="classifier-delimiter">:</span> <span class="classifier">optional</span></dt>
+<dd><p class="first last">Additional properties. Here’s a list of available properties:</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>- Quality of exported images, refers to ‘dots per inch’. Default is 300 (if `save_image`=True).</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds arecreated.</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">mdl.roi.ROI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mdl</span><span class="o">.</span><span class="n">roi</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape_d</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><blockquote class="first">
+<div><p>DataViewer shape, either <cite>ELLIPSE</cite>, <cite>FREEHAND</cite>, or <cite>RECTANGLE</cite>.</p>
+</div></blockquote>
+<dl class="last docutils">
+<dt>psd: <a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
+</dd>
+<dt>retval, threshold <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.threshold</span></code>. The function applies a fixed-level thresholding to a multiple-channel array.
+<cite>retval</cite> provides an optimal threshold only if <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.THRESH_OTSU</span></code> is passed. <cite>threshold</cite> is an image after applying
+a binary threshold (cv2.THRESH_BINARY) removing all greyscale pixels &lt; 127. The output matches the same image
+channel as the original image.
+See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57">https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57</a>&gt;`_ and
+<a class="reference external" href="https://www.learnopencv.com/opencv-threshold-python-cpp">https://www.learnopencv.com/opencv-threshold-python-cpp</a></p>
+</dd>
+<dt>contours, hierarchy <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.findContours</span></code>. This function returns
+contours from the provided binary image (threshold). This is used here for later shape detection. <cite>contours</cite> are
+the detected contours, while hierarchy containing information about the image topology.
+See &lt;<a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07">https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07</a>&gt;`_ for more information.</p>
+</dd>
+<dt>image_contours <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.drawContours</span></code>. This draws filled contours from the image.</p>
+</dd>
+<dt>image_contours <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <code class="xref py py-class docutils literal notranslate"><span class="pre">cv2.drawContours</span></code>. This draws filled contours from the image.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 

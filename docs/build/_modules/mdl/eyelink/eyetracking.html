@@ -107,8 +107,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/roi/roi_.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#imports">imports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#REDCap">REDCap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/roi_.html#box">box</a></li>
 </ul>
 </li>
 </ul>
@@ -285,7 +283,7 @@
 <span class="sd">        6) Blank the display, stop recording after an additional 100 milliseconds of data has been collected.</span>
 <span class="sd">        7) Report the trial result, and return an appropriate error code.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">timer</span><span class="p">,</span> <span class="n">isPsychopy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyetracking.__init__"><a class="viewcode-back" href="../../../api/mdl.eyelink.eyetracking.html#mdl.eyelink.eyetracking.Eyetracking.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">timer</span><span class="p">,</span> <span class="n">isPsychopy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize eyetracker.</span>
 
@@ -402,7 +400,7 @@
         
         <span class="c1">#----kwargs</span>
         <span class="c1"># demo</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">demo</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;demo&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;demo&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">demo</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;demo&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;demo&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="Eyetracking.connect"><a class="viewcode-back" href="../../../api/mdl.eyelink.eyetracking.html#mdl.eyelink.eyetracking.Eyetracking.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration_type</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">automatic_calibration_pacing</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">saccade_velocity_threshold</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
                 <span class="n">saccade_acceleration_threshold</span><span class="o">=</span><span class="mi">9500</span><span class="p">,</span> <span class="n">sound</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">select_parser_configuration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>

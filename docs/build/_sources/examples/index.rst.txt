@@ -6,7 +6,7 @@ Examples
 """"""""
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    R33/demographics_
    R33/download_

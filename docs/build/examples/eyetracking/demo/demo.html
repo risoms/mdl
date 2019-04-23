@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Example setup for Eyelink 1000 Plus, using PsychoPy 3.0 &#8212; mdl-R33 2019-04-23 documentation</title>
+    <title>demo\_ &#8212; mdl-R33 2019-04-23 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -109,8 +109,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../roi/roi_.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../roi/roi_.html#imports">imports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/roi_.html#REDCap">REDCap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/roi_.html#box">box</a></li>
 </ul>
 </li>
 </ul>
@@ -457,10 +455,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;../../../../../../..&#39;</span><span class="p">))</span>
-<span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">core</span>
+<span class="kn">from</span> <span class="nn">psychopy</span> <span class="k">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">core</span>
 <span class="kn">import</span> <span class="nn">mdl</span>
 </pre></div>
 </div>
@@ -470,14 +468,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">expInfo</span> <span class="o">=</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;even&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;participant&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;dominant eye&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;corrective&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;False&#39;</span><span class="p">}</span>
 <span class="n">subject</span> <span class="o">=</span> <span class="n">expInfo</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span>
 <span class="n">dominant_eye</span> <span class="o">=</span> <span class="n">expInfo</span><span class="p">[</span><span class="s1">&#39;dominant eye&#39;</span><span class="p">]</span>
 <span class="c1"># `psychopy.core.Clock.CountdownTimer` instance</span>
 <span class="n">routineTimer</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">CountdownTimer</span><span class="p">()</span>
 <span class="c1"># `psychopy.visual.window.Window` instance</span>
-<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">],</span> <span class="n">fullscr</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allowGUI</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pyglet&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">],</span> <span class="n">colorSpace</span><span class="o">=</span><span class="s1">&#39;rgb255&#39;</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">],</span> <span class="n">fullscr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allowGUI</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pyglet&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">],</span> <span class="n">colorSpace</span><span class="o">=</span><span class="s1">&#39;rgb255&#39;</span><span class="p">)</span>
 <span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -491,9 +489,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Initialize mdl.eyetracking()</span>
-<span class="n">eyetracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">libraries</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">timer</span><span class="o">=</span><span class="n">routineTimer</span><span class="p">,</span> <span class="n">demo</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eyetracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">libraries</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">timer</span><span class="o">=</span><span class="n">routineTimer</span><span class="p">,</span> <span class="n">demo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +502,7 @@ This controls the parameters to be used when running the eyetracker.<div class="
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">param</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">calibration_type</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -516,7 +514,7 @@ This step is required for recieving gaze coordinates from Eyelink->PsychoPy.<div
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">eye_used</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">set_eye_used</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="n">dominant_eye</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -528,7 +526,7 @@ When calibration has been completed, it returns ``True``.<div class="nbinput nbl
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># start calibration</span>
 <span class="n">calibration</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">calibration</span><span class="p">()</span>
 </pre></div>
@@ -538,7 +536,7 @@ When calibration has been completed, it returns ``True``.<div class="nbinput nbl
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Enter the key &quot;o&quot; on the calibration instance. This will begin the task.</span>
 <span class="c1"># The Calibration, Validation, &#39;task-start&#39; events are controlled by the keyboard.</span>
 <span class="c1"># Calibration (&quot;c&quot;), Validation (&quot;v&quot;), task-start (&quot;o&quot;) respectively.</span>
@@ -552,7 +550,7 @@ Allows printing color coded messages to console/terminal/cmd. This may be useful
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">eyetracking</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.calibration() started&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -564,7 +562,7 @@ This can be done at any point after calibration, including before and after `eye
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">drift</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">drift_correction</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -576,15 +574,15 @@ This can be done at any point after calibration, including before and after `eye
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create stimulus (demonstration purposes only).</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;8380.bmp&quot;</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/stimuli/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
 <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">)</span> <span class="c1">#image size</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#positioning image at center of screen</span>
 <span class="n">stimulus</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stimulus&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
-                            <span class="n">flipHoriz</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">flipVert</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">texRes</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span>
-<span class="n">stimulus</span><span class="o">.</span><span class="n">setAutoDraw</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+                            <span class="n">flipHoriz</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">flipVert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">texRes</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">stimulus</span><span class="o">.</span><span class="n">setAutoDraw</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 <span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 </pre></div>
@@ -594,7 +592,7 @@ This can be done at any point after calibration, including before and after `eye
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># start recording</span>
 <span class="n">eyetracking</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">trial</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -607,7 +605,7 @@ This is used for realtime data collection from Eyelink->PsychoPy.<div class="nbi
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># In the example, a participant is required to look at the bounding cross for a duration</span>
 <span class="c1"># of 2000 msec before continuing the task. If this doesn&#39;t happen and a maxinum duration of</span>
 <span class="c1"># 10000 msec has occured, drift correction will be initiated.</span>
@@ -623,7 +621,7 @@ This is used for realtime data collection from Eyelink->PsychoPy.<div class="nbi
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gxy</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span> <span class="c1"># get gaze coordinates, pupil size, and sample</span>
 </pre></div>
 </div>
@@ -633,16 +631,16 @@ This is used for realtime data collection from Eyelink->PsychoPy.<div class="nbi
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># In our example, the sampling rate of our device (Eyelink 1000 Plus) is 500Hz.</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># set current time to 0</span>
 <span class="n">lgxy</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># create list of gaze coordinates (demonstration purposes only)</span>
 <span class="n">s0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># initial timestamp</span>
 <span class="c1"># repeat</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># if difference between starting and current time is greater than &gt; 2.01 msec, collect new sample</span>
     <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;=</span> <span class="o">.</span><span class="mo">00201</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;=</span> <span class="o">.</span><span class="mi">00201</span><span class="p">:</span>
         <span class="n">gxy</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span> <span class="c1"># get gaze coordinates, pupil size, and sample</span>
         <span class="n">lgxy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gxy</span><span class="p">)</span> <span class="c1"># store in list (not required; demonstration purposes only)</span>
         <span class="n">s0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># update starting time</span>
@@ -662,7 +660,7 @@ This allows post-hoc processing of event markers (i.e. “stimulus onset”).<di
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Sending message &quot;stimulus onset&quot;.</span>
 <span class="n">eyetracking</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;stimulus onset&quot;</span><span class="p">)</span>
 </pre></div>
@@ -679,7 +677,7 @@ Also (optional) provides trial-level variables to Eyelink.<div class="admonition
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Prepare variables to be sent to Eyelink</span>
 <span class="n">variables</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">trial_type</span><span class="o">=</span><span class="s1">&#39;encoding&#39;</span><span class="p">,</span> <span class="n">race</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 <span class="c1"># Stop recording</span>
@@ -692,7 +690,7 @@ Also (optional) provides trial-level variables to Eyelink.<div class="admonition
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">eyetracking</span><span class="o">.</span><span class="n">finish_recording</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -702,7 +700,7 @@ Also (optional) provides trial-level variables to Eyelink.<div class="admonition
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>

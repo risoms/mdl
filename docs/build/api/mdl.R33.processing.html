@@ -107,8 +107,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/roi_.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#imports">imports</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#REDCap">REDCap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/roi_.html#box">box</a></li>
 </ul>
 </li>
 </ul>
@@ -285,7 +283,20 @@
 <dl class="class">
 <dt id="mdl.R33.processing.Processing">
 <em class="property">class </em><code class="descclassname">mdl.R33.processing.</code><code class="descname">Processing</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Processing raw eyetracking, behavioral, and clinical data.</p>
+<dd><p>These are the configuration parameters you can set in for analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -337,6 +348,25 @@
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="mdl.R33.processing.Processing.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>These are the configuration parameters you can set in for analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="mdl.R33.processing.Processing.append_classify">
 <code class="descname">append_classify</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.append_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.append_classify" title="Permalink to this definition">¶</a></dt>

@@ -133,7 +133,7 @@ html_copy_source = True #If true, the reST sources are included in the HTML buil
 html_show_sourcelink = True #If true (and html_copy_source is true as well), links to the reST sources will be added to the sidebar.
 
 # -- allow __init__ --------------------------------------------------------------
-autoclass_content = 'class'
+autoclass_content = 'init'
 # allows inclusion of -_init__
 def skip(app, what, name, obj, skip, options):
     if name == "__init__":
@@ -152,7 +152,7 @@ def setup(app):
 	# auto add function in toctree
 	app.add_directive('autoautosummary', AutoAutoSummary)
 	# include init
-	# app.connect("autodoc-skip-member", skip)
+	app.connect("autodoc-skip-member", skip)
 
 # -- General configuration ---------------------------------------------------
 # Sphinx will warn about all references where the target cannot be found.
