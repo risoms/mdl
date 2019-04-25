@@ -14,9 +14,9 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 #----imports
 from .download import Download
 from .roi import ROI
-import eyelink
-import R33
-import plot
-import settings
+# import eyelink
+# import R33
+# import plot
+# import settings
 
 del os, sys, breakpoint

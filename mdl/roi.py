@@ -8,6 +8,7 @@
 | @url: https://semeon.io/d/mdl
 """
 
+import sys
 import os
 import gc
 from pdb import set_trace as breakpoint
@@ -18,100 +19,103 @@ __all__ = ['ROI']
 # required external library
 __required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL','secrets']
 
+# this is a pointer to the module object instance itself.
+this = sys.modules[__name__]
+
 # local libraries
 from mdl import settings
 console = settings.console
 
 class ROI():
 	def __init__(self, source=None, destination=None, metadata=None, shape='box', **kwargs):
-		"""
-		Create single subject trial bokeh plots.
+		"""Create single subject trial bokeh plots.
 
 		Parameters
 		----------
 		source : :class:`str`
-			Source of image files.
+			Image directory path.
 		destination : :class:`str`
 			Path to save data.
-		metadata : :class:`str` or `None`
+		metadata : :class:`str` or :obj:`None`
 			Path of metadata, if metadata is read from a seperate file. If metadata is stored within the images, metadata = None.    
 		shape : :class:`str` {polygon, hull, circle, rotate, straight}
-			ROI bounds. Default is straight. `polygon` creates a Contour Approximation  and will most closely match the orginal
+			ROI bounds. Default is `straight`. `polygon` creates a Contour Approximation  and will most closely match the orginal
 			shape of the roi. `hull` creates a Convex Hull, which is similar to but not as complex as a Contour Approximation
 			and will include bulges for areas that are convex. `circle` creates a mininum enclosing circle. Finally, both
 			`rotate` and `straight` create a Bounding Rectangle, with the only  difference being compensation for the mininum
 			enclosing area for the box when using `rotate`.
-		**kwargs : optional
+		**kwargs : :obj:`str` or :obj:`None`, optional
 			Additional properties. Here's a list of available properties:
 
 			.. list-table::
 				:class: kwargs
 				:widths: 25 50
-				header-rows: 1
+				:header-rows: 1
 
 				* - Property
-					- Description
-				* - isLibrary : :class:`bool`
-					- Check if required packages have been installed. Default is False.
-				* - dformat : :class:`str`
-					- Exported data will be formatted to be read to either `dataviewer` or `raw`. Default is `raw`.
-					Note: If dformat = `dataviewer`, shape must be either be `circle`, `rotate`, or `straight`.
-				* - roi_label : :class:`bool`
-					- (if `dformat` = `dataviewer`) Name of ROI column. Default is ROI.
-				* - save_data : :class:`bool`
-					- Save coordinates. Default is True.
-				* - save_raw_image : :class:`bool`
-					- Save images. Default is False.
-				* - save_contour_image : :class:`bool`
-					- Save generated contours as images. Default is False.
-				* - level : :class:`str`
-					- Either combine output for each roi (`stimulus`) or seperate by roi (`roi`) or both (`both`). Default is `both`.
-				* - delimiter : :class:`str`
-					-  (If `source` = `psd`) How is metadata delimited, options are: `;` `,` `|` `tab` or `space` Default is `;`.
-				* - screensize : :class:`list` of `int`
-					- Monitor size is being presented. Default is [1920, 1080].
-				* - scale : :class:`int`
-					- If image is scaled during presentation, set scale. Default is 1.
-				* - center : :class:`list` of `int`
-					- Center point of image, relative to screensize. Default is [960, 540].
-				* - dpi : :class:`int` or `None`
-- Quality of exported images, refers to 'dots per inch'. Default is 300 (if `save_image`=True).
+				  - Description
+				* - **isLibrary** : :class:`bool`
+				  - Check if required packages have been installed. Default is `False`.
+				* - **dformat** : :class:`str` {dataviewer, raw}
+				  - Exported data will be formatted to be read to either `dataviewer` or `raw`. Default is `raw`. Note: If dformat = `dataviewer`, \
+				  shape must be either be `circle`, `rotate`, or `straight`.
+				* - **roi_label** : :class:`bool`
+				  - (`if dformat == dataviewer`) Name of ROI column. Default is 'ROI'.
+				* - **save_data** : :class:`bool`
+				  - Save coordinates. Default is `True.`
+				* - **save_raw_image** : :class:`bool`
+				  - Save images. Default is False.
+				* - **save_contour_image** : :class:`bool`
+				  - Save generated contours as images. Default is `False`.
+				* - **level** : :class:`str`
+				  - Either combine output for each roi (`stimulus`) or seperate by roi (`roi`) or both (`both`). Default is `both`.
+				* - **delimiter** : :class:`str`
+				  - (`if source == psd`) How is metadata delimited, options are: `;` `,` `|` `tab` or `space` Default is `;`.
+				* - **screensize** : :class:`list` [:obj:`int`]
+				  - Monitor size is being presented. Default is `[1920, 1080]`.
+				* - **scale** : :class:`int`
+				  - If image is scaled during presentation, set scale. Default is 1.
+				* - **center** : :class:`list` [:obj:`int`]
+				  - Center point of image, relative to screensize. Default is `[960, 540]`.
+				* - **dpi** : :class:`int` or :obj:`None`
+				  - (`if save_image == True`) Quality of exported images, refers to 'dots per inch'. Default is `300`.
 
 		Attributes
 		----------
-		shape_d : :class:`str`
-			DataViewer shape, either `ELLIPSE`, `FREEHAND`, or `RECTANGLE`.
-		psd: `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+		shape_d : :class:`str` {ELLIPSE, FREEHAND, RECTANGLE}
+			DataViewer ROI shape.
+		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
 		retval, threshold : :class:`numpy.ndarray`
-			Returns from :py:class:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.
-			`retval` provides an optimal threshold only if :py:class:`cv2.THRESH_OTSU` is passed. `threshold` is an image after applying
-			a binary threshold (cv2.THRESH_BINARY) removing all greyscale pixels < 127. The output matches the same image
+			Returns from :obj:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.
+			`retval` provides an optimal threshold only if :obj:`cv2.THRESH_OTSU` is passed. `threshold` is an image after applying
+			a binary threshold (:obj:`cv2.THRESH_BINARY`) removing all greyscale pixels < 127. The output matches the same image
 			channel as the original image.
-			See <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`_ and
-			`<https://www.learnopencv.com/opencv-threshold-python-cpp>`_
+			See `opencv <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`_ and
+			`leanopencv <https://www.learnopencv.com/opencv-threshold-python-cpp>`_ for more information.
 		contours, hierarchy : :class:`numpy.ndarray`
-			Returns from :py:class:`cv2.findContours`. This function returns
-			contours from the provided binary image (threshold). This is used here for later shape detection. `contours` are
-			the detected contours, while hierarchy containing information about the image topology.
-			See <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`_ for more information.
+			Returns from :obj:`cv2.findContours`. This function returns contours from the provided binary image (threshold). 
+			This is used here for later shape detection. `contours` are the detected contours, while hierarchy containing 
+			information about the image topology.
+			See `opencv <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`_ 
+			for more information.
 		image_contours : :class:`numpy.ndarray`
-			Returns from :py:class:`cv2.drawContours`. This draws filled contours from the image.
+			Returns from :obj:`cv2.drawContours`. This draws filled contours from the image.
 		image_contours : :class:`numpy.ndarray`
-			Returns from :py:class:`cv2.drawContours`. This draws filled contours from the image.
+			Returns from :obj:`cv2.drawContours`. This draws filled contours from the image.
 
 		Examples
 		--------
-		>>> import mdl.roi.ROI
+		>>> from mdl.roi import ROI
 		>>> s="/dist/example/raw/"; d="/dist/example/"
-		>>> mdl.roi.ROI(source=s, destination=d, shape='box')
+		>>> ROI(source=s, destination=d, shape='box')
 
 		Notes
 		-----
-		**Resources**
+		Resources
 		    - See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.
 		    - See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
-		    - See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds arecreated.
+		    - See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
 		"""
 
 		# check library
@@ -164,22 +168,20 @@ class ROI():
 		# check if trying to do complex ROI using dataviewer
 		if (shape in ['polygon', 'hull']) and (self.dformat is "dataviewer"):
 			raise Exception ("Cannot use shape %s when exporting for DataViewer. Please use either 'circle', 'rotate', or 'straight' instead."%(shape))
-		
-		#start code
-		self.__run__()
 	
-	@classmethod
-	def __time__(cls):
+		self.run()
+	
+	def __time__(self):
 		"""
 		Get local time in ISO-8601 format.
 		
 		Returns
 		-------
-		usi : :class:`str`
+		iso : :class:`str`
 			ISO-8601 datetime format, with timezone.
 			
-		Examples
-		--------
+		Example
+		-------
 		>>> __time__()
 		'2019-04-23 11:29:44-05:00'
 		"""
@@ -189,7 +191,7 @@ class ROI():
 		
 		return iso
 	
-	def __run__(self):	
+	def run(self):	
 		#----data
 		from pathlib import Path
 		import cv2
@@ -259,12 +261,13 @@ class ROI():
 					plt.gcf().clear()
 
 					#----load image directly from PSD
-					_image = layer.topil()
+					layer_image = layer.topil()
 					# center and resize image to template screen
-					_background = Image.new("RGB", (self.screensize[0], self.screensize[1]), (255, 255, 255))
-					_offset = ((self.screensize[0] - _image.size[0])//2,(self.screensize[1] - _image.size[1])//2)
-					_background.paste(_image, _offset)
+					_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+					layer_offset = ((self.screensize[0] - layer_image.size[0])//2,(self.screensize[1] - layer_image.size[1])//2)
+					_background.paste(layer_image, layer_offset)
 					image = np.array(_background)
+					#image = np.array(_image)
 					
 					#----prepare metadata
 					# if metadata is stored in image files directly
@@ -369,9 +372,15 @@ class ROI():
 						# for each contour
 						for ind, itm in enumerate(contours):
 							cnt = contours[ind]
+							# get minimal enclosing circle
 							(_x,_y),_r = cv2.minEnclosingCircle(cnt)
+							# convert all coordinates floating point values to int
+							roi_bounds = np.int0(cv2.boxPoints(cv2.minAreaRect(cnt)))
+							#get center and radius of circle
+							center = (int(_x),int(_y))
+							radius = int(_r)
 							#draw contours
-							roi_contours = cv2.circle(img=image, center=(int(_x),int(_y)), radius=int(_r), color=color, thickness=cv2.FILLED)
+							roi_contours = cv2.circle(img=image, center=center, radius=radius, color=color, thickness=cv2.FILLED)
 						# create bounds
 						_bounds = roi_bounds
 						# create contours
@@ -459,11 +468,17 @@ class ROI():
 							fig, ax = plt.subplots()
 							fig.canvas.flush_events()
 							## original
-							_arr = np.asarray(layer.topil())
-							ax.imshow(_arr, zorder=1, interpolation='bilinear')
+
+							#----load image directly from PSD
+							_image = layer.topil()
+							# center and resize image to template screen
+							# _background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+							# _background.paste(layer_image, layer_offset)
+							# _arr = np.array(_background)
+							# ax.imshow(_arr, zorder=2, interpolation='bilinear', alpha=1)
 							## contours
 							_arr = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
-							ax.imshow(_arr, zorder=2, interpolation='bilinear', alpha=0.3)
+							ax.imshow(_arr, zorder=1, interpolation='bilinear', alpha=1)
 							## check if path exists
 							_folder = '%s/roi/contours/final/%s'%(self.destination, self.shape)
 							if not os.path.exists(_folder):
@@ -480,7 +495,7 @@ class ROI():
 							fig.canvas.flush_events()
 
 							# create blank image
-							_img = Image.new("RGB", (self.screensize[0], self.screensize[1]), (255, 255, 255))
+							_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 							ax.imshow(_img)
 							# draw bounds
 							x0 = bounds['x0'].item()
@@ -530,7 +545,7 @@ class ROI():
 								]))
 								## create ias file
 								_filename = "%s/%s_%s_bounds"%(_folder, self.imagename, self.roiname)
-								with open("%s.txt"%(_filename), "w") as file:
+								with open("%s.ias"%(_filename), "w") as file:
 									file.write(_bounds)
 							# coordinates
 							#contours.to_csv("%s/roi/data/%s_%s_bounds.csv"%(destination, imagename, roiname), index=False)
@@ -544,7 +559,7 @@ class ROI():
 				if self.save['raw']:
 					# center and resize image to template screen
 					_image = psd.topil()
-					_background = Image.new("RGB", (self.screensize[0], self.screensize[1]), (255, 255, 255))
+					_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 					_offset = ((self.screensize[0] - _image.size[0])//2,(self.screensize[1] - _image.size[1])//2)
 					_background.paste(_image, _offset)
 					plt.imshow(np.array(_background))
@@ -575,7 +590,7 @@ class ROI():
 					]))
 					## create ias file
 					_filename = "%s/%s_bounds"%(_folder, self.imagename)
-					with open("%s.txt"%(_filename), "w") as file:
+					with open("%s.ias"%(_filename), "w") as file:
 						file.write(_bounds)
 					
 				#coord
@@ -610,9 +625,8 @@ class ROI():
 			error = pd.DataFrame(l_error, columns=['image','roi','message'])
 			error.to_csv(_filename, index=False)
 		else:
-			error = None
+			error = ''
 
-		return df, error
 
 #%% test
 # drawing image

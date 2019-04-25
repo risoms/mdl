@@ -3,7 +3,7 @@
 
 .. toctree::
 	:hidden:
-	:maxdepth: 1
+	:maxdepth: 3
 
 	intro
 	install
@@ -90,11 +90,11 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					</div>
 					<div class="panel-body">
 					<ul>
-					<li><a href="examples/download_.html">download data</a></li>
-					<li><a href="examples/process_.html">process data</a></li>
-					<li><a href="examples/demographics_.html">demographics</a></li>
-					<li><a href="examples/plots_.html">create plots</a></li>
-					<li><a href="examples/model_.html">build model</a></li>
+					<li><a href="examples/R33/download_data.html">download data</a></li>
+					<li><a href="examples/R33/process_data.html">process data</a></li>
+					<li><a href="examples/R33/process_demographics.html">demographics</a></li>
+					<li><a href="examples/R33/create_plots.html">create plots</a></li>
+					<li><a href="examples/R33/run_models.html">build model</a></li>
 					</ul>
 					</div>
 				</div>

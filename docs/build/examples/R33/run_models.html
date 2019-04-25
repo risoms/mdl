@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Models &#8212; mdl-R33 2019-04-24 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plots" href="create_plots.html" />
+    <link rel="prev" title="Download data" href="download_data.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          mdl-R33</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-24</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../genindex.html">Glossary</a></li>
+                <li><a href="../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process_data.html">Process data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="process_data.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.html">mdl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.roi.html">mdl.roi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.settings.html">mdl.settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.model.html">mdl.R33.model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyelink.html">mdl.eyelink</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.eyelink.calibration.html">mdl.eyelink.calibration</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mdl.eyelink.eyetracking.html">mdl.eyelink.eyetracking</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="process_demographics.html">Process demographics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download_data.html">Download data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process_data.html">Process data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+		<div class="toc col-md-3">
+		<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="process_demographics.html">Process demographics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download_data.html">Download data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process_data.html">Process data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a></li>
+</ul>
+
+		</div>
+		</div>
+		<div class="col-md-9 content">
+			<div class="pull-right">
+				
+				<br/>
+				
+<div id="sourcelink">
+  <a href="../../_sources/examples/R33/run_models.ipynb.txt"
+     rel="nofollow">Source</a>
+</div>
+				
+			</div>
+			
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 7ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Models">
+<h1>Models<a class="headerlink" href="#Models" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">Created on Sat May 1 15:12:38 2019</div>
+<div class="line">&#64;author: ‘Semeon Risom’</div>
+<div class="line">&#64;email: ‘<a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>’</div>
+<div class="line">&#64;url: ‘<a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>’</div>
+<div class="line">&#64;purpose: ‘Build models for analysis.’</div>
+</div>
+<div class="line-block">
+<div class="line">##### Resources: - ANOVA:</div>
+<div class="line">- <a class="reference external" href="https://m-clark.github.io/docs/mixedModels/anovamixed.html">https://m-clark.github.io/docs/mixedModels/anovamixed.html</a></div>
+<div class="line">- <a class="reference external" href="http://dwoll.de/rexrepos/posts/anovaMixed.html">http://dwoll.de/rexrepos/posts/anovaMixed.html</a></div>
+<div class="line">- <a class="reference external" href="https://rpsychologist.com/r-guide-longitudinal-lme-lmer">https://rpsychologist.com/r-guide-longitudinal-lme-lmer</a></div>
+<div class="line">- <a class="reference external" href="https://stats.stackexchange.com/questions/247582/repeated-measures-anova-in-r-errorsubject-vs-errorsubject-day">https://stats.stackexchange.com/questions/247582/repeated-measures-anova-in-r-errorsubject-vs-errorsubject-day</a></div>
+<div class="line">- <a class="reference external" href="https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html#post-hoc-contrasts-and-plotting">https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html#post-hoc-contrasts-and-plotting</a></div>
+<div class="line">- <a class="reference external" href="http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/Wieling-MixedModels-2011.pdf">http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/Wieling-MixedModels-2011.pdf</a></div>
+<div class="line">- negative-binomial poisson:</div>
+<div class="line">- <a class="reference external" href="https://stackoverflow.com/questions/47686227/poisson-regression-in-statsmodels-and-r">https://stackoverflow.com/questions/47686227/poisson-regression-in-statsmodels-and-r</a> - <a class="reference external" href="https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/">https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/</a> - <a class="reference external" href="https://stats.stackexchange.com/questions/311556/help-interpreting-count-data-glmm-using-lme4-glmer-and-glmer-nb-negative-binom">https://stats.stackexchange.com/questions/311556/help-interpreting-count-data-glmm-using-lme4-glmer-and-glmer-nb-negative-binom</a> - logistic regression: - <a class="reference external" href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/">https://stats.idre.ucla.edu/other/mult-pkg/whatstat/</a> - <a class="reference external" href="https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/">https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/</a> -
+<a class="reference external" href="https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/">https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/</a> - <a class="reference external" href="https://data.library.virginia.edu/diagnostic-plots/">https://data.library.virginia.edu/diagnostic-plots/</a></div>
+</div>
+<p>##### Imports</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#----local</span>
+<span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="n">redcap</span>
+<span class="kn">import</span> <span class="nn">mdl.model</span> <span class="k">as</span> <span class="nn">model</span>
+<span class="kn">import</span> <span class="nn">mdl.settings</span> <span class="k">as</span> <span class="nn">settings</span>
+
+<span class="c1">#----check if required libraries are available</span>
+<span class="n">is_library</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">is_library</span><span class="p">:</span>
+    <span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">()</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<p>##### Start</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">processing</span> <span class="o">=</span> <span class="n">processing</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
+<span class="n">console</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">console</span>
+</pre></div>
+</div>
+</div>
+<p>##### Analysis of Varience: Gaze and Dwell Time</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">effects</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1">#----load config</span>
+<span class="c1"># p = path_[&#39;output&#39;] + &quot;/analysis/config.json&quot;</span>
+<span class="c1"># with open(p) as f:</span>
+<span class="c1">#     config_ = json.loads(f.read())</span>
+<span class="n">config_</span> <span class="o">=</span> <span class="n">config</span>
+<span class="n">console</span><span class="p">(</span><span class="s1">&#39;fix config&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="c1">#----exclude</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="n">config_</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">]</span>
+
+<span class="c1">#----load data</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/final_data.csv&quot;</span>
+<span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">float_precision</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">)</span>
+
+<span class="c1">#-----parameters</span>
+<span class="c1"># dependent variable</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;dwell_time&#39;</span>
+<span class="c1"># main effects</span>
+<span class="n">effects</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;cesd_group&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;aoi&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;trialType&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span>
+<span class="p">}</span>
+<span class="c1"># random effects</span>
+<span class="n">effects</span><span class="p">[</span><span class="s1">&#39;random&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;participant&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span>
+<span class="p">}</span>
+<span class="c1"># formula</span>
+<span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> ~ cesd_group + aoi + trialType + (1|participant)&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1">#----save data for access by R and for calculating dwell time</span>
+<span class="n">csv</span> <span class="o">=</span> <span class="s2">&quot;dwell_data.csv&quot;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/model/anova/&quot;</span>
+
+<span class="c1">#-----calculate dwell time using multiprocessing</span>
+<span class="c1"># use __name__ to protect main module</span>
+<span class="n">df_dwell</span><span class="p">,</span> <span class="n">error_dwell</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">dwell</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="kc">None</span>
+
+<span class="c1">#----normalize dwell_time for comparison between iaps and pofa</span>
+<span class="n">df_dwell</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">4500</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;trialType&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;iaps&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">3000</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#-----exclude participants, group by subject:trialType:aoi</span>
+<span class="c1"># exclude participants</span>
+<span class="n">df_dwell</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="p">[</span><span class="o">~</span><span class="n">df_dwell</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">exclude</span><span class="p">)]</span>
+<span class="c1"># groupby</span>
+<span class="n">df_dwell</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;participant&#39;</span><span class="p">,</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">,</span><span class="s1">&#39;trialType&#39;</span><span class="p">,</span><span class="s1">&#39;aoi&#39;</span><span class="p">])[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1">#-----run</span>
+<span class="n">anova_</span><span class="p">,</span> <span class="n">anova_result</span><span class="p">,</span> <span class="n">anova_r</span><span class="p">,</span> <span class="n">html</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">anova</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config_</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_dwell</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="n">csv</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">effects</span><span class="o">=</span><span class="n">effects</span><span class="p">)</span>
+
+<span class="c1">#-----delete</span>
+<span class="k">del</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<p>##### Linear Mixed Model Regression: Stimulus and Dotloc Onset Error</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">effects</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># #----load config</span>
+<span class="c1"># p = path_[&#39;output&#39;] + &quot;/analysis/config.json&quot;</span>
+<span class="c1"># with open(p) as f:</span>
+<span class="c1">#     config_ = json.loads(f.read())</span>
+<span class="n">config_</span> <span class="o">=</span> <span class="n">config</span>
+<span class="n">console</span><span class="p">(</span><span class="s1">&#39;fix config&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="c1">#----load data</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/error.csv&quot;</span>
+<span class="c1">#df_error = pd.read_csv(p_error, float_precision=&#39;high&#39;)</span>
+<span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">float_precision</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">)</span>
+
+<span class="c1">#----parameters</span>
+<span class="c1"># dependent variable</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;diff_stim&#39;</span><span class="p">,</span><span class="s1">&#39;diff_dotloc&#39;</span><span class="p">]</span> <span class="c1">#build models for each IV in list</span>
+<span class="c1"># fixed effects</span>
+<span class="n">effects</span><span class="p">[</span><span class="s1">&#39;fixed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;os&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;trialType&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TrialNum&#39;</span><span class="p">:</span> <span class="s1">&#39;factorial&#39;</span>
+<span class="p">}</span>
+<span class="c1"># random effects</span>
+<span class="n">effects</span><span class="p">[</span><span class="s1">&#39;random&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;TrialNum&#39;</span><span class="p">:</span> <span class="s1">&#39;factorial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;participant&#39;</span><span class="p">:</span> <span class="s1">&#39;factorial&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">#----save data for access by R and for calculating dwell time</span>
+<span class="n">csv</span> <span class="o">=</span> <span class="s2">&quot;onset_data.csv&quot;</span>
+
+<span class="c1">#----run model for each IV</span>
+<span class="k">for</span> <span class="n">_y</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+    <span class="c1"># path</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/model/lmer/&quot;</span>
+    <span class="c1"># formula</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;sqrt(</span><span class="si">%s</span><span class="s2">) ~ os + trialType + TrialNum + (1+TrialNum|participant)&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">_y</span><span class="p">)</span>
+    <span class="c1"># run</span>
+    <span class="n">lmer_</span><span class="p">,</span> <span class="n">lmer_result</span><span class="p">,</span> <span class="n">lmer_r</span><span class="p">,</span> <span class="n">html</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">lmer</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config_</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">_y</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="n">csv</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">effects</span><span class="o">=</span><span class="n">effects</span><span class="p">)</span>
+
+<span class="c1">#-----delete</span>
+<span class="k">del</span> <span class="n">y</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<p>##### Analysis of Varience: Gaze and Dotprobe bias</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">effects</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># #----load config</span>
+<span class="c1"># p = path_[&#39;output&#39;] + &quot;/analysis/config.json&quot;</span>
+<span class="c1"># with open(p) as f:</span>
+<span class="c1">#     config_ = json.loads(f.read())</span>
+<span class="n">config_</span> <span class="o">=</span> <span class="n">config</span>
+<span class="n">console</span><span class="p">(</span><span class="s1">&#39;fix config&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1">#----load data</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/final_data.csv&quot;</span>
+<span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">float_precision</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">)</span>
+
+<span class="c1">#-----exclude participants, group by subject</span>
+<span class="c1"># exclude participants</span>
+<span class="n">df_</span> <span class="o">=</span> <span class="n">df_</span><span class="p">[</span><span class="o">~</span><span class="n">df_</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">exclude</span><span class="p">)]</span>
+
+<span class="c1"># groupby</span>
+<span class="n">df_</span> <span class="o">=</span> <span class="n">df_</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_</span><span class="p">[</span><span class="s1">&#39;nested&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;trialType&#39;</span><span class="p">]</span>
+
+<span class="c1">#----parameters</span>
+<span class="c1"># dependent variable</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dp_bias&#39;</span><span class="p">,</span><span class="s1">&#39;gaze_bias&#39;</span><span class="p">]</span>
+<span class="c1"># main effects</span>
+<span class="n">effects</span><span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;cesd_group&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;trialType&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span>
+<span class="p">}</span>
+<span class="c1"># random effects</span>
+<span class="n">effects</span><span class="p">[</span><span class="s1">&#39;random&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;participant&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span>
+<span class="p">}</span>
+
+<span class="c1">#----create function for each IV</span>
+<span class="k">for</span> <span class="n">_y</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+    <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: ANOVA (</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_y</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="c1">#----save data for access by R</span>
+    <span class="n">csv</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.csv&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">_y</span><span class="p">)</span>
+    <span class="c1">#-----path</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/model/anova/&quot;</span>
+    <span class="c1">#-----formula</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> ~ cesd_group + trialType + (1|participant)&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">_y</span><span class="p">)</span>
+    <span class="c1">#-----run</span>
+    <span class="n">anova_</span><span class="p">,</span> <span class="n">anova_result</span><span class="p">,</span> <span class="n">anova_r</span><span class="p">,</span> <span class="n">html</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">anova</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">_y</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="n">csv</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">effects</span><span class="o">=</span><span class="n">effects</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+			&copy; Copyright 2019, Semeon Risom.<br/>
+			Updated 2019-04-24T13:19:44-05:00.<br/>
+			Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>

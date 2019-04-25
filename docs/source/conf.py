@@ -6,6 +6,7 @@
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+
 # Sphinx toctree include functions -------------------------------------------------------------------------------------
 from sphinx.ext.autosummary import Autosummary
 from sphinx.ext.autosummary import get_documenter
@@ -53,7 +54,29 @@ class AutoAutoSummary(Autosummary):
 import re
 import os
 import sys
+import time
 import datetime
+
+def iso():
+	"""
+	Get local time in ISO-8601 format.
+	
+	Returns
+	-------
+	iso : :class:`str`
+		ISO-8601 datetime format, with timezone.
+		
+	Examples
+	--------
+	>>> __time__()
+	'2019-04-23 11:29:44-05:00'
+	"""
+	import datetime
+	
+	iso = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
+	
+	return iso
+
 path = os.path.abspath(os.getcwd()+ '../../../') 
 print('path %s'%(path))
 # module directory
@@ -68,7 +91,6 @@ import mdl
 
 project = 'mdl-R33'
 author = 'Semeon Risom'
-import time
 copyright = u'{}, Semeon Risom'.format(time.strftime("%Y"))
 
 #datetime = datetime.datetime.now().replace(microsecond=0).replace(second=0).isoformat()
@@ -78,7 +100,8 @@ version = '%s'%(date)
 # The full version, including alpha/beta/rc tags
 release = version
 # 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
-html_last_updated_fmt = '%s'%(date)
+isodate = iso()
+html_last_updated_fmt = '%s'%(isodate)
 
 # Extensions -----------------------------------------------------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
@@ -152,7 +175,7 @@ def setup(app):
 	# auto add function in toctree
 	app.add_directive('autoautosummary', AutoAutoSummary)
 	# include init
-	app.connect("autodoc-skip-member", skip)
+	# app.connect("autodoc-skip-member", skip)
 
 # -- General configuration ---------------------------------------------------
 # Sphinx will warn about all references where the target cannot be found.

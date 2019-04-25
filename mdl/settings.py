@@ -84,7 +84,11 @@ def link(name, url):
 
 	Examples
 	--------
-	>>>.. html: <a href="#boxplot" class="anchor">boxplot</a>'''
+	>>> link(name=roi, url="#boxplot")
+	
+	.. code-block:: html
+		
+		<a href="#boxplot" class="anchor">roi</a>
 	"""
 
 	_link = '<a href="%s" class="anchor">%s</a>' % (url, name)
@@ -103,11 +107,11 @@ def popover(name, title, description, url=None, **kwargs):
 		Title of variable in popover.
 	description : :class:`str`
 		Description of variable in popover.
-	url : :class:`str` or `str`
+	url : :class:`str` or :obj:`str`
 		URL to include. Default `None`.
-	**kwargs : :obj:`str` or `None`, optional
+	**kwargs : :obj:`str` or :obj:`None`, optional
 		Additional properties, relevent for specific content types. Here's a list of available properties:
-		
+
 		.. list-table::
 			:class: kwargs
 			:widths: 25 50
@@ -117,26 +121,21 @@ def popover(name, title, description, url=None, **kwargs):
 			- Description
 			* - img : :obj:`dict` {'src': :obj:`str`,'className': :obj:`str`}
 			- Create an image to be included in the popover
-				
-
-	Other Parameters
-	----------------
-	**kwargs : :class:`str`
-	HTML <a> element.
 
 	Returns
 	-------
 	link : :class:`str`
-	HTML <a> element.
+		HTML <a> element.
 
 	Examples
 	--------
-	>>> name = "anova"
-	>>> title = "Statistical Models in S"
 	>>> description = "Chambers, J., Hastie, T. (1992). Statistical Models in S. Wadsworth & Brooks/Cole."
-	>>> popover(name=name, title=title, description=description)
-	<a tabindex="0" class="popover-anchor" link-id="anova" data-toggle="popover" data-content="Chambers, J., Hastie, T. (1992). \
-	Statistical Models in S. Wadsworth & Brooks/Cole." title="" data-original-title="Statistical Models in S">Chambers, Hastie, 1992</a>
+	>>> popover(name="anova", title="Statistical Models in S", description=description)
+
+	.. code-block:: html 
+		
+		<a tabindex="0" class="popover-anchor" link-id="anova" data-toggle="popover" data-content="Chambers, J., Hastie, T. (1992). \
+		Statistical Models in S. Wadsworth & Brooks/Cole." title="" data-original-title="Statistical Models in S">Chambers, Hastie, 1992</a>
 	"""
 	# img
 	img = kwargs['img'] if 'img' in kwargs else False

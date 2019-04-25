@@ -1,4 +1,4 @@
-.. _examples:
+.. examples:
 
 .. title: examples
 
@@ -6,12 +6,12 @@ Examples
 """"""""
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
-   R33/demographics_
-   R33/download_
-   R33/model_
-   R33/plot_
-   R33/process_
-   eyetracking/demo/demo
-   roi/roi_
+   Process demographics <R33/process_demographics>
+   Download data <R33/download_data>
+   Run models <R33/run_models>
+   Create plots <R33/create_plots>
+   Process data <R33/process_data>
+   Eyetracking demo <eyetracking/demo/eyetracking_demo>
+   Region of Interest <roi/generate_roi>

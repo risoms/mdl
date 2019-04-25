@@ -1422,7 +1422,7 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
     raw_data : :class:`pandas.DataFrame`
         Pandas dataframe of raw data.
     name : :obj:`str`
-        The name of csv file created (source=logit only).
+        (py::`if source is logit`) The name of csv file created.
     path : :obj:`str`
         The directory path of the html file.
     plots : :obj:`dict`
@@ -1443,7 +1443,7 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
         The footnote of the table or figure.
     metadata : :obj:`dict`
         Additional data to be included.
-    **kwargs : :obj:`str` or `None`, optional
+    **kwargs : :obj:`str`, :obj:`int`, or :obj:`None`, optional
         Additional properties, relevent for specific content types. Here's a list of available properties:
             
         .. list-table::
@@ -1453,15 +1453,15 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
            
            * - Property
              - Description
-           * - short, long : :obj:`str`
+           * - **short**, **long** : :obj:`str`
              - Short (aoi) and long form (Area of Interest) label of html page. This is primarily used for constructing metadata tags in html.
-           * - display : :obj:`str`
+           * - **display** : :obj:`str`
              - (For bokeh) The type of calibration/validation display.
-           * - trial : :obj:`str`
+           * - **trial** : :obj:`str`
              - (For bokeh) The trial number for the eyetracking task.
-           * - session : :obj:`int`
+           * - **session** : :obj:`int`
              - (For bokeh) The session number for the eyetracking task.
-           * - day : :obj:`str`
+           * - **day** : :obj:`str`
              - (For bokeh) The day the eyetracking task was run.
 
     Returns

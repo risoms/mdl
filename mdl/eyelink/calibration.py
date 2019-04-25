@@ -20,19 +20,18 @@ import array
 from math import sin, cos, pi
 from PIL import Image
 import numpy as np
+import sys
 
 #---psychopy
 from psychopy import visual, event, sound
 
 #----package
-if __name__ == '__main__':
-	import pylink
+import pylink
 
-class Calibration():
-    """This allows mdl.eyetracking package to initiate calibration/validation/drift correction."""
+class Calibration(pylink.EyeLinkCustomDisplay):
     def __init__(self, w, h, tracker, window):
         """
-        Initialize mdl.calibration module.
+        This allows mdl.eyetracking package to initiate calibration/validation/drift correction.=.
 
         Parameters
         ----------
@@ -40,7 +39,7 @@ class Calibration():
             Screen width, height.
         tracker : :class:`object`
             Eyelink tracker instance.
-        window : :class:`psychopy.visual.window.Window`
+        window :  `psychopy.visual.Window <https://www.psychopy.org/api/visual/window.html#window>`_
             PsychoPy window instance.
         """
         #---setup display
@@ -83,8 +82,7 @@ class Calibration():
         
         #----title
         self.msgHeight = self.size[1]/20.0
-        y = (-self.size[1]) / 2 - self.msgHeight
-        self.title = visual.TextStim(win=self.window, text='', pos=(0,y), 
+        self.title = visual.TextStim(win=self.window, text='', pos=(0,-self.size[1]/2-self.msgHeight), 
                                     units='pix', height=self.msgHeight, bold=False, color='black', 
                                     colorSpace='rgb', opacity=1, alignVert='center', wrapWidth=self.w)
         self.title.fontFiles = [self.path + "dist\\utils\\Helvetica.ttf"]
@@ -197,12 +195,7 @@ class Calibration():
     def draw_lozenge(self, x, y, width, height, colorindex):
         """
         Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.
-		
-        Returns
-        -------
-        [type]
-			[description]
-        """
+		"""
         width = width * self.img_scaling_factor
         height = height * self.img_scaling_factor
         y = (-y + self.size[1]/2)* self.img_scaling_factor
@@ -351,5 +344,3 @@ class Calibration():
             bf = int(r[i])
             self.pal.append((rf<<16) | (gf<<8) | (bf))
             i = i + 1
-
-del breakpoint

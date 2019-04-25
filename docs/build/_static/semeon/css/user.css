@@ -114,7 +114,19 @@ a{
     color: #2196f3 !important;
 	font-weight: 400 !important;
 }
+/* jupyter */
+.nbinput>.prompt.highlight-none.notranslate {
+    display: none !important;
+}
+
 /*--class and methods--*/
+.class>dd>.docutils {
+    /* background-color: #ededed; */
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap !important;
+    white-space: -o-pre-wrap !important;
+    word-wrap: break-word !important;
+}
 dd p{
 	margin: 0px;
 }
@@ -213,14 +225,38 @@ tbody>tr:nth-of-type(1)>td {
     border-top: none !important;
 }
 
+/*--notes--*/
+.section>.info{
+	margin-bottom: 12px;
+}
+.section>.info>p{
+	margin: 0px !important;
+}
+.section>.list-container {
+    list-style-type: none !important;
+    padding-inline-start: 0px !important;
+}
+.section>.list-container>li>ol>li>p {
+    margin-bottom: 6px;
+}
+.alert-info {
+	color: #444444 !important;
+    background-color: #e7f2fa !important;
+    border-left: 5px solid #6ab0de !important;
+}
+.alert-warning {
+	color: #444444 !important;
+    background-color: #f0b37e !important;
+    border-left: 5px solid #ffedcc !important;
+}
 /*--code--*/
 @media (max-width: 768px) {
 	.notranslate>div>pre{
-		white-space: pre-wrap !important;
+		/* white-space: pre-wrap !important;
 		white-space: -moz-pre-wrap !important;
 		white-space: -pre-wrap !important;
 		white-space: -o-pre-wrap !important;
-		word-wrap: break-word !important;
+		word-wrap: break-word !important; */
 	}
 }
 .rubric{

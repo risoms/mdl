@@ -20,8 +20,6 @@ from mdl import settings
 __required__ = ['paramiko','openpyxl','requests','ftplib','pandas']
 
 class Download():
-    """Resource for downloading files from Box, SSH, REDCap and others."""
-    @classmethod
     def __init__(cls, isLibrary=False):
         """Download raw data from apache, Box, or REDCap servers.
 
@@ -55,9 +53,9 @@ class Download():
                 >>> url = 'https://redcap.prc.utexas.edu/redcap/api/'.
         content : :obj:`str` {report, file, raw, arm, instrument, returnFormat, metadata, project, surveyLink, user, participantList}
             Type of export. Examples include exporting a report (`report`), file (`file`), or project info (`project`).
-        payload_ : :obj:`dict` or `None`, optional
+        payload_ : :obj:`dict` or :obj:`None`, optional
             Manually submit parameters for exporting or importing data. Can be entered within the function for convenience.
-        **kwargs : :obj:`str` or `None`, optional
+        **kwargs : :obj:`str` or :obj:`None`, optional
             Additional properties, relevent for specific content types. Here's a list of available properties:
 
             .. list-table::
@@ -67,26 +65,26 @@ class Download():
 
                 * - Property
                   - Description
-                * - report_id : :obj:`str`
+                * - **report_id** : :obj:`str`
                   - (report, record) The report ID number provided next to the report name on the report list page.
-                * - cformat : :obj:`str` {csv, json, xml, odm}
+                * - **cformat** : :obj:`str` {csv, json, xml, odm}
                   - Format to return data, either csv, json, xml, or odm. Default is json.
-                * - ctype : :obj:`str`
+                * - **ctype** : :obj:`str`
                   - Shape of data. Default is flat.
-                * - rawOrLabel: :obj:`str` {raw, label}
+                * - **rawOrLabel**: :obj:`str` {raw, label}
                   - (report, record) TExport the raw coded values or labels for the options of multiple choice fields.
-                * - rawOrLabelHeaders: :obj:`str`
+                * - **rawOrLabelHeaders**: :obj:`str`
                   - (report, record) TExport the variable/field names (raw) or the field labels (label).
-                * - exportCheckboxLabel: :obj:`str`
+                * - **exportCheckboxLabel**: :obj:`str`
                   - Specifies the format of checkbox field values specifically when exporting the data as labels (i.e., when rawOrLabel=label).
-                * - returnFormat : :obj:`str`
+                * - **returnFormat** : :obj:`str`
                   -  Format to return errors. Default is `json`.
 
         Returns
         -------
-        log : :obj:`pandas.DataFrame` or `None`
+        log : :obj:`pandas.DataFrame` or :obj:`None`
             Pandas dataframe of each download request.
-        content : :obj:`pandas.DataFrame` or `None`
+        content : :obj:`pandas.DataFrame` or :obj:`None`
             Pandas dataframe of all data downloaded.
         start, end : :obj:`str`
             Timestamp (ISO format) and name of most recent (`end`) and first (`start`) file created in folder.
@@ -249,7 +247,7 @@ class Download():
             SFTP username.
         password : :obj:`str`
             SFTP password.
-        **kwargs : :obj:`str` or `None`, optional
+        **kwargs : :obj:`str` or :obj:`None`, optional
             Additional properties, relevent for specific content types. Here's a list of available properties:
 
             .. list-table::
@@ -259,14 +257,14 @@ class Download():
 
                 * - Property
                   - Description
-                * - filetype : ::obj:`str` or `None`
+                * - **filetype** : ::obj:`str` or :obj:`None`
                   - Filetype to download. Default is csv.
 
         Returns
         -------
-        log : :obj:`pandas.DataFrame` or `None`
+        log : :obj:`pandas.DataFrame` or :obj:`None`
             Pandas dataframe of each download request.
-        content : :obj:`pandas.DataFrame` or `None`
+        content : :obj:`pandas.DataFrame` or :obj:`None`
             Pandas dataframe of all files downloaded.
         start, end : :obj:`str`
             Timestamp (ISO format) and name of most recent (`end`) and first (`start`) file created in folder.
