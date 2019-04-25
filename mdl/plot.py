@@ -36,12 +36,12 @@ from mdl import settings
 console = settings.console
 debug = settings.debug
 
-def _font():
+def __font__():
 	"""Add Helvetica to matplotlib."""
 	from matplotlib import matplotlib_fname, rcParams
 	import matplotlib.font_manager as font_manager
 
-	directory = matplotlib_fname().replace("/matplotlibrc", "")
+	directory = matplotlib_fname().replace("/matplotlibrc/", "")
 	destination = f'{directory}/fonts/ttf'
 	file = settings.path['home'] + "/dist/resources/Helvetica.ttf"
 
@@ -77,8 +77,7 @@ def bokeh_trial(config, df, stim_bounds, roi_bounds, flt):
     flt : :class:`str`
         Filter type.
     """
-
-	#-------bokeh
+	#----bokeh
     from bokeh.core.properties import value
     from bokeh.plotting import reset_output, figure
     from bokeh.models import HoverTool, Range1d, BoxAnnotation, ColumnDataSource, CDSView, BooleanFilter
@@ -365,7 +364,6 @@ def bokeh_calibration(config, df, cxy, event, monitorSize=[1920,1080]):
     monitorSize : :obj:`list`
         Monitor size, in pixels.
     """
-
     from bokeh.plotting import reset_output, figure
     from bokeh.models import Range1d, ColumnDataSource
     from bokeh.embed import components
@@ -534,6 +532,9 @@ def onset_diff_plot(config, df, meta, drop, y, clip=None):
     odp
         Bokeh or seaborn plot.
     """
+    #----initiate fonts
+    __font__()
+    
     #setting clip
     clip = 200 if clip == None else clip
     
@@ -637,6 +638,9 @@ def density_plot(config, df, title):
     cm
         Bokeh or seaborn plot.
     """
+    #----initiate fonts
+    __font__()
+    
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -1009,6 +1013,108 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     console('%s finished in %s msec'%(_f,((datetime.datetime.now()-_t0).total_seconds()*1000)), 'blue')
     return cm
 
+def single_subject(self, df, path):
+    """Create single subject scatterplot using seaborn and pandas.
+
+    Parameters
+    ----------
+    df : :class:`pandas.DataFrame`
+        Pandas dataframe of raw data.
+    path : :obj:`str`
+        The directory path to save the bokeh or seaborn plot.
+
+    Returns
+    -------
+    cm
+        Bokeh or seaborn plot.
+    """
+    #----initiate fonts
+    __font__()
+    
+    #timestamp
+    _t0 = datetime.datetime.now()
+    _f = debug(message='t', source="timestamp")
+    console('running single_subject()', 'blue')
+    
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    importlib.reload(plt); importlib.reload(sns)
+    
+    #styling plot
+    sns.set(style="darkgrid", font_scale=1, font="Helvetica")
+    sns.set_context("paper")
+
+    #events
+    events = self.config['events']
+    
+    #get first pofa and iaps
+    first = df.drop_duplicates('trialType', keep='first')['TrialNum'].tolist()
+    
+    #get display size
+    xy = [int(i) for i in (df['monitorSize.px'].values[0]).split('x')]
+    
+    #drop x - outside coordinates
+    df = df.loc[~(df['sg_x']<0)] #drop all gaze_x < 0
+    df = df.loc[~(df['sg_x']>xy[0])] #drop all gaze_x > width
+    
+    #drop timestamp - outside coordinates
+    df = df.loc[~(df['timestamp']>8000)]
+    
+    #drop all non fixations
+    df = df.loc[~(df['sg_fix_all']==False)]
+    
+    #loop to draw event markers
+    def xline(x, **kwargs):
+        data = kwargs.pop("data")
+        trialType = data['trialType'].values[0]
+        TrialNum = data['TrialNum'].values[0]
+        #check if first iaps or first pofa
+        if TrialNum in first:
+            #fixation onset
+            time = events['fixation']
+            plt.axvline(x=0, c='red', linewidth=2)
+            ##annotation
+            plt.text(s="Fixation Onset", x=(0 + 100), y=(xy[0] - 25), fontsize=12)
+            #fixation offset
+            time = events['fixation']
+            plt.axvline(x=time, c='red', linewidth=2)
+            ##annotation
+            plt.text(s="Stimulus Offset", x=(time + 100), y=(xy[0] - 25), fontsize=12)
+            #stimulus offset
+            time = events['fixation'] + events['stimulus'][trialType]
+            #line
+            plt.axvline(x=time, c='red', linewidth=2)
+            #annotation
+            plt.text(s="Dotloc Offset", x=(time + 100), y=(xy[0] - 25), fontsize=12)
+        
+    #plot    
+    pal = sns.color_palette("RdBu", n_colors=192)    
+    sp = sns.FacetGrid(col="trialType", data=df, height=5, palette=pal, hue="TrialNum")
+    sp.map(plt.scatter, "timestamp", "sg_x", alpha=0.3, s=10)
+    sp.map_dataframe(xline, x="timestamp")
+            
+    #post
+    ax = sp.axes.flatten()
+    ax[0].set_ylabel("Gaze Coordinates (x)", fontdict={'fontsize':12})
+    ax[0].set_title("trialType = IAPS", fontdict={'fontsize':12})
+    ax[0].tick_params(labelsize=12)
+    ax[1].set_title("trialType = POFA", fontdict={'fontsize':12})
+    ax[1].tick_params(labelsize=12)
+    
+    #size
+    sp.fig.set_size_inches(20,10)
+    
+    #save
+    sp.savefig(path, dpi=300)
+    
+    #clear figure from memory
+    plt.close()
+    
+    #--------finished
+    #timestamp
+    console('%s finished in %s msec'%(_f,((datetime.datetime.now()-_t0).total_seconds()*1000)), 'blue')
+    return plt 
+
 def boxplot(config,df,path=None,x=None,y=None,title=None,plots=None,cat='analysis'):
     """
     Creates boxplot using seaborn and pandas.
@@ -1032,6 +1138,9 @@ def boxplot(config,df,path=None,x=None,y=None,title=None,plots=None,cat='analysi
     cat : :obj:`str`
         Type of plot.
     """ 
+    #----initiate fonts
+    __font__()
+    
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -1165,6 +1274,9 @@ def cooks_plot(config, y, model, path, df):
     res
         seaborn plot.
     """
+    #----initiate fonts
+    __font__()
+    
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -1232,6 +1344,9 @@ def residual_plot(config, y, residuals, path):
     lmp
         seaborn plot.
     """
+    #----initiate fonts
+    __font__()
+    
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -1304,6 +1419,9 @@ def qq_plot(config, y, residuals, path):
     lmp
         seaborn plot.
     """
+    #----initiate fonts
+    __font__()
+    
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -1370,6 +1488,9 @@ def logit_plot(config,df,path,param):
     lmp
         seaborn plot.
     """
+    #----initiate fonts
+    __font__()
+    
     #----for timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
@@ -1469,6 +1590,9 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
     html : :obj:`str`
         String of html code.
     """
+    #----initiate fonts
+    __font__()
+    
     #timestamp
     date = datetime.datetime.now().replace(microsecond=0).strftime('%Y-%m-%d %H:%M:%S')
     _t0 = datetime.datetime.now()
@@ -1963,6 +2087,3 @@ def html(config, df=None, raw_data=None, name=None, path=None, plots=None, sourc
     #--------finished
     console('%s finished in %s msec'%(_f,((datetime.datetime.now()-_t0).total_seconds()*1000)), 'blue')
     return html
-
-# initiate
-_font()
