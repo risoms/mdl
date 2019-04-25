@@ -26,9 +26,11 @@ import sys
 from psychopy import visual, event, sound
 
 #----package
-import pylink
+if __name__ is '__main__':
+	import pylink
 
-class Calibration(pylink.EyeLinkCustomDisplay):
+#class Calibration(pylink.EyeLinkCustomDisplay):
+class Calibration():
     def __init__(self, w, h, tracker, window):
         """
         This allows mdl.eyetracking package to initiate calibration/validation/drift correction.=.
@@ -44,10 +46,10 @@ class Calibration(pylink.EyeLinkCustomDisplay):
         """
         #---setup display
         pylink.EyeLinkCustomDisplay.__init__(self)
-        
+  
         #----flags
         self.is_calibration = True
-        
+  
         #----window
         self.window = window
         self.bg_color = self.window.color

@@ -34,7 +34,6 @@ from mdl import settings
 if __name__ == '__main__':
 	import pylink
 
-
 class Eyetracking():
     def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
         """

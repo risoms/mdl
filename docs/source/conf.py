@@ -60,12 +60,12 @@ import datetime
 def iso():
 	"""
 	Get local time in ISO-8601 format.
-	
+
 	Returns
 	-------
 	iso : :class:`str`
 		ISO-8601 datetime format, with timezone.
-		
+	
 	Examples
 	--------
 	>>> __time__()
@@ -84,7 +84,7 @@ sys.path.append(path)
 sys.path.append('/anaconda3/lib/python3.6/site-packages/')
 
 # Path setup -----------------------------------------------------------------------------------------------------------
-autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL"]
+autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL", 'pylink', 'pylink.EyeLinkCustomDisplay']
 
 # Project information --------------------------------------------------------------------------------------------------
 import mdl
@@ -133,13 +133,13 @@ extensions = [
 autosummary_generate = True
 autodoc_default_options = {
     'member-order': 'bysource',
-    'private-members': True,
+    'private-members': False,
     'undoc-members': False,
 }
 
 # -- apidoc --------------------------------------------------------------	
 def run_apidoc(app):
-    """Generage API documentation"""
+    """Generate API documentation"""
     import better_apidoc
     better_apidoc.APP = app
     better_apidoc.main([
