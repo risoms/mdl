@@ -196,7 +196,8 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build','**.ipynb_checkpoints','run.rst','notes.rst','api/setup.rst','setup','api/pylink.rst']
+exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup', 'api/pylink.rst', 
+'api/mdl.rst', 'api/mdl.R33.rst', 'api/mdl.eyelink.rst', 'api/mdl.roi.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'

@@ -2,7 +2,7 @@ function template
 -----------------
 
 :mod:`{{module}}`.{{objname}}
-{{ underline }}====================
+{% for item in range(8 + :mod:`{{module}}`.{{objname}}|length) -%}~{%- endfor %}
 
 .. currentmodule:: {{ module }}
 

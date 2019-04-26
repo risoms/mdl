@@ -14,7 +14,6 @@ mdl
 	
 		mdl.download
 		mdl.plot
-		mdl.roi
 		mdl.settings
 	
 		mdl.R33

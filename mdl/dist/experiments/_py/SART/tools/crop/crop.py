@@ -131,6 +131,6 @@ while True:
         
         exit()    
     #--------------------------------------------------------------------------------------------------end logging
-    except Exception, e: 
+    except Exception as e: 
         logger.error(e, exc_info=True)
         exit()

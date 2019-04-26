@@ -12,8 +12,6 @@ import mdl
 i = '/Users/mdl-admin/Desktop/roi/raw/'
 o = '/Users/mdl-admin/Desktop/roi/output/'
 m = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'
-roi = mdl.eyetracking.ROI(image_path=i, output_path=o, s_metadata=m, shape='straight', 
-						  scale=0.75, screensize=[1920,1080], 
-						  dformat='dataviewer', roiname="feature")
-roi.process()
-#roi.create()
+roi = mdl.eyetracking.ROI(isMultiprocessing=True, image_path=i, output_path=o, s_metadata=m, scale=0.75, 
+						  screensize=[1920,1080], shape='straight', f_roi='dataviewer', roiname="feature")
+df, error = roi.process()

@@ -126,5 +126,5 @@ while True:
             new_img = Image.blend(face, scene, blend)
             new_img.save(dnew+"/"+lcombine[i][0]+"_"+lcombine[i][1]+".png","PNG")
     #--------------------------------------------------------------------------------------------------end logging
-    except Exception, e: 
+    except Exception as e: 
         logger.error(e, exc_info=True)

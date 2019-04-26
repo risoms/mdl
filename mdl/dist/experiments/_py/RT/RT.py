@@ -411,7 +411,7 @@ while True:
         core.quit()
 
     #--------------------------------------------------------------------------------------------------end logging
-    except Exception, e: 
+    except Exception as e: 
         logger.error(e, exc_info=True)
         win.close()
         core.quit()

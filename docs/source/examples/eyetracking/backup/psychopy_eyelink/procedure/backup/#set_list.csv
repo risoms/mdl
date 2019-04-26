@@ -1,4 +1,0 @@
-block_display,block_event,order,block_file,break_display
-inst_2,comp_1,0,procedure\0.csv,break
-cont_inst,comp_2,1,procedure\1.csv,break
-cont_inst,comp_3,2,procedure\2.csv,blank

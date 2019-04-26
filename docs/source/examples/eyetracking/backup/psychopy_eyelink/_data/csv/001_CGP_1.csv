@@ -1,3 +1,0 @@
-block_event,order,block_display,block_file,break_display,valmean,valence,scenestim,arousal,outliers,blocknum,arousalmean,Introduction_Loop.thisRepN,Introduction_Loop.thisTrialN,Introduction_Loop.thisN,Introduction_Loop.thisIndex,block_loop.thisRepN,block_loop.thisTrialN,block_loop.thisN,block_loop.thisIndex,Trial_Loop.thisRepN,Trial_Loop.thisTrialN,Trial_Loop.thisN,Trial_Loop.thisIndex,block_key.keys,block_key.rt,date,frameRate,expName,Participant,
-comp_1,0,inst_2,procedure\0.csv,break,6.71,Positive,2030.bmp,High,0,0,4.54,,,,,0,0,0,0,0,0,0,0,return,0.491830132727,2016_Jun_04_1357,119.944464913,CGP,001,
-comp_1,0,inst_2,procedure\0.csv,break,3.34,Negative,2120.bmp,High,0,0,5.18,,,,,0,0,0,0,0,1,1,1,,,2016_Jun_04_1357,119.944464913,CGP,001,

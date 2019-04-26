@@ -14,6 +14,7 @@ mdl.eyelink
 	
 		mdl.eyelink.calibration
 		mdl.eyelink.eyetracking
+		mdl.eyelink.roi
 	
 	
 	

@@ -1,7 +1,0 @@
-block_event,order,block_display,block_file,break_display,valmean,valence,scenestim,arousal,outliers,blocknum,arousalmean,Introduction_Loop.thisRepN,Introduction_Loop.thisTrialN,Introduction_Loop.thisN,Introduction_Loop.thisIndex,block_loop.thisRepN,block_loop.thisTrialN,block_loop.thisN,block_loop.thisIndex,Trial_Loop.thisRepN,Trial_Loop.thisTrialN,Trial_Loop.thisN,Trial_Loop.thisIndex,Break_loop.thisRepN,Break_loop.thisTrialN,Break_loop.thisN,Break_loop.thisIndex,block_key.keys,block_key.rt,Break_key.keys,Break_key.rt,date,frameRate,expName,Participant,Dominant Eye,
-comp_1,0,inst_2,procedure\0.csv,break,1.95,Negative,2205.bmp,High,0,0,4.53,,,,,0,0,0,0,0,0,0,2,,,,,return,0.391837091651,,,2016_Jun_22_1419,120.096552687,CGP,017,l,
-comp_1,0,inst_2,procedure\0.csv,break,6.88,Positive,2655.bmp,High,0,0,4.57,,,,,0,0,0,0,0,1,1,3,,,,,,,,,2016_Jun_22_1419,120.096552687,CGP,017,l,
-comp_1,0,inst_2,procedure\0.csv,break,3.34,Negative,2120.bmp,High,0,0,5.18,,,,,0,0,0,0,0,2,2,1,,,,,,,,,2016_Jun_22_1419,120.096552687,CGP,017,l,
-comp_1,0,inst_2,procedure\0.csv,break,6.71,Positive,2030.bmp,High,0,0,4.54,,,,,0,0,0,0,0,3,3,0,,,,,,,,,2016_Jun_22_1419,120.096552687,CGP,017,l,
-comp_1,0,inst_2,procedure\0.csv,break,,,,,,,,,,,,0,0,0,0,,,,,0,0,0,0,,,space,0.750089182708,2016_Jun_22_1419,120.096552687,CGP,017,l,
-comp_1,0,inst_2,procedure\0.csv,break,,,,,,,,,,,,0,0,0,0,,,,,,,,,,,,,2016_Jun_22_1419,120.096552687,CGP,017,l,
