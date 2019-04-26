@@ -20,17 +20,14 @@ import array
 from math import sin, cos, pi
 from PIL import Image
 import numpy as np
-import sys
-
-#---psychopy
-from psychopy import visual, event, sound
 
 #----package
-if __name__ is '__main__':
+if __name__ == '__main__':
 	import pylink
 
 #class Calibration(pylink.EyeLinkCustomDisplay):
 class Calibration():
+    #---psychopy
     def __init__(self, w, h, tracker, window):
         """
         This allows mdl.eyetracking package to initiate calibration/validation/drift correction.=.
@@ -43,7 +40,12 @@ class Calibration():
             Eyelink tracker instance.
         window :  `psychopy.visual.Window <https://www.psychopy.org/api/visual/window.html#window>`_
             PsychoPy window instance.
-        """
+        """	
+        from psychopy import visual, event, sound
+        self.visual = visual
+        self.event = event
+        self.sound = sound
+
         #---setup display
         pylink.EyeLinkCustomDisplay.__init__(self)
   
@@ -68,9 +70,9 @@ class Calibration():
         
         #----sound
         self.path = os.path.dirname(os.path.abspath(__file__)) + "\\"
-        self.__target_beep__ = sound.Sound(self.path + "dist\\audio\\type.wav", secs=-1, loops=0)
-        self.__target_beep__done__ = sound.Sound(self.path + "dist\\audio\\qbeep.wav", secs=-1, loops=0)
-        self.__target_beep__error__ = sound.Sound(self.path + "dist\\audio\\error.wav", secs=-1, loops=0)
+        self.__target_beep__ = self.sound.Sound(self.path + "dist\\audio\\type.wav", secs=-1, loops=0)
+        self.__target_beep__done__ = self.sound.Sound(self.path + "dist\\audio\\qbeep.wav", secs=-1, loops=0)
+        self.__target_beep__error__ = self.sound.Sound(self.path + "dist\\audio\\error.wav", secs=-1, loops=0)
         
         #----color, image
         self.pal = None
@@ -219,7 +221,7 @@ class Calibration():
             Xs2 = [rad*cos(t) + x + rad for t in np.linspace(pi, 2*pi, 72)]
             Ys2 = [rad*sin(t) + y + rad - height for t in np.linspace(pi, 2*pi, 72)]
 
-        lozenge = visual.ShapeStim(self.window, vertices=list(zip(Xs1+Xs2, Ys1+Ys2)),
+        lozenge = self.visual.ShapeStim(self.window, vertices=list(zip(Xs1+Xs2, Ys1+Ys2)),
                                     lineWidth=2.0, lineColor=color, closeShape=True, units='pix')
         lozenge.draw()
     
@@ -249,7 +251,7 @@ class Calibration():
         dynamic calibration target.
         """
         ky=[]
-        for keycode, modifier in event.getKeys(modifiers=True):
+        for keycode, modifier in self.event.getKeys(modifiers=True):
             k= pylink.JUNK_KEY
             if keycode   == 'f1': k = pylink.F1_KEY
             elif keycode == 'f2': k = pylink.F2_KEY
@@ -325,7 +327,7 @@ class Calibration():
             bufferv = self.imagebuffer.tostring()
             img = Image.frombytes("RGBX", (width, totlines), bufferv)
             imgResize = img.resize((width*self.img_scaling_factor, totlines*self.img_scaling_factor))
-            imgResizeVisual = visual.ImageStim(self.window, image=imgResize, units='pix')
+            imgResizeVisual = self.visual.ImageStim(self.window, image=imgResize, units='pix')
             imgResizeVisual.draw()
             self.draw_cross_hair()
             self.window.flip()

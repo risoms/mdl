@@ -29,10 +29,21 @@ from pathlib import Path
 
 # local libraries
 from mdl import settings
+from .calibration import Calibration as _Calibration
+from .roi import ROI as _ROI
 
 # pylink
 if __name__ == '__main__':
 	import pylink
+
+class ROI(_ROI):
+	# used to initialise newly created object, and receives arguments used to do that
+	# roi = mdl.eyetracking.ROI() # here is actually called __init__
+	def __init__(self, image_path=None, output_path=None, metadata_path=None, shape='box', **kwargs):
+		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
+
+class Calibration(_Calibration):
+	pass
 
 class Eyetracking():
     def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):

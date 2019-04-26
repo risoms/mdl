@@ -7,11 +7,12 @@
 | @email: semeon.risom@gmail.com
 | @url: https://semeon.io/d/mdl  
 """
+
+from pdb import set_trace as breakpoint
+from datetime import datetime
 import os
 import re
 import sys
-from datetime import datetime
-from pdb import set_trace as breakpoint
 
 # available functions
 __all__ = ['console','link','popover','stn','library','path']
@@ -24,7 +25,25 @@ path = {
 	'home': os.path.dirname(os.path.abspath(__file__))
 }
 
-# start
+def time():
+	"""
+	Get local time in ISO-8601 format.
+
+	Returns
+	-------
+	iso : :class:`str`
+		ISO-8601 datetime format, with timezone.
+
+	Example
+	-------
+	>>> __time__()
+	'2019-04-23 11:29:44-05:00'
+	"""
+
+	iso = datetime.now().astimezone().replace(microsecond=0).isoformat()
+
+	return iso
+
 def console(message, color='blue'):
 	"""
 	Allows user-friend console logging using ANSI escape codes.
@@ -138,21 +157,25 @@ def popover(name, title, description, url=None, **kwargs):
 		Statistical Models in S. Wadsworth & Brooks/Cole." title="" data-original-title="Statistical Models in S">Chambers, Hastie, 1992</a>
 	"""
 	# img
-	img = kwargs['img'] if 'img' in kwargs else False
+	img = kwargs['img'] if 'img' in kwargs else None
 
 	# if image
 	if img is not None:
-		_imgpath = img['path']
 		_img = '<img class="%s" src="%s"></img>'%(img['class'], img['src'])
+	else:
+		_img = ''
 
 	# if not url
 	if url is not None:
 		url = '<a class="anchor" href="%s">%s</a>' %(url, url)
 		description = '%s<br>%s' % (description, url)
+	else:
+		description = ''
 
 	# create link
-	_link = '<a tabindex="0" class="popover-anchor" link-id="%s" data-toggle="popover" data-content="%s" title="" data-original-title="%s">%s</a>'\
-		%(name, description, title, title)
+	_link = '<a tabindex="0" class="popover-anchor" link-id="%s" data-toggle="popover" data-content="%s" title="" data-original-title="%s">%s</a>%s'\
+		%(name, description, title, title, _img)
+		
 	# format
 	_link = re.sub(r'\s+', ' ', link).strip()
 
@@ -315,6 +338,4 @@ def pydoc(path=None, source=None, build=None, copy=False):
 		os.system("C:\\Windows\\System32\\cmd.exe /c %s" % (path))
 
 	print('created pydoc at ' + build)
-	print(console('%s finished in %s msec' %(_f, ((datetime.datetime.now()-_t0).total_seconds()*1000))))
-
-del breakpoint
+	print(console('%s finished in %s msec' %(_f, ((datetime.now()-_t0).total_seconds()*1000))))

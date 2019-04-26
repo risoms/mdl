@@ -6,14 +6,14 @@ import os
 import sys
 
 # set as module
-__all__ = ['eyelink','R33','Download','plot','ROI','settings']
+__all__ = ['eyetracking','R33','Download','plot','settings']
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 #----imports
 from .download import Download
-from .roi import ROI
+from .eyelink import eyetracking as eyetracking
 # import eyelink
 # import R33
 # import plot
