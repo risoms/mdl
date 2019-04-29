@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.eyetracking.roi &#8212; mdl-R33 2019-04-29 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+	<meta name="author" content="Semeon Risom">
+	<meta name="email" content="semeon.risom@gmail.com">
+	<meta name="robots" content="index,follow">
+	<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          mdl-R33</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-29</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../genindex.html">Glossary</a></li>
+                <li><a href="../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_data.html">Process data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Print-message-to-console/terminal.">(Optional) Print message to console/terminal.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Drift-correction.">(Optional) Drift correction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-recording.">Start recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Example-use-of-eyetracking.sample().">Example use of eyetracking.sample().</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Stop-recording.">Stop recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">Live</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mdl.html">mdl</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.model.html">mdl.R33.model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdl.eyetracking.calibration.html">mdl.eyetracking.calibration</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.eyetracking.eyetracking.html">mdl.eyetracking.eyetracking</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.eyetracking.roi</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.download.html">mdl.download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">Live</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mdl.html">mdl</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdl.eyetracking.calibration.html">mdl.eyetracking.calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.eyetracking.eyetracking.html">mdl.eyetracking.eyetracking</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.eyetracking.roi</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.download.html">mdl.download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+		<div class="toc col-md-3">
+			<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">Live</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mdl.html">mdl</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdl.eyetracking.calibration.html">mdl.eyetracking.calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdl.eyetracking.eyetracking.html">mdl.eyetracking.eyetracking</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdl.eyetracking.roi</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.download.html">mdl.download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+			</div>
+		</div>
+		<div class="col-md-9 content">
+			
+  <div class="section" id="module-mdl.eyetracking.roi">
+<span id="mdl-eyetracking-roi"></span><h1>mdl.eyetracking.roi<a class="headerlink" href="#module-mdl.eyetracking.roi" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">&#64;purpose: Create regions of interest that can be used for data processing and analysis.  </div>
+<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019  </div>
+<div class="line">&#64;author: Semeon Risom  </div>
+<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
+<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></div>
+</div>
+<dl class="class">
+<dt id="mdl.eyetracking.roi.ROI">
+<em class="property">class </em><code class="descclassname">mdl.eyetracking.roi.</code><code class="descname">ROI</code><span class="sig-paren">(</span><em>isMultiprocessing=False</em>, <em>image_path=None</em>, <em>output_path=None</em>, <em>s_metadata=None</em>, <em>shape='box'</em>, <em>roiname='roi'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>isMultiprocessing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Should the rois be generated using multiprocessing. Default <cite>False</cite>.</p>
+</dd>
+<dt><strong>image_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Image directory path.</p>
+</dd>
+<dt><strong>output_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Path to save data.</p>
+</dd>
+<dt><strong>f_roi</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>raw</cite>,`dataviewer`}</span></dt>
+<dd><p class="first last">Format to export ROIs. Either to ‘csv’ (<cite>raw</cite>) or to Eyelink DataViewer ‘ias’ (<cite>dataviewer</cite>).
+Default is <cite>raw</cite>. Note: If <code class="code docutils literal notranslate"><span class="pre">f_roi</span></code> = <cite>dataviewer</cite>, shape must be either be <cite>circle</cite>, <cite>rotate</cite>, or <cite>straight</cite>.</p>
+</dd>
+<dt><strong>s_metadata</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> {path, <cite>embed</cite>}</span></dt>
+<dd><p class="first">Metadata source. If metadata is being read from a spreadsheet, <code class="code docutils literal notranslate"><span class="pre">s_metadata</span></code> should be equal to path the to
+the metadata file, else if metadata is embed within the image as a layer name, <code class="code docutils literal notranslate"><span class="pre">s_metadata</span></code> = <cite>embedded</cite>.
+Default is <cite>embedded</cite>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is in PSD images</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="s1">&#39;embedded&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is an external xlsx file.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="s1">&#39;roi/metadata.xlsx&#39;</span>
+</pre></div>
+</div>
+<p>Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
+as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
+to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
+be either <cite>;</cite> <cite>,</cite> <cite>|</cite> ` ` or <cite>s</cite> (Delimiter type must be identified when running this code using the
+code:<cite>delimiter</cite> parameter. The default is <cite>;</cite>.). Here’s an example using <cite>;</cite> as a delimiter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span><span class="o">=</span><span class="n">BM001</span><span class="p">;</span><span class="n">roiname</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">feature</span><span class="o">=</span><span class="n">lefteye</span>
+</pre></div>
+</div>
+<p class="last">Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</p>
+</dd>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>polygon</cite>, <cite>hull</cite>, <cite>circle</cite>, <cite>rotate</cite>, <cite>straight</cite>}</span></dt>
+<dd><p class="first last">Shape of machine readable boundaries for region of interest. Default is <cite>straight</cite>. <cite>polygon</cite> creates a Contour
+Approximation and will most closely match the orginal shape of the roi. <cite>hull</cite> creates a Convex Hull, which
+is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
+<cite>circle</cite> creates a mininum enclosing circle. Finally, both <cite>rotate</cite> and <cite>straight</cite> create a Bounding Rectangle,
+with the only difference being compensation for the mininum enclosing area for the box when using <cite>rotate</cite>.</p>
+</dd>
+<dt><strong>roiname</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The name of the label for the region of interest in your metadata. For example you may want to extract the column
+‘feature’ from your metadata and use this as the label. Default is <cite>roi</cite>.</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
+<dd><p class="first">Additional properties. Here’s a list of available properties:</p>
+<table border="1" class="colwidths-given kwargs last docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>cores</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">isMultiprocessing</span></code> == <cite>True</cite>) Number of cores to use. Default is total available cores - 1.</td>
+</tr>
+<tr class="row-odd"><td><strong>isLibrary</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Check if required packages have been installed. Default is <cite>False</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save coordinates. Default is <cite>True.</cite></td>
+</tr>
+<tr class="row-odd"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save images. Default is True.</td>
+</tr>
+<tr class="row-even"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save generated contours as images. Default is <cite>True</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">source</span></code> == <cite>psd</cite>) How is metadata delimited, options are: <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>tab</cite> or <cite>space</cite> Default is <cite>;</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Monitor size is being presented. Default is <cite>[1920, 1080]</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<td>If image is scaled during presentation, set scale. Default is 1.</td>
+</tr>
+<tr class="row-even"><td><strong>center</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Center point of image, relative to screensize. Default is <cite>[960, 540]</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>dpi</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">save_image</span></code> == <cite>True</cite>) Quality of exported images, refers to ‘dots per inch’. Default is <cite>300</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt>Resources</dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds are created.</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mdl.roi</span> <span class="k">import</span> <span class="n">ROI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ROI</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape_d</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>ELLIPSE</cite>, <cite>FREEHAND</cite>, <cite>RECTANGLE</cite>}</span></dt>
+<dd><p class="first last">DataViewer ROI shape.</p>
+</dd>
+<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
+</dd>
+<dt><strong>retval, threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.threshold</span>. The function applies a fixed-level thresholding to a multiple-channel array.
+<cite>retval</cite> provides an optimal threshold only if <span class="xref std std-ref">cv2.THRESH_OTSU</span> is passed. <cite>threshold</cite> is an image after applying
+a binary threshold (<span class="xref std std-ref">cv2.THRESH_BINARY</span>) removing all greyscale pixels &lt; 127. The output matches the same image
+channel as the original image.
+See <a class="reference external" href="https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57">opencv</a> and
+<a class="reference external" href="https://www.learnopencv.com/opencv-threshold-python-cpp">leanopencv</a> for more information.</p>
+</dd>
+<dt><strong>contours, hierarchy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.findContours</span>. This function returns contours from the provided binary image (threshold).
+This is used here for later shape detection. <cite>contours</cite> are the detected contours, while hierarchy containing
+information about the image topology.
+See <a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07">opencv</a>
+for more information.</p>
+</dd>
+<dt><strong>image_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.drawContours</span>. This draws filled contours from the image.</p>
+</dd>
+<dt><strong>image_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.drawContours</span>. This draws filled contours from the image.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.create_contours" title="mdl.eyetracking.roi.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.create_rois" title="mdl.eyetracking.roi.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;roiname,&nbsp;roilabel,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.finished" title="mdl.eyetracking.roi.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(bounds[,&nbsp;errors])</td>
+<td>Process bounds for all images.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.process" title="mdl.eyetracking.roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.process_metadata" title="mdl.eyetracking.roi.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.run" title="mdl.eyetracking.roi.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core])</td>
+<td>[summary]</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>isMultiprocessing=False</em>, <em>image_path=None</em>, <em>output_path=None</em>, <em>s_metadata=None</em>, <em>shape='box'</em>, <em>roiname='roi'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>isMultiprocessing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Should the rois be generated using multiprocessing. Default <cite>False</cite>.</p>
+</dd>
+<dt><strong>image_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Image directory path.</p>
+</dd>
+<dt><strong>output_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Path to save data.</p>
+</dd>
+<dt><strong>f_roi</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>raw</cite>,`dataviewer`}</span></dt>
+<dd><p class="first last">Format to export ROIs. Either to ‘csv’ (<cite>raw</cite>) or to Eyelink DataViewer ‘ias’ (<cite>dataviewer</cite>).
+Default is <cite>raw</cite>. Note: If <code class="code docutils literal notranslate"><span class="pre">f_roi</span></code> = <cite>dataviewer</cite>, shape must be either be <cite>circle</cite>, <cite>rotate</cite>, or <cite>straight</cite>.</p>
+</dd>
+<dt><strong>s_metadata</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> {path, <cite>embed</cite>}</span></dt>
+<dd><p class="first">Metadata source. If metadata is being read from a spreadsheet, <code class="code docutils literal notranslate"><span class="pre">s_metadata</span></code> should be equal to path the to
+the metadata file, else if metadata is embed within the image as a layer name, <code class="code docutils literal notranslate"><span class="pre">s_metadata</span></code> = <cite>embedded</cite>.
+Default is <cite>embedded</cite>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is in PSD images</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="s1">&#39;embedded&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is an external xlsx file.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="s1">&#39;roi/metadata.xlsx&#39;</span>
+</pre></div>
+</div>
+<p>Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
+as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
+to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
+be either <cite>;</cite> <cite>,</cite> <cite>|</cite> ` ` or <cite>s</cite> (Delimiter type must be identified when running this code using the
+code:<cite>delimiter</cite> parameter. The default is <cite>;</cite>.). Here’s an example using <cite>;</cite> as a delimiter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span><span class="o">=</span><span class="n">BM001</span><span class="p">;</span><span class="n">roiname</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">feature</span><span class="o">=</span><span class="n">lefteye</span>
+</pre></div>
+</div>
+<p class="last">Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</p>
+</dd>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>polygon</cite>, <cite>hull</cite>, <cite>circle</cite>, <cite>rotate</cite>, <cite>straight</cite>}</span></dt>
+<dd><p class="first last">Shape of machine readable boundaries for region of interest. Default is <cite>straight</cite>. <cite>polygon</cite> creates a Contour
+Approximation and will most closely match the orginal shape of the roi. <cite>hull</cite> creates a Convex Hull, which
+is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
+<cite>circle</cite> creates a mininum enclosing circle. Finally, both <cite>rotate</cite> and <cite>straight</cite> create a Bounding Rectangle,
+with the only difference being compensation for the mininum enclosing area for the box when using <cite>rotate</cite>.</p>
+</dd>
+<dt><strong>roiname</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The name of the label for the region of interest in your metadata. For example you may want to extract the column
+‘feature’ from your metadata and use this as the label. Default is <cite>roi</cite>.</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
+<dd><p class="first">Additional properties. Here’s a list of available properties:</p>
+<table border="1" class="colwidths-given kwargs last docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>cores</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">isMultiprocessing</span></code> == <cite>True</cite>) Number of cores to use. Default is total available cores - 1.</td>
+</tr>
+<tr class="row-odd"><td><strong>isLibrary</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Check if required packages have been installed. Default is <cite>False</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save coordinates. Default is <cite>True.</cite></td>
+</tr>
+<tr class="row-odd"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save images. Default is True.</td>
+</tr>
+<tr class="row-even"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save generated contours as images. Default is <cite>True</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">source</span></code> == <cite>psd</cite>) How is metadata delimited, options are: <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>tab</cite> or <cite>space</cite> Default is <cite>;</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Monitor size is being presented. Default is <cite>[1920, 1080]</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<td>If image is scaled during presentation, set scale. Default is 1.</td>
+</tr>
+<tr class="row-even"><td><strong>center</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Center point of image, relative to screensize. Default is <cite>[960, 540]</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>dpi</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">save_image</span></code> == <cite>True</cite>) Quality of exported images, refers to ‘dots per inch’. Default is <cite>300</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt>Resources</dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds are created.</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mdl.roi</span> <span class="k">import</span> <span class="n">ROI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ROI</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape_d</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>ELLIPSE</cite>, <cite>FREEHAND</cite>, <cite>RECTANGLE</cite>}</span></dt>
+<dd><p class="first last">DataViewer ROI shape.</p>
+</dd>
+<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
+</dd>
+<dt><strong>retval, threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.threshold</span>. The function applies a fixed-level thresholding to a multiple-channel array.
+<cite>retval</cite> provides an optimal threshold only if <span class="xref std std-ref">cv2.THRESH_OTSU</span> is passed. <cite>threshold</cite> is an image after applying
+a binary threshold (<span class="xref std std-ref">cv2.THRESH_BINARY</span>) removing all greyscale pixels &lt; 127. The output matches the same image
+channel as the original image.
+See <a class="reference external" href="https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57">opencv</a> and
+<a class="reference external" href="https://www.learnopencv.com/opencv-threshold-python-cpp">leanopencv</a> for more information.</p>
+</dd>
+<dt><strong>contours, hierarchy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.findContours</span>. This function returns contours from the provided binary image (threshold).
+This is used here for later shape detection. <cite>contours</cite> are the detected contours, while hierarchy containing
+information about the image topology.
+See <a class="reference external" href="https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07">opencv</a>
+for more information.</p>
+</dd>
+<dt><strong>image_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.drawContours</span>. This draws filled contours from the image.</p>
+</dd>
+<dt><strong>image_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.drawContours</span>. This draws filled contours from the image.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.process_metadata">
+<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>layer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.create_contours">
+<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roiname</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.create_rois">
+<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>roiname</em>, <em>roilabel</em>, <em>roinumber</em>, <em>color_roi</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roiname</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roilabel</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roinumber</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>color_roi</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>_bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>directory</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>core</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">(if isMultprocessing) Core used for this function. Default <cite>0</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.process">
+<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>[type]</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.roi.ROI.finished">
+<code class="descname">finished</code><span class="sig-paren">(</span><em>bounds</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.roi.ROI.finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process bounds for all images.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>errors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type], optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+			<div>
+				&copy; Copyright 2019, Semeon Risom.
+			</div>
+			<div>
+				Updated 2019-04-29T16:30:40-05:00.
+			</div>
+			<div>
+				Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+			</div>
+			<div class="pull-right">
+				
+				
+<div id="sourcelink">
+  <a href="../_sources/api/mdl.eyetracking.roi.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+				
+			</div>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>

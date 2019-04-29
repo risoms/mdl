@@ -13,13 +13,13 @@
 
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and sidebars %}
 
-{%- set bs_content_width = render_sidebar and "9" or "12"%}
+{%- set bs_content_width = render_sidebar and "9" or "12" %}
 
 {%- block doctype -%}
 <!DOCTYPE html>
 {%- endblock %}
 
-{# Sidebar: Rework into our Bootstrap nav section. #}
+{# sidebar - rework into our Bootstrap nav section. #}
 {% macro navBar() %}
 {% include "navbar" + navbar_version + ".html" %}
 {% endmacro %}
@@ -28,11 +28,11 @@
 	{%- macro bsidebar() %}
 		{%- if render_sidebar %}
 		<div class="toc {{ bs_span_prefix }}3">
-		<div id="sidebar" class="bs-sidenav" role="complementary">
-			{%- for sidebartemplate in sidebars %}
-			{%- include sidebartemplate %}
-			{%- endfor %}
-		</div>
+			<div id="sidebar" class="bs-sidenav" role="complementary">
+				{%- for sidebartemplate in sidebars %}
+				{%- include sidebartemplate %}
+				{%- endfor %}
+			</div>
 		</div>
 		{%- endif %}
 	{%- endmacro %}
@@ -40,30 +40,30 @@
 	{%- macro bsidebar() %}
 		{%- if render_sidebar %}
 		<div class="toc {{ bs_span_prefix }}3">
-		<div id="sidebar" class="bs-sidenav well" data-spy="affix">
-			{%- for sidebartemplate in sidebars %}
-			{%- include sidebartemplate %}
-			{%- endfor %}
-		</div>
+			<div id="sidebar" class="bs-sidenav well" data-spy="affix">
+				{%- for sidebartemplate in sidebars %}
+				{%- include sidebartemplate %}
+				{%- endfor %}
+			</div>
 		</div>
 		{%- endif %}
 	{%- endmacro %}
 {% endif %}
 
-{# Header #}
+{# header #}
 {%- block extrahead %}
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
-<meta name="author" content="Semeon Risom">
-<meta name="email" content="semeon.risom@gmail.com">
-<meta name="robots" content="index,follow">
-<meta name="AdsBot-Google" content="noindex">
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+	<meta name="author" content="Semeon Risom">
+	<meta name="email" content="semeon.risom@gmail.com">
+	<meta name="robots" content="index,follow">
+	<meta name="AdsBot-Google" content="noindex">
 {% endblock %}
 
-{# Silence the sidebars, relbars #}
+{# hide sidebars, relbars #}
 {% block header %}{% endblock %}
 {% block relbar1 %}{% endblock %}
 {% block relbar2 %}{% endblock %}
@@ -81,12 +81,6 @@
 	<div class="row">
 		{%- block sidebar1 %}{{ bsidebar() }}{% endblock %}
 		<div class="{{ bs_span_prefix }}{{ bs_content_width }} content">
-			<div class="pull-right">
-				{% if theme_source_link_position == "footer" %}
-				<br/>
-				{% include "sourcelink.html" %}
-				{% endif %}
-			</div>
 			{% block body %}{% endblock %}
 		</div>
 		{% block sidebar2 %} {# possible location for sidebar #} {% endblock %}
@@ -98,19 +92,32 @@
 <footer class="footer">
 	<div class="container">
 		<div>
-		{%- if show_copyright %}
+			{%- if show_copyright %}
 			{%- if hasdoc('copyright') %}
-			<div>{% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}</div>
+			<div>
+				{% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
+			</div>
 			{%- else %}
-			<div>{{% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}</div>
+			<div>
+				{% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
+			</div>
 			{%- endif %}
-		{%- endif %}
-		{%- if last_updated %}
-			<div>{{% trans last_updated=last_updated|e %}Updated {{ last_updated }}.{% endtrans %}</div>
-		{%- endif %}
-		{%- if show_sphinx %}
-			<div>{{% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}</div>
-		{%- endif %}
+			{%- endif %}
+			{%- if last_updated %}
+			<div>
+				{% trans last_updated=last_updated|e %}Updated {{ last_updated }}.{% endtrans %}
+			</div>
+			{%- endif %}
+			{%- if show_sphinx %}
+			<div>
+				{% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+			</div>
+			<div class="pull-right">
+				{% if theme_source_link_position == "footer" %}
+				{% include "sourcelink.html" %}
+				{% endif %}
+			</div>
+			{%- endif %}
 		</div>
 	</div>
 </footer>

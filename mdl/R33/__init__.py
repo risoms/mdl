@@ -7,19 +7,19 @@ import os
 import sys
 
 # set as module
-__all__ = ['Classify','metadata','model','nslr_hmm','Processing','Settings','__version__']
+#__all__ = ['Classify','metadata','model','nslr_hmm','Processing','Settings','__version__']
 pkg_resources.declare_namespace(__name__)
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
-from classify import Classify
-from processing import Processing
-from . import metadata
-from . import model
-import nslr_hmm
-from .config import Settings
+#from classify import Classify
+#from processing import Processing
+#from . import metadata
+#from . import model
+#import nslr_hmm
+#from .config import Settings
 
 #----versioning
 from ._version import get_versions

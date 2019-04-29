@@ -1,14 +1,13 @@
 /* Copy buttons */
 a.copybtn {
-	box-sizing: content-box !important;
-    position: absolute !important;
-    top: 2px !important;
-    right: 2px !important;
-    width: 1em !important;
-    height: 1em !important;
-    padding: .3em !important;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 1em;
+    height: 1em;
+    padding: .3em;
 	opacity: .3;
-	transition: opacity 0.5s !important;
+	transition: opacity 0.5s;
 }
 
 div.highlight  {
@@ -28,7 +27,7 @@ div.highlight  {
  * <p class="o-tooltip--left" data-tooltip="Hey">Short</p>
  */
  .o-tooltip--left {
-	position: relative;
+  position: relative;
  }
 
  .o-tooltip--left:after {
@@ -36,7 +35,7 @@ div.highlight  {
     visibility: hidden;
     position: absolute;
     content: attr(data-tooltip);
-	padding: 5px;
+    padding: 2px;
     top: 0;
     left: 0;
     background: grey;
@@ -50,7 +49,7 @@ div.highlight  {
 }
 
 .o-tooltip--left:hover:after {
-    display: block !important;
+    display: block;
     opacity: 1;
     visibility: visible;
     transform: translateX(-100%) translateY(0);

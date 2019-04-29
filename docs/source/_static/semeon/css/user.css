@@ -114,6 +114,27 @@ a{
     color: #2196f3 !important;
 	font-weight: 400 !important;
 }
+
+/* headers */
+.content>.pull-right {
+    width: 100%;
+    text-align: end;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 13px;
+}
+.section>h1{
+    white-space: pre-wrap !important;
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap !important;
+    white-space: -o-pre-wrap !important;
+    word-break: break-word;
+    vertical-align: middle;
+    font-size: 50px !important;
+    line-height: 60px !important;
+    display: flex !important;
+    align-items: center;
+}
 /* jupyter */
 .nbinput>.prompt.highlight-none.notranslate {
     display: none !important;
@@ -149,16 +170,16 @@ dd {
 .viewcode-link{
 	font-weight: 600;
 }
-span.pre{
-	font-size: 12px;
-	color: #42aef7;
-    font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
-}
 .reference.internal>code>span.pre{
 	color: #1c75b1;
 }
+span.pre,
+.simple>li>.reference.external,
+.simple>li>.reference.external>code>span.pre,
 .reference.external>code>span.pre{
-	color: #42aef7;
+    font-weight: 700 !important;
+	font-size: 12px !important;
+	color: #42aef7 !important;
 	font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
 }
 /* if mobile */
@@ -323,6 +344,16 @@ footer>.container{
 	border-top: solid #eaeaea 2px;
 	background-color: white;
 	margin-top: 0px !important;
+}
+footer>.container>div {
+    text-align: center;
+    display: block;
+    vertical-align: middle;
+    margin: auto;
+}
+footer>.container>div>div {
+    float: left !important;
+    padding: 10px 5px 10px 5px !important;
 }
 
 /*--toctree--*/

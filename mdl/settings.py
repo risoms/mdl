@@ -137,9 +137,9 @@ def popover(name, title, description, url=None, **kwargs):
 			:header-rows: 1
 			
 			* - Property
-			- Description
+			  - Description
 			* - img : :obj:`dict` {'src': :obj:`str`,'className': :obj:`str`}
-			- Create an image to be included in the popover
+			  - Create an image to be included in the popover
 
 	Returns
 	-------

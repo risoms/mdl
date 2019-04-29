@@ -34,8 +34,7 @@ class Download():
 
     @classmethod
     def REDCap(cls, path, token, url, content, payload=None, **kwargs):
-        """
-		Download data from an Research Electronic Data Capture (REDCap) server.
+        """Download data from an Research Electronic Data Capture (REDCap) server.
 
         Parameters
         ----------

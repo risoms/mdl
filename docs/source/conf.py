@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-#
 # Configuration file for the Sphinx documentation builder.
-#
-# This file does only contain a selection of the most common options. For a
-# full list see the documentation:
+# This file does only contain a selection of the most common options. For a full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+import re
+import os
+import sys
+import time
+import datetime
 
 # Sphinx toctree include functions -------------------------------------------------------------------------------------
 from sphinx.ext.autosummary import Autosummary
@@ -14,49 +16,49 @@ from docutils.parsers.rst import directives
 from sphinx.util.inspect import safe_getattr
 
 class AutoAutoSummary(Autosummary):
-    option_spec = {
-        'methods': directives.unchanged,
-        'attributes': directives.unchanged
-    }
-    required_arguments = 1
-    @staticmethod
-    def get_members(obj, typ, include_public=None):
-        if not include_public:
-            include_public = []
-        items = []
-        for name in dir(obj):
-            try:
-                documenter = get_documenter(safe_getattr(obj, name), obj)
-            except AttributeError:
-                continue
-            if documenter.objtype == typ:
-                items.append(name)
-        public = [x for x in items if x in include_public or not x.startswith('_')]
-        return public, items
+	option_spec = {
+		'methods': directives.unchanged,
+    	'attributes': directives.unchanged
+	}
+	required_arguments = 1
+	@staticmethod
+	def get_members(obj, typ, include_public=None):
+		if not include_public:
+			include_public = []
+		items = []
+		for name in dir(obj):
+			try:
+				documenter = get_documenter(safe_getattr(obj, name), obj)
+			except AttributeError:
+				continue
+			if documenter.objtype == typ:
+				items.append(name)
+		public = [x for x in items if x in include_public or not x.startswith('_')]
+		return public, items
 
-    def run(self):
-        class_ = str(self.arguments[0])
-        try:
-            (module_name, class_name) = class_.rsplit('.', 1)
-            m = __import__(module_name, globals(), locals(), [class_name])
-            c = getattr(m, class_name)
-            if 'methods' in self.options:
-                _, methods = self.get_members(c, 'method', ['__init__'])
+	def run(self):
+		class_ = str(self.arguments[0])
+		try:
+			(module_name, class_name) = class_.rsplit('.', 1)
+			m = __import__(module_name, globals(), locals(), [class_name])
+			c = getattr(m, class_name)
+			if 'methods' in self.options:
+				_, methods = self.get_members(c, 'method', ['__init__'])
+				self.content = ["~%s.%s" % (class_, method) for method in methods if not method.startswith('_')]
+			if 'attributes' in self.options:
+				_, attribs = self.get_members(c, 'attribute')
+				self.content = ["~%s.%s" % (class_, attrib) for attrib in attribs if not attrib.startswith('_')]
+		finally:
+			return super(AutoAutoSummary, self).run()
 
-                self.content = ["~%s.%s" % (class_, method) for method in methods if not method.startswith('_')]
-            if 'attributes' in self.options:
-                _, attribs = self.get_members(c, 'attribute')
-                self.content = ["~%s.%s" % (class_, attrib) for attrib in attribs if not attrib.startswith('_')]
-        finally:
-            return super(AutoAutoSummary, self).run()
+# Exclude modules ------------------------------------------------------------------------------------------------------
+# http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-process-docstring
+def remove_module_docstring(app, what, name, obj, options, lines):
+	#if what == "module" and name == "hpclogging.logger" and 'members' in options:
+	if what == "module" and name == "yourmodule":
+		del lines[:]
 
-# Path setup -----------------------------------------------------------------------------------------------------------
-import re
-import os
-import sys
-import time
-import datetime
-
+# date -----------------------------------------------------------------------------------------------------------------
 def iso():
 	"""
 	Get local time in ISO-8601 format.
@@ -65,18 +67,41 @@ def iso():
 	-------
 	iso : :class:`str`
 		ISO-8601 datetime format, with timezone.
-	
+
 	Examples
 	--------
 	>>> __time__()
 	'2019-04-23 11:29:44-05:00'
 	"""
-	import datetime
-	
-	iso = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
-	
-	return iso
 
+	isoname = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
+
+	return isoname
+
+# apidoc ---------------------------------------------------------------------------------------------------------------
+def run_apidoc(app):
+    """Generate API documentation"""
+    import better_apidoc
+    better_apidoc.APP = app
+    better_apidoc.main([
+        'better-apidoc',
+        '--templates', os.path.abspath(os.path.join('.', 'source/_templates/')), #Custom template directory
+        '--force', #Overwrite existing files'
+        '--separate', #Put documentation for each module on its own page
+        '--output-dir',
+        os.path.abspath(os.path.join('.', 'source/api/')), # output path
+        os.path.abspath(path) #module path
+    ])
+
+# allows inclusion or exclusion of __init__ ----------------------------------------------------------------------------
+#http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
+autoclass_content = 'init'
+def skip(app, what, name, obj, skip, options):
+	if name == "__init__":
+		return False
+	return skip
+
+# Path setup -----------------------------------------------------------------------------------------------------------
 path = os.path.abspath(os.getcwd()+ '../../../') 
 print('path %s'%(path))
 # module directory
@@ -118,6 +143,7 @@ extensions = [
 	'sphinx.ext.autosummary',
 	#compatiable with numpydoc notation
     'numpydoc',
+	#'sphinx.ext.napoleon',
 	#work with github
     'sphinx.ext.githubpages',
 	# use jupyter
@@ -133,82 +159,49 @@ extensions = [
 autosummary_generate = True
 autodoc_default_options = {
     'member-order': 'bysource',
-    'private-members': False,
-    'undoc-members': False,
+    # 'private-members': False,
+    # 'undoc-members': False,
 }
 
-# -- apidoc --------------------------------------------------------------	
-def run_apidoc(app):
-    """Generate API documentation"""
-    import better_apidoc
-    better_apidoc.APP = app
-    better_apidoc.main([
-        'better-apidoc',
-        '--templates', os.path.abspath(os.path.join('.', 'source/_templates/')), #Custom template directory
-        '--force', #Overwrite existing files'
-        '--separate', #Put documentation for each module on its own page
-        '--output-dir',
-        os.path.abspath(os.path.join('.', 'source/api/')), # output path
-        os.path.abspath(path) #module path
-    ])	
+# Napoleon settings ----------------------------------------------------------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = True #True to list __init___ docstrings separately from the class docstring.
+napoleon_include_private_with_doc = True #True to include private members (like _membername)
+napoleon_include_special_with_doc = True #True to include special members (like __membername__)
+napoleon_use_admonition_for_examples = True #True to use the .. admonition:: directive for Example sections.
+napoleon_use_admonition_for_notes = True #True to use the .. admonition:: directive for Notes sections.
+napoleon_use_admonition_for_references = True #True to use the .. admonition:: directive for References sections.
+napoleon_use_ivar = True #True to use the :ivar: role for instance variables.
+napoleon_use_param = True #True to use a :param: role for each function parameter.
+napoleon_use_rtype = True #True to use the :rtype: role for the return type. 
 
-html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.
-html_show_sourcelink = True #If true (and html_copy_source is true as well), links to the reST sources will be added to the sidebar.
-
-# -- allow __init__ --------------------------------------------------------------
-autoclass_content = 'init'
-# allows inclusion of -_init__
-def skip(app, what, name, obj, skip, options):
-    if name == "__init__":
-        return False
-    return skip
-
-# -- Path setup --------------------------------------------------------------
-def setup(app):
-	# copybutton
-	app.add_javascript("semeon/js/clipboard.js")
-	app.add_stylesheet('semeon/css/user.css')
-	app.add_javascript("semeon/js/user.js")
-	app.add_javascript("semeon/js/copybutton.js")
-	# better apidoc
-	app.connect('builder-inited', run_apidoc)
-	# auto add function in toctree
-	app.add_directive('autoautosummary', AutoAutoSummary)
-	# include init
-	# app.connect("autodoc-skip-member", skip)
-
-# -- General configuration ---------------------------------------------------
+# General configuration ------------------------------------------------------------------------------------------------
 # Sphinx will warn about all references where the target cannot be found.
 nitpicky = True
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
-
 # The suffix(es) of source filenames.
 source_suffix = ['.rst', '.md', '.ipynb']
-
 # The master toctree document.
 master_doc = 'index'
-
 # The language for content autogenerated by Sphinx.
 language = None
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup', 'api/pylink.rst', 
-'api/mdl.rst', 'api/mdl.R33.rst', 'api/mdl.eyelink.rst', 'api/mdl.roi.rst']
-
+# Options for todo extension
+todo_include_todos = True
+# List of patterns, relative to source directory, that match files and directories to ignore when looking for source files.
+exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup', 'api/pylink.rst']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 # Sort by source
 autodoc_member_order = 'bysource'
+html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.
+html_show_sourcelink = True #If true (and html_copy_source is true as well), links to the reST sources will be added to the sidebar.
 
 # Options for HTML output ----------------------------------------------------------------------------------------------
 # Path to favicon
 html_favicon = '_static/img/imhr.ico'
-
 # The theme to use for HTML and HTML Help pages.
 html_theme_path = ['_templates/sphinx_bootstrap_theme/']
 html_theme = 'bootstrap'
@@ -226,9 +219,10 @@ html_theme_options = {
          ("Install", "install"),
     ],
 }
-#no 'searchresults.html' 
-# #localtoc #fulltoc #globaltoc 
+#no 'searchresults.html'
+# #localtoc #fulltoc #globaltoc
 html_sidebars = {'**': ['localtoc.html']}
+
 # nbsphinx -------------------------------------------------------------------------------------------------------------
 nbsphinx_allow_errors = False
 nbsphinx_execute = 'never'
@@ -242,32 +236,16 @@ htmlhelp_basename = 'mdl-R33'
 # Options for manual page output ---------------------------------------------------------------------------------------
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'mdl-R33', 'mdl-R33', [author], 1)
-]
+man_pages = [(master_doc, 'mdl-R33', 'mdl-R33', [author], 1)]
 # Options for Texinfo output -------------------------------------------------------------------------------------------
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (master_doc, 'mdl-R33', 'mdl-R33', author, 'mdl-R33', 'One line description of project.', 'Miscellaneous'),
-]
+texinfo_documents = [ (master_doc, 'mdl-R33', 'mdl-R33', author, 'mdl-R33', 'One line description of project.', 'Miscellaneous'),]
+
 # Options for Epub output ----------------------------------------------------------------------------------------------
-# Bibliographic Dublin Core info.
 epub_title = project
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-# epub_identifier = ''
-
-# A unique identification for the text.
-# epub_uid = ''
-
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
 # Extension configuration ----------------------------------------------------------------------------------------------
-
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
 	'python': ('https://docs.python.org/3/', None),
@@ -280,6 +258,18 @@ intersphinx_mapping = {
 	'psd_tools': ('https://psd-tools.readthedocs.io/en/latest/', None),
 }
 
-# Options for todo extension -------------------------------------------------------------------------------------------
-# If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
+# -- Path setup --------------------------------------------------------------
+def setup(app):
+	# copybutton
+	app.add_javascript("semeon/js/clipboard.js")
+	app.add_stylesheet('semeon/css/user.css')
+	app.add_javascript("semeon/js/user.js")
+	app.add_javascript("semeon/js/copybutton.js")
+	# exclude modules
+	# app.connect("autodoc-process-docstring", remove_module_docstring)
+	# better apidoc
+	app.connect('builder-inited', run_apidoc)
+	# auto add function in toctree
+	app.add_directive('autoautosummary', AutoAutoSummary)
+	# include init
+	app.connect("autodoc-skip-member", skip)
