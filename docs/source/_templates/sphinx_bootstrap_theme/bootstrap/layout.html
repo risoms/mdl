@@ -94,24 +94,16 @@
 		<div>
 			{%- if show_copyright %}
 			{%- if hasdoc('copyright') %}
-			<div>
-				{% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
-			</div>
+			<div>{% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}</div>
 			{%- else %}
-			<div>
-				{% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
-			</div>
+			<div>{% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}</div>
 			{%- endif %}
 			{%- endif %}
 			{%- if last_updated %}
-			<div>
-				{% trans last_updated=last_updated|e %}Updated {{ last_updated }}.{% endtrans %}
-			</div>
+			<div>{% trans last_updated=last_updated|e %}Updated {{ last_updated }}.{% endtrans %}</div>
 			{%- endif %}
 			{%- if show_sphinx %}
-			<div>
-				{% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
-			</div>
+			<div>{% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}</div>
 			<div class="pull-right">
 				{% if theme_source_link_position == "footer" %}
 				{% include "sourcelink.html" %}

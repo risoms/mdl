@@ -350,10 +350,14 @@ footer>.container>div {
     display: block;
     vertical-align: middle;
     margin: auto;
+	height: min-content;
+    padding: 10px 5px 10px 5px !important;
 }
 footer>.container>div>div {
     float: left !important;
-    padding: 10px 5px 10px 5px !important;
+	font-size: 13px !important;
+	line-height: 20px !important;
+	height: 20px !important;
 }
 
 /*--toctree--*/
