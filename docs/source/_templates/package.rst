@@ -8,15 +8,23 @@
 {{ name | escape }}
 {% for item in range(name|length) -%}~{%- endfor %}
 
+{# automodule -#}
 {% if name -%}
 .. automodule:: {{ name }}
+	:autosummary:
 	{%- if members %}
+	{#- :show-inheritance: #}
+	{#- :undoc-members: #}
+	:member-order: bysource
+	:inherited-members:
 	:members: {{ members|join(", ") }}
-	:undoc-members:
 	{%- endif %}
 
 	.. toctree::
-		:maxdepth: 1
+		:maxdepth: 2
+		{%- if members %}
+		:hidden:
+		{%- endif %}
 		{# {%- if modules -%}
 		{%- for item in modules %}
 		{{ name }}.{{ item }}
@@ -29,10 +37,12 @@
 		{%- endfor -%}
 		{%- endif -%}
 
-		{%- if submodules -%}
+		{%- if not members -%}
+		{%- if submodules-%}
 		{%-for item in submodules %}
 		{{ name }}.{{ item }}
 		{%- endfor -%}
+		{%- endif -%}
 		{%- endif -%}
 
 		{%- if classes -%}

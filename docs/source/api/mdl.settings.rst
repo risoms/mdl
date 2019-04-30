@@ -11,6 +11,7 @@ mdl.settings
 .. currentmodule:: mdl.settings
 
 .. automodule:: mdl.settings
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

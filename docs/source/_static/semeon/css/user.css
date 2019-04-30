@@ -57,6 +57,11 @@ a{
 	height: 12px;
 }
 
+/*--panels--*/
+.panel-body>ul{
+	padding-inline-start: 24px !important;
+}
+
 /*--navbar--*/
 #navbar{
 	width: 100vw !important;    
@@ -74,7 +79,7 @@ a{
 	top: 40px;
 }
 .toc.col-md-3 {
-    width: 225px;
+    width: 240px;
 }
 @media (max-width: 991px) {
 	.body>.container{
@@ -85,8 +90,12 @@ a{
 	}
 }
 #sidebar>.nav {
-	font-size: 13px;
+	font-size: 14px !important;
+	line-height: 1.85 !important;
 	font-weight: 400 !important;
+}
+ul.current.nav>li.current>a.current{
+	background-color: #f7dea8 !important;
 }
 #sidebar>.nav-list>.toctree-l1>.internal,
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.internal,
@@ -99,7 +108,22 @@ a{
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.internal,
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.internal,
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.nav>.toctree-l4>.internal{
-	padding-left: 30px;
+	padding-left: 30px !important;
+	padding-right: 0px !important;
+}
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.internal{
+    font-size: 95% !important;
+    line-height: 195% !important;
+}
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.internal {
+    font-size: 90% !important;
+    line-height: 190% !important;
+    padding-left: 40px !important;
+}
+#sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.nav>.toctree-l4>.internal{
+    font-size: 85% !important;
+    line-height: 185% !important;
+    padding-left: 50px !important;
 }
 #imhr-r33>.toctree-wrapper>ul,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul,
@@ -114,7 +138,6 @@ a{
     color: #2196f3 !important;
 	font-weight: 400 !important;
 }
-
 /* headers */
 .content>.pull-right {
     width: 100%;
@@ -123,17 +146,25 @@ a{
     font-size: 13px;
     line-height: 13px;
 }
-.section>h1{
+.content>.section>h1,
+.content>.section>.section>h2{
     white-space: pre-wrap !important;
     white-space: -moz-pre-wrap !important;
     white-space: -pre-wrap !important;
     white-space: -o-pre-wrap !important;
     word-break: break-word;
     vertical-align: middle;
-    font-size: 50px !important;
-    line-height: 60px !important;
     display: flex !important;
     align-items: center;
+}
+.content>.section>h1{
+    font-size: 40px !important;
+    line-height: 50px !important;
+}
+.content>.section>.section>h2,
+.content>.section>.section>h2>a{
+    font-size: 30px !important;
+    line-height: 40px !important;
 }
 /* jupyter */
 .nbinput>.prompt.highlight-none.notranslate {
@@ -303,35 +334,35 @@ code.descclassname {
 }
 
 /*--kwargs--*/
-td.field-body table.kwargs {
-    width: 100%;
-    border-spacing: 2px;
-    border-collapse: collapse;
-	margin-top: 10px;
+table.kwargs {
+    width: 100% !important;
+    border-spacing: 2px !important;
+    border-collapse: collapse !important;
+	margin-top: 10px !important;
 }
 
-td.field-body table.kwargs th {
-    padding: 2px 10px;
-    border-color: #888;
-    background-color: #f0f0f0;
+table.kwargs th {
+    padding: 2px 10px !important;
+    border-color: #888 !important;
+    background-color: #f0f0f0 !important;
     border-width: 1px !important;
 }
 
-td.field-body table.kwargs td {
-    padding: 2px 10px;
-    border-width: 1px 0;
-    border-color: #ccc;
+table.kwargs td {
+    padding: 2px 10px !important;
+    border-width: 1px 0 !important;
+    border-color: #ccc !important;
 }
 
-td.field-body table.kwargs tr:last-of-type {
-	border-bottom-color: #888;
-    border-width: 1px;
-    border-bottom-style: solid;
+table.kwargs tr:last-of-type {
+	border-bottom-color: #888 !important;
+    border-width: 1px !important;
+    border-bottom-style: solid !important;
 }
 table.kwargs thead {
-	border-top-color: #888;
-    border-width: 1px;
-    border-top-style: solid;
+	border-top-color: #888 !important;
+    border-width: 1px !important;
+    border-top-style: solid !important;
 }
 
 /*--footer--*/
@@ -347,17 +378,17 @@ footer>.container{
 }
 footer>.container>div {
     text-align: center;
-    display: block;
     vertical-align: middle;
     margin: auto;
-	height: min-content;
+    display: flex;
     padding: 10px 5px 10px 5px !important;
 }
 footer>.container>div>div {
     float: left !important;
-	font-size: 13px !important;
-	line-height: 20px !important;
-	height: 20px !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    height: 20px !important;
+    padding: 0px 2px;
 }
 
 /*--toctree--*/
@@ -372,8 +403,7 @@ footer>.container>div>div {
 	font-weight: 600 !important;
 }
 
-/*--copy button--*/
-/* Copy buttons */
+/* copy buttons */
 a.copybtn {
 	box-sizing: content-box !important;
 	position: absolute !important;

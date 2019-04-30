@@ -11,6 +11,7 @@ mdl.R33.processing
 .. currentmodule:: mdl.R33.processing
 
 .. automodule:: mdl.R33.processing
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

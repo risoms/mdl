@@ -11,6 +11,7 @@ mdl.plot
 .. currentmodule:: mdl.plot
 
 .. automodule:: mdl.plot
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

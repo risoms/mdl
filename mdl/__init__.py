@@ -13,9 +13,9 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 #----imports
 from .download import Download
-import eyetracking
-import R33
-import plot
-import settings
+from . import eyetracking
+from . import R33
+from . import plot
+from . import settings
 
 del os, sys, breakpoint

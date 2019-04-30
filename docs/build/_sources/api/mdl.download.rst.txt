@@ -11,6 +11,7 @@ mdl.download
 .. currentmodule:: mdl.download
 
 .. automodule:: mdl.download
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

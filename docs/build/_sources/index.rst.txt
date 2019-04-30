@@ -1,9 +1,11 @@
 .. meta::
-   :description lang=en: mdl-R33, an extensive library for the exploration, visualization, and analysis of eyetracking data.
+	:description lang=en: mdl-R33, an extensive library for the exploration, visualization, and analysis of eyetracking data.
 
 .. toctree::
+	:includehidden:
 	:hidden:
-	:maxdepth: 3
+	:glob:
+	:maxdepth: 4
 
 	intro
 	install
@@ -15,20 +17,20 @@
 
 .. raw:: html
 
-    <style type="text/css">
-    .thumbnail {
-        position: relative !important;
-        float: center !important;
-        margin: 10px !important;
-    }
-    .imhr{
-        display: block !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        max-width: 400px !important;
-    }
-    </style>
+	<style type="text/css">
+	.thumbnail {
+		position: relative !important;
+		float: center !important;
+		margin: 10px !important;
+	}
+	.imhr{
+		display: block !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: auto !important;
+		max-width: 400px !important;
+	}
+	</style>
 
 mdl-R33
 """""""

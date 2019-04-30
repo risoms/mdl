@@ -11,6 +11,7 @@ mdl.R33.config
 .. currentmodule:: mdl.R33.config
 
 .. automodule:: mdl.R33.config
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

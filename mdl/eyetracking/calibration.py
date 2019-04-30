@@ -29,7 +29,7 @@ if __name__ == '__main__':
 class Calibration():
 	def __init__(self, w, h, tracker, window):
 		"""
-        This allows mdl.eyetracking package to initiate calibration/validation/drift correction.=.
+        This allows mdl.eyetracking package to initiate calibration/validation/drift correction.
 
         Parameters
         ----------

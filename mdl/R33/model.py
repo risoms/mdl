@@ -62,7 +62,7 @@ def anova(config, y, f, df, csv, path, effects, is_html=True):
         List of main effects.
     is_html : :obj:`bool`
         Whether html should be generated.
-    
+
     Returns
     -------
     model :  `rpy2.robjects.methods.RS4 <https://rpy2.github.io/doc/latest/html/robjects_oop.html?#rpy2.robjects.methods.RS4>`_
@@ -71,9 +71,9 @@ def anova(config, y, f, df, csv, path, effects, is_html=True):
         Pandas dataframe of model output.
     get_anova : :class:`str`
         R script to run model.
-    html : :class:`str
+    html : :class:`str`
         HTML output.
-    
+
     Notes
     -----
     **Resources**
@@ -86,10 +86,10 @@ def anova(config, y, f, df, csv, path, effects, is_html=True):
         - https://stats.stackexchange.com/questions/247582/repeated-measures-anova-in-r-errorsubject-vs-errorsubject-day
         - https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html#post-hoc-contrasts-and-plotting
         - http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/Wieling-MixedModels-2011.pdf
-    
+
     **Definition**:
         A test that allows one to make comparisons between the means of multiple groups of data, where two independent variables are considered. 
-    
+
     **Assumptions of ANOVA**
         #. Normal distribution (normality)
             - Short: Samples are drawn from a normally distributed population (Q-Q Plot, Shapiro-Wilks Test)
@@ -99,7 +99,7 @@ def anova(config, y, f, df, csv, path, effects, is_html=True):
             - Detailed: Varience for a DV is constant across the sample. (residual vs fitted plot, Scale-Location plot, Levene's test)
         #. Independent observations
             - Samples have been drawn independently of each other. No analysis needed.
-        
+
     **Hypothesis Interpretation**
         - **Null**: The means of all levels of an IV groups are equal.
         - **Alternative**: The mean of at least level of an IV is different.
@@ -445,7 +445,7 @@ def lmer(config, y, f, df, exclude, csv, path, effects, is_html=True):
         List of main effects.
     is_html : :obj:`bool`
         Whether html should be generated.
-        
+
     Returns
     -------
     model :  `rpy2.robjects.methods.RS4 <https://rpy2.github.io/doc/latest/html/robjects_oop.html?#rpy2.robjects.methods.RS4>`_
@@ -454,9 +454,9 @@ def lmer(config, y, f, df, exclude, csv, path, effects, is_html=True):
         Pandas dataframe of model output.
     get_lmer : :class:`str`
         R script to run model.
-    html : :class:`str
+    html : :class:`str`
         HTML output.
-        
+
     Notes
     -----
     **Resources**
@@ -469,27 +469,27 @@ def lmer(config, y, f, df, exclude, csv, path, effects, is_html=True):
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
     console('model.lmer(%s)'%(y), 'green')
-    
+
     #----metadata
     source = 'onset'
-    
+
     #-----exclude participants
     df_ex = df[~df['participant'].isin(exclude)]
-    
+
     #----check if paths exist
     for path_ in [path, path + "csv/", path+"/img/"]:
         if not os.path.exists(path_):
             os.makedirs(path_)
-    
+
     #----save data for access by R
     df_ex.to_csv(path + "csv/" + csv, index=None)
-        
+
     #----get number of remaining subjects (datapoints) used
     subject_poisson = df_ex.drop_duplicates(subset="participant", keep="first").shape[0]
-    
+
     #----model
-    model_ = 'lmerTest::lmer(%s, data=df)'%(f),
-    
+    model_ = 'lmerTest::lmer(%s, data=df)'%(f)
+
     #----run r
     #code
     get_lmer = '\n'.join([
@@ -724,17 +724,17 @@ def lmer(config, y, f, df, exclude, csv, path, effects, is_html=True):
                 results.append('%s (<a><i>t</i> = %s, <i>SE</i> = %s, <i>p</i> = %s</a>).'%(short_[name], B_, se_, p_))
             else:
                 results.append('%s (<a><i>t</i> = %s, <i>SE</i> = %s, <i>p</i> = %s</a>),'%(short_[name], B_, se_, p_))
-                
-    ## build results            
+               
+    ## build results 
     results = ' '.join(results)
-    
+
     # combine
     footnote = summary + re.sub(r'\s+', ' ', description + results).strip()
-    
+
     #---------plots
     #build plots
     plots = {}
-    
+
     #---individual trend line
     clip = 250 if y=='diff_dotloc' else 200
     plots['individual'] = {}
@@ -776,7 +776,7 @@ def lmer(config, y, f, df, exclude, csv, path, effects, is_html=True):
     footnote_ = def_['qq']
     html_plots.append({"title":title_,"file":"%s"%(file),"footnote":footnote_, "anchor":"qq", 'type':'plot'})
     plot.qq_plot(config=config, y=y, residuals=residuals, path=path_)
-    
+
     #---residuals vs fitted plot
     file = "%s_residuals.png"%(y)
     path_ = path + "/img/" + file
@@ -799,7 +799,7 @@ def lmer(config, y, f, df, exclude, csv, path, effects, is_html=True):
                 '</pre>'+'\n',         
             '</div>'+'\n']
     script = ''.join(script)
-    
+
     #----html
     html = None
     if is_html:
@@ -832,7 +832,7 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
         The directory path to save the generated files.
     is_html : :obj:`bool`
         Whether html should be generated.
-        
+
     Returns
     -------
     model :  `rpy2.robjects.methods.RS4 <https://rpy2.github.io/doc/latest/html/robjects_oop.html?#rpy2.robjects.methods.RS4>`_
@@ -841,9 +841,9 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
         Pandas dataframe of model output.
     get_logit : :class:`str`
         R script to run model.
-    html : :class:`str
+    html : :class:`str`
         HTML output.
-        
+  
     Notes
     -----
     **Resources**
@@ -855,32 +855,32 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
     console('model.logistic(%s)'%(y), 'green')
-    
+
     #----metadata
     source = 'logit'
     #get fullname
     full = y.replace("_", " ").title().replace("Cesd", "CESD")
-    
+
     #-----exclude participants
     df = df[~df['participant'].isin(exclude)]
-    
+
     #---------check if paths exist
     for path_ in [path, path+"/csv/", path+"/img/"]:
         if not os.path.exists(path_):
             os.makedirs(path_)
-    
+
     #---------save data for access by R
     df.to_csv(path + "/csv/" + csv, index=None)
-    
+
     #-------get number of remaining subjects (datapoints) used
     subjects_logit = df.drop_duplicates(subset="participant", keep="first").shape[0]
-    
+
     #-------model
     #f = 'factor(cesd_group) ~ dp_bias + gaze_bias + final_gaze_bias + (1|participant)'
     # f = 'glmer(%s, \n\
     #            family=binomial(link="logit"), data=df, nAGQ=0)'%(f)
     f = 'lmer(%s, data=df)'%(f)
-    
+
     #-------logit and confidence intervals to R data.frame
     ##note: confidence intervals are based on the profiled log-likelihood function
     get_logit = '\n'.join([
@@ -958,13 +958,13 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
     logit_r = r(get_logit)
     #run
     df_r = logit_r()
-    
+
     #----extract model dataframe, model, and residuals dataframe from rpy2
     df_logit = df_r[0]
     model = df_r[1]
     residuals = df_r[2]
     summary = df_r[3]
-    
+
     #----clean data
     #rename
     df_logit = df_logit.rename(columns={'estimate':'B','std.error':'SE','statistic':'z','p.value':'Pr(>|z|)','97.5 %':'97.5%','2.5 %':'2.5%'})
@@ -978,22 +978,20 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
     # drop = ['sd_(Intercept).participant','sd_TrialNum.participant','cor_(Intercept).TrialNum.participant',
     #         'sd__(Intercept)','sd__TrialNum','cor__(Intercept).TrialNum']
     # df_logit = df_logit[~df_logit['term'].isin(drop)]
-    
+
     #rename columns
     df_logit = df_logit.rename_axis("index", axis="columns")
-    
-    
+
     #----format summary
     summary = summary.rename_axis("index", axis="columns")
     summary = summary.to_html(index=True, index_names=True).replace('<table border="1" class="dataframe">',
     '<table id="table2" class="table '+source+' table-striped table-bordered hover dt-responsive nowrap"\ cellspacing="0" width="100%">')
-    
+
     #---------title, footnote, results
     short_ = config['metadata']['short']
     long_ = config['metadata']['long']
     ref_ = config['metadata']['ref']
     def_ = config['metadata']['def']
-    
 
     #-------title, footnote, and results
     title = '<b>Table 1.</b> Generalized Linear Mixed Model Regression for %s (N = %s).'%(full, subjects_logit)
@@ -1042,12 +1040,12 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
         #append
         #if first item
         results.append('From our results, task %s did not predict the magnitude of CESD score &beta;=%s, 95%% CI[%s], p=%s.'%(term,or_,ci_,p_))
-            
+
     results = '<p>' + ' '.join(results) + '</p>'
-    
+
     #combine all
     footnote = re.sub(r'\s+', ' ', summary + description + results).strip()
-    
+
     #----prepare script for html
     script = ['<div class="code-container" style="display: none">'+'\n',
                 '<pre class="line-numbers">'+'\n',
@@ -1057,10 +1055,10 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
                 '</pre>'+'\n',
             '</div>'+'\n']
     script = ''.join(script)
-    
+
     #----allows seaborn to be run if matplotlib has already been loaded
     os.environ['KMP_DUPLICATE_LIB_OK']='True'
-    
+
     #----plots
     html_plots = []
     #probability (QQ) plot
@@ -1070,7 +1068,7 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
     footnote_ = def_['qq']
     html_plots.append({"title":title_,"file":"%s"%(file),"footnote":footnote_, "anchor":"qq"})
     plot.qq_plot_r(config=config, y=y, residuals=residuals, path=path_)
-    
+
     #residuals vs fitted plot
     file = "%s_residuals.png"%(y)
     path_ = path + "/img/" + file
@@ -1078,7 +1076,7 @@ def logistic(config, y, f, df, me, exclude, csv, path, is_html=True):
     footnote_ = def_['rvf']
     html_plots.append({"title":title_,"file":"%s"%(file),"footnote":footnote_, "anchor":"rf"})
     plot.residual_plot_r(config=config, y=y, residuals=residuals, path=path_)
-        
+
     #----save model and plot
     #save model and plot
     ##create html

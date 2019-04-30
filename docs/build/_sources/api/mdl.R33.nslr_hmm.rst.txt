@@ -11,6 +11,7 @@ mdl.R33.nslr_hmm
 .. currentmodule:: mdl.R33.nslr_hmm
 
 .. automodule:: mdl.R33.nslr_hmm
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

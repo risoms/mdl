@@ -11,6 +11,7 @@ mdl.R33.classify
 .. currentmodule:: mdl.R33.classify
 
 .. automodule:: mdl.R33.classify
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

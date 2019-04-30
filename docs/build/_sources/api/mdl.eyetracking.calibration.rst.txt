@@ -11,6 +11,7 @@ mdl.eyetracking.calibration
 .. currentmodule:: mdl.eyetracking.calibration
 
 .. automodule:: mdl.eyetracking.calibration
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

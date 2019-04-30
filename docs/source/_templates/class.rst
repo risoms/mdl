@@ -13,10 +13,10 @@
     .. automethod::
 
     {% if methods %}
-    .. rubric:: Methods
+    .. rubric:: MethodsZzZZZZZZ
 
     .. autosummary::
-
+        :nosignatures:
     {% for item in methods %}
         ~{{ name }}.{{ item }}
     {%- endfor %}
@@ -25,9 +25,10 @@
 
     {% block attributes %}
     {% if attributes %}
-    .. rubric:: Attributes
+    .. rubric:: AttributesZzZZZZZZ
 
     .. autosummary::
+		:nosignatures:
     {% for item in attributes %}
         ~{{ name }}.{{ item }}
     {%- endfor %}

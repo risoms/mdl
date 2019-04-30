@@ -9,9 +9,10 @@ mdl
 ~~~
 
 .. automodule:: mdl
+	:autosummary:
 
 	.. toctree::
-		:maxdepth: 1
+		:maxdepth: 2
 		
 		mdl.R33
 		mdl.eyetracking

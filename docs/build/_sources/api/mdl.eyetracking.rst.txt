@@ -9,10 +9,15 @@ mdl.eyetracking
 ~~~~~~~~~~~~~~~
 
 .. automodule:: mdl.eyetracking
+	:autosummary:
+	:member-order: bysource
+	:inherited-members:
+	:members: Calibration, Eyelink, ROI
 
 	.. toctree::
-		:maxdepth: 1
+		:maxdepth: 2
+		:hidden:
 		
-		mdl.eyetracking.calibration
-		mdl.eyetracking.eyetracking
-		mdl.eyetracking.roi
+		mdl.eyetracking.Calibration
+		mdl.eyetracking.Eyelink
+		mdl.eyetracking.ROI

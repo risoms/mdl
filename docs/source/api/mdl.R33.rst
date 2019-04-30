@@ -9,9 +9,10 @@ mdl.R33
 ~~~~~~~
 
 .. automodule:: mdl.R33
+	:autosummary:
 
 	.. toctree::
-		:maxdepth: 1
+		:maxdepth: 2
 		
 		mdl.R33.classify
 		mdl.R33.config

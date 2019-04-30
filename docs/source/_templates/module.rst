@@ -12,16 +12,15 @@
 
 .. automodule:: {{ fullname }}
 	{% if members -%}
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource
 	{% endif %}
 
 	{%- if methods %}
-	.. rubric:: Methods
-
-	.. autoautosummary::
-
+	.. autosummary::
+		:nosignatures:
 		{% for item in methods %}
 		{%- if item not in inherited_members %}
     	~{{ name }}.{{ item }}

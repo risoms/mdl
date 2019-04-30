@@ -11,6 +11,7 @@ mdl.eyetracking.roi
 .. currentmodule:: mdl.eyetracking.roi
 
 .. automodule:: mdl.eyetracking.roi
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

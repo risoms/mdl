@@ -11,6 +11,7 @@ mdl.R33.metadata
 .. currentmodule:: mdl.R33.metadata
 
 .. automodule:: mdl.R33.metadata
+	:autosummary:
 	:members:
 	:undoc-members:
 	:member-order: bysource

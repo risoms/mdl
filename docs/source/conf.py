@@ -9,6 +9,35 @@ import sys
 import time
 import datetime
 
+# Path setup -----------------------------------------------------------------------------------------------------------
+path = os.path.abspath(os.getcwd()+ '../../../') 
+print('path %s'%(path))
+# module directory
+sys.path.append(path)
+sys.path.append('/anaconda3/lib/python3.6/site-packages/')
+
+import mdl
+
+# date -----------------------------------------------------------------------------------------------------------------
+def iso():
+	"""
+	Get local time in ISO-8601 format.
+
+	Returns
+	-------
+	iso : :class:`str`
+		ISO-8601 datetime format, with timezone.
+
+	Examples
+	--------
+	>>> __time__()
+	'2019-04-23 11:29:44-05:00'
+	"""
+
+	isoname = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
+
+	return isoname
+
 # Sphinx toctree include functions -------------------------------------------------------------------------------------
 from sphinx.ext.autosummary import Autosummary
 from sphinx.ext.autosummary import get_documenter
@@ -51,32 +80,16 @@ class AutoAutoSummary(Autosummary):
 		finally:
 			return super(AutoAutoSummary, self).run()
 
+# autodocsumm ----------------------------------------------------------------------------------------------------------
+def grouper_autodocsumm(app, what, name, obj, section, options, parent):
+    if parent is mdl.eyetracking and section == 'Attributes':
+        return 'Alternative Section'
+
 # Exclude modules ------------------------------------------------------------------------------------------------------
 # http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-process-docstring
 def remove_module_docstring(app, what, name, obj, options, lines):
-	#if what == "module" and name == "hpclogging.logger" and 'members' in options:
-	if what == "module" and name == "yourmodule":
+	if what == "module"  and 'members' in options:
 		del lines[:]
-
-# date -----------------------------------------------------------------------------------------------------------------
-def iso():
-	"""
-	Get local time in ISO-8601 format.
-
-	Returns
-	-------
-	iso : :class:`str`
-		ISO-8601 datetime format, with timezone.
-
-	Examples
-	--------
-	>>> __time__()
-	'2019-04-23 11:29:44-05:00'
-	"""
-
-	isoname = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
-
-	return isoname
 
 # apidoc ---------------------------------------------------------------------------------------------------------------
 def run_apidoc(app):
@@ -102,21 +115,13 @@ def skip(app, what, name, obj, skip, options):
 	return skip
 
 # Path setup -----------------------------------------------------------------------------------------------------------
-path = os.path.abspath(os.getcwd()+ '../../../') 
-print('path %s'%(path))
-# module directory
-sys.path.append(path)
-sys.path.append('/anaconda3/lib/python3.6/site-packages/')
-
-# Path setup -----------------------------------------------------------------------------------------------------------
 autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL", 'pylink', 'pylink.EyeLinkCustomDisplay']
 
 # Project information --------------------------------------------------------------------------------------------------
-import mdl
 
 project = 'mdl-R33'
 author = 'Semeon Risom'
-copyright = u'{}, Semeon Risom'.format(time.strftime("%Y"))
+copyright = u'{}, '.format(time.strftime("%Y"))
 
 #datetime = datetime.datetime.now().replace(microsecond=0).replace(second=0).isoformat()
 date = datetime.date.today().isoformat()
@@ -133,6 +138,8 @@ html_last_updated_fmt = '%s'%(isodate)
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+	#Support for todo items
+	'sphinx.ext.todo',
 	#include documentation from docstrings
     'sphinx.ext.autodoc',
 	#link to other projects’ documentation
@@ -152,32 +159,28 @@ extensions = [
 	'sphinx_copybutton',
 	# inheritance plot
     'sphinx.ext.inheritance_diagram',
-	'sphinxcontrib.fulltoc'
+	# Include a full table of contents in your Sphinx HTML sidebar
+	'sphinxcontrib.fulltoc',
+	# Extending autodoc API
+	'autodocsumm'
 ]
 # extensopm parameters
 # autosummary
 autosummary_generate = True
 autodoc_default_options = {
+    # 'autosummary': True,
     'member-order': 'bysource',
     # 'private-members': False,
     # 'undoc-members': False,
 }
-
 # Napoleon settings ----------------------------------------------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-napoleon_include_init_with_doc = True #True to list __init___ docstrings separately from the class docstring.
-napoleon_include_private_with_doc = True #True to include private members (like _membername)
-napoleon_include_special_with_doc = True #True to include special members (like __membername__)
-napoleon_use_admonition_for_examples = True #True to use the .. admonition:: directive for Example sections.
-napoleon_use_admonition_for_notes = True #True to use the .. admonition:: directive for Notes sections.
-napoleon_use_admonition_for_references = True #True to use the .. admonition:: directive for References sections.
-napoleon_use_ivar = True #True to use the :ivar: role for instance variables.
-napoleon_use_param = True #True to use a :param: role for each function parameter.
-napoleon_use_rtype = True #True to use the :rtype: role for the return type. 
 
 # General configuration ------------------------------------------------------------------------------------------------
+#If true, “Created using Sphinx” is shown in the HTML footer.
+html_show_sphinx = False
+# If true, “(C) Copyright …” is shown in the HTML footer. Default is True.
+html_show_copyright = True
 # Sphinx will warn about all references where the target cannot be found.
 nitpicky = True
 # Add any paths that contain templates here, relative to this directory.
@@ -221,7 +224,7 @@ html_theme_options = {
 }
 #no 'searchresults.html'
 # #localtoc #fulltoc #globaltoc
-html_sidebars = {'**': ['localtoc.html']}
+html_sidebars = {'**': ['localtoc.html','sourcelink.html']}
 
 # nbsphinx -------------------------------------------------------------------------------------------------------------
 nbsphinx_allow_errors = False
@@ -258,7 +261,21 @@ intersphinx_mapping = {
 	'psd_tools': ('https://psd-tools.readthedocs.io/en/latest/', None),
 }
 
-# -- Path setup --------------------------------------------------------------
+# setup ----------------------------------------------------------------------------------------------------------------
+def parse_event(env, sig, signode):
+    m = event_sig_re.match(sig)
+    if not m:
+        signode += addnodes.desc_name(sig, sig)
+        return sig
+    name, args = m.groups()
+    signode += addnodes.desc_name(name, name)
+    plist = addnodes.desc_parameterlist()
+    for arg in args.split(','):
+        arg = arg.strip()
+        plist += addnodes.desc_parameter(arg, arg)
+    signode += plist
+    return name
+
 def setup(app):
 	# copybutton
 	app.add_javascript("semeon/js/clipboard.js")
@@ -273,3 +290,6 @@ def setup(app):
 	app.add_directive('autoautosummary', AutoAutoSummary)
 	# include init
 	app.connect("autodoc-skip-member", skip)
+	# autodocsumm
+	# app.connect('autodocsumm-grouper', grouper_autodocsumm)
+

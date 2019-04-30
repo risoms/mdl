@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.R33.model &#8212; mdl-R33 2019-04-29 documentation</title>
+    <title>mdl.R33.model &#8212; mdl-R33 2019-04-30 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-29</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-04-30</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -149,16 +149,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.eyetracking.calibration.html">mdl.eyetracking.calibration</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.eyetracking.eyetracking.html">mdl.eyetracking.eyetracking</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.eyetracking.roi.html">mdl.eyetracking.roi</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -303,7 +294,7 @@
 <span class="sd">        List of main effects.</span>
 <span class="sd">    is_html : :obj:`bool`</span>
 <span class="sd">        Whether html should be generated.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    model :  `rpy2.robjects.methods.RS4 &lt;https://rpy2.github.io/doc/latest/html/robjects_oop.html?#rpy2.robjects.methods.RS4&gt;`_</span>
@@ -312,9 +303,9 @@
 <span class="sd">        Pandas dataframe of model output.</span>
 <span class="sd">    get_anova : :class:`str`</span>
 <span class="sd">        R script to run model.</span>
-<span class="sd">    html : :class:`str</span>
+<span class="sd">    html : :class:`str`</span>
 <span class="sd">        HTML output.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    **Resources**</span>
@@ -327,10 +318,10 @@
 <span class="sd">        - https://stats.stackexchange.com/questions/247582/repeated-measures-anova-in-r-errorsubject-vs-errorsubject-day</span>
 <span class="sd">        - https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html#post-hoc-contrasts-and-plotting</span>
 <span class="sd">        - http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/Wieling-MixedModels-2011.pdf</span>
-<span class="sd">    </span>
+
 <span class="sd">    **Definition**:</span>
 <span class="sd">        A test that allows one to make comparisons between the means of multiple groups of data, where two independent variables are considered. </span>
-<span class="sd">    </span>
+
 <span class="sd">    **Assumptions of ANOVA**</span>
 <span class="sd">        #. Normal distribution (normality)</span>
 <span class="sd">            - Short: Samples are drawn from a normally distributed population (Q-Q Plot, Shapiro-Wilks Test)</span>
@@ -340,7 +331,7 @@
 <span class="sd">            - Detailed: Varience for a DV is constant across the sample. (residual vs fitted plot, Scale-Location plot, Levene&#39;s test)</span>
 <span class="sd">        #. Independent observations</span>
 <span class="sd">            - Samples have been drawn independently of each other. No analysis needed.</span>
-<span class="sd">        </span>
+
 <span class="sd">    **Hypothesis Interpretation**</span>
 <span class="sd">        - **Null**: The means of all levels of an IV groups are equal.</span>
 <span class="sd">        - **Alternative**: The mean of at least level of an IV is different.</span>
@@ -686,7 +677,7 @@
 <span class="sd">        List of main effects.</span>
 <span class="sd">    is_html : :obj:`bool`</span>
 <span class="sd">        Whether html should be generated.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    model :  `rpy2.robjects.methods.RS4 &lt;https://rpy2.github.io/doc/latest/html/robjects_oop.html?#rpy2.robjects.methods.RS4&gt;`_</span>
@@ -695,9 +686,9 @@
 <span class="sd">        Pandas dataframe of model output.</span>
 <span class="sd">    get_lmer : :class:`str`</span>
 <span class="sd">        R script to run model.</span>
-<span class="sd">    html : :class:`str</span>
+<span class="sd">    html : :class:`str`</span>
 <span class="sd">        HTML output.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    **Resources**</span>
@@ -710,27 +701,27 @@
     <span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">_f</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;model.lmer(</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
-    
+
     <span class="c1">#----metadata</span>
     <span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;onset&#39;</span>
-    
+
     <span class="c1">#-----exclude participants</span>
     <span class="n">df_ex</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">exclude</span><span class="p">)]</span>
-    
+
     <span class="c1">#----check if paths exist</span>
     <span class="k">for</span> <span class="n">path_</span> <span class="ow">in</span> <span class="p">[</span><span class="n">path</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;csv/&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;/img/&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path_</span><span class="p">)</span>
-    
+
     <span class="c1">#----save data for access by R</span>
     <span class="n">df_ex</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;csv/&quot;</span> <span class="o">+</span> <span class="n">csv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-        
+
     <span class="c1">#----get number of remaining subjects (datapoints) used</span>
     <span class="n">subject_poisson</span> <span class="o">=</span> <span class="n">df_ex</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">&quot;participant&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="c1">#----model</span>
-    <span class="n">model_</span> <span class="o">=</span> <span class="s1">&#39;lmerTest::lmer(</span><span class="si">%s</span><span class="s1">, data=df)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
-    
+    <span class="n">model_</span> <span class="o">=</span> <span class="s1">&#39;lmerTest::lmer(</span><span class="si">%s</span><span class="s1">, data=df)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
     <span class="c1">#----run r</span>
     <span class="c1">#code</span>
     <span class="n">get_lmer</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
@@ -965,17 +956,17 @@
                 <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> (&lt;a&gt;&lt;i&gt;t&lt;/i&gt; = </span><span class="si">%s</span><span class="s1">, &lt;i&gt;SE&lt;/i&gt; = </span><span class="si">%s</span><span class="s1">, &lt;i&gt;p&lt;/i&gt; = </span><span class="si">%s</span><span class="s1">&lt;/a&gt;).&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">short_</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">B_</span><span class="p">,</span> <span class="n">se_</span><span class="p">,</span> <span class="n">p_</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> (&lt;a&gt;&lt;i&gt;t&lt;/i&gt; = </span><span class="si">%s</span><span class="s1">, &lt;i&gt;SE&lt;/i&gt; = </span><span class="si">%s</span><span class="s1">, &lt;i&gt;p&lt;/i&gt; = </span><span class="si">%s</span><span class="s1">&lt;/a&gt;),&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">short_</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">B_</span><span class="p">,</span> <span class="n">se_</span><span class="p">,</span> <span class="n">p_</span><span class="p">))</span>
-                
-    <span class="c1">## build results            </span>
+               
+    <span class="c1">## build results </span>
     <span class="n">results</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-    
+
     <span class="c1"># combine</span>
     <span class="n">footnote</span> <span class="o">=</span> <span class="n">summary</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">description</span> <span class="o">+</span> <span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    
+
     <span class="c1">#---------plots</span>
     <span class="c1">#build plots</span>
     <span class="n">plots</span> <span class="o">=</span> <span class="p">{}</span>
-    
+
     <span class="c1">#---individual trend line</span>
     <span class="n">clip</span> <span class="o">=</span> <span class="mi">250</span> <span class="k">if</span> <span class="n">y</span><span class="o">==</span><span class="s1">&#39;diff_dotloc&#39;</span> <span class="k">else</span> <span class="mi">200</span>
     <span class="n">plots</span><span class="p">[</span><span class="s1">&#39;individual&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1017,7 +1008,7 @@
     <span class="n">footnote_</span> <span class="o">=</span> <span class="n">def_</span><span class="p">[</span><span class="s1">&#39;qq&#39;</span><span class="p">]</span>
     <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title_</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote_</span><span class="p">,</span> <span class="s2">&quot;anchor&quot;</span><span class="p">:</span><span class="s2">&quot;qq&quot;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span><span class="s1">&#39;plot&#39;</span><span class="p">})</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">qq_plot</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">residuals</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path_</span><span class="p">)</span>
-    
+
     <span class="c1">#---residuals vs fitted plot</span>
     <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_residuals.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="n">path_</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/img/&quot;</span> <span class="o">+</span> <span class="n">file</span>
@@ -1040,7 +1031,7 @@
                 <span class="s1">&#39;&lt;/pre&gt;&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>         
             <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
     <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
-    
+
     <span class="c1">#----html</span>
     <span class="n">html</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">is_html</span><span class="p">:</span>
@@ -1073,7 +1064,7 @@
 <span class="sd">        The directory path to save the generated files.</span>
 <span class="sd">    is_html : :obj:`bool`</span>
 <span class="sd">        Whether html should be generated.</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    model :  `rpy2.robjects.methods.RS4 &lt;https://rpy2.github.io/doc/latest/html/robjects_oop.html?#rpy2.robjects.methods.RS4&gt;`_</span>
@@ -1082,9 +1073,9 @@
 <span class="sd">        Pandas dataframe of model output.</span>
 <span class="sd">    get_logit : :class:`str`</span>
 <span class="sd">        R script to run model.</span>
-<span class="sd">    html : :class:`str</span>
+<span class="sd">    html : :class:`str`</span>
 <span class="sd">        HTML output.</span>
-<span class="sd">        </span>
+<span class="sd">  </span>
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    **Resources**</span>
@@ -1096,32 +1087,32 @@
     <span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">_f</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;model.logistic(</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
-    
+
     <span class="c1">#----metadata</span>
     <span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;logit&#39;</span>
     <span class="c1">#get fullname</span>
     <span class="n">full</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Cesd&quot;</span><span class="p">,</span> <span class="s2">&quot;CESD&quot;</span><span class="p">)</span>
-    
+
     <span class="c1">#-----exclude participants</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">exclude</span><span class="p">)]</span>
-    
+
     <span class="c1">#---------check if paths exist</span>
     <span class="k">for</span> <span class="n">path_</span> <span class="ow">in</span> <span class="p">[</span><span class="n">path</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;/csv/&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">+</span><span class="s2">&quot;/img/&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path_</span><span class="p">)</span>
-    
+
     <span class="c1">#---------save data for access by R</span>
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/csv/&quot;</span> <span class="o">+</span> <span class="n">csv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    
+
     <span class="c1">#-------get number of remaining subjects (datapoints) used</span>
     <span class="n">subjects_logit</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">&quot;participant&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="c1">#-------model</span>
     <span class="c1">#f = &#39;factor(cesd_group) ~ dp_bias + gaze_bias + final_gaze_bias + (1|participant)&#39;</span>
     <span class="c1"># f = &#39;glmer(%s, \n\</span>
     <span class="c1">#            family=binomial(link=&quot;logit&quot;), data=df, nAGQ=0)&#39;%(f)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;lmer(</span><span class="si">%s</span><span class="s1">, data=df)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    
+
     <span class="c1">#-------logit and confidence intervals to R data.frame</span>
     <span class="c1">##note: confidence intervals are based on the profiled log-likelihood function</span>
     <span class="n">get_logit</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
@@ -1199,13 +1190,13 @@
     <span class="n">logit_r</span> <span class="o">=</span> <span class="n">r</span><span class="p">(</span><span class="n">get_logit</span><span class="p">)</span>
     <span class="c1">#run</span>
     <span class="n">df_r</span> <span class="o">=</span> <span class="n">logit_r</span><span class="p">()</span>
-    
+
     <span class="c1">#----extract model dataframe, model, and residuals dataframe from rpy2</span>
     <span class="n">df_logit</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">residuals</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">summary</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-    
+
     <span class="c1">#----clean data</span>
     <span class="c1">#rename</span>
     <span class="n">df_logit</span> <span class="o">=</span> <span class="n">df_logit</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;estimate&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;std.error&#39;</span><span class="p">:</span><span class="s1">&#39;SE&#39;</span><span class="p">,</span><span class="s1">&#39;statistic&#39;</span><span class="p">:</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="s1">&#39;p.value&#39;</span><span class="p">:</span><span class="s1">&#39;Pr(&gt;|z|)&#39;</span><span class="p">,</span><span class="s1">&#39;97.5 %&#39;</span><span class="p">:</span><span class="s1">&#39;97.5%&#39;</span><span class="p">,</span><span class="s1">&#39;2.5 %&#39;</span><span class="p">:</span><span class="s1">&#39;2.5%&#39;</span><span class="p">})</span>
@@ -1219,22 +1210,20 @@
     <span class="c1"># drop = [&#39;sd_(Intercept).participant&#39;,&#39;sd_TrialNum.participant&#39;,&#39;cor_(Intercept).TrialNum.participant&#39;,</span>
     <span class="c1">#         &#39;sd__(Intercept)&#39;,&#39;sd__TrialNum&#39;,&#39;cor__(Intercept).TrialNum&#39;]</span>
     <span class="c1"># df_logit = df_logit[~df_logit[&#39;term&#39;].isin(drop)]</span>
-    
+
     <span class="c1">#rename columns</span>
     <span class="n">df_logit</span> <span class="o">=</span> <span class="n">df_logit</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
-    
-    
+
     <span class="c1">#----format summary</span>
     <span class="n">summary</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
     <span class="n">summary</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;&#39;</span><span class="p">,</span>
     <span class="s1">&#39;&lt;table id=&quot;table2&quot; class=&quot;table &#39;</span><span class="o">+</span><span class="n">source</span><span class="o">+</span><span class="s1">&#39; table-striped table-bordered hover dt-responsive nowrap&quot;\ cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;&#39;</span><span class="p">)</span>
-    
+
     <span class="c1">#---------title, footnote, results</span>
     <span class="n">short_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;short&#39;</span><span class="p">]</span>
     <span class="n">long_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;long&#39;</span><span class="p">]</span>
     <span class="n">ref_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;ref&#39;</span><span class="p">]</span>
     <span class="n">def_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;def&#39;</span><span class="p">]</span>
-    
 
     <span class="c1">#-------title, footnote, and results</span>
     <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt;Table 1.&lt;/b&gt; Generalized Linear Mixed Model Regression for </span><span class="si">%s</span><span class="s1"> (N = </span><span class="si">%s</span><span class="s1">).&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">full</span><span class="p">,</span> <span class="n">subjects_logit</span><span class="p">)</span>
@@ -1283,12 +1272,12 @@
         <span class="c1">#append</span>
         <span class="c1">#if first item</span>
         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;From our results, task </span><span class="si">%s</span><span class="s1"> did not predict the magnitude of CESD score &amp;beta;=</span><span class="si">%s</span><span class="s1">, 95</span><span class="si">%%</span><span class="s1"> CI[</span><span class="si">%s</span><span class="s1">], p=</span><span class="si">%s</span><span class="s1">.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="n">or_</span><span class="p">,</span><span class="n">ci_</span><span class="p">,</span><span class="n">p_</span><span class="p">))</span>
-            
+
     <span class="n">results</span> <span class="o">=</span> <span class="s1">&#39;&lt;p&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;/p&gt;&#39;</span>
-    
+
     <span class="c1">#combine all</span>
     <span class="n">footnote</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">summary</span> <span class="o">+</span> <span class="n">description</span> <span class="o">+</span> <span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    
+
     <span class="c1">#----prepare script for html</span>
     <span class="n">script</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;div class=&quot;code-container&quot; style=&quot;display: none&quot;&gt;&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;&lt;pre class=&quot;line-numbers&quot;&gt;&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
@@ -1298,10 +1287,10 @@
                 <span class="s1">&#39;&lt;/pre&gt;&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
             <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
     <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
-    
+
     <span class="c1">#----allows seaborn to be run if matplotlib has already been loaded</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;KMP_DUPLICATE_LIB_OK&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;True&#39;</span>
-    
+
     <span class="c1">#----plots</span>
     <span class="n">html_plots</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="c1">#probability (QQ) plot</span>
@@ -1311,7 +1300,7 @@
     <span class="n">footnote_</span> <span class="o">=</span> <span class="n">def_</span><span class="p">[</span><span class="s1">&#39;qq&#39;</span><span class="p">]</span>
     <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title_</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote_</span><span class="p">,</span> <span class="s2">&quot;anchor&quot;</span><span class="p">:</span><span class="s2">&quot;qq&quot;</span><span class="p">})</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">qq_plot_r</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">residuals</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path_</span><span class="p">)</span>
-    
+
     <span class="c1">#residuals vs fitted plot</span>
     <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_residuals.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="n">path_</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/img/&quot;</span> <span class="o">+</span> <span class="n">file</span>
@@ -1319,7 +1308,7 @@
     <span class="n">footnote_</span> <span class="o">=</span> <span class="n">def_</span><span class="p">[</span><span class="s1">&#39;rvf&#39;</span><span class="p">]</span>
     <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title_</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote_</span><span class="p">,</span> <span class="s2">&quot;anchor&quot;</span><span class="p">:</span><span class="s2">&quot;rf&quot;</span><span class="p">})</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">residual_plot_r</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">residuals</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path_</span><span class="p">)</span>
-        
+
     <span class="c1">#----save model and plot</span>
     <span class="c1">#save model and plot</span>
     <span class="c1">##create html</span>
@@ -1340,14 +1329,9 @@
 <footer class="footer">
 	<div class="container">
 		<div>
-			<div>&copy; Copyright 2019, Semeon Risom.</div>
-			<div>Updated 2019-04-29T17:00:17-05:00.</div>
-			<div>Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.</div>
-			<div class="pull-right">
-				
-				
-				
-			</div>
+					<div>&copy; Copyright 2019, </div>
+			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
+				<div>Updated 2019-04-30T16:40:34-05:00.</div>
 		</div>
 	</div>
 </footer>
