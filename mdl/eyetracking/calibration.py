@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: This allows mdl.eyetracking package to initiate calibration/validation/drift correction.  
-| @date: Created on Wed Feb 13 15:37:43 2019  
-| @author: Semeon Risom  
-| @email: semeon.risom@gmail.com.  
-| @url: https://semeon.io/d/mdl  
+| `@purpose`: Allows mdl.eyelink.eyetracking module to initiate calibration/validation/drift correction.  
+| `@date`: Created on Sat May 1 15:12:38 2019  
+| `@author`: Semeon Risom  
+| `@email`: semeon.risom@gmail.com  
+| `@url`: https://semeon.io/d/mdl
 """
 
 __all__ = ['Calibration']
@@ -27,6 +27,7 @@ if __name__ == '__main__':
 
 #class Calibration(pylink.EyeLinkCustomDisplay):
 class Calibration():
+	"""Allows mdl.eyelink.eyetracking module to initiate calibration/validation/drift correction"""
 	def __init__(self, w, h, tracker, window):
 		"""
         This allows mdl.eyetracking package to initiate calibration/validation/drift correction.

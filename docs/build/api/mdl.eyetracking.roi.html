@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.eyetracking.roi &#8212; mdl-R33 2019-04-30 documentation</title>
+    <title>mdl.eyetracking.roi &#8212; mdl-R33 2019-05-01 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-30</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-01</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,21 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mdl.html">mdl</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.metadata.html">mdl.R33.metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.model.html">mdl.R33.model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
@@ -236,11 +222,11 @@
   <div class="section" id="module-mdl.eyetracking.roi">
 <span id="mdl-eyetracking-roi"></span><h1>mdl.eyetracking.roi<a class="headerlink" href="#module-mdl.eyetracking.roi" title="Permalink to this headline">¶</a></h1>
 <div class="line-block">
-<div class="line">&#64;purpose: Create regions of interest that can be used for data processing and analysis.  </div>
-<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019  </div>
-<div class="line">&#64;author: Semeon Risom  </div>
-<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
-<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></div>
+<div class="line"><cite>&#64;purpose</cite>: Create regions of interest that can be used for data processing and analysis.  </div>
+<div class="line"><cite>&#64;date</cite>: Created on Sat May 1 15:12:38 2019  </div>
+<div class="line"><cite>&#64;author</cite>: Semeon Risom  </div>
+<div class="line"><cite>&#64;email</cite>: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
+<div class="line"><cite>&#64;url</cite>: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></div>
 </div>
 <p><strong>Classes</strong></p>
 <table border="1" class="longtable docutils">
@@ -248,6 +234,8 @@
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI" title="mdl.eyetracking.roi.ROI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ROI</span></code></a>([isMultiprocessing,&nbsp;image_path,&nbsp;…])</td>
 <td>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</td>
@@ -289,7 +277,7 @@ Default is <cite>embedded</cite>. For example:</p>
 <p>Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
 as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-be either <cite>;</cite> <cite>,</cite> <cite>|</cite> ` ` or <cite>s</cite> (Delimiter type must be identified when running this code using the
+be either <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>t</cite> or <cite>s</cite> (Delimiter type must be identified when running this code using the
 code:<cite>delimiter</cite> parameter. The default is <cite>;</cite>.). Here’s an example using <cite>;</cite> as a delimiter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span><span class="o">=</span><span class="n">BM001</span><span class="p">;</span><span class="n">roiname</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">feature</span><span class="o">=</span><span class="n">lefteye</span>
 </pre></div>
@@ -374,6 +362,8 @@ with the only difference being compensation for the mininum enclosing area for t
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.__init__" title="mdl.eyetracking.roi.ROI.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([isMultiprocessing,&nbsp;image_path,&nbsp;…])</td>
 <td>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</td>
@@ -457,6 +447,8 @@ for more information.</p>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.roi.ROI.create_contours" title="mdl.eyetracking.roi.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
 <td>[summary]</td>
@@ -513,7 +505,7 @@ Default is <cite>embedded</cite>. For example:</p>
 <p>Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
 as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-be either <cite>;</cite> <cite>,</cite> <cite>|</cite> ` ` or <cite>s</cite> (Delimiter type must be identified when running this code using the
+be either <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>t</cite> or <cite>s</cite> (Delimiter type must be identified when running this code using the
 code:<cite>delimiter</cite> parameter. The default is <cite>;</cite>.). Here’s an example using <cite>;</cite> as a delimiter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span><span class="o">=</span><span class="n">BM001</span><span class="p">;</span><span class="n">roiname</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">feature</span><span class="o">=</span><span class="n">lefteye</span>
 </pre></div>
@@ -855,7 +847,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-04-30T16:40:34-05:00.</div>
+				<div>Updated 2019-05-01T14:14:10-05:00.</div>
 		</div>
 	</div>
 </footer>

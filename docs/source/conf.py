@@ -3,11 +3,13 @@
 # This file does only contain a selection of the most common options. For a full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+# core
 import re
 import os
 import sys
 import time
 import datetime
+from pdb import set_trace as breakpoint
 
 # Path setup -----------------------------------------------------------------------------------------------------------
 path = os.path.abspath(os.getcwd()+ '../../../') 
@@ -15,8 +17,8 @@ print('path %s'%(path))
 # module directory
 sys.path.append(path)
 sys.path.append('/anaconda3/lib/python3.6/site-packages/')
-
 import mdl
+from mdl.settings import console
 
 # date -----------------------------------------------------------------------------------------------------------------
 def iso():
@@ -38,13 +40,67 @@ def iso():
 
 	return isoname
 
-# Sphinx toctree include functions -------------------------------------------------------------------------------------
-from sphinx.ext.autosummary import Autosummary
-from sphinx.ext.autosummary import get_documenter
-from docutils.parsers.rst import directives
-from sphinx.util.inspect import safe_getattr
+# Project information --------------------------------------------------------------------------------------------------
+project = 'mdl-R33'
+author = 'Semeon Risom'
+copyright = u'{}, '.format(time.strftime("%Y"))
 
+#datetime = datetime.datetime.now().replace(microsecond=0).replace(second=0).isoformat()
+date = datetime.date.today().isoformat()
+# The short X.Y version
+version = '%s'%(date)
+# The full version, including alpha/beta/rc tags
+release = version
+# 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
+isodate = iso()
+html_last_updated_fmt = '%s'%(isodate)
+
+# Extensions -----------------------------------------------------------------------------------------------------------
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+	#Support for todo items
+	'sphinx.ext.todo',
+	#link to other projects’ documentation
+    'sphinx.ext.intersphinx',
+	# add links to highlighted source code
+    'sphinx.ext.viewcode',
+    # create tables of summary data
+	'sphinx.ext.autosummary',
+	#compatiable with numpydoc notation
+    'numpydoc',
+	#work with github
+    'sphinx.ext.githubpages',
+	# use jupyter
+    'nbsphinx',
+	# add copy
+	'sphinx_copybutton',
+	# inheritance plot
+    'sphinx.ext.inheritance_diagram',
+	# Include a full table of contents in your Sphinx HTML sidebar
+	'sphinxcontrib.fulltoc',
+	# Include documentation from docstrings
+	'sphinx.ext.autodoc',
+	# Extending autodoc API
+	'autodocsumm'
+]
+
+# Napoleon settings ----------------------------------------------------------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
+
+# nbsphinx settings ----------------------------------------------------------------------------------------------------
+nbsphinx_allow_errors = False
+nbsphinx_execute = 'never'
+pngmath_use_preview = True
+pngmath_dvipng_args = ['-gamma 1.5', '-D 96', '-bg Transparent']
+
+# Autosummary settings -------------------------------------------------------------------------------------------------
+from sphinx.ext.autosummary import Autosummary
 class AutoAutoSummary(Autosummary):
+	from sphinx.ext.autosummary import get_documenter
+	from docutils.parsers.rst import directives
+	from sphinx.util.inspect import safe_getattr
 	option_spec = {
 		'methods': directives.unchanged,
     	'attributes': directives.unchanged
@@ -80,18 +136,7 @@ class AutoAutoSummary(Autosummary):
 		finally:
 			return super(AutoAutoSummary, self).run()
 
-# autodocsumm ----------------------------------------------------------------------------------------------------------
-def grouper_autodocsumm(app, what, name, obj, section, options, parent):
-    if parent is mdl.eyetracking and section == 'Attributes':
-        return 'Alternative Section'
-
-# Exclude modules ------------------------------------------------------------------------------------------------------
-# http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-process-docstring
-def remove_module_docstring(app, what, name, obj, options, lines):
-	if what == "module"  and 'members' in options:
-		del lines[:]
-
-# apidoc ---------------------------------------------------------------------------------------------------------------
+# better-apidoc settings -----------------------------------------------------------------------------------------------
 def run_apidoc(app):
     """Generate API documentation"""
     import better_apidoc
@@ -106,83 +151,49 @@ def run_apidoc(app):
         os.path.abspath(path) #module path
     ])
 
-# allows inclusion or exclusion of __init__ ----------------------------------------------------------------------------
-#http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
-autoclass_content = 'init'
-def skip(app, what, name, obj, skip, options):
-	if name == "__init__":
-		return False
-	return skip
+# sphinx-autogen settings ----------------------------------------------------------------------------------------------
+autosummary_generate = False
 
-# Path setup -----------------------------------------------------------------------------------------------------------
+# autodoc settings -----------------------------------------------------------------------------------------------------
 autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL", 'pylink', 'pylink.EyeLinkCustomDisplay']
-
-# Project information --------------------------------------------------------------------------------------------------
-
-project = 'mdl-R33'
-author = 'Semeon Risom'
-copyright = u'{}, '.format(time.strftime("%Y"))
-
-#datetime = datetime.datetime.now().replace(microsecond=0).replace(second=0).isoformat()
-date = datetime.date.today().isoformat()
-# The short X.Y version
-version = '%s'%(date)
-# The full version, including alpha/beta/rc tags
-release = version
-# 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
-isodate = iso()
-html_last_updated_fmt = '%s'%(isodate)
-
-# Extensions -----------------------------------------------------------------------------------------------------------
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions = [
-	#Support for todo items
-	'sphinx.ext.todo',
-	#include documentation from docstrings
-    'sphinx.ext.autodoc',
-	#link to other projects’ documentation
-    'sphinx.ext.intersphinx',
-	# add links to highlighted source code
-    'sphinx.ext.viewcode',
-    # create tables of summary data
-	'sphinx.ext.autosummary',
-	#compatiable with numpydoc notation
-    'numpydoc',
-	#'sphinx.ext.napoleon',
-	#work with github
-    'sphinx.ext.githubpages',
-	# use jupyter
-    'nbsphinx',
-	# add copy
-	'sphinx_copybutton',
-	# inheritance plot
-    'sphinx.ext.inheritance_diagram',
-	# Include a full table of contents in your Sphinx HTML sidebar
-	'sphinxcontrib.fulltoc',
-	# Extending autodoc API
-	'autodocsumm'
-]
-# extensopm parameters
-# autosummary
-autosummary_generate = True
+autodoc_member_order = 'bysource' # Sort by source
+autoclass_content = 'init'
+#suppress_warnings = ['misc.highlighting_failure']
 autodoc_default_options = {
     # 'autosummary': True,
     'member-order': 'bysource',
     # 'private-members': False,
     # 'undoc-members': False,
 }
-# Napoleon settings ----------------------------------------------------------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
 
-# General configuration ------------------------------------------------------------------------------------------------
+## Exclude summary tables (summary tables instead are created in autodocsumm)
+### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-process-docstring
+def process_docstring(app, what, name, obj, options, lines):
+	#if ((what == "module") or (what == "class") or (what == "function") or (what == "method") or (what == "attribute")):
+	print('\n'); console(what, 'red'); console(name, 'green'); print(lines)
+	#if (what == "attribute"):
+	#	del lines[:]
+
+## allows inclusion or exclusion of __init__
+### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
+def inclusion(app, what, name, obj, skip, options):
+	if name == "__init__":
+		return False
+	else:
+		return skip
+
+# autodocsumm settings -------------------------------------------------------------------------------------------------
+def grouper_autodocsumm(app, what, name, obj, section, options, parent):
+    if parent is mdl.eyetracking and section == 'Attributes':
+        return 'Alternative Section'
+
+# General settings -----------------------------------------------------------------------------------------------------
 #If true, “Created using Sphinx” is shown in the HTML footer.
 html_show_sphinx = False
 # If true, “(C) Copyright …” is shown in the HTML footer. Default is True.
 html_show_copyright = True
 # Sphinx will warn about all references where the target cannot be found.
-nitpicky = True
+nitpicky = False
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 # The suffix(es) of source filenames.
@@ -197,8 +208,6 @@ todo_include_todos = True
 exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup', 'api/pylink.rst']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-# Sort by source
-autodoc_member_order = 'bysource'
 html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.
 html_show_sourcelink = True #If true (and html_copy_source is true as well), links to the reST sources will be added to the sidebar.
 
@@ -225,12 +234,6 @@ html_theme_options = {
 #no 'searchresults.html'
 # #localtoc #fulltoc #globaltoc
 html_sidebars = {'**': ['localtoc.html','sourcelink.html']}
-
-# nbsphinx -------------------------------------------------------------------------------------------------------------
-nbsphinx_allow_errors = False
-nbsphinx_execute = 'never'
-pngmath_use_preview = True
-pngmath_dvipng_args = ['-gamma 1.5', '-D 96', '-bg Transparent']
 
 # Options for HTMLHelp output ------------------------------------------------------------------------------------------
 # Output file base name for HTML help builder.
@@ -262,34 +265,14 @@ intersphinx_mapping = {
 }
 
 # setup ----------------------------------------------------------------------------------------------------------------
-def parse_event(env, sig, signode):
-    m = event_sig_re.match(sig)
-    if not m:
-        signode += addnodes.desc_name(sig, sig)
-        return sig
-    name, args = m.groups()
-    signode += addnodes.desc_name(name, name)
-    plist = addnodes.desc_parameterlist()
-    for arg in args.split(','):
-        arg = arg.strip()
-        plist += addnodes.desc_parameter(arg, arg)
-    signode += plist
-    return name
-
 def setup(app):
 	# copybutton
 	app.add_javascript("semeon/js/clipboard.js")
 	app.add_stylesheet('semeon/css/user.css')
 	app.add_javascript("semeon/js/user.js")
 	app.add_javascript("semeon/js/copybutton.js")
-	# exclude modules
-	# app.connect("autodoc-process-docstring", remove_module_docstring)
-	# better apidoc
-	app.connect('builder-inited', run_apidoc)
-	# auto add function in toctree
-	app.add_directive('autoautosummary', AutoAutoSummary)
-	# include init
-	app.connect("autodoc-skip-member", skip)
-	# autodocsumm
-	# app.connect('autodocsumm-grouper', grouper_autodocsumm)
-
+	app.connect("autodoc-process-docstring", process_docstring) # exclude modules
+	app.connect("autodoc-skip-member", inclusion) # include init
+	app.connect('builder-inited', run_apidoc) # better apidoc
+	# app.add_directive('autoautosummary', AutoAutoSummary) # auto add function in toctree
+	# app.connect('autodocsumm-grouper', grouper_autodocsumm) # autodocsumm

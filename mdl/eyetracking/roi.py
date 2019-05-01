@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Create regions of interest that can be used for data processing and analysis.  
-| @date: Created on Sat May 1 15:12:38 2019  
-| @author: Semeon Risom  
-| @email: semeon.risom@gmail.com  
-| @url: https://semeon.io/d/mdl
+| `@purpose`: Create regions of interest that can be used for data processing and analysis.  
+| `@date`: Created on Sat May 1 15:12:38 2019  
+| `@author`: Semeon Risom  
+| `@email`: semeon.risom@gmail.com  
+| `@url`: https://semeon.io/d/mdl
 """
 
 # core
@@ -42,6 +42,7 @@ __required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL','s
 this = sys.modules[__name__]
 
 class ROI():
+	"""Generate region of interest to be read by Eyelink DataViewer or statistical tool."""
 	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, s_metadata=None, shape='box', roiname='roi', **kwargs):
 		"""
 		Generate region of interest to be read by Eyelink DataViewer or statistical tool.
@@ -68,7 +69,7 @@ class ROI():
 			Although Photoshop PSD don't directly provide support for metadata. However if each region of interest is stored
 			as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-			be either `;` `,` `|` `\t` or `\s` (Delimiter type must be identified when running this code using the
+			be either `;` `,` `|` `\\t` or `\\s` (Delimiter type must be identified when running this code using the
 			code:`delimiter` parameter. The default is `;`.). Here's an example using `;` as a delimiter:
 				>>> imagename=BM001;roiname=1;feature=lefteye
 			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.
@@ -95,6 +96,8 @@ class ROI():
 				  - (if :code:`isMultiprocessing` == `True`) Number of cores to use. Default is total available cores - 1.
 				* - **isLibrary** : :class:`bool`
 				  - Check if required packages have been installed. Default is `False`.
+				* - **isDebug** : :class:`bool`
+				  - Allow flags to be visible. Default is `False`.
 				* - **save_data** : :class:`bool`
 				  - Save coordinates. Default is `True.`
 				* - **save_raw_image** : :class:`bool`
@@ -125,22 +128,22 @@ class ROI():
 			DataViewer ROI shape.
 		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
-		retval, threshold : :class:`numpy.ndarray`
+		retval, threshold : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.
 			`retval` provides an optimal threshold only if :ref:`cv2.THRESH_OTSU` is passed. `threshold` is an image after applying
 			a binary threshold (:ref:`cv2.THRESH_BINARY`) removing all greyscale pixels < 127. The output matches the same image
 			channel as the original image.
 			See `opencv <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`_ and
 			`leanopencv <https://www.learnopencv.com/opencv-threshold-python-cpp>`_ for more information.
-		contours, hierarchy : :class:`numpy.ndarray`
+		contours, hierarchy : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.findContours`. This function returns contours from the provided binary image (threshold).
 			This is used here for later shape detection. `contours` are the detected contours, while hierarchy containing
 			information about the image topology.
 			See `opencv <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`_
 			for more information.
-		image_contours : :class:`numpy.ndarray`
+		image_contours : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.
-		image_contours : :class:`numpy.ndarray`
+		image_contours : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.
 
 		Examples
@@ -156,10 +159,12 @@ class ROI():
 			- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
 			- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
 		"""
-
+		# check debug
+		self.isDebug = kwargs['isDebug'] if 'isDebug' in kwargs else False
+		
 		# check library
-		isLibrary = kwargs['isLibrary'] if 'isLibrary' in kwargs else False
-		if isLibrary:
+		self.isLibrary = kwargs['isLibrary'] if 'isLibrary' in kwargs else False
+		if self.isLibrary:
 			settings.library(__required__)
 
 		#----parameters
@@ -171,22 +176,22 @@ class ROI():
 		# how to format rois
 		self.f_roi = kwargs['f_roi'] if 'f_roi' in kwargs else 'raw'
 		# delimiter
-		self.delimiter = ';' if 'delimiter' not in kwargs else kwargs['delimiter']
+		self.delimiter = kwargs['delimiter'] if 'delimiter' in kwargs else ';'
 		# screensize
-		self.screensize = [1920, 1080] if 'screensize' not in kwargs else kwargs['screensize']
+		self.screensize = kwargs['screensize'] if 'screensize' in kwargs else [1920, 1080]
 		# scale
-		self.scale = 1.0 if 'scale' not in kwargs else kwargs['scale']
-		#center
+		self.scale = kwargs['scale'] if 'scale' in kwargs else 1
+		# coordinates
 		cx = self.screensize[0]/2
 		cy = self.screensize[1]/2
-		self.coordinates = [cx, cy] if 'coordinates' not in kwargs else kwargs['coordinates']
+		self.coordinates = kwargs['coordinates'] if 'coordinates' in kwargs else [cx, cy]
 		# shape
 		self.shape = shape if shape in ['polygon', 'hull', 'circle', 'rotate', 'straight'] else 'straight'
 		self.shape_d = None #dataviewer shape
 		# label
 		self.roicolumn = roiname
 		# dpi
-		self.dpi = 300 if 'dpi' not in kwargs else kwargs['dpi']
+		self.dpi =  kwargs['dpi'] if 'dpi' in kwargs else 300
 		# save
 		self.save = {}
 		# save csv
@@ -275,9 +280,9 @@ class ROI():
 				roilabel = metadata[self.roicolumn].item()
 
 		# print results
-		# console('## roiname: %s'%(roiname),'blue')
-		# console('## roilabel: %s'%(roilabel),'green')
-		# console('## roinumber: %s'%(roinumber),'green')
+		if self.isDebug:
+			console('## roiname: %s'%(roiname),'blue')
+			console('## roilabel: %s'%(roilabel),'green')
 
 		return metadata, roiname, roilabel
 
@@ -449,15 +454,29 @@ class ROI():
 			[description]
 		[type]
 			[description]
+
+		Raises
+		------
+		Exception
+			[description]
 		"""
 		#----store bounds as df
 		_bounds = pd.DataFrame(_bounds)
-		# transpose bounds (x0, x1, y0, y1)
+		
+		# transpose bounds (x0, y0, x1, y1)
 		_x = _bounds[0].unique().tolist()
 		_y = _bounds[1].unique().tolist()
+		
+		# check if bounding box has two x and y coordinate pairs
+		if (((len(_x) == 1) or (len(_y) == 1)) and self.shape == 'straight'):
+			raise Exception ("Error creating bounding box for image:roi %s:%s."%(imagename, imagename))
+		
+		# set as df
 		bounds = pd.DataFrame(np.column_stack([_x[0],_y[0],_x[1],_y[1]]))
-		#rename
+		
+		# rename
 		bounds.columns = ['x0','y0','x1','y1']
+		
 		# add index, image, roi, and shape
 		bounds['shape'] = self.shape
 		bounds['shape_d'] = self.shape_d
@@ -611,7 +630,7 @@ class ROI():
 			# read image
 			psd = PSDImage.open(file)
 			imagename = os.path.splitext(os.path.basename(file))[0]
-			# console('\n# file: %s'%(imagename),'blue')
+			if self.isDebug: console('\n# file: %s'%(imagename),'blue')
 
 			# file metadata
 			#filename = '%s.png'%(imagename)
@@ -622,6 +641,37 @@ class ROI():
 			# clear lists
 			l_bounds = []
 			l_contours = []
+
+			#!!!----combine all rois within an image
+			# save all roi images
+			if self.save['raw']:
+				## check if path exists
+				_folder = '%s/stim/raw/'%(self.output_path)
+				if not os.path.exists(_folder):
+					os.makedirs(_folder)
+
+				## load image directly from PSD
+				_image = psd.topil()					
+				
+				# scale image
+				if self.scale != 1:
+					_truesize = [_image.size[0], _image.size[1]]
+					_scalesize = [int(_truesize[0] * self.scale), int(_truesize[1] * self.scale)]
+					_image = _image.resize(_scalesize, Image.ANTIALIAS)
+					if self.isDebug: 
+						console('# export image','blue')
+						console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
+				
+				# center and resize image to template screen
+				_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+				_offset = ((self.screensize[0] - _image.size[0])//2,(self.screensize[1] - _image.size[1])//2)
+				_background.paste(_image, _offset)
+				plt.imshow(np.array(_background))
+				plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
+				plt.close()
+
+				# finish
+				plt.cla(); plt.clf(); plt.close()
 
 			#!!!----for each region of interest
 			roinumber = 1
@@ -634,11 +684,20 @@ class ROI():
 					#----start roi
 					# set roi color
 					color_roi = secrets.choice(color_roi)
-					# clear plot
-					plt.gcf().clear()
 
-					#----load image directly from PSD
+					# process metadata
+					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
+					
+					# load image directly from PSD
 					layer_image = layer.topil()
+					
+					# scale image
+					if self.scale != 1:
+						_truesize = [layer_image.size[0], layer_image.size[1]]
+						_scalesize = [int(_truesize[0] * self.scale), int(_truesize[1] * self.scale)]
+						layer_image = layer_image.resize(_scalesize, Image.ANTIALIAS)
+						if self.isDebug: console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
+					
 					# center and resize image to template screen
 					_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 					layer_offset = ((self.screensize[0] - layer_image.size[0])//2,(self.screensize[1] - layer_image.size[1])//2)
@@ -646,13 +705,14 @@ class ROI():
 					image = np.array(_background)
 					#image = np.array(_image)
 
-					# process metadata
-					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
-
 					# contours
 					_bounds, _contours = self.create_contours(image, imagename, roiname)
 
 					# bounds
+					if (imagename == 'AM_208') and (roiname == 'roi3'):
+						breakpoint()
+					if (imagename == 'AM_208') and (roiname == 'roi5'):
+						breakpoint()
 					bounds, contours = self.create_rois(imagename, roiname, roilabel, roinumber, color_roi, _bounds, _contours)
 
 					# store processed bounds and contours to combine across image
@@ -677,23 +737,11 @@ class ROI():
 			## store for single bounds across all images (if multiProcessing, this is 1/num of cores)
 			# l_contours_all.append(df)
 
-			#!!!----combine all rois within an image
-			#----save all roi images
-			if self.save['raw']:
-				# center and resize image to template screen
-				_image = psd.topil()
-				_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
-				_offset = ((self.screensize[0] - _image.size[0])//2,(self.screensize[1] - _image.size[1])//2)
-				_background.paste(_image, _offset)
-				plt.imshow(np.array(_background))
-				plt.savefig('%s/stim/raw/%s.png'%(self.output_path, imagename), dpi=self.dpi)
-				plt.close()
-
-				# finish
-				plt.cla(); plt.clf(); plt.close()
 
 			## export to csv or dataviewer
 			_folder = '%s/stim/data/'%(self.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
 			if self.f_roi == 'raw':
 				df.to_csv("%s/%s_bounds.csv"%(_folder, imagename), index=False)
 			elif self.f_roi == 'dataviewer':

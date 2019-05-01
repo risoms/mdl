@@ -3,6 +3,10 @@
 .. html:
 	<!-- :url - http://jinja.pocoo.org/docs/2.10/templates/jinja: -->
 	<!-- https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html -->
+	<!-- http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html -->
+	<!-- some variables accessible in templates: https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#customizing-templates -->
+	<!-- some variables accessible in templates: http://www.sphinx-doc.org/en/stable/templating.html#global-variables -->
+	<!-- some variables accessible in templates: https://pythonhosted.org/sphinxgen/templates.html -->
 	<!-- :from package template: -->
 
 mdl.R33
@@ -10,13 +14,18 @@ mdl.R33
 
 .. automodule:: mdl.R33
 	:autosummary:
+	:member-order: bysource
+	:inherited-members:
+	:members: Classify, Metadata, Model, Processing, Settings
 
 	.. toctree::
 		:maxdepth: 2
+		:hidden:
 		
-		mdl.R33.classify
-		mdl.R33.config
-		mdl.R33.metadata
-		mdl.R33.model
-		mdl.R33.nslr_hmm
-		mdl.R33.processing
+		mdl.R33.Classify
+		mdl.R33.Metadata
+		mdl.R33.Model
+		mdl.R33.Processing
+		mdl.R33.Settings
+
+

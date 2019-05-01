@@ -199,7 +199,8 @@ dd {
 	font-size: 13px;
 }
 .viewcode-link{
-	font-weight: 600;
+	font-weight: 500;
+	line-height: 28px;
 }
 .reference.internal>code>span.pre{
 	color: #1c75b1;
@@ -229,6 +230,21 @@ dt:target + dd{
 	border-left: 4px solid #f7dea8;
 }
 /*--table--*/
+/* fix duplicate table issue */
+dl.class>dd>table:first-of-type{
+	display: none;
+}
+dd>p>strong {
+    display: none;
+}
+p.rubric{
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+}
+p{
+	margin-bottom: 5px;
+}
+/* continue */
 .longtable>tbody{
     border-top: 1px solid #888;
     border-bottom: 1px solid #888;
@@ -243,6 +259,9 @@ dt:target + dd{
 }
 .longtable>tbody>tr:last-of-type>td {
     border-bottom: 0px !important;
+}
+.longtable>tbody>tr>td>.line-block{
+	margin: 0px !important;
 }
 .kwargs>tbody>tr>td{
     border: solid 1px #ccc !important;

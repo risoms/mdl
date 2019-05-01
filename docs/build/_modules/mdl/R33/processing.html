@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.R33.processing &#8212; mdl-R33 2019-04-30 documentation</title>
+    <title>mdl.R33.processing &#8212; mdl-R33 2019-05-01 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-30</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-01</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,21 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../live.html">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/mdl.html">mdl</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.R33.html">mdl.R33</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.model.html">mdl.R33.model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
@@ -233,19 +219,20 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">| @purpose: Hub for running processing and analysis.   </span>
+<span class="sd">| @purpose: Hub for running processing and analyzing raw data.   </span>
 <span class="sd">| @date: Created on Sat May 1 15:12:38 2019   </span>
 <span class="sd">| @author: Semeon Risom   </span>
 <span class="sd">| @email: semeon.risom@gmail.com   </span>
 <span class="sd">| @url: https://semeon.io/d/R33-analysis   </span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># available functions</span>
+
+<span class="c1"># available classes and functions</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Processing&#39;</span><span class="p">]</span>
 
 <span class="c1"># required external libraries</span>
 <span class="n">__required__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span><span class="s1">&#39;distutils&#39;</span><span class="p">,</span><span class="s1">&#39;importlib&#39;</span><span class="p">]</span>
 
-<span class="c1">#-------core</span>
+<span class="c1"># global</span>
 <span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -256,38 +243,34 @@
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">importlib</span>
-
-<span class="c1">#-------local</span>
-<span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">settings</span>
-<span class="c1">#from mdl.classify import Classify</span>
-<span class="kn">import</span> <span class="nn">metadata</span>
-
-<span class="c1">#-------logging</span>
+<span class="c1">## logging</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="c1">#-------filtering packages</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage.filters</span> <span class="k">import</span> <span class="n">gaussian_filter1d</span>
-<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="k">import</span> <span class="n">butter</span><span class="p">,</span><span class="n">filtfilt</span><span class="p">,</span><span class="n">medfilt</span><span class="p">,</span><span class="n">savgol_filter</span>
+<span class="c1"># local libraries</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+	<span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">settings</span>
+	<span class="kn">import</span> <span class="nn">metadata</span>
 
-<div class="viewcode-block" id="Processing"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing">[docs]</a><span class="k">class</span> <span class="nc">Processing</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Processing raw eyetracking, behavioral, and clinical data.&quot;&quot;&quot;</span>
-    <span class="c1"># reading csv files</span>
-    <span class="k">try</span><span class="p">:</span>  <span class="c1"># use _file_ in most cases</span>
-        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>  <span class="c1"># except when running python from py2exe script</span>
-        <span class="kn">import</span> <span class="nn">sys</span>
-        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="viewcode-block" id="Processing"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing">[docs]</a><span class="k">class</span> <span class="nc">Processing</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Hub for running processing and analyzing raw data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Processing.__init__"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Hub for running processing and analyzing raw data</span>
 
-<div class="viewcode-block" id="Processing.__init__"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;These are the configuration parameters you can set in for analysis.</span>
-
-<span class="sd">        Attributes</span>
+<span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        config : :class:`dict`</span>
 <span class="sd">            Configuration data. i.e. trial number, location.</span>
+<span class="sd">        isLibrary : :obj:`bool`</span>
+<span class="sd">            Check if required libraries are available. Default `False`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">#check libraries</span>
+        <span class="k">if</span> <span class="n">isLibrary</span><span class="p">:</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">(</span><span class="n">__required__</span><span class="p">)</span>
+
         <span class="c1">#set current subject (use for iterations)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_subject</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cgxy</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
@@ -296,7 +279,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span> <span class="s1">&#39;sg&#39;</span><span class="p">]]</span></div>
 		
-<div class="viewcode-block" id="Processing.getEstimatedMonitor"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.getEstimatedMonitor">[docs]</a>    <span class="k">def</span> <span class="nf">getEstimatedMonitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diagonal</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.getEstimatedMonitor"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.getEstimatedMonitor">[docs]</a>    <span class="k">def</span> <span class="nf">getEstimatedMonitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diagonal</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</span>
 
 <span class="sd">        Attributes</span>
@@ -311,7 +294,7 @@
         
         <span class="k">return</span> <span class="n">monitor</span></div>
 
-<div class="viewcode-block" id="Processing.preprocess"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.preprocess">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.preprocess"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.preprocess">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initial data cleaning.</span>
 
 <span class="sd">        Parameters</span>
@@ -435,7 +418,7 @@
 
     <span class="c1">#getting data for analysis</span>
 
-<div class="viewcode-block" id="Processing.getData"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.getData"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;preparing data for use in analysis</span>
 
 <span class="sd">        Parameters</span>
@@ -491,23 +474,29 @@
 
         <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">path</span></div>
 
-<div class="viewcode-block" id="Processing.filter_data"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.filter_data">[docs]</a>    <span class="k">def</span> <span class="nf">filter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span><span class="n">filter_type</span><span class="p">,</span><span class="n">config</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.filter_data"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.filter_data">[docs]</a>    <span class="k">def</span> <span class="nf">filter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">filter_type</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Butterworth: Design an Nth-order digital or analog Butterworth filter and return</span>
 <span class="sd">        the filter coefficients.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
+<span class="sd">        df : :class:`pandas.DataFrame`</span>
+<span class="sd">            Pandas dataframe of raw data.</span>
 <span class="sd">        filter_type : :obj:`str`, optional</span>
+<span class="sd">			Type of filter.</span>
+<span class="sd">        config : :class:`dict`</span>
+<span class="sd">            Configuration data. i.e. trial number, location.</span>
 
 <span class="sd">        Attributes</span>
 <span class="sd">        ----------</span>
 <span class="sd">        filter_type : :obj:`str`</span>
 <span class="sd">            Filter type: &#39;butterworth&#39;</span>
-<span class="sd">        attr2 : :obj:`int`, optional</span>
-<span class="sd">            Description of `attr2`.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">scipy.ndimage.filters</span> <span class="k">import</span> <span class="n">gaussian_filter1d</span>
+        <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="k">import</span> <span class="n">butter</span><span class="p">,</span><span class="n">filtfilt</span><span class="p">,</span><span class="n">medfilt</span><span class="p">,</span><span class="n">savgol_filter</span>
+
         <span class="n">g_t</span><span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span>
         <span class="n">g_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
         <span class="n">g_y</span><span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
@@ -580,7 +569,7 @@
 
         <span class="k">return</span> <span class="n">fxy_df</span></div>
 
-<div class="viewcode-block" id="Processing.classify"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;ivt&#39;</span><span class="p">,</span> <span class="n">filter_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Processing.classify"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;ivt&#39;</span><span class="p">,</span> <span class="n">filter_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">v_th</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dr_th</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">di_th</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxdist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mindur</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -655,7 +644,7 @@
 
         <span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="Processing.roi"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.roi">[docs]</a>    <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span><span class="s1">&#39;sg&#39;</span><span class="p">]],</span> <span class="n">flt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitorSize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.roi"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.roi">[docs]</a>    <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span><span class="s1">&#39;sg&#39;</span><span class="p">]],</span> <span class="n">flt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitorSize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Check if fixation is within bounds.</span>
 
 <span class="sd">        Attributes</span>
@@ -923,7 +912,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">stim_bounds</span><span class="p">,</span> <span class="n">roi_bounds</span></div>
 
-<div class="viewcode-block" id="Processing.process"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">gxy_df</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">_classify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">,</span> <span class="n">_param</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Processing.process"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">gxy_df</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">_classify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">,</span> <span class="n">_param</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">draw_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="n">draw_heatmap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_gazeplot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_fixplot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">v_th</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">dr_th</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">di_th</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                 <span class="n">_missing</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">_maxdist</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">_mindur</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
@@ -1096,7 +1085,7 @@
 
         <span class="k">return</span> <span class="n">l_cxy</span><span class="p">,</span> <span class="n">fgxy_df</span></div>
 
-<div class="viewcode-block" id="Processing.append_classify"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.append_classify">[docs]</a>    <span class="k">def</span> <span class="nf">append_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cg_df</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.append_classify"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.append_classify">[docs]</a>    <span class="k">def</span> <span class="nf">append_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cg_df</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Appending classification to Dataframe.</span>
 
 <span class="sd">        Parameters</span>
@@ -1117,7 +1106,7 @@
 
         <span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="Processing.run"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;eyetracking&quot;</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.run"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;eyetracking&quot;</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Processing of data. Steps here include: cleaning data, fixation identification, and exporting data.</span>
 
 <span class="sd">        Parameters</span>
@@ -1526,7 +1515,7 @@
             <span class="c1">#-----------------------------------------finished</span>
             <span class="k">return</span> <span class="n">cores</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">proc</span></div>
 
-<div class="viewcode-block" id="Processing.subject_metadata"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.subject_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">subject_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="n">spath</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.subject_metadata"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.subject_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">subject_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="n">spath</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Collect all subjects metadata.</span>
 <span class="sd">        </span>
@@ -1576,7 +1565,7 @@
         
         <span class="k">return</span> <span class="n">df</span></div>
            
-<div class="viewcode-block" id="Processing.variables"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.variables">[docs]</a>    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.variables"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.variables">[docs]</a>    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Output list of variables for easy html viewing.</span>
 
 <span class="sd">        Parameters</span>
@@ -1640,7 +1629,7 @@
         
         <span class="k">return</span> <span class="n">df_variable</span></div>
     
-<div class="viewcode-block" id="Processing.dwell"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.dwell">[docs]</a>    <span class="k">def</span> <span class="nf">dwell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.dwell"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.dwell">[docs]</a>    <span class="k">def</span> <span class="nf">dwell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate dwell time for sad and neutral images.</span>
 
@@ -1832,7 +1821,7 @@
             <span class="n">df</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">,</span><span class="s1">&#39;participant&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">&quot;participant&quot;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)),</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;participant&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">df_error</span></div>
     
-<div class="viewcode-block" id="Processing.onset_diff"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.processing.Processing.onset_diff">[docs]</a>    <span class="k">def</span> <span class="nf">onset_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">merge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.onset_diff"><a class="viewcode-back" href="../../../api/mdl.R33.processing.html#mdl.R33.Processing.onset_diff">[docs]</a>    <span class="k">def</span> <span class="nf">onset_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">merge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</span>
 
 <span class="sd">        Parameters</span>
@@ -2033,7 +2022,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-04-30T16:40:34-05:00.</div>
+				<div>Updated 2019-05-01T14:14:10-05:00.</div>
 		</div>
 	</div>
 </footer>

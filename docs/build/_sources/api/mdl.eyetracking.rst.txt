@@ -3,6 +3,10 @@
 .. html:
 	<!-- :url - http://jinja.pocoo.org/docs/2.10/templates/jinja: -->
 	<!-- https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html -->
+	<!-- http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html -->
+	<!-- some variables accessible in templates: https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#customizing-templates -->
+	<!-- some variables accessible in templates: http://www.sphinx-doc.org/en/stable/templating.html#global-variables -->
+	<!-- some variables accessible in templates: https://pythonhosted.org/sphinxgen/templates.html -->
 	<!-- :from package template: -->
 
 mdl.eyetracking
@@ -21,3 +25,5 @@ mdl.eyetracking
 		mdl.eyetracking.Calibration
 		mdl.eyetracking.Eyelink
 		mdl.eyetracking.ROI
+
+

@@ -17,7 +17,7 @@ Accesesing Raw Data
 Preprocessing
 ~~~~~~~~~~~~~
 
-.. currentmodule:: mdl.R33.processing
+.. currentmodule:: mdl.R33
 
 .. autosummary::
 
@@ -31,9 +31,9 @@ Data Analysis
 
 .. autosummary::
 
-    model.anova
-    model.lmer
-    model.logistic
+    Model.anova
+    Model.lmer
+    Model.logistic
 
 Relational plots
 ~~~~~~~~~~~~~~~~

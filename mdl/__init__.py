@@ -1,21 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+| `@purpose`: mdl-R33, an extensive library for the exploration, visualization, and analysis of eyetracking data. \
+This library was created at the Institute for Mental Health Research, at the University of Texas at Austin by Semeon Risom.  
+| `@date`: Created on Sat May 1 15:12:38 2019  
+| `@author`: Semeon Risom  
+| `@email`: semeon.risom@gmail.com  
+| `@url`: https://semeon.io/d/mdl
+"""
 
 from pdb import set_trace as breakpoint
 import os
 import sys
 
 # set as module
-__all__ = ['eyetracking','R33','Download','plot','settings']
+__all__ = ['download','eyetracking','plot','R33','settings']
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
-#----imports
-from .download import Download
+# imports
+from . import download
 from . import eyetracking
-from . import R33
 from . import plot
+from . import R33
 from . import settings
 
 del os, sys, breakpoint

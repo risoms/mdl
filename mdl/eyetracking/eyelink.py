@@ -37,6 +37,7 @@ if __name__ == '__main__':
 	from . import pylink
 
 class Eyelink():
+    """Module allowing communcation to the SR Research Eyelink eyetracking system."""
     def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
         """
     	Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 \

@@ -3,6 +3,10 @@
 .. html:
 	<!-- :url - http://jinja.pocoo.org/docs/2.10/templates/jinja: -->
 	<!-- https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html -->
+	<!-- http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html -->
+	<!-- some variables accessible in templates: https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#customizing-templates -->
+	<!-- some variables accessible in templates: http://www.sphinx-doc.org/en/stable/templating.html#global-variables -->
+	<!-- some variables accessible in templates: https://pythonhosted.org/sphinxgen/templates.html -->
 	<!-- :from package template: -->
 
 {{ name | escape }}
@@ -11,10 +15,14 @@
 {# automodule -#}
 {% if name -%}
 .. automodule:: {{ name }}
-	:autosummary:
-	{%- if members %}
 	{#- :show-inheritance: #}
 	{#- :undoc-members: #}
+	
+	{%- if name == "mdl" %}
+	:member-order: bysource
+	:inherited-members:
+	{%- elif members %}
+	:autosummary:
 	:member-order: bysource
 	:inherited-members:
 	:members: {{ members|join(", ") }}
@@ -22,15 +30,33 @@
 
 	.. toctree::
 		:maxdepth: 2
-		{%- if members %}
 		:hidden:
-		{%- endif %}
 		{# {%- if modules -%}
 		{%- for item in modules %}
 		{{ name }}.{{ item }}
 		{%- endfor -%}
 		{%- endif -%} -#}
 
+		{#- if package -#}
+		{%- if name == "mdl" %}
+		
+		{%- if subpackages -%}
+		{%- for item in subpackages %}
+		{{ name }}.{{ item }}
+		{%- endfor -%}
+		{%- endif -%}
+
+		{%- if submodules-%}
+		{%-for item in submodules %}
+		{{ name }}.{{ item }}
+		{%- endfor -%}
+		{%- endif -%}
+		
+		{%- endif -%}
+
+		{#- else if not package -#}
+		{%- if name != "mdl" -%}
+		
 		{%- if subpackages -%}
 		{%- for item in subpackages %}
 		{{ name }}.{{ item }}
@@ -38,7 +64,7 @@
 		{%- endif -%}
 
 		{%- if not members -%}
-		{%- if submodules-%}
+		{%- if submodules -%}
 		{%-for item in submodules %}
 		{{ name }}.{{ item }}
 		{%- endfor -%}
@@ -62,5 +88,26 @@
 		{{ name }}.{{ item }}
 		{%- endfor -%}
 		{%- endif -%}
+
+		{%- endif -%}
+{%- endif %}
+
+{# create autosummary list for mdl -#}
+{%- if name == "mdl" %}
+.. currentmodule:: {{ name }}
+
+.. autosummary::
+	
+	{% if subpackages -%}
+	{%- for item in subpackages %}
+	{{ fullname }}.{{ item }}
+	{%- endfor -%}
+	{%- endif -%}
+
+	{%- if submodules-%}
+	{%-for item in submodules %}
+	{{ fullname }}.{{ item }}
+	{%- endfor -%}
+	{%- endif -%}
 {%- endif %}
 {# -#}

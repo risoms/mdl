@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Features &#8212; mdl-R33 2019-04-30 documentation</title>
+    <title>Features &#8212; mdl-R33 2019-05-01 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-30</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-01</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -134,21 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="live.html">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/modules.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/mdl.html">mdl</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/mdl.R33.html">mdl.R33</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.model.html">mdl.R33.model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="api/mdl.R33.html">mdl.R33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
@@ -256,6 +242,8 @@
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="api/mdl.download.html#mdl.download.Download.SFTP" title="mdl.download.Download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Download.SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
 <td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
@@ -276,11 +264,13 @@
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.processing.html#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing.preprocess</span></code></a>(df,&nbsp;window)</td>
+<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.html#mdl.R33.Processing.preprocess" title="mdl.R33.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing.preprocess</span></code></a>(df,&nbsp;window)</td>
 <td>Initial data cleaning.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="api/mdl.R33.processing.html#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing.run</span></code></a>(path[,&nbsp;task_type,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="api/mdl.R33.html#mdl.R33.Processing.run" title="mdl.R33.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing.run</span></code></a>(path[,&nbsp;task_type,&nbsp;…])</td>
 <td>Processing of data.</td>
 </tr>
 </tbody>
@@ -293,14 +283,16 @@
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.model.html#mdl.R33.model.anova" title="mdl.R33.model.anova"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model.anova</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;csv,&nbsp;path,&nbsp;effects)</td>
+<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.html#mdl.R33.Model.anova" title="mdl.R33.Model.anova"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model.anova</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;csv,&nbsp;path,&nbsp;effects)</td>
 <td>Run analysis of variance model using rpy2, seaborn and pandas.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="api/mdl.R33.model.html#mdl.R33.model.lmer" title="mdl.R33.model.lmer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model.lmer</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;exclude,&nbsp;csv,&nbsp;…)</td>
+<tr class="row-even"><td><a class="reference internal" href="api/mdl.R33.html#mdl.R33.Model.lmer" title="mdl.R33.Model.lmer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model.lmer</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;exclude,&nbsp;csv,&nbsp;…)</td>
 <td>Run linear mixed regression model, using rpy2, seaborn and pandas.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.model.html#mdl.R33.model.logistic" title="mdl.R33.model.logistic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model.logistic</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;me,&nbsp;…[,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="api/mdl.R33.html#mdl.R33.Model.logistic" title="mdl.R33.Model.logistic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model.logistic</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;me,&nbsp;…[,&nbsp;…])</td>
 <td>Run logistic regression model, using rpy2, seaborn and pandas.</td>
 </tr>
 </tbody>
@@ -313,6 +305,8 @@
 <col width="10%" />
 <col width="90%" />
 </colgroup>
+<thead valign="bottom">
+</thead>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="api/mdl.plot.html#mdl.plot.bokeh_calibration" title="mdl.plot.bokeh_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot.bokeh_calibration</span></code></a>(config,&nbsp;df,&nbsp;cxy,&nbsp;event)</td>
 <td>Create calibration matrix, using pandas and bokeh.</td>
@@ -356,7 +350,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-04-30T16:40:34-05:00.</div>
+				<div>Updated 2019-05-01T14:14:10-05:00.</div>
 		</div>
 	</div>
 </footer>

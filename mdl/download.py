@@ -7,6 +7,10 @@
 | @email: semeon.risom@gmail.com  
 | @url: https://semeon.io/d/mdl
 """
+
+# available functions
+__all__ = ['Download']
+
 # global
 from pdb import set_trace as breakpoint
 import os
@@ -20,7 +24,7 @@ from mdl import settings
 __required__ = ['paramiko','openpyxl','requests','ftplib','pandas']
 
 class Download():
-    def __init__(cls, isLibrary=False):
+    def __init__(self, isLibrary=False):
         """Download raw data from apache, Box, or REDCap servers.
 
         Parameters

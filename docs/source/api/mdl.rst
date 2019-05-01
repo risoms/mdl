@@ -3,19 +3,37 @@
 .. html:
 	<!-- :url - http://jinja.pocoo.org/docs/2.10/templates/jinja: -->
 	<!-- https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html -->
+	<!-- http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html -->
+	<!-- some variables accessible in templates: https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#customizing-templates -->
+	<!-- some variables accessible in templates: http://www.sphinx-doc.org/en/stable/templating.html#global-variables -->
+	<!-- some variables accessible in templates: https://pythonhosted.org/sphinxgen/templates.html -->
 	<!-- :from package template: -->
 
 mdl
 ~~~
 
 .. automodule:: mdl
-	:autosummary:
+	:member-order: bysource
+	:inherited-members:
 
 	.. toctree::
 		:maxdepth: 2
+		:hidden:
 		
 		mdl.R33
 		mdl.eyetracking
 		mdl.download
 		mdl.plot
 		mdl.settings
+
+
+.. currentmodule:: mdl
+
+.. autosummary::
+	
+	
+	mdl.R33
+	mdl.eyetracking
+	mdl.download
+	mdl.plot
+	mdl.settings

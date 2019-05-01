@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Hub for running processing and analysis.   
+| @purpose: Hub for running processing and analyzing raw data.   
 | @date: Created on Sat May 1 15:12:38 2019   
 | @author: Semeon Risom   
 | @email: semeon.risom@gmail.com   
 | @url: https://semeon.io/d/R33-analysis   
 """
-# available functions
+
+# available classes and functions
 __all__ = ['Processing']
 
 # required external libraries
 __required__ = ['datetime','distutils','importlib']
 
-#-------core
+# global
 from pdb import set_trace as breakpoint
 from pathlib import Path
 import numpy as np
@@ -24,38 +25,34 @@ import os
 import shutil
 import glob
 import importlib
-
-#-------local
-from mdl import settings
-#from mdl.classify import Classify
-import metadata
-
-#-------logging
+## logging
 import logging
 import inspect
 import datetime
 
-#-------filtering packages
-from scipy.ndimage.filters import gaussian_filter1d
-from scipy.signal import butter,filtfilt,medfilt,savgol_filter
+# local libraries
+if __name__ == '__main__':
+	from mdl import settings
+	import metadata
 
 class Processing():
-    """Processing raw eyetracking, behavioral, and clinical data."""
-    # reading csv files
-    try:  # use _file_ in most cases
-        dir = os.path.dirname(__file__)
-    except NameError:  # except when running python from py2exe script
-        import sys
-        dir = os.path.dirname(sys.argv[0])
+    """Hub for running processing and analyzing raw data."""
+    def __init__(self, config, isLibrary=False):
+        """
+		Hub for running processing and analyzing raw data
 
-    def __init__(self, config):
-        """These are the configuration parameters you can set in for analysis.
-
-        Attributes
+        Parameters
         ----------
         config : :class:`dict`
             Configuration data. i.e. trial number, location.
+        isLibrary : :obj:`bool`
+            Check if required libraries are available. Default `False`.
         """
+
+        #check libraries
+        if isLibrary:
+            settings.library(__required__)
+
         #set current subject (use for iterations)
         self.current_subject = ''
         self.cgxy = ''
@@ -259,23 +256,29 @@ class Processing():
 
         return df, path
 
-    def filter_data(self, df,filter_type,config,**kwargs):
+    def filter_data(self, df, filter_type, config, **kwargs):
         """
         Butterworth: Design an Nth-order digital or analog Butterworth filter and return
         the filter coefficients.
 
         Parameters
         ----------
+        df : :class:`pandas.DataFrame`
+            Pandas dataframe of raw data.
         filter_type : :obj:`str`, optional
+			Type of filter.
+        config : :class:`dict`
+            Configuration data. i.e. trial number, location.
 
         Attributes
         ----------
         filter_type : :obj:`str`
             Filter type: 'butterworth'
-        attr2 : :obj:`int`, optional
-            Description of `attr2`.
 
         """
+        from scipy.ndimage.filters import gaussian_filter1d
+        from scipy.signal import butter,filtfilt,medfilt,savgol_filter
+
         g_t= df['timestamp']
         g_x = df['x']
         g_y= df['y']

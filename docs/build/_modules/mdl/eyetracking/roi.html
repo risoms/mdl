@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.eyetracking.roi &#8212; mdl-R33 2019-04-30 documentation</title>
+    <title>mdl.eyetracking.roi &#8212; mdl-R33 2019-05-01 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-04-30</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-01</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,21 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../live.html">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/mdl.html">mdl</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.R33.html">mdl.R33</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.classify.html">mdl.R33.classify</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.config.html">mdl.R33.config</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.metadata.html">mdl.R33.metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.model.html">mdl.R33.model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.nslr_hmm.html">mdl.R33.nslr_hmm</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/mdl.R33.processing.html">mdl.R33.processing</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
@@ -233,11 +219,11 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">| @purpose: Create regions of interest that can be used for data processing and analysis.  </span>
-<span class="sd">| @date: Created on Sat May 1 15:12:38 2019  </span>
-<span class="sd">| @author: Semeon Risom  </span>
-<span class="sd">| @email: semeon.risom@gmail.com  </span>
-<span class="sd">| @url: https://semeon.io/d/mdl</span>
+<span class="sd">| `@purpose`: Create regions of interest that can be used for data processing and analysis.  </span>
+<span class="sd">| `@date`: Created on Sat May 1 15:12:38 2019  </span>
+<span class="sd">| `@author`: Semeon Risom  </span>
+<span class="sd">| `@email`: semeon.risom@gmail.com  </span>
+<span class="sd">| `@url`: https://semeon.io/d/mdl</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># core</span>
@@ -274,6 +260,7 @@
 <span class="n">this</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span>
 
 <div class="viewcode-block" id="ROI"><a class="viewcode-back" href="../../../api/mdl.eyetracking.roi.html#mdl.eyetracking.ROI">[docs]</a><span class="k">class</span> <span class="nc">ROI</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;Generate region of interest to be read by Eyelink DataViewer or statistical tool.&quot;&quot;&quot;</span>
 <div class="viewcode-block" id="ROI.__init__"><a class="viewcode-back" href="../../../api/mdl.eyetracking.roi.html#mdl.eyetracking.ROI.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">image_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">roiname</span><span class="o">=</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Generate region of interest to be read by Eyelink DataViewer or statistical tool.</span>
@@ -300,7 +287,7 @@
 <span class="sd">			Although Photoshop PSD don&#39;t directly provide support for metadata. However if each region of interest is stored</span>
 <span class="sd">			as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has</span>
 <span class="sd">			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can</span>
-<span class="sd">			be either `;` `,` `|` `\t` or `\s` (Delimiter type must be identified when running this code using the</span>
+<span class="sd">			be either `;` `,` `|` `\\t` or `\\s` (Delimiter type must be identified when running this code using the</span>
 <span class="sd">			code:`delimiter` parameter. The default is `;`.). Here&#39;s an example using `;` as a delimiter:</span>
 <span class="sd">				&gt;&gt;&gt; imagename=BM001;roiname=1;feature=lefteye</span>
 <span class="sd">			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</span>
@@ -1119,7 +1106,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-04-30T16:40:34-05:00.</div>
+				<div>Updated 2019-05-01T14:14:10-05:00.</div>
 		</div>
 	</div>
 </footer>

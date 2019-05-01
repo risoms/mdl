@@ -13,8 +13,7 @@
     .. automethod::
 
     {% if methods %}
-    .. rubric:: MethodsZzZZZZZZ
-
+    .. rubric:: MethodsBBBBB
     .. autosummary::
         :nosignatures:
     {% for item in methods %}
@@ -25,7 +24,7 @@
 
     {% block attributes %}
     {% if attributes %}
-    .. rubric:: AttributesZzZZZZZZ
+    .. rubric:: AttributesBBBBB
 
     .. autosummary::
 		:nosignatures:

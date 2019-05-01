@@ -12,22 +12,26 @@ from pdb import set_trace as breakpoint
 import pkg_resources
 import os
 import sys
+from ._version import get_versions
 
 # imports
-from ._version import get_versions
 from .roi import ROI as _ROI
 from .eyelink import Eyelink as _Eyelink
 from .calibration import Calibration as _Calibration
 
-# set as module
+# allowed imports
 __all__ = ['Eyelink','Calibration','ROI','__version__']
+
+# set as module
 pkg_resources.declare_namespace(__name__)
+
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
+# classes
 class Eyelink(_Eyelink):
 	"""
-	Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 
+	Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 \
 	Plus (5.0), but should be compatiable with earlier systems.
 	"""
 	def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
@@ -51,4 +55,4 @@ class ROI(_ROI):
 __version__ = get_versions()['version']
 
 # finished
-del os, sys, get_versions, breakpoint, pkg_resources
+del os, sys, get_versions, breakpoint, pkg_resources, _ROI, _Eyelink, _Calibration
