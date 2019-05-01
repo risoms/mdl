@@ -13,7 +13,7 @@
 	examples/index.rst
 	Current Data <data/index.rst>
 	Dashboard <live.rst>
-	API Reference <api/modules.rst>
+	API Reference <api/mdl.rst>
 
 .. raw:: html
 

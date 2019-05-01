@@ -231,7 +231,7 @@ dt:target + dd{
 }
 /*--table--*/
 /* fix duplicate table issue */
-dl.class>dd>table:first-of-type{
+dl.class>dd>table:nth-of-type(2){
 	display: none;
 }
 dd>p>strong {

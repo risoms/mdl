@@ -18,5 +18,6 @@ mdl.dashboard
 		:maxdepth: 2
 		:hidden:
 		
+		mdl.dashboard.jupyterhub_config
 
 
