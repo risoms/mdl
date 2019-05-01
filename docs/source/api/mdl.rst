@@ -21,6 +21,7 @@ mdl
 		:hidden:
 		
 		mdl.R33
+		mdl.dashboard
 		mdl.eyetracking
 		mdl.download
 		mdl.plot
@@ -33,6 +34,7 @@ mdl
 	
 	
 	mdl.R33
+	mdl.dashboard
 	mdl.eyetracking
 	mdl.download
 	mdl.plot

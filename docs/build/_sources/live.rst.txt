@@ -1,8 +1,8 @@
 .. _live:
 
-Live
-""""
+Dashboard
+"""""""""
 
 .. raw:: html
 
-code should be runnable from here, a la jupyter
+code should be runnable from here, ala jupyter

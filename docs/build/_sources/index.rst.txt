@@ -12,7 +12,7 @@
 	features
 	examples/index.rst
 	Current Data <data/index.rst>
-	live
+	Dashboard <live.rst>
 	API Reference <api/modules.rst>
 
 .. raw:: html

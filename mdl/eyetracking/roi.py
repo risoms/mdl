@@ -709,10 +709,6 @@ class ROI():
 					_bounds, _contours = self.create_contours(image, imagename, roiname)
 
 					# bounds
-					if (imagename == 'AM_208') and (roiname == 'roi3'):
-						breakpoint()
-					if (imagename == 'AM_208') and (roiname == 'roi5'):
-						breakpoint()
 					bounds, contours = self.create_rois(imagename, roiname, roilabel, roinumber, color_roi, _bounds, _contours)
 
 					# store processed bounds and contours to combine across image
