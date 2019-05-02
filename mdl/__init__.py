@@ -17,9 +17,11 @@ import sys
 try:
     import pkg_resources
     pkg_resources.declare_namespace(__name__)
+    del pkg_resources
 except ImportError:
     import pkgutil
     __path__ = pkgutil.extend_path(__path__, __name__)
+    del pkgutil
 
 # set as module
 __all__ = ['download','eyetracking','plot','R33','settings']
@@ -34,12 +36,7 @@ from . import plot
 from . import R33
 from . import settings
 
-del os, sys, breakpoint, pkg_resources, pkgutil 
-
-from ._version import get_versions
-__version__ = get_versions()['version']
-
-del get_versions
+del os, sys, breakpoint
 
 from ._version import get_versions
 __version__ = get_versions()['version']

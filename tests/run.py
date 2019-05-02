@@ -51,7 +51,7 @@ date_now  = datetime.now().replace(microsecond=0).strftime('%Y-%m-%d %H:%M:%S')
 processing = processing(config)
 #%%--------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------create pydoc
-is_['pydoc'] = True
+is_['pydoc'] = False
 if is_['pydoc']:
     build = '/Users/mdl-admin/Desktop/imhr-R33/docs'
     source = '/Users/mdl-admin/Desktop/imhr-R33/docs/source'
