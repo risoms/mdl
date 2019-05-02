@@ -11,7 +11,7 @@
 	Installation <install.rst>
 	Features <features.rst>
 	Examples <examples/index.rst>
-	Current Data <https://risoms.github.io/mdl-R33/docs/build/data/data.html>
+	Current Data <http://127.0.0.1:8081/>
 	Dashboard <live.rst>
 	API Reference <api/mdl.rst>
 

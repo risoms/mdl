@@ -19,14 +19,14 @@ except ImportError:
     from distutils.core import setup
 
 # versioning
-from versioneer import get_cmdclass, get_version
-cmdclass = get_cmdclass()
+import versioneer
+cmdclass = versioneer.get_cmdclass()
 date = datetime.date.today().isoformat()
 
 # required packages
-with open('requirements.txt') as f:
+path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
+with open(path) as f:
     required = f.read().splitlines()
-
 setuptools_kwargs = {
     'install_requires':required,
     'zip_safe': False
@@ -38,7 +38,7 @@ author = 'Semeon Risom'
 author_email = 'semeon.risom@gmail.com'
 maintainer = 'Semeon Risom'
 maintainer_email = 'semeon.risom@gmail.com'
-version = get_version()
+version = versioneer.get_version()
 url = 'https://semeon.io/d/mdl'
 description = 'mdl-eyetracking: Bindings for Eyelink and Python.'
 download_url = 'https://github.com/risoms/mdl-eyetracking/'
@@ -61,6 +61,7 @@ classifiers = [
     'Operating System :: Microsoft :: Windows'
 ]
 packages = find_packages()
+include_package_data = True
 namespace_packages=['mdl']
 
 # init
@@ -68,6 +69,7 @@ setup(
 	name=name,
 	version=version,
 	packages=packages,
+	include_package_data=True,
 	author=author,
 	author_email=author_email,
 	maintainer=maintainer,
