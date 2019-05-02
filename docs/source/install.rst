@@ -2,8 +2,8 @@
 
 .. currentmodule:: mdl
 
-Install
-"""""""
+Installation
+""""""""""""
 
 .. raw:: html
 

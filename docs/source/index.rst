@@ -7,11 +7,11 @@
 	:glob:
 	:maxdepth: 4
 
-	intro
-	install
-	features
-	examples/index.rst
-	Current Data <data/index.rst>
+	Introduction <intro.rst>
+	Installation <install.rst>
+	Features <features.rst>
+	Examples <examples/index.rst>
+	Current Data <https://risoms.github.io/mdl-R33/docs/build/data/index.html>
 	Dashboard <live.rst>
 	API Reference <api/mdl.rst>
 
@@ -76,11 +76,11 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					</div>
 					<div class="panel-body">
 					<ul>
-					<li><a href="features.html">features</a></li>
-					<li><a href="api/modules.html">modules</a></li>
-					<li><a href="genindex.html">glossary</a></li>
-					<li><a href="install.html">install</a></li>
-					<li><a href="search.html">search</a></li>
+					<li><a href="features.html">Features</a></li>
+					<li><a href="api/mdl.html">Library</a></li>
+					<li><a href="genindex.html">Glossary</a></li>
+					<li><a href="install.html">Install</a></li>
+					<li><a href="search.html">Search</a></li>
 					</ul>
 					</div>
 				</div>
@@ -92,11 +92,13 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					</div>
 					<div class="panel-body">
 					<ul>
-					<li><a href="examples/R33/download_data.html">download data</a></li>
-					<li><a href="examples/R33/process_data.html">process data</a></li>
-					<li><a href="examples/R33/process_demographics.html">demographics</a></li>
-					<li><a href="examples/R33/create_plots.html">create plots</a></li>
-					<li><a href="examples/R33/run_models.html">build model</a></li>
+					<li><a href="examples/R33/process_demographics.html">Process demographics</a></li>
+					<li><a href="examples/R33/download_data.html">Download data</a></li>
+					<li><a href="examples/R33/run_models.html">Run models</a></li>
+					<li><a href="examples/R33/create_plots.html">Create plots</a></li>
+					<li><a href="examples/R33/process_data.html">Process data</a></li>
+					<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
+					<li><a href="examples/roi/generate_roi.html">Create Regions of Interest</a></li>
 					</ul>
 					</div>
 				</div>

@@ -97,6 +97,12 @@ a{
 ul.current.nav>li.current>a.current{
 	background-color: #f7dea8 !important;
 }
+#sidebar>.nav-list>.toctree-l1>.external{
+    color: #595959 !important;
+    font-weight: 400 !important;
+    text-shadow: none !important;
+	font-size: 14px !important;
+}
 #sidebar>.nav-list>.toctree-l1>.internal,
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.internal,
 #sidebar>.nav-list>.toctree-l1>.nav>.toctree-l2>.nav>.toctree-l3>.internal,
@@ -229,6 +235,18 @@ dt:target, span.highlighted {
 dt:target + dd{
 	border-left: 4px solid #f7dea8;
 }
+
+/*--genindex--*/
+table.genindextable>tbody>tr { 
+	display: block !important; 
+	float: left !important; 
+}
+table.genindextable>tbody>tr>th, 
+table.genindextable>tbody>tr>td {
+	display: block !important;
+	width: 100% !important;
+}
+
 /*--table--*/
 /* fix duplicate table issue */
 dl.class>dd>table:nth-of-type(2){
@@ -275,19 +293,16 @@ p{
     border-bottom: 0px !important;
 }
 @media (max-width: 768px) {
-	.table>tbody>tr>td{
+	.table>tbody>tr>td {
 		word-break: break-word;
 		overflow-wrap: break-word;
 		width: 50%;
 	}
-	.field-name{
+	.field-name {
 		width: min-content !important;
 	}
 }
-.field {
-    /* border-top: 2px solid #dddddd !important; */
-}
-.field-name{
+.field-name {
 	background-color: #ededed;
 }
 .table>tbody>tr>th,
@@ -296,6 +311,31 @@ tbody>tr:nth-of-type(1)>td {
     border-top: none !important;
 }
 
+/*--table of contents (toc)--*/
+ul.dropdown-menu>.divider {
+	height: 1px !important;
+    margin: 7px 0 !important;
+    overflow: hidden !important;
+    background-color: #e5e5e5 !important;
+}
+ul.dropdown-menu>li.toctree-l1>a,
+ul.dropdown-menu>li.toctree-l2>a {
+    display: block !important;
+	padding: 0px !important;
+    margin: 0px 20px 0px 20px !important;
+    clear: both !important;
+	font-size: 13px !important;
+    line-height: 30px !important;
+    font-weight: 400 !important;
+    color: #666666 !important;
+    white-space: nowrap !important;
+}
+ul.dropdown-menu>li.toctree-l1.current {
+    border-left: 1px solid #f7dea8 !important;
+}
+ul.dropdown-menu>li.toctree-l2>a {
+	padding-left: 10px !important;
+}
 /*--notes--*/
 .section>.info{
 	margin-bottom: 12px;
@@ -426,11 +466,11 @@ footer>.container>div>div {
 a.copybtn {
 	box-sizing: content-box !important;
 	position: absolute !important;
-	top: 2px !important;;
-	right: 2px !important;;
-	width: 14px !important;;
-	height: 14px !important;;
-	padding: .3em !important;;
+	top: 2px !important;
+	right: 2px !important;
+	width: 14px !important;
+	height: 14px !important;
+	padding: .3em !important;
 	opacity: .3;
 	transition: opacity 0.5s !important;
 }
