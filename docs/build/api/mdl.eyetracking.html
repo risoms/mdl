@@ -259,15 +259,18 @@
 <col width="90%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink" title="mdl.eyetracking.Eyelink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Eyelink</span></code></a>(window,&nbsp;timer[,&nbsp;isPsychopy,&nbsp;subject])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink" title="mdl.eyetracking.Eyelink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Eyelink</span></code></a>(window,&nbsp;timer[,&nbsp;isPsychopy,&nbsp;subject])</td>
 <td>Module allowing communcation to the SR Research Eyelink eyetracking system.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration" title="mdl.eyetracking.Calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Calibration</span></code></a>(w,&nbsp;h,&nbsp;tracker,&nbsp;window)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration" title="mdl.eyetracking.Calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Calibration</span></code></a>(w,&nbsp;h,&nbsp;tracker,&nbsp;window)</td>
 <td>Allowing mdl.eyetracking package to initiate calibration/validation/drift correction.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI" title="mdl.eyetracking.ROI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ROI</span></code></a>([image_path,&nbsp;output_path,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI" title="mdl.eyetracking.ROI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ROI</span></code></a>([image_path,&nbsp;output_path,&nbsp;…])</td>
 <td>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</td>
 </tr>
 </tbody>
@@ -284,54 +287,14 @@
 <col width="90%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.__init__" title="mdl.eyetracking.Eyelink.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(window,&nbsp;timer[,&nbsp;isPsychopy,&nbsp;subject])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.__init__" title="mdl.eyetracking.Eyelink.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(window,&nbsp;timer[,&nbsp;isPsychopy,&nbsp;subject])</td>
 <td>Module allowing communcation to the SR Research Eyelink eyetracking system.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.calibration" title="mdl.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
-<td>Start calibration procedure.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.connect" title="mdl.eyetracking.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
-<td>Connect to Eyelink.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.drift_correction" title="mdl.eyetracking.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
-<td>Starts drift correction.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.finish_recording" title="mdl.eyetracking.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
-<td>Ending Eyelink recording.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.gc" title="mdl.eyetracking.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
-<td>Creates gaze contigent event.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.sample" title="mdl.eyetracking.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
-<td>Collects new gaze coordinates from Eyelink.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.send_message" title="mdl.eyetracking.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
-<td>Send message to Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.send_variable" title="mdl.eyetracking.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
-<td>send trial variable to eyelink at the end of trial.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.set_eye_used" title="mdl.eyetracking.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
-<td>Set dominant eye.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.start_recording" title="mdl.eyetracking.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
-<td>Starts recording of Eyelink.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.stop_recording" title="mdl.eyetracking.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
-<td>Stops recording of Eyelink.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-</thead>
-<tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.calibration" title="mdl.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
 <td>Start calibration procedure.</td>
 </tr>
@@ -363,6 +326,52 @@
 <td>Starts recording of Eyelink.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.stop_recording" title="mdl.eyetracking.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
+<td>Stops recording of Eyelink.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.calibration" title="mdl.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
+<td>Start calibration procedure.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.connect" title="mdl.eyetracking.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
+<td>Connect to Eyelink.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.drift_correction" title="mdl.eyetracking.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
+<td>Starts drift correction.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.finish_recording" title="mdl.eyetracking.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
+<td>Ending Eyelink recording.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.gc" title="mdl.eyetracking.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
+<td>Creates gaze contigent event.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.sample" title="mdl.eyetracking.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
+<td>Collects new gaze coordinates from Eyelink.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.send_message" title="mdl.eyetracking.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
+<td>Send message to Eyelink.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.send_variable" title="mdl.eyetracking.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
+<td>send trial variable to eyelink at the end of trial.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.set_eye_used" title="mdl.eyetracking.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
+<td>Set dominant eye.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.start_recording" title="mdl.eyetracking.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
+<td>Starts recording of Eyelink.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.stop_recording" title="mdl.eyetracking.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
 <td>Stops recording of Eyelink.</td>
 </tr>
 </tbody>
@@ -881,72 +890,14 @@ data loading preference settings.
 <col width="90%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.__init__" title="mdl.eyetracking.Calibration.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(w,&nbsp;h,&nbsp;tracker,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.__init__" title="mdl.eyetracking.Calibration.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(w,&nbsp;h,&nbsp;tracker,&nbsp;window)</td>
 <td>This allows mdl.eyetracking package to initiate calibration/validation/drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.alert_printf" title="mdl.eyetracking.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
-<td>Print error messages.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.clear_cal_display" title="mdl.eyetracking.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
-<td>Clear the ‘Camera Setup’ screen along with menu options.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_cal_target" title="mdl.eyetracking.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
-<td>Draw the calibration/validation target.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_image_line" title="mdl.eyetracking.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
-<td>Display image pixel by pixel, line by line.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_line" title="mdl.eyetracking.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
-<td>Draw a line.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_lozenge" title="mdl.eyetracking.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
-<td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.erase_cal_target" title="mdl.eyetracking.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
-<td>Erase the calibration/validation target.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.exit_cal_display" title="mdl.eyetracking.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
-<td>Exit the ‘Camera Setup’ screen along with menu options.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.exit_image_display" title="mdl.eyetracking.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
-<td>Clear the camera image.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.getColorFromIndex" title="mdl.eyetracking.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
-<td>Return psychopy colors for elements in the camera image.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.get_input_key" title="mdl.eyetracking.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
-<td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.get_mouse_state" title="mdl.eyetracking.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
-<td>Get the current mouse position and status</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.play_beep" title="mdl.eyetracking.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
-<td>Play a sound during calibration/drift correction.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.record_abort_hide" title="mdl.eyetracking.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
-<td>This function is called if aborted</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.set_image_palette" title="mdl.eyetracking.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
-<td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.setup_cal_display" title="mdl.eyetracking.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
-<td>Shows the ‘Camera Setup’ screen along with menu options.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.setup_image_display" title="mdl.eyetracking.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
-<td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-</thead>
-<tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.alert_printf" title="mdl.eyetracking.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
 <td>Print error messages.</td>
 </tr>
@@ -996,6 +947,70 @@ data loading preference settings.
 <td>Shows the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.setup_image_display" title="mdl.eyetracking.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
+<td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.alert_printf" title="mdl.eyetracking.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
+<td>Print error messages.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.clear_cal_display" title="mdl.eyetracking.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
+<td>Clear the ‘Camera Setup’ screen along with menu options.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_cal_target" title="mdl.eyetracking.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
+<td>Draw the calibration/validation target.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_image_line" title="mdl.eyetracking.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
+<td>Display image pixel by pixel, line by line.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_line" title="mdl.eyetracking.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
+<td>Draw a line.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.draw_lozenge" title="mdl.eyetracking.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
+<td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.erase_cal_target" title="mdl.eyetracking.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
+<td>Erase the calibration/validation target.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.exit_cal_display" title="mdl.eyetracking.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
+<td>Exit the ‘Camera Setup’ screen along with menu options.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.exit_image_display" title="mdl.eyetracking.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
+<td>Clear the camera image.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.getColorFromIndex" title="mdl.eyetracking.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
+<td>Return psychopy colors for elements in the camera image.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.get_input_key" title="mdl.eyetracking.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
+<td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.get_mouse_state" title="mdl.eyetracking.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
+<td>Get the current mouse position and status</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.play_beep" title="mdl.eyetracking.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
+<td>Play a sound during calibration/drift correction.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.record_abort_hide" title="mdl.eyetracking.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
+<td>This function is called if aborted</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.set_image_palette" title="mdl.eyetracking.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
+<td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.setup_cal_display" title="mdl.eyetracking.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
+<td>Shows the ‘Camera Setup’ screen along with menu options.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Calibration.setup_image_display" title="mdl.eyetracking.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
 <td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
 </tr>
 </tbody>
@@ -1154,39 +1169,14 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 <col width="90%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.__init__" title="mdl.eyetracking.ROI.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([image_path,&nbsp;output_path,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.__init__" title="mdl.eyetracking.ROI.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([image_path,&nbsp;output_path,&nbsp;…])</td>
 <td>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;roiname,&nbsp;roilabel,&nbsp;…)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.finished" title="mdl.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(bounds[,&nbsp;errors])</td>
-<td>Process bounds for all images.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process" title="mdl.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_metadata" title="mdl.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core])</td>
-<td>[summary]</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-</thead>
-<tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
 <td>[summary]</td>
 </tr>
@@ -1203,6 +1193,37 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core])</td>
+<td>[summary]</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;roiname,&nbsp;roilabel,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.finished" title="mdl.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(bounds[,&nbsp;errors])</td>
+<td>Process bounds for all images.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process" title="mdl.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_metadata" title="mdl.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core])</td>
 <td>[summary]</td>
 </tr>
 </tbody>
@@ -1594,7 +1615,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-02T10:52:41-05:00.</div>
+				<div>Updated 2019-05-02T11:58:48-05:00.</div>
 		</div>
 	</div>
 </footer>

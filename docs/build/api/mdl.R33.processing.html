@@ -236,9 +236,12 @@
 <col width="90%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing" title="mdl.R33.processing.Processing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing</span></code></a>(config[,&nbsp;isLibrary])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing" title="mdl.R33.processing.Processing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processing</span></code></a>(config[,&nbsp;isLibrary])</td>
 <td>Hub for running processing and analyzing raw data</td>
 </tr>
 </tbody>
@@ -255,77 +258,14 @@
 <col width="90%" />
 </colgroup>
 <thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.__init__" title="mdl.R33.processing.Processing.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(config[,&nbsp;isLibrary])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.__init__" title="mdl.R33.processing.Processing.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(config[,&nbsp;isLibrary])</td>
 <td>Hub for running processing and analyzing raw data</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(df,&nbsp;cg_df)</td>
-<td>Appending classification to Dataframe.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(config,&nbsp;df[,&nbsp;ctype,&nbsp;filter_type,&nbsp;…])</td>
-<td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(df[,&nbsp;cores])</td>
-<td>Calculate dwell time for sad and neutral images.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(df,&nbsp;filter_type,&nbsp;config,&nbsp;**kwargs)</td>
-<td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>([path])</td>
-<td>preparing data for use in analysis</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(diagonal,&nbsp;window)</td>
-<td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(df0[,&nbsp;merge,&nbsp;cores])</td>
-<td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(df,&nbsp;window)</td>
-<td>Initial data cleaning.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial[,&nbsp;…])</td>
-<td>Plotting and preparing data for classification.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>([filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;monitorSize])</td>
-<td>Check if fixation is within bounds.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
-<td>Processing of data.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(fpath,&nbsp;spath)</td>
-<td>Collect all subjects metadata.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(df)</td>
-<td>Output list of variables for easy html viewing.</td>
-</tr>
-</tbody>
-</table>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
-<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
-</dd>
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-</thead>
-<tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(df,&nbsp;cg_df)</td>
 <td>Appending classification to Dataframe.</td>
 </tr>
@@ -363,6 +303,75 @@
 <td>Collect all subjects metadata.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(df)</td>
+<td>Output list of variables for easy html viewing.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
+</dd>
+<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(df,&nbsp;cg_df)</td>
+<td>Appending classification to Dataframe.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(config,&nbsp;df[,&nbsp;ctype,&nbsp;filter_type,&nbsp;…])</td>
+<td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(df[,&nbsp;cores])</td>
+<td>Calculate dwell time for sad and neutral images.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(df,&nbsp;filter_type,&nbsp;config,&nbsp;**kwargs)</td>
+<td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>([path])</td>
+<td>preparing data for use in analysis</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(diagonal,&nbsp;window)</td>
+<td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(df0[,&nbsp;merge,&nbsp;cores])</td>
+<td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(df,&nbsp;window)</td>
+<td>Initial data cleaning.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial[,&nbsp;…])</td>
+<td>Plotting and preparing data for classification.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>([filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;monitorSize])</td>
+<td>Check if fixation is within bounds.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
+<td>Processing of data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(fpath,&nbsp;spath)</td>
+<td>Collect all subjects metadata.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(df)</td>
 <td>Output list of variables for easy html viewing.</td>
 </tr>
 </tbody>
@@ -946,7 +955,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-02T10:52:41-05:00.</div>
+				<div>Updated 2019-05-02T11:58:48-05:00.</div>
 		</div>
 	</div>
 </footer>

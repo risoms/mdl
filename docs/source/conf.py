@@ -170,9 +170,10 @@ autodoc_default_options = {
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-process-docstring
 def process_docstring(app, what, name, obj, options, lines):
 	#if ((what == "module") or (what == "class") or (what == "function") or (what == "method") or (what == "attribute")):
-	print('\n'); console(what, 'red'); console(name, 'green'); print(lines)
+	#print('\n'); console(what, 'red'); console(name, 'green'); print(lines)
 	#if (what == "attribute"):
 	#	del lines[:]
+	pass
 
 ## allows inclusion or exclusion of __init__
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
