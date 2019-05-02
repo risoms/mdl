@@ -51,6 +51,9 @@ class ROI():
 		----------
 		isMultiprocessing : :class:`bool`
 			Should the rois be generated using multiprocessing. Default `False`.
+		detection : :class:`string`
+			How should the regions of interest be detected. Either manually, through the use of highlight layers, or automatically
+			using haar cascades opencv. Default `manual`.
 		image_path : :class:`str`
 			Image directory path.
 		output_path : :class:`str`
@@ -469,7 +472,7 @@ class ROI():
 		
 		# check if bounding box has two x and y coordinate pairs
 		if (((len(_x) == 1) or (len(_y) == 1)) and self.shape == 'straight'):
-			raise Exception ("Error creating bounding box for image:roi %s:%s."%(imagename, imagename))
+			raise Exception ("Error creating bounding box for image:roi %s:%s."%(imagename, roiname))
 		
 		# set as df
 		bounds = pd.DataFrame(np.column_stack([_x[0],_y[0],_x[1],_y[1]]))
