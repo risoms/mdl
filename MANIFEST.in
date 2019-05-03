@@ -5,7 +5,7 @@ include requirements.bat
 include requirements.txt
 include versioneer.py
 include LICENSE
-recursive-include mdl/dist/*/*
+recursive-include mdl/dist/*
 exclude mdl/dist/experiments/_js/src/csv/*
 recursive-include mdl/dashboard/dist *
 recursive-include mdl/dashboard/lab *
