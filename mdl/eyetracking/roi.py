@@ -43,22 +43,22 @@ this = sys.modules[__name__]
 
 class ROI():
 	"""Generate region of interest to be read by Eyelink DataViewer or statistical tool."""
-	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, s_metadata=None, shape='box', roiname='roi', **kwargs):
+	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, s_metadata=None, shape='box', roicolumn='roi', uuid=None, **kwargs):
 		"""
 		Generate region of interest to be read by Eyelink DataViewer or statistical tool.
 
 		Parameters
 		----------
-		isMultiprocessing : :class:`bool`
+		isMultiprocessing : :obj:`bool`
 			Should the rois be generated using multiprocessing. Default `False`.
-		detection : :class:`string`
+		detection : :obj:`string`
 			How should the regions of interest be detected. Either manually, through the use of highlight layers, or automatically
 			using haar cascades opencv. Default `manual`.
-		image_path : :class:`str`
+		image_path : :obj:`str`
 			Image directory path.
 		output_path : :class:`str`
 			Path to save data.
-		f_roi : :class:`str` {`raw`,`dataviewer`}
+		f_roi : :obj:`str` {`raw`,`dataviewer`}
 			Format to export ROIs. Either to 'csv' (`raw`) or to Eyelink DataViewer 'ias' (`dataviewer`).
 			Default is `raw`. Note: If :code:`f_roi` = `dataviewer`, shape must be either be `circle`, `rotate`, or `straight`.
 		s_metadata : :class:`str` or :obj:`None` {path, `embed`}
@@ -76,15 +76,18 @@ class ROI():
 			code:`delimiter` parameter. The default is `;`.). Here's an example using `;` as a delimiter:
 				>>> imagename=BM001;roiname=1;feature=lefteye
 			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.
-		shape : :class:`str` {`polygon`, `hull`, `circle`, `rotate`, `straight`}
+		shape : :obj:`str` {`polygon`, `hull`, `circle`, `rotate`, `straight`}
 			Shape of machine readable boundaries for region of interest. Default is `straight`. `polygon` creates a Contour
 			Approximation and will most closely match the orginal shape of the roi. `hull` creates a Convex Hull, which
 			is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
 			`circle` creates a mininum enclosing circle. Finally, both `rotate` and `straight` create a Bounding Rectangle,
 			with the only difference being compensation for the mininum enclosing area for the box when using `rotate`.
-		roiname : :class:`str`
+		roicolumn : :obj:`str`
 			The name of the label for the region of interest in your metadata. For example you may want to extract the column
 			'feature' from your metadata and use this as the label. Default is `roi`.
+		uuid : :obj:`list` or :obj:`None`
+			Create a unique id by combining a list of existing variables in the metadata. This is recommended
+			if :code:`f_roi` == `dataviewer` because of the limited variables allowed for ias files. Default :obj:`None`.
 		**kwargs : :obj:`str` or :obj:`None`, optional
 			Additional properties. Here's a list of available properties:
 
@@ -98,15 +101,15 @@ class ROI():
 				* - **cores** : :class:`bool`
 				  - (if :code:`isMultiprocessing` == `True`) Number of cores to use. Default is total available cores - 1.
 				* - **isLibrary** : :class:`bool`
-				  - Check if required packages have been installed. Default is `False`.
+				  - Check if required packages have been installed. Default is :obj:`False`.
 				* - **isDebug** : :class:`bool`
-				  - Allow flags to be visible. Default is `False`.
+				  - Allow flags to be visible. Default is :obj:`False`.
 				* - **save_data** : :class:`bool`
-				  - Save coordinates. Default is `True.`
+				  - Save coordinates. Default is :obj:`True.`
 				* - **save_raw_image** : :class:`bool`
 				  - Save images. Default is True.
 				* - **save_contour_image** : :class:`bool`
-				  - Save generated contours as images. Default is `True`.
+				  - Save generated contours as images. Default is :obj:`True`.
 				* - **delimiter** : :class:`str`
 				  - (if :code:`source` == `psd`) How is metadata delimited, options are: `;` `,` `|` `tab` or `space` Default is `;`.
 				* - **screensize** : :class:`list` [:obj:`int`]
@@ -164,7 +167,7 @@ class ROI():
 		"""
 		# check debug
 		self.isDebug = kwargs['isDebug'] if 'isDebug' in kwargs else False
-		
+
 		# check library
 		self.isLibrary = kwargs['isLibrary'] if 'isLibrary' in kwargs else False
 		if self.isLibrary:
@@ -191,8 +194,10 @@ class ROI():
 		# shape
 		self.shape = shape if shape in ['polygon', 'hull', 'circle', 'rotate', 'straight'] else 'straight'
 		self.shape_d = None #dataviewer shape
+		# uuid
+		self.uuid = uuid
 		# label
-		self.roicolumn = roiname
+		self.roicolumn = roicolumn
 		# dpi
 		self.dpi =  kwargs['dpi'] if 'dpi' in kwargs else 300
 		# save
@@ -268,7 +273,6 @@ class ROI():
 			metadata.set_index('key', inplace=True)
 			metadata.loc['name']['value'] = metadata.loc['name']['value'].replace("roi","")
 			roiname = metadata.loc['name']['value']
-			roilabel = metadata.loc['name']['value']
 
 		# else read metadata from file
 		else:
@@ -279,15 +283,12 @@ class ROI():
 			if metadata.empty:
 				message = 'No data for %s:%s (image:roi).'%(imagename, roiname)
 				raise Exception(message)
-			else:
-				roilabel = metadata[self.roicolumn].item()
 
 		# print results
 		if self.isDebug:
 			console('## roiname: %s'%(roiname),'blue')
-			console('## roilabel: %s'%(roilabel),'green')
 
-		return metadata, roiname, roilabel
+		return metadata, roiname
 
 	def create_contours(self, image, imagename, roiname):
 		"""[summary]
@@ -431,7 +432,7 @@ class ROI():
 
 		return _bounds, _contours
 
-	def create_rois(self, imagename, roiname, roilabel, roinumber, color_roi, _bounds, _contours):
+	def create_rois(self, imagename, roiname, roinumber, color_roi, _bounds, _contours):
 		"""[summary]
 
 		Parameters
@@ -439,8 +440,6 @@ class ROI():
 		imagename : [type]
 			[description]
 		roiname : [type]
-			[description]
-		roilabel : [type]
 			[description]
 		roinumber : [type]
 			[description]
@@ -465,26 +464,25 @@ class ROI():
 		"""
 		#----store bounds as df
 		_bounds = pd.DataFrame(_bounds)
-		
+
 		# transpose bounds (x0, y0, x1, y1)
 		_x = _bounds[0].unique().tolist()
 		_y = _bounds[1].unique().tolist()
-		
+
 		# check if bounding box has two x and y coordinate pairs
 		if (((len(_x) == 1) or (len(_y) == 1)) and self.shape == 'straight'):
 			raise Exception ("Error creating bounding box for image:roi %s:%s."%(imagename, roiname))
-		
+
 		# set as df
 		bounds = pd.DataFrame(np.column_stack([_x[0],_y[0],_x[1],_y[1]]))
-		
+
 		# rename
 		bounds.columns = ['x0','y0','x1','y1']
-		
+
 		# add index, image, roi, and shape
 		bounds['shape'] = self.shape
 		bounds['shape_d'] = self.shape_d
 		bounds['image'] = imagename
-		bounds[self.roicolumn] = roilabel
 		bounds['id'] = roinumber
 		bounds['color'] = color_roi
 
@@ -573,35 +571,73 @@ class ROI():
 
 		#----save roi df
 		if self.save['data']:
-			# check if path exists
+			# bounds
+			## export to csv or dataviewer
 			_folder = '%s/roi/data/'%(self.output_path)
-			if not os.path.exists(_folder):
-				os.makedirs(_folder)
-			# export to csv or dataviewer
-			if self.f_roi == 'raw':
-				bounds.to_csv("%s/%s_%s_bounds.csv"%(_folder, imagename, roiname), index=False)
-			elif self.f_roi == 'dataviewer':
-				_bounds = '\n'.join(map(str, [
-					"# EyeLink Interest Area Set created on %s."%(now()),
-					"# Interest area set file using mdl.roi.ROI()",
-					"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
-					"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
-					"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color",
-					"# example: RECTANGLE 1 350 172 627 286 leftcheek red",
-					"# example: ELLIPSE 2 350 172 627 286 leftcheek red",
-					"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red",
-					"# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.",
-					bounds[['shape_d','id','x0','y0','x1','y1',self.roicolumn,'color']].to_csv(index=False, header=False).replace(',', '	')
-				]))
-				## create ias file
-				_filename = "%s/%s_%s_bounds"%(_folder, imagename, roiname)
-				with open("%s.ias"%(_filename), "w") as file:
-					file.write(_bounds)
+			_filename = "%s/%s_%s_bounds"%(_folder, imagename, roiname)
+			bounds = self.export_data(df=bounds, path=folder, filename=_filename, uuid=self.uuid)
+			
 			# coordinates
 			#contours.to_csv("%s/roi/data/%s_%s_bounds.csv"%(output_path, imagename, roiname), index=False)
 
 		# finish
 		return bounds, contours
+
+	def export_data(self, df, path, filename, uuid=None):
+		"""[summary]
+
+		Parameters
+		----------
+		df : [type]
+			[description]
+		path : [type]
+			[description]
+		filename : [type]
+			[description]
+		uuid : [type], optional
+			[description], by default None
+
+		Returns
+		-------
+		[type]
+			[description]
+		"""
+
+		# if uuid, create a unique column
+		if isinstance(uuid, (list,)):
+			df['uuid'] = df[uuid].apply(lambda x: ''.join(x), axis=1)
+			uuid_column = 'uuid'
+		# else simply use roiname
+		else:
+			uuid_column = self.roicolumn
+
+		# check if folder exists
+		if not os.path.exists(path):
+			os.makedirs(path)
+
+		# if raw export to excel
+		if self.f_roi == 'raw':
+			df.to_csv("%s/%s.csv"%(path, filename), index=False)
+		# else export to ias (dataviewer)
+		else:
+			_bounds = '\n'.join(map(str, [
+				"# EyeLink Interest Area Set created on %s."%(now()),
+				"# Interest area set file using mdl.roi.ROI()",
+				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
+				"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
+				"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color",
+				"# example: RECTANGLE 1 350 172 627 286 leftcheek red",
+				"# example: ELLIPSE 2 350 172 627 286 leftcheek red",
+				"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red",
+				"# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.",
+				df[['shape_d','id','x0','y0','x1','y1',uuid_column,'color']].to_csv(index=False, header=False).replace(',', '	')
+			]))
+
+			# save to ias
+			with open("%s/%s.ias"%(path, filename), "w") as file:
+				file.write(_bounds)
+
+		return df
 
 	def run(self, directory, core=0):
 		"""[summary]
@@ -654,8 +690,8 @@ class ROI():
 					os.makedirs(_folder)
 
 				## load image directly from PSD
-				_image = psd.topil()					
-				
+				_image = psd.topil()
+
 				# scale image
 				if self.scale != 1:
 					_truesize = [_image.size[0], _image.size[1]]
@@ -664,7 +700,7 @@ class ROI():
 					if self.isDebug: 
 						console('# export image','blue')
 						console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
-				
+
 				# center and resize image to template screen
 				_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 				_offset = ((self.screensize[0] - _image.size[0])//2,(self.screensize[1] - _image.size[1])//2)
@@ -689,18 +725,18 @@ class ROI():
 					color_roi = secrets.choice(color_roi)
 
 					# process metadata
-					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
-					
+					metadata, roiname = self.process_metadata(imagename, layer)
+
 					# load image directly from PSD
 					layer_image = layer.topil()
-					
+
 					# scale image
 					if self.scale != 1:
 						_truesize = [layer_image.size[0], layer_image.size[1]]
 						_scalesize = [int(_truesize[0] * self.scale), int(_truesize[1] * self.scale)]
 						layer_image = layer_image.resize(_scalesize, Image.ANTIALIAS)
 						if self.isDebug: console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
-					
+
 					# center and resize image to template screen
 					_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 					layer_offset = ((self.screensize[0] - layer_image.size[0])//2,(self.screensize[1] - layer_image.size[1])//2)
@@ -712,7 +748,7 @@ class ROI():
 					_bounds, _contours = self.create_contours(image, imagename, roiname)
 
 					# bounds
-					bounds, contours = self.create_rois(imagename, roiname, roilabel, roinumber, color_roi, _bounds, _contours)
+					bounds, contours = self.create_rois(imagename, roiname, roinumber, color_roi, _bounds, _contours)
 
 					# store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
@@ -736,30 +772,10 @@ class ROI():
 			## store for single bounds across all images (if multiProcessing, this is 1/num of cores)
 			# l_contours_all.append(df)
 
-
 			## export to csv or dataviewer
 			_folder = '%s/stim/data/'%(self.output_path)
-			if not os.path.exists(_folder):
-				os.makedirs(_folder)
-			if self.f_roi == 'raw':
-				df.to_csv("%s/%s_bounds.csv"%(_folder, imagename), index=False)
-			elif self.f_roi == 'dataviewer':
-				_bounds = '\n'.join(map(str, [
-					"# EyeLink Interest Area Set created on %s."%(now()),
-					"# Interest area set file using mdl.roi.ROI()",
-					"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
-					"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
-					"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color",
-					"# example: RECTANGLE 1 350 172 627 286 leftcheek red",
-					"# example: ELLIPSE 2 350 172 627 286 leftcheek red",
-					"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red",
-					"# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.",
-					df[['shape_d','id','x0','y0','x1','y1',self.roicolumn,'color']].to_csv(index=False, header=False).replace(',', '	')
-				]))
-				## create ias file
-				_filename = "%s/%s_bounds"%(_folder, imagename)
-				with open("%s.ias"%(_filename), "w") as file:
-					file.write(_bounds)
+			_filename = "%s_bounds"%(imagename)
+			df = self.export_data(df=df, path=folder, filename=_filename, uuid=self.uuid)
 
 			#coord
 			# df = pd.concat(l_roi_contours)
@@ -876,26 +892,8 @@ class ROI():
 		df = df.sort_values(by=['image','id'])
 		# export to csv or dataviewer
 		_folder = '%s/stim/'%(self.output_path)
-		if self.f_roi == 'raw':
-			df.to_csv("%s/bounds.csv"%(_folder), index=False)
-		elif self.f_roi == 'dataviewer':
-			_bounds = '\n'.join(map(str, [
-				"# EyeLink Interest Area Set created on %s."%(now()),
-				"# Interest area set file using mdl.roi.ROI()",
-				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
-				"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
-				"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color",
-				"# example: RECTANGLE 1 350 172 627 286 leftcheek red",
-				"# example: ELLIPSE 2 350 172 627 286 leftcheek red",
-				"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red",
-				"# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.",
-				df[['shape_d','id','x0','y0','x1','y1',self.roicolumn,'color']].to_csv(index=False, header=False).replace(',', '	')
-			]))
-
-			# create ias file
-			_filename = "%s/%s_bounds"%(_folder, imagename)
-			with open("%s.ias"%(_filename), "w") as file:
-				file.write(_bounds)
+		_filename = "%s/%s_bounds"%(_folder, imagename)
+		df = self.export_data(df=df, path=folder, filename=_filename, uuid=self.uuid)
 
 		#!!!----error log
 		if bool(errors):
@@ -907,14 +905,6 @@ class ROI():
 			error = ''
 
 		return df, error
-
-
-
-
-
-
-
-
 
 #%% test
 # drawing image
