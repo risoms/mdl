@@ -43,7 +43,8 @@ this = sys.modules[__name__]
 
 class ROI():
 	"""Generate region of interest to be read by Eyelink DataViewer or statistical tool."""
-	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, s_metadata=None, shape='box', roicolumn='roi', uuid=None, **kwargs):
+	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, metadata_source=None, 
+			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
 		"""
 		Generate region of interest to be read by Eyelink DataViewer or statistical tool.
 
@@ -58,12 +59,12 @@ class ROI():
 			Image directory path.
 		output_path : :class:`str`
 			Path to save data.
-		f_roi : :obj:`str` {`raw`,`dataviewer`}
-			Format to export ROIs. Either to 'csv' (`raw`) or to Eyelink DataViewer 'ias' (`dataviewer`).
-			Default is `raw`. Note: If :code:`f_roi` = `dataviewer`, shape must be either be `circle`, `rotate`, or `straight`.
-		s_metadata : :class:`str` or :obj:`None` {path, `embed`}
-			Metadata source. If metadata is being read from a spreadsheet, :code:`s_metadata` should be equal to path the to
-			the metadata file, else if metadata is embed within the image as a layer name, :code:`s_metadata` = `embedded`.
+		roi_format : :obj:`str` {`raw`,`dataviewer`, `both`}
+			Format to export ROIs. Either to 'csv' (`raw`) or to Eyelink DataViewer 'ias' (`dataviewer`) or both (`both`). 
+			Default is `raw`. Note: If :code:`roi_format` = `dataviewer`, :code:`shape` must be either be `circle`, `rotate`, or `straight`.
+		metadata_source : :class:`str` or :obj:`None`
+			Metadata source. If metadata is being read from a spreadsheet, :code:`metadata_source` should be equal to path the to
+			the metadata file, else if metadata is embed within the image as a layer name, :code:`metadata_source` = `embedded`.
 			Default is `embedded`. For example:
 				>>> # if metadata is in PSD images
 				>>> metadata = 'embedded'
@@ -87,7 +88,7 @@ class ROI():
 			'feature' from your metadata and use this as the label. Default is `roi`.
 		uuid : :obj:`list` or :obj:`None`
 			Create a unique id by combining a list of existing variables in the metadata. This is recommended
-			if :code:`f_roi` == `dataviewer` because of the limited variables allowed for ias files. Default :obj:`None`.
+			if :code:`roi_format` == `dataviewer` because of the limited variables allowed for ias files. Default :obj:`None`.
 		**kwargs : :obj:`str` or :obj:`None`, optional
 			Additional properties. Here's a list of available properties:
 
@@ -106,7 +107,7 @@ class ROI():
 				  - Allow flags to be visible. Default is :obj:`False`.
 				* - **save_data** : :class:`bool`
 				  - Save coordinates. Default is :obj:`True.`
-				* - **add_column** : :class:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
+				* - **newcolumn** : :class:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
 				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. 
 					Default is :obj:`False.`
 				* - **save_raw_image** : :class:`bool`
@@ -181,9 +182,9 @@ class ROI():
 		self.isMultiprocessing = isMultiprocessing
 		self.cores = kwargs['cores'] if 'cores' in kwargs else 'max'
 		# how to read data
-		self.s_metadata = kwargs['s_metadata'] if 's_metadata' in kwargs else 'embed'
+		self.metadata_source = kwargs['metadata_source'] if 'metadata_source' in kwargs else 'embed'
 		# how to format rois
-		self.f_roi = kwargs['f_roi'] if 'f_roi' in kwargs else 'raw'
+		self.roi_format = roi_format
 		# delimiter
 		self.delimiter = kwargs['delimiter'] if 'delimiter' in kwargs else ';'
 		# screensize
@@ -202,7 +203,7 @@ class ROI():
 		# label
 		self.roicolumn = roicolumn
 		# add column
-		self.add_column = kwargs['add_column'] if 'add_column' in kwargs else None
+		self.newcolumn = kwargs['newcolumn'] if 'newcolumn' in kwargs else None
 		# dpi
 		self.dpi =  kwargs['dpi'] if 'dpi' in kwargs else 300
 		# save
@@ -226,30 +227,23 @@ class ROI():
 
 		#----shape
 		# check if trying to do complex ROI using dataviewer
-		if (self.shape in ['polygon', 'hull']) and (self.f_roi == "dataviewer"):
+		if (self.shape in ['polygon', 'hull']) and (self.roi_format == "dataviewer"):
 			raise Exception ("Cannot use shape %s when exporting for DataViewer. \
-					Please use either 'circle', 'rotate', or 'straight' instead, or set f_roi == 'raw'."%(shape))
+					Please use either 'circle', 'rotate', or 'straight' instead, or set roi_format == 'raw'."%(shape))
 
 		#----directory
 		self.directory = [x for x in Path(self.image_path).glob("*.psd") if x.is_file()]
 
-		#----output
-		for folder in ['stim/raw','stim/data', 'roi/contours','roi/data']:
-			p = Path('%s/%s/'%(self.output_path, folder))
-			#check if path exists
-			if not os.path.exists(p):
-				os.makedirs(p)
-
 		#----read metadata file (if metadata is not None)
-		if s_metadata is not "embedded":
-			self.s_metadata = s_metadata
-			_type = Path(self.s_metadata).suffix
-			if _type == ".csv": self.metadata_all = pd.read_csv(self.s_metadata)
-			elif _type == ".xlsx": self.metadata_all = pd.read_excel(self.s_metadata)
+		if metadata_source is not "embedded":
+			self.metadata_source = metadata_source
+			_type = Path(self.metadata_source).suffix
+			if _type == ".csv": self.metadata_all = pd.read_csv(self.metadata_source)
+			elif _type == ".xlsx": self.metadata_all = pd.read_excel(self.metadata_source)
 
 			# check if metadata is empty
 			if self.metadata_all.empty:
-				raise Exception('No data for file: %s'%(self.s_metadata))
+				raise Exception('No data for file: %s'%(self.metadata_source))
 
 	def process_metadata(self, imagename, layer):
 		"""[summary]
@@ -273,7 +267,7 @@ class ROI():
 
 		#----prepare metadata
 		# if metadata is stored in image files directly
-		if self.s_metadata == 'embedded':
+		if self.metadata_source == 'embedded':
 			metadata = pd.DataFrame(data=(item.split("=") for item in layer.name.split(self.delimiter)),columns=['key','value'])
 			metadata.set_index('key', inplace=True)
 			metadata.loc['name']['value'] = metadata.loc['name']['value'].replace("roi","")
@@ -323,6 +317,9 @@ class ROI():
 		Exception
 			[description]
 		"""
+		#----convert to np array
+		image = np.array(image)
+
 		#----find contour
 		# threshold the image
 		## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
@@ -441,7 +438,7 @@ class ROI():
 
 		return _bounds, _contours
 
-	def create_rois(self, imagename, metadata, roiname, roilabel, roinumber, color_roi, _bounds, _contours):
+	def create_rois(self, imagename, metadata, roiname, roilabel, roinumber, _bounds, _contours):
 		"""[summary]
 
 		Parameters
@@ -455,8 +452,6 @@ class ROI():
 		roinumber : [type]
 			[description]
 		roilabel : [type]
-			[description]
-		color_roi : [type]
 			[description]
 		_bounds : [type]
 			[description]
@@ -493,66 +488,40 @@ class ROI():
 		bounds.columns = ['x0','y0','x1','y1']
 
 		# add index, image, roi, and shape
-		bounds['shape'] = self.shape
-		bounds['shape_d'] = self.shape_d
 		bounds['image'] = imagename
-		bounds[self.roicolumn] = roilabel
 		bounds['roi'] = roiname
 		bounds['id'] = roinumber
-		bounds['color'] = color_roi
+		bounds['shape_d'] = self.shape_d
 
 		# clean-up
-		## arrange
-		bounds = bounds[['image','roi',self.roicolumn,'id','shape','shape_d','id','x0','y0','x1','y1','color']]
 		## convert to int
 		bounds[['x0','y0','x1','y1']] = bounds[['x0','y0','x1','y1']].astype(int)
-		# append to list of df
 
 		#----store contours as df
 		contours = ''
-		# _x, _y = _contours[:,0,0], _contours[:,0,1]
-		# contours = pd.DataFrame(_contours)
-		# contours.columns = ['x', 'y'] #rename
-		# # add image, roi, and shape
-		# contours['image'] = imagename
-		# contours['ROI'] = roiname
-		# contours['shape'] = shape
-		# # clean-up
-		# contours = contours[['image','ROI','shape','x','y']] #sort
-		# contours[['x', 'y']] = contours[['x', 'y']].astype(int) #convert to int
-		# # append to list of df
-		# l_roi_contours.append(contours)
 
 		#----save image:roi level image bounds and coordinates
 		#----save roi contours
 		if self.save['contours']:
-			#----from source
+			#----generated rois (using contours)
 			# create matplotlib plot
 			fig, ax = plt.subplots()
 			fig.canvas.flush_events()
-			## original
 
 			#----load image directly from PSD
-			# _image = self.layer.topil()
-			# center and resize image to template screen
-			# _background = Image.new("RGBA", (screensize[0], screensize[1]), (0, 0, 0, 0))
-			# _background.paste(layer_image, layer_offset)
-			# _arr = np.array(_background)
-			# ax.imshow(_arr, zorder=2, interpolation='bilinear', alpha=1)
-			## contours
+			# contours
 			_arr = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
 			ax.imshow(_arr, zorder=1, interpolation='bilinear', alpha=1)
-			## check if path exists
-			_folder = '%s/roi/contours/final/%s'%(self.output_path, self.shape)
+
+			# save generated rois (using contours)
+			_folder = '%s/img/roi/generated/%s'%(self.output_path, self.shape)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
 			## save
 			plt.savefig('%s/%s_%s_source.png'%(_folder, imagename, roiname), dpi=self.dpi)
-			plt.close()
+			plt.cla(); plt.clf(); plt.close()
 
-			#----recreated from dataframe bounds
-			## from https://stackoverflow.com/questions/44593729/how-to-plot-rectangle-in-python
-			##!!!Todo:get working
+			#----recreated from dataframe bounds (this is to debug for potential issues)
 			# create matplotlib plot
 			fig, ax = plt.subplots()
 			fig.canvas.flush_events()
@@ -569,36 +538,26 @@ class ROI():
 			_height = y1 - y0
 			ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
 
-			## check if path exists
-			_folder = '%s/roi/contours/debug/%s'%(self.output_path, self.shape)
+			# save rois (debugging for issues)
+			_folder = '%s/img/roi/debug/%s'%(self.output_path, self.shape)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
 			## save
 			plt.savefig('%s/%s_%s_source.png'%(_folder, imagename, roiname), dpi=self.dpi)
-			plt.close()
-
-			# recreated from dataframe countours
-			#!!!Todo:get working
-			#plt.imshow(cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB))
-			#plt.savefig('%s/roi/contours/%s/%s_%s_recreated.png'%(output_path, shape, imagename, roiname), dpi=dpi)
-			## close plt.cla() #plt.clf() #plt.close()
-			plt.close()
+			plt.cla(); plt.clf(); plt.close()
 
 		#----save roi df
-		if self.save['data']:
-			# bounds
-			## export to csv or dataviewer
-			_folder = '%s/roi/data/'%(self.output_path)
-			_filename = "%s_%s_bounds"%(imagename, roiname)
-			bounds = self.export_data(df=bounds, path=_folder, filename=_filename, metadata=metadata, add_column=add_column, uuid=self.uuid)
+		# combine metadata with bounds
+		if metadata is not None:
+			bounds = pd.merge(bounds, metadata, on=['image','roi'], how='outer')
 
-			# coordinates
-			#contours.to_csv("%s/roi/data/%s_%s_bounds.csv"%(output_path, imagename, roiname), index=False)
+		# combine metadata with coordinates
+		##!!! get working
 
 		# finish
 		return bounds, contours
 
-	def export_data(self, df, path, filename, metadata=None, uuid=None, add_column=None):
+	def export_data(self, df, path, filename, uuid=None, newcolumn=None):
 		"""[summary]
 
 		Parameters
@@ -609,11 +568,9 @@ class ROI():
 			[description]
 		filename : [type]
 			[description]
-		metadata : [type], optional
-			[description], by default None
 		uuid : [type], optional
 			[description], by default None
-		add_column : [type], optional
+		newcolumn : [type], optional
 			[description], by default None
 
 		Returns
@@ -621,13 +578,13 @@ class ROI():
 		[type]
 			[description]
 		"""
-		# combine metadata with bounds
-		if metadata is not None:
-			df = pd.merge(df, metadata, on='roi', how='outer')
+		# if new column is not None
+		if isinstance(newcolumn, (dict,)):
+			df[list(newcolumn.keys())[0]] = list(newcolumn.values())[0]
 
-		# if new column is not 
-		# if add_column is not None:
-		# 	df[add_column] = 
+			## add new column to uuid, only if uuid exists
+			if isinstance(uuid, (list,)):
+				uuid.append(list(newcolumn.values())[0])
 
 		# if uuid, create a unique column
 		if isinstance(uuid, (list,)):
@@ -641,15 +598,15 @@ class ROI():
 		if not os.path.exists(path):
 			os.makedirs(path)
 
-		# if raw export to excel
-		if self.f_roi == 'raw':
+		# export to excel
+		if ((self.roi_format == 'raw') or (self.roi_format == 'both')):
 			df.to_csv("%s/%s.csv"%(path, filename), index=False)
 
 			# if debug
-			if self.isDebug: console("## file saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: console("## excel file saved @: %s/%s.ias"%(path, filename),'green')
 
-		# else export to ias (dataviewer)
-		else:
+		# export to ias (dataviewer)
+		if ((self.roi_format == 'dataviewer') or (self.roi_format == 'both')):
 			_bounds = '\n'.join(map(str, [
 				"# EyeLink Interest Area Set created on %s."%(now()),
 				"# Interest area set file using mdl.roi.ROI()",
@@ -660,19 +617,18 @@ class ROI():
 				"# example: ELLIPSE 2 350 172 627 286 leftcheek red",
 				"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red",
 				"# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.",
-				df[['shape_d','id','x0','y0','x1','y1',uuid_column,'color']].to_csv(index=False, header=False).replace(',', '	')
+				df[['shape_d','id','x0','y0','x1','y1',uuid_column]].to_csv(index=False, header=False).replace(',', '	')
 			]))
-
 			# save to ias
 			with open("%s/%s.ias"%(path, filename), "w") as file:
 				file.write(_bounds)
 
 			# if debug
-			if self.isDebug: console("## file saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: console("## ias file saved @: %s/%s.ias"%(path, filename),'green')
 
 		return df
 
-	def export_image(self, psd, path, filename):
+	def process_image(self, psd):
 		"""[summary]
 
 		Parameters
@@ -689,10 +645,6 @@ class ROI():
 		[type]
 			[description]
 		"""
-		# check if folder exists
-		if not os.path.exists(path):
-			os.makedirs(path)
-
 		## load image directly from PSD
 		image = psd.topil()
 
@@ -709,12 +661,6 @@ class ROI():
 		_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 		_offset = ((self.screensize[0] - image.size[0])//2,(self.screensize[1] - image.size[1])//2)
 		_background.paste(image, _offset)
-		plt.imshow(np.array(_background))
-		plt.savefig('%s/%s.png'%(path, filename), dpi=self.dpi)
-		plt.close()
-
-		# finish
-		plt.cla(); plt.clf(); plt.close()
 
 		return image
 
@@ -744,66 +690,47 @@ class ROI():
 
 		#!!!----for each image
 		for file in directory:
-			#----start image
+			#----start
 			# read image
 			psd = PSDImage.open(file)
 			imagename = os.path.splitext(os.path.basename(file))[0]
 			if self.isDebug: console('\n# file: %s'%(imagename),'blue')
 
-			# file metadata
-			#filename = '%s.png'%(imagename)
-			#channels = psd.channels #read channels
-			#width = psd.width #width and height
-			#height = psd.height
-
 			# clear lists
 			l_bounds = []
 			l_contours = []
 
-			#!!!----combine all rois within an image
-			# save all roi images
+			#!!!----for each image, save image file
 			if self.save['raw']:
-				## save image
-				_folder = '%s/stim/raw/'%(self.output_path)
-				_image = self.export_image(psd=psd, path=_folder, filename=imagename)
+				# process imaage
+				image = self.process_image(psd=psd)
+				# check folder
+				_folder = '%s/img/img/'%(self.output_path)
+				if not os.path.exists(_folder):
+					os.makedirs(_folder)
+				## save
+				plt.imshow(np.array(image))
+				plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
+				plt.cla(); plt.clf(); plt.close(); del image
 
 			#!!!----for each region of interest
 			roinumber = 1
-			color_roi = ['cyan','magenta','yellow','orange','blue','green','red']
 			for layer in psd:
-				#skip if layer is main image
+				# skip if layer is main image
 				if Path(layer.name).stem == imagename:
 					continue
 				else:
-					#----start roi
-					# set roi color
-					color_roi = secrets.choice(color_roi)
-
 					# process metadata
 					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
 
-					# load image directly from PSD
-					layer_image = layer.topil()
+					# process image
+					image = self.process_image(layer)
 
-					# scale image
-					if self.scale != 1:
-						_truesize = [layer_image.size[0], layer_image.size[1]]
-						_scalesize = [int(_truesize[0] * self.scale), int(_truesize[1] * self.scale)]
-						layer_image = layer_image.resize(_scalesize, Image.ANTIALIAS)
-						if self.isDebug: console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
-
-					# center and resize image to template screen
-					_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
-					layer_offset = ((self.screensize[0] - layer_image.size[0])//2,(self.screensize[1] - layer_image.size[1])//2)
-					_background.paste(layer_image, layer_offset)
-					image = np.array(_background)
-					#image = np.array(_image)
-
-					# contours
+					# create contours
 					_bounds, _contours = self.create_contours(image, imagename, roiname)
 
-					# bounds
-					bounds, contours = self.create_rois(imagename, metadata, roiname, roilabel, roinumber, color_roi, _bounds, _contours)
+					# create rois
+					bounds, contours = self.create_rois(imagename, metadata, roiname, roilabel, roinumber, _bounds, _contours)
 
 					# store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
@@ -812,27 +739,20 @@ class ROI():
 					# update counter
 					roinumber = roinumber + 1
 
-			#----save and store data
-			# bounds
+			#!!!----for each image, export data
+			# concatinate bounds
 			df = pd.concat(l_bounds)
 			## store for single bounds across all images (if multiProcessing, this is 1/num of cores)
 			l_bounds_all.append(df)
+			## export data
+			_filename = "%s_bounds"%(imagename)
+			_folder = '%s/data/img/'%(self.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, newcolumn=self.newcolumn)
 
 			# contours
-			# df = pd.concat(l_bounds)
-			## sort by image, id values
-			# df = df.sort_values(by=['image','id'])
-			## store for single bounds across all images (if multiProcessing, this is 1/num of cores)
-			# l_contours_all.append(df)
-
-			## export to csv or dataviewer
-			_folder = '%s/stim/data/'%(self.output_path)
-			_filename = "%s_bounds"%(imagename)
-			df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid)
-
-			#coord
-			# df = pd.concat(l_roi_contours)
-			# df.to_csv("%s/stim/data/%s_coord.csv"%(output_path, imagename), index=False)
+			##!!! create roi file for complex shapes (not with dataviewer)
 
 		#----finished
 		console('finished run()','purple')
@@ -920,13 +840,13 @@ class ROI():
 
 		return df, error
 
-	def finished(self, bounds, errors=None):
+	def finished(self, df, errors=None):
 		"""
 		Process bounds for all images.
 
 		Parameters
 		----------
-		bounds : [type]
+		df : [type]
 			[description]
 		errors : [type], optional
 			[description], by default None

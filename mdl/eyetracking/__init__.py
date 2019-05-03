@@ -19,9 +19,6 @@ from .roi import ROI as _ROI
 from .eyelink import Eyelink as _Eyelink
 from .calibration import Calibration as _Calibration
 
-# allowed imports
-__all__ = ['Eyelink','Calibration','ROI','__version__']
-
 # set as module
 pkg_resources.declare_namespace(__name__)
 

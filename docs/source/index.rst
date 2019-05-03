@@ -54,7 +54,7 @@ mdl-R33
 		<div class="row">
 			<div class="col-md-6">
 
-mdl-R33, an extensive library for the exploration, visualization, and analysis of eyetracking data. 
+mdl, an extensive library for the exploration, visualization, and analysis of eyetracking data. 
 This library was created at the `Institute for Mental Health Research <http://mdl.psy.utexas.edu/>`_, 
 at `the University of Texas at Austin <http://www.utexas.edu/>`_ by `Semeon Risom <https://semeon.io>`_.
 
@@ -97,6 +97,7 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					<li><a href="examples/R33/run_models.html">Run models</a></li>
 					<li><a href="examples/R33/create_plots.html">Create plots</a></li>
 					<li><a href="examples/R33/process_data.html">Process data</a></li>
+					<li><a href="examples/analysis/index.html">Lab Analysis</a></li>
 					<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
 					<li><a href="examples/roi/generate_roi.html">Create Regions of Interest</a></li>
 					</ul>

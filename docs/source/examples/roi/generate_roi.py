@@ -11,10 +11,13 @@ import sys
 sys.path.append(os.path.abspath('../../../../'))
 import mdl
 
-i = '/Users/mdl-admin/Desktop/roi/raw/'
-o = '/Users/mdl-admin/Desktop/roi/output/'
-m = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'
-roi = mdl.eyetracking.ROI(isMultiprocessing=True, isDebug=True, image_path=i, output_path=o, s_metadata=m, scale=1, 
-						  screensize=[1920,1080], shape='straight', f_roi='dataviewer', roicolumn="feature",
-						  uuid=None, add_column='top')
+image_path = '/Users/mdl-admin/Desktop/roi/raw/'
+output_path = '/Users/mdl-admin/Desktop/roi/output/'
+metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'
+roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, 
+						  image_path=image_path, output_path=output_path, metadata_source=metadata_source, 
+						  scale=1, screensize=[1920,1080], center=[(1920*.25),(1080*.25)], shape='straight', 
+						  roi_format='both', roicolumn="feature", uuid=None, newcolumn={'position': 'bottom'})
+
+
 df, error = roi.process()

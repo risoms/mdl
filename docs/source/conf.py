@@ -137,7 +137,7 @@ class AutoAutoSummary(Autosummary):
 			return super(AutoAutoSummary, self).run()
 
 # better-apidoc settings -----------------------------------------------------------------------------------------------
-def run_apidoc(app):
+def builder_inited(app):
     """Generate API documentation"""
     import better_apidoc
     better_apidoc.APP = app
@@ -168,7 +168,7 @@ autodoc_default_options = {
 
 ## Exclude summary tables (summary tables instead are created in autodocsumm)
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-process-docstring
-def process_docstring(app, what, name, obj, options, lines):
+def autodoc_process_docstring(app, what, name, obj, options, lines):
 	#if ((what == "module") or (what == "class") or (what == "function") or (what == "method") or (what == "attribute")):
 	#print('\n'); console(what, 'red'); console(name, 'green'); print(lines)
 	#if (what == "attribute"):
@@ -177,11 +177,19 @@ def process_docstring(app, what, name, obj, options, lines):
 
 ## allows inclusion or exclusion of __init__
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
-def inclusion(app, what, name, obj, skip, options):
-	if name == "__init__":
-		return False
-	else:
-		return skip
+def autodoc_skip_member(app, what, name, obj, skip, options):
+	# if name == "__init__":
+	# 	return False
+	# else:
+	# 	return skip
+	exclusions = (
+		'__weakref__',  # special-members
+		'__doc__', 
+		'__module__', 
+		'__dict__',  # undoc-members
+	)
+	exclude = name in exclusions
+	return skip or exclude
 
 # autodocsumm settings -------------------------------------------------------------------------------------------------
 def grouper_autodocsumm(app, what, name, obj, section, options, parent):
@@ -206,7 +214,7 @@ language = None
 # Options for todo extension
 todo_include_todos = True
 # List of patterns, relative to source directory, that match files and directories to ignore when looking for source files.
-exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup', 'api/pylink.rst']
+exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup.py', 'versioneer.py', 'api/pylink.rst']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.
@@ -272,8 +280,8 @@ def setup(app):
 	app.add_stylesheet('semeon/css/user.css')
 	app.add_javascript("semeon/js/user.js")
 	app.add_javascript("semeon/js/copybutton.js")
-	app.connect("autodoc-process-docstring", process_docstring) # exclude modules
-	app.connect("autodoc-skip-member", inclusion) # include init
-	app.connect('builder-inited', run_apidoc) # better apidoc
+	app.connect("autodoc-process-docstring", autodoc_process_docstring) # exclude modules
+	app.connect("autodoc-skip-member", autodoc_skip_member) # include init
+	app.connect('builder-inited', builder_inited) # better apidoc
 	# app.add_directive('autoautosummary', AutoAutoSummary) # auto add function in toctree
 	# app.connect('autodocsumm-grouper', grouper_autodocsumm) # autodocsumm
