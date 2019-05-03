@@ -54,9 +54,13 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "s = '/Users/mdl-admin/Desktop/roi/raw/'\n",
-    "d = '/Users/mdl-admin/Desktop/roi/output/'\n",
-    "ROI(source=s, destination=d, shape='box')"
+    "i = '/Users/mdl-admin/Desktop/roi/raw/'\n",
+    "o = '/Users/mdl-admin/Desktop/roi/output/'\n",
+    "m = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'\n",
+    "roi = mdl.eyetracking.ROI(isMultiprocessing=True, isDebug=True, image_path=i, output_path=o, s_metadata=m, scale=1, \n",
+    "\t\t\t\t\t\t  screensize=[1920,1080], shape='straight', f_roi='dataviewer', roicolumn=\"feature\",\n",
+    "\t\t\t\t\t\t  uuid=None, add_column='top')\n",
+    "df, error = roi.process()"
    ]
   }
  ],

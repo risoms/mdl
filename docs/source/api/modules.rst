@@ -5,4 +5,3 @@ IMHR-R33
    :maxdepth: 4
 
    mdl
-   setup
