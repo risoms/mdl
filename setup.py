@@ -21,7 +21,7 @@ except ImportError:
 # versioning
 import versioneer
 
-# required packages
+# required packages 
 path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 with open(path) as f:
     required = f.read().splitlines()
