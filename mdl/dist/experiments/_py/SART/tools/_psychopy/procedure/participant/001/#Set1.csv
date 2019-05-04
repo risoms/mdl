@@ -1,9 +1,0 @@
-set,block,face_scene,target,blockList
-1,0,outdoor,outdoor,procedure\participant\001\n5_outdoor.csv
-1,1,outdoor,outdoor,procedure\participant\001\n4_outdoor.csv
-1,2,male,male_neutral,procedure\participant\001\n3_male_neutral.csv
-1,3,outdoor,outdoor,procedure\participant\001\n7_outdoor.csv
-1,4,outdoor,outdoor,procedure\participant\001\n6_outdoor.csv
-1,5,male,male_neutral,procedure\participant\001\n2_male_neutral.csv
-1,6,male,male_neutral,procedure\participant\001\n0_male_neutral.csv
-1,7,male,male_neutral,procedure\participant\001\n1_male_neutral.csv

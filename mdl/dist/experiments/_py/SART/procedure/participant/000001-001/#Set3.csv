@@ -1,9 +1,0 @@
-setNum,blockType,target,blockList
-3,male,male_neutral,procedure\participant\000001-001\s2_male_neutral.csv
-3,female,female_sad,procedure\participant\000001-001\s1_female_sad.csv
-3,indoor,indoor,procedure\participant\000001-001\s4_indoor.csv
-3,indoor,indoor,procedure\participant\000001-001\s6_indoor.csv
-3,male,male_sad,procedure\participant\000001-001\s0_male_sad.csv
-3,female,female_neutral,procedure\participant\000001-001\s3_female_neutral.csv
-3,outdoor,outdoor,procedure\participant\000001-001\s7_outdoor.csv
-3,outdoor,outdoor,procedure\participant\000001-001\s5_outdoor.csv
