@@ -19,6 +19,7 @@ except ImportError:
     from distutils.core import setup
 
 # versioning
+from mdl._version import get_versions
 import versioneer
 cmdclass = versioneer.get_cmdclass()
 date = datetime.date.today().isoformat()
@@ -27,6 +28,7 @@ date = datetime.date.today().isoformat()
 path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 with open(path) as f:
     required = f.read().splitlines()
+
 setuptools_kwargs = {
     'install_requires':required,
     'zip_safe': False
@@ -39,6 +41,7 @@ author_email = 'semeon.risom@gmail.com'
 maintainer = 'Semeon Risom'
 maintainer_email = 'semeon.risom@gmail.com'
 version = versioneer.get_version()
+# version = get_versions()['date']
 url = 'http://mdl.psy.utexas.edu/a/mdl'
 description = 'mdl-eyetracking: Bindings for Eyelink and Python.'
 download_url = 'https://github.com/risoms/mdl-eyetracking/'
