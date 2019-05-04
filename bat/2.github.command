@@ -6,6 +6,5 @@ cd ../
 
 # upload to github
 #git tag -a v$(python setup.py --version) -m 'description of version'
-git tag 1.0
 git push https://github.com/risoms/mdl-R33.git
 git push --tags
