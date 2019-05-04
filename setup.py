@@ -33,7 +33,7 @@ setuptools_kwargs = {
 }
 
 # setup 
-name = 'mdl'
+name = 'imhr'
 author = 'Semeon Risom'
 author_email = 'semeon.risom@gmail.com'
 maintainer = 'Semeon Risom'
@@ -41,8 +41,8 @@ maintainer_email = 'semeon.risom@gmail.com'
 version = versioneer.get_version()
 cmdclass=versioneer.get_cmdclass()
 url = 'http://mdl.psy.utexas.edu/a/mdl'
-description = 'mdl-eyetracking: Bindings for Eyelink and Python.'
-download_url = 'https://github.com/risoms/mdl-eyetracking/'
+description = 'mdl: Psychology Data Science Suite.'
+download_url = 'https://github.com/risoms/mdl/'
 long_description = open('README.md').read()
 long_description_content_type = 'text/markdown'
 license_ = open('LICENSE', 'r').read()
