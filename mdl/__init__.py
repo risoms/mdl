@@ -39,5 +39,5 @@ from . import settings
 del os, sys, breakpoint
 
 from ._version import get_versions
-__version__ = get_versions()['version']
+__version__ = get_versions()['date']
 del get_versions
