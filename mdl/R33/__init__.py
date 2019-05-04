@@ -28,12 +28,8 @@ from .model import Model as _Model
 from .processing import Processing as _Processing
 from .settings import Settings as _Settings
 
-# versioning
-from ._version import get_versions
-__version__ = get_versions()['version']
-
 # allowed imports
-__all__ = ['Classify','Metadata','Model','nslr_hmm','Processing','Settings','__version__']
+__all__ = ['Classify','Metadata','Model','nslr_hmm','Processing','Settings']
 
 # set as module
 pkg_resources.declare_namespace(__name__)
@@ -68,4 +64,4 @@ class Settings(_Settings):
 		super().__init__(isLibrary=False)
 
 # finished
-del os, sys, breakpoint, get_versions, pkg_resources, _Classify, _Metadata, _Model, _Processing, _Settings
+del os, sys, breakpoint, pkg_resources, _Classify, _Metadata, _Model, _Processing, _Settings

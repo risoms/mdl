@@ -12,7 +12,6 @@ from pdb import set_trace as breakpoint
 import pkg_resources
 import os
 import sys
-from ._version import get_versions
 
 # imports
 from .roi import ROI as _ROI
@@ -48,8 +47,5 @@ class ROI(_ROI):
 	def __init__(self, image_path=None, output_path=None, metadata_path=None, shape='box', **kwargs):
 		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
 
-# versioning
-__version__ = get_versions()['version']
-
 # finished
-del os, sys, get_versions, breakpoint, pkg_resources, _ROI, _Eyelink, _Calibration
+del os, sys, breakpoint, pkg_resources, _ROI, _Eyelink, _Calibration
