@@ -41,7 +41,7 @@ def get_config():
     cfg = VersioneerConfig()
     cfg.VCS = "git"
     cfg.style = "pep440"
-    cfg.tag_prefix = "mdl-"
+    cfg.tag_prefix = ""
     cfg.parentdir_prefix = "mdl-"
     cfg.versionfile_source = "mdl/_version.py"
     cfg.verbose = False
