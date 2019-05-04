@@ -2,14 +2,18 @@
 include LICENSE
 include HOWTO.md
 include README.md
-include requirements.command
-include requirements.bat
 include requirements.txt
 include versioneer.py
 include mdl/_version.py
 # recursive-include
-graft mdl/dashboard/dist
-graft mdl/dashboard/lab
+graft docs
+graft tests
+graft mdl/dashboard/
 graft mdl/dist
 # recursive-exclude
 prune mdl/dist/experiments/_js/src/csv/
+# global exclude
+global-exclude .vscode
+global-exclude .ipynb_checkpoints
+global-exclude __pycache__
+global-exclude *.py[co]

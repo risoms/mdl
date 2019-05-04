@@ -39,7 +39,7 @@ author_email = 'semeon.risom@gmail.com'
 maintainer = 'Semeon Risom'
 maintainer_email = 'semeon.risom@gmail.com'
 version = versioneer.get_version()
-url = 'https://semeon.io/d/mdl'
+url = 'http://mdl.psy.utexas.edu/a/mdl'
 description = 'mdl-eyetracking: Bindings for Eyelink and Python.'
 download_url = 'https://github.com/risoms/mdl-eyetracking/'
 long_description = open('README.md').read()
@@ -60,6 +60,12 @@ classifiers = [
     'Operating System :: MacOS',
     'Operating System :: Microsoft :: Windows'
 ]
+project_urls = {
+	'Documentation': 'http://mdl.psy.utexas.edu/a/mdl',
+	'Funding': 'https://www.djangoproject.com/fundraising/',
+	'Source': 'https://github.com/django/django',
+	'Tracker': 'https://code.djangoproject.com/',
+},
 packages = find_packages()
 include_package_data = True
 namespace_packages=['mdl']
