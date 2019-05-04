@@ -20,6 +20,7 @@ except ImportError:
 
 # versioning
 import versioneer
+versioneer.VCS = "git"
 
 # required packages
 path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
