@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 # set path as current location
 cd "$(dirname "$0")"
