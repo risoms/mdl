@@ -7,4 +7,4 @@ cd "$(dirname "$0")"
 cd ../
 
 # upload
-python -m twine upload dist/* --verbose
+python -m twine upload dist/* --verbose -u risoms -p samboi10
