@@ -43,5 +43,7 @@ mdl/**/vscode/**
 mdl/**/ipynb_checkpoints/**
 mdl/**/__pycache__/**
 mdl/dist/output/data/**
+docs/source/data/img/**
 docs/source/examples/eyetracking/backup/psychopyCoreGraphics_1.90.3.zip
 docs/source/examples/eyetracking/backup/psychopy_eyelink.zip
+mdl/dist/experiments/_js/tools/_py/variable/placebo_2abc.csv

@@ -11,6 +11,7 @@ graft tests
 graft mdl/dashboard/
 graft mdl/dist
 # recursive-exclude
+prune docs/source/data/img
 prune mdl/dist/experiments/_js/src/csv/
 # global exclude
 global-exclude .vscode
