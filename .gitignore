@@ -35,6 +35,7 @@ mdl/dist/output/**/*.csv
 # directories #
 ######################
 dist/**
+imhr.egg-info/**
 mdl.egg-info/**
 .vscode/**
 .ipynb_checkpoints/**

@@ -11,10 +11,8 @@ graft tests
 graft mdl/dashboard/
 graft mdl/dist
 # recursive-exclude
-prune docs/build/
-prune docs/source/data/img/
-prune mdl/dist/experiments/_js/src/csv/
-prune docs/source/examples/eyetracking/_psychopy/data/
+prune docs
+prune mdl/dist/experiments
 # global exclude
 global-exclude .vscode
 global-exclude .ipynb_checkpoints
