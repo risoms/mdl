@@ -6,4 +6,4 @@
 cd "$(dirname "$0")"
 cd ../
 # run pipreqs
-pipreqs --encoding=iso-8859-1 --debug --force --savepath=requirements.txt mdl/
+pipreqs --encoding=iso-8859-1 --debug --force --no-pin --savepath=requirements.txt mdl/
