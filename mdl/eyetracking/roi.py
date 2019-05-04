@@ -806,6 +806,7 @@ class ROI():
 			l_bounds_all = self.run(self.directory)
 
 			# finish
+			if self.isDebug: console('running finished() (not-multiprocessing)','purple')
 			df, error = self.finished(l_bounds_all)
 
 		# else if multiprocessing
@@ -832,11 +833,8 @@ class ROI():
 				p.join()
 
 			#----after running
-			console('finished multiprocessing','purple')
+			if self.isDebug: console('running finished() (multiprocessing)','purple')
 			df, error = self.finished(returns)
-
-		#----finished
-		console('finished','purple')
 
 		return df, error
 
@@ -851,21 +849,16 @@ class ROI():
 		errors : [type], optional
 			[description], by default None
 		"""
+		console('start finished()','purple')
 		# if multiprocessing, combine data from each thread
 		if self.isMultiprocessing:
-			#----save bounds data
-			df = pd.concat(bounds)
-
-		# else if using single core, all data should already be combined
-		else:
-			pass
+			#----concatinate data
+			df = pd.concat(df)
 
 		#!!!----combine all rois across images
-		# sort by image,id
-		df = df.sort_values(by=['image','id'])
 		# export to csv or dataviewer
-		_folder = '%s/stim/'%(self.output_path)
-		_filename = "%s_bounds"%(imagename)
+		_folder = '%s/'%(self.output_path)
+		_filename = "bounds"
 		df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid)
 
 		#!!!----error log

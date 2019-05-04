@@ -35,8 +35,9 @@ mdl/dist/output/**/*.csv
 # directories #
 ######################
 mdl/dist/output/data/**
-mdl/**/__pycache__*
-**/__pycache__
-__pycache__
+mdl/**/__pycache__/**
+__pycache__/**
 docs/source/examples/eyetracking/backup/psychopyCoreGraphics_1.90.3.zip
 docs/source/examples/eyetracking/backup/psychopy_eyelink.zip
+mdl.egg-info/**
+dist/**

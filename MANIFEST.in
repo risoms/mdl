@@ -1,12 +1,12 @@
+include LICENSE
 include HOWTO.md
 include README.md
 include requirements.command
 include requirements.bat
 include requirements.txt
 include versioneer.py
-include LICENSE
-recursive-include mdl/dist/*
-exclude mdl/dist/experiments/_js/src/csv/*
+include mdl/_version.py
 recursive-include mdl/dashboard/dist *
 recursive-include mdl/dashboard/lab *
-include mdl/_version.py
+recursive-include mdl/dist/ *
+exclude mdl/dist/experiments/_js/src/csv/*
