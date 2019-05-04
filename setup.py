@@ -31,7 +31,7 @@ setuptools_kwargs = {
     'zip_safe': False
 }
 
-# setup
+# setup 
 name = 'mdl'
 author = 'Semeon Risom'
 author_email = 'semeon.risom@gmail.com'
