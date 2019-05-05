@@ -8,7 +8,7 @@ mdl: an extensive library for the exploration, visualization, and analysis of ps
 
 -------------------------------------------------------------------------------------------------
 [![PyPI Version](https://img.shields.io/pypi/v/mdl.svg)](https://pypi.org/project/mdl/)
-[![License](https://img.shields.io/pypi/l/mdl.svg)](https://github.com/mwaskom/risoms/blob/master/LICENSE)
+[![License](https://img.shields.io/pypi/l/mdl.svg)](https://github.com/risoms/mdl/blob/master/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313201.svg)](https://doi.org/10.1016/j.cct.2018.10.014)
 [![Build Status](https://travis-ci.org/risoms/mdl.svg?branch=master)](https://travis-ci.org/risoms/mdl)
 [![Code Coverage](https://codecov.io/gh/risoms/mdl/branch/master/graph/badge.svg)](https://codecov.io/gh/risoms/mdl)
