@@ -1,10 +1,13 @@
 #!/bin/bash
-# https://github.com/bndr/pipreqs
+# https://packaging.python.org/tutorials/packaging-projects/
 # upload to pypi
 
 # set path as current location
 cd "$(dirname "$0")"
 cd ../
 
-# upload
+# uploading
+## make sure twine is available
+pip install --user --upgrade twine 
+## upload
 python -m twine upload dist/* --verbose -u risoms -p samboi10
