@@ -34,7 +34,9 @@ mdl/dist/output/**/*.csv
 
 # directories #
 ######################
+build/**
 dist/**
+env/**
 imhr.egg-info/**
 mdl.egg-info/**
 .vscode/**
