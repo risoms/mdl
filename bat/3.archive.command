@@ -13,7 +13,4 @@ rm -rf imhr.egg-info
 rm -rf mdl.egg-info
 
 # create archive
-## Make sure you have the latest versions of setuptools and wheel installed
-pip install --user --upgrade setuptools wheel
-## archive
 python setup.py sdist bdist_wheel
