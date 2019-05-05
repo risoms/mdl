@@ -1,5 +1,5 @@
 .. meta::
-	:description lang=en: mdl-R33, an extensive library for the exploration, visualization, and analysis of eyetracking data.
+	:description lang=en: mdl, an extensive library for the exploration, visualization, and analysis of psychological data.
 
 .. toctree::
 	:includehidden:
@@ -11,9 +11,9 @@
 	Installation <install.rst>
 	Features <features.rst>
 	Examples <examples/index.rst>
-	Current Data <https://risoms.github.io/mdl-R33/docs/build/data/data.html>
+	Current Data <https://risoms.github.io/mdl/docs/build/data/data.html>
 	Live <http://127.0.0.1:8081/>
-	Dashboard <live.rst>
+	Dashboard <dashboard.rst>
 	API Reference <api/mdl.rst>
 
 .. raw:: html
@@ -33,10 +33,10 @@
 	}
 	</style>
 
-mdl-R33
-"""""""
+mdl - psychological data science
+""""""""""""""""""""""""""""""""
 
-.. title:: mdl-R33
+.. title:: mdl
 
 .. raw:: html
 
@@ -55,7 +55,7 @@ mdl-R33
 		<div class="row">
 			<div class="col-md-6">
 
-mdl, an extensive library for the exploration, visualization, and analysis of eyetracking data. 
+mdl, an extensive library for the exploration, visualization, and analysis of psychological data. 
 This library was created at the `Institute for Mental Health Research <http://mdl.psy.utexas.edu/>`_, 
 at `the University of Texas at Austin <http://www.utexas.edu/>`_ by `Semeon Risom <https://semeon.io>`_.
 
@@ -65,7 +65,7 @@ For a brief introduction to the ideas behind the library, you can read the
 :ref:`examples <examples>` to see what you can do with this package,
 and then check out the :ref:`API reference <mdl>` to find out how.
 
-To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl-R33>`_ repository.
+To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl>`_ repository.
 
 .. raw:: html
 

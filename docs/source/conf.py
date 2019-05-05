@@ -41,7 +41,7 @@ def iso():
 	return isoname
 
 # Project information --------------------------------------------------------------------------------------------------
-project = 'mdl-R33'
+project = 'mdl'
 author = 'Semeon Risom'
 copyright = u'{}, '.format(time.strftime("%Y"))
 
@@ -161,6 +161,7 @@ autoclass_content = 'init'
 #suppress_warnings = ['misc.highlighting_failure']
 autodoc_default_options = {
     # 'autosummary': True,
+    'show-inheritance': True,
     'member-order': 'bysource',
     # 'private-members': False,
     # 'undoc-members': False,
@@ -178,10 +179,6 @@ def autodoc_process_docstring(app, what, name, obj, options, lines):
 ## allows inclusion or exclusion of __init__
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
 def autodoc_skip_member(app, what, name, obj, skip, options):
-	# if name == "__init__":
-	# 	return False
-	# else:
-	# 	return skip
 	exclusions = (
 		'__weakref__',  # special-members
 		'__doc__', 
@@ -189,7 +186,11 @@ def autodoc_skip_member(app, what, name, obj, skip, options):
 		'__dict__',  # undoc-members
 	)
 	exclude = name in exclusions
-	return skip or exclude
+
+	if name == "__init__":
+		return False	
+	else:
+		return skip or exclude
 
 # autodocsumm settings -------------------------------------------------------------------------------------------------
 def grouper_autodocsumm(app, what, name, obj, section, options, parent):
@@ -247,14 +248,14 @@ html_sidebars = {'**': ['localtoc.html','sourcelink.html']}
 
 # Options for HTMLHelp output ------------------------------------------------------------------------------------------
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mdl-R33'
+htmlhelp_basename = 'mdl'
 
 # Options for manual page output ---------------------------------------------------------------------------------------
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'mdl-R33', 'mdl-R33', [author], 1)]
+man_pages = [(master_doc, 'mdl', 'mdl', [author], 1)]
 # Options for Texinfo output -------------------------------------------------------------------------------------------
-texinfo_documents = [ (master_doc, 'mdl-R33', 'mdl-R33', author, 'mdl-R33', 'One line description of project.', 'Miscellaneous'),]
+texinfo_documents = [ (master_doc, 'mdl', 'mdl', author, 'mdl', 'One line description of project.', 'Miscellaneous'),]
 
 # Options for Epub output ----------------------------------------------------------------------------------------------
 epub_title = project

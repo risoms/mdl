@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.R33.processing &#8212; mdl-R33 2019-05-05 documentation</title>
+    <title>mdl.R33.processing &#8212; mdl 2019-05-05 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -49,7 +49,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../index.html">
-          mdl-R33</a>
+          mdl</a>
         <span class="navbar-text navbar-version pull-left"><b>2019-05-05</b></span>
       </div>
 
@@ -128,9 +128,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl/docs/build/data/data.html">Current Data</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
 </ul>
@@ -166,9 +166,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl/docs/build/data/data.html">Current Data</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
 </ul>
 </ul>
@@ -209,9 +209,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl/docs/build/data/data.html">Current Data</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
 </ul>
 
@@ -252,7 +252,8 @@
 <dl class="class">
 <dt id="mdl.R33.processing.Processing">
 <em class="property">class </em><code class="descclassname">mdl.R33.processing.</code><code class="descname">Processing</code><span class="sig-paren">(</span><em>config</em>, <em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<blockquote>
 <div>Hub for running processing and analyzing raw data</div></blockquote>
 <p><strong>Methods</strong></p>
 <table border="1" class="longtable docutils">
@@ -266,43 +267,46 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(df,&nbsp;cg_df)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.__init__" title="mdl.R33.processing.Processing.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(config[,&nbsp;isLibrary])</td>
+<td>Hub for running processing and analyzing raw data</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.append_classify" title="mdl.R33.processing.Processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(df,&nbsp;cg_df)</td>
 <td>Appending classification to Dataframe.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(config,&nbsp;df[,&nbsp;ctype,&nbsp;filter_type,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.classify" title="mdl.R33.processing.Processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(config,&nbsp;df[,&nbsp;ctype,&nbsp;filter_type,&nbsp;…])</td>
 <td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(df[,&nbsp;cores])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.dwell" title="mdl.R33.processing.Processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(df[,&nbsp;cores])</td>
 <td>Calculate dwell time for sad and neutral images.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(df,&nbsp;filter_type,&nbsp;config,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.filter_data" title="mdl.R33.processing.Processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(df,&nbsp;filter_type,&nbsp;config,&nbsp;**kwargs)</td>
 <td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>([path])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getData" title="mdl.R33.processing.Processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>([path])</td>
 <td>preparing data for use in analysis</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(diagonal,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="mdl.R33.processing.Processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(diagonal,&nbsp;window)</td>
 <td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(df0[,&nbsp;merge,&nbsp;cores])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.onset_diff" title="mdl.R33.processing.Processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(df0[,&nbsp;merge,&nbsp;cores])</td>
 <td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(df,&nbsp;window)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.preprocess" title="mdl.R33.processing.Processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(df,&nbsp;window)</td>
 <td>Initial data cleaning.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial[,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.process" title="mdl.R33.processing.Processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial[,&nbsp;…])</td>
 <td>Plotting and preparing data for classification.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>([filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;monitorSize])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.roi" title="mdl.R33.processing.Processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>([filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;monitorSize])</td>
 <td>Check if fixation is within bounds.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.run" title="mdl.R33.processing.Processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
 <td>Processing of data.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(fpath,&nbsp;spath)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.subject_metadata" title="mdl.R33.processing.Processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(fpath,&nbsp;spath)</td>
 <td>Collect all subjects metadata.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(df)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.processing.Processing.variables" title="mdl.R33.processing.Processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(df)</td>
 <td>Output list of variables for easy html viewing.</td>
 </tr>
 </tbody>
@@ -376,6 +380,29 @@
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="mdl.R33.processing.Processing.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>config</em>, <em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Hub for running processing and analyzing raw data</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
+</dd>
+<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="mdl.R33.processing.Processing.getEstimatedMonitor">
 <code class="descname">getEstimatedMonitor</code><span class="sig-paren">(</span><em>diagonal</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/processing.html#Processing.getEstimatedMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.processing.Processing.getEstimatedMonitor" title="Permalink to this definition">¶</a></dt>
@@ -932,7 +959,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-05T14:35:39-05:00.</div>
+				<div>Updated 2019-05-05T15:16:19-05:00.</div>
 		</div>
 	</div>
 </footer>
