@@ -10,7 +10,6 @@ mdl: an extensive library for the exploration, visualization, and analysis of ps
 [![PyPI Version](https://img.shields.io/pypi/v/imhr.svg)](https://pypi.org/project/imhr/)
 [![License](https://img.shields.io/pypi/l/imhr.svg)](https://github.com/risoms/mdl/blob/master/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313201.svg)](https://doi.org/10.1016/j.cct.2018.10.014)
-[![Build Status](https://travis-ci.com/risoms/mdl.svg?token=h4xHN6seBuC4SG7zNtMW&branch=master)](https://travis-ci.com/risoms/mdl)
 
 This study is funded by NIMH grant MH109600. 
 Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018). 
