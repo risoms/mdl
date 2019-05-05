@@ -7,11 +7,11 @@ mdl: an extensive library for the exploration, visualization, and analysis of ps
 <div>
 
 -------------------------------------------------------------------------------------------------
-[![PyPI Version](https://img.shields.io/pypi/v/mdl-R33.svg)](https://pypi.org/project/mdl-R33/)
-[![License](https://img.shields.io/pypi/l/mdl-R33.svg)](https://github.com/mwaskom/risoms/blob/master/LICENSE)
+[![PyPI Version](https://img.shields.io/pypi/v/mdl.svg)](https://pypi.org/project/mdl/)
+[![License](https://img.shields.io/pypi/l/mdl.svg)](https://github.com/mwaskom/risoms/blob/master/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313201.svg)](https://doi.org/10.1016/j.cct.2018.10.014)
-[![Build Status](https://travis-ci.org/risoms/mdl-R33.svg?branch=master)](https://travis-ci.org/risoms/mdl-R33)
-[![Code Coverage](https://codecov.io/gh/risoms/seaborn/branch/master/graph/badge.svg)](https://codecov.io/gh/risoms/mdl-R33)
+[![Build Status](https://travis-ci.org/risoms/mdl.svg?branch=master)](https://travis-ci.org/risoms/mdl)
+[![Code Coverage](https://codecov.io/gh/risoms/mdl/branch/master/graph/badge.svg)](https://codecov.io/gh/risoms/mdl)
 
 This study is funded by NIMH grant MH109600. 
 Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018). 
