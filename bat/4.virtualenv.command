@@ -17,7 +17,12 @@ python -m venv env
 source env/bin/activate
 
 # download TestPyPI to virtualenv 
-pip install https://test.pypi.org/simple/ imhr
+#pip install -i -no-deps https://test.pypi.org/simple/ imhr
+python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps imhr
+
+# download dependencies directly from pip
+## this is to test for errors in downloading
+# pip install -r requirements.txt 
 
 # test if successful
 python

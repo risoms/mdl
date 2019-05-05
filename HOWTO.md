@@ -4,6 +4,7 @@ resources
 ##### how to package
 - https://packaging.python.org/tutorials/packaging-projects/
 - https://docs.python.org/3/distutils/setupscript.html
+- https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
 
 #####  create test package
 - https://test.pypi.org/project/mdl/

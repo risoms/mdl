@@ -104,6 +104,7 @@ class Eyelink():
                 self.h = int(GetSystemMetrics(1))
                 settings.console(msg="mdl.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
             elif platform.system() == 'Darwin':
+                import pyobjc
                 from AppKit import NSScreen
                 self.w = int(NSScreen.mainScreen().frame().size.width)
                 self.h = int(NSScreen.mainScreen().frame().size.height)

@@ -13,7 +13,6 @@ from pdb import set_trace as breakpoint
 import sys
 import os
 import gc
-import secrets
 
 # data
 from pathlib import Path
@@ -28,15 +27,16 @@ import matplotlib.patches as patches
 from psd_tools import PSDImage
 
 # local libraries
-from mdl import settings
-console = settings.console
-now = settings.time
+if __name__ == "__main__":
+	from mdl import settings
+	console = settings.console
+	now = settings.time
 
 # available functions
 __all__ = ['ROI']
 
 # required external library
-__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL','secrets']
+__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
 
 # this is a pointer to the module object instance it
 this = sys.modules[__name__]

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: mdl-R33, an extensive library for the exploration, visualization, and analysis of eyetracking data. \
+| `@purpose`: mdl, an extensive library for the exploration, visualization, and analysis of eyetracking data. \
 This library was created at the Institute for Mental Health Research, at the University of Texas at Austin by Semeon Risom.  
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  

@@ -19,7 +19,8 @@ import numpy as np
 import pandas as pd
 
 # local libraries
-from mdl import settings
+if __name__ == "__main__":
+	from mdl import settings
 
 class Classify():
     """Analysis methods for mdl.processing.preprocesing."""
