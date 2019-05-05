@@ -11,7 +11,7 @@ Installation
 
 The latest stable release (and older versions) can be installed from ``PyPI``::
 
-    pip install mdl
+    pip install imhr
 
 Alternatively, you can install the development version directly from ``github``::
 

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.download &#8212; mdl-R33 2019-05-03 documentation</title>
+    <title>mdl.download &#8212; mdl-R33 2019-05-05 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-03</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-05</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -128,7 +128,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="mdl.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
@@ -165,7 +166,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="mdl.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
@@ -217,7 +219,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="mdl.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
@@ -301,10 +304,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.download.Download.SFTP" title="mdl.download.Download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
 <td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.download.Download.__init__" title="mdl.download.Download.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([isLibrary])</td>
-<td>Download raw data from apache, Box, or REDCap servers.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.download.Download.box" title="mdl.download.Download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;username,&nbsp;…)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.download.Download.box" title="mdl.download.Download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;username,&nbsp;…)</td>
 <td>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</td>
 </tr>
 </tbody>
@@ -332,25 +332,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="mdl.download.Download.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/download.html#Download.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.download.Download.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download raw data from apache, Box, or REDCap servers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Check if required libraries are available.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="classmethod">
 <dt id="mdl.download.Download.REDCap">
 <em class="property">classmethod </em><code class="descname">REDCap</code><span class="sig-paren">(</span><em>path</em>, <em>token</em>, <em>url</em>, <em>content</em>, <em>payload=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/download.html#Download.REDCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.download.Download.REDCap" title="Permalink to this definition">¶</a></dt>
@@ -569,7 +550,7 @@ For example:</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-03T11:04:44-05:00.</div>
+				<div>Updated 2019-05-05T14:32:20-05:00.</div>
 		</div>
 	</div>
 </footer>

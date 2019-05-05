@@ -155,7 +155,7 @@ def builder_inited(app):
 autosummary_generate = False
 
 # autodoc settings -----------------------------------------------------------------------------------------------------
-autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL", 'pylink', 'pylink.EyeLinkCustomDisplay']
+autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL", 'pylink', 'pylink.EyeLinkCustomDisplay', 'setup.py', 'versioneer.py']
 autodoc_member_order = 'bysource' # Sort by source
 autoclass_content = 'init'
 #suppress_warnings = ['misc.highlighting_failure']
@@ -214,7 +214,8 @@ language = None
 # Options for todo extension
 todo_include_todos = True
 # List of patterns, relative to source directory, that match files and directories to ignore when looking for source files.
-exclude_patterns = ['_build', '**.ipynb_checkpoints', 'run.rst', 'notes.rst', 'api/setup.rst', 'setup.py', 'versioneer.py', 'api/pylink.rst']
+exclude_patterns = ['_build','**.ipynb_checkpoints','run.rst','notes.rst',
+'api/setup.rst','setup.rst','setup.py','versioneer.rst','versioneer.py','api/pylink.rst']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.

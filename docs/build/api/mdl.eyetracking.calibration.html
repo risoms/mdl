@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.eyetracking.calibration &#8212; mdl-R33 2019-05-03 documentation</title>
+    <title>mdl.eyetracking.calibration &#8212; mdl-R33 2019-05-05 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-03</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-05</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -128,7 +128,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
@@ -165,7 +166,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
 </ul>
@@ -207,7 +209,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
 </ul>
@@ -281,61 +284,58 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.__init__" title="mdl.eyetracking.calibration.Calibration.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(w,&nbsp;h,&nbsp;tracker,&nbsp;window)</td>
-<td>This allows mdl.eyetracking package to initiate calibration/validation/drift correction.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.alert_printf" title="mdl.eyetracking.calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.alert_printf" title="mdl.eyetracking.calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
 <td>Print error messages.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.clear_cal_display" title="mdl.eyetracking.calibration.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.clear_cal_display" title="mdl.eyetracking.calibration.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
 <td>Clear the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_cal_target" title="mdl.eyetracking.calibration.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_cal_target" title="mdl.eyetracking.calibration.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
 <td>Draw the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_image_line" title="mdl.eyetracking.calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_image_line" title="mdl.eyetracking.calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
 <td>Display image pixel by pixel, line by line.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_line" title="mdl.eyetracking.calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_line" title="mdl.eyetracking.calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
 <td>Draw a line.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_lozenge" title="mdl.eyetracking.calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.draw_lozenge" title="mdl.eyetracking.calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
 <td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.erase_cal_target" title="mdl.eyetracking.calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.erase_cal_target" title="mdl.eyetracking.calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
 <td>Erase the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.exit_cal_display" title="mdl.eyetracking.calibration.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.exit_cal_display" title="mdl.eyetracking.calibration.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
 <td>Exit the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.exit_image_display" title="mdl.eyetracking.calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.exit_image_display" title="mdl.eyetracking.calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
 <td>Clear the camera image.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.getColorFromIndex" title="mdl.eyetracking.calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.getColorFromIndex" title="mdl.eyetracking.calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
 <td>Return psychopy colors for elements in the camera image.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.get_input_key" title="mdl.eyetracking.calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.get_input_key" title="mdl.eyetracking.calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
 <td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.get_mouse_state" title="mdl.eyetracking.calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.get_mouse_state" title="mdl.eyetracking.calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
 <td>Get the current mouse position and status</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.image_title" title="mdl.eyetracking.calibration.Calibration.image_title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_title</span></code></a>(text)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.image_title" title="mdl.eyetracking.calibration.Calibration.image_title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_title</span></code></a>(text)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.play_beep" title="mdl.eyetracking.calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.play_beep" title="mdl.eyetracking.calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
 <td>Play a sound during calibration/drift correction.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.record_abort_hide" title="mdl.eyetracking.calibration.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.record_abort_hide" title="mdl.eyetracking.calibration.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
 <td>This function is called if aborted</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.set_image_palette" title="mdl.eyetracking.calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.set_image_palette" title="mdl.eyetracking.calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
 <td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.setup_cal_display" title="mdl.eyetracking.calibration.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.setup_cal_display" title="mdl.eyetracking.calibration.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
 <td>Shows the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.setup_image_display" title="mdl.eyetracking.calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.calibration.Calibration.setup_image_display" title="mdl.eyetracking.calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
 <td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
 </tr>
 </tbody>
@@ -416,31 +416,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="mdl.eyetracking.calibration.Calibration.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>w</em>, <em>h</em>, <em>tracker</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.calibration.Calibration.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>This allows mdl.eyetracking package to initiate calibration/validation/drift correction.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>w,h</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">Screen width, height.</p>
-</dd>
-<dt><strong>tracker</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></span></dt>
-<dd><p class="first last">Eyelink tracker instance.</p>
-</dd>
-<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://www.psychopy.org/api/visual/window.html#window">psychopy.visual.Window</a></span></dt>
-<dd><p class="first last">PsychoPy window instance.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="method">
 <dt id="mdl.eyetracking.calibration.Calibration.setup_cal_display">
 <code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.calibration.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
@@ -564,7 +539,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-03T11:04:44-05:00.</div>
+				<div>Updated 2019-05-05T14:32:20-05:00.</div>
 		</div>
 	</div>
 </footer>

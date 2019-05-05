@@ -22,7 +22,7 @@ python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps imhr
 
 # download dependencies directly from pip
 ## this is to test for errors in downloading
-# pip install -r requirements.txt 
+pip install -r requirements.txt 
 
 # test if successful
 python

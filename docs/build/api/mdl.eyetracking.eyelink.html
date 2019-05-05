@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.eyetracking.eyelink &#8212; mdl-R33 2019-05-03 documentation</title>
+    <title>mdl.eyetracking.eyelink &#8212; mdl-R33 2019-05-05 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl-R33</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-03</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-05</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -128,7 +128,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
@@ -165,7 +166,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
 </ul>
@@ -207,7 +209,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl-R33/docs/build/data/data.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../live.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
 </ul>
@@ -309,40 +312,37 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.__init__" title="mdl.eyetracking.eyelink.Eyelink.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(window,&nbsp;timer[,&nbsp;isPsychopy,&nbsp;subject])</td>
-<td>Module allowing communcation to the SR Research Eyelink eyetracking system.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.calibration" title="mdl.eyetracking.eyelink.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.calibration" title="mdl.eyetracking.eyelink.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
 <td>Start calibration procedure.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.connect" title="mdl.eyetracking.eyelink.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.connect" title="mdl.eyetracking.eyelink.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
 <td>Connect to Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.drift_correction" title="mdl.eyetracking.eyelink.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.drift_correction" title="mdl.eyetracking.eyelink.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
 <td>Starts drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.finish_recording" title="mdl.eyetracking.eyelink.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.finish_recording" title="mdl.eyetracking.eyelink.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
 <td>Ending Eyelink recording.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.gc" title="mdl.eyetracking.eyelink.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.gc" title="mdl.eyetracking.eyelink.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
 <td>Creates gaze contigent event.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.sample" title="mdl.eyetracking.eyelink.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.sample" title="mdl.eyetracking.eyelink.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
 <td>Collects new gaze coordinates from Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.send_message" title="mdl.eyetracking.eyelink.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.send_message" title="mdl.eyetracking.eyelink.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
 <td>Send message to Eyelink.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.send_variable" title="mdl.eyetracking.eyelink.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.send_variable" title="mdl.eyetracking.eyelink.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
 <td>send trial variable to eyelink at the end of trial.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.set_eye_used" title="mdl.eyetracking.eyelink.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.set_eye_used" title="mdl.eyetracking.eyelink.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
 <td>Set dominant eye.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.start_recording" title="mdl.eyetracking.eyelink.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.start_recording" title="mdl.eyetracking.eyelink.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
 <td>Starts recording of Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.stop_recording" title="mdl.eyetracking.eyelink.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.eyelink.Eyelink.stop_recording" title="mdl.eyetracking.eyelink.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
 <td>Stops recording of Eyelink.</td>
 </tr>
 </tbody>
@@ -412,77 +412,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="mdl.eyetracking.eyelink.Eyelink.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>window</em>, <em>timer</em>, <em>isPsychopy=True</em>, <em>subject=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.eyelink.Eyelink.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000              Plus (5.0), but should be compatiable with earlier systems.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://www.psychopy.org/api/visual/window.html#window">psychopy.visual.Window</a></span></dt>
-<dd><p class="first last">PsychoPy window instance.</p>
-</dd>
-<dt><strong>timer</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://www.psychopy.org/api/core.html#psychopy.core.CountdownTimer">psychopy.core.CountdownTimer</a></span></dt>
-<dd><p class="first last">Psychopy timer instance.</p>
-</dd>
-<dt><strong>isPsychopy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Is Psychopy being used. Default <cite>True</cite>.</p>
-</dd>
-<dt><strong>subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">Subject number.</p>
-</dd>
-<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
-<dd><p class="first">Here’s a list of available properties:</p>
-<table border="1" class="colwidths-given kwargs last docutils">
-<colgroup>
-<col width="33%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><strong>isFlag</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
-<td>Bypass Eyelink flags (<cite>isRecording</cite>, <cite>isConnected</cite>) to run all functions without checking flags. Default is <cite>True</cite>.</td>
-</tr>
-<tr class="row-odd"><td><strong>isLibrary</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
-<td>Check if required packages have been installed. Default is <cite>False</cite>.</td>
-</tr>
-<tr class="row-even"><td><strong>demo</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
-<td>Run demo mode, which includes region of interest highlighting and other testing methods. Default is <cite>False</cite>.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<dl class="docutils">
-<dt>According to <a class="reference external" href="../manual/pylink.chm">pylink.chm</a>, the sequence of operations for implementing a trial is:</dt>
-<dd><ol class="first last arabic simple">
-<li>Perform a DRIFT CORRECTION, which also serves as the pre-trial fixation target.</li>
-<li>Start recording, allowing 100 milliseconds of data to accumulate before the trial display starts.</li>
-<li>Draw the subject display, recording the time that the display appeared by placing a message in the EDF file.</li>
-<li>Loop until one of these events occurs RECORDING halts, due to the tracker ABORT menu or an error, the maximum                trial duration expires ‘ESCAPE’ is pressed, the program is interrupted, or abutton on the EyeLink button box is pressed.</li>
-<li>Add special code to handle gaze-contingent display updates.</li>
-<li>Blank the display, stop recording after an additional 100 milliseconds of data has been collected.</li>
-<li>Report the trial result, and return an appropriate error code.</li>
-</ol>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eytracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="mdl.eyetracking.eyelink.Eyelink.connect">
 <code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.eyelink.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
@@ -926,7 +855,7 @@ filename should be given.
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-03T11:04:44-05:00.</div>
+				<div>Updated 2019-05-05T14:32:20-05:00.</div>
 		</div>
 	</div>
 </footer>
