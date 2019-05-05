@@ -10,16 +10,14 @@ cd ../
 python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*  --verbose -u risoms -p samboi10
 
 # create virtualenv
-python -m pip install --user virtualenv
+rm -rf env
 python -m venv env
 
 # activate virtualenv
 source env/bin/activate
 
 # download TestPyPI to virtualenv 
-pip install --index-url https://test.pypi.org/simple/ --no-deps mdl
+pip install https://test.pypi.org/simple/ imhr
 
 # test if successful
 python
-import mdl
-mdl.name
