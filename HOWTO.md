@@ -31,3 +31,5 @@ steps
 		pip install --index-url https://test.pypi.org/simple/ --no-deps --upgrade --force-reinstall mdl
 	- upload package to real pypi
 		python -m twine upload dist/*
+	- install test package 
+		pip install mdl
