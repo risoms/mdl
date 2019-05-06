@@ -1,5 +1,5 @@
-IMHR-R33
-========
+mdl-R33
+=======
 
 .. toctree::
    :maxdepth: 4

@@ -1,3 +1,8 @@
 #!/bin/bash
-cd /Users/mdl-admin/Desktop/imhr-R33/docs/
+# build pydoc
+
+# path
+cd "$(dirname "$0")"
+
+# build
 sphinx-build -E source build
