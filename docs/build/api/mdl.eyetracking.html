@@ -27,6 +27,7 @@
     <link rel="shortcut icon" href="../_static/imhr.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mdl.eyetracking.pylink" href="mdl.eyetracking.pylink.html" />
     <link rel="prev" title="mdl.dashboard.jupyterhub_config" href="mdl.dashboard.jupyterhub_config.html" />
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -123,8 +124,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -133,14 +137,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="mdl.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a><ul class="simple">
@@ -171,9 +175,9 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="mdl.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a></li>
@@ -224,9 +228,9 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="mdl.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a></li>
@@ -281,7 +285,7 @@
 <dl class="class">
 <dt id="mdl.eyetracking.Eyelink">
 <em class="property">class </em><code class="descclassname">mdl.eyetracking.</code><code class="descname">Eyelink</code><span class="sig-paren">(</span><em>window</em>, <em>timer</em>, <em>isPsychopy=True</em>, <em>subject=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking.html#Eyelink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="mdl.eyetracking.eyelink.html#mdl.eyetracking.eyelink.Eyelink" title="mdl.eyetracking.eyelink.Eyelink"><code class="xref py py-class docutils literal notranslate"><span class="pre">mdl.eyetracking.eyelink.Eyelink</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mdl.eyetracking._eyelink.Eyelink</span></code></p>
 <p>Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000      Plus (5.0), but should be compatiable with earlier systems.</p>
 <p class="rubric">Methods</p>
 <p><strong>Methods</strong></p>
@@ -297,7 +301,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.__init__" title="mdl.eyetracking.Eyelink.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(window,&nbsp;timer[,&nbsp;isPsychopy,&nbsp;subject])</td>
-<td>Module allowing communcation to the SR Research Eyelink eyetracking system.</td>
+<td>Initiate the mdl.eyetracking.Eyelink module.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.Eyelink.calibration" title="mdl.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
 <td>Start calibration procedure.</td>
@@ -383,7 +387,7 @@
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>window</em>, <em>timer</em>, <em>isPsychopy=True</em>, <em>subject=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking.html#Eyelink.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000              Plus (5.0), but should be compatiable with earlier systems.</p>
+<dd><p>Initiate the mdl.eyetracking.Eyelink module.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -453,7 +457,7 @@
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.calibration">
-<code class="descname">calibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start calibration procedure.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -476,7 +480,7 @@
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.connect">
-<code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect to Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -537,7 +541,7 @@ Enter either ‘GAZE’ or ‘HREF’. Default is ‘GAZE’. [see <a class="ref
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.drift_correction">
-<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts drift correction. This can be done at any point after calibration, including before 
 and after eyetracking.start_recording has already been initiated.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -571,7 +575,7 @@ correction has occured, it is safe to run start_recording.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.finish_recording">
-<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ending Eyelink recording.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -628,7 +632,7 @@ filename should be given.
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.gc">
-<code class="descname">gc</code><span class="sig-paren">(</span><em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gc</code><span class="sig-paren">(</span><em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates gaze contigent event. This function needs to be run while recording.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -662,7 +666,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects new gaze coordinates from Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -691,7 +695,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.send_message">
-<code class="descname">send_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send message to Eyelink. This allows post-hoc processing of event markers (i.e. “stimulus onset”).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -714,7 +718,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.send_variable">
-<code class="descname">send_variable</code><span class="sig-paren">(</span><em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_variable</code><span class="sig-paren">(</span><em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>send trial variable to eyelink at the end of trial.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -733,7 +737,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.set_eye_used">
-<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dominant eye. This step is required for recieving gaze coordinates from Eyelink-&gt;Psychopy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -757,7 +761,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.start_recording">
-<code class="descname">start_recording</code><span class="sig-paren">(</span><em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">start_recording</code><span class="sig-paren">(</span><em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts recording of Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -813,7 +817,7 @@ trial start is lost.
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.stop_recording">
-<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops recording of Eyelink. Also allows transmission of trial-level variables to Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -885,7 +889,7 @@ data loading preference settings.
 <dl class="class">
 <dt id="mdl.eyetracking.Calibration">
 <em class="property">class </em><code class="descclassname">mdl.eyetracking.</code><code class="descname">Calibration</code><span class="sig-paren">(</span><em>w</em>, <em>h</em>, <em>tracker</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking.html#Calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="mdl.eyetracking.calibration.html#mdl.eyetracking.calibration.Calibration" title="mdl.eyetracking.calibration.Calibration"><code class="xref py py-class docutils literal notranslate"><span class="pre">mdl.eyetracking.calibration.Calibration</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mdl.eyetracking._calibration.Calibration</span></code></p>
 <p>Allowing mdl.eyetracking package to initiate calibration/validation/drift correction.</p>
 <p class="rubric">Methods</p>
 <p><strong>Methods</strong></p>
@@ -1058,105 +1062,109 @@ data loading preference settings.
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.alert_printf">
-<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print error messages.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.clear_cal_display">
-<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_cal_target">
-<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_image_line">
-<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display image pixel by pixel, line by line.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_line">
-<code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a line. This is used for drawing crosshairs/squares.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_lozenge">
-<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.erase_cal_target">
-<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erase the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.exit_cal_display">
-<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exit the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.exit_image_display">
-<code class="descname">exit_image_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_image_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.getColorFromIndex">
-<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return psychopy colors for elements in the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.get_input_key">
-<code class="descname">get_input_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_input_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will be constantly pools, update the stimuli here is you need
 dynamic calibration target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.get_mouse_state">
-<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current mouse position and status</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.play_beep">
-<code class="descname">play_beep</code><span class="sig-paren">(</span><em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
+<code class="descname">play_beep</code><span class="sig-paren">(</span><em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound during calibration/drift correction.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.record_abort_hide">
-<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
+<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is called if aborted</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.set_image_palette">
-<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.
 I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000 011111111</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.setup_cal_display">
-<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows the ‘Camera Setup’ screen along with menu options.</p>
+<p class="rubric">Notes</p>
+<p>This function is called to setup calibration/validation display. This will be called just before we enter into 
+the calibration or validataion or drift correction mode. Any allocation per calibration or validation drift 
+correction can be done here. Also, it is normal to clear the display in this call.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.setup_image_display">
-<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</p>
 </dd></dl>
 
@@ -1165,7 +1173,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 <dl class="class">
 <dt id="mdl.eyetracking.ROI">
 <em class="property">class </em><code class="descclassname">mdl.eyetracking.</code><code class="descname">ROI</code><span class="sig-paren">(</span><em>image_path=None</em>, <em>output_path=None</em>, <em>metadata_path=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking.html#ROI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="mdl.eyetracking.roi.html#mdl.eyetracking.roi.ROI" title="mdl.eyetracking.roi.ROI"><code class="xref py py-class docutils literal notranslate"><span class="pre">mdl.eyetracking.roi.ROI</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mdl.eyetracking._roi.ROI</span></code></p>
 <p>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</p>
 <p class="rubric">Methods</p>
 <p><strong>Methods</strong></p>
@@ -1181,9 +1189,9 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.__init__" title="mdl.eyetracking.ROI.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([image_path,&nbsp;output_path,&nbsp;…])</td>
-<td>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</td>
+<td>Initiate the mdl.eyetracking.ROI module.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
@@ -1204,7 +1212,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_metadata" title="mdl.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
 <td>[summary]</td>
 </tr>
 </tbody>
@@ -1220,7 +1228,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
@@ -1241,7 +1249,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_metadata" title="mdl.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
 <td>[summary]</td>
 </tr>
 </tbody>
@@ -1249,7 +1257,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>image_path=None</em>, <em>output_path=None</em>, <em>metadata_path=None</em>, <em>shape='box'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking.html#ROI.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate region of interest to be read by Eyelink DataViewer or statistical tool.</p>
+<dd><p>Initiate the mdl.eyetracking.ROI module.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1435,7 +1443,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.create_contours">
-<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em>, <em>isMultiprocessing=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1477,7 +1485,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.create_rois">
-<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roilabel</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roilabel</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1531,7 +1539,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.export_data">
-<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.export_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.export_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1569,7 +1577,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.finished">
-<code class="descname">finished</code><span class="sig-paren">(</span><em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.finished" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finished</code><span class="sig-paren">(</span><em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.finished" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process bounds for all images.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1591,7 +1599,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.process">
-<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1610,21 +1618,15 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.process_image">
-<code class="descname">process_image</code><span class="sig-paren">(</span><em>psd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process_image" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_image</code><span class="sig-paren">(</span><em>psd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
-<dd><p class="first last">[description]</p>
+<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
 </dd>
 </dl>
 </td>
@@ -1642,7 +1644,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.process_metadata">
-<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1677,18 +1679,21 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.run" title="Permalink to this definition">¶</a></dt>
+<code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>directory</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dt><strong>directory</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>core</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
-<dd><p class="first last">(if isMultprocessing) Core used for this function. Default <cite>0</cite>.</p>
+<dt><strong>core</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">(if isMultiprocessing) Core used for this function. Default <cite>0</cite>.</p>
+</dd>
+<dt><strong>queue</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/queue.html#queue.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queue.Queue</span></code></a></span></dt>
+<dd><p class="first last">Constructor for a multiprocessing ‘first-in, first-out’ queue. Note: Queues are thread and process safe.</p>
 </dd>
 </dl>
 </td>
@@ -1718,7 +1723,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

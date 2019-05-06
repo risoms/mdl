@@ -122,8 +122,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -132,14 +135,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -238,9 +241,6 @@
 
 <span class="c1"># available functions</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span><span class="s1">&#39;link&#39;</span><span class="p">,</span><span class="s1">&#39;popover&#39;</span><span class="p">,</span><span class="s1">&#39;stn&#39;</span><span class="p">,</span><span class="s1">&#39;library&#39;</span><span class="p">,</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
-
-<span class="c1"># required external library</span>
-<span class="n">__required__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;opencv-python&#39;</span><span class="p">,</span><span class="s1">&#39;psd_tools&#39;</span><span class="p">,</span><span class="s1">&#39;pathlib&#39;</span><span class="p">,</span><span class="s1">&#39;gc&#39;</span><span class="p">,</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span><span class="s1">&#39;PIL&#39;</span><span class="p">]</span>
 
 <span class="c1"># path</span>
 <span class="n">path</span> <span class="o">=</span> <span class="p">{</span>
@@ -448,7 +448,7 @@
 	<span class="kn">import</span> <span class="nn">pip</span>
 	<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">StrictVersion</span>
 	<span class="kn">from</span> <span class="nn">pip._internal</span> <span class="k">import</span> <span class="n">main</span> <span class="k">as</span> <span class="n">_main</span>
-
+	
 	<span class="c1"># start</span>
 	<span class="n">console</span><span class="p">(</span><span class="s1">&#39;settings.library()&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
@@ -456,18 +456,20 @@
 	<span class="n">_t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 	<span class="n">_f</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
 
-	<span class="c1"># list of possibly missing packages to install</span>
-	<span class="k">if</span> <span class="n">required</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-		<span class="n">required</span> <span class="o">=</span> <span class="n">__required__</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="c1"># append list with requirments in settings.py</span>
-		<span class="n">required</span> <span class="o">=</span> <span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">__required__</span><span class="p">)</span>
+	<span class="c1"># if required is string</span>
+	<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">required</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+		<span class="n">required</span> <span class="o">=</span> <span class="p">[</span><span class="n">required</span><span class="p">]</span>
 
 	<span class="c1"># for geting os variables</span>
 	<span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
 		<span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;win32api&#39;</span><span class="p">)</span>
 	<span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
 		<span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;pyobjc&#39;</span><span class="p">)</span>
+
+	<span class="c1"># packages to download from outside of pypi</span>
+	<span class="n">not_pypi</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s1">&#39;nslr&#39;</span><span class="p">:</span> <span class="s2">&quot;https://gitlab.com/risoms/nslr&quot;</span>
+	<span class="p">}</span>
 
 	<span class="c1"># try installing and/or importing packages</span>
 	<span class="k">try</span><span class="p">:</span>
@@ -478,7 +480,13 @@
 			<span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
 				<span class="c1"># if missing, install</span>
 				<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-					<span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+					<span class="c1"># if package is not in PyPi</span>
+					<span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">not_pypi</span><span class="p">:</span>
+						<span class="n">_path</span> <span class="o">=</span> <span class="s1">&#39;git+</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">not_pypi</span><span class="p">[</span><span class="n">package</span><span class="p">])</span>
+						<span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">_path</span><span class="p">])</span>
+					<span class="c1"># install from PyPi</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
 
 		<span class="c1"># else pip &lt; 10.01</span>
 		<span class="k">else</span><span class="p">:</span>
@@ -486,7 +494,13 @@
 			<span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
 				<span class="c1"># if missing</span>
 				<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-					<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+					<span class="c1"># if package is not in PyPi</span>
+					<span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">not_pypi</span><span class="p">:</span>
+						<span class="n">_path</span> <span class="o">=</span> <span class="s1">&#39;git+</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">not_pypi</span><span class="p">[</span><span class="n">package</span><span class="p">])</span>
+						<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
+					<span class="c1"># install from PyPi</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
 
 	<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
 		<span class="k">return</span> <span class="n">error</span>
@@ -572,7 +586,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

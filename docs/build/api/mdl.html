@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="../_static/imhr.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mdl.R33" href="mdl.R33.html" />
+    <link rel="next" title="mdl.dashboard" href="mdl.dashboard.html" />
     <link rel="prev" title="Dashboard" href="../dashboard.html" />
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -124,8 +124,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -134,14 +137,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a><ul class="simple">
@@ -172,7 +175,6 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a></li>
@@ -223,7 +225,6 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a></li>
@@ -243,6 +244,13 @@
 			
   <div class="section" id="module-mdl">
 <span id="mdl"></span><h1>mdl<a class="headerlink" href="#module-mdl" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><cite>&#64;purpose</cite>: mdl, an extensive library for the exploration, visualization, and analysis of eyetracking data. This library was created at the Institute for Mental Health Research, at the University of Texas at Austin by Semeon Risom.  </div>
+<div class="line"><cite>&#64;date</cite>: Created on Sat May 1 15:12:38 2019  </div>
+<div class="line"><cite>&#64;author</cite>: Semeon Risom  </div>
+<div class="line"><cite>&#64;email</cite>: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
+<div class="line"><cite>&#64;url</cite>: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <table border="1" class="longtable docutils">
@@ -256,21 +264,21 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="mdl.R33.html#module-mdl.R33" title="mdl.R33"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mdl.R33</span></code></a></td>
-<td><div class="line-block">
-<div class="line"><cite>&#64;purpose</cite>: Module designed for working with the R33 study.</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="mdl.dashboard.html#module-mdl.dashboard" title="mdl.dashboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mdl.dashboard</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="mdl.dashboard.html#module-mdl.dashboard" title="mdl.dashboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mdl.dashboard</span></code></a></td>
 <td><div class="line-block">
 <div class="line"><cite>&#64;purpose</cite>: Creates a dashboard using Jupyterhub to allow data analysis and visualization.</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="mdl.eyetracking.html#module-mdl.eyetracking" title="mdl.eyetracking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mdl.eyetracking</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="mdl.eyetracking.html#module-mdl.eyetracking" title="mdl.eyetracking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mdl.eyetracking</span></code></a></td>
 <td><div class="line-block">
 <div class="line"><cite>&#64;purpose</cite>: Module designed for working with eyetracking data.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="mdl.R33.html#module-mdl.r33" title="mdl.r33"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mdl.r33</span></code></a></td>
+<td><div class="line-block">
+<div class="line"><cite>&#64;purpose</cite>: Module designed for working with the R33 study.</div>
 </div>
 </td>
 </tr>
@@ -306,7 +314,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

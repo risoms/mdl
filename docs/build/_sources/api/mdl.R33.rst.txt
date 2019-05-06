@@ -9,10 +9,10 @@
 	<!-- some variables accessible in templates: https://pythonhosted.org/sphinxgen/templates.html -->
 	<!-- :from package template: -->
 
-mdl.R33
+mdl.r33
 ~~~~~~~
 
-.. automodule:: mdl.R33
+.. automodule:: mdl.r33
 	:autosummary:
 	:member-order: bysource
 	:inherited-members:
@@ -22,10 +22,10 @@ mdl.R33
 		:maxdepth: 2
 		:hidden:
 		
-		mdl.R33.Classify
-		mdl.R33.Metadata
-		mdl.R33.Model
-		mdl.R33.Processing
-		mdl.R33.Settings
+		mdl.r33.Classify
+		mdl.r33.Metadata
+		mdl.r33.Model
+		mdl.r33.Processing
+		mdl.r33.Settings
 
 

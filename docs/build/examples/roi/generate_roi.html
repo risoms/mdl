@@ -124,8 +124,11 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -134,14 +137,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -175,8 +178,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../R33/process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -231,8 +237,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../R33/process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -458,40 +467,70 @@ div.rendered_html tbody tr:hover {
 </p><p><p>&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </p><p><p>&#64;url: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></p>
 </p><p><p>&#64;purpose: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.</p>
-</p></div><div class="section" id="Import-packages">
-<h2>Import packages<a class="headerlink" href="#Import-packages" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../../../&#39;</span><span class="p">))</span>
-<span class="kn">from</span> <span class="nn">mdl.roi</span> <span class="k">import</span> <span class="n">ROI</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Read-ROI-from-photoshop-PSD-files">
+</p></div><div class="section" id="Read-ROI-from-photoshop-PSD-files">
 <h2>Read ROI from photoshop PSD files<a class="headerlink" href="#Read-ROI-from-photoshop-PSD-files" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="import-mdl-package">
+<h2>import mdl package<a class="headerlink" href="#import-mdl-package" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># set paths</span>
-<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/raw/&#39;</span>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../../../../&#39;</span><span class="p">))</span>
+<span class="kn">import</span> <span class="nn">mdl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="set-paths">
+<h2>set paths<a class="headerlink" href="#set-paths" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/raw/&#39;</span>
 <span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/output/&#39;</span>
 <span class="n">metadata_source</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/metadata.xlsx&#39;</span>
-
-<span class="c1"># initiate</span>
-<span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="initiate">
+<h2>initiate<a class="headerlink" href="#initiate" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">image_path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="n">metadata_source</span><span class="p">,</span>
     <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">25</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">25</span><span class="p">)],</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span>
     <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">roicolumn</span><span class="o">=</span><span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;bottom&#39;</span><span class="p">})</span>
-
-<span class="c1">#start</span>
-<span class="n">df</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="start">
+<h2>start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
 </pre></div>
 </div>
 </div>
@@ -508,7 +547,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

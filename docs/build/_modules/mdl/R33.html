@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.R33 &#8212; mdl 2019-05-06 documentation</title>
+    <title>mdl.r33 &#8212; mdl 2019-05-06 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -122,8 +122,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -132,14 +135,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -219,7 +222,7 @@
 		</div>
 		<div class="col-md-9 content">
 			
-  <h1>Source code for mdl.R33</h1><div class="highlight"><pre>
+  <h1>Source code for mdl.r33</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -229,64 +232,63 @@
 <span class="sd">| `@email`: semeon.risom@gmail.com  </span>
 <span class="sd">| `@url`: https://semeon.io/d/mdl</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># allowed imports</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Classify&#39;</span><span class="p">,</span><span class="s1">&#39;Metadata&#39;</span><span class="p">,</span><span class="s1">&#39;Model&#39;</span><span class="p">,</span><span class="s1">&#39;nslr&#39;</span><span class="p">,</span><span class="s1">&#39;nslr_hmm&#39;</span><span class="p">,</span><span class="s1">&#39;Processing&#39;</span><span class="p">,</span><span class="s1">&#39;Settings&#39;</span><span class="p">]</span>
 
+<span class="c1"># core</span>
 <span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
-<span class="kn">import</span> <span class="nn">pkg_resources</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="c1"># imports</span>
-<span class="c1">#from classify import Classify</span>
-<span class="c1">#from processing import Processing</span>
-<span class="c1">#from . import metadata</span>
-<span class="c1">#from . import model</span>
-<span class="c1">#import nslr_hmm</span>
-<span class="c1">#from .config import Settings</span>
-
-<span class="c1"># imports</span>
-<span class="kn">from</span> <span class="nn">.classify</span> <span class="k">import</span> <span class="n">Classify</span> <span class="k">as</span> <span class="n">_Classify</span>
-<span class="kn">from</span> <span class="nn">.metadata</span> <span class="k">import</span> <span class="n">Metadata</span> <span class="k">as</span> <span class="n">_Metadata</span>
-<span class="kn">from</span> <span class="nn">.model</span> <span class="k">import</span> <span class="n">Model</span> <span class="k">as</span> <span class="n">_Model</span>
-<span class="kn">from</span> <span class="nn">.processing</span> <span class="k">import</span> <span class="n">Processing</span> <span class="k">as</span> <span class="n">_Processing</span>
-<span class="kn">from</span> <span class="nn">.settings</span> <span class="k">import</span> <span class="n">Settings</span> <span class="k">as</span> <span class="n">_Settings</span>
-
-<span class="c1"># allowed imports</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Classify&#39;</span><span class="p">,</span><span class="s1">&#39;Metadata&#39;</span><span class="p">,</span><span class="s1">&#39;Model&#39;</span><span class="p">,</span><span class="s1">&#39;nslr_hmm&#39;</span><span class="p">,</span><span class="s1">&#39;Processing&#39;</span><span class="p">,</span><span class="s1">&#39;Settings&#39;</span><span class="p">]</span>
-
-<span class="c1"># set as module</span>
-<span class="n">pkg_resources</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="c1"># relative paths</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
 
+<span class="c1"># imports</span>
+<span class="kn">from</span> <span class="nn">._classify</span> <span class="k">import</span> <span class="n">Classify</span> <span class="k">as</span> <span class="n">_Classify</span>
+<span class="kn">from</span> <span class="nn">._metadata</span> <span class="k">import</span> <span class="n">Metadata</span> <span class="k">as</span> <span class="n">_Metadata</span>
+<span class="kn">from</span> <span class="nn">._model</span> <span class="k">import</span> <span class="n">Model</span> <span class="k">as</span> <span class="n">_Model</span>
+<span class="kn">from</span> <span class="nn">._processing</span> <span class="k">import</span> <span class="n">Processing</span> <span class="k">as</span> <span class="n">_Processing</span>
+<span class="kn">from</span> <span class="nn">._settings</span> <span class="k">import</span> <span class="n">Settings</span> <span class="k">as</span> <span class="n">_Settings</span>
+
+<span class="c1"># set as namespace package</span>
+<span class="c1"># see https://stackoverflow.com/questions/41621131/python-namespace-packages-in-python3</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pkg_resources</span>
+    <span class="n">pkg_resources</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">pkg_resources</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pkgutil</span>
+    <span class="n">__path__</span> <span class="o">=</span> <span class="n">pkgutil</span><span class="o">.</span><span class="n">extend_path</span><span class="p">(</span><span class="n">__path__</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">pkgutil</span>
+
 <span class="c1"># classes</span>
-<div class="viewcode-block" id="Classify"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Classify">[docs]</a><span class="k">class</span> <span class="nc">Classify</span><span class="p">(</span><span class="n">_Classify</span><span class="p">):</span>
+<div class="viewcode-block" id="Classify"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Classify">[docs]</a><span class="k">class</span> <span class="nc">Classify</span><span class="p">(</span><span class="n">_Classify</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Analysis methods for mdl.processing.preprocesing.&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Classify.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Classify.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Classify.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Classify.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="Metadata"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Metadata">[docs]</a><span class="k">class</span> <span class="nc">Metadata</span><span class="p">(</span><span class="n">_Metadata</span><span class="p">):</span>
+<div class="viewcode-block" id="Metadata"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Metadata">[docs]</a><span class="k">class</span> <span class="nc">Metadata</span><span class="p">(</span><span class="n">_Metadata</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Process participants metadata for analysis and export.&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Metadata.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Metadata.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Metadata.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Metadata.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">_Model</span><span class="p">):</span>
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">_Model</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Run statistical models for analysis.&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Model.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Model.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Model.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Model.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="Processing"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Processing">[docs]</a><span class="k">class</span> <span class="nc">Processing</span><span class="p">(</span><span class="n">_Processing</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Processing">[docs]</a><span class="k">class</span> <span class="nc">Processing</span><span class="p">(</span><span class="n">_Processing</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Hub for running processing and analyzing raw data.&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Processing.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Processing.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Processing.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="Settings"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Settings">[docs]</a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">_Settings</span><span class="p">):</span>
+<div class="viewcode-block" id="Settings"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Settings">[docs]</a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">_Settings</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Default settings for processing.py&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Settings.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.R33.Settings.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Settings.__init__"><a class="viewcode-back" href="../../api/mdl.R33.html#mdl.r33.Settings.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 
 <span class="c1"># finished</span>
-<span class="k">del</span> <span class="n">os</span><span class="p">,</span> <span class="n">sys</span><span class="p">,</span> <span class="n">breakpoint</span><span class="p">,</span> <span class="n">pkg_resources</span><span class="p">,</span> <span class="n">_Classify</span><span class="p">,</span> <span class="n">_Metadata</span><span class="p">,</span> <span class="n">_Model</span><span class="p">,</span> <span class="n">_Processing</span><span class="p">,</span> <span class="n">_Settings</span>
+<span class="k">del</span> <span class="n">breakpoint</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">sys</span><span class="p">,</span> <span class="n">_Classify</span><span class="p">,</span> <span class="n">_Metadata</span><span class="p">,</span> <span class="n">_Model</span><span class="p">,</span> <span class="n">_Processing</span><span class="p">,</span> <span class="n">_Settings</span>
 </pre></div>
 
 		</div>
@@ -298,7 +300,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

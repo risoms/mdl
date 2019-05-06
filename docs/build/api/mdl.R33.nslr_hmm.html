@@ -122,8 +122,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -132,14 +135,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a><ul class="simple">
@@ -223,232 +226,8 @@
 		</div>
 		<div class="col-md-9 content">
 			
-  <div class="section" id="module-mdl.R33.nslr_hmm">
-<span id="mdl-r33-nslr-hmm"></span><h1>mdl.R33.nslr_hmm<a class="headerlink" href="#module-mdl.R33.nslr_hmm" title="Permalink to this headline">¶</a></h1>
-<div class="line-block">
-<div class="line">&#64;purpose: Eyetracking classification Module.   </div>
-<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019   </div>
-<div class="line">&#64;author: Semeon Risom   </div>
-<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>   </div>
-<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>   </div>
-</div>
-<p><strong>Classes</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel" title="mdl.R33.nslr_hmm.ObservationModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ObservationModel</span></code></a>(dists)</td>
-<td>Include this - Semeon</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Functions</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.gaze_observation_model" title="mdl.R33.nslr_hmm.gaze_observation_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gaze_observation_model</span></code></a>()</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.gaze_transition_model" title="mdl.R33.nslr_hmm.gaze_transition_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gaze_transition_model</span></code></a>()</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.safelog" title="mdl.R33.nslr_hmm.safelog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safelog</span></code></a>(x)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.viterbi" title="mdl.R33.nslr_hmm.viterbi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viterbi</span></code></a>(initial_probs,&nbsp;transition_probs,&nbsp;…)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.forward_backward" title="mdl.R33.nslr_hmm.forward_backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward_backward</span></code></a>(transition_probs,&nbsp;observations)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.dataset_features" title="mdl.R33.nslr_hmm.dataset_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataset_features</span></code></a>(data,&nbsp;**nslrargs)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.transition_estimates" title="mdl.R33.nslr_hmm.transition_estimates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transition_estimates</span></code></a>(obs,&nbsp;trans,&nbsp;forward,&nbsp;…)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.reestimate_observations_baum_welch" title="mdl.R33.nslr_hmm.reestimate_observations_baum_welch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reestimate_observations_baum_welch</span></code></a>(sessions)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.reestimate_observations_viterbi_robust" title="mdl.R33.nslr_hmm.reestimate_observations_viterbi_robust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reestimate_observations_viterbi_robust</span></code></a>(sessions)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.segment_features" title="mdl.R33.nslr_hmm.segment_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">segment_features</span></code></a>(segments[,&nbsp;outliers])</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.classify_segments" title="mdl.R33.nslr_hmm.classify_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_segments</span></code></a>(segments[,&nbsp;…])</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.classify_gaze" title="mdl.R33.nslr_hmm.classify_gaze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_gaze</span></code></a>(ts,&nbsp;xs,&nbsp;**kwargs)</td>
-<td>Include this - Semeon</td>
-</tr>
-</tbody>
-</table>
-<dl class="class">
-<dt id="mdl.R33.nslr_hmm.ObservationModel">
-<em class="property">class </em><code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">ObservationModel</code><span class="sig-paren">(</span><em>dists</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#ObservationModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.ObservationModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Include this - Semeon</p>
-<p class="rubric">Methods</p>
-<p><strong>Methods</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.__init__" title="mdl.R33.nslr_hmm.ObservationModel.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(dists)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.classify" title="mdl.R33.nslr_hmm.ObservationModel.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(d)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.dist" title="mdl.R33.nslr_hmm.ObservationModel.dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dist</span></code></a>(cls)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.liks" title="mdl.R33.nslr_hmm.ObservationModel.liks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">liks</span></code></a>(d)</td>
-<td>Include this - Semeon</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.classify" title="mdl.R33.nslr_hmm.ObservationModel.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(d)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.dist" title="mdl.R33.nslr_hmm.ObservationModel.dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dist</span></code></a>(cls)</td>
-<td>Include this - Semeon</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.nslr_hmm.ObservationModel.liks" title="mdl.R33.nslr_hmm.ObservationModel.liks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">liks</span></code></a>(d)</td>
-<td>Include this - Semeon</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mdl.R33.nslr_hmm.ObservationModel.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>dists</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#ObservationModel.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.ObservationModel.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="mdl.R33.nslr_hmm.ObservationModel.liks">
-<code class="descname">liks</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#ObservationModel.liks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.ObservationModel.liks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="mdl.R33.nslr_hmm.ObservationModel.classify">
-<code class="descname">classify</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#ObservationModel.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.ObservationModel.classify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="mdl.R33.nslr_hmm.ObservationModel.dist">
-<code class="descname">dist</code><span class="sig-paren">(</span><em>cls</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#ObservationModel.dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.ObservationModel.dist" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.gaze_observation_model">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">gaze_observation_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#gaze_observation_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.gaze_observation_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.gaze_transition_model">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">gaze_transition_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#gaze_transition_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.gaze_transition_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.safelog">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">safelog</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#safelog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.safelog" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.viterbi">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">viterbi</code><span class="sig-paren">(</span><em>initial_probs</em>, <em>transition_probs</em>, <em>emissions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#viterbi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.viterbi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.forward_backward">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">forward_backward</code><span class="sig-paren">(</span><em>transition_probs</em>, <em>observations</em>, <em>initial_probs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#forward_backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.forward_backward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.dataset_features">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">dataset_features</code><span class="sig-paren">(</span><em>data</em>, <em>**nslrargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#dataset_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.dataset_features" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.transition_estimates">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">transition_estimates</code><span class="sig-paren">(</span><em>obs</em>, <em>trans</em>, <em>forward</em>, <em>backward</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#transition_estimates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.transition_estimates" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.reestimate_observations_baum_welch">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">reestimate_observations_baum_welch</code><span class="sig-paren">(</span><em>sessions, transition_probs=array([[0.4       , 0.4       , 0.        , 0.2       ],        [0.25      , 0.25      , 0.25      , 0.25      ],        [0.33333333, 0.        , 0.33333333, 0.33333333],        [0.2       , 0.4       , 0.        , 0.4       ]]), observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object&gt;, initial_probs=None, estimate_observation_model=True, estimate_transition_model=True, n_iterations=30, plot_process=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#reestimate_observations_baum_welch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.reestimate_observations_baum_welch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.reestimate_observations_viterbi_robust">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">reestimate_observations_viterbi_robust</code><span class="sig-paren">(</span><em>sessions, transition_probs=array([[0.4       , 0.4       , 0.        , 0.2       ],        [0.25      , 0.25      , 0.25      , 0.25      ],        [0.33333333, 0.        , 0.33333333, 0.33333333],        [0.2       , 0.4       , 0.        , 0.4       ]]), observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object&gt;, initial_probs=None, estimate_observation_model=True, estimate_transition_model=True, n_iterations=30, plot_process=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#reestimate_observations_viterbi_robust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.reestimate_observations_viterbi_robust" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.segment_features">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">segment_features</code><span class="sig-paren">(</span><em>segments</em>, <em>outliers=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#segment_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.segment_features" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.classify_segments">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">classify_segments</code><span class="sig-paren">(</span><em>segments, observation_model=&lt;mdl.R33.nslr_hmm.ObservationModel object&gt;, transition_model=array([[0.4       , 0.4       , 0.        , 0.2       ],        [0.25      , 0.25      , 0.25      , 0.25      ],        [0.33333333, 0.        , 0.33333333, 0.33333333],        [0.2       , 0.4       , 0.        , 0.4       ]]), initial_probabilities=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#classify_segments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.classify_segments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mdl.R33.nslr_hmm.classify_gaze">
-<code class="descclassname">mdl.R33.nslr_hmm.</code><code class="descname">classify_gaze</code><span class="sig-paren">(</span><em>ts</em>, <em>xs</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/nslr_hmm.html#classify_gaze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.nslr_hmm.classify_gaze" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include this - Semeon</p>
-</dd></dl>
-
+  <div class="section" id="mdl-r33-nslr-hmm">
+<h1>mdl.R33.nslr_hmm<a class="headerlink" href="#mdl-r33-nslr-hmm" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -461,7 +240,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

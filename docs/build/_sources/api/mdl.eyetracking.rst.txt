@@ -22,6 +22,7 @@ mdl.eyetracking
 		:maxdepth: 2
 		:hidden:
 		
+		mdl.eyetracking.pylink
 		mdl.eyetracking.Calibration
 		mdl.eyetracking.Eyelink
 		mdl.eyetracking.ROI

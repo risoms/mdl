@@ -122,8 +122,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -132,14 +135,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a><ul class="simple">
@@ -223,199 +226,8 @@
 		</div>
 		<div class="col-md-9 content">
 			
-  <div class="section" id="module-mdl.R33.metadata">
-<span id="mdl-r33-metadata"></span><h1>mdl.R33.metadata<a class="headerlink" href="#module-mdl.R33.metadata" title="Permalink to this headline">¶</a></h1>
-<div class="line-block">
-<div class="line">&#64;purpose: Process participants metadata for analysis and export.  </div>
-<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019  </div>
-<div class="line">&#64;author: Semeon Risom  </div>
-<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
-<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>  </div>
-</div>
-<p><strong>Classes</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.metadata.Metadata" title="mdl.R33.metadata.Metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Metadata</span></code></a>([isLibrary])</td>
-<td>Process participants metadata for analysis and export.</td>
-</tr>
-</tbody>
-</table>
-<dl class="class">
-<dt id="mdl.R33.metadata.Metadata">
-<em class="property">class </em><code class="descclassname">mdl.R33.metadata.</code><code class="descname">Metadata</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/metadata.html#Metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.metadata.Metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<blockquote>
-<div>Process participants metadata for analysis and export.</div></blockquote>
-<p><strong>Methods</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.metadata.Metadata.__init__" title="mdl.R33.metadata.Metadata.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([isLibrary])</td>
-<td>Process participants metadata for analysis and export.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.metadata.Metadata.predict" title="mdl.R33.metadata.Metadata.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(df)</td>
-<td>Predicting screen size (cm), device (i.e.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.metadata.Metadata.summary" title="mdl.R33.metadata.Metadata.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>(df,&nbsp;path)</td>
-<td>preparing data for use in analysis</td>
-</tr>
-</tbody>
-</table>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Object</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#mdl.R33.metadata.Metadata.predict" title="mdl.R33.metadata.Metadata.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(df)</td>
-<td>Predicting screen size (cm), device (i.e.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.R33.metadata.Metadata.summary" title="mdl.R33.metadata.Metadata.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>(df,&nbsp;path)</td>
-<td>preparing data for use in analysis</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mdl.R33.metadata.Metadata.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/metadata.html#Metadata.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.metadata.Metadata.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>Process participants metadata for analysis and export.</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
-<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="mdl.R33.metadata.Metadata.summary">
-<em class="property">classmethod </em><code class="descname">summary</code><span class="sig-paren">(</span><em>df</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/metadata.html#Metadata.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.metadata.Metadata.summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>preparing data for use in analysis</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Pandas dataframe of raw data.</p>
-</dd>
-<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">The directory path of the subject data</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></dt>
-<dd><p class="first last">Pandas dataframe of processed metadata.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>You can either get data from all files within a directory (directory), or from a specific
-subject (subject_session).</p>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#if using path:</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#if getting data for single subject:</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span><span class="n">subject_session</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1099&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Specific directory path used.</p>
-</dd>
-<dt><strong>attr2</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt>
-<dd><p class="first last">Description of <cite>attr2</cite>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="mdl.R33.metadata.Metadata.predict">
-<em class="property">classmethod </em><code class="descname">predict</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/R33/metadata.html#Metadata.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.R33.metadata.Metadata.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predicting screen size (cm), device (i.e. macbook 2018).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></dt>
-<dd><p class="first last">Pandas dataframe of raw data.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></dt>
-<dd><p class="first last">Pandas dataframe of raw data.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="mdl-r33-metadata">
+<h1>mdl.R33.metadata<a class="headerlink" href="#mdl-r33-metadata" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -428,7 +240,7 @@ subject (subject_session).</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

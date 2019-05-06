@@ -122,8 +122,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -132,14 +135,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -229,22 +232,33 @@
 <span class="sd">| `@email`: semeon.risom@gmail.com  </span>
 <span class="sd">| `@url`: https://semeon.io/d/mdl</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># allowed imports</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Calibration&#39;</span><span class="p">,</span><span class="s1">&#39;Eyelink&#39;</span><span class="p">,</span><span class="s1">&#39;ROI&#39;</span><span class="p">,</span><span class="s1">&#39;pylink&#39;</span><span class="p">]</span>
 
+<span class="c1"># core</span>
 <span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
-<span class="kn">import</span> <span class="nn">pkg_resources</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="c1"># imports</span>
-<span class="kn">from</span> <span class="nn">.roi</span> <span class="k">import</span> <span class="n">ROI</span> <span class="k">as</span> <span class="n">_ROI</span>
-<span class="kn">from</span> <span class="nn">.eyelink</span> <span class="k">import</span> <span class="n">Eyelink</span> <span class="k">as</span> <span class="n">_Eyelink</span>
-<span class="kn">from</span> <span class="nn">.calibration</span> <span class="k">import</span> <span class="n">Calibration</span> <span class="k">as</span> <span class="n">_Calibration</span>
-
-<span class="c1"># set as module</span>
-<span class="n">pkg_resources</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-
 <span class="c1"># relative paths</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+
+<span class="c1"># imports</span>
+<span class="kn">import</span> <span class="nn">pylink</span>
+<span class="kn">from</span> <span class="nn">._roi</span> <span class="k">import</span> <span class="n">ROI</span> <span class="k">as</span> <span class="n">_ROI</span>
+<span class="kn">from</span> <span class="nn">._eyelink</span> <span class="k">import</span> <span class="n">Eyelink</span> <span class="k">as</span> <span class="n">_Eyelink</span>
+<span class="kn">from</span> <span class="nn">._calibration</span> <span class="k">import</span> <span class="n">Calibration</span> <span class="k">as</span> <span class="n">_Calibration</span>
+
+<span class="c1"># set as namespace package</span>
+<span class="c1"># see https://stackoverflow.com/questions/41621131/python-namespace-packages-in-python3</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pkg_resources</span>
+    <span class="n">pkg_resources</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">pkg_resources</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pkgutil</span>
+    <span class="n">__path__</span> <span class="o">=</span> <span class="n">pkgutil</span><span class="o">.</span><span class="n">extend_path</span><span class="p">(</span><span class="n">__path__</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">pkgutil</span>
 
 <span class="c1"># classes</span>
 <div class="viewcode-block" id="Eyelink"><a class="viewcode-back" href="../../api/mdl.eyetracking.html#mdl.eyetracking.Eyelink">[docs]</a><span class="k">class</span> <span class="nc">Eyelink</span><span class="p">(</span><span class="n">_Eyelink</span><span class="p">):</span>
@@ -270,7 +284,7 @@
 		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">image_path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">metadata_path</span><span class="o">=</span><span class="n">metadata_path</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
 
 <span class="c1"># finished</span>
-<span class="k">del</span> <span class="n">os</span><span class="p">,</span> <span class="n">sys</span><span class="p">,</span> <span class="n">breakpoint</span><span class="p">,</span> <span class="n">pkg_resources</span><span class="p">,</span> <span class="n">_ROI</span><span class="p">,</span> <span class="n">_Eyelink</span><span class="p">,</span> <span class="n">_Calibration</span>
+<span class="k">del</span> <span class="n">breakpoint</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">sys</span><span class="p">,</span> <span class="n">_ROI</span><span class="p">,</span> <span class="n">_Eyelink</span><span class="p">,</span> <span class="n">_Calibration</span>
 </pre></div>
 
 		</div>
@@ -282,7 +296,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>

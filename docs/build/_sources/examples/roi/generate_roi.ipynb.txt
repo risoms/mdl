@@ -28,27 +28,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "##### Import packages"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "outputExpanded": true
-   },
-   "outputs": [],
-   "source": [
-    "import os, sys\n",
-    "sys.path.append(os.path.abspath('../../../'))\n",
-    "from mdl.roi import ROI"
+    "##### Read ROI from photoshop PSD files"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "##### Read ROI from photoshop PSD files"
+    "##### import mdl package"
    ]
   },
   {
@@ -57,20 +44,71 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "# set paths\n",
+    "import os\n",
+    "import sys\n",
+    "sys.path.append(os.path.abspath('../../../../'))\n",
+    "import mdl"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### set paths"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "image_path = '/Users/mdl-admin/Desktop/roi/raw/'\n",
     "output_path = '/Users/mdl-admin/Desktop/roi/output/'\n",
-    "metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'\n",
-    "\n",
-    "# initiate\n",
+    "metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### initiate"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "roi = mdl.eyetracking.ROI(isMultiprocessing=True, isDebug=True, \n",
     "\timage_path=image_path, output_path=output_path, metadata_source=metadata_source, \n",
     "\tscale=1, screensize=[1920,1080], center=[(1920*.25),(1080*.25)], shape='straight', \n",
-    "\troi_format='both', roicolumn=\"feature\", uuid=None, newcolumn={'position': 'bottom'})\n",
-    "\n",
-    "#start\n",
+    "\troi_format='both', roicolumn=\"feature\", uuid=None, newcolumn={'position': 'bottom'})"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### start"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "df, error = roi.process()"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

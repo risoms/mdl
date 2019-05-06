@@ -122,8 +122,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#Import-packages">Import packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#start">start</a></li>
 </ul>
 </li>
 </ul>
@@ -132,14 +135,14 @@
 <li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.R33.html">mdl.R33</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.dashboard.html">mdl.dashboard</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.dashboard.jupyterhub_config.html">mdl.dashboard.jupyterhub_config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -433,19 +436,25 @@ div.rendered_html tbody tr:hover {
 </p></div><ul class="list-container"><li><div class="title"><p>Useful Python resources:</p>
 </div><ol class="list"><li><p><a class="reference external" href="https://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod">https://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod</a></p>
 </li><li><p><a class="reference external" href="https://realpython.com/python-modules-packages/">https://realpython.com/python-modules-packages/</a></p>
-</li></ol></li></ul><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</li></ol></li></ul><div class="section" id="local-import">
+<h2>local import<a class="headerlink" href="#local-import" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#---------------------------------------------------------------------------------------------------------------------imports</span>
-<span class="c1">#----local</span>
-<span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">download</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">settings</span>
-
-<span class="c1">#----config</span>
-<span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">()</span>
-<span class="n">console</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">console</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">config</span>
+<span></span><span class="kn">import</span> <span class="nn">mdl</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#----config</span>
+<span class="n">console</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">console</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">R33</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">config</span>
 <span class="n">filters</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span>
 <span class="n">is_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;is&#39;</span><span class="p">]</span>
 <span class="n">path_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
@@ -461,6 +470,23 @@ div.rendered_html tbody tr:hover {
 <span class="k">pass</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-82ae7b97affb&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#----config</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> console <span class="ansi-blue-fg">=</span> mdl<span class="ansi-blue-fg">.</span>settings<span class="ansi-blue-fg">.</span>console
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>config <span class="ansi-blue-fg">=</span> mdl<span class="ansi-blue-fg">.</span>R33<span class="ansi-blue-fg">.</span>settings<span class="ansi-blue-fg">.</span>config
+<span class="ansi-green-intense-fg ansi-bold">      4</span> filters <span class="ansi-blue-fg">=</span> config<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;filter&#39;</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> is_ <span class="ansi-blue-fg">=</span> config<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;metadata&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;is&#39;</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">AttributeError</span>: module &#39;mdl&#39; has no attribute &#39;R33&#39;
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1787,6 +1813,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
+</div>
 
 
 		</div>
@@ -1798,7 +1825,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T10:24:02-05:00.</div>
+				<div>Updated 2019-05-06T17:12:33-05:00.</div>
 		</div>
 	</div>
 </footer>
