@@ -23,28 +23,21 @@ This suite was created at the [Institute for Mental Health Research](http://mdl.
 
 Documentation
 -------------
-Online documentation is available at [mdl-R33](https://risoms.github.io/mdl/docs/build/py-modindex.html).
+Online documentation is available [here](https://risoms.github.io/mdl/docs/build/py-modindex.html). 
 
-The docs include [examples](https://risoms.github.io/mdl/docs/build/examples/index.html), [API reference](https://risoms.github.io/mdl/docs/build/api/mdl.html), and other useful information.
-
+Documentation include [examples](https://risoms.github.io/mdl/docs/build/examples/index.html), [API reference](https://risoms.github.io/mdl/docs/build/api/mdl.html), and other useful information.
 
 Dependencies
 ------------
-To use, mdl requires:
+mdl requires the following dependencies:
 
--  `Python 3.6+ <https://www.python.org/downloads/>`__
-
--  `numpy <http://www.numpy.org/>`__
-
--  `scipy <https://www.scipy.org/>`__
-
--  `PIL <https://pillow.readthedocs.io/en/stable/index.html>`__
-
--  `matplotlib <https://matplotlib.org>`__
-
--  `pywin32 (if using Windows) <https://github.com/mhammond/pywin32>`__
-
--  `pyobjc (if using Mac OS) <https://pythonhosted.org/pyobjc/>`__
+-  [Python 3.6+](https://www.python.org/downloads/)
+-  [numpy](http://www.numpy.org/)
+-  [scipy](https://www.scipy.org/)
+-  [PIL](https://pillow.readthedocs.io/en/stable/index.html)
+-  [matplotlib](https://matplotlib.org)
+-  [pywin32 (if using Windows](https://github.com/mhammond/pywin32)
+-  [pyobjc (if using Mac OS](https://pythonhosted.org/pyobjc/)
 
 
 Installation
