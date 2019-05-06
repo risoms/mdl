@@ -7,26 +7,23 @@
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/mdl
 """
-
+# allowed imports
 __all__ = ['Calibration']
 
-#----debug
+# core
 from pdb import set_trace as breakpoint
-
-#---main
-import string
 import os
+import string
 import array
 from math import sin, cos, pi
 from PIL import Image
 import numpy as np
 
-#----package
-if __name__ == '__main__':
-	from . import pylink
+# local libraries
+from mdl import settings
+from mdl.eyetracking import pylink
 
-#class Calibration(pylink.EyeLinkCustomDisplay):
-class Calibration():
+class Calibration(pylink.EyeLinkCustomDisplay):
 	"""Allows mdl.eyelink.eyetracking module to initiate calibration/validation/drift correction"""
 	def __init__(self, w, h, tracker, window):
 		"""
@@ -41,8 +38,9 @@ class Calibration():
         window :  `psychopy.visual.Window <https://www.psychopy.org/api/visual/window.html#window>`_
             PsychoPy window instance.
         """
-
+		# import psychopy
 		from psychopy import visual, event, sound
+
 		self.visual = visual
 		self.event = event
 		self.sound = sound
@@ -113,7 +111,16 @@ class Calibration():
 							lineColor=[-1,-1,-1], units='pix') 
 
 	def setup_cal_display(self):
-		"""Shows the 'Camera Setup' screen along with menu options."""
+		"""
+		Shows the 'Camera Setup' screen along with menu options.
+
+		Notes
+		-----
+		This function is called to setup calibration/validation display. This will be called just before we enter into 
+		the calibration or validataion or drift correction mode. Any allocation per calibration or validation drift 
+		correction can be done here. Also, it is normal to clear the display in this call. 
+
+		"""
 		print('setup_cal_display')
 		self.window.clearBuffer()
 		if self.is_calibration:

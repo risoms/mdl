@@ -7,22 +7,33 @@
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/mdl
 """
+# allowed imports
+__all__ = ['Calibration','Eyelink','ROI','pylink']
 
+# core
 from pdb import set_trace as breakpoint
-import pkg_resources
 import os
 import sys
 
-# imports
-from .roi import ROI as _ROI
-from .eyelink import Eyelink as _Eyelink
-from .calibration import Calibration as _Calibration
-
-# set as module
-pkg_resources.declare_namespace(__name__)
-
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+
+# imports
+import pylink
+from ._roi import ROI as _ROI
+from ._eyelink import Eyelink as _Eyelink
+from ._calibration import Calibration as _Calibration
+
+# set as namespace package
+# see https://stackoverflow.com/questions/41621131/python-namespace-packages-in-python3
+try:
+    import pkg_resources
+    pkg_resources.declare_namespace(__name__)
+    del pkg_resources
+except ImportError:
+    import pkgutil
+    __path__ = pkgutil.extend_path(__path__, __name__)
+    del pkgutil
 
 # classes
 class Eyelink(_Eyelink):
@@ -48,4 +59,4 @@ class ROI(_ROI):
 		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
 
 # finished
-del os, sys, breakpoint, pkg_resources, _ROI, _Eyelink, _Calibration
+del breakpoint, os, sys, _ROI, _Eyelink, _Calibration

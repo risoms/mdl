@@ -8,12 +8,19 @@ This library was created at the Institute for Mental Health Research, at the Uni
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/mdl
 """
+# allowed imports
+__all__ = ['download','eyetracking','plot','r33','settings']
 
+# core
 from pdb import set_trace as breakpoint
 import os
 import sys
 
+# relative paths
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+
 # set as namespace package
+# see https://stackoverflow.com/questions/41621131/python-namespace-packages-in-python3
 try:
     import pkg_resources
     pkg_resources.declare_namespace(__name__)
@@ -23,21 +30,16 @@ except ImportError:
     __path__ = pkgutil.extend_path(__path__, __name__)
     del pkgutil
 
-# set as module
-__all__ = ['download','eyetracking','plot','R33','settings']
-
-# relative paths
-sys.path.append(os.path.dirname(os.path.realpath(__file__)))
-
 # imports
 from . import download
 from . import eyetracking
 from . import plot
-from . import R33
+from . import r33
 from . import settings
 
-del os, sys, breakpoint
+del breakpoint, os, sys
 
+# version
 from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions

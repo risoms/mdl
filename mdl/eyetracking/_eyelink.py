@@ -1,25 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: Code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0), \
-but should be compatiable with earlier systems.  
+| `@purpose`: Module allowing communcation to the SR Research Eyelink eyetracking system.
 | `@date`: Created on Wed Feb 13 15:37:43 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/mdl
 """
-
-# available functions
+# allowed imports
 __all__ = ['Eyelink']
 
 # required external libraries
 __required__ = ['IPython','psychopy','platform','pandas','pathlib']
 
-# debug
-from pdb import set_trace as breakpoint
-from IPython.display import display
-
-# main
+# core
 import time
 import os
 import re
@@ -27,21 +21,21 @@ import platform
 import pandas as pd
 from pathlib import Path
 
-# local libraries
-from mdl import settings
-from .calibration import Calibration as _Calibration
-from .roi import ROI as _ROI
+# debug
+from pdb import set_trace as breakpoint
+from IPython.display import display
 
-# pylink
+# local libraries
 if __name__ == '__main__':
-	from . import pylink
+	from mdl import settings
+	from mdl.eyetracking import Calibration
+	from mdl.eyetracking import pylink
 
 class Eyelink():
     """Module allowing communcation to the SR Research Eyelink eyetracking system."""
     def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
         """
-    	Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 \
-		Plus (5.0), but should be compatiable with earlier systems.
+        Initiate the mdl.eyetracking.Eyelink module.
 
         Parameters
         ----------

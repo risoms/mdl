@@ -175,6 +175,8 @@ def reestimate_observations_baum_welch(sessions,
     all_observations = np.vstack(sessions)
 
     if plot_process:
+        import matplotlib
+        matplotlib.use('Agg')
         import matplotlib.pyplot as plt
         CLASS_COLORS = {
         1: 'b',

@@ -625,6 +625,8 @@ class Processing():
             test = False
             if test and (self.config['subject'] != self.current_subject):
                 self.current_subject = self.config['subject']
+                import matplotlib
+                matplotlib.use('Agg')
                 import matplotlib.pyplot as plt
                 import matplotlib.patches as patches
                 print(self.console['green'] + 'Preprocessing: Test to ensure ROI' + self.console['ENDC'])
@@ -755,7 +757,6 @@ class Processing():
                 Pandas dataframe of classified data.
         """
 
-        #%matplotlib qt5
         #%matplotlib inline
         #append filtered and raw data to list being prepared for export
         l_gf = []

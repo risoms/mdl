@@ -15,17 +15,19 @@ __all__ = ['bokeh_trial','bokeh_calibration','onset_diff_plot','density_plot','c
 #-------global
 from pdb import set_trace as breakpoint
 from distutils import dir_util
-import datetime
 import importlib
-import os
+import datetime
 import shutil
 import sys
+import os
 
 #-------data
 import pandas as pd
 import numpy as np
 
 #-------seaborn
+import matplotlib
+matplotlib.use('Agg')
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -647,6 +649,7 @@ def density_plot(config, df, title):
     
     #seaborn
     #https://seaborn.pydata.org/generated/seaborn.distplot.html
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import seaborn as sns
     importlib.reload(plt); importlib.reload(sns)
@@ -738,6 +741,7 @@ def corr_matrix(config, df, path, title, method, footnote=None):
     from bokeh.embed import components
 
     #create color palette
+    matplotlib.use('Agg')
     import matplotlib.colors
     from matplotlib import cm as mpl_cmap
     
@@ -1035,7 +1039,7 @@ def single_subject(self, df, path):
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
     console('running single_subject()', 'blue')
-    
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import seaborn as sns
     importlib.reload(plt); importlib.reload(sns)
@@ -1144,9 +1148,11 @@ def boxplot(config,df,path=None,x=None,y=None,title=None,plots=None,cat='analysi
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
-    
     console('running boxplot(%s)'%(y), 'blue')
-    
+
+	# start
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
     importlib.reload(plt); importlib.reload(sns)
     sns.set(style=config['style']['seaborn'], font_scale=1.5, font="Helvetica")
     sns.despine(offset=10, trim=True)
@@ -1283,6 +1289,7 @@ def cooks_plot(config, y, model, path, df):
     
     console('running cooks_plot(%s)'%(y), 'blue')
     #-------plot
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import seaborn as sns
     importlib.reload(plt); importlib.reload(sns)
@@ -1353,6 +1360,7 @@ def residual_plot(config, y, residuals, path):
     
     console('running residual_plot(%s)'%(y), 'blue')
     #-------plot
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import seaborn as sns
     importlib.reload(plt); importlib.reload(sns)
@@ -1425,9 +1433,9 @@ def qq_plot(config, y, residuals, path):
     #timestamp
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
-    
     console('running qq_plot(%s)'%(y), 'blue')
     #-------plot
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import seaborn as sns
     importlib.reload(plt); importlib.reload(sns)
@@ -1495,7 +1503,7 @@ def logit_plot(config,df,path,param):
     _t0 = datetime.datetime.now()
     _f = debug(message='t', source="timestamp")
     console('processing.logit_plot()', 'blue')
-    
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import seaborn as sns
     importlib.reload(plt); importlib.reload(sns)

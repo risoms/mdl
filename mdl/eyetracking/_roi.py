@@ -7,12 +7,16 @@
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/mdl
 """
+# allowed imports
+__all__ = ['ROI']
+
+# required external libraries
+__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
 
 # core
 from pdb import set_trace as breakpoint
-import sys
+import psutil
 import os
-import gc
 
 # data
 from pathlib import Path
@@ -22,31 +26,18 @@ import cv2
 
 # plot
 from PIL import Image
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from psd_tools import PSDImage
-
-# local libraries
-if __name__ == "__main__":
-	from mdl import settings
-	console = settings.console
-	now = settings.time
-
-# available functions
-__all__ = ['ROI']
-
-# required external library
-__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
-
-# this is a pointer to the module object instance it
-this = sys.modules[__name__]
 
 class ROI():
 	"""Generate region of interest to be read by Eyelink DataViewer or statistical tool."""
 	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, metadata_source=None, 
 			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
 		"""
-		Generate region of interest to be read by Eyelink DataViewer or statistical tool.
+        Initiate the mdl.eyetracking.ROI module.
 
 		Parameters
 		----------
@@ -169,6 +160,10 @@ class ROI():
 			- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
 			- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
 		"""
+		from mdl import settings
+		self.console = settings.console
+		self.now = settings.time
+
 		# check debug
 		self.isDebug = kwargs['isDebug'] if 'isDebug' in kwargs else False
 
@@ -181,6 +176,9 @@ class ROI():
 		# multiprocessing
 		self.isMultiprocessing = isMultiprocessing
 		self.cores = kwargs['cores'] if 'cores' in kwargs else 'max'
+		# if multiprocessing, set number of thread
+		# if isMultiprocessing:
+		# 	cv2.setNumThreads(0)
 		# how to read data
 		self.metadata_source = kwargs['metadata_source'] if 'metadata_source' in kwargs else 'embed'
 		# how to format rois
@@ -288,12 +286,12 @@ class ROI():
 
 		# print results
 		if self.isDebug:
-			console('## roiname: %s'%(roiname),'blue')
-			console('## roilabel: %s'%(roilabel),'green')
+			self.console('## roiname: %s'%(roiname),'blue')
+			self.console('## roilabel: %s'%(roilabel),'green')
 
 		return metadata, roiname, roilabel
 
-	def create_contours(self, image, imagename, roiname):
+	def create_contours(self, image, imagename, roiname, isMultiprocessing=False):
 		"""[summary]
 
 		Parameters
@@ -317,20 +315,36 @@ class ROI():
 		Exception
 			[description]
 		"""
-		#----convert to np array
+		# convert pil image to grayscale (using pil)
+		self.console('test4.0.5', 'red')
+		image = image.convert(mode='L')
+
+		# convert to np.array
+		self.console('test4.1.0', 'red')
 		image = np.array(image)
 
-		#----find contour
+		# or convert pil image to grayscale (using cv2)
+		self.console('test4.1.5', 'red')
+		#image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+		# if is multiprocessing create spawn. 
+		# note: this will prevent process lock
+		# if isMultiprocessing:
+		# 	multiprocessing.set_start_method('spawn')
+
 		# threshold the image
 		## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
-		retval, threshold = cv2.threshold(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
-		# cv2.imshow('image',threshold)
+		self.console('test4.2', 'red')
+		retval, threshold = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
 
-		#----find contour in image
+
+		# find contour in image
+		self.console('test4.3', 'red')
 		## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
 		contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-		#---if contours empty raise Exception
+		# if contours empty raise Exception
+		self.console('test4.4', 'red')
 		if not bool(contours):
 			_err = [imagename, roiname, 'Not able to identify contours']
 			raise Exception('%s; %s; %s'%(_err[0],_err[1],_err[2]))
@@ -340,10 +354,11 @@ class ROI():
 		#any other drawContours function will overlay on the others if multiple functions are run
 		#----param
 		color = (0,0,255)
+		self.console('test4.5', 'red')
 
 		#----straight bounding box
 		if self.shape == 'straight':
-			# console('## roishape: straight bounding box','green')
+			# self.console('## roishape: straight bounding box','green')
 			self.shape_d = 'RECTANGLE' # dataviewer shape
 			# for each contour
 			for ind, itm in enumerate(contours):
@@ -361,7 +376,7 @@ class ROI():
 
 		#----rotated bounding box
 		elif self.shape == 'rotate':
-			# console('## roishape: rotated bounding box','green')
+			# self.console('## roishape: rotated bounding box','green')
 			self.shape_d = 'FREEHAND' # dataviewer shape
 			# for each contour
 			for ind, itm in enumerate(contours):
@@ -380,7 +395,7 @@ class ROI():
 
 		#----circle enclosing
 		elif self.shape == 'circle':
-			# console('## roishape: bounding circle','green')
+			# self.console('## roishape: bounding circle','green')
 			self.shape_d = 'ELLIPSE' # dataviewer shape
 			# for each contour
 			for ind, itm in enumerate(contours):
@@ -401,7 +416,7 @@ class ROI():
 
 		#----Contour Approximation
 		elif self.shape == 'polygon':
-			# console('## roishape: approximate polygon','green')
+			# self.console('## roishape: approximate polygon','green')
 			self.shape_d = 'FREEHAND' # dataviewer shape
 			# for each contour
 			for ind, itm in enumerate(contours):
@@ -418,7 +433,7 @@ class ROI():
 
 		#----convex hull
 		elif self.shape == 'hull':
-			# console('## roishape: hull','green')
+			# self.console('## roishape: hull','green')
 			self.shape_d = 'FREEHAND' # dataviewer shape
 			# for each contour
 			for ind, itm in enumerate(contours):
@@ -435,6 +450,8 @@ class ROI():
 		#----no shape chosen
 		else:
 			raise Exception('Please select either straight, rotate, circle, polygon, box, or hull shape.')
+
+		self.console('test4.6', 'red')
 
 		return _bounds, _contours
 
@@ -505,13 +522,12 @@ class ROI():
 		if self.save['contours']:
 			#----generated rois (using contours)
 			# create matplotlib plot
-			fig, ax = plt.subplots()
-			fig.canvas.flush_events()
+			fig = plt.figure()
 
 			#----load image directly from PSD
 			# contours
 			_arr = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
-			ax.imshow(_arr, zorder=1, interpolation='bilinear', alpha=1)
+			plt.imshow(_arr, zorder=1, interpolation='bilinear', alpha=1)
 
 			# save generated rois (using contours)
 			_folder = '%s/img/roi/generated/%s'%(self.output_path, self.shape)
@@ -519,16 +535,17 @@ class ROI():
 				os.makedirs(_folder)
 			## save
 			plt.savefig('%s/%s_%s_source.png'%(_folder, imagename, roiname), dpi=self.dpi)
-			plt.cla(); plt.clf(); plt.close()
+			plt.close(fig)
 
 			#----recreated from dataframe bounds (this is to debug for potential issues)
-			# create matplotlib plot
-			fig, ax = plt.subplots()
-			fig.canvas.flush_events()
+			# create matplotlib plot()
+			fig = plt.figure()
+			ax = fig.add_subplot()
 
 			# create blank image
 			_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 			ax.imshow(_img)
+
 			# draw bounds
 			x0 = bounds['x0'].item()
 			y0 = bounds['y0'].item()
@@ -544,7 +561,7 @@ class ROI():
 				os.makedirs(_folder)
 			## save
 			plt.savefig('%s/%s_%s_source.png'%(_folder, imagename, roiname), dpi=self.dpi)
-			plt.cla(); plt.clf(); plt.close()
+			plt.close(fig)
 
 		#----save roi df
 		# combine metadata with bounds
@@ -603,12 +620,12 @@ class ROI():
 			df.to_csv("%s/%s.csv"%(path, filename), index=False)
 
 			# if debug
-			if self.isDebug: console("## excel file saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: self.console("## excel file saved @: %s/%s.ias"%(path, filename),'green')
 
 		# export to ias (dataviewer)
 		if ((self.roi_format == 'dataviewer') or (self.roi_format == 'both')):
 			_bounds = '\n'.join(map(str, [
-				"# EyeLink Interest Area Set created on %s."%(now()),
+				"# EyeLink Interest Area Set created on %s."%(self.now()),
 				"# Interest area set file using mdl.roi.ROI()",
 				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
 				"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
@@ -624,7 +641,7 @@ class ROI():
 				file.write(_bounds)
 
 			# if debug
-			if self.isDebug: console("## ias file saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: self.console("## ias file saved @: %s/%s.ias"%(path, filename),'green')
 
 		return df
 
@@ -633,12 +650,8 @@ class ROI():
 
 		Parameters
 		----------
-		psd : [type]
-			[description]
-		path : [type]
-			[description]
-		filename : [type]
-			[description]
+		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
 
 		Returns
 		-------
@@ -654,25 +667,27 @@ class ROI():
 			_scalesize = [int(_truesize[0] * self.scale), int(_truesize[1] * self.scale)]
 			image = image.resize(_scalesize, Image.ANTIALIAS)
 			if self.isDebug: 
-				console('# export image','blue')
-				console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
+				self.console('# export image','blue')
+				self.console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
 
 		# center and resize image to template screen
 		_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 		_offset = ((self.screensize[0] - image.size[0])//2,(self.screensize[1] - image.size[1])//2)
 		_background.paste(image, _offset)
-
+		#breakpoint()
 		return image
 
-	def run(self, directory, core=0):
+	def run(self, directory, core=0, queue=None):
 		"""[summary]
 
 		Parameters
 		----------
-		directory : :class:`list`
+		directory : :obj:`list`
 			[description]
-		core : :class:`int`
-			(if isMultprocessing) Core used for this function. Default `0`.
+		core : :obj:`int`
+			(if isMultiprocessing) Core used for this function. Default `0`.
+		queue : :obj:`queue.Queue`
+			Constructor for a multiprocessing 'first-in, first-out' queue. Note: Queues are thread and process safe.
 
 		Returns
 		-------
@@ -680,8 +695,8 @@ class ROI():
 			[description]
 		"""
 		#----print
-		console('core: %s'%(core),'orange')
-		console('for each image','green')
+		self.console('core: %s'%(core),'orange')
+		self.console('for each image','green')
 
 		#----prepare lists for all images
 		l_bounds_all = []
@@ -694,7 +709,8 @@ class ROI():
 			# read image
 			psd = PSDImage.open(file)
 			imagename = os.path.splitext(os.path.basename(file))[0]
-			if self.isDebug: console('\n# file: %s'%(imagename),'blue')
+			if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
+			if self.isDebug: self.console('virtual memory used: %s %%'%(psutil.virtual_memory().percent),'purple'); print()
 
 			# clear lists
 			l_bounds = []
@@ -702,16 +718,25 @@ class ROI():
 
 			#!!!----for each image, save image file
 			if self.save['raw']:
+				self.console('test')
 				# process imaage
 				image = self.process_image(psd=psd)
+
 				# check folder
 				_folder = '%s/img/img/'%(self.output_path)
 				if not os.path.exists(_folder):
 					os.makedirs(_folder)
+
+				# figure
+				## create
+				fig = plt.figure()
+				fig.canvas.flush_events()
+
 				## save
-				plt.imshow(np.array(image))
+				plt.imshow(np.array(image), zorder=1, interpolation='bilinear', alpha=1)
 				plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
-				plt.cla(); plt.clf(); plt.close(); del image
+				plt.close(fig)
+				self.console('test1', 'red')
 
 			#!!!----for each region of interest
 			roinumber = 1
@@ -721,15 +746,19 @@ class ROI():
 					continue
 				else:
 					# process metadata
+					self.console('test2', 'red')
 					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
 
 					# process image
+					self.console('test3', 'red')
 					image = self.process_image(layer)
 
 					# create contours
-					_bounds, _contours = self.create_contours(image, imagename, roiname)
+					self.console('test4', 'red')
+					_bounds, _contours = self.create_contours(image, imagename, roiname, self.isMultiprocessing)
 
 					# create rois
+					self.console('test5', 'red')
 					bounds, contours = self.create_rois(imagename, metadata, roiname, roilabel, roinumber, _bounds, _contours)
 
 					# store processed bounds and contours to combine across image
@@ -738,13 +767,14 @@ class ROI():
 
 					# update counter
 					roinumber = roinumber + 1
+			self.console('test6', 'red')
 
 			#!!!----for each image, export data
-			# concatinate bounds
+			# concatinate and store bounds for all rois
 			df = pd.concat(l_bounds)
-			## store for single bounds across all images (if multiProcessing, this is 1/num of cores)
 			l_bounds_all.append(df)
-			## export data
+
+			# export data
 			_filename = "%s_bounds"%(imagename)
 			_folder = '%s/data/img/'%(self.output_path)
 			if not os.path.exists(_folder):
@@ -754,9 +784,17 @@ class ROI():
 			# contours
 			##!!! create roi file for complex shapes (not with dataviewer)
 
-		#----finished
-		console('finished run()','purple')
-		return l_bounds_all, l_contours_all, l_error
+		#!!!----finished for all images
+		self.console('finished run()','purple')
+
+		# store
+		## if multiprocessing, store in queue
+		if self.isMultiprocessing:
+			# queue.put(l_bounds_all, l_contours_all, l_error)
+			pass
+		# if not multiprocessing, return
+		else:
+			return l_bounds_all, l_contours_all, l_error
 
 	def process(self):
 		"""[summary]
@@ -767,8 +805,6 @@ class ROI():
 			[description]
 		"""
 		# prepare arguements and procedure
-		arg = []
-		proc = ''
 		df = ''
 		error = ''
 		# if multiprocessing, get total cores
@@ -788,25 +824,25 @@ class ROI():
 			# if requested cores is 0 or 1, run without multiprocessing
 			if ((self.cores == 0) or (self.cores == 1)):
 				self.isMultiprocessing = False
-				console('not multiprocessing', 'purple')
+				self.console('not multiprocessing', 'purple')
 			# split directory by number of cores
 			else:
 				self.isMultiprocessing = True
 				l_directory = np.array_split(self.directory, self.cores)
-				console('multiprocessing with %s cores'%(self.cores), 'purple')
+				self.console('multiprocessing with %s cores'%(self.cores), 'purple')
 
 		# not multiprocessing
 		else:
 			self.isMultiprocessing = False
-			console('not multiprocessing', 'purple')
+			self.console('not multiprocessing', 'purple')
 
 		#----prepare to run
 		# if not multiprocessing
 		if not self.isMultiprocessing:
-			l_bounds_all = self.run(self.directory)
+			l_bounds_all, l_contours_all, l_error = self.run(self.directory)
 
 			# finish
-			if self.isDebug: console('running finished() (not-multiprocessing)','purple')
+			if self.isDebug: self.console('running finished() (not-multiprocessing)','purple')
 			df, error = self.finished(l_bounds_all)
 
 		# else if multiprocessing
@@ -815,7 +851,7 @@ class ROI():
 			queue = multiprocessing.Queue()
 
 			# prepare threads
-			process = [multiprocessing.Process(target=self.run, args=(l_directory[x].tolist(), x)) for x in range(self.cores)]
+			process = [multiprocessing.Process(target=self.run, args=(l_directory[core].tolist(), core, queue,)) for core in range(self.cores)]
 
             # start each thread
 			for p in process:
@@ -833,7 +869,7 @@ class ROI():
 				p.join()
 
 			#----after running
-			if self.isDebug: console('running finished() (multiprocessing)','purple')
+			if self.isDebug: self.console('running finished() (multiprocessing)','purple')
 			df, error = self.finished(returns)
 
 		return df, error
@@ -849,12 +885,15 @@ class ROI():
 		errors : [type], optional
 			[description], by default None
 		"""
-		console('start finished()','purple')
+		self.console('start finished()','purple')
 		# if multiprocessing, combine data from each thread
 		if self.isMultiprocessing:
 			#----concatinate data
 			df = pd.concat(df)
-
+		# else combine lists to df
+		else:
+			df = pd.DataFrame(df)
+			
 		#!!!----combine all rois across images
 		# export to csv or dataviewer
 		_folder = '%s/'%(self.output_path)
@@ -864,7 +903,7 @@ class ROI():
 		#!!!----error log
 		if bool(errors):
 			_filename = Path('%s/error.csv'%(self.output_path))
-			console("Errors found. See log %s"%(_filename), 'red')
+			self.console("Errors found. See log %s"%(_filename), 'red')
 			error = pd.DataFrame(errors, columns=['image','roi','message'])
 			error.to_csv(_filename, index=False)
 		else:
