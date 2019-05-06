@@ -12,7 +12,7 @@
 __all__ = ['Processing']
 
 # required external libraries
-__required__ = ['datetime','distutils','importlib']
+__required__ = ['distutils','importlib','nslr']
 
 # global
 from pdb import set_trace as breakpoint
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
 class Processing():
     """Hub for running processing and analyzing raw data."""
-    def __init__(self, config, isLibrary=False):
+    def __init__(self, config, isLibrary=True):
         """
 		Hub for running processing and analyzing raw data
 

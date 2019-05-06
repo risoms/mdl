@@ -15,6 +15,7 @@ __all__ = ['download','eyetracking','plot','r33','settings']
 from pdb import set_trace as breakpoint
 import os
 import sys
+import certifi
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))

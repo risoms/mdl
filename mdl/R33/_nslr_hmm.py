@@ -16,12 +16,16 @@ __all__ = ['ObservationModel','gaze_observation_model','gaze_transition_model','
 # required external library
 __required__ = ['numpy','scipy','nslr','pandas']
 
+# core
+from pdb import set_trace as breakpoint
 import numpy as np
 import scipy.stats
-import nslr
 import itertools
 import pandas as pd
-from pdb import set_trace as breakpoint
+
+# local libraries
+if __name__ == '__main__':
+	from mdl import settings
 
 FIXATION = 1
 SACCADE = 2

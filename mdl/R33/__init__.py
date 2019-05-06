@@ -8,7 +8,7 @@
 | `@url`: https://semeon.io/d/mdl
 """
 # allowed imports
-__all__ = ['Classify','Metadata','Model','nslr_hmm','Processing','Settings']
+__all__ = ['Classify','Metadata','Model','nslr','nslr_hmm','Processing','Settings']
 
 # core
 from pdb import set_trace as breakpoint

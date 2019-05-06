@@ -12,7 +12,7 @@
 __all__ = ['Classify']
 
 # required external library
-__required__ = ['numpy','pandas']
+__required__ = ['numpy','pandas','nslr']
 
 from pdb import set_trace as breakpoint
 import numpy as np
@@ -173,13 +173,11 @@ class Classify():
 
         References
         ----------
-        .. [1] A. Savitzky, M. J. E. Golay, Smoothing and Differentiation of
-            Data by Simplified Least Squares Procedures. Analytical
-            Chemistry, 1964, 36 (8), pp 1627-1639.
-   
-        .. [2] Numerical Recipes 3rd Edition: The Art of Scientific Computing
-            W.H. Press, S.A. Teukolsky, W.T. Vetterling, B.P. Flannery
-            Cambridge University Press ISBN-13: 9780521880688
+        .. [1] A. Savitzky, Golay, M. (1964). Smoothing and Differentiation of Data by Simplified Least Squares Procedures. 
+			Analytical Chemistry. 36(8), pp 1627-1639.
+
+        .. [2] S.A. Teukolsky, W.T. Vetterling, B.P. Flannery Numerical Recipes 3rd Edition: The Art of Scientific 
+			Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.
         """
         import numpy as np
         from math import factorial
@@ -331,36 +329,43 @@ class Classify():
         return cxy_df
 
     def hmm(self,data, config, filter_type):
-        '''
-        Hidden Makov Models
-        url: https://gitlab.com/nslr/nslr-hmm
+        """
+        Hidden Makov Model, from https://gitlab.com/nslr/nslr-hmm.
 
         Attributes
         ----------
         data : :class:`numpy.ndarray`
             the smoothed signal (or it's n-th derivative).
         dr_th : :obj:`str`
-   
+
         Notes
-        -----
-        From: A general approach to signal denoising and eye movement classification
-        based on segmented linear regression.
+        From:
+			A general approach to signal denoising and eye movement classification
+        	based on segmented linear regression.
 
-        Saccade: The saccade is a ballistic movement, meaning it is pre-programmed and
-        does not change once it has started. Saccades of amplitude 40° peak at velocities
-        of 300–600°/s and last for 80–150 ms.
+        Saccade:  
+			The saccade is a ballistic movement, meaning it is pre-programmed and
+        	does not change once it has started. Saccades of amplitude 40° peak at velocities
+        	of 300–600°/s and last for 80–150 ms.
 
-        Fixation: the point between any two saccades, during which the eyes are relatively
-        stationary and virtually all visual input occurs. Regular eye movement alternates
-        between saccades and visual fixations, the notable exception being in smooth pursuit.
+        Fixation:  
+			the point between any two saccades, during which the eyes are relatively
+			stationary and virtually all visual input occurs. Regular eye movement alternates
+			between saccades and visual fixations, the notable exception being in smooth pursuit.
 
-        Smooth pursuit: Smooth pursuit movements are much slower tracking movements of
-        the eyes designed to keep a moving stimulus on the fovea. Such movements are under
-        voluntary control in the sense that the observer can choose whether or not to
-        track a moving stimulus. (Neuroscience 2nd edition).
-        '''
+		Smooth pursuit:  
+			Smooth pursuit movements are much slower tracking movements of
+			the eyes designed to keep a moving stimulus on the fovea. Such movements are under
+			voluntary control in the sense that the observer can choose whether or not to
+			track a moving stimulus. (Neuroscience 2nd edition).
 
-        import nslr_hmm
+		References
+        ----------
+        .. [1] Pekkanen, J., & Lappi, O. (2017). A new and general approach to signal denoising and eye movement
+			classification based on segmented linear regression. Scientific Reports, 7(1). doi:10.1038/s41598-017-17983-x.
+        """
+
+        from . import nslr_hmm
 
         t = data['timestamp'].values
         x = data['x']

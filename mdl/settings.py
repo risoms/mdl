@@ -17,9 +17,6 @@ import sys
 # available functions
 __all__ = ['console','link','popover','stn','library','path']
 
-# required external library
-__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
-
 # path
 path = {
 	'home': os.path.dirname(os.path.abspath(__file__))
@@ -226,7 +223,7 @@ def library(required=None):
 	import pip
 	from distutils.version import StrictVersion
 	from pip._internal import main as _main
-
+	
 	# start
 	console('settings.library()', 'green')
 
@@ -234,18 +231,20 @@ def library(required=None):
 	_t0 = datetime.now()
 	_f = debug(message='t', source="timestamp")
 
-	# list of possibly missing packages to install
-	if required is None:
-		required = __required__
-	else:
-		# append list with requirments in settings.py
-		required = required.append(__required__)
+	# if required is string
+	if isinstance(required, str):
+		required = [required]
 
 	# for geting os variables
 	if platform.system() == "Windows":
 		required.append('win32api')
 	elif platform.system() == 'Darwin':
 		required.append('pyobjc')
+
+	# packages to download from outside of pypi
+	not_pypi = {
+		'nslr': "https://gitlab.com/risoms/nslr"
+	}
 
 	# try installing and/or importing packages
 	try:
@@ -256,7 +255,13 @@ def library(required=None):
 			for package in required:
 				# if missing, install
 				if importlib.util.find_spec(package) is None:
-					_main(['install', package])
+					# if package is not in PyPi
+					if package in not_pypi:
+						_path = 'git+%s'%(not_pypi[package])
+						_main(['install', _path])
+					# install from PyPi
+					else:
+						_main(['install', package])
 
 		# else pip < 10.01
 		else:
@@ -264,7 +269,13 @@ def library(required=None):
 			for package in required:
 				# if missing
 				if importlib.util.find_spec(package) is None:
-					pip.main(['install', package])
+					# if package is not in PyPi
+					if package in not_pypi:
+						_path = 'git+%s'%(not_pypi[package])
+						pip.main(['install', package])
+					# install from PyPi
+					else:
+						pip.main(['install', package])
 
 	except Exception as error:
 		return error
