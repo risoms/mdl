@@ -25,4 +25,4 @@ python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps imhr
 pip install -r requirements.txt 
 
 # test if successful
-which python
+python
