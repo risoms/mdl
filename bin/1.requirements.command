@@ -8,4 +8,4 @@ cd ../
 
 # run pipreqs
 #export PATH=
-./lib/pipreqs/pipreqs.py mdl/ --encoding=iso-8859-1 --debug --force --noversion --ignore=pylink,mdl --exclude=AppKit,pylink,mdl,imhr --savepath=requirements.txt
+./lib/pipreqs/pipreqs.py mdl/ --encoding=iso-8859-1 --debug --force --noversion --ignore=pylink,mdl --exclude=AppKit,pylink,mdl,imhr,rpy2 --savepath=requirements.txt

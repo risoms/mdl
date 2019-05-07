@@ -129,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -186,6 +187,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -245,6 +247,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -476,7 +479,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="import-mdl-package">
 <h2>import mdl package<a class="headerlink" href="#import-mdl-package" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -491,7 +494,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="set-paths">
 <h2>set paths<a class="headerlink" href="#set-paths" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -505,22 +508,22 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="initiate">
 <h2>initiate<a class="headerlink" href="#initiate" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">image_path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="n">metadata_source</span><span class="p">,</span>
-    <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">25</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">25</span><span class="p">)],</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span>
-    <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">roicolumn</span><span class="o">=</span><span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;bottom&#39;</span><span class="p">})</span>
+    <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">5</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">5</span><span class="p">)],</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span>
+    <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;position&#39;</span><span class="p">],</span> <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="start">
 <h2>start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -528,14 +531,499 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-magenta-bg">not multiprocessing</span>
+<span class="ansi-yellow-bg">core: 0</span>
+<span class="ansi-green-bg">for each image</span>
+<span class="ansi-cyan-bg">
+# file: AM_201</span>
+<span class="ansi-magenta-bg">virtual memory used: 60.6 %</span>
+
+<span class="ansi-cyan-bg">## roiname: roi1</span>
+<span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg">## roiname: roi2</span>
+<span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg">## roiname: roi3</span>
+<span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg">## roiname: roi4</span>
+<span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg">## roiname: roi5</span>
+<span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg">## roiname: roi6</span>
+<span class="ansi-green-bg">## roilabel: roi6</span>
+<span class="ansi-cyan-bg">## roiname: roi7</span>
+<span class="ansi-green-bg">## roilabel: roi7</span>
+<span class="ansi-cyan-bg">## roiname: roi8</span>
+<span class="ansi-green-bg">## roilabel: roi8</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_201_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_201_bounds.ias</span>
+<span class="ansi-cyan-bg">
+# file: AM_203</span>
+<span class="ansi-magenta-bg">virtual memory used: 61.2 %</span>
+
+<span class="ansi-cyan-bg">## roiname: roi1</span>
+<span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg">## roiname: roi2</span>
+<span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg">## roiname: roi3</span>
+<span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg">## roiname: roi4</span>
+<span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg">## roiname: roi5</span>
+<span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg">## roiname: roi6</span>
+<span class="ansi-green-bg">## roilabel: roi6</span>
+<span class="ansi-cyan-bg">## roiname: roi7</span>
+<span class="ansi-green-bg">## roilabel: roi7</span>
+<span class="ansi-cyan-bg">## roiname: roi8</span>
+<span class="ansi-green-bg">## roilabel: roi8</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_203_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_203_bounds.ias</span>
+<span class="ansi-cyan-bg">
+# file: AM_204</span>
+<span class="ansi-magenta-bg">virtual memory used: 61.3 %</span>
+
+<span class="ansi-cyan-bg">## roiname: roi1</span>
+<span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg">## roiname: roi2</span>
+<span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg">## roiname: roi3</span>
+<span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg">## roiname: roi4</span>
+<span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg">## roiname: roi5</span>
+<span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg">## roiname: roi6</span>
+<span class="ansi-green-bg">## roilabel: roi6</span>
+<span class="ansi-cyan-bg">## roiname: roi7</span>
+<span class="ansi-green-bg">## roilabel: roi7</span>
+<span class="ansi-cyan-bg">## roiname: roi8</span>
+<span class="ansi-green-bg">## roilabel: roi8</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_204_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_204_bounds.ias</span>
+<span class="ansi-magenta-bg">running finished() (not multiprocessing)</span>
+<span class="ansi-magenta-bg">finished()</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output///bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output///bounds.ias</span>
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="n">df</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x0</th>
+      <th>y0</th>
+      <th>x1</th>
+      <th>y1</th>
+      <th>image</th>
+      <th>roi</th>
+      <th>id</th>
+      <th>shape_d</th>
+      <th>race</th>
+      <th>feature</th>
+      <th>position</th>
+      <th>uuid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>445</td>
+      <td>440</td>
+      <td>580</td>
+      <td>314</td>
+      <td>AM_201</td>
+      <td>roi1</td>
+      <td>1</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>lefteye</td>
+      <td>center</td>
+      <td>AM_201roi1center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>625</td>
+      <td>437</td>
+      <td>764</td>
+      <td>313</td>
+      <td>AM_201</td>
+      <td>roi2</td>
+      <td>2</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>righteye</td>
+      <td>center</td>
+      <td>AM_201roi2center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>550</td>
+      <td>537</td>
+      <td>660</td>
+      <td>457</td>
+      <td>AM_201</td>
+      <td>roi3</td>
+      <td>3</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>nose</td>
+      <td>center</td>
+      <td>AM_201roi3center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>534</td>
+      <td>643</td>
+      <td>685</td>
+      <td>562</td>
+      <td>AM_201</td>
+      <td>roi4</td>
+      <td>4</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>mouth</td>
+      <td>center</td>
+      <td>AM_201roi4center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>476</td>
+      <td>751</td>
+      <td>475</td>
+      <td>659</td>
+      <td>AM_201</td>
+      <td>roi5</td>
+      <td>5</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>chin</td>
+      <td>center</td>
+      <td>AM_201roi5center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>457</td>
+      <td>294</td>
+      <td>752</td>
+      <td>197</td>
+      <td>AM_201</td>
+      <td>roi6</td>
+      <td>6</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>forehead</td>
+      <td>center</td>
+      <td>AM_201roi6center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>381</td>
+      <td>560</td>
+      <td>352</td>
+      <td>428</td>
+      <td>AM_201</td>
+      <td>roi7</td>
+      <td>7</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>leftear</td>
+      <td>center</td>
+      <td>AM_201roi7center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>850</td>
+      <td>534</td>
+      <td>795</td>
+      <td>530</td>
+      <td>AM_201</td>
+      <td>roi8</td>
+      <td>8</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>rightear</td>
+      <td>center</td>
+      <td>AM_201roi8center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>430</td>
+      <td>422</td>
+      <td>593</td>
+      <td>282</td>
+      <td>AM_203</td>
+      <td>roi1</td>
+      <td>1</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>lefteye</td>
+      <td>center</td>
+      <td>AM_203roi1center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>635</td>
+      <td>413</td>
+      <td>786</td>
+      <td>302</td>
+      <td>AM_203</td>
+      <td>roi2</td>
+      <td>2</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>righteye</td>
+      <td>center</td>
+      <td>AM_203roi2center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>550</td>
+      <td>525</td>
+      <td>679</td>
+      <td>433</td>
+      <td>AM_203</td>
+      <td>roi3</td>
+      <td>3</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>nose</td>
+      <td>center</td>
+      <td>AM_203roi3center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>529</td>
+      <td>642</td>
+      <td>695</td>
+      <td>548</td>
+      <td>AM_203</td>
+      <td>roi4</td>
+      <td>4</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>mouth</td>
+      <td>center</td>
+      <td>AM_203roi4center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>719</td>
+      <td>733</td>
+      <td>465</td>
+      <td>713</td>
+      <td>AM_203</td>
+      <td>roi5</td>
+      <td>5</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>chin</td>
+      <td>center</td>
+      <td>AM_203roi5center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>425</td>
+      <td>269</td>
+      <td>422</td>
+      <td>150</td>
+      <td>AM_203</td>
+      <td>roi6</td>
+      <td>6</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>forehead</td>
+      <td>center</td>
+      <td>AM_203roi6center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>362</td>
+      <td>537</td>
+      <td>348</td>
+      <td>368</td>
+      <td>AM_203</td>
+      <td>roi7</td>
+      <td>7</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>leftear</td>
+      <td>center</td>
+      <td>AM_203roi7center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>853</td>
+      <td>521</td>
+      <td>799</td>
+      <td>519</td>
+      <td>AM_203</td>
+      <td>roi8</td>
+      <td>8</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>rightear</td>
+      <td>center</td>
+      <td>AM_203roi8center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>440</td>
+      <td>440</td>
+      <td>587</td>
+      <td>327</td>
+      <td>AM_204</td>
+      <td>roi1</td>
+      <td>1</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>lefteye</td>
+      <td>center</td>
+      <td>AM_204roi1center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>631</td>
+      <td>434</td>
+      <td>778</td>
+      <td>310</td>
+      <td>AM_204</td>
+      <td>roi2</td>
+      <td>2</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>righteye</td>
+      <td>center</td>
+      <td>AM_204roi2center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>674</td>
+      <td>524</td>
+      <td>536</td>
+      <td>514</td>
+      <td>AM_204</td>
+      <td>roi3</td>
+      <td>3</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>nose</td>
+      <td>center</td>
+      <td>AM_204roi3center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>520</td>
+      <td>631</td>
+      <td>695</td>
+      <td>538</td>
+      <td>AM_204</td>
+      <td>roi4</td>
+      <td>4</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>mouth</td>
+      <td>center</td>
+      <td>AM_204roi4center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>714</td>
+      <td>727</td>
+      <td>486</td>
+      <td>715</td>
+      <td>AM_204</td>
+      <td>roi5</td>
+      <td>5</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>chin</td>
+      <td>center</td>
+      <td>AM_204roi5center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>434</td>
+      <td>282</td>
+      <td>432</td>
+      <td>157</td>
+      <td>AM_204</td>
+      <td>roi6</td>
+      <td>6</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>forehead</td>
+      <td>center</td>
+      <td>AM_204roi6center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>389</td>
+      <td>547</td>
+      <td>336</td>
+      <td>396</td>
+      <td>AM_204</td>
+      <td>roi7</td>
+      <td>7</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>leftear</td>
+      <td>center</td>
+      <td>AM_204roi7center</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>847</td>
+      <td>529</td>
+      <td>794</td>
+      <td>522</td>
+      <td>AM_204</td>
+      <td>roi8</td>
+      <td>8</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>rightear</td>
+      <td>center</td>
+      <td>AM_204roi8center</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 </div>
 </div>
@@ -550,7 +1038,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-07T11:39:27-05:00.</div>
+				<div>Updated 2019-05-07T12:32:22-05:00.</div>
 		</div>
 	</div>
 </footer>

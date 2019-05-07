@@ -160,7 +160,7 @@ class ROI():
 			- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
 			- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
 		"""
-		from . import settings
+		from .. import settings
 		self.console = settings.console
 		self.now = settings.time
 
@@ -316,15 +316,15 @@ class ROI():
 			[description]
 		"""
 		# convert pil image to grayscale (using pil)
-		self.console('test4.0.5', 'red')
+		#self.console('test4.0.5', 'red')
 		image = image.convert(mode='L')
 
 		# convert to np.array
-		self.console('test4.1.0', 'red')
+		#self.console('test4.1.0', 'red')
 		image = np.array(image)
 
 		# or convert pil image to grayscale (using cv2)
-		self.console('test4.1.5', 'red')
+		#self.console('test4.1.5', 'red')
 		#image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 		# if is multiprocessing create spawn. 
@@ -334,17 +334,17 @@ class ROI():
 
 		# threshold the image
 		## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
-		self.console('test4.2', 'red')
+		#self.console('test4.2', 'red')
 		retval, threshold = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
 
 
 		# find contour in image
-		self.console('test4.3', 'red')
+		#self.console('test4.3', 'red')
 		## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
 		contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 		# if contours empty raise Exception
-		self.console('test4.4', 'red')
+		#self.console('test4.4', 'red')
 		if not bool(contours):
 			_err = [imagename, roiname, 'Not able to identify contours']
 			raise Exception('%s; %s; %s'%(_err[0],_err[1],_err[2]))
@@ -354,7 +354,7 @@ class ROI():
 		#any other drawContours function will overlay on the others if multiple functions are run
 		#----param
 		color = (0,0,255)
-		self.console('test4.5', 'red')
+		#self.console('test4.5', 'red')
 
 		#----straight bounding box
 		if self.shape == 'straight':
@@ -451,7 +451,7 @@ class ROI():
 		else:
 			raise Exception('Please select either straight, rotate, circle, polygon, box, or hull shape.')
 
-		self.console('test4.6', 'red')
+		#self.console('test4.6', 'red')
 
 		return _bounds, _contours
 
@@ -540,7 +540,7 @@ class ROI():
 			#----recreated from dataframe bounds (this is to debug for potential issues)
 			# create matplotlib plot()
 			fig = plt.figure()
-			ax = fig.add_subplot()
+			ax = fig.add_subplot(111)
 
 			# create blank image
 			_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
@@ -574,7 +574,7 @@ class ROI():
 		# finish
 		return bounds, contours
 
-	def export_data(self, df, path, filename, uuid=None, newcolumn=None):
+	def export_data(self, df, path, filename, uuid=None, newcolumn=None, level='image'):
 		"""[summary]
 
 		Parameters
@@ -589,27 +589,36 @@ class ROI():
 			[description], by default None
 		newcolumn : [type], optional
 			[description], by default None
+		nested : :obj:`string` {`image`,`all`}
+			Nested order, either `image` or `all`. Default `image`.
 
 		Returns
 		-------
 		[type]
 			[description]
 		"""
-		# if new column is not None
-		if isinstance(newcolumn, (dict,)):
-			df[list(newcolumn.keys())[0]] = list(newcolumn.values())[0]
-
-			## add new column to uuid, only if uuid exists
+		#if workng with a single image
+		if level == 'image':
+			# if new column is not None and level == image
+			if (isinstance(newcolumn, (dict,))):
+				df[list(newcolumn.keys())[0]] = list(newcolumn.values())[0]
+	
+			# if uuid, create a unique column
 			if isinstance(uuid, (list,)):
-				uuid.append(list(newcolumn.values())[0])
-
-		# if uuid, create a unique column
-		if isinstance(uuid, (list,)):
-			df['uuid'] = df[uuid].apply(lambda x: ''.join(x), axis=1)
-			uuid_column = 'uuid'
-		# else simply use roiname
-		else:
-			uuid_column = self.roicolumn
+				df['uuid'] = df[uuid].apply(lambda x: ''.join(x), axis=1)
+				uuid_column = 'uuid'
+			# else simply use roiname
+			else:
+				uuid_column = self.roicolumn
+				
+		#else if workng with all images
+		elif level == 'all':
+			# if uuid, create a unique column
+			if isinstance(uuid, (list,)):
+				uuid_column = 'uuid'
+			# else simply use roiname
+			else:
+				uuid_column = self.roicolumn		
 
 		# check if folder exists
 		if not os.path.exists(path):
@@ -620,7 +629,7 @@ class ROI():
 			df.to_csv("%s/%s.csv"%(path, filename), index=False)
 
 			# if debug
-			if self.isDebug: self.console("## excel file saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: self.console("## raw data saved @: %s/%s.xlsx"%(path, filename),'green')
 
 		# export to ias (dataviewer)
 		if ((self.roi_format == 'dataviewer') or (self.roi_format == 'both')):
@@ -641,7 +650,7 @@ class ROI():
 				file.write(_bounds)
 
 			# if debug
-			if self.isDebug: self.console("## ias file saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: self.console("## dataviewer data saved @: %s/%s.ias"%(path, filename),'green')
 
 		return df
 
@@ -674,7 +683,7 @@ class ROI():
 		_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 		_offset = ((self.screensize[0] - image.size[0])//2,(self.screensize[1] - image.size[1])//2)
 		_background.paste(image, _offset)
-		#breakpoint()
+
 		return image
 
 	def run(self, directory, core=0, queue=None):
@@ -718,7 +727,7 @@ class ROI():
 
 			#!!!----for each image, save image file
 			if self.save['raw']:
-				self.console('test')
+				#self.console('test')
 				# process imaage
 				image = self.process_image(psd=psd)
 
@@ -728,15 +737,11 @@ class ROI():
 					os.makedirs(_folder)
 
 				# figure
-				## create
 				fig = plt.figure()
-				fig.canvas.flush_events()
-
-				## save
 				plt.imshow(np.array(image), zorder=1, interpolation='bilinear', alpha=1)
 				plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
 				plt.close(fig)
-				self.console('test1', 'red')
+				#self.console('test1', 'red')
 
 			#!!!----for each region of interest
 			roinumber = 1
@@ -746,19 +751,19 @@ class ROI():
 					continue
 				else:
 					# process metadata
-					self.console('test2', 'red')
+					#self.console('test2', 'red')
 					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
 
 					# process image
-					self.console('test3', 'red')
+					#self.console('test3', 'red')
 					image = self.process_image(layer)
 
 					# create contours
-					self.console('test4', 'red')
+					#self.console('test4', 'red')
 					_bounds, _contours = self.create_contours(image, imagename, roiname, self.isMultiprocessing)
 
 					# create rois
-					self.console('test5', 'red')
+					#self.console('test5', 'red')
 					bounds, contours = self.create_rois(imagename, metadata, roiname, roilabel, roinumber, _bounds, _contours)
 
 					# store processed bounds and contours to combine across image
@@ -767,7 +772,7 @@ class ROI():
 
 					# update counter
 					roinumber = roinumber + 1
-			self.console('test6', 'red')
+			#self.console('test6', 'red')
 
 			#!!!----for each image, export data
 			# concatinate and store bounds for all rois
@@ -779,14 +784,12 @@ class ROI():
 			_folder = '%s/data/img/'%(self.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
-			df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, newcolumn=self.newcolumn)
+			df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, newcolumn=self.newcolumn, level='image')
 
 			# contours
 			##!!! create roi file for complex shapes (not with dataviewer)
 
 		#!!!----finished for all images
-		self.console('finished run()','purple')
-
 		# store
 		## if multiprocessing, store in queue
 		if self.isMultiprocessing:
@@ -842,8 +845,8 @@ class ROI():
 			l_bounds_all, l_contours_all, l_error = self.run(self.directory)
 
 			# finish
-			if self.isDebug: self.console('running finished() (not-multiprocessing)','purple')
-			df, error = self.finished(l_bounds_all)
+			if self.isDebug: self.console('running finished() (not multiprocessing)','purple')
+			df, error = self.finished(df=l_bounds_all)
 
 		# else if multiprocessing
 		else:
@@ -885,20 +888,20 @@ class ROI():
 		errors : [type], optional
 			[description], by default None
 		"""
-		self.console('start finished()','purple')
-		# if multiprocessing, combine data from each thread
+		self.console('finished()','purple')
+		# if multiprocessing, combine df from each thread
 		if self.isMultiprocessing:
 			#----concatinate data
 			df = pd.concat(df)
-		# else combine lists to df
+		# else combine lists of df to df
 		else:
-			df = pd.DataFrame(df)
-			
+			df = pd.concat(df)
+		
 		#!!!----combine all rois across images
 		# export to csv or dataviewer
 		_folder = '%s/'%(self.output_path)
 		_filename = "bounds"
-		df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid)
+		df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, level='all')
 
 		#!!!----error log
 		if bool(errors):
@@ -907,7 +910,7 @@ class ROI():
 			error = pd.DataFrame(errors, columns=['image','roi','message'])
 			error.to_csv(_filename, index=False)
 		else:
-			error = ''
+			error = None
 
 		return df, error
 

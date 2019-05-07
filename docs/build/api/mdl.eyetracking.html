@@ -129,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-paths">set paths</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -1544,7 +1545,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.export_data">
-<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em>, <em>level='image'</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1565,6 +1566,9 @@ for more information.</p>
 </dd>
 <dt><strong>newcolumn</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type], optional</span></dt>
 <dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>nested</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code></a> {<cite>image</cite>,`all`}</span></dt>
+<dd><p class="first last">Nested order, either <cite>image</cite> or <cite>all</cite>. Default <cite>image</cite>.</p>
 </dd>
 </dl>
 </td>
@@ -1728,7 +1732,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-07T11:39:27-05:00.</div>
+				<div>Updated 2019-05-07T12:32:22-05:00.</div>
 		</div>
 	</div>
 </footer>
