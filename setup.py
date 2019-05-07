@@ -42,7 +42,7 @@ if __name__ == "__main__":
 	version = versioneer.get_version()
 	cmdclass=versioneer.get_cmdclass()
 	url = 'http://mdl.psy.utexas.edu/a/mdl'
-	description = 'mdl: Psychology Data Science Suite.'
+	description = 'mdl - Psychology Data Science Suite.'
 	download_url = 'https://github.com/risoms/mdl/'
 	long_description = open('README.md').read()
 	long_description_content_type = 'text/markdown'

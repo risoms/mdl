@@ -11,7 +11,7 @@
 __all__ = ['ROI']
 
 # required external libraries
-__required__ = ['opencv-python','psd_tools','pathlib','gc','matplotlib','PIL']
+__required__ = ['opencv-python','psd-tools','matplotlib','Pillow']
 
 # core
 from pdb import set_trace as breakpoint
@@ -845,7 +845,7 @@ class ROI():
 			l_bounds_all, l_contours_all, l_error = self.run(self.directory)
 
 			# finish
-			if self.isDebug: self.console('running finished() (not multiprocessing)','purple')
+			if self.isDebug: self.console('process() finished (not multiprocessing)','purple')
 			df, error = self.finished(df=l_bounds_all)
 
 		# else if multiprocessing
@@ -872,7 +872,7 @@ class ROI():
 				p.join()
 
 			#----after running
-			if self.isDebug: self.console('running finished() (multiprocessing)','purple')
+			if self.isDebug: self.console('process() finished (multiprocessing)','purple')
 			df, error = self.finished(returns)
 
 		return df, error

@@ -15,7 +15,7 @@ output_path = '/Users/mdl-admin/Desktop/roi/output/'
 metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'
 
 #%% ##### initiate
-roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, 
+roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=True,
 	image_path=image_path, output_path=output_path, metadata_source=metadata_source, 
 	scale=1, screensize=[1920,1080], center=[(1920*.5),(1080*.5)], shape='straight', 
 	roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})

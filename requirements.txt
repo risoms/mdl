@@ -5,7 +5,6 @@ pandas
 psutil
 scipy
 openpyxl
-pyglet
 matplotlib
 yarg
 psd_tools
