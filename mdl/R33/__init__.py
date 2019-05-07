@@ -19,6 +19,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
+from ..settings import copyInherit
 from ._classify import Classify as _Classify
 from ._metadata import Metadata as _Metadata
 from ._model import Model as _Model
@@ -37,28 +38,33 @@ except ImportError:
     del pkgutil
 
 # classes
+@copyInherit(_Classify)
 class Classify(_Classify):
-	"""Analysis methods for mdl.processing.preprocesing."""
+	"""Classification of eyetracking data for mdl.r33.procesing."""
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
+@copyInherit(_Metadata)
 class Metadata(_Metadata):
 	"""Process participants metadata for analysis and export."""
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
+@copyInherit(_Model)
 class Model(_Model):
 	"""Run statistical models for analysis."""
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
+@copyInherit(_Processing)
 class Processing(_Processing):
 	"""Hub for running processing and analyzing raw data."""
 	def __init__(self, config, isLibrary=False):
 		super().__init__(config, isLibrary=False)
 
+@copyInherit(_Settings)
 class Settings(_Settings):
-	"""Default settings for processing.py"""
+	"""Default settings for mdl.r33.Processing"""
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 

@@ -25,14 +25,14 @@ os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resourc
 
 # local libraries
 if __name__ == '__main__':
-	from mdl import plot
-	from mdl import settings
+	from .. import plot
+	from .. import settings
 
 class Model():
 	"""Run statistical models for analysis."""
 	def __init__(self, isLibrary=False):
 		"""
-		Run statistical models for analysis.
+		Initiate the mdl.r33.Model module.
 
         Parameters
         ----------

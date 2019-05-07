@@ -248,6 +248,11 @@ table.genindextable>tbody>tr>td {
 }
 
 /*--table--*/
+/* citation table */
+table.citation>tbody>tr>td:nth-of-type(2) {
+    width: 100% !important;
+}
+
 /* fix duplicate table issue */
 dl.class>dd>table:nth-of-type(2){
 	display: none;
@@ -462,6 +467,7 @@ footer>.container>div>div {
 	}
 }
 /*--toctree--*/
+/* main */
 #api-reference>.docutils{
 	margin-bottom: 0px;
 }
@@ -472,7 +478,22 @@ footer>.container>div>div {
 	color: #1c75b1 !important;
 	font-weight: 600 !important;
 }
+/* data list */
+a.list-title {
+    color: #444444 !important;
+	cursor: default !important;
+}
+a.list-title:hover, a.list-title:focus{
+    color: #444444 !important;
+	text-decoration: none !important;
+	cursor: default !important;
+}
 
+/*--ipython--*/
+/* code */
+.input_area.highlight-ipython3{
+	overflow-y: hidden !important;
+}
 /* copy buttons */
 a.copybtn {
 	box-sizing: content-box !important;

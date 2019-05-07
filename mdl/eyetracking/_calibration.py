@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: Allows mdl.eyelink.eyetracking module to initiate calibration/validation/drift correction.  
+| `@purpose`: Allow mdl.eyetracking.Eyelink to initiate calibration/validation/drift correction.  
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
@@ -20,14 +20,14 @@ from PIL import Image
 import numpy as np
 
 # local libraries
-from mdl import settings
-from mdl.eyetracking import pylink
+from .. import settings
+from . import pylink
 
 class Calibration(pylink.EyeLinkCustomDisplay):
-	"""Allows mdl.eyelink.eyetracking module to initiate calibration/validation/drift correction"""
+	"""Allow mdl.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
 	def __init__(self, w, h, tracker, window):
 		"""
-        This allows mdl.eyetracking package to initiate calibration/validation/drift correction.
+        Initiate the mdl.eyetracking.Calibration module.
 
         Parameters
         ----------

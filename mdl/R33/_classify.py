@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Analysis methods for mdl.processing.preprocesing.   
+| @purpose: Classification of eyetracking data for mdl.r33.procesing.   
 | @date: Created on Sat May 1 15:12:38 2019   
 | @author: Semeon Risom   
 | @email: semeon.risom@gmail.com   
@@ -20,13 +20,13 @@ import pandas as pd
 
 # local libraries
 if __name__ == "__main__":
-	from mdl import settings
+	from .. import settings
 
 class Classify():
     """Analysis methods for mdl.processing.preprocesing."""
     def __init__(self, isLibrary=False):
         """
-		Analysis methods for mdl.processing.preprocesing.
+		Initiate the mdl.r33.Classify module.
 
         Parameters
         ----------
@@ -37,7 +37,7 @@ class Classify():
         if isLibrary:
             settings.library(__required__)
 
-    def VisualAngle(self,g_x,g_y,config):
+    def VisualAngle(self ,g_x, g_y, config):
         """
         Convert pixel eye-coordinates to visual angle.
 
@@ -47,21 +47,23 @@ class Classify():
             List of gaze coordinates.
         drift : :obj:`dict`
             Counter of drift correct runs.
+		config : :class:`dict`
+            Configuration data for data analysis. i.e. trial number, location.
 
         Notes
         -----
         Stimulus positions (g_x,g_y) are defined in x and y pixel units, 
         with the origin (0,0) being at the **center** of the display, as to match
-        the PsychoPy pix unit coord type.
+        the PsychoPy pix unit coord type.  
 
         The pix2deg method is vectorized, meaning that is will perform the 
         pixel to angle calculations on all elements of the provided pixel
-        position numpy arrays in one numpy call.
+        position numpy arrays in one numpy call.  
 
         The convertion process can use either a fixed eye to calibration 
         plane distance, or a numpy array of eye distances passed as
         eye_distance_mm. In this case the eye distance array must be the same
-        length as g_x, g_y arrays.
+        length as g_x, g_y arrays.  
         """
 
         d_x=config['monitor.cm'][0]
@@ -82,7 +84,7 @@ class Classify():
 
         return np.rad2deg(Ah), np.rad2deg(Av)   
 
-    def Velocity(self,time,d_x,d_y=None):
+    def Velocity(self, time, config, d_x, d_y=None):
         """
         Calculate the instantaneous velocity (degrees / second) for data points in 
         d_x and (optionally) d_y, using the time numpy array for time delta information.
@@ -93,6 +95,8 @@ class Classify():
             Timestamp of each coordinate.
         d_x,d_y : :class:`numpy.ndarray`
             List of gaze coordinates.
+		config : :class:`dict`
+            Configuration data for data analysis. i.e. trial number, location.
 
         Notes
         -----
@@ -115,12 +119,22 @@ class Classify():
         velocity = (velocity_between[1:]+velocity_between[:-1])/2.0
         return velocity
 
-    def Acceleration(self,time,data_x,data_y=None):
+    def Acceleration(self, time, data_x, data_y=None):
         """
         Calculate the acceleration (deg/sec/sec) for data points in 
         d_x and (optionally) d_y, using the time numpy array for 
         time delta information.
-        """
+
+        Parameters
+        ----------
+        time : :class:`numpy.ndarray`
+            Timestamp of each coordinate.
+        d_x,d_y : :class:`numpy.ndarray`
+            List of gaze coordinates.
+		config : :class:`dict`
+            Configuration data for data analysis. i.e. trial number, location.
+        
+		"""
         velocity=Velocity(time,data_x,data_y)
         accel = Velocity(time[1:-1],velocity)
         return accel
@@ -209,8 +223,11 @@ class Classify():
         return np.convolve( m[::-1], y, mode='valid')
 
     def ivt(self,data, v_threshold, config):
-        """Identification with Velocity Threshold.
-        In the I-VT model, the velocity value is computed for every eye position sample. 
+        """
+		Identification with Velocity Threshold.
+        
+		
+		In the I-VT model, the velocity value is computed for every eye position sample. 
         The velocity value is then compared to the threshold. If the sampled velocity is less 
         than the threshold, the corresponding eye-position sample is marked as part of a fixation, 
         otherwise it is marked as a part of a saccade.
@@ -220,7 +237,9 @@ class Classify():
         data : :class:`numpy.ndarray`, shape (N,)
             the smoothed signal (or it's n-th derivative).
         v_threshold : :obj:`str`
-            Velocity threshold in pix/sec
+            Velocity threshold in pix/sec.
+		config : :class:`dict`
+            Configuration data for data analysis. i.e. trial number, location.
 
         Returns
         -------
@@ -328,31 +347,36 @@ class Classify():
 
         return cxy_df
 
-    def hmm(self,data, config, filter_type):
+    def hmm(self, data, filter_type, config):
         """
-        Hidden Makov Model, from https://gitlab.com/nslr/nslr-hmm.
+        Hidden Makov Model, adapted from https://gitlab.com/nslr/nslr-hmm.
+
+        Parameters
+        ----------		
+        data : :class:`pandas.DataFrame`
+            Pandas dataframe of x,y and timestamp positions.
+        filter_type : :class:`dict`
+            Types of filters to use.
+		config : :class:`dict`
+            Configuration data for data analysis. i.e. trial number, location.
 
         Attributes
         ----------
         data : :class:`numpy.ndarray`
-            the smoothed signal (or it's n-th derivative).
+            The smoothed signal (or it's n-th derivative).
         dr_th : :obj:`str`
+			Data threshold.
 
         Notes
-        From:
-			A general approach to signal denoising and eye movement classification
-        	based on segmented linear regression.
-
+		-----
         Saccade:  
 			The saccade is a ballistic movement, meaning it is pre-programmed and
         	does not change once it has started. Saccades of amplitude 40° peak at velocities
         	of 300–600°/s and last for 80–150 ms.
-
         Fixation:  
 			the point between any two saccades, during which the eyes are relatively
 			stationary and virtually all visual input occurs. Regular eye movement alternates
 			between saccades and visual fixations, the notable exception being in smooth pursuit.
-
 		Smooth pursuit:  
 			Smooth pursuit movements are much slower tracking movements of
 			the eyes designed to keep a moving stimulus on the fovea. Such movements are under
@@ -394,7 +418,7 @@ class Classify():
 
     def idt(self,data, dis_threshold, dur_threshold):
         """
-        Identification with Dispersion Threshold
+        Identification with Dispersion Threshold.
 
         Parameters
         ----------

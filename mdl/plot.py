@@ -12,7 +12,7 @@
 __all__ = ['bokeh_trial','bokeh_calibration','onset_diff_plot','density_plot','corr_matrix','boxplot','cooks_plot',
 'residual_plot','qq_plot','logit_plot','html']
 
-#-------global
+# core
 from pdb import set_trace as breakpoint
 from distutils import dir_util
 import importlib
@@ -21,20 +21,20 @@ import shutil
 import sys
 import os
 
-#-------data
+# data
 import pandas as pd
 import numpy as np
 
-#-------seaborn
+# seaborn
 import matplotlib
 matplotlib.use('Agg')
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#-------local
-from mdl import settings
+# local libraries
+from . import settings
 
-#-------constants
+# constants
 console = settings.console
 debug = settings.debug
 

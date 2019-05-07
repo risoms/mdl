@@ -14,7 +14,7 @@ __all__ = ['Processing']
 # required external libraries
 __required__ = ['distutils','importlib','nslr']
 
-# global
+# core
 from pdb import set_trace as breakpoint
 from pathlib import Path
 import numpy as np
@@ -22,24 +22,22 @@ import pandas as pd
 import math as m
 import sys
 import os
-import shutil
 import glob
-import importlib
+
 ## logging
 import logging
-import inspect
 import datetime
 
 # local libraries
 if __name__ == '__main__':
-	from mdl import settings
-	import metadata
+	from .. import Settings
+	from .. import Metadata
 
 class Processing():
     """Hub for running processing and analyzing raw data."""
     def __init__(self, config, isLibrary=True):
         """
-		Hub for running processing and analyzing raw data
+		Initiate the mdl.r33.Processing module.
 
         Parameters
         ----------
@@ -404,21 +402,22 @@ class Processing():
         df : :class:`pandas.DataFrame`
             Pandas dataframe of classified data.
         """
+        from . import Classify
+
         if ctype == 'ivt':
             cnfg = self.config
-            df = classify.ivt(df, v_th, config=cnfg)
+            df = Classify.ivt(df, v_th, config=cnfg)
 
         elif ctype == 'idt':
-            df = classify.idt(df, di_th, dr_th)
+            df = Classify.idt(df, di_th, dr_th)
 
         elif ctype == 'hmm':
             cnfg = self.config
-            df_, cxy_df = classify.hmm(
-                data=df, config=cnfg, filter_type=filter_type)
+            df_, cxy_df = Classify.hmm(data=df, config=cnfg, filter_type=filter_type)
             df = [df_, cxy_df]
 
         elif ctype == 'simple':
-            df = classify.simple(df, missing, maxdist, mindur)
+            df = Classify.simple(df, missing, maxdist, mindur)
 
         else:
             raise ValueError('Unknown classification type: %s. Must be one of %s' % (
@@ -1341,7 +1340,7 @@ class Processing():
         df = pd.concat(l_sub, axis=1, keys=[s.name for s in l_sub], sort=False).T.reset_index(drop=True)
         
         #----format metadata and save
-        df = metadata.summary(df=df, path=spath)
+        df = Metadata.summary(df=df, path=spath)
                 
         #----end
         print(self.console['blue']+'%s finished in %s msec'%(_f,((datetime.datetime.now()-_t0).total_seconds()*1000))+self.console['ENDC'])

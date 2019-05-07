@@ -27,7 +27,7 @@ if __name__ == "__main__":
 	path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 	with open(path) as f:
 		required = f.read().splitlines()
-
+	## required
 	setuptools_kwargs = {
 		'install_requires':required,
 		'zip_safe': False
@@ -49,8 +49,6 @@ if __name__ == "__main__":
 	license_ = open('LICENSE', 'r').read()
 	classifiers = [
 		'Intended Audience :: Science/Research',
-		'Programming Language :: Python :: 3.4',
-		'Programming Language :: Python :: 3.5',
 		'Programming Language :: Python :: 3.6',
 		'Programming Language :: Python :: 3.7',
 		'License :: OSI Approved :: MIT License',
@@ -64,9 +62,7 @@ if __name__ == "__main__":
 	]
 	project_urls = {
 		'Documentation': 'http://mdl.psy.utexas.edu/a/mdl',
-		'Funding': 'https://www.djangoproject.com/fundraising/',
-		'Source': 'https://github.com/django/django',
-		'Tracker': 'https://code.djangoproject.com/',
+		'Source': 'https://github.com/risoms/mdl/'
 	},
 	packages = find_packages()
 	include_package_data = True
@@ -91,7 +87,7 @@ if __name__ == "__main__":
 		long_description_content_type = long_description_content_type,
 		classifiers=classifiers,
 		platforms='any',
-		python_requires='>!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*!=3.5.*!=3.6.*!=3.7.*',
+		python_requires='!=3.5*, <4',
 		namespace_packages=namespace_packages,
 		**setuptools_kwargs
 	)

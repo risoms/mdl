@@ -25,7 +25,7 @@ import pandas as pd
 
 # local libraries
 if __name__ == '__main__':
-	from mdl import settings
+	from .. import settings
 
 FIXATION = 1
 SACCADE = 2

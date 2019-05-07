@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Default settings for processing.py   
+| @purpose: Default settings for mdl.r33.Processing.  
 | @date: Created on Sat May 1 15:12:38 2019
 | @author: Semeon Risom
 | @email: semeon.risom@gmail.com
@@ -20,7 +20,7 @@ import re
 
 # local libraries
 if __name__ == '__main__':
-	from mdl import settings
+	from .. import settings
 
 config={
     #!!!----path
@@ -109,14 +109,14 @@ config={
 }
 
 class Settings():
-    """
-    Default settings for processing.py
-    """
+    """Default settings for mdl.r33.Processing"""
+
+	# default configuration parameters
     config = config
 
     def __init__(self, isLibrary=False):
         """
-		Initiate mdl.r33.Settings.
+		Initiate the mdl.r33.Settings module.
 
 		Parameters
 		----------

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: Module allowing communcation to the SR Research Eyelink eyetracking system.
+| `@purpose`: Interface for the SR Research Eyelink eyetracking system.  
 | `@date`: Created on Wed Feb 13 15:37:43 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
@@ -27,12 +27,12 @@ from IPython.display import display
 
 # local libraries
 if __name__ == '__main__':
-	from mdl import settings
-	from mdl.eyetracking import Calibration
-	from mdl.eyetracking import pylink
+	from .. import settings
+	from . import Calibration
+	from . import pylink
 
 class Eyelink():
-    """Module allowing communcation to the SR Research Eyelink eyetracking system."""
+    """Interface for the SR Research Eyelink eyetracking system."""
     def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
         """
         Initiate the mdl.eyetracking.Eyelink module.
@@ -413,7 +413,7 @@ class Eyelink():
         >>> eyetracking.calibration()
         """		
         # calibration
-        from mdl.eyelink import Calibration
+        from . import Calibration
 
         settings.console(msg="eyetracking.calibration()")
         

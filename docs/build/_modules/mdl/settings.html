@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.settings &#8212; mdl 2019-05-06 documentation</title>
+    <title>mdl.settings &#8212; mdl 2019-05-07 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           mdl</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-06</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-07</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -131,8 +131,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl/docs/build/data/data.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.dashboard.html">mdl.dashboard</a><ul>
@@ -143,6 +143,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/mdl.r33.html">mdl.r33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -169,8 +172,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl/docs/build/data/data.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a></li>
 </ul>
@@ -212,8 +215,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://risoms.github.io/mdl/docs/build/data/data.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://127.0.0.1:8081/">Live</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/mdl.html">API Reference</a></li>
 </ul>
@@ -246,6 +249,30 @@
 <span class="n">path</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="s1">&#39;home&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">copyInherit</span><span class="p">(</span><span class="n">fromfunc</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Copy the docstring of inherited functions and classes.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	fromfunc : [type]</span>
+<span class="sd">		[description]</span>
+<span class="sd">	sep : str, optional</span>
+<span class="sd">		[description], by default &quot;\n&quot;</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	[type]</span>
+<span class="sd">		[description]</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="c1">#breakpoint()</span>
+	<span class="k">def</span> <span class="nf">_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+		<span class="n">sourcedoc</span> <span class="o">=</span> <span class="n">fromfunc</span><span class="o">.</span><span class="vm">__doc__</span>
+		<span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">sourcedoc</span>
+		<span class="k">return</span> <span class="n">func</span>
+
+	<span class="k">return</span> <span class="n">_decorator</span>
 
 <span class="k">def</span> <span class="nf">time</span><span class="p">():</span>
 	<span class="sd">&quot;&quot;&quot;</span>
@@ -304,7 +331,7 @@
 
 	<span class="c1"># result will be in this format: [&lt;PREFIX&gt;];[&lt;COLOR&gt;];[&lt;TEXT DECORATION&gt;][&lt;MESSAGE&gt;][&lt;FINISHING SYMBOL&gt;]</span>
 	<span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[&#39;</span> <span class="o">+</span> <span class="n">_c</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>
-	
+
 	<span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="link"><a class="viewcode-back" href="../../api/mdl.settings.html#mdl.settings.link">[docs]</a><span class="k">def</span> <span class="nf">link</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
@@ -326,9 +353,9 @@
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
 <span class="sd">	&gt;&gt;&gt; link(name=roi, url=&quot;#boxplot&quot;)</span>
-<span class="sd">	</span>
+
 <span class="sd">	.. code-block:: html</span>
-<span class="sd">		</span>
+
 <span class="sd">		&lt;a href=&quot;#boxplot&quot; class=&quot;anchor&quot;&gt;roi&lt;/a&gt;</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 
@@ -586,7 +613,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-06T17:12:33-05:00.</div>
+				<div>Updated 2019-05-07T11:39:27-05:00.</div>
 		</div>
 	</div>
 </footer>

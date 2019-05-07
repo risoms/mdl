@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Resource for downloading files from Box, SSH, REDCap and others.  
+| @purpose: Download raw data from apache, Box, or REDCap servers.  
 | @date: Created on Sat May 1 15:12:38 2019  
 | @author: Semeon Risom  
 | @email: semeon.risom@gmail.com  
@@ -11,21 +11,23 @@
 # available functions
 __all__ = ['Download']
 
-# global
+# core
 from pdb import set_trace as breakpoint
 import os
 from datetime import datetime
 from pathlib import Path
 
 # local libraries
-from mdl import settings
+if __name__ == '__main__':
+	from . import settings
 
 # required external libraries
 __required__ = ['paramiko','openpyxl','requests','ftplib','pandas']
 
 class Download():
+    """Download raw data from apache, Box, or REDCap servers."""
     def __init__(self, isLibrary=False):
-        """Download raw data from apache, Box, or REDCap servers.
+        """Initiate the mdl.Download module.
 
         Parameters
         ----------

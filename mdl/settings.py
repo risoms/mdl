@@ -22,6 +22,30 @@ path = {
 	'home': os.path.dirname(os.path.abspath(__file__))
 }
 
+def copyInherit(fromfunc, sep="\n"):
+	"""Copy the docstring of inherited functions and classes.
+
+	Parameters
+	----------
+	fromfunc : [type]
+		[description]
+	sep : str, optional
+		[description], by default "\n"
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
+	#breakpoint()
+	def _decorator(func):
+		sourcedoc = fromfunc.__doc__
+		if func.__doc__ == None:
+			func.__doc__ = sourcedoc
+		return func
+
+	return _decorator
+
 def time():
 	"""
 	Get local time in ISO-8601 format.
@@ -79,7 +103,7 @@ def console(message, color='blue'):
 
 	# result will be in this format: [<PREFIX>];[<COLOR>];[<TEXT DECORATION>][<MESSAGE>][<FINISHING SYMBOL>]
 	result = '\033[' + _c[color] + message + '\033[0m'
-	
+
 	return print(result)
 
 def link(name, url):
@@ -101,9 +125,9 @@ def link(name, url):
 	Examples
 	--------
 	>>> link(name=roi, url="#boxplot")
-	
+
 	.. code-block:: html
-		
+
 		<a href="#boxplot" class="anchor">roi</a>
 	"""
 

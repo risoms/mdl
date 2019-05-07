@@ -17,7 +17,7 @@ Accesesing Raw Data
 Preprocessing
 ~~~~~~~~~~~~~
 
-.. currentmodule:: mdl.R33
+.. currentmodule:: mdl.r33
 
 .. autosummary::
 
@@ -27,7 +27,7 @@ Preprocessing
 Data Analysis
 ~~~~~~~~~~~~~
 
-.. currentmodule:: mdl.R33
+.. currentmodule:: mdl.r33
 
 .. autosummary::
 

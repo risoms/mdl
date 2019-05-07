@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: Create regions of interest that can be used for data processing and analysis.  
+| `@purpose`: Generate regions of interest that can be used for data processing and analysis.  
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
@@ -33,7 +33,7 @@ import matplotlib.patches as patches
 from psd_tools import PSDImage
 
 class ROI():
-	"""Generate region of interest to be read by Eyelink DataViewer or statistical tool."""
+	"""Generate regions of interest that can be used for data processing and analysis."""
 	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, metadata_source=None, 
 			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
 		"""
@@ -116,13 +116,6 @@ class ROI():
 				* - **dpi** : :class:`int` or :obj:`None`
 				  - (if :code:`save_image` == `True`) Quality of exported images, refers to 'dots per inch'. Default is `300`.
 
-		Raises
-		------
-		Exception
-			[description]
-		Exception
-			[description]
-
 		Attributes
 		----------
 		shape_d : :class:`str` {`ELLIPSE`, `FREEHAND`, `RECTANGLE`}
@@ -147,6 +140,13 @@ class ROI():
 		image_contours : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.
 
+		Raises
+		------
+		Exception
+			[description]
+		Exception
+			[description]
+
 		Examples
 		--------
 		>>> from mdl.roi import ROI
@@ -160,7 +160,7 @@ class ROI():
 			- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
 			- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
 		"""
-		from mdl import settings
+		from . import settings
 		self.console = settings.console
 		self.now = settings.time
 

@@ -9,17 +9,28 @@
 | @url: https://semeon.io/d/R33-analysis  
 """
 
+# available classes and functions
+__all__ = ['Metadata']
+
+# required external libraries
+__required__ = ['pandas','numpy','json']
+
+# core
 from pdb import set_trace as breakpoint
 import os
 import pandas as pd
 import numpy as np
 import json
 
+# local libraries
+if __name__ == '__main__':
+	from . import settings
+
 class Metadata():
 	"""Process participants metadata for analysis and export."""
 	def __init__(self, isLibrary=False):
 		"""
-		Process participants metadata for analysis and export.
+		Initiate the mdl.r33.Metadata module.
 
         Parameters
         ----------
@@ -32,7 +43,8 @@ class Metadata():
 
 	@classmethod
 	def summary(cls, df, path):
-		"""preparing data for use in analysis
+		"""
+		Preparing data for use in analysis.
 
 		Parameters
 		----------

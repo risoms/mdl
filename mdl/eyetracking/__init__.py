@@ -20,6 +20,7 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
 import pylink
+from ..settings import copyInherit
 from ._roi import ROI as _ROI
 from ._eyelink import Eyelink as _Eyelink
 from ._calibration import Calibration as _Calibration
@@ -36,27 +37,23 @@ except ImportError:
     del pkgutil
 
 # classes
+@copyInherit(_Eyelink)
 class Eyelink(_Eyelink):
-	"""
-	Module allowing communcation to the SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 \
-	Plus (5.0), but should be compatiable with earlier systems.
-	"""
+	"""Interface for the SR Research Eyelink eyetracking system."""
 	def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
 		super().__init__(window, timer, isPsychopy=True, subject=None, **kwargs)
 
+@copyInherit(_Calibration)
 class Calibration(_Calibration):
-	"""
-	Allowing mdl.eyetracking package to initiate calibration/validation/drift correction.
-	"""
+	"""Allow mdl.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
 	def __init__(self, w, h, tracker, window):
 		super().__init__(w, h, tracker, window)
 
+@copyInherit(_ROI)
 class ROI(_ROI):
-	"""
-	Generate region of interest to be read by Eyelink DataViewer or statistical tool.
-	"""
+	"""Generate regions of interest that can be used for data processing and analysis."""
 	def __init__(self, image_path=None, output_path=None, metadata_path=None, shape='box', **kwargs):
 		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
 
 # finished
-del breakpoint, os, sys, _ROI, _Eyelink, _Calibration
+del breakpoint, copyInherit, os, sys, _ROI, _Eyelink, _Calibration

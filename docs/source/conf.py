@@ -89,6 +89,17 @@ extensions = [
 # Napoleon settings ----------------------------------------------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
 
+# viewcode settings ----------------------------------------------------------------------------------------------------
+viewcode_follow_imported_members = False
+
+# find source 
+# https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html#event-viewcode-find-source
+def viewcode_find_source(app, modname):
+	pass
+
+def viewcode_follow_imported(app, modname, attribute):
+	pass
+
 # nbsphinx settings ----------------------------------------------------------------------------------------------------
 nbsphinx_allow_errors = False
 nbsphinx_execute = 'never'
@@ -285,5 +296,7 @@ def setup(app):
 	app.connect("autodoc-process-docstring", autodoc_process_docstring) # exclude modules
 	app.connect("autodoc-skip-member", autodoc_skip_member) # include init
 	app.connect('builder-inited', builder_inited) # better apidoc
+	app.connect('viewcode-find-source', viewcode_find_source) # viewcode alter source
+	app.connect('viewcode-follow-imported', viewcode_follow_imported) # viewcode follow source
 	# app.add_directive('autoautosummary', AutoAutoSummary) # auto add function in toctree
 	# app.connect('autodocsumm-grouper', grouper_autodocsumm) # autodocsumm
