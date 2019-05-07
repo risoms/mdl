@@ -87,7 +87,7 @@ class Metadata():
 		"""processing data"""
 		#rename browser, os, date
 		df.rename(columns={'browser':'browser_old','os':'os_old','date':'date_old'}, inplace=True)
-	
+
 		"""gpu_type"""
 		df['gpu_type'] = 'integrated'
 		df.loc[df['gpu'].str.contains('AMD', na=False),'gpu_type'] = 'dedicated'
