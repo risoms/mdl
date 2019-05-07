@@ -1,35 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""pipreqs - Generate pip requirements.txt file based on imports
-
-Usage:
-	pipreqs [options] [path]
-
-Arguments:
-	path				  The path to the directory containing the application
-						  files for which a requirements file should be
-						  generated (defaults to the current working
-						  directory).
-
-Options:
-	--use-local           Use ONLY local package info instead of querying PyPI.
-	--pypi-server <url>   Use custom PyPi server.
-	--proxy <url>         Use Proxy, parameter will be passed to requests
-						  library. You can also just set the environments
-						  parameter in your terminal:
-						  $ export HTTP_PROXY="http://10.10.1.10:3128"
-						  $ export HTTPS_PROXY="https://10.10.1.10:1080"
-	--debug               Print debug information.
-	--ignore <dirs>...    Ignore extra directories, each separated by a comma.
-	--no-follow-links     Do not follow symbolic links in the project
-	--encoding <charset>  Use encoding parameter for file open
-	--savepath <file>     Save the list of requirements in the given file
-	--print               Output the list of requirements in the standard
-						  output.
-	--force               Overwrite existing requirements.txt
-	--diff <file>         Compare modules in requirements.txt to project imports.
-	--clean <file>        Clean up requirements.txt by removing modules that are not imported in project.
-	--noversion           Omit package version from requirements file.
+"""
+pipreqs - Generate pip requirements.txt file based on imports.
 """
 from pdb import set_trace as breakpoint
 from contextlib import contextmanager
@@ -66,13 +38,17 @@ else:
 def _open(filename=None, mode='r'):
 	"""Open a file or ``sys.stdout`` depending on the provided filename.
 
-	Args:
-		filename (str): The path to the file that should be opened. If
-			``None`` or ``'-'``, ``sys.stdout`` or ``sys.stdin`` is
-			returned depending on the desired mode. Defaults to ``None``.
-		mode (str): The mode that should be used to open the file.
+	Parameters
+	----------
+	filename : :obj:`str`
+		The path to the file that should be opened. If ``None`` or ``'-'``, ``sys.stdout`` or ``sys.stdin`` is
+		returned depending on the desired mode. Defaults to ``None``.
+	mode : :obj:`str`
+		The mode that should be used to open the file.
 
-	Yields:
+	Yields
+	------
+	file :
 		A file handle.
 
 	"""
@@ -94,7 +70,7 @@ def _open(filename=None, mode='r'):
 
 def get_all_imports(path, encoding=None, extra_ignore_dirs=None, follow_links=True):
 	"""[summary]
-	
+
 	Parameters
 	----------
 	path : [type]
@@ -105,12 +81,12 @@ def get_all_imports(path, encoding=None, extra_ignore_dirs=None, follow_links=Tr
 		[description], by default None
 	follow_links : bool, optional
 		[description], by default True
-	
+
 	Returns
 	-------
 	[type]
 		[description]
-	
+
 	Raises
 	------
 	exc
@@ -178,6 +154,18 @@ def get_all_imports(path, encoding=None, extra_ignore_dirs=None, follow_links=Tr
 	return list(packages - data)
 
 def filter_line(l):
+	"""[summary]
+
+	Parameters
+	----------
+	l : [type]
+		[description]
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
 	return len(l) > 0 and l[0] != "#"
 
 def generate_requirements_file(path, imports, omit_version=None):
@@ -193,15 +181,30 @@ def generate_requirements_file(path, imports, omit_version=None):
 			out_file.write(''.join(fmt.format(**item) for item in imports))
 		else:
 			fmt = '{name}=={version}\n'
-			out_file.write(''.join(fmt.format(**item) if item['version']
-									 else '{name}'.format(**item)
-									 for item in imports))
+			out_file.write(''.join(fmt.format(**item) if item['version'] else '{name}'.format(**item) for item in imports))
 
-def output_requirements(imports):
-	generate_requirements_file('-', imports)
+def get_imports_info(imports, pypi_server="https://pypi.python.org/pypi/", proxy=None):
+	"""[summary]
 
-def get_imports_info(
-		imports, pypi_server="https://pypi.python.org/pypi/", proxy=None):
+	Parameters
+	----------
+	imports : [type]
+		[description]
+	pypi_server : str, optional
+		[description], by default "https://pypi.python.org/pypi/"
+	proxy : [type], optional
+		[description], by default None
+
+	Returns
+	-------
+	[type]
+		[description]
+
+	Raises
+	------
+	HTTPError
+		[description]
+	"""
 	result = []
 
 	for item in imports:
@@ -224,6 +227,18 @@ def get_imports_info(
 	return result
 
 def get_locally_installed_packages(encoding=None):
+	"""[summary]
+
+	Parameters
+	----------
+	encoding : [type], optional
+		[description], by default None
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
 	packages = {}
 	ignore = ["tests", "_tests", "egg", "EGG", "info"]
 	for path in sys.path:
@@ -253,6 +268,20 @@ def get_locally_installed_packages(encoding=None):
 	return packages
 
 def get_import_local(imports, encoding=None):
+	"""[summary]
+
+	Parameters
+	----------
+	imports : [type]
+		[description]
+	encoding : [type], optional
+		[description], by default None
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
 	local = get_locally_installed_packages()
 	result = []
 	for item in imports:
@@ -272,24 +301,40 @@ def get_import_local(imports, encoding=None):
 def get_pkg_names(pkgs):
 	"""Get PyPI package names from a list of imports.
 
-	Args:
-		pkgs (List[str]): List of import names.
+	Parameters
+	----------
+	pkgs: :obj:`list` of :obj:`str`
+		List of import names.
 
-	Returns:
-		List[str]: The corresponding PyPI package names.
-
+	Returns
+	-------
+	results: :obj:`list` of :obj:`str`
+		The corresponding PyPI package names.
 	"""
-	result = set()
+	_result = set()
 	with open(join("mapping"), "r") as f:
 		data = dict(x.strip().split(":") for x in f)
 	for pkg in pkgs:
 		# Look up the mapped requirement. If a mapping isn't found,
 		# simply use the package name.
-		result.add(data.get(pkg, pkg))
+		_result.add(data.get(pkg, pkg))
 	# Return a sorted list for backward compatibility.
-	return sorted(result)
+	results = sorted(_result)
+	return results
 
 def get_name_without_alias(name):
+	"""[summary]
+
+	Parameters
+	----------
+	name : [type]
+		[description]
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
 	if "import " in name:
 		match = REGEXP[0].match(name.strip())
 		if match:
@@ -297,6 +342,18 @@ def get_name_without_alias(name):
 	return name.partition(' as ')[0].partition('.')[0].strip()
 
 def join(f):
+	"""[summary]
+
+	Parameters
+	----------
+	f : [type]
+		[description]
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
 	return os.path.join(os.path.dirname(__file__), f)
 
 def parse_requirements(file_):
@@ -306,14 +363,20 @@ def parse_requirements(file_):
 	delimiter, get module name by element index, create a dict consisting of
 	module:version, and add dict to list of parsed modules.
 
-	Args:
-		file_: File to parse.
+	Parameters
+	----------
+	file_ : [type]
+		File to parse.
 
-	Raises:
-		OSerror: If there's any issues accessing the file.
+	Raises
+	------
+	OSerror
+		If there's any issues accessing the file.
 
-	Returns:
-		tuple: The contents of the file, excluding comments.
+	Returns
+	-------
+	[type]
+		The contents of the file, excluding comments.
 	"""
 	modules = []
 	# For the dependency identifier specification, see
@@ -353,13 +416,17 @@ def parse_requirements(file_):
 def compare_modules(file_, imports):
 	"""Compare modules in a file to imported modules in a project.
 
-	Args:
-		file_ (str): File to parse for modules to be compared.
-		imports (tuple): Modules being imported in the project.
+	Parameters
+	----------
+	file_ : :obj:`str`
+		File to parse for modules to be compared.
+	imports : :obj:`tuple`
+		Modules being imported in the project.
 
-	Returns:
-		tuple: The modules not imported in the project, but do exist in the
-			   specified file.
+	Returns
+	-------
+	modules_not_imported : :obj:`list`
+		The modules not imported in the project, but do exist in the specified file.
 	"""
 	modules = parse_requirements(file_)
 
@@ -370,7 +437,15 @@ def compare_modules(file_, imports):
 	return modules_not_imported
 
 def diff(file_, imports):
-	"""Display the difference between modules in a file and imported modules."""  # NOQA
+	"""Display the difference between modules in a file and imported modules.
+
+	Parameters
+	----------
+	file_ : [type]
+		[description]
+	imports : [type]
+		[description]
+	"""
 	modules_not_imported = compare_modules(file_, imports)
 
 	logging.info(
@@ -378,7 +453,15 @@ def diff(file_, imports):
 		"{}".format(file_, ", ".join(x for x in modules_not_imported)))
 
 def clean(file_, imports):
-	"""Remove modules that aren't imported in project from file."""
+	"""Remove modules that aren't imported in project from file.
+
+	Parameters
+	----------
+	file_ : [type]
+		[description]
+	imports : [type]
+		[description]
+	"""
 	modules_not_imported = compare_modules(file_, imports)
 	re_remove = re.compile("|".join(modules_not_imported))
 	to_write = []
@@ -419,20 +502,35 @@ def init(args):
 	input_path = args['path'][0]
 	if input_path is None:
 		input_path = os.path.abspath(os.curdir)
+
 	# path
 	path = (args["savepath"] if args["savepath"] else os.path.join(input_path, "requirements.txt"))
 
 	# ignored
-	if extra_ignore_dirs:
-		print('ignored')
-		print(extra_ignore_dirs)
-		extra_ignore_dirs = extra_ignore_dirs.split(',')
+	if args['ignore']:
+		extra_ignore_dirs = args['ignore']
+		logging.debug("ignored: %s"%(extra_ignore_dirs))
+	else:
+		extra_ignore_dirs = None
 
+	# get list of candidates
 	candidates = get_all_imports(input_path, encoding=encoding, extra_ignore_dirs=extra_ignore_dirs, follow_links=follow_links)
 	candidates = get_pkg_names(candidates)
-	logging.debug("Found imports: " + ", ".join(candidates))
+	logging.debug("found imports: %s"%(candidates))
 	pypi_server = "https://pypi.python.org/pypi/"
 	proxy = None
+
+	# include
+	if args["include"]:
+		include = args["include"].split(',')
+		logging.debug("include: %s"%(include))
+		candidates = candidates + include
+
+	# exclude
+	if args["exclude"]:
+		exclude = args["exclude"].split(',')
+		logging.debug("exclude: %s"%(exclude))
+		candidates = [item for item in candidates if item not in exclude]
 
 	# PyPi
 	if args["pypi_server"]:
@@ -444,11 +542,10 @@ def init(args):
 
 	# use_local
 	if args["use_local"]:
-		logging.debug(
-			"Getting package information ONLY from local installation.")
+		logging.debug("getting package information ONLY from local installation")
 		imports = get_import_local(candidates, encoding=encoding)
 	else:
-		logging.debug("Getting packages information from Local/PyPI")
+		logging.debug("fetting packages information from pypi")
 		local = get_import_local(candidates, encoding=encoding)
 		# Get packages that were not found locally
 		difference = [x for x in candidates if x.lower() not in [z['name'].lower() for z in local]]
@@ -466,25 +563,19 @@ def init(args):
 
 	# force
 	if (not args["print"] and not args["savepath"] and not args["force"] and os.path.exists(path)):
-		logging.warning("Requirements.txt already exists, use --force to overwrite it")
+		logging.warning("requirements.txt already exists, use --force to overwrite it")
 		return
 
 	# dont include version
 	if args["noversion"]:
-		print('no pin')
 		omit_version = True
 	else:
 		omit_version = False
-	
-	# exclude
-	if args["exclude"]:
-		exclude = args["exclude"].split(',')
-		imports = [item for item in imports if item['name'] not in exclude]
-	
+
 	# finish
 	if args["print"]:
-		output_requirements(imports)
-		logging.info("Successfully output requirements")
+		generate_requirements_file('-', imports)
+		logging.info("Successfully created requirements.txt")
 	else:
 		generate_requirements_file(path, imports, omit_version)
 		logging.info("Successfully saved requirements file in " + path)
@@ -521,6 +612,7 @@ if __name__ == '__main__':
 	parser.add_argument("--proxy", help='Use Proxy, parameter will be passed to requests\n\
 		library. You can also just set the environments parameter in your terminal: $ export HTTPS_PROXY="https://10.10.1.10:1080"', default=None)
 	parser.add_argument("--debug", help="Print debug information.", nargs='?', const=True, default=None)
+	parser.add_argument("--include", help="Include modules.", nargs='?', const=True, default=None)
 	parser.add_argument("--exclude", help="Exclude modules.", nargs='?', const=True, default=None)
 	parser.add_argument("--ignore", help="Ignore extra directories, each separated by a comma.", default=None)
 	parser.add_argument("--no-follow-links", help="Do not follow symbolic links in the project", nargs='?', const=True, default=None)

@@ -43,7 +43,7 @@ class ROI():
 		----------
 		isMultiprocessing : :obj:`bool`
 			Should the rois be generated using multiprocessing. Default `False`.
-		detection : :obj:`string`
+		detection : :obj:`str`
 			How should the regions of interest be detected. Either manually, through the use of highlight layers, or automatically
 			using haar cascades opencv. Default `manual`.
 		image_path : :obj:`str`
