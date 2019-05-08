@@ -54,3 +54,6 @@ mdl/dist/experiments/_js/tools/_py/variable/placebo_2abc.csv
 imhr.egg-info
 imhr.egg-info/PKG-INFO
 .spyproject
+conda-bld/**/**
+conda-bld/**
+conda-bld

@@ -7,29 +7,28 @@ cd "$(dirname "$0")"
 cd ../
 
 # constants
-pkg='imhr'
+pkg='mdl'
 ARCH=(osx-64 win-64)
 
 # login to anaconda cloud
 #anaconda login
 
 # building conda package
-#conda-build $pkg
+conda-build $pkg --output-folder=./conda-bld
 
 # convert package to other platforms
-cd ~
 platforms=( osx-64 linux-64 win-64 )
-find $HOME/conda-bld/linux-64/ -name *.tar.bz2 | while read file
+find ./conda-bld/linux-64/ -name *.tar.bz2 | while read file
 do
     echo $file
     for platform in "${platforms[@]}"
     do
-       conda convert --platform $platform $file  -o $HOME/conda-bld/
+       conda convert -f --platform all $platform $file  -o ./conda-bld/
     done    
 done
 
 # upload packages to anaconda
-find $HOME/conda-bld/ -name *.tar.bz2 | while read file
+find ./conda-bld/ -name *.tar.bz2 | while read file
 do
     echo $file
     anaconda upload $file
