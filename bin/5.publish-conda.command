@@ -4,43 +4,34 @@
 
 # set path as current location
 cd "$(dirname "$0")"
+$(pwd) #current directory
 
 # constants
-pkg='imhr'
-ARCH=(osx-64 win-64)
-VERSION=( 3.6 3.7 )
+pkg='imhr' #package name
+A=(osx-64 win-64) #architecture
+
 # login to anaconda cloud
 #anaconda login
 
 # get package from pypi
-cd ~
-conda skeleton pypi $pkg
-cd $pkg
-pwd
-wget https://conda.io/docs/_downloads/build1.sh
-wget https://conda.io/docs/_downloads/bld.bat
-cd ~
+#conda skeleton pypi $P
 
 # building conda packages
-for i in "${VERSION[@]}"
-do
-	conda-build --python $i $pkg
-done
+rm -rf conda #remove conda subfolder
+conda build purge-all #clear builds in /anaconda3/conda-bld/
+conda build meta.yaml --python=3.7 --output-folder=./conda/build/ --cache-dir=./conda/cache/ #build
 
 # convert package to other platforms
-cd ~
-platforms=( osx-64 win-64 )
-find $HOME/conda-bld/osx-64/ -name *.tar.bz2 | while read file
+find ./conda/build/osx-64/ -name *.tar.bz2 | while read file
 do
-    echo $file
-    for platform in "${platforms[@]}"
+    for platform in "${pkg[@]}"
     do
-       conda convert -f --platform $platform $file  -o $HOME/conda-bld/
+       conda convert $file --force --verbose --platform=$platform --output-dir=./conda/build/$platform/
     done    
 done
 
 # upload packages to anaconda
-find $HOME/conda-bld/ -name *.tar.bz2 | while read file
+find ./conda-bld/ -name *.tar.bz2 | while read file
 do
     echo $file
     anaconda upload $file

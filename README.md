@@ -10,6 +10,8 @@
 [![PyPI Version](https://img.shields.io/pypi/v/imhr.svg)](https://pypi.org/project/imhr/)
 [![License](https://img.shields.io/pypi/l/imhr.svg)](https://github.com/risoms/mdl/blob/master/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313201.svg)](https://doi.org/10.1016/j.cct.2018.10.014)
+[![Anaconda-Server Badge](https://anaconda.org/risoms/imhr/badges/version.svg)](https://anaconda.org/risoms/imhr)
+[![Anaconda-Server Badge](https://anaconda.org/risoms/imhr/badges/platforms.svg)](https://anaconda.org/risoms/imhr)
 
 mdl: an extensive suite for the exploration, visualization, and analysis of psychological data.
 -------------------------------------------------------------------------------------------------
