@@ -259,12 +259,6 @@ def library(required=None):
 	if isinstance(required, str):
 		required = [required]
 
-	# for geting os variables
-	if platform.system() == "Windows":
-		required.append('win32api')
-	elif platform.system() == 'Darwin':
-		required.append('pyobjc')
-
 	# packages to download from outside of pypi
 	not_pypi = {
 		'nslr': "https://gitlab.com/risoms/nslr"
@@ -272,35 +266,26 @@ def library(required=None):
 
 	# try installing and/or importing packages
 	try:
-		# if pip >= 10.01
-		pip_ = pkg_resources.get_distribution("pip").version
-		if StrictVersion(pip_) > StrictVersion('10.0.0'):
+		import subprocess, sys
+		pipv = pkg_resources.get_distribution("pip").version
+		if StrictVersion(pipv) > StrictVersion('10.0.0'):
 			# for required packages check if package exists on device
 			for package in required:
-				# if missing, install
-				if importlib.util.find_spec(package) is None:
-					# if package is not in PyPi
-					if package in not_pypi:
-						_path = 'git+%s'%(not_pypi[package])
-						_main(['install', _path])
-					# install from PyPi
-					else:
-						_main(['install', package])
-
-		# else pip < 10.01
-		else:
-			# for required packages check if package exists on device
-			for package in required:
-				# if missing
-				if importlib.util.find_spec(package) is None:
-					# if package is not in PyPi
-					if package in not_pypi:
-						_path = 'git+%s'%(not_pypi[package])
-						pip.main(['install', package])
-					# install from PyPi
-					else:
-						pip.main(['install', package])
-
+					# if missing, install
+					if importlib.util.find_spec(package) is None:
+						# if package is not in PyPi
+						if package in not_pypi:
+							_package = 'git+%s'%(not_pypi[package])
+							#_main(['install', _path])
+							subprocess.check_call([sys.executable, '-m', 'pip', 'install', _package])
+						# if package is cv2
+						elif package == 'cv2':
+							#_main(['install', 'opencv-python'])
+							subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'opencv-python'])
+						# install from PyPi
+						else:
+							#_main(['install', package])
+							subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
 	except Exception as error:
 		return error
 

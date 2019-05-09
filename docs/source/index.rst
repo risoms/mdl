@@ -45,7 +45,7 @@ mdl - psychological data science
 		<div class="row">
 			<a href="https://liberalarts.utexas.edu/imhr/">
 				<div class="thumbnail">
-					<img class="imhr" src="_static/img/imhr.png">
+					<img class="imhr" src="_static/img/imhr-header.png">
 				</div>
 			</a>
 		</div>

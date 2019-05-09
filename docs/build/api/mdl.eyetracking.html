@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.eyetracking &#8212; mdl 2019-05-08 documentation</title>
+    <title>mdl.eyetracking &#8212; mdl 2019-05-09 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-08</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-09</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -1173,36 +1173,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.export_data" title="mdl.eyetracking.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.finished" title="mdl.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(df[,&nbsp;errors])</td>
-<td>Process bounds for all images.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process" title="mdl.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_image" title="mdl.eyetracking.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(psd)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_metadata" title="mdl.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
-<td>[summary]</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname[,&nbsp;…])</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.draw_image" title="mdl.eyetracking.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(imagename,&nbsp;data[,&nbsp;source])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.export_data" title="mdl.eyetracking.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
@@ -1221,6 +1192,41 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
+<td>[summary]</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname[,&nbsp;…])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.draw_image" title="mdl.eyetracking.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(imagename,&nbsp;data[,&nbsp;source])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.export_data" title="mdl.eyetracking.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.finished" title="mdl.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(df[,&nbsp;errors])</td>
+<td>Process bounds for all images.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process" title="mdl.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_image" title="mdl.eyetracking.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(psd)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.process_metadata" title="mdl.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.run" title="mdl.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
 <td>[summary]</td>
 </tr>
 </tbody>
@@ -1456,7 +1462,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.create_rois">
-<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roilabel</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1499,6 +1505,31 @@ for more information.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>Exception</strong></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.eyetracking.ROI.draw_image">
+<code class="descname">draw_image</code><span class="sig-paren">(</span><em>imagename</em>, <em>data</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.draw_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1697,7 +1728,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-08T09:40:30-05:00.</div>
+				<div>Updated 2019-05-09T16:28:43-05:00.</div>
 		</div>
 	</div>
 </footer>

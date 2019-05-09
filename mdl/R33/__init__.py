@@ -8,7 +8,7 @@
 | `@url`: https://semeon.io/d/mdl
 """
 # allowed imports
-__all__ = ['Classify','Metadata','Model','nslr','nslr_hmm','Processing','Settings']
+__all__ = ['Classify','Metadata','Model','nslr_hmm','Processing','Settings']
 
 # core
 from pdb import set_trace as breakpoint
@@ -19,6 +19,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
+from . import _nslr_hmm
 from ..settings import copyInherit
 from ._classify import Classify as _Classify
 from ._metadata import Metadata as _Metadata

@@ -1,6 +1,0 @@
-[{
-	"webgazer": {
-		"get coordinates": "webggazer.getCurrentPrediction()",
-		"show prediction points": " webggazer.showPredictionPoints(true)"
-	}
-}]

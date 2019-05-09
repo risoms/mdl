@@ -92,14 +92,28 @@ class Eyelink():
             self.w = int(window.size[0])
             self.h = int(window.size[1])
         else:
+            # if windows
             if platform.system() == "Windows":
-                from win32api import GetSystemMetrics
+				## try to import
+                try:
+                    from win32api import GetSystemMetrics
+                except ImportError:
+                    self.console("No module named 'win32api'. Installing from PyPI",'red')
+                    settings.library(['win32api'])
+				# get width, height	
                 self.w = int(GetSystemMetrics(0))
                 self.h = int(GetSystemMetrics(1))
                 settings.console(msg="mdl.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
+            # else if osx
             elif platform.system() == 'Darwin':
-                import pyobjc
-                from AppKit import NSScreen
+                ## try to import
+                try:
+                    import pyobjc
+                    from AppKit import NSScreen
+                except ImportError:
+                    self.console("No module named 'pyobjc'. Installing from PyPI",'red')
+                    settings.library(['pyobjc'])
+				# get width, height	
                 self.w = int(NSScreen.mainScreen().frame().size.width)
                 self.h = int(NSScreen.mainScreen().frame().size.height)
                 settings.console(msg="mdl.eyetracking(): screensize [%s, %s]."%(self.w, self.h))

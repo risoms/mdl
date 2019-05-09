@@ -7,4 +7,4 @@ cd "$(dirname "$0")"
 cd ../
 
 # run pipreqs
-./mdl/lib/pipreqs/pipreqs.py mdl/ --encoding=iso-8859-1 --debug --force --noversion --exclude=rpy2,pip,PIL,bokeh,pylink,mdl,imhr,AppKit,pyglet,wmi,pyobjc --savepath=requirements.txt
+./mdl/lib/pipreqs/pipreqs.py mdl/ --encoding=iso-8859-1 --debug --force --noversion --exclude=rpy2,pip,PIL,bokeh,pylink,mdl,imhr,AppKit,pyglet,wmi,pyobjc,yarg,scikit_learn,psd_tools,cv2,opencv_python --savepath=requirements.txt

@@ -13,16 +13,16 @@ __all__ = ['ROI']
 # required external libraries
 __required__ = ['opencv-python','psd-tools','matplotlib','Pillow']
 
-# core
+# local
+from .. import settings
+
+# required for init
 from pdb import set_trace as breakpoint
 import psutil
 import os
-
-# data
 from pathlib import Path
 import pandas as pd
 import numpy as np
-import cv2
 
 # plot
 from PIL import Image
@@ -30,7 +30,34 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-from psd_tools import PSDImage
+
+# check if psd_tools and cv2 is available
+# note: anaconda doesn't have a version of psd_tools or opencv-python (cv2) available (5/1/19), so a workaround 
+# when building is to directly install it.
+try:
+	import psd_tools
+	import cv2
+except ImportError as error:
+	import importlib, sys
+	pkg = error.name
+	settings.console("No module named '%s'. Installing from PyPI."%(pkg),'red')
+	# install
+	settings.library([pkg])
+	# if not all packages are available, reload module
+	for x in ['opencv-python','psd-tools']:
+		if importlib.util.find_spec(x) == None:
+			settings.console(('%s not available'%(x),'red'))
+			importlib.reload(sys.modules[__name__])
+	# import modules
+	else:
+		# import modules (<module><package>)
+		for x in [['cv2','opencv-python'],['psd_tools','psd_tools']]:
+			try:
+				settings.console(('import %s'%(x[0]),'blue'))
+				globals()[x[0]] = importlib.import_module(x[0])
+			except ImportError as e:
+				settings.console("import %s unsuccessful. Trying to install."%(x),'red')
+				importlib.reload(sys.modules[__name__])
 
 class ROI():
 	"""Generate regions of interest that can be used for data processing and analysis."""
@@ -160,7 +187,7 @@ class ROI():
 			- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
 			- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
 		"""
-		from .. import settings
+		# get console and time
 		self.console = settings.console
 		self.now = settings.time
 
@@ -455,7 +482,7 @@ class ROI():
 
 		return _bounds, _contours
 
-	def create_rois(self, imagename, metadata, roiname, roilabel, roinumber, _bounds, _contours):
+	def create_rois(self, imagename, metadata, roiname, roinumber, _bounds, _contours):
 		"""[summary]
 
 		Parameters
@@ -514,62 +541,18 @@ class ROI():
 		## convert to int
 		bounds[['x0','y0','x1','y1']] = bounds[['x0','y0','x1','y1']].astype(int)
 
-		#----store contours as df
-		contours = ''
-
-		#----save image:roi level image bounds and coordinates
+		#----save image:roi level image bounds and con
 		#----save roi contours
+		#!! get working: draw exact contours as coordinates
 		if self.save['contours']:
-			#----generated rois (using contours)
-			# create matplotlib plot
-			fig = plt.figure()
-
-			#----load image directly from PSD
-			# contours
-			_arr = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
-			plt.imshow(_arr, zorder=1, interpolation='bilinear', alpha=1)
-
-			# save generated rois (using contours)
-			_folder = '%s/img/roi/generated/%s'%(self.output_path, self.shape)
-			if not os.path.exists(_folder):
-				os.makedirs(_folder)
-			## save
-			plt.savefig('%s/%s_%s_source.png'%(_folder, imagename, roiname), dpi=self.dpi)
-			plt.close(fig)
-
-			#----recreated from dataframe bounds (this is to debug for potential issues)
-			# create matplotlib plot()
-			fig = plt.figure()
-			ax = fig.add_subplot(111)
-
-			# create blank image
-			_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
-			ax.imshow(_img)
-
-			# draw bounds
-			x0 = bounds['x0'].item()
-			y0 = bounds['y0'].item()
-			x1 = bounds['x1'].item()
-			y1 = bounds['y1'].item()
-			_width = x1 - x0
-			_height = y1 - y0
-			ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
-
-			# save rois (debugging for issues)
-			_folder = '%s/img/roi/debug/%s'%(self.output_path, self.shape)
-			if not os.path.exists(_folder):
-				os.makedirs(_folder)
-			## save
-			plt.savefig('%s/%s_%s_source.png'%(_folder, imagename, roiname), dpi=self.dpi)
-			plt.close(fig)
+			contours = _contours
+		# combine metadata with coordinates
+		##!!! get working
 
 		#----save roi df
 		# combine metadata with bounds
 		if metadata is not None:
 			bounds = pd.merge(bounds, metadata, on=['image','roi'], how='outer')
-
-		# combine metadata with coordinates
-		##!!! get working
 
 		# finish
 		return bounds, contours
@@ -602,7 +585,7 @@ class ROI():
 			# if new column is not None and level == image
 			if (isinstance(newcolumn, (dict,))):
 				df[list(newcolumn.keys())[0]] = list(newcolumn.values())[0]
-	
+
 			# if uuid, create a unique column
 			if isinstance(uuid, (list,)):
 				df['uuid'] = df[uuid].apply(lambda x: ''.join(x), axis=1)
@@ -610,7 +593,7 @@ class ROI():
 			# else simply use roiname
 			else:
 				uuid_column = self.roicolumn
-				
+
 		#else if workng with all images
 		elif level == 'all':
 			# if uuid, create a unique column
@@ -618,7 +601,7 @@ class ROI():
 				uuid_column = 'uuid'
 			# else simply use roiname
 			else:
-				uuid_column = self.roicolumn		
+				uuid_column = self.roicolumn
 
 		# check if folder exists
 		if not os.path.exists(path):
@@ -626,13 +609,15 @@ class ROI():
 
 		# export to excel
 		if ((self.roi_format == 'raw') or (self.roi_format == 'both')):
-			df.to_csv("%s/%s.csv"%(path, filename), index=False)
+			filepath = Path("%s/%s.xlsx"%(path, filename))
+			df.to_excel("%s"%(filepath), index=False)
 
 			# if debug
-			if self.isDebug: self.console("## raw data saved @: %s/%s.xlsx"%(path, filename),'green')
+			if self.isDebug: self.console("## raw data saved @: %s"%(filepath),'green')
 
 		# export to ias (dataviewer)
 		if ((self.roi_format == 'dataviewer') or (self.roi_format == 'both')):
+			filepath = Path("%s/%s.ias"%(path, filename))
 			_bounds = '\n'.join(map(str, [
 				"# EyeLink Interest Area Set created on %s."%(self.now()),
 				"# Interest area set file using mdl.roi.ROI()",
@@ -646,13 +631,60 @@ class ROI():
 				df[['shape_d','id','x0','y0','x1','y1',uuid_column]].to_csv(index=False, header=False).replace(',', '	')
 			]))
 			# save to ias
-			with open("%s/%s.ias"%(path, filename), "w") as file:
+			with open("%s"%(filepath), "w") as file:
 				file.write(_bounds)
 
 			# if debug
-			if self.isDebug: self.console("## dataviewer data saved @: %s/%s.ias"%(path, filename),'green')
+			if self.isDebug: self.console("## dataviewer data saved @: %s"%(filepath),'green')
 
 		return df
+
+	def draw_image(self, imagename, data, source='bounds'):
+		"""[summary]
+
+		Parameters
+		----------
+		imagename : [type]
+			[description]
+		data : [type]
+			[description]
+		source : [type]
+			[description]
+		"""
+		# draw image
+		fig = plt.figure()
+		ax = fig.add_subplot(111)
+		## create blank image and draw to figure
+		_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+		ax.imshow(_img)
+		## for each bound draw on figure
+		if source=="bounds":
+			for _bounds in data:
+				## get bounds
+				x0 = _bounds['x0'].item()
+				y0 = _bounds['y0'].item()
+				x1 = _bounds['x1'].item()
+				y1 = _bounds['y1'].item()
+				_width = x1 - x0
+				_height = y1 - y0
+				ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
+			## draw image
+			_folder = '%s/img/roi/bounds'%(self.output_path)
+		## for each contour draw on figure
+		elif source=="contours":
+			for _contours in data:
+				contours = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
+				plt.imshow(contours, zorder=1, interpolation='bilinear', alpha=1)
+			## draw image
+			_folder = '%s/img/roi/contours'%(self.output_path)
+		## check folder
+		if not os.path.exists(_folder):
+			os.makedirs(_folder)
+		## save
+		filepath = Path('%s/%s.png'%(_folder, imagename))
+		if self.isDebug: self.console('## image saved @: %s'%(filepath),'blue')
+		plt.savefig(filepath, dpi=self.dpi)
+		plt.close(fig)
 
 	def process_image(self, psd):
 		"""[summary]
@@ -680,11 +712,11 @@ class ROI():
 				self.console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
 
 		# center and resize image to template screen
-		_background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
-		_offset = ((self.screensize[0] - image.size[0])//2,(self.screensize[1] - image.size[1])//2)
-		_background.paste(image, _offset)
+		background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+		offset = ((self.screensize[0] - image.size[0])//2,(self.screensize[1] - image.size[1])//2)
+		background.paste(image, offset)
 
-		return image
+		return background
 
 	def run(self, directory, core=0, queue=None):
 		"""[summary]
@@ -703,9 +735,6 @@ class ROI():
 		[type]
 			[description]
 		"""
-		#----print
-		self.console('core: %s'%(core),'orange')
-		self.console('for each image','green')
 
 		#----prepare lists for all images
 		l_bounds_all = []
@@ -714,16 +743,19 @@ class ROI():
 
 		#!!!----for each image
 		for file in directory:
-			#----start
+			# console
+			if self.isDebug and self.isMultiprocessing: self.console('core: %s'%(core),'orange')
+			self.console('for each image','green')
+
 			# read image
-			psd = PSDImage.open(file)
+			psd = psd_tools.PSDImage.open(file)
 			imagename = os.path.splitext(os.path.basename(file))[0]
 			if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
-			if self.isDebug: self.console('virtual memory used: %s %%'%(psutil.virtual_memory().percent),'purple'); print()
+			if self.isDebug: self.console('virtual memory used: %s %%'%(psutil.virtual_memory().percent),'purple')
 
 			# clear lists
-			l_bounds = []
-			l_contours = []
+			l_bounds = [] #list of bounds
+			l_contours = [] #list of contours
 
 			#!!!----for each image, save image file
 			if self.save['raw']:
@@ -732,7 +764,7 @@ class ROI():
 				image = self.process_image(psd=psd)
 
 				# check folder
-				_folder = '%s/img/img/'%(self.output_path)
+				_folder = '%s/img/'%(self.output_path)
 				if not os.path.exists(_folder):
 					os.makedirs(_folder)
 
@@ -744,7 +776,10 @@ class ROI():
 				#self.console('test1', 'red')
 
 			#!!!----for each region of interest
+			## counter
 			roinumber = 1
+			## create matplotlib plot()
+			## do for each roi
 			for layer in psd:
 				# skip if layer is main image
 				if Path(layer.name).stem == imagename:
@@ -763,8 +798,18 @@ class ROI():
 					_bounds, _contours = self.create_contours(image, imagename, roiname, self.isMultiprocessing)
 
 					# create rois
-					#self.console('test5', 'red')
-					bounds, contours = self.create_rois(imagename, metadata, roiname, roilabel, roinumber, _bounds, _contours)
+					bounds, contours = self.create_rois(imagename, metadata, roiname, roinumber, _bounds, _contours)
+
+					# try:
+					# 	#self.console('test5', 'red')
+
+					# except Exception as e:
+					# 	# error
+					# 	print(e)
+					# 	#store error
+					# 	l_error.append([imagename, roiname, e]) # <image><roi><error message>
+					# 	# continue to next image
+					# 	break
 
 					# store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
@@ -772,16 +817,20 @@ class ROI():
 
 					# update counter
 					roinumber = roinumber + 1
-			#self.console('test6', 'red')
 
 			#!!!----for each image, export data
+			# draw bounds
+			self.draw_image(imagename, l_bounds, 'bounds')
+			# draw contours
+			self.draw_image(imagename, l_contours, 'contours')
+
 			# concatinate and store bounds for all rois
 			df = pd.concat(l_bounds)
 			l_bounds_all.append(df)
 
 			# export data
 			_filename = "%s_bounds"%(imagename)
-			_folder = '%s/data/img/'%(self.output_path)
+			_folder = '%s/data/'%(self.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
 			df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, newcolumn=self.newcolumn, level='image')
@@ -793,7 +842,7 @@ class ROI():
 		# store
 		## if multiprocessing, store in queue
 		if self.isMultiprocessing:
-			# queue.put(l_bounds_all, l_contours_all, l_error)
+			queue.put(l_bounds_all)
 			pass
 		# if not multiprocessing, return
 		else:
@@ -845,7 +894,6 @@ class ROI():
 			l_bounds_all, l_contours_all, l_error = self.run(self.directory)
 
 			# finish
-			if self.isDebug: self.console('process() finished (not multiprocessing)','purple')
 			df, error = self.finished(df=l_bounds_all)
 
 		# else if multiprocessing
@@ -891,12 +939,13 @@ class ROI():
 		self.console('finished()','purple')
 		# if multiprocessing, combine df from each thread
 		if self.isMultiprocessing:
-			#----concatinate data
+			#concat data
+			df = [i[0] for i in df if len(i) != 0] #check if lists are empty (i.e. if there are more threads than directories)
 			df = pd.concat(df)
 		# else combine lists of df to df
 		else:
 			df = pd.concat(df)
-		
+
 		#!!!----combine all rois across images
 		# export to csv or dataviewer
 		_folder = '%s/'%(self.output_path)

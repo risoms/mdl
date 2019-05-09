@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>mdl.settings &#8212; mdl 2019-05-08 documentation</title>
+    <title>mdl.settings &#8212; mdl 2019-05-09 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           mdl</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-08</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-09</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -488,12 +488,6 @@
 	<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">required</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
 		<span class="n">required</span> <span class="o">=</span> <span class="p">[</span><span class="n">required</span><span class="p">]</span>
 
-	<span class="c1"># for geting os variables</span>
-	<span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
-		<span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;win32api&#39;</span><span class="p">)</span>
-	<span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
-		<span class="n">required</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;pyobjc&#39;</span><span class="p">)</span>
-
 	<span class="c1"># packages to download from outside of pypi</span>
 	<span class="n">not_pypi</span> <span class="o">=</span> <span class="p">{</span>
 		<span class="s1">&#39;nslr&#39;</span><span class="p">:</span> <span class="s2">&quot;https://gitlab.com/risoms/nslr&quot;</span>
@@ -501,35 +495,26 @@
 
 	<span class="c1"># try installing and/or importing packages</span>
 	<span class="k">try</span><span class="p">:</span>
-		<span class="c1"># if pip &gt;= 10.01</span>
-		<span class="n">pip_</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;pip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
-		<span class="k">if</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="n">pip_</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="s1">&#39;10.0.0&#39;</span><span class="p">):</span>
+		<span class="kn">import</span> <span class="nn">subprocess</span><span class="o">,</span> <span class="nn">sys</span>
+		<span class="n">pipv</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;pip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+		<span class="k">if</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="n">pipv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="s1">&#39;10.0.0&#39;</span><span class="p">):</span>
 			<span class="c1"># for required packages check if package exists on device</span>
 			<span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
-				<span class="c1"># if missing, install</span>
-				<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-					<span class="c1"># if package is not in PyPi</span>
-					<span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">not_pypi</span><span class="p">:</span>
-						<span class="n">_path</span> <span class="o">=</span> <span class="s1">&#39;git+</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">not_pypi</span><span class="p">[</span><span class="n">package</span><span class="p">])</span>
-						<span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">_path</span><span class="p">])</span>
-					<span class="c1"># install from PyPi</span>
-					<span class="k">else</span><span class="p">:</span>
-						<span class="n">_main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
-
-		<span class="c1"># else pip &lt; 10.01</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="c1"># for required packages check if package exists on device</span>
-			<span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
-				<span class="c1"># if missing</span>
-				<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-					<span class="c1"># if package is not in PyPi</span>
-					<span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">not_pypi</span><span class="p">:</span>
-						<span class="n">_path</span> <span class="o">=</span> <span class="s1">&#39;git+</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">not_pypi</span><span class="p">[</span><span class="n">package</span><span class="p">])</span>
-						<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
-					<span class="c1"># install from PyPi</span>
-					<span class="k">else</span><span class="p">:</span>
-						<span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
-
+					<span class="c1"># if missing, install</span>
+					<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+						<span class="c1"># if package is not in PyPi</span>
+						<span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">not_pypi</span><span class="p">:</span>
+							<span class="n">_package</span> <span class="o">=</span> <span class="s1">&#39;git+</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">not_pypi</span><span class="p">[</span><span class="n">package</span><span class="p">])</span>
+							<span class="c1">#_main([&#39;install&#39;, _path])</span>
+							<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">_package</span><span class="p">])</span>
+						<span class="c1"># if package is cv2</span>
+						<span class="k">elif</span> <span class="n">package</span> <span class="o">==</span> <span class="s1">&#39;cv2&#39;</span><span class="p">:</span>
+							<span class="c1">#_main([&#39;install&#39;, &#39;opencv-python&#39;])</span>
+							<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="s1">&#39;opencv-python&#39;</span><span class="p">])</span>
+						<span class="c1"># install from PyPi</span>
+						<span class="k">else</span><span class="p">:</span>
+							<span class="c1">#_main([&#39;install&#39;, package])</span>
+							<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="n">package</span><span class="p">])</span>
 	<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
 		<span class="k">return</span> <span class="n">error</span>
 
@@ -614,7 +599,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-08T09:40:30-05:00.</div>
+				<div>Updated 2019-05-09T16:28:43-05:00.</div>
 		</div>
 	</div>
 </footer>
