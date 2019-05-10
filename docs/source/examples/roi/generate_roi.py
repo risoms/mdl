@@ -22,7 +22,7 @@ metadata_source = './metadata.xlsx'
 #%% [markdown]
 # ##### initiate
 #%%
-roi = mdl.eyetracking.ROI(isMultiprocessing=True, isDebug=True, isLibrary=False,
+roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False,
 	image_path=image_path, output_path=output_path, metadata_source=metadata_source, 
 	scale=1, screensize=[1920,1080], center=[(1920*.5),(1080*.5)], shape='straight', 
 	roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})
