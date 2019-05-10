@@ -16,13 +16,13 @@ import mdl
 #%% [markdown]
 # ##### set path
 #%%
-image_path = './raw'
-output_path = './output'
-metadata_source = './metadata.xlsx'
+image_path = '/Users/mdl-admin/Desktop/roi/raw/'
+output_path = '/Users/mdl-admin/Desktop/roi/output/'
+metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'
 #%% [markdown]
 # ##### initiate
 #%%
-roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False,
+roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False, isDemo=False,
 	image_path=image_path, output_path=output_path, metadata_source=metadata_source, 
 	scale=1, screensize=[1920,1080], center=[(1920*.5),(1080*.5)], shape='straight', 
 	roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})

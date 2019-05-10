@@ -36,26 +36,25 @@ import matplotlib.patches as patches
 try:
 	import psd_tools
 	import cv2
-except ImportError as error:
+except ImportError as e:
 	import importlib, sys
 	pkg = error.name
 	settings.console("No module named '%s'. Installing from PyPI."%(pkg),'red')
 	# install
 	settings.library([pkg])
 	# if not all packages are available, reload module
-	for x in ['opencv-python','psd-tools']:
-		if importlib.util.find_spec(x) == None:
-			settings.console(('%s not available'%(x),'red'))
+	for x in [['cv2','opencv-python'],['psd_tools','psd-tools']]:
+		# check if module is not available
+		if importlib.util.find_spec(x[0]) is None:
+			settings.console('%s not available'%(x),'red')
 			importlib.reload(sys.modules[__name__])
-	# import modules
-	else:
-		# import modules (<module><package>)
-		for x in [['cv2','opencv-python'],['psd_tools','psd-tools']]:
+		# import modules
+		else:
 			try:
-				settings.console(('import %s'%(x[0]),'blue'))
-				globals()[x[0]] = importlib.import_module(x[0])
+				settings.console(('import %s'%(mod[0]),'blue'))
+				globals()[mod[0]] = importlib.import_module(mod[0])
 			except ImportError as e:
-				settings.console("import %s unsuccessful. Trying to install."%(x),'red')
+				settings.console("import %s unsuccessful. Trying to install."%(mod[0]),'red')
 				importlib.reload(sys.modules[__name__])
 
 class ROI():
@@ -122,6 +121,8 @@ class ROI():
 				  - Check if required packages have been installed. Default is :obj:`False`.
 				* - **isDebug** : :class:`bool`
 				  - Allow flags to be visible. Default is :obj:`False`.
+				* - **isDemo** : :class:`bool`
+				  - Tests code with in-house images and metadata. Default is :obj:`False`.
 				* - **save_data** : :class:`bool`
 				  - Save coordinates. Default is :obj:`True.`
 				* - **newcolumn** : :class:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
@@ -199,6 +200,8 @@ class ROI():
 			settings.library(__required__)
 
 		#----parameters
+		# demo
+		self.isDemo = kwargs['isDemo'] if 'isDemo' in kwargs else False
 		# multiprocessing
 		self.isMultiprocessing = isMultiprocessing
 		self.cores = kwargs['cores'] if 'cores' in kwargs else 'max'
@@ -238,16 +241,6 @@ class ROI():
 		self.save['contours'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
 		# save raw images
 		self.save['raw'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
-		# image_path
-		if image_path is None:
-			self.image_path = os.getcwd() + "./dist/example/raw/"
-		else:
-			self.image_path = image_path
-		# output_path
-		if output_path is None:
-			self.output_path = os.getcwd() + "./dist/example/"
-		else:
-			self.output_path = output_path
 
 		#----shape
 		# check if trying to do complex ROI using dataviewer
@@ -256,6 +249,16 @@ class ROI():
 					Please use either 'circle', 'rotate', or 'straight' instead, or set roi_format == 'raw'."%(shape))
 
 		#----directory
+		if self.isDemo is True:
+			import sys
+			path = Path(sys.argv[0]).parent
+			self.image_path = "%s/raw/"%(path)
+			self.output_path = "%s/output/"%(path)
+			metadata_source = "%s/metadata.xlsx"%(path)
+		else:
+			self.image_path = image_path
+			self.output_path = output_path
+		# set directory of files
 		self.directory = [x for x in Path(self.image_path).glob("*.psd") if x.is_file()]
 
 		#----read metadata file (if metadata is not None)
@@ -317,7 +320,7 @@ class ROI():
 
 		return metadata, roiname, roilabel
 
-	def create_contours(self, image, imagename, roiname, isMultiprocessing=False):
+	def create_contours(self, image, imagename, roiname):
 		"""[summary]
 
 		Parameters
@@ -353,16 +356,10 @@ class ROI():
 		#self.console('test4.1.5', 'red')
 		#image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-		# if is multiprocessing create spawn. 
-		# note: this will prevent process lock
-		# if isMultiprocessing:
-		# 	multiprocessing.set_start_method('spawn')
-
 		# threshold the image
 		## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
 		#self.console('test4.2', 'red')
 		retval, threshold = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
-
 
 		# find contour in image
 		#self.console('test4.3', 'red')
@@ -741,10 +738,11 @@ class ROI():
 		l_error = []
 
 		#!!!----for each image
+		self.console('starting()','purple')
+		if self.isDebug: self.console('for each image','purple')
 		for file in directory:
 			# console
 			if self.isDebug and self.isMultiprocessing: self.console('core: %s'%(core),'orange')
-			self.console('for each image','green')
 
 			# read image
 			psd = psd_tools.PSDImage.open(file)
@@ -793,7 +791,7 @@ class ROI():
 
 					# create contours
 					#self.console('test4', 'red')
-					_bounds, _contours = self.create_contours(image, imagename, roiname, self.isMultiprocessing)
+					_bounds, _contours = self.create_contours(image, imagename, roiname)
 
 					# create rois
 					bounds, contours = self.create_rois(imagename, metadata, roiname, roinumber, _bounds, _contours)
@@ -856,7 +854,7 @@ class ROI():
 		"""
 		# prepare arguements and procedure
 		df = ''
-		error = ''
+
 		# if multiprocessing, get total cores
 		if self.isMultiprocessing:
 			import multiprocessing
@@ -934,7 +932,6 @@ class ROI():
 		errors : [type], optional
 			[description], by default None
 		"""
-		self.console('finished()','purple')
 		# if multiprocessing, combine df from each thread
 		if self.isMultiprocessing:
 			#concat data
@@ -959,6 +956,8 @@ class ROI():
 		else:
 			error = None
 
+		# finished
+		self.console('finished()','purple')
 		return df, error
 
 #%% test
