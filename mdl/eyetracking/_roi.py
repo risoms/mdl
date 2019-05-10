@@ -38,7 +38,7 @@ try:
 	import cv2
 except ImportError as e:
 	import importlib, sys
-	pkg = error.name
+	pkg = e.name
 	settings.console("No module named '%s'. Installing from PyPI."%(pkg),'red')
 	# install
 	settings.library([pkg])
