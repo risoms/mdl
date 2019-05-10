@@ -10,7 +10,6 @@ matrix:
     os: osx
     language: shell
 	before_script:
-	  - echo 'path------------'
 	  - $(pwd)
   - name: "Python 3.7 on Windows"
   	os: windows
@@ -18,7 +17,6 @@ matrix:
     env: export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
     before_install: choco install python3
 	before_script:
-	  - echo 'path------------'
 	  - cd
 
 # before install
