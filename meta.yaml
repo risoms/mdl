@@ -13,27 +13,30 @@ build:
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
   ignore_run_exports:
-    - ipython
     - matplotlib
     - scikit-learn
+    - psd-tools
+    - opencv-python
     - pillow
     - pandas
     - psutil
     - opencv
     - dso
+    - rpy2
+    - bokeh
 
 requirements:
   host:
-    - pip
     - python
+    - pip
+    - setuptools
   build:
-    - pip
     - python
-    - numpy
-    - scipy
+    - pip
+    - setuptools
   run:
-    - pip
     - python
+    - pip
     - setuptools
     - numpy
     - scipy
