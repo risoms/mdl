@@ -38,6 +38,7 @@ requirements:
     - python
     - pip
     - setuptools
+    - pillow
     - numpy
     - scipy
     - certifi

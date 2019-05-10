@@ -29,7 +29,8 @@ if __name__ == "__main__":
 		required = f.read().splitlines()
 	## required
 	setuptools_kwargs = {
-		'install_requires':required
+		'install_requires':required,
+		'zip_safe':True
 	}
 
 	# setup 

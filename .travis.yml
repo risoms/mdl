@@ -2,7 +2,7 @@ sudo: true
 # command to install dependencies and package
 install:
   - pip install -r requirements.txt
-  - python setup.py install
+  - pip install imhr
 dist: xenial   # required for Python >= 3.7
 language: python
 python:
@@ -14,4 +14,4 @@ branches:
 # script:
 #   - echo "TODO"
 script:
-  - python tests/generate_roi.py
+  - python mdl/tests/generate_roi.py

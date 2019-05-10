@@ -70,4 +70,4 @@ class Settings(_Settings):
 		super().__init__(isLibrary=False)
 
 # finished
-del os, sys, _Classify, _Metadata, _Model, _Processing, _Settings
+# del os, sys, _Classify, _Metadata, _Model, _Processing, _Settings

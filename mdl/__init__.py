@@ -38,7 +38,7 @@ from . import plot
 from . import r33
 from . import settings
 
-del os, sys
+# del os, sys
 
 # version
 from ._version import get_versions
