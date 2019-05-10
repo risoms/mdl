@@ -8,7 +8,7 @@ cd ../
 
 # constants
 pkg='imhr' #package name
-architecture=(osx-64 linux-64 win-64) #architecture
+architecture=(osx-64 win-64) #architecture
 
 # login to anaconda cloud
 #anaconda login

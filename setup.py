@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-@purpose: Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0),
+@`purpose`: Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0),
 but should be compatiable with earlier systems.
-@date: Created on Sat May 1 15:12:38 2019
-@author: Semeon Risom
-@email: semeon.risom@gmail.com
-@url: https://semeon.io/d/mdl-R33
+@`date`: Created on Sat May 1 15:12:38 2019
+@`author`: Semeon Risom
+@`email`: semeon.risom@gmail.com
+@`url`: https://semeon.io/d/mdl-R33
 """
 
 if __name__ == "__main__":
@@ -56,7 +56,6 @@ if __name__ == "__main__":
 		'Topic :: Scientific/Engineering :: Visualization',
 		'Topic :: Scientific/Engineering :: Human Machine Interfaces',
 		'Topic :: Multimedia :: Graphics',
-		'Operating System :: Unix',
 		'Operating System :: MacOS',
 		'Operating System :: Microsoft :: Windows'
 	]

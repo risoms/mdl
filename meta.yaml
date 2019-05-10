@@ -54,13 +54,13 @@ test:
     - mdl.settings
 
 about:
-  home: http://mdl.psy.utexas.edu/a/mdl/
+  home: http://mdl.psy.utexas.edu/a/mdl
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: mdl - Psychology Data Science Suite
-  doc_url: https://risoms.github.io/mdl/docs/build/
-  dev_url: https://github.com/risoms/mdl/
+  doc_url: https://risoms.github.io/mdl/docs/build
+  dev_url: https://github.com/risoms/mdl
 
 extra:
   recipe-maintainers:
