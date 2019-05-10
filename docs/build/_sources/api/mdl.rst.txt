@@ -20,7 +20,6 @@ mdl
 		:maxdepth: 2
 		:hidden:
 		
-		mdl.dashboard
 		mdl.eyetracking
 		mdl.r33
 		mdl.download
@@ -33,7 +32,6 @@ mdl
 .. autosummary::
 	
 	
-	mdl.dashboard
 	mdl.eyetracking
 	mdl.r33
 	mdl.download

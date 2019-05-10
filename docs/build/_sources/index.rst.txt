@@ -33,8 +33,8 @@
 	}
 	</style>
 
-mdl - psychological data science
-""""""""""""""""""""""""""""""""
+mdl - an extensive library for the exploration, visualization, and analysis of psychological data
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. title:: mdl
 
@@ -55,15 +55,17 @@ mdl - psychological data science
 		<div class="row">
 			<div class="col-md-6">
 
-mdl, an extensive library for the exploration, visualization, and analysis of psychological data. 
-This library was created at the `Institute for Mental Health Research <http://mdl.psy.utexas.edu/>`_, 
-at `the University of Texas at Austin <http://www.utexas.edu/>`_ by `Semeon Risom <https://semeon.io>`_.
+This library was created at the `Institute for Mental Health Research <http://mdl.psy.utexas.edu/>`__, 
+at `the University of Texas at Austin <http://www.utexas.edu/>`__ by `Semeon Risom <https://semeon.io>`__.
+This library was developed in part by funding of NIMH grant MH109600.
 
-For a brief introduction to the ideas behind the library, you can read the
-:ref:`introduction <intro>`. Visit the :ref:`installation page
-<install>` to see how you can download the package. You can browse the
-:ref:`examples <examples>` to see what you can do with this package,
-and then check out the :ref:`API reference <mdl>` to find out how.
+	Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018). 
+		Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial. 
+		Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
+
+For a brief introduction to the ideas behind the library, you can read the :ref:`introduction <intro>`. Visit the 
+:ref:`installation page <install>` to see how you can download the package. You can browse the :ref:`examples <examples>` 
+to see what you can do with this package, and then check out the :ref:`API reference <mdl>` to find out how.
 
 To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl>`_ repository.
 

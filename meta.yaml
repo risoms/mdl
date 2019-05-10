@@ -1,5 +1,5 @@
 {% set name = "imhr" %}
-{% set version = "0.2.1" %}
+{% set version = "0.2.2" %}
 
 package:
   name: "{{ name|lower }}"
@@ -20,16 +20,22 @@ build:
     - pandas
     - psutil
     - opencv
+    - dso
 
 requirements:
   host:
     - pip
     - python
+  build:
+    - pip
+    - python
+    - numpy
+    - scipy
   run:
     - pip
     - python
     - setuptools
-    - numpy x.x
+    - numpy
     - scipy
     - certifi
     - docopt
@@ -43,6 +49,9 @@ test:
     - mdl
     - mdl.eyetracking
     - mdl.r33
+    - mdl.download
+    - mdl.plot
+    - mdl.settings
 
 about:
   home: http://mdl.psy.utexas.edu/a/mdl/

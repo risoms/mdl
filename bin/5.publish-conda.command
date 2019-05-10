@@ -27,7 +27,7 @@ find /anaconda3/pkgs/ -name imhr-*.tar.bz2 | while read file
 do
 	for arch in "${architecture[@]}"
 	do
-		conda convert --force --verbose --platform=$arch --output-dir=./conda/$arch /anaconda3/pkgs/$file
+		conda convert --force --verbose --platform=$arch --output-dir=./conda/$arch $file
 	done
 done
 

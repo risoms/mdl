@@ -18,7 +18,6 @@ from .. import settings
 
 # required for init
 from pdb import set_trace as breakpoint
-import psutil
 import os
 from pathlib import Path
 import pandas as pd
@@ -751,7 +750,6 @@ class ROI():
 			psd = psd_tools.PSDImage.open(file)
 			imagename = os.path.splitext(os.path.basename(file))[0]
 			if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
-			if self.isDebug: self.console('virtual memory used: %s %%'%(psutil.virtual_memory().percent),'purple')
 
 			# clear lists
 			l_bounds = [] #list of bounds
