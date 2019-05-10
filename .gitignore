@@ -37,6 +37,8 @@ mdl/dist/output/**/*.csv
 build/**
 dist/**
 env/**
+anaconda3/**
+conda/**
 imhr.egg-info/**
 mdl.egg-info/**
 .vscode/**

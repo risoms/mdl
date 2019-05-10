@@ -168,19 +168,35 @@ def filter_line(l):
 	"""
 	return len(l) > 0 and l[0] != "#"
 
-def generate_requirements_file(path, imports, omit_version=None):
+def generate_requirements_file(path, imports, versioning):
+	"""[summary]
+
+	Parameters
+	----------
+	path : [type]
+		[description]
+	imports : [type]
+		[description]
+	versioning : [type]
+		[description]
+	"""
 	with open(path, "w") as out_file:
 		logging.debug('Writing {num} requirements: {imports} to {file}'.format(
 			num=len(imports),
 			file=path,
 			imports=", ".join([x['name'] for x in imports])
 		))
-
-		if omit_version is True:
+		# if excluding version
+		if versioning == "logging":
+			pass
+		elif versioning == None:
 			fmt = '{name}\n'
 			out_file.write(''.join(fmt.format(**item) for item in imports))
-		else:
+		elif versioning == "exact":
 			fmt = '{name}=={version}\n'
+			out_file.write(''.join(fmt.format(**item) if item['version'] else '{name}'.format(**item) for item in imports))
+		else:
+			fmt = '{name}>={version}\n'
 			out_file.write(''.join(fmt.format(**item) if item['version'] else '{name}'.format(**item) for item in imports))
 
 def get_imports_info(imports, pypi_server="https://pypi.python.org/pypi/", proxy=None):
@@ -566,18 +582,20 @@ def init(args):
 		logging.warning("requirements.txt already exists, use --force to overwrite it")
 		return
 
-	# dont include version
-	if args["noversion"]:
-		omit_version = True
-	else:
-		omit_version = False
+	# versioning
+	if args["version"] == "greater":
+		versioning = "greater"
+	elif args["version"] == "exact":
+		versioning = "exact"
+	elif ((args["version"] == "None") or (args["version"] is None)):
+		versioning = None
 
 	# finish
 	if args["print"]:
-		generate_requirements_file('-', imports)
+		generate_requirements_file('-', imports, 'logging')
 		logging.info("Successfully created requirements.txt")
 	else:
-		generate_requirements_file(path, imports, omit_version)
+		generate_requirements_file(path, imports, versioning)
 		logging.info("Successfully saved requirements file in " + path)
 
 def run(args):
@@ -601,10 +619,10 @@ if __name__ == '__main__':
 	sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
 	parser = argparse.ArgumentParser(
 		prog = sys.argv[0],
-		usage = "Generate pip requirements.txt file based on imports"
+		usage = "Generate pip requirements.txt file based on imports."
 	)
 	# Arguments
-	parser.add_argument("path", nargs='+', help="The path to the directory containing the application\
+	parser.add_argument("path", nargs='+', help="The path to the directory containing the application \
 		files for which a requirements file should be generated (defaults to the current working directory).")
 	# options
 	parser.add_argument("--use-local", help="Use ONLY local package info instead of querying PyPI.", default=None)
@@ -622,6 +640,7 @@ if __name__ == '__main__':
 	parser.add_argument("--force", help="Overwrite existing requirements.txt", nargs='?', const=True, default=None)
 	parser.add_argument("--diff", help="Compare modules in requirements.txt to project imports.")
 	parser.add_argument("--clean", help="Clean up requirements.txt.")
-	parser.add_argument("--noversion", help="Omit package version from requirements file.", nargs='?', const=True, default=None)
+	parser.add_argument("--version", help="Control package version from requirements file. \
+		Either: `None`, `exact`, `greater`. Default `greater`.", nargs='?', const=True, default="greater")
 	args = parser.parse_args()
 	sys.exit(run(args))

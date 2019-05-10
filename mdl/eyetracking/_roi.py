@@ -51,7 +51,7 @@ except ImportError as error:
 	# import modules
 	else:
 		# import modules (<module><package>)
-		for x in [['cv2','opencv-python'],['psd_tools','psd_tools']]:
+		for x in [['cv2','opencv-python'],['psd_tools','psd-tools']]:
 			try:
 				settings.console(('import %s'%(x[0]),'blue'))
 				globals()[x[0]] = importlib.import_module(x[0])
