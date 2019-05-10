@@ -57,7 +57,7 @@ mdl - an extensive library for the exploration, visualization, and analysis of p
 
 This library was created at the `Institute for Mental Health Research <http://mdl.psy.utexas.edu/>`__, 
 at `the University of Texas at Austin <http://www.utexas.edu/>`__ by `Semeon Risom <https://semeon.io>`__.
-This library was developed in part by funding of NIMH grant MH109600.
+This library was developed in part by funding of NIMH grant `5R33MH109600-03 <https://projectreporter.nih.gov/project_info_details.cfm?aid=9659376>`__.
 
 	Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018). 
 		Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial. 
