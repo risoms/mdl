@@ -13,12 +13,7 @@ branches:
   only:
     - master
 # command to run tests
-# install:
-#   - make build
+# script:
+#   - echo "TODO"
 script:
-  - echo "TODO"
-# jobs:
-#   include:
-#     - stage: build
-#       install: tests/ci/install.build
-#       script: tests/ci/build
+  - python docs/source/examples/roi/generate_roi.py

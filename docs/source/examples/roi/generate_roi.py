@@ -1,24 +1,32 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 23 08:43:16 2019
-
-@author: mdl-admin
+@`purpose`: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.  
+@`date`: Created on Sat May 1 15:12:38 2019  
+@`author`: Semeon Risom  
+@`email`: semeon.risom@gmail.com  
+@`url`: https://semeon.io/d/mdl
 """
-
-#%% ##### import mdl package
+#%% [markdown]
+# #### Read ROI from photoshop PSD files
+#%% [markdown]
+# ##### import mdl package
+#%%
 import mdl
-
-#%% ##### set path
-image_path = '/Users/mdl-admin/Desktop/roi/raw'
-output_path = '/Users/mdl-admin/Desktop/roi/output'
-metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'
-
-#%% ##### initiate
+#%% [markdown]
+# ##### set path
+#%%
+image_path = './raw'
+output_path = './output'
+metadata_source = './metadata.xlsx'
+#%% [markdown]
+# ##### initiate
+#%%
 roi = mdl.eyetracking.ROI(isMultiprocessing=True, isDebug=True, isLibrary=False,
 	image_path=image_path, output_path=output_path, metadata_source=metadata_source, 
 	scale=1, screensize=[1920,1080], center=[(1920*.5),(1080*.5)], shape='straight', 
 	roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})
-
-#%% ##### start
+#%% [markdown]
+# ##### start
+#%%
 df, error = roi.process()
