@@ -126,7 +126,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-path">set path</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
@@ -180,7 +180,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-path">set path</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
@@ -240,7 +240,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-path">set path</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
@@ -479,24 +479,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../../../../&#39;</span><span class="p">))</span>
-<span class="kn">import</span> <span class="nn">mdl</span>
+<span></span><span class="kn">import</span> <span class="nn">mdl</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="set-paths">
-<h2>set paths<a class="headerlink" href="#set-paths" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-path">
+<h2>set path<a class="headerlink" href="#set-path" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/raw/&#39;</span>
-<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/output/&#39;</span>
-<span class="n">metadata_source</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/metadata.xlsx&#39;</span>
+<span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;./raw&#39;</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;./output&#39;</span>
+<span class="n">metadata_source</span> <span class="o">=</span> <span class="s1">&#39;./metadata.xlsx&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -508,7 +505,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">image_path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="n">metadata_source</span><span class="p">,</span>
     <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">5</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">5</span><span class="p">)],</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span>
     <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;position&#39;</span><span class="p">],</span> <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">})</span>
@@ -1033,7 +1030,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-10T11:41:09-05:00.</div>
+				<div>Updated 2019-05-10T15:34:16-05:00.</div>
 		</div>
 	</div>
 </footer>

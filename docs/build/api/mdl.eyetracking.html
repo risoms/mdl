@@ -126,7 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-paths">set paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
@@ -1161,7 +1161,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.__init__" title="mdl.eyetracking.ROI.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([image_path,&nbsp;output_path,&nbsp;…])</td>
 <td>Initiate the mdl.eyetracking.ROI module.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname[,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
@@ -1196,7 +1196,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname[,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_contours" title="mdl.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.eyetracking.ROI.create_rois" title="mdl.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
@@ -1308,35 +1308,38 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <tr class="row-even"><td><strong>isDebug</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Allow flags to be visible. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</td>
 </tr>
-<tr class="row-odd"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-odd"><td><strong>isDemo</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Tests code with in-house images and metadata. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save coordinates. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">True.</span></code></td>
 </tr>
-<tr class="row-even"><td><strong>newcolumn</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a></td>
+<tr class="row-odd"><td><strong>newcolumn</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a></td>
 <td><dl class="first last docutils">
 <dt>Add additional column to metadata. This must be in the form of a dict in this form {key: value}. </dt>
 <dd>Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">False.</span></code></dd>
 </dl>
 </td>
 </tr>
-<tr class="row-odd"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-even"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save images. Default is True.</td>
 </tr>
-<tr class="row-even"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-odd"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save generated contours as images. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>.</td>
 </tr>
-<tr class="row-odd"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="row-even"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
 <td>(if <code class="code docutils literal notranslate"><span class="pre">source</span></code> == <cite>psd</cite>) How is metadata delimited, options are: <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>tab</cite> or <cite>space</cite> Default is <cite>;</cite>.</td>
 </tr>
-<tr class="row-even"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<tr class="row-odd"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
 <td>Monitor size is being presented. Default is <cite>[1920, 1080]</cite>.</td>
 </tr>
-<tr class="row-odd"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="row-even"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
 <td>If image is scaled during presentation, set scale. Default is 1.</td>
 </tr>
-<tr class="row-even"><td><strong>center</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<tr class="row-odd"><td><strong>center</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
 <td>Center point of image, relative to screensize. Default is <cite>[960, 540]</cite>.</td>
 </tr>
-<tr class="row-odd"><td><strong>dpi</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="row-even"><td><strong>dpi</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 <td>(if <code class="code docutils literal notranslate"><span class="pre">save_image</span></code> == <cite>True</cite>) Quality of exported images, refers to ‘dots per inch’. Default is <cite>300</cite>.</td>
 </tr>
 </tbody>
@@ -1414,7 +1417,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.create_contours">
-<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em>, <em>isMultiprocessing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1722,7 +1725,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-10T11:41:09-05:00.</div>
+				<div>Updated 2019-05-10T15:34:16-05:00.</div>
 		</div>
 	</div>
 </footer>
