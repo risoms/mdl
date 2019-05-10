@@ -55,5 +55,5 @@ class ROI(_ROI):
 	def __init__(self, image_path=None, output_path=None, metadata_path=None, shape='box', **kwargs):
 		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
 
-# finished
+# finished 
 #del copyInherit, os, sys, _ROI, _Eyelink, _Calibration
