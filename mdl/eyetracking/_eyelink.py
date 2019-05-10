@@ -11,7 +11,7 @@
 __all__ = ['Eyelink']
 
 # required external libraries
-__required__ = ['IPython','psychopy','platform','pandas','pathlib']
+__required__ = ['psychopy','platform','pandas','pathlib']
 
 # core
 import time
@@ -23,7 +23,6 @@ from pathlib import Path
 
 # debug
 from pdb import set_trace as breakpoint
-from IPython.display import display
 
 # local libraries
 if __name__ == '__main__':
@@ -383,8 +382,9 @@ class Eyelink():
         # reset truncation
         pd.set_option('display.max_colwidth', width)
 
-        #if ipython
-        display(param)
+        #if ipython		
+		# from IPython.display import display
+        # display(param)
         
         return param
 

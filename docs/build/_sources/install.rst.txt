@@ -9,23 +9,24 @@ Installation
 
    <div class="col-md-9">
 
-The latest stable release (and older versions) can be installed from ``PyPI``::
+This package and its dependencies are available as wheel packages for macOS, Windows and Linux distributions from `PyPI <https://pypi.org/project/imhr>`__::
 
-    pip install imhr
+	:code:pip install imhr 
 
-Alternatively, you can install the development version directly from ``github``::
+or the `anaconda <https://anaconda.org/risoms/imhr>`__ package cloud repo::
 
-    pip install git+https://github.com/risoms/IMHR-R33.git
+	:code:conda install -c risoms imhr
 
-Another option would be to to clone the `github repository
-<https://github.com/risoms/IMHR-R33>`_ and install from your local copy::
+Alternatively, you can install the development version directly from `github <https://github.com/risoms/mdl>`__ repo::
 
-    pip install .
+	:code:pip install git+https://github.com/risoms/mdl.git
 
 Dependencies
 ~~~~~~~~~~~~
 
--  `Python 3.6+ <https://www.python.org/downloads/>`__
+mdl requires the following dependencies:
+
+-  `Python 3.6 >= <https://www.python.org/downloads/>`__
 
 -  `numpy <http://www.numpy.org/>`__
 

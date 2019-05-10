@@ -4,11 +4,11 @@
 
 # set path as current location
 cd "$(dirname "$0")"
-$(pwd) #current directory
+cd ../
 
 # constants
 pkg='imhr' #package name
-A=(osx-64 win-64) #architecture
+architecture=(osx-64 linux-64 win-64) #architecture
 
 # login to anaconda cloud
 #anaconda login
@@ -18,23 +18,23 @@ A=(osx-64 win-64) #architecture
 
 # building conda packages
 rm -rf conda #remove conda subfolder
-conda build purge-all #clear builds in /anaconda3/conda-bld/
-conda build meta.yaml --python=3.7 --output-folder=./conda/build/ --cache-dir=./conda/cache/ #build
+conda build purge-all #clear builds in /conda/
+conda build meta.yaml --python=3.7 --output-folder=./conda/ #build
 
 # convert package to other platforms
-find ./conda/build/osx-64/ -name *.tar.bz2 | while read file
+find /anaconda3/pkgs/ -name imhr-*.tar.bz2 | while read file
 do
-    for platform in "${pkg[@]}"
-    do
-       conda convert $file --force --verbose --platform=$platform --output-dir=./conda/build/$platform/
-    done    
+	for arch in "${architecture[@]}"
+	do
+		conda convert --force --verbose --platform=$arch --output-dir=./conda/$arch /anaconda3/pkgs/$file
+	done
 done
 
 # upload packages to anaconda
-find ./conda-bld/ -name *.tar.bz2 | while read file
+find ./conda/ -name *.tar.bz2 | while read file
 do
-    echo $file
     anaconda upload $file
 done
 
+# finished
 echo "finished"
