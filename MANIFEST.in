@@ -3,17 +3,22 @@ include LICENSE
 include HOWTO.md
 include README.md
 include requirements.txt
+include setup.cfg
 include versioneer.py
 include mdl/_version.py
 # recursive-include
-graft docs
 graft tests
-graft mdl/dashboard/
 graft mdl/dist
 # recursive-exclude
+prune build
+prune conda
+prune dist
 prune docs
+prune env
+prune imhr.egg-info
 prune mdl/dist/experiments
 # global exclude
+global-exclude .spyproject
 global-exclude .vscode
 global-exclude .ipynb_checkpoints
 global-exclude __pycache__

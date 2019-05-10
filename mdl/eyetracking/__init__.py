@@ -56,4 +56,4 @@ class ROI(_ROI):
 		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
 
 # finished
-del breakpoint, copyInherit, os, sys, _ROI, _Eyelink, _Calibration
+del copyInherit, os, sys, _ROI, _Eyelink, _Calibration

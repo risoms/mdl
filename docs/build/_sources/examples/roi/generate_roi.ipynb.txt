@@ -60,9 +60,9 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "image_path = './raw'\n",
-    "output_path = './output'\n",
-    "metadata_source = './metadata.xlsx'"
+    "image_path = '/Users/mdl-admin/Desktop/roi/raw/'\n",
+    "output_path = '/Users/mdl-admin/Desktop/roi/output/'\n",
+    "metadata_source = '/Users/mdl-admin/Desktop/roi/metadata.xlsx'"
    ]
   },
   {

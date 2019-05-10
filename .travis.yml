@@ -14,4 +14,4 @@ branches:
 # script:
 #   - echo "TODO"
 script:
-  - python docs/source/examples/roi/generate_roi.py
+  - python tests/generate_roi.py
