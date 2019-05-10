@@ -1,17 +1,28 @@
-sudo: true
+# language
+language: python
+
+# matrix
+matrix:
+  include:
+  dist: xenial
+  python: 3.7
+  - name: "Python 3.7 on macOS"
+    os: osx
+    language: shell
+  - name: "Python 3.7 on Windows"
+  	os: windows
+    language: shell
+    before_install: choco install python3
+    env: export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+
+# before install
+before_install:
+  - pip3 install --upgrade pip setuptools virtualenv
+
 # command to install dependencies and package
 install:
-  - pip install -r requirements.txt
-  - pip install imhr
-dist: xenial   # required for Python >= 3.7
-language: python
-python:
-  - "3.7"
-branches:
-  only:
-    - master
+  - pip3 install -r requirements.txt
+  - python setup.py install
+
 # command to run tests
-# script:
-#   - echo "TODO"
-script:
-  - python mdl/tests/generate_roi.py
+script: python3 mdl/tests/generate_roi.py || python mdl/tests/generate_roi.py 
