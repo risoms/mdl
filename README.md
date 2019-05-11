@@ -9,11 +9,12 @@
 -------------------------------------------------------------------------------------------------
 [![doi](https://img.shields.io/badge/DOI-10.1016%2Fj.cct.2018.10.014-blue.svg?style=flat-square)](https://doi.org/10.1016/j.cct.2018.10.014)
 [![license](https://img.shields.io/pypi/l/imhr.svg?style=flat-square)](https://github.com/risoms/mdl/blob/master/LICENSE)
-[![python](https://img.shields.io/pypi/pyversions/Django.svg?style=flat-square)](https://pypi.python.org/risoms/imhr)
+[![python](https://img.shields.io/pypi/pyversions/imhr.svg?style=flat-square)](https://pypi.org/project/imhr/)
 [![version-pypi](https://img.shields.io/pypi/v/imhr.svg?style=flat-square)](https://pypi.org/project/imhr/)
 [![version-anaconda](https://anaconda.org/risoms/imhr/badges/version.svg)](https://anaconda.org/risoms/imhr)
 [![platform](https://img.shields.io/conda/pn/conda-forge/python.svg?style=flat-square)](https://anaconda.org/risoms/imhr)
-[![build](https://img.shields.io/travis/com/ivandelabeldad/rackian-gateway.svg?style=flat-square)](https://travis-ci.org/risoms/imhr)
+[![Build Status](https://travis-ci.com/risoms/mdl.svg?style=flat-square&token=h4xHN6seBuC4SG7zNtMW&branch=master)](https://travis-ci.com/risoms/mdl)
+
 
 mdl: an extensive suite for the exploration, visualization, and analysis of psychological data.
 -------------------------------------------------------------------------------------------------

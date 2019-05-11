@@ -29,18 +29,21 @@ if __name__ == "__main__":
 		required = f.read().splitlines()
 	## required
 	setuptools_kwargs = {
-		'install_requires':required,
-		'zip_safe':True
+		'zip_safe':True,
+		'install_requires': required + ["win32api; sys_platform == win32"] + ["pyobjc; sys_platform == darwin"]
 	}
 
 	# setup 
 	name = 'imhr'
 	author = 'Semeon Risom'
+	packages = find_packages()
+	platforms = 'posix, nt'
+	python_requires = '>=3.5, !=3.5.*'
 	author_email = 'semeon.risom@gmail.com'
 	maintainer = 'Semeon Risom'
 	maintainer_email = 'semeon.risom@gmail.com'
 	version = versioneer.get_version()
-	cmdclass=versioneer.get_cmdclass()
+	cmdclass = versioneer.get_cmdclass()
 	url = 'http://mdl.psy.utexas.edu/a/mdl'
 	description = 'mdl - Psychology Data Science Suite.'
 	download_url = 'https://github.com/risoms/mdl/'
@@ -63,7 +66,6 @@ if __name__ == "__main__":
 		'Documentation': 'http://mdl.psy.utexas.edu/a/mdl',
 		'Source': 'https://github.com/risoms/mdl/'
 	},
-	packages = find_packages()
 	include_package_data = True
 	namespace_packages=['mdl']
 
@@ -72,6 +74,8 @@ if __name__ == "__main__":
 		name=name,
 		version=version,
 		packages=packages,
+		platforms=platforms,
+		python_requires=python_requires,
 		include_package_data=True,
 		author=author,
 		author_email=author_email,
@@ -80,13 +84,11 @@ if __name__ == "__main__":
 		description=description,
 		license=license_,
 		cmdclass=cmdclass,
-		url=url,	
+		url=url,
 		download_url=download_url,
 		long_description = long_description,
 		long_description_content_type = long_description_content_type,
 		classifiers=classifiers,
-		platforms='any',
-		python_requires='!=3.5*, <4',
 		namespace_packages=namespace_packages,
 		**setuptools_kwargs
 	)
