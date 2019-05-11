@@ -21,6 +21,7 @@ matrix:
 
 # before install
 before_install:
+  - pip3 install certifi
   - pip3 install --upgrade pip setuptools virtualenv psd-tools opencv-python
 
 # command to install dependencies and package
