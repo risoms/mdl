@@ -6,21 +6,25 @@
 cd "$(dirname "$0")"
 cd ../
 
-#get highest tag number
+#Get the highest tag number
 VERSION=`git describe --abbrev=0 --tags`
+VERSION=${VERSION:-'0.0.0'}
 
-#replace . with space so can split into an array
-VERSION_BITS=(${VERSION//./ })
+#Get number parts
+MAJOR="${VERSION%%.*}"; VERSION="${VERSION#*.}"
+MINOR="${VERSION%%.*}"; VERSION="${VERSION#*.}"
+PATCH="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 
-#get number parts and increase last one by 1
-VNUM1=${VERSION_BITS[0]}
-VNUM2=${VERSION_BITS[1]}
-VNUM3=${VERSION_BITS[2]}
-VNUM3=$((VNUM3+1))
+#Increase version
+PATCH=$((PATCH+1))
+
+#Get current hash and see if it already has a tag
+GIT_COMMIT=`git rev-parse HEAD`
+NEEDS_TAG=`git describe --contains $GIT_COMMIT`
 
 #create new tag
-NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
-echo "Updating $VERSION to $NEW_TAG"
+NEW_TAG="$MAJOR.$MINOR.$PATCH"
+echo "Updating to $NEW_TAG"
 
 #get current hash and see if it already has a tag
 GIT_COMMIT=`git rev-parse HEAD`
@@ -30,7 +34,6 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT`
 if [ -z "$NEEDS_TAG" ]; then
     echo "Tagged with $NEW_TAG (Ignoring fatal:cannot describe - this means commit is untagged) "
     git tag $NEW_TAG
-    git push --tags
 else
     echo "Already a tag on this commit"
 fi
