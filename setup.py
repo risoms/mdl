@@ -17,12 +17,20 @@ if __name__ == "__main__":
 	import versioneer
 	versioneer.VCS = "git"
 
+	# license
+	with open('LICENSE') as f:
+		license_ = f.read()
+
+	# long_description
+	with open('README.md') as f:
+		long_description = f.read()
+
 	# required packages
 	path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 	with open(path) as f:
 		required = f.read().splitlines()
-	
-	## add to setuptools
+
+	# add to setuptools
 	setuptools_kwargs = {
 		'zip_safe':True,
 		'install_requires': required + ["win32api; sys_platform == 'win32'"] + ["pyobjc; sys_platform == 'darwin'"]
@@ -42,9 +50,7 @@ if __name__ == "__main__":
 	url = 'http://mdl.psy.utexas.edu/a/mdl'
 	description = 'mdl - Psychology Data Science Suite.'
 	download_url = 'https://github.com/risoms/mdl/'
-	long_description = open('README.md').read()
 	long_description_content_type = 'text/markdown'
-	license_ = open('LICENSE', 'r').read()
 	classifiers = [
 		'Intended Audience :: Science/Research',
 		'Programming Language :: Python :: 3.6',
