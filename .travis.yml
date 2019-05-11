@@ -37,4 +37,4 @@ install:
 
 # command to run tests, e.g. python setup.py test
 script:
-  - pytest --html=report.html --self-contained-html
+  - pytest tests --html=report.html --self-contained-html
