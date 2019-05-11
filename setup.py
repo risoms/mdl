@@ -16,10 +16,6 @@ from setuptools import find_packages, setup, __version__
 import versioneer
 versioneer.VCS = "git"
 
-# license
-with open('LICENSE') as f:
-	license_ = f.read()
-
 # description
 description = 'mdl - Psychology Data Science Suite.'
 long_description_content_type = 'text/markdown'
@@ -81,12 +77,12 @@ setup(
 	maintainer=maintainer,
 	maintainer_email=maintainer_email,
 	description=description,
-	license=license_,
+	license="MIT",
 	cmdclass=cmdclass,
 	url=url,
 	download_url=download_url,
 	long_description = long_description,
-	long_description_content_type = long_description_content_type,
+	long_description_content_type = 'text/markdown',
 	classifiers=classifiers,
 	namespace_packages=namespace_packages,
 	**setuptools_kwargs
