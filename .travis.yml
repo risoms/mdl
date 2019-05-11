@@ -1,3 +1,8 @@
+language: python
+sudo: required
+dist: xenial
+virtualenv:
+  system_site_packages: true
 # matrix
 matrix:
   dist: xenial
@@ -22,8 +27,6 @@ matrix:
 # before install
 before_install:
   - pip3 install --upgrade pip setuptools virtualenv psd-tools opencv-python pipenv
-  - python3 -m venv env
-  - source env/bin/activate
   - pip3 install certifi
   - pip3 install pytest allure-pytest pytest-html
 
