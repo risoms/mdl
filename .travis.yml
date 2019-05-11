@@ -10,14 +10,15 @@ matrix:
     os: osx
     language: shell
     before_script:
-    - echo 'path'
-  - name: "Python 3.7 on Windows"
-    os: windows
-    language: shell
-    env: export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-    before_install: choco install python3
-    before_script:
-    - echo 'path'
+    - echo $PATH
+    - pwd
+  # - name: "Python 3.7 on Windows"
+  #   os: windows
+  #   language: shell
+  #   env: export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+  #   before_install: choco install python3
+  #   before_script:
+  #   - echo 'path'
 
 # before install
 before_install:
@@ -26,8 +27,9 @@ before_install:
 
 # command to install dependencies and package
 install:
-  - pip3 install -r requirements.txt
-  - python setup.py install
+  - pip3 install -requirement requirements.txt
+  - pip3 install certifi
+  - python3 setup.py install || python setup.py install
 
 # command to run tests
 script: python3 mdl/tests/generate_roi.py || python mdl/tests/generate_roi.py 
