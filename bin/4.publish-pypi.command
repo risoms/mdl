@@ -8,6 +8,8 @@ cd ../
 
 # uploading
 ## make sure twine is available
-pip install --user --upgrade twine 
+pip install --user --upgrade twine
+## check for issues
+python -m twine check dist/*
 ## upload
-python -m twine check upload dist/* --verbose -u risoms -p samboi10
+python -m twine upload dist/* --verbose -u risoms -p samboi10

@@ -22,7 +22,7 @@ with open('LICENSE') as f:
 
 # description
 description = 'mdl - Psychology Data Science Suite.'
-long_description_content_type = 'text/x-rst'
+long_description_content_type = 'text/markdown'
 with open('README.md') as f:
 	long_description = f.read()
 
