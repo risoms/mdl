@@ -12,12 +12,5 @@ rm -rf dist
 rm -rf imhr.egg-info
 rm -rf mdl.egg-info
 
-# create virtualenv
-rm -rf env
-python -m venv env
-
-# activate virtualenv
-source env/bin/activate
-
 # create archive
 python setup.py sdist bdist_wheel
