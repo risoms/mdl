@@ -27,7 +27,7 @@ before_install:
 
 # command to install dependencies and package
 install:
-  - pip3 install -requirement requirements.txt
+  - pip3 install -r requirements.txt
   - pip3 install certifi
   - python3 setup.py install || python setup.py install
 
