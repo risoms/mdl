@@ -15,7 +15,7 @@ MAJOR="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 MINOR="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 PATCH="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 
-#increase version
+#increase version by 0.1
 PATCH=$((PATCH+1))
 
 #get current hash and see if it already has a tag
