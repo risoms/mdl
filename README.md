@@ -58,4 +58,7 @@ You can also install the development version directly from [github](https://www.
 
 Testing
 -------
-mdl requires the following dependencies:
+
+After installation, you can launch the test suite:
+
+    pytest

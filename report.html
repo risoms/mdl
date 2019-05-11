@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <style>body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	min-width: 1200px;
+	color: #999;
+}
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
+h2 {
+	font-size: 16px;
+	color: black;
+}
+
+p {
+    color: black;
+}
+
+a {
+	color: #999;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+
+#environment td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+}
+
+#environment tr:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed, .passed .col-result {
+	color: green;
+}
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+	color: orange;
+}
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+	color: red;
+}
+
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+
+#results-table {
+	border: 1px solid #e6e6e6;
+	color: #999;
+	font-size: 12px;
+	width: 100%
+}
+
+#results-table th, #results-table td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	text-align: left
+}
+#results-table th {
+	font-weight: bold
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+
+.log:only-child {
+	height: inherit
+}
+.log {
+	background-color: #e6e6e6;
+	border: 1px solid #e6e6e6;
+	color: black;
+	display: block;
+	font-family: "Courier New", Courier, monospace;
+	height: 230px;
+	overflow-y: scroll;
+	padding: 5px;
+	white-space: pre-wrap
+}
+div.image {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.image img {
+	width: 320px
+}
+.collapsed {
+	display: none;
+}
+.expander::after {
+	content: " (show details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+.collapser::after {
+	content: " (hide details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+	cursor: pointer;
+}
+
+.sort-icon {
+	font-size: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-top: 5px;
+	/*triangle*/
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+}
+
+.inactive .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #E6E6E6;
+}
+
+.asc.active .sort-icon {
+	/*finish triangle*/
+	border-bottom: 8px solid #999;
+}
+
+.desc.active .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #999;
+}
+</style></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    var key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove("collapsed");
+    expandcollapse.classList.remove("expander");
+    expandcollapse.classList.add("collapser");
+}
+
+function hide_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add("collapsed");
+    expandcollapse.classList.remove("collapser");
+    expandcollapse.classList.add("expander");
+}
+
+function show_filters() {
+    var filter_items = document.getElementsByClassName('filter');
+    for (var i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
+        var extras = elem.parentNode.nextElementSibling;
+        var expandcollapse = document.createElement("span");
+        if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add("collapsed");
+            expandcollapse.classList.add("expander");
+        } else {
+            expandcollapse.classList.add("collapser");
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener("click", function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () {
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    toggle_sort_states(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener("click",
+                              function(event) {
+                                  sort_column(elem);
+                              }, false)
+    });
+
+};
+
+function sort_table(clicked, key_func) {
+    var rows = find_all('.results-table-row');
+    var reversed = !clicked.classList.contains('asc');
+    var sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    var thead = document.getElementById("results-table-head");
+    document.getElementById('results-table').remove();
+    var parent = document.createElement("table");
+    parent.id = "results-table";
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName("BODY")[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    var sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+    var multiplier = reversed ? -1 : 1;
+
+    sort_array.sort(function(a, b) {
+        var key_a = a[0];
+        var key_b = b[0];
+        return multiplier * (key_a >= key_b ? 1 : -1);
+    });
+
+    return sort_array.map(function(item) {
+        var index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+                       'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        var icon = document.createElement("div");
+        icon.className = "sort-icon";
+        icon.textContent = "vvv";
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove("desc", "active");
+        elem.classList.add("asc", "inactive");
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+  return value.hidden == false;
+}
+
+function filter_table(elem) {
+    var outcome_att = "data-test-result";
+    var outcome = elem.getAttribute(outcome_att);
+    class_outcome = outcome + " results-table-row";
+    var outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(var i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    var all_rows_hidden = rows.length == 0 ? true : false;
+    var not_found_message = document.getElementById("not-found-message");
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>report.html</h1>
+    <p>Report generated on 11-May-2019 at 17:20:52 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>Packages</td>
+        <td>{&apos;pytest&apos;: &apos;4.4.2&apos;, &apos;py&apos;: &apos;1.8.0&apos;, &apos;pluggy&apos;: &apos;0.11.0&apos;}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Darwin-17.7.0-x86_64-i386-64bit</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;allure-pytest&apos;: &apos;2.6.2&apos;}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.7.3</td></tr></table>
+    <h2>Summary</h2>
+    <p>1 tests ran in 14.47 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th>Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_generate_roi.py::test_run</td>
+          <td class="col-duration">14.40</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">----------------------------- Captured stdout call -----------------------------<br/>[45mnot multiprocessing[0m
+[45mstarting()[0m
+[45mfor each image[0m
+[46m
+# file: AM_201[0m
+[46m## roiname: roi1[0m
+[42m## roilabel: roi1[0m
+[46m## roiname: roi2[0m
+[42m## roilabel: roi2[0m
+[46m## roiname: roi3[0m
+[42m## roilabel: roi3[0m
+[46m## roiname: roi4[0m
+[42m## roilabel: roi4[0m
+[46m## roiname: roi5[0m
+[42m## roilabel: roi5[0m
+[46m## roiname: roi6[0m
+[42m## roilabel: roi6[0m
+[46m## roiname: roi7[0m
+[42m## roilabel: roi7[0m
+[46m## roiname: roi8[0m
+[42m## roilabel: roi8[0m
+[46m## image saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/img/roi/bounds/AM_201.png[0m
+[46m## image saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/img/roi/contours/AM_201.png[0m
+[42m## raw data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/data/AM_201_bounds.xlsx[0m
+[42m## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/data/AM_201_bounds.ias[0m
+[46m
+# file: AM_203[0m
+[46m## roiname: roi1[0m
+[42m## roilabel: roi1[0m
+[46m## roiname: roi2[0m
+[42m## roilabel: roi2[0m
+[46m## roiname: roi3[0m
+[42m## roilabel: roi3[0m
+[46m## roiname: roi4[0m
+[42m## roilabel: roi4[0m
+[46m## roiname: roi5[0m
+[42m## roilabel: roi5[0m
+[46m## roiname: roi6[0m
+[42m## roilabel: roi6[0m
+[46m## roiname: roi7[0m
+[42m## roilabel: roi7[0m
+[46m## roiname: roi8[0m
+[42m## roilabel: roi8[0m
+[46m## image saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/img/roi/bounds/AM_203.png[0m
+[46m## image saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/img/roi/contours/AM_203.png[0m
+[42m## raw data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/data/AM_203_bounds.xlsx[0m
+[42m## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/data/AM_203_bounds.ias[0m
+[46m
+# file: AM_204[0m
+[46m## roiname: roi1[0m
+[42m## roilabel: roi1[0m
+[46m## roiname: roi2[0m
+[42m## roilabel: roi2[0m
+[46m## roiname: roi3[0m
+[42m## roilabel: roi3[0m
+[46m## roiname: roi4[0m
+[42m## roilabel: roi4[0m
+[46m## roiname: roi5[0m
+[42m## roilabel: roi5[0m
+[46m## roiname: roi6[0m
+[42m## roilabel: roi6[0m
+[46m## roiname: roi7[0m
+[42m## roilabel: roi7[0m
+[46m## roiname: roi8[0m
+[42m## roilabel: roi8[0m
+[46m## image saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/img/roi/bounds/AM_204.png[0m
+[46m## image saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/img/roi/contours/AM_204.png[0m
+[42m## raw data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/data/AM_204_bounds.xlsx[0m
+[42m## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/data/AM_204_bounds.ias[0m
+[42m## raw data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/bounds.xlsx[0m
+[42m## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl-R33/tests/output/bounds.ias[0m
+[45mfinished()[0m
+------------------------------ Captured log call -------------------------------<br/>__init__.py                415 DEBUG    $HOME=/Users/mdl-admin
+__init__.py                415 DEBUG    CONFIGDIR=/Users/mdl-admin/.matplotlib
+__init__.py                415 DEBUG    matplotlib data path: /Users/mdl-admin/Desktop/mdl-R33/env/lib/python3.7/site-packages/matplotlib/mpl-data
+__init__.py               1093 DEBUG    loaded rc file /Users/mdl-admin/Desktop/mdl-R33/env/lib/python3.7/site-packages/matplotlib/mpl-data/matplotlibrc
+__init__.py               1819 DEBUG    matplotlib version 3.0.3
+__init__.py               1820 DEBUG    interactive is False
+__init__.py               1821 DEBUG    platform is darwin
+__init__.py               1822 DEBUG    loaded modules: [&#x27;sys&#x27;, &#x27;builtins&#x27;, &#x27;_frozen_importlib&#x27;, &#x27;_imp&#x27;, &#x27;_thread&#x27;, &#x27;_warnings&#x27;, &#x27;_weakref&#x27;, &#x27;zipimport&#x27;, &#x27;_frozen_importlib_external&#x27;, &#x27;_io&#x27;, &#x27;marshal&#x27;, &#x27;posix&#x27;, &#x27;encodings&#x27;, &#x27;codecs&#x27;, &#x27;_codecs&#x27;, &#x27;encodings.aliases&#x27;, &#x27;encodings.utf_8&#x27;, &#x27;_signal&#x27;, &#x27;__main__&#x27;, &#x27;encodings.latin_1&#x27;, &#x27;io&#x27;, &#x27;abc&#x27;, &#x27;_abc&#x27;, &#x27;site&#x27;, &#x27;os&#x27;, &#x27;stat&#x27;, &#x27;_stat&#x27;, &#x27;posixpath&#x27;, &#x27;genericpath&#x27;, &#x27;os.path&#x27;, &#x27;_collections_abc&#x27;, &#x27;_sitebuiltins&#x27;, &#x27;_bootlocale&#x27;, &#x27;_locale&#x27;, &#x27;types&#x27;, &#x27;importlib&#x27;, &#x27;importlib._bootstrap&#x27;, &#x27;importlib._bootstrap_external&#x27;, &#x27;warnings&#x27;, &#x27;importlib.util&#x27;, &#x27;importlib.abc&#x27;, &#x27;importlib.machinery&#x27;, &#x27;contextlib&#x27;, &#x27;collections&#x27;, &#x27;operator&#x27;, &#x27;_operator&#x27;, &#x27;keyword&#x27;, &#x27;heapq&#x27;, &#x27;_heapq&#x27;, &#x27;itertools&#x27;, &#x27;reprlib&#x27;, &#x27;_collections&#x27;, &#x27;functools&#x27;, &#x27;_functools&#x27;, &#x27;mpl_toolkits&#x27;, &#x27;PyObjCTools&#x27;, &#x27;re&#x27;, &#x27;enum&#x27;, &#x27;sre_compile&#x27;, &#x27;_sre&#x27;, &#x27;sre_parse&#x27;, &#x27;sre_constants&#x27;, &#x27;copyreg&#x27;, &#x27;pytest&#x27;, &#x27;_pytest&#x27;, &#x27;_pytest._version&#x27;, &#x27;_pytest.assertion&#x27;, &#x27;__future__&#x27;, &#x27;six&#x27;, &#x27;struct&#x27;, &#x27;_struct&#x27;, &#x27;_pytest.assertion.rewrite&#x27;, &#x27;ast&#x27;, &#x27;_ast&#x27;, &#x27;errno&#x27;, &#x27;imp&#x27;, &#x27;tokenize&#x27;, &#x27;token&#x27;, &#x27;string&#x27;, &#x27;_string&#x27;, &#x27;atomicwrites&#x27;, &#x27;tempfile&#x27;, &#x27;shutil&#x27;, &#x27;fnmatch&#x27;, &#x27;zlib&#x27;, &#x27;bz2&#x27;, &#x27;_compression&#x27;, &#x27;threading&#x27;, &#x27;time&#x27;, &#x27;traceback&#x27;, &#x27;linecache&#x27;, &#x27;_weakrefset&#x27;, &#x27;_bz2&#x27;, &#x27;lzma&#x27;, &#x27;_lzma&#x27;, &#x27;pwd&#x27;, &#x27;grp&#x27;, &#x27;random&#x27;, &#x27;math&#x27;, &#x27;hashlib&#x27;, &#x27;_hashlib&#x27;, &#x27;_blake2&#x27;, &#x27;_sha3&#x27;, &#x27;bisect&#x27;, &#x27;_bisect&#x27;, &#x27;_random&#x27;, &#x27;weakref&#x27;, &#x27;fcntl&#x27;, &#x27;py&#x27;, &#x27;py._error&#x27;, &#x27;py.error&#x27;, &#x27;py._vendored_packages&#x27;, &#x27;py._vendored_packages.apipkg&#x27;, &#x27;py._version&#x27;, &#x27;py.test&#x27;, &#x27;py.process&#x27;, &#x27;py.apipkg&#x27;, &#x27;py.iniconfig&#x27;, &#x27;py.path&#x27;, &#x27;py.code&#x27;, &#x27;py.builtin&#x27;, &#x27;py.io&#x27;, &#x27;py.xml&#x27;, &#x27;py.log&#x27;, &#x27;_pytest._io&#x27;, &#x27;_pytest._io.saferepr&#x27;, &#x27;pprint&#x27;, &#x27;six.moves&#x27;, &#x27;_pytest.assertion.util&#x27;, &#x27;_pytest._code&#x27;, &#x27;_pytest._code.code&#x27;, &#x27;inspect&#x27;, &#x27;dis&#x27;, &#x27;opcode&#x27;, &#x27;_opcode&#x27;, &#x27;collections.abc&#x27;, &#x27;attr&#x27;, &#x27;attr.converters&#x27;, &#x27;attr._make&#x27;, &#x27;copy&#x27;, &#x27;attr._config&#x27;, &#x27;attr._compat&#x27;, &#x27;platform&#x27;, &#x27;subprocess&#x27;, &#x27;signal&#x27;, &#x27;_posixsubprocess&#x27;, &#x27;select&#x27;, &#x27;selectors&#x27;, &#x27;ctypes&#x27;, &#x27;_ctypes&#x27;, &#x27;ctypes._endian&#x27;, &#x27;attr.exceptions&#x27;, &#x27;attr.filters&#x27;, &#x27;attr.validators&#x27;, &#x27;attr._funcs&#x27;, &#x27;pluggy&#x27;, &#x27;pluggy._version&#x27;, &#x27;pluggy.manager&#x27;, &#x27;pluggy._tracing&#x27;, &#x27;pluggy.callers&#x27;, &#x27;pluggy.hooks&#x27;, &#x27;_pytest.compat&#x27;, &#x27;_pytest.outcomes&#x27;, &#x27;py._path&#x27;, &#x27;py._path.local&#x27;, &#x27;atexit&#x27;, &#x27;uuid&#x27;, &#x27;_uuid&#x27;, &#x27;py._path.common&#x27;, &#x27;_pytest._code.source&#x27;, &#x27;textwrap&#x27;, &#x27;_pytest.pathlib&#x27;, &#x27;pathlib&#x27;, &#x27;ntpath&#x27;, &#x27;urllib&#x27;, &#x27;urllib.parse&#x27;, &#x27;_pytest.assertion.truncate&#x27;, &#x27;_pytest.config&#x27;, &#x27;argparse&#x27;, &#x27;gettext&#x27;, &#x27;locale&#x27;, &#x27;shlex&#x27;, &#x27;_pytest.hookspec&#x27;, &#x27;_pytest.deprecated&#x27;, &#x27;_pytest.warning_types&#x27;, &#x27;_pytest.config.exceptions&#x27;, &#x27;_pytest.config.findpaths&#x27;, &#x27;_pytest.debugging&#x27;, &#x27;pdb&#x27;, &#x27;cmd&#x27;, &#x27;bdb&#x27;, &#x27;code&#x27;, &#x27;codeop&#x27;, &#x27;glob&#x27;, &#x27;doctest&#x27;, &#x27;difflib&#x27;, &#x27;unittest&#x27;, &#x27;unittest.result&#x27;, &#x27;unittest.util&#x27;, &#x27;unittest.case&#x27;, &#x27;logging&#x27;, &#x27;unittest.suite&#x27;, &#x27;unittest.loader&#x27;, &#x27;unittest.main&#x27;, &#x27;unittest.runner&#x27;, &#x27;unittest.signals&#x27;, &#x27;_pytest.fixtures&#x27;, &#x27;_pytest.nodes&#x27;, &#x27;_pytest.mark&#x27;, &#x27;_pytest.mark.legacy&#x27;, &#x27;_pytest.mark.structures&#x27;, &#x27;_pytest.freeze_support&#x27;, &#x27;_pytest.main&#x27;, &#x27;pkgutil&#x27;, &#x27;_pytest.runner&#x27;, &#x27;_pytest.reports&#x27;, &#x27;_pytest.python&#x27;, &#x27;_pytest.python_api&#x27;, &#x27;decimal&#x27;, &#x27;numbers&#x27;, &#x27;_decimal&#x27;, &#x27;more_itertools&#x27;, &#x27;more_itertools.more&#x27;, &#x27;more_itertools.recipes&#x27;, &#x27;_pytest.recwarn&#x27;, &#x27;_pytest.config.argparsing&#x27;, &#x27;_pytest.terminal&#x27;, &#x27;_pytest.unittest&#x27;, &#x27;_pytest.capture&#x27;, &#x27;_pytest.skipping&#x27;, &#x27;_pytest.mark.evaluate&#x27;, &#x27;_pytest.tmpdir&#x27;, &#x27;_pytest.monkeypatch&#x27;, &#x27;_pytest.pastebin&#x27;, &#x27;_pytest.helpconfig&#x27;, &#x27;_pytest.nose&#x27;, &#x27;_pytest.junitxml&#x27;, &#x27;py._xmlgen&#x27;, &#x27;_pytest.resultlog&#x27;, &#x27;_pytest.doctest&#x27;, &#x27;_pytest.cacheprovider&#x27;, &#x27;json&#x27;, &#x27;json.decoder&#x27;, &#x27;json.scanner&#x27;, &#x27;_json&#x27;, &#x27;json.encoder&#x27;, &#x27;_pytest.setuponly&#x27;, &#x27;_pytest.setupplan&#x27;, &#x27;_pytest.stepwise&#x27;, &#x27;_pytest.warnings&#x27;, &#x27;_pytest.logging&#x27;, &#x27;_pytest._argcomplete&#x27;, &#x27;py._vendored_packages.iniconfig&#x27;, &#x27;pkg_resources&#x27;, &#x27;zipfile&#x27;, &#x27;binascii&#x27;, &#x27;plistlib&#x27;, &#x27;datetime&#x27;, &#x27;_datetime&#x27;, &#x27;xml&#x27;, &#x27;xml.parsers&#x27;, &#x27;xml.parsers.expat&#x27;, &#x27;pyexpat.errors&#x27;, &#x27;pyexpat.model&#x27;, &#x27;pyexpat&#x27;, &#x27;xml.parsers.expat.model&#x27;, &#x27;xml.parsers.expat.errors&#x27;, &#x27;email&#x27;, &#x27;email.parser&#x27;, &#x27;email.feedparser&#x27;, &#x27;email.errors&#x27;, &#x27;email._policybase&#x27;, &#x27;email.header&#x27;, &#x27;email.quoprimime&#x27;, &#x27;email.base64mime&#x27;, &#x27;base64&#x27;, &#x27;email.charset&#x27;, &#x27;email.encoders&#x27;, &#x27;quopri&#x27;, &#x27;email.utils&#x27;, &#x27;socket&#x27;, &#x27;_socket&#x27;, &#x27;email._parseaddr&#x27;, &#x27;calendar&#x27;, &#x27;pkg_resources.extern&#x27;, &#x27;pkg_resources._vendor&#x27;, &#x27;pkg_resources.extern.six&#x27;, &#x27;pkg_resources._vendor.six&#x27;, &#x27;pkg_resources.extern.six.moves&#x27;, &#x27;pkg_resources._vendor.six.moves&#x27;, &#x27;pkg_resources.py31compat&#x27;, &#x27;pkg_resources.extern.appdirs&#x27;, &#x27;pkg_resources._vendor.packaging.__about__&#x27;, &#x27;pkg_resources.extern.packaging&#x27;, &#x27;pkg_resources.extern.packaging.version&#x27;, &#x27;pkg_resources.extern.packaging._structures&#x27;, &#x27;pkg_resources.extern.packaging.specifiers&#x27;, &#x27;pkg_resources.extern.packaging._compat&#x27;, &#x27;pkg_resources.extern.packaging.requirements&#x27;, &#x27;pkg_resources.extern.pyparsing&#x27;, &#x27;pkg_resources.extern.six.moves.urllib&#x27;, &#x27;pkg_resources.extern.packaging.markers&#x27;, &#x27;sysconfig&#x27;, &#x27;_osx_support&#x27;, &#x27;_sysconfigdata_m_darwin_darwin&#x27;, &#x27;email.message&#x27;, &#x27;uu&#x27;, &#x27;email._encoded_words&#x27;, &#x27;email.iterators&#x27;, &#x27;pytest_metadata&#x27;, &#x27;pytest_metadata.plugin&#x27;, &#x27;pytest_metadata.ci&#x27;, &#x27;pytest_metadata.ci.appveyor&#x27;, &#x27;pytest_metadata.ci.bitbucket&#x27;, &#x27;pytest_metadata.ci.circleci&#x27;, &#x27;pytest_metadata.ci.gitlab_ci&#x27;, &#x27;pytest_metadata.ci.jenkins&#x27;, &#x27;pytest_metadata.ci.taskcluster&#x27;, &#x27;pytest_metadata.ci.travis_ci&#x27;, &#x27;pytest_metadata.hooks&#x27;, &#x27;pytest_html&#x27;, &#x27;pytest_html.plugin&#x27;, &#x27;pytest_html.extras&#x27;, &#x27;html&#x27;, &#x27;html.entities&#x27;, &#x27;pytest_html.hooks&#x27;, &#x27;allure_pytest&#x27;, &#x27;allure_pytest.plugin&#x27;, &#x27;allure&#x27;, &#x27;allure_commons&#x27;, &#x27;allure_commons._hooks&#x27;, &#x27;allure_commons._core&#x27;, &#x27;allure_commons._allure&#x27;, &#x27;allure_commons.types&#x27;, &#x27;allure_commons.utils&#x27;, &#x27;allure_commons.logger&#x27;, &#x27;allure_pytest.utils&#x27;, &#x27;allure_commons.model2&#x27;, &#x27;allure_pytest.helper&#x27;, &#x27;allure_pytest.listener&#x27;, &#x27;allure_commons.reporter&#x27;, &#x27;py._builtin&#x27;, &#x27;py._io&#x27;, &#x27;py._io.terminalwriter&#x27;, &#x27;unicodedata&#x27;, &#x27;py._code&#x27;, &#x27;py._code.code&#x27;, &#x27;tests&#x27;, &#x27;tests.test_generate_roi&#x27;, &#x27;py._io.capture&#x27;, &#x27;mdl&#x27;, &#x27;certifi&#x27;, &#x27;certifi.core&#x27;, &#x27;mdl.download&#x27;, &#x27;mdl.eyetracking&#x27;, &#x27;pylink&#x27;, &#x27;mdl.settings&#x27;, &#x27;mdl.eyetracking._roi&#x27;, &#x27;pandas&#x27;, &#x27;numpy&#x27;, &#x27;numpy._globals&#x27;, &#x27;numpy.__config__&#x27;, &#x27;numpy.version&#x27;, &#x27;numpy._distributor_init&#x27;, &#x27;numpy.core&#x27;, &#x27;numpy.core.info&#x27;, &#x27;numpy.core.multiarray&#x27;, &#x27;numpy.core.overrides&#x27;, &#x27;numpy.core._multiarray_umath&#x27;, &#x27;numpy.compat&#x27;, &#x27;numpy.compat._inspect&#x27;, &#x27;numpy.compat.py3k&#x27;, &#x27;numpy.core.umath&#x27;, &#x27;numpy.core.numerictypes&#x27;, &#x27;numpy.core._string_helpers&#x27;, &#x27;numpy.core._type_aliases&#x27;, &#x27;numpy.core._dtype&#x27;, &#x27;numpy.core.numeric&#x27;, &#x27;numpy.core._internal&#x27;, &#x27;pickle&#x27;, &#x27;_compat_pickle&#x27;, &#x27;_pickle&#x27;, &#x27;numpy.core.fromnumeric&#x27;, &#x27;numpy.core._methods&#x27;, &#x27;numpy.core.arrayprint&#x27;, &#x27;numpy.core.defchararray&#x27;, &#x27;numpy.core.records&#x27;, &#x27;numpy.core.memmap&#x27;, &#x27;numpy.core.function_base&#x27;, &#x27;numpy.core.machar&#x27;, &#x27;numpy.core.getlimits&#x27;, &#x27;numpy.core.shape_base&#x27;, &#x27;numpy.core.einsumfunc&#x27;, &#x27;numpy.core._add_newdocs&#x27;, &#x27;numpy.core._multiarray_tests&#x27;, &#x27;numpy.core._dtype_ctypes&#x27;, &#x27;numpy._pytesttester&#x27;, &#x27;numpy.lib&#x27;, &#x27;numpy.lib.info&#x27;, &#x27;numpy.lib.type_check&#x27;, &#x27;numpy.lib.ufunclike&#x27;, &#x27;numpy.lib.index_tricks&#x27;, &#x27;numpy.matrixlib&#x27;, &#x27;numpy.matrixlib.defmatrix&#x27;, &#x27;numpy.linalg&#x27;, &#x27;numpy.linalg.info&#x27;, &#x27;numpy.linalg.linalg&#x27;, &#x27;numpy.lib.twodim_base&#x27;, &#x27;numpy.linalg.lapack_lite&#x27;, &#x27;numpy.linalg._umath_linalg&#x27;, &#x27;numpy.lib.function_base&#x27;, &#x27;numpy.lib.utils&#x27;, &#x27;numpy.lib.histograms&#x27;, &#x27;numpy.lib.stride_tricks&#x27;, &#x27;numpy.lib.mixins&#x27;, &#x27;numpy.lib.nanfunctions&#x27;, &#x27;numpy.lib.shape_base&#x27;, &#x27;numpy.lib.scimath&#x27;, &#x27;numpy.lib.polynomial&#x27;, &#x27;numpy.lib.arraysetops&#x27;, &#x27;numpy.lib.npyio&#x27;, &#x27;numpy.lib.format&#x27;, &#x27;numpy.lib._datasource&#x27;, &#x27;numpy.lib._iotools&#x27;, &#x27;numpy.lib.financial&#x27;, &#x27;numpy.lib.arrayterator&#x27;, &#x27;numpy.lib.arraypad&#x27;, &#x27;numpy.lib._version&#x27;, &#x27;numpy.fft&#x27;, &#x27;numpy.fft.info&#x27;, &#x27;numpy.fft.fftpack&#x27;, &#x27;numpy.fft.fftpack_lite&#x27;, &#x27;numpy.fft.helper&#x27;, &#x27;numpy.polynomial&#x27;, &#x27;numpy.polynomial.polynomial&#x27;, &#x27;numpy.polynomial.polyutils&#x27;, &#x27;numpy.polynomial._polybase&#x27;, &#x27;numpy.polynomial.chebyshev&#x27;, &#x27;numpy.polynomial.legendre&#x27;, &#x27;numpy.polynomial.hermite&#x27;, &#x27;numpy.polynomial.hermite_e&#x27;, &#x27;numpy.polynomial.laguerre&#x27;, &#x27;numpy.random&#x27;, &#x27;numpy.random.mtrand&#x27;, &#x27;cython_runtime&#x27;, &#x27;mtrand&#x27;, &#x27;numpy.ctypeslib&#x27;, &#x27;numpy.ma&#x27;, &#x27;numpy.ma.core&#x27;, &#x27;numpy.ma.extras&#x27;, &#x27;numpy.testing&#x27;, &#x27;numpy.testing._private&#x27;, &#x27;numpy.testing._private.utils&#x27;, &#x27;gc&#x27;, &#x27;numpy.testing._private.decorators&#x27;, &#x27;numpy.testing._private.nosetester&#x27;, &#x27;pytz&#x27;, &#x27;pytz.exceptions&#x27;, &#x27;pytz.lazy&#x27;, &#x27;pytz.tzinfo&#x27;, &#x27;pytz.tzfile&#x27;, &#x27;dateutil&#x27;, &#x27;dateutil._version&#x27;, &#x27;pandas.compat&#x27;, &#x27;distutils&#x27;, &#x27;distutils.version&#x27;, &#x27;http&#x27;, &#x27;http.client&#x27;, &#x27;ssl&#x27;, &#x27;_ssl&#x27;, &#x27;pandas.compat.chainmap&#x27;, &#x27;dateutil.parser&#x27;, &#x27;dateutil.parser._parser&#x27;, &#x27;dateutil.relativedelta&#x27;, &#x27;dateutil._common&#x27;, &#x27;dateutil.tz&#x27;, &#x27;dateutil.tz.tz&#x27;, &#x27;dateutil.tz._common&#x27;, &#x27;dateutil.tz._factories&#x27;, &#x27;dateutil.parser.isoparser&#x27;, &#x27;typing&#x27;, &#x27;typing.io&#x27;, &#x27;typing.re&#x27;, &#x27;pandas.compat.numpy&#x27;, &#x27;pandas._libs&#x27;, &#x27;pandas._libs.tslibs&#x27;, &#x27;pandas._libs.tslibs.conversion&#x27;, &#x27;_cython_0_28_2&#x27;, &#x27;pandas._libs.tslibs.nattype&#x27;, &#x27;pandas._libs.tslibs.np_datetime&#x27;, &#x27;pandas._libs.tslibs.timedeltas&#x27;, &#x27;pandas._libs.tslibs.offsets&#x27;, &#x27;pandas._libs.tslibs.ccalendar&#x27;, &#x27;pandas._libs.tslibs.strptime&#x27;, &#x27;pandas._libs.tslibs.timezones&#x27;, &#x27;pandas._libs.tslibs.parsing&#x27;, &#x27;pandas._libs.tslibs.period&#x27;, &#x27;pandas._libs.tslibs.frequencies&#x27;, &#x27;pandas._libs.tslibs.timestamps&#x27;, &#x27;pandas._libs.tslibs.fields&#x27;, &#x27;pandas._libs.tslibs.resolution&#x27;, &#x27;pandas._libs.hashtable&#x27;, &#x27;pandas._libs.missing&#x27;, &#x27;pandas._libs.lib&#x27;, &#x27;fractions&#x27;, &#x27;pandas._libs.tslib&#x27;, &#x27;pandas.core&#x27;, &#x27;pandas.core.config_init&#x27;, &#x27;pandas.core.config&#x27;, &#x27;pandas.io&#x27;, &#x27;pandas.io.formats&#x27;, &#x27;pandas.io.formats.printing&#x27;, &#x27;pandas.core.dtypes&#x27;, &#x27;pandas.core.dtypes.inference&#x27;, &#x27;pandas.io.formats.console&#x27;, &#x27;pandas.io.formats.terminal&#x27;, &#x27;pandas.core.api&#x27;, &#x27;pandas.core.arrays&#x27;, &#x27;pandas.core.arrays.array_&#x27;, &#x27;pandas.core.dtypes.common&#x27;, &#x27;pandas._libs.algos&#x27;, &#x27;pandas.core.dtypes.dtypes&#x27;, &#x27;pandas._libs.interval&#x27;, &#x27;pandas.core.dtypes.generic&#x27;, &#x27;pandas.core.dtypes.base&#x27;, &#x27;pandas.errors&#x27;, &#x27;pandas.core.arrays.base&#x27;, &#x27;pandas.compat.numpy.function&#x27;, &#x27;pandas.util&#x27;, &#x27;pandas.util._decorators&#x27;, &#x27;pandas._libs.properties&#x27;, &#x27;pandas.core.util&#x27;, &#x27;pandas.core.util.hashing&#x27;, &#x27;pandas._libs.hashing&#x27;, &#x27;pandas.core.dtypes.cast&#x27;, &#x27;pandas.core.dtypes.missing&#x27;, &#x27;pandas.util._validators&#x27;, &#x27;pandas.core.ops&#x27;, &#x27;pandas._libs.ops&#x27;, &#x27;pandas.core.common&#x27;, &#x27;pandas.core.missing&#x27;, &#x27;pandas.core.arrays.categorical&#x27;, &#x27;pandas.core.accessor&#x27;, &#x27;pandas.core.algorithms&#x27;, &#x27;pandas.core.base&#x27;, &#x27;pandas.core.nanops&#x27;, &#x27;pandas.tseries&#x27;, &#x27;pandas.tseries.offsets&#x27;, &#x27;dateutil.easter&#x27;, &#x27;pandas.core.tools&#x27;, &#x27;pandas.core.tools.datetimes&#x27;, &#x27;pandas.core.sorting&#x27;, &#x27;pandas.core.arrays.datetimes&#x27;, &#x27;pandas.core.arrays.datetimelike&#x27;, &#x27;pandas.tseries.frequencies&#x27;, &#x27;pandas.core.arrays._ranges&#x27;, &#x27;pandas.core.arrays.interval&#x27;, &#x27;pandas.util._doctools&#x27;, &#x27;pandas.core.indexes&#x27;, &#x27;pandas.core.indexes.base&#x27;, &#x27;pandas._libs.index&#x27;, &#x27;pandas._libs.join&#x27;, &#x27;pandas.core.dtypes.concat&#x27;, &#x27;pandas.core.indexes.frozen&#x27;, &#x27;pandas.core.strings&#x27;, &#x27;pandas.core.arrays.period&#x27;, &#x27;pandas.core.arrays.timedeltas&#x27;, &#x27;pandas.core.arrays.integer&#x27;, &#x27;pandas.core.tools.numeric&#x27;, &#x27;pandas.core.arrays.sparse&#x27;, &#x27;pandas._libs.sparse&#x27;, &#x27;pandas.core.arrays.numpy_&#x27;, &#x27;pandas.core.groupby&#x27;, &#x27;pandas.core.groupby.groupby&#x27;, &#x27;pandas._libs.groupby&#x27;, &#x27;pandas.core.frame&#x27;, &#x27;pandas.core.generic&#x27;, &#x27;pandas.core.index&#x27;, &#x27;pandas.core.indexes.api&#x27;, &#x27;pandas.core.indexes.category&#x27;, &#x27;pandas.core.indexes.datetimes&#x27;, &#x27;pandas.core.indexes.datetimelike&#x27;, &#x27;pandas.core.tools.timedeltas&#x27;, &#x27;pandas.core.indexes.numeric&#x27;, &#x27;pandas.core.indexes.interval&#x27;, &#x27;pandas.util._exceptions&#x27;, &#x27;pandas.core.indexes.multi&#x27;, &#x27;pandas.core.indexes.timedeltas&#x27;, &#x27;pandas.core.indexes.period&#x27;, &#x27;pandas.core.indexes.range&#x27;, &#x27;pandas.core.indexing&#x27;, &#x27;pandas._libs.indexing&#x27;, &#x27;pandas.core.internals&#x27;, &#x27;pandas.core.internals.blocks&#x27;, &#x27;pandas._libs.internals&#x27;, &#x27;pandas.core.internals.arrays&#x27;, &#x27;pandas.core.internals.managers&#x27;, &#x27;pandas.core.internals.concat&#x27;, &#x27;pandas.io.formats.format&#x27;, &#x27;pandas.io.common&#x27;, &#x27;csv&#x27;, &#x27;_csv&#x27;, &#x27;mmap&#x27;, &#x27;urllib.request&#x27;, &#x27;urllib.error&#x27;, &#x27;urllib.response&#x27;, &#x27;_scproxy&#x27;, &#x27;pandas.core.internals.construction&#x27;, &#x27;pandas.core.series&#x27;, &#x27;pandas.core.indexes.accessors&#x27;, &#x27;pandas.plotting&#x27;, &#x27;pandas.plotting._misc&#x27;, &#x27;pandas.plotting._style&#x27;, &#x27;pandas.plotting._tools&#x27;, &#x27;pandas.plotting._core&#x27;, &#x27;pandas.plotting._compat&#x27;, &#x27;pandas.plotting._converter&#x27;, &#x27;matplotlib&#x27;, &#x27;matplotlib.cbook&#x27;, &#x27;gzip&#x27;, &#x27;matplotlib.cbook.deprecation&#x27;, &#x27;matplotlib.rcsetup&#x27;, &#x27;matplotlib.fontconfig_pattern&#x27;, &#x27;pyparsing&#x27;, &#x27;matplotlib.colors&#x27;, &#x27;matplotlib._color_data&#x27;, &#x27;cycler&#x27;, &#x27;matplotlib._version&#x27;]
+__init__.py                415 DEBUG    CACHEDIR=/Users/mdl-admin/.matplotlib
+font_manager.py           1362 DEBUG    Using fontManager instance from /Users/mdl-admin/.matplotlib/fontlist-v300.json
+pyplot.py                  211 DEBUG    Loaded backend agg version unknown.
+__init__.py                 67 DEBUG    read FileHeader(version=1, channels=3, height=859, width=1222, depth=8, color_mode=&lt;ColorMode.RGB: 3&gt;)
+color_mode_data.py          31 DEBUG    reading color mode data, len=0
+image_resources.py         147 DEBUG    reading image resources, len=42
+layer_and_mask.py           53 DEBUG    reading layer and mask info, len=1719766, offset=76
+layer_and_mask.py          125 DEBUG    reading layer info, len=1719762
+layer_and_mask.py          435 DEBUG      read layer record, len=128
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          140 DEBUG      read layer records, len=1074
+layer_and_mask.py          790 DEBUG      read channel image data, len=1718688
+image_data.py               44 DEBUG      read image data, len=807912
+_base.py                  2515 DEBUG    update_title_pos
+font_manager.py           1254 DEBUG    findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans (&#x27;/Users/mdl-admin/Desktop/mdl-R33/env/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf&#x27;) with score of 0.050000.
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+__init__.py                 67 DEBUG    read FileHeader(version=1, channels=3, height=859, width=1222, depth=8, color_mode=&lt;ColorMode.RGB: 3&gt;)
+color_mode_data.py          31 DEBUG    reading color mode data, len=0
+image_resources.py         147 DEBUG    reading image resources, len=726
+layer_and_mask.py           53 DEBUG    reading layer and mask info, len=1702866, offset=760
+layer_and_mask.py          125 DEBUG    reading layer info, len=1702862
+layer_and_mask.py          435 DEBUG      read layer record, len=122
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          140 DEBUG      read layer records, len=1068
+layer_and_mask.py          790 DEBUG      read channel image data, len=1701794
+image_data.py               44 DEBUG      read image data, len=708638
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+pil_io.py                  235 DEBUG    RGBA ICC profile is not supported.
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+__init__.py                 67 DEBUG    read FileHeader(version=1, channels=3, height=859, width=1222, depth=8, color_mode=&lt;ColorMode.RGB: 3&gt;)
+color_mode_data.py          31 DEBUG    reading color mode data, len=0
+image_resources.py         147 DEBUG    reading image resources, len=42
+layer_and_mask.py           53 DEBUG    reading layer and mask info, len=1715007, offset=76
+layer_and_mask.py          125 DEBUG    reading layer info, len=1715003
+layer_and_mask.py          435 DEBUG      read layer record, len=128
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          435 DEBUG      read layer record, len=118
+layer_and_mask.py          140 DEBUG      read layer records, len=1074
+layer_and_mask.py          790 DEBUG      read channel image data, len=1713929
+image_data.py               44 DEBUG      read image data, len=782711
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos
+_base.py                  2515 DEBUG    update_title_pos</div></td></tr></tbody></table></body></html>

@@ -7,8 +7,8 @@ include setup.cfg
 include versioneer.py
 include mdl/_version.py
 # recursive-include
+graft tests
 graft mdl/dist
-graft mdl/tests
 # recursive-exclude
 prune build
 prune conda

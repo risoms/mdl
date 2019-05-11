@@ -1,10 +1,9 @@
-# language
-language: python
-
 # matrix
 matrix:
   dist: xenial
-  python: 3.7
+  python:
+  # - 3.6
+  - 3.7
   include:
   - name: "Python 3.7 on macOS"
     os: osx
@@ -22,14 +21,17 @@ matrix:
 
 # before install
 before_install:
+  - pip3 install --upgrade pip setuptools virtualenv psd-tools opencv-python pipenv
+  - python3 -m venv env
+  - source env/bin/activate
   - pip3 install certifi
-  - pip3 install --upgrade pip setuptools virtualenv psd-tools opencv-python
+  - pip3 install pytest allure-pytest pytest-html
 
 # command to install dependencies and package
 install:
   - pip3 install -r requirements.txt
-  - pip3 install certifi
-  - pip3 install imhr
+  - python3 setup.py install
 
-# command to run tests
-script: python3 mdl/tests/generate_roi.py || python mdl/tests/generate_roi.py 
+# command to run tests, e.g. python setup.py test
+script:
+  - pytest --html=report.html --self-contained-html

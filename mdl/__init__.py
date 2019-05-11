@@ -9,7 +9,7 @@ This library was created at the Institute for Mental Health Research, at the Uni
 | `@url`: https://semeon.io/d/mdl
 """
 # allowed imports
-__all__ = ['download','eyetracking','plot','r33','settings']
+__all__ = ['download','eyetracking','plot','r33','settings','tests']
 
 # core
 from pdb import set_trace as breakpoint
@@ -25,11 +25,11 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 try:
     import pkg_resources
     pkg_resources.declare_namespace(__name__)
-    del pkg_resources
+
 except ImportError:
     import pkgutil
     __path__ = pkgutil.extend_path(__path__, __name__)
-    del pkgutil
+
 
 # imports
 from . import download
