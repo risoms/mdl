@@ -29,7 +29,7 @@ before_install:
 install:
   - pip3 install -r requirements.txt
   - pip3 install certifi
-  - python3 setup.py install || python setup.py install
+  - pip3 install imhr
 
 # command to run tests
 script: python3 mdl/tests/generate_roi.py || python mdl/tests/generate_roi.py 
