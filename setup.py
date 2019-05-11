@@ -10,14 +10,8 @@ but should be compatiable with earlier systems.
 """
 
 if __name__ == "__main__":
-	import os, datetime, sys, importlib, pkg_resources
-	from setuptools import find_packages
-
-	try:
-		from setuptools import setup
-		is_setuptools = True
-	except ImportError:
-		from distutils.core import setup
+	import os
+	from setuptools import find_packages, setup, __version__
 
 	# versioning
 	import versioneer
@@ -27,13 +21,14 @@ if __name__ == "__main__":
 	path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 	with open(path) as f:
 		required = f.read().splitlines()
-	## required
+	
+	## add to setuptools
 	setuptools_kwargs = {
 		'zip_safe':True,
-		'install_requires': required + ["win32api; sys_platform == win32"] + ["pyobjc; sys_platform == darwin"]
+		'install_requires': required + ["win32api; sys_platform == 'win32'"] + ["pyobjc; sys_platform == 'darwin'"]
 	}
 
-	# setup 
+	# setup
 	name = 'imhr'
 	author = 'Semeon Risom'
 	packages = find_packages()
@@ -66,7 +61,6 @@ if __name__ == "__main__":
 		'Documentation': 'http://mdl.psy.utexas.edu/a/mdl',
 		'Source': 'https://github.com/risoms/mdl/'
 	},
-	include_package_data = True
 	namespace_packages=['mdl']
 
 	# init

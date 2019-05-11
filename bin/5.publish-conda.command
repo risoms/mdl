@@ -18,8 +18,8 @@ architecture=(osx-64 win-64) #architecture
 
 # building conda packages
 rm -rf conda #remove conda subfolder
+conda clean --all #Remove unused packages and caches
 conda build purge-all #clear unused builds
-conda clean --all #Remove unused packages and caches.
 conda build meta.yaml --python=3.7 --output-folder=conda/ #build
 
 # convert package to other platforms

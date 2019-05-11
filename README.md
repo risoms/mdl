@@ -15,7 +15,6 @@
 [![platform](https://img.shields.io/conda/pn/conda-forge/python.svg?style=flat-square)](https://anaconda.org/risoms/imhr)
 [![Build Status](https://travis-ci.com/risoms/mdl.svg?style=flat-square&token=h4xHN6seBuC4SG7zNtMW&branch=master)](https://travis-ci.com/risoms/mdl)
 
-
 mdl: an extensive suite for the exploration, visualization, and analysis of psychological data.
 -------------------------------------------------------------------------------------------------
 
@@ -38,7 +37,6 @@ mdl requires the following dependencies:
 -  [matplotlib](https://matplotlib.org)
 -  [pywin32 (Windows)](https://github.com/mhammond/pywin32)
 -  [pyobjc (Mac OS)](https://pythonhosted.org/pyobjc/)
-
 
 Installation
 ------------

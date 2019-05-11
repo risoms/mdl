@@ -12,7 +12,6 @@ graft mdl/tests
 # recursive-exclude
 prune build
 prune conda
-prune dist
 prune docs
 prune env
 prune imhr.egg-info
