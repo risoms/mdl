@@ -15,10 +15,10 @@ MAJOR="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 MINOR="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 PATCH="${VERSION%%.*}"; VERSION="${VERSION#*.}"
 
-#Increase version
+#increase version
 PATCH=$((PATCH+1))
 
-#Get current hash and see if it already has a tag
+#get current hash and see if it already has a tag
 GIT_COMMIT=`git rev-parse HEAD`
 NEEDS_TAG=`git describe --contains $GIT_COMMIT`
 
