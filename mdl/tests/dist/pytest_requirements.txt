@@ -1,0 +1,9 @@
+pipenv
+certifi
+pytest
+allure-pytest
+pytest-html
+pytest-faulthandler
+pytest-rerunfailures
+pytest-timeout
+tox

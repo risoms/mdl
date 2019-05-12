@@ -17,11 +17,11 @@ env:
     # Variables controlling the test run.
     - DELETE_FONT_CACHE=
     - NO_AT_BRIDGE=1  # Necessary for GTK3 interactive test.
-    # The number of processes is hardcoded, because using too many causes the
+    # The number of processes is hardcoded.
     - NPROC=2
     - OPENBLAS_NUM_THREADS=1
     - PYTHONFAULTHANDLER=1
-    - PYTEST_ADDOPTS="-raR --maxfail=50 --timeout=300 --durations=25 -n $NPROC --log-level=DEBUG"
+    - PYTEST_ADDOPTS="-raR --log-level=DEBUG"
     - RUN_PYTEST=1
 
 # matrix
@@ -46,13 +46,13 @@ matrix:
           - $HOME/.cache/matplotlib
 
 # before install
-# test with non-ascii in path
 before_install: |
+  # test with non-ascii in path
   if [[ $TRAVIS_OS_NAME != 'osx' ]]; then
     export PATH=/usr/lib/ccache:$PATH
     which python
     python --version
-   fi
+  fi
 
 # command to install dependencies and package
 install:
@@ -64,24 +64,18 @@ install:
     python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install package dependencies from PyPI.
-    python3 -m pip install --upgrade $PRE -r requirements.txt
+    python3 -m pip install -r mdl/tests/dist/requirements.txt
     # Install pytest dependencies from PyPI.
-    python3 -m pip install --upgrade $PRE -r mdl/tests/dist/requirements.txt
-    # GUI toolkits are pip-installable only for some versions of Python so
-    # don't fail if we can't install them.  Make it easier to check whether the
-    # install was successful by trying to import the toolkit (sometimes, the
-    # install appears to be successful but shared libraries cannot be loaded at
-    # runtime, so an actual import is a better check).
+    python3 -m pip install -r mdl/tests/dist/pytest_requirements.txt
+    # GUI toolkits.
     python3 -m pip install --upgrade pycairo cairocffi>=0.8
     python3 -m pip install --upgrade pyqt5 &&
       python3 -c 'import PyQt5.QtCore' &&
       echo 'PyQt5 is available' ||
       echo 'PyQt5 is not available'
   - |
-    # Install package
+    # Install package.
     python3 -m pip install -ve .
-  # - pip3 install -r requirements.txt
-  # - python setup.py install
 
 before_script: |
   if [[ $DELETE_FONT_CACHE == 1 ]]; then
