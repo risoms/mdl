@@ -35,6 +35,7 @@ mdl/dist/output/**/*.csv
 mdl/dist/experiments/_js/tools/_py/variable/placebo_2abc.csv
 report.html
 pytest.log
+*.php
 
 # directories #
 ######################
