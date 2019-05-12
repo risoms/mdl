@@ -23,6 +23,8 @@ env:
     - PYTHONFAULTHANDLER=1
     - PYTEST_ADDOPTS="-raR --log-level=DEBUG"
     - RUN_PYTEST=1
+    - PATH=${TRAVIS_BUILD_DIR}/python/bin:$PATH
+    - PLATFORM=${TRAVIS_OS_NAME}
 
 # matrix
 matrix:
@@ -35,19 +37,19 @@ matrix:
       language: shell
       only: master
       cache:
-        # As for now travis caches only "$HOME/.cache/pip"
+        # As for now travis caches only "$HOME/.cache/pip".
         # https://docs.travis-ci.com/user/caching/#pip-cache
         pip: false
         directories:
           - $HOME/Library/Caches/pip
-          # `cache` does not support `env`-like `global` so copy-paste from top
+          # `cache` does not support `env`-like `global` so copy-paste from top.
           # https://github.com/travis-ci/travis-ci/issues/5853
           - $HOME/.ccache
           - $HOME/.cache/matplotlib
 
 # before install
 before_install: |
-  # test with non-ascii in path
+  # test with non-ascii in path.
   if [[ $TRAVIS_OS_NAME != 'osx' ]]; then
     export PATH=/usr/lib/ccache:$PATH
     which python
@@ -60,28 +62,44 @@ install:
     # Which version of python.
     which python
     python --version
+  - |
     # Setup environment.
     ccache -s
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
     python3 -m pip install --upgrade pip setuptools wheel
   - |
-    # Install package dependencies from PyPI.
+    # Install from PiPY.
+    # Install package dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/requirements.txt
-    # Install pytest dependencies from PyPI.
+    # Install pytest dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
     # Install package.
     python3 -m pip install --quiet -ve .
 
-before_script: |
-  if [[ $DELETE_FONT_CACHE == 1 ]]; then
-    rm -rf ~/.cache/matplotlib
-  fi
+before_script: 
+  - |
+    # get current path.
+    echo '$PWD'
+  - |
+    # get path to the directory where the repository being built has been copied on the worker.
+    echo '$TRAVIS_BUILD_DIR'
+  - |
+    # get package path.
+    echo "$PATH"
+  - |
+    # get python version.
+    echo '$TRAVIS_PYTHON_VERSION'
+  - |
+    # delete cache.
+    if [[ $DELETE_FONT_CACHE == 1 ]]; then
+      rm -rf ~/.cache/matplotlib
+    fi
 
 # command to run tests, e.g. python setup.py test
 script:
   # each script we want to run need to go in it's own section and the program you want
-  # to fail travis need to be the last thing called
+  # to fail travis need to be the last thing called.
   - |
     if [[ $RUN_PYTEST == 1 ]]; then
       echo "Calling pytest with the following arguments: $PYTEST_ADDOPTS"
