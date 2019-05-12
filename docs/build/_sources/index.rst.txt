@@ -33,10 +33,11 @@
 	}
 	</style>
 
-mdl - psychology and data science suite
-"""""""""""""""""""""""""""""""""""""""
+.. :title:
 
 .. title:: mdl
+
+.. _mdl::
 
 .. raw:: html
 
@@ -50,7 +51,10 @@ mdl - psychology and data science suite
 			</a>
 		</div>
 	</div>
-	<br>
+
+.. raw:: html
+
+	<h1 style="display: none !important;">mdl - psychology and data science suite</h1>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-6">
@@ -62,8 +66,8 @@ in part by funding of NIMH grant `5R33MH109600-03 <https://projectreporter.nih.g
 .. code-block:: md
 	
 	Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018).   
-	Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial.   
-	Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
+	   Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial.   
+	   Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
 
 For a brief introduction to the ideas behind the library, you can read the :ref:`introduction <intro>`. Visit the 
 :ref:`installation page <install>` to see how you can download the package. You can browse the :ref:`examples <examples>` 
@@ -102,9 +106,9 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 					<li><a href="examples/R33/run_models.html">Run models</a></li>
 					<li><a href="examples/R33/create_plots.html">Create plots</a></li>
 					<li><a href="examples/R33/process_data.html">Process data</a></li>
-					<li><a href="examples/analysis/index.html">Lab Analysis</a></li>
+					<li><a href="examples/analysis/index.html">Lab analysis</a></li>
 					<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
-					<li><a href="examples/roi/generate_roi.html">Create Regions of Interest</a></li>
+					<li><a href="examples/roi/generate_roi.html">Regions of Interest</a></li>
 					</ul>
 					</div>
 				</div>

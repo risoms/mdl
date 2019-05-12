@@ -26,11 +26,19 @@ if __name__ == '__main__':
 	path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 	with open(path) as f:
 		required = f.read().splitlines()
+	required = required + ["win32api; sys_platform == 'win32'"] + ["pyobjc; sys_platform == 'darwin'"]
+
+	# sphinx pydoc - if this is the master version from github, add sphinx requirements
+	if os.path.isdir("./docs"):
+		path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
+		with open(path) as f:
+			required_addt = f.read().splitlines()
+		required = required + required_addt
 
 	# add to setuptools
 	setuptools_kwargs = {
 		'zip_safe': False,
-		'install_requires': required + ["win32api; sys_platform == 'win32'"] + ["pyobjc; sys_platform == 'darwin'"]
+		'install_requires': required
 	}
 
 	# setup

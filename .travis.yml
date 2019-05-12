@@ -82,13 +82,17 @@ before_script:
   - |
     # get environment variables.
     # get current path.
-    echo $PWD
+    bash -c 'echo $PWD'
     # get repository directory path.
-    echo $TRAVIS_BUILD_DIR
+    bash -c 'echo $TRAVIS_BUILD_DIR'
+    # get package path.
+    bash -c 'echo $PATH'
     # get package path.
     echo $PATH
     # get python version.
-    echo $TRAVIS_PYTHON_VERSION
+    bash -c 'echo $TRAVIS_PYTHON_VERSION'
+    # get python version test.
+    bash -c 'echo PLATFORM'
   - |
     # delete cache.
     if [[ $DELETE_FONT_CACHE == 1 ]]; then
