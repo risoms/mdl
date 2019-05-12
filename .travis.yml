@@ -51,6 +51,7 @@ before_install: |
     export PATH=/usr/lib/ccache:$PATH
     which python
     python --version
+   fi
 
 # command to install dependencies and package
 install:
@@ -59,25 +60,25 @@ install:
     ccache -s
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
-    python -m pip install --upgrade pip setuptools wheel
+    python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install package dependencies from PyPI.
-    python -m pip install --upgrade $PRE -r requirements.txt
+    python3 -m pip install --upgrade $PRE -r requirements.txt
     # Install pytest dependencies from PyPI.
-    python -m pip install --upgrade $PRE -r mdl/tests/dist/requirements.txt
+    python3 -m pip install --upgrade $PRE -r mdl/tests/dist/requirements.txt
     # GUI toolkits are pip-installable only for some versions of Python so
     # don't fail if we can't install them.  Make it easier to check whether the
     # install was successful by trying to import the toolkit (sometimes, the
     # install appears to be successful but shared libraries cannot be loaded at
     # runtime, so an actual import is a better check).
-    python -m pip install --upgrade pycairo cairocffi>=0.8
-    python -m pip install --upgrade pyqt5 &&
+    python3 -m pip install --upgrade pycairo cairocffi>=0.8
+    python3 -m pip install --upgrade pyqt5 &&
       python -c 'import PyQt5.QtCore' &&
       echo 'PyQt5 is available' ||
       echo 'PyQt5 is not available'
   - |
     # Install package
-    python -m pip install -ve .
+    python3 -m pip install -ve .
   # - pip3 install -r requirements.txt
   # - python setup.py install
 
@@ -93,7 +94,7 @@ script:
   - |
     if [[ $RUN_PYTEST == 1 ]]; then
       echo "Calling pytest with the following arguments: $PYTEST_ADDOPTS"
-      python -m pytest --html=report.html --self-contained-html
+      python3 -m pytest --html=report.html --self-contained-html
     fi
   
 before_cache: |
