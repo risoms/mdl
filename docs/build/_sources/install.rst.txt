@@ -9,7 +9,7 @@ Installation
 
    <div class="col-md-9">
 
-This package and its dependencies are available as wheel packages for macOS, Windows and Linux distributions from `PyPI <https://pypi.org/project/imhr>`__::
+This package and its dependencies are available as wheel packages for macOS and Windows distributions from `PyPI <https://pypi.org/project/imhr>`__::
 
 	pip install imhr 
 
@@ -22,14 +22,14 @@ You can also install the development version directly from `github <https://gith
 	pip install git+https://github.com/risoms/mdl.git
 
 Testing
-"""""""
+~~~~~~~
 
-After installation, you can launch the test suite:
+After installation, you can launch the test suite::
 
 	pytest mdl/tests
 
 Dependencies
-""""""""""""
+~~~~~~~~~~~~
 
 mdl requires the following dependencies:
 

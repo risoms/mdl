@@ -153,7 +153,8 @@ ul.current.nav>li.current>a.current{
     line-height: 13px;
 }
 .content>.section>h1,
-.content>.section>.section>h2{
+.content>.section>.section>h2,
+.content>.section>div>.section>h2{
     white-space: pre-wrap !important;
     white-space: -moz-pre-wrap !important;
     white-space: -pre-wrap !important;
@@ -167,8 +168,10 @@ ul.current.nav>li.current>a.current{
     font-size: 40px !important;
     line-height: 50px !important;
 }
+
 .content>.section>.section>h2,
-.content>.section>.section>h2>a{
+.content>.section>.section>h2>a,
+.content>.section>div>.section>h2{
     font-size: 30px !important;
     line-height: 40px !important;
 }

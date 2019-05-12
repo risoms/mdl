@@ -70,9 +70,11 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features.html#preprocessing">Preprocessing</a></li>
@@ -171,8 +173,6 @@
       aria-labelledby="dLabelLocalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -226,8 +226,6 @@
 			<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -303,10 +301,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.r33.Classify.Acceleration" title="mdl.r33.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
-<td>Calculate the acceleration (deg/sec/sec) for data points in  d_x and (optionally) d_y, using the time numpy array for  time delta information.</td>
+<td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.r33.Classify.Velocity" title="mdl.r33.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
-<td>Calculate the instantaneous velocity (degrees / second) for data points in  d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
+<td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.r33.Classify.VisualAngle" title="mdl.r33.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
 <td>Convert pixel eye-coordinates to visual angle.</td>
@@ -327,7 +325,7 @@
 <td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.r33.Classify.simple" title="mdl.r33.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
-<td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of pixels (disregarding missing data).</td>
+<td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
 </tr>
 </tbody>
 </table>
@@ -338,10 +336,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.r33.Classify.Acceleration" title="mdl.r33.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
-<td>Calculate the acceleration (deg/sec/sec) for data points in  d_x and (optionally) d_y, using the time numpy array for  time delta information.</td>
+<td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.r33.Classify.Velocity" title="mdl.r33.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
-<td>Calculate the instantaneous velocity (degrees / second) for data points in  d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
+<td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mdl.r33.Classify.VisualAngle" title="mdl.r33.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
 <td>Convert pixel eye-coordinates to visual angle.</td>
@@ -359,7 +357,7 @@
 <td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mdl.r33.Classify.simple" title="mdl.r33.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
-<td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of pixels (disregarding missing data).</td>
+<td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
 </tr>
 </tbody>
 </table>
@@ -385,8 +383,7 @@
 <dl class="method">
 <dt id="mdl.r33.Classify.Acceleration">
 <code class="descname">Acceleration</code><span class="sig-paren">(</span><em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the acceleration (deg/sec/sec) for data points in 
-d_x and (optionally) d_y, using the time numpy array for 
+<dd><p>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for
 time delta information.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -397,12 +394,10 @@ time delta information.</p>
 <dd><p class="first last">Timestamp of each coordinate.</p>
 </dd>
 <dt><strong>d_x,d_y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
-<dd><dl class="first docutils">
-<dt>List of gaze coordinates.</dt>
-<dd><p class="first last">config : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p class="first last">List of gaze coordinates.</p>
 </dd>
-</dl>
-<p class="last">Configuration data for data analysis. i.e. trial number, location.</p>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
 </dd>
 </dl>
 </td>
@@ -414,8 +409,8 @@ time delta information.</p>
 <dl class="method">
 <dt id="mdl.r33.Classify.Velocity">
 <code class="descname">Velocity</code><span class="sig-paren">(</span><em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the instantaneous velocity (degrees / second) for data points in 
-d_x and (optionally) d_y, using the time numpy array for time delta information.</p>
+<dd><p>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the 
+time numpy array for time delta information.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -425,12 +420,10 @@ d_x and (optionally) d_y, using the time numpy array for time delta information.
 <dd><p class="first last">Timestamp of each coordinate.</p>
 </dd>
 <dt><strong>d_x,d_y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
-<dd><dl class="first docutils">
-<dt>List of gaze coordinates.</dt>
-<dd><p class="first last">config : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p class="first last">List of gaze coordinates.</p>
 </dd>
-</dl>
-<p class="last">Configuration data for data analysis. i.e. trial number, location.</p>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
 </dd>
 </dl>
 </td>
@@ -438,13 +431,10 @@ d_x and (optionally) d_y, using the time numpy array for time delta information.
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>Numpy arrays time, d_x, and d_y must all be 1D arrays of the same
-length.</p>
-<p>If both d_x and d_y are provided, then the euclidian distance
-between each set of points is calculated and used in the velocity calculation.</p>
-<p>Time must be in seconds.msec units, while d_x and d_y are expected
-to be in visual degrees. If the position traces are in pixel coordinate space,
-use the VisualAngleCalc class to convert the data into degrees.</p>
+<p>Numpy arrays time, d_x, and d_y must all be 1D arrays of the same length. If both d_x and d_y are provided, then
+the euclidian distance between each set of points is calculated and used in the velocity calculation. Time must be
+in seconds.msec units, while d_x and d_y are expected to be in visual degrees. If the position traces
+are in pixel coordinate space, use the VisualAngleCalc class to convert the data into degrees.</p>
 </dd></dl>
 
 <dl class="method">
@@ -460,12 +450,10 @@ use the VisualAngleCalc class to convert the data into degrees.</p>
 <dd><p class="first last">List of gaze coordinates.</p>
 </dd>
 <dt><strong>drift</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
-<dd><dl class="first docutils">
-<dt>Counter of drift correct runs.</dt>
-<dd><p class="first last">config : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p class="first last">Counter of drift correct runs.</p>
 </dd>
-</dl>
-<p class="last">Configuration data for data analysis. i.e. trial number, location.</p>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
 </dd>
 </dl>
 </td>
@@ -473,16 +461,14 @@ use the VisualAngleCalc class to convert the data into degrees.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>Stimulus positions (g_x,g_y) are defined in x and y pixel units, 
-with the origin (0,0) being at the <strong>center</strong> of the display, as to match
-the PsychoPy pix unit coord type.</p>
-<p>The pix2deg method is vectorized, meaning that is will perform the 
-pixel to angle calculations on all elements of the provided pixel
-position numpy arrays in one numpy call.</p>
-<p>The convertion process can use either a fixed eye to calibration 
-plane distance, or a numpy array of eye distances passed as
-eye_distance_mm. In this case the eye distance array must be the same
-length as g_x, g_y arrays.</p>
+<ul class="simple">
+<li>Stimulus positions (g_x,g_y) are defined in x and y pixel units, with the origin (0,0) being at the <strong>center</strong> of 
+the display, as to match the PsychoPy pix unit coord type.</li>
+<li>The pix2deg method is vectorized, meaning that is will perform the pixel to angle calculations on all elements 
+of the provided pixel position numpy arrays in one numpy call.</li>
+<li>The convertion process can use either a fixed eye to calibration plane distance, or a numpy array of eye distances 
+passed as eye_distance_mm. In this case the eye distance array must be the same length as g_x, g_y arrays.</li>
+</ul>
 </dd></dl>
 
 <dl class="method">
@@ -498,12 +484,10 @@ length as g_x, g_y arrays.</p>
 <dd><p class="first last">Pandas dataframe of x,y and timestamp positions.</p>
 </dd>
 <dt><strong>filter_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
-<dd><dl class="first docutils">
-<dt>Types of filters to use.</dt>
-<dd><p class="first last">config : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p class="first last">Types of filters to use.</p>
 </dd>
-</dl>
-<p class="last">Configuration data for data analysis. i.e. trial number, location.</p>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
 </dd>
 </dl>
 </td>
@@ -512,24 +496,17 @@ length as g_x, g_y arrays.</p>
 </table>
 <p class="rubric">Notes</p>
 <dl class="docutils">
-<dt>Saccade:  </dt>
-<dd><blockquote class="first">
-<div>The saccade is a ballistic movement, meaning it is pre-programmed and</div></blockquote>
-<p class="last">does not change once it has started. Saccades of amplitude 40° peak at velocities
-of 300–600°/s and last for 80–150 ms.</p>
-</dd>
-<dt>Fixation:  </dt>
-<dd><blockquote class="first">
-<div>the point between any two saccades, during which the eyes are relatively
-stationary and virtually all visual input occurs. Regular eye movement alternates
-between saccades and visual fixations, the notable exception being in smooth pursuit.</div></blockquote>
-<dl class="last docutils">
-<dt>Smooth pursuit:  </dt>
-<dd>Smooth pursuit movements are much slower tracking movements of
-the eyes designed to keep a moving stimulus on the fovea. Such movements are under
-voluntary control in the sense that the observer can choose whether or not to
-track a moving stimulus. (Neuroscience 2nd edition).</dd>
-</dl>
+<dt><strong>Definitions</strong></dt>
+<dd><ul class="first last simple">
+<li><strong>Saccade</strong>: The saccade is a ballistic movement, meaning it is pre-programmed and does not change once it
+has started. Saccades of amplitude 40° peak at velocities of 300–600°/s and last for 80–150 ms.</li>
+<li><strong>Fixation</strong>: The point between any two saccades, during which the eyes are relatively stationary and
+virtually all visual input occurs. Regular eye movement alternates between saccades and visual fixations, the
+notable exception being in smooth pursuit.</li>
+<li><strong>Smooth pursuit</strong>: Smooth pursuit movements are much slower tracking movements of the eyes designed to
+keep a moving stimulus on the fovea. Such movements are under voluntary control in the sense that the observer
+can choose whether or not to track a moving stimulus. (Neuroscience 2nd edition).</li>
+</ul>
 </dd>
 </dl>
 <p class="rubric">References</p>
@@ -589,22 +566,18 @@ classification based on segmented linear regression. Scientific Reports, 7(1). d
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>The I-DT algorithm has two parameters: a dispersion threshold and
-the length of a time window in which the dispersion is calculated. The length of the
-time window is often set to the minimum duration of a fixation, which is around
+<p>The I-DT algorithm has two parameters: a dispersion threshold and the length of a time window in which the dispersion 
+is calculated. The length of the time window is often set to the minimum duration of a fixation, which is around
 100-200 ms.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.r33.Classify.ivt">
 <code class="descname">ivt</code><span class="sig-paren">(</span><em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.ivt" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Identification with Velocity Threshold.</p>
-<p>In the I-VT model, the velocity value is computed for every eye position sample.</p>
-</div></blockquote>
-<p>The velocity value is then compared to the threshold. If the sampled velocity is less 
-than the threshold, the corresponding eye-position sample is marked as part of a fixation, 
-otherwise it is marked as a part of a saccade.</p>
+<dd><p>Identification with Velocity Threshold.</p>
+<p>In the I-VT model, the velocity value is computed for every eye position sample.  The velocity value is then compared 
+to the threshold. If the sampled velocity is less than the threshold, the corresponding eye-position sample is 
+marked as part of a fixation, otherwise it is marked as a part of a saccade.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -614,12 +587,10 @@ otherwise it is marked as a part of a saccade.</p>
 <dd><p class="first last">the smoothed signal (or it’s n-th derivative).</p>
 </dd>
 <dt><strong>v_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><dl class="first docutils">
-<dt>Velocity threshold in pix/sec.</dt>
-<dd><p class="first last">config : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p class="first last">Velocity threshold in pix/sec.</p>
 </dd>
-</dl>
-<p class="last">Configuration data for data analysis. i.e. trial number, location.</p>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
 </dd>
 </dl>
 </td>
@@ -634,18 +605,15 @@ otherwise it is marked as a part of a saccade.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>From <a class="reference external" href="https://github.com/ecekt/eyegaze">https://github.com/ecekt/eyegaze</a>.
-Formula from: <a class="reference external" href="https://dl.acm.org/citation.cfm?id=355028">https://dl.acm.org/citation.cfm?id=355028</a></p>
+<p>From <a class="reference external" href="https://github.com/ecekt/eyegaze">https://github.com/ecekt/eyegaze</a>. Formula from: <a class="reference external" href="https://dl.acm.org/citation.cfm?id=355028">https://dl.acm.org/citation.cfm?id=355028</a></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.r33.Classify.savitzky_golay">
 <code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
-<dd><p>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.
-The Savitzky-Golay filter removes high frequency noise from data.
-It has the advantage of preserving the original shape and
-features of the signal better than other types of filtering
-approaches, such as moving averages techniques.</p>
+<dd><p>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</p>
+<p>The Savitzky-Golay filter removes high frequency noise from data. It has the advantage of preserving the original
+shape and features of the signal better than other types of filtering approaches, such as moving averages techniques.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -677,13 +645,9 @@ Must be less then <cite>window_size</cite> - 1.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>The Savitzky-Golay is a type of low-pass filter, particularly
-suited for smoothing noisy data. The main idea behind this
-approach is to make for each point a least-square fit with a
-polynomial of high order over a odd-sized window centered at
-the point.</p>
-<blockquote>
-<div>For more information, see: <a class="reference external" href="http://wiki.scipy.org/Cookbook/SavitzkyGolay">http://wiki.scipy.org/Cookbook/SavitzkyGolay</a>.</div></blockquote>
+<p>The Savitzky-Golay is a type of low-pass filter, particularly suited for smoothing noisy data. The main idea behind this
+approach is to make for each point a least-square fit with a polynomial of high order over a odd-sized window centered at
+the point. For more information, see: <a class="reference external" href="http://wiki.scipy.org/Cookbook/SavitzkyGolay">http://wiki.scipy.org/Cookbook/SavitzkyGolay</a>.</p>
 <p class="rubric">References</p>
 <table class="docutils citation" frame="void" id="r426895a5fb2a-1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -716,8 +680,8 @@ Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</td></t
 <dl class="method">
 <dt id="mdl.r33.Classify.simple">
 <code class="descname">simple</code><span class="sig-paren">(</span><em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.simple" title="Permalink to this definition">¶</a></dt>
-<dd><p>Detects fixations, defined as consecutive samples with an inter-sample
-distance of less than a set amount of pixels (disregarding missing data).</p>
+<dd><p>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of 
+pixels (disregarding missing data).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1981,7 +1945,7 @@ definition: m_[‘def’][‘cesd_group’] “a binary measure of CESD score (b
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-12T11:59:55-05:00.</div>
+				<div>Updated 2019-05-12T13:46:56-05:00.</div>
 		</div>
 	</div>
 </footer>

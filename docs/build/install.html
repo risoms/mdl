@@ -72,9 +72,11 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="features.html#preprocessing">Preprocessing</a></li>
@@ -172,9 +174,11 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/index.html">Current Data</a></li>
@@ -217,9 +221,11 @@
 		<div class="toc col-md-3">
 			<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#testing">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/index.html">Current Data</a></li>
@@ -238,7 +244,7 @@
 			
   <div class="section" id="installation">
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="col-md-9"><p>This package and its dependencies are available as wheel packages for macOS, Windows and Linux distributions from <a class="reference external" href="https://pypi.org/project/imhr">PyPI</a>:</p>
+<div class="col-md-9"><p>This package and its dependencies are available as wheel packages for macOS and Windows distributions from <a class="reference external" href="https://pypi.org/project/imhr">PyPI</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">imhr</span>
 </pre></div>
 </div>
@@ -250,15 +256,15 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">risoms</span><span class="o">/</span><span class="n">mdl</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-</div>
 <div class="section" id="testing">
-<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>After installation, you can launch the test suite:</p>
-<blockquote>
-<div>pytest mdl/tests</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">mdl</span><span class="o">/</span><span class="n">tests</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>mdl requires the following dependencies:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://www.python.org/downloads/">Python 3.6 +</a></li>
@@ -270,6 +276,7 @@
 <li><a class="reference external" href="https://pythonhosted.org/pyobjc/">pyobjc (if using Mac OS)</a></li>
 </ul>
 </div></div>
+</div>
 
 
 		</div>
@@ -281,7 +288,7 @@
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-12T11:59:55-05:00.</div>
+				<div>Updated 2019-05-12T13:46:56-05:00.</div>
 		</div>
 	</div>
 </footer>
