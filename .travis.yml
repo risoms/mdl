@@ -59,24 +59,28 @@ before_install: |
 # command to install dependencies and package
 install:
   - |
-    # Which version of python.
-    which python
-    python --version
-  - |
     # Setup environment.
     ccache -s
     git describe
+    # set up venv
+    pip3 install virtualenv
+    python3 -m venv env
+    source env/bin/activate
+  - |
+    # Which version of python.
+    which python
+    python --version
+    where python
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
     python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install from PiPY.
-    # Install package dependencies.
-    python3 -m pip install --quiet -r mdl/tests/dist/requirements.txt
     # Install pytest dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
+    # install certify
+    python3 -m pip install certifi
     # Install package.
     # python3 -m pip install --quiet -ve .
-    python3 -m pip install --quiet imhr
 
 before_script: 
   - |
@@ -87,12 +91,8 @@ before_script:
     bash -c 'echo $TRAVIS_BUILD_DIR'
     # get package path.
     bash -c 'echo $PATH'
-    # get package path.
-    echo $PATH
     # get python version.
     bash -c 'echo $TRAVIS_PYTHON_VERSION'
-    # get python version test.
-    bash -c 'echo PLATFORM'
   - |
     # delete cache.
     if [[ $DELETE_FONT_CACHE == 1 ]]; then
@@ -104,10 +104,11 @@ script:
   # each script we want to run need to go in it's own section and the program you want
   # to fail travis need to be the last thing called.
   - |
-    if [[ $RUN_PYTEST == 1 ]]; then
-      echo "Calling pytest with the following arguments: $PYTEST_ADDOPTS"
-      python3 -m pytest --html=report.html --self-contained-html
-    fi
+    # Install package.
+    python3 -m pip install --quiet -ve .
+  - |
+    # run
+    python3 -m pytest --html=report.html --self-contained-html
   
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache
