@@ -75,21 +75,19 @@ install:
     # Install pytest dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
     # Install package.
-    python3 -m pip install --quiet -ve .
+    python3 -m pip install --quiet -ve imhr
 
 before_script: 
   - |
+    # get environment variables.
     # get current path.
-    echo '$PWD'
-  - |
-    # get path to the directory where the repository being built has been copied on the worker.
-    echo '$TRAVIS_BUILD_DIR'
-  - |
+    echo $PWD
+    # get repository directory path.
+    echo $TRAVIS_BUILD_DIR
     # get package path.
-    echo "$PATH"
-  - |
+    echo $PATH
     # get python version.
-    echo '$TRAVIS_PYTHON_VERSION'
+    echo $TRAVIS_PYTHON_VERSION
   - |
     # delete cache.
     if [[ $DELETE_FONT_CACHE == 1 ]]; then
