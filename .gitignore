@@ -65,3 +65,4 @@ docs/source/examples/eyetracking/_psychopy/data/**
 # storage #
 docs/source/examples/eyetracking/backup/psychopyCoreGraphics_1.90.3.zip
 docs/source/examples/eyetracking/backup/psychopy_eyelink.zip
+id_travis_rsa

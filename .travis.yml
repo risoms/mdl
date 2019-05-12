@@ -57,6 +57,9 @@ before_install: |
 # command to install dependencies and package
 install:
   - |
+    # Which version of python.
+    which python
+    python --version
     # Setup environment.
     ccache -s
     git describe
@@ -64,18 +67,11 @@ install:
     python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install package dependencies from PyPI.
-    python3 -m pip install -r mdl/tests/dist/requirements.txt
+    python3 -m pip install --quiet -r mdl/tests/dist/requirements.txt
     # Install pytest dependencies from PyPI.
-    python3 -m pip install -r mdl/tests/dist/pytest_requirements.txt
-    # GUI toolkits.
-    python3 -m pip install --upgrade pycairo cairocffi>=0.8
-    python3 -m pip install --upgrade pyqt5 &&
-      python3 -c 'import PyQt5.QtCore' &&
-      echo 'PyQt5 is available' ||
-      echo 'PyQt5 is not available'
-  - |
+    python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
     # Install package.
-    python3 -m pip install -ve .
+    python3 -m pip install --quiet -ve .
 
 before_script: |
   if [[ $DELETE_FONT_CACHE == 1 ]]; then
