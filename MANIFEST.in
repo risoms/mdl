@@ -1,6 +1,8 @@
 # include
-include LICENSE
 include HOWTO.md
+include meta.yaml
+include LICENSE
+include pytest.ini
 include README.md
 include requirements.txt
 include setup.cfg
@@ -9,16 +11,18 @@ include mdl/_version.py
 # recursive-include
 graft tests
 graft mdl/dist
-# recursive-exclude
+# recursive-exclude of all files within path
 prune build
 prune conda
 prune docs
 prune env
 prune imhr.egg-info
+prune __pycache__
 prune mdl/dist/experiments
-# global exclude
+# global-exclude
+global-exclude .ipynb_checkpoints
+global-exclude .pytest_cache
 global-exclude .spyproject
 global-exclude .vscode
-global-exclude .ipynb_checkpoints
 global-exclude __pycache__
 global-exclude *.py[co]

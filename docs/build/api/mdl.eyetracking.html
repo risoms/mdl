@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>mdl.eyetracking &#8212; mdl 2019-05-11 documentation</title>
+    <title>mdl.eyetracking &#8212; mdl 2019-05-12 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -51,7 +51,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-11</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-12</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -434,7 +434,7 @@
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.calibration">
-<code class="descname">calibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start calibration procedure.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -452,7 +452,7 @@
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.connect">
-<code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect to Eyelink.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -499,7 +499,7 @@ Enter either ‘GAZE’ or ‘HREF’. Default is ‘GAZE’. [see <a class="ref
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.drift_correction">
-<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>origin='call'</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts drift correction. This can be done at any point after calibration, including before 
 and after eyetracking.start_recording has already been initiated.</p>
 <dl class="field-list">
@@ -527,7 +527,7 @@ correction has occured, it is safe to run start_recording.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.finish_recording">
-<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ending Eyelink recording.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -578,7 +578,7 @@ filename should be given.
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.gc">
-<code class="descname">gc</code><span class="sig-paren">(</span><em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gc</code><span class="sig-paren">(</span><em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates gaze contigent event. This function needs to be run while recording.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -605,7 +605,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects new gaze coordinates from Eyelink.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -627,7 +627,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.send_message">
-<code class="descname">send_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send message to Eyelink. This allows post-hoc processing of event markers (i.e. “stimulus onset”).</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -645,7 +645,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.send_variable">
-<code class="descname">send_variable</code><span class="sig-paren">(</span><em>variables</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_variable</code><span class="sig-paren">(</span><em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>send trial variable to eyelink at the end of trial.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -659,7 +659,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.set_eye_used">
-<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>eye</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dominant eye. This step is required for recieving gaze coordinates from Eyelink-&gt;Psychopy.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -678,7 +678,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.start_recording">
-<code class="descname">start_recording</code><span class="sig-paren">(</span><em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">start_recording</code><span class="sig-paren">(</span><em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts recording of Eyelink.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -727,7 +727,7 @@ trial start is lost.
 
 <dl class="method">
 <dt id="mdl.eyetracking.Eyelink.stop_recording">
-<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops recording of Eyelink. Also allows transmission of trial-level variables to Eyelink.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -947,99 +947,99 @@ data loading preference settings.
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.alert_printf">
-<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print error messages.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.clear_cal_display">
-<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_cal_target">
-<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_image_line">
-<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display image pixel by pixel, line by line.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_line">
-<code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a line. This is used for drawing crosshairs/squares.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.draw_lozenge">
-<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.erase_cal_target">
-<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erase the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.exit_cal_display">
-<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exit the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.exit_image_display">
-<code class="descname">exit_image_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_image_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.getColorFromIndex">
-<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>colorindex</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return psychopy colors for elements in the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.get_input_key">
-<code class="descname">get_input_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_input_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will be constantly pools, update the stimuli here is you need
 dynamic calibration target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.get_mouse_state">
-<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current mouse position and status</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.play_beep">
-<code class="descname">play_beep</code><span class="sig-paren">(</span><em>beepid</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
+<code class="descname">play_beep</code><span class="sig-paren">(</span><em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound during calibration/drift correction.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.record_abort_hide">
-<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
+<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is called if aborted</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.set_image_palette">
-<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.
 I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000 011111111</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.setup_cal_display">
-<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows the ‘Camera Setup’ screen along with menu options.</p>
 <p class="rubric">Notes</p>
 <p>This function is called to setup calibration/validation display. This will be called just before we enter into 
@@ -1049,7 +1049,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 
 <dl class="method">
 <dt id="mdl.eyetracking.Calibration.setup_image_display">
-<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</p>
 </dd></dl>
 
@@ -1300,7 +1300,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.create_contours">
-<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1332,7 +1332,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.create_rois">
-<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1372,7 +1372,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.draw_image">
-<code class="descname">draw_image</code><span class="sig-paren">(</span><em>imagename</em>, <em>data</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.draw_image" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_image</code><span class="sig-paren">(</span><em>imagename</em>, <em>data</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.draw_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.draw_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1390,7 +1390,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.export_data">
-<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em>, <em>level='image'</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em>, <em>level='image'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.export_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1420,7 +1420,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.finished">
-<code class="descname">finished</code><span class="sig-paren">(</span><em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.finished" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finished</code><span class="sig-paren">(</span><em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.finished" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process bounds for all images.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1436,7 +1436,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.process">
-<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.process" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1450,7 +1450,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.process_image">
-<code class="descname">process_image</code><span class="sig-paren">(</span><em>psd</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.process_image" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_image</code><span class="sig-paren">(</span><em>psd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1470,7 +1470,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.process_metadata">
-<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1496,7 +1496,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="mdl.eyetracking.ROI.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.eyetracking.ROI.run" title="Permalink to this definition">¶</a></dt>
+<code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/eyetracking/_roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.eyetracking.ROI.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1532,7 +1532,7 @@ for more information.</p>
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-11T20:47:08-05:00.</div>
+				<div>Updated 2019-05-12T00:09:13-05:00.</div>
 		</div>
 	</div>
 </footer>

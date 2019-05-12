@@ -90,7 +90,7 @@ extensions = [
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
 
 # viewcode settings ----------------------------------------------------------------------------------------------------
-viewcode_follow_imported_members = False
+viewcode_follow_imported_members = True
 
 # find source 
 # https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html#event-viewcode-find-source
@@ -226,7 +226,7 @@ language = None
 # Options for todo extension
 todo_include_todos = True
 # List of patterns, relative to source directory, that match files and directories to ignore when looking for source files.
-exclude_patterns = ['_build','**.ipynb_checkpoints','run.rst','notes.rst',
+exclude_patterns = ['_build','**.ipynb_checkpoints','run.rst','notes.rst','tests.rst','tests/test_generate_roi.rst',
 'api/setup.rst','setup.rst','setup.py','versioneer.rst','versioneer.py','api/pylink.rst']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -296,7 +296,7 @@ def setup(app):
 	app.connect("autodoc-process-docstring", autodoc_process_docstring) # exclude modules
 	app.connect("autodoc-skip-member", autodoc_skip_member) # include init
 	app.connect('builder-inited', builder_inited) # better apidoc
-	app.connect('viewcode-find-source', viewcode_find_source) # viewcode alter source
-	app.connect('viewcode-follow-imported', viewcode_follow_imported) # viewcode follow source
+	# app.connect('viewcode-find-source', viewcode_find_source) # viewcode alter source
+	# app.connect('viewcode-follow-imported', viewcode_follow_imported) # viewcode follow source
 	# app.add_directive('autoautosummary', AutoAutoSummary) # auto add function in toctree
 	# app.connect('autodocsumm-grouper', grouper_autodocsumm) # autodocsumm

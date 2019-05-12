@@ -1,40 +1,108 @@
 language: python
-sudo: required
 dist: xenial
-virtualenv:
-  system_site_packages: true
+sudo: false
+
+cache:
+  pip: true
+  directories:
+    # https://github.com/travis-ci/travis-ci/issues/5853
+    - $HOME/.ccache
+    - $HOME/.cache/matplotlib
+
+env:
+  global:
+    - ARTIFACTS_AWS_REGION=us-east-1
+    - ARTIFACTS_BUCKET=matplotlib-test-results
+    # Variables controlling the build.
+    - MPLLOCALFREETYPE=1
+    # Variables controlling the test run.
+    - DELETE_FONT_CACHE=
+    - NO_AT_BRIDGE=1  # Necessary for GTK3 interactive test.
+    # The number of processes is hardcoded, because using too many causes the
+    - NPROC=2
+    - OPENBLAS_NUM_THREADS=1
+    - PYTHONFAULTHANDLER=1
+    - PYTEST_ADDOPTS="-raR --maxfail=50 --timeout=300 --durations=25 -n $NPROC --log-level=DEBUG"
+    - RUN_PYTEST=1
+
 # matrix
 matrix:
-  dist: xenial
-  python:
-  # - 3.6
-  - 3.7
   include:
-  - name: "Python 3.7 on macOS"
-    os: osx
-    language: shell
-    before_script:
-    - echo $PATH
-    - pwd
-  # - name: "Python 3.7 on Windows"
-  #   os: windows
-  #   language: shell
-  #   env: export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-  #   before_install: choco install python3
-  #   before_script:
-  #   - echo 'path'
+    - python: 3.6
+      env:
+        - DELETE_FONT_CACHE=1
+    - python: 3.7
+      sudo: true
+    - python: "nightly"
+      env:
+        - PRE=--pre
+    - os: osx
+      # https://github.com/travis-ci/travis-ci/issues/2312
+      language: generic
+      only: master
+      cache:
+        # As for now travis caches only "$HOME/.cache/pip"
+        # https://docs.travis-ci.com/user/caching/#pip-cache
+        pip: false
+        directories:
+          - $HOME/Library/Caches/pip
+          # `cache` does not support `env`-like `global` so copy-paste from top
+          # https://github.com/travis-ci/travis-ci/issues/5853
+          - $HOME/.ccache
+          - $HOME/.cache/matplotlib
 
 # before install
-before_install:
-  - pip3 install --upgrade pip setuptools virtualenv psd-tools opencv-python pipenv
-  - pip3 install certifi
-  - pip3 install pytest allure-pytest pytest-html
+before_install: |
+  # test with non-ascii in path
+  if [[ $TRAVIS_OS_NAME != 'osx' ]]; then
+    export PATH=/usr/lib/ccache:$PATH
+    which python
+    python --version
 
 # command to install dependencies and package
 install:
-  - pip3 install -r requirements.txt
-  - python3 setup.py install
+  - |
+    # Setup environment.
+    ccache -s
+    git describe
+    # Upgrade pip and setuptools and wheel to get as clean an install as possible.
+    python -mpip install --upgrade pip setuptools wheel
+  - |
+    # Install package dependencies from PyPI.
+    python -mpip install --upgrade $PRE -r requirements.txt
+    # Install pytest dependencies from PyPI.
+    python -mpip install --upgrade $PRE -r mdl/tests/dist/requirements.txt
+    # GUI toolkits are pip-installable only for some versions of Python so
+    # don't fail if we can't install them.  Make it easier to check whether the
+    # install was successful by trying to import the toolkit (sometimes, the
+    # install appears to be successful but shared libraries cannot be loaded at
+    # runtime, so an actual import is a better check).
+    python -mpip install --upgrade pycairo cairocffi>=0.8
+    python -mpip install --upgrade pyqt5 &&
+      python -c 'import PyQt5.QtCore' &&
+      echo 'PyQt5 is available' ||
+      echo 'PyQt5 is not available'
+  - |
+    # Install package
+    python -mpip install -ve .
+  # - pip3 install -r requirements.txt
+  # - python setup.py install
+
+before_script: |
+  if [[ $DELETE_FONT_CACHE == 1 ]]; then
+    rm -rf ~/.cache/matplotlib
+  fi
 
 # command to run tests, e.g. python setup.py test
 script:
-  - pytest tests --html=report.html --self-contained-html
+  # each script we want to run need to go in it's own section and the program you want
+  # to fail travis need to be the last thing called
+  - |
+    if [[ $RUN_PYTEST == 1 ]]; then
+      echo "Calling pytest with the following arguments: $PYTEST_ADDOPTS"
+      python -mpytest --html=report.html --self-contained-html
+    fi
+  
+before_cache: |
+  rm -rf $HOME/.cache/matplotlib/tex.cache
+  rm -rf $HOME/.cache/matplotlib/test_cache

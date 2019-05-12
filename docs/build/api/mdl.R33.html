@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>mdl.r33 &#8212; mdl 2019-05-11 documentation</title>
+    <title>mdl.r33 &#8212; mdl 2019-05-12 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -49,7 +49,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           mdl</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-11</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-12</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -371,7 +371,7 @@
 
 <dl class="method">
 <dt id="mdl.r33.Classify.Acceleration">
-<code class="descname">Acceleration</code><span class="sig-paren">(</span><em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Acceleration</code><span class="sig-paren">(</span><em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the acceleration (deg/sec/sec) for data points in 
 d_x and (optionally) d_y, using the time numpy array for 
 time delta information.</p>
@@ -393,7 +393,7 @@ time delta information.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Classify.Velocity">
-<code class="descname">Velocity</code><span class="sig-paren">(</span><em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Velocity</code><span class="sig-paren">(</span><em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the instantaneous velocity (degrees / second) for data points in 
 d_x and (optionally) d_y, using the time numpy array for time delta information.</p>
 <dl class="field-list">
@@ -422,7 +422,7 @@ use the VisualAngleCalc class to convert the data into degrees.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Classify.VisualAngle">
-<code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.VisualAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert pixel eye-coordinates to visual angle.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -453,7 +453,7 @@ length as g_x, g_y arrays.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Classify.hmm">
-<code class="descname">hmm</code><span class="sig-paren">(</span><em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.hmm" title="Permalink to this definition">¶</a></dt>
+<code class="descname">hmm</code><span class="sig-paren">(</span><em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.hmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.hmm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -512,7 +512,7 @@ classification based on segmented linear regression. Scientific Reports, 7(1). d
 
 <dl class="method">
 <dt id="mdl.r33.Classify.idt">
-<code class="descname">idt</code><span class="sig-paren">(</span><em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.idt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">idt</code><span class="sig-paren">(</span><em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.idt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.idt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identification with Dispersion Threshold.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -541,7 +541,7 @@ time window is often set to the minimum duration of a fixation, which is around
 
 <dl class="method">
 <dt id="mdl.r33.Classify.ivt">
-<code class="descname">ivt</code><span class="sig-paren">(</span><em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.ivt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ivt</code><span class="sig-paren">(</span><em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.ivt" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Identification with Velocity Threshold.</p>
 <p>In the I-VT model, the velocity value is computed for every eye position sample.</p>
@@ -576,7 +576,7 @@ Formula from: <a class="reference external" href="https://dl.acm.org/citation.cf
 
 <dl class="method">
 <dt id="mdl.r33.Classify.savitzky_golay">
-<code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
+<code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.
 The Savitzky-Golay filter removes high frequency noise from data.
 It has the advantage of preserving the original shape and
@@ -639,7 +639,7 @@ Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Classify.simple">
-<code class="descname">simple</code><span class="sig-paren">(</span><em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Classify.simple" title="Permalink to this definition">¶</a></dt>
+<code class="descname">simple</code><span class="sig-paren">(</span><em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Classify.simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects fixations, defined as consecutive samples with an inter-sample
 distance of less than a set amount of pixels (disregarding missing data).</p>
 <dl class="field-list">
@@ -725,7 +725,7 @@ disregarded if they are below this duration (default = 100).</p>
 
 <dl class="classmethod">
 <dt id="mdl.r33.Metadata.predict">
-<em class="property">classmethod </em><code class="descname">predict</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Metadata.predict" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">predict</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_metadata.html#Metadata.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Metadata.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicting screen size (cm), device (i.e. macbook 2018).</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -745,7 +745,7 @@ disregarded if they are below this duration (default = 100).</p>
 
 <dl class="classmethod">
 <dt id="mdl.r33.Metadata.summary">
-<em class="property">classmethod </em><code class="descname">summary</code><span class="sig-paren">(</span><em>df</em>, <em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Metadata.summary" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">summary</code><span class="sig-paren">(</span><em>df</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_metadata.html#Metadata.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Metadata.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Preparing data for use in analysis.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -849,7 +849,7 @@ subject (subject_session).</p>
 
 <dl class="classmethod">
 <dt id="mdl.r33.Model.anova">
-<em class="property">classmethod </em><code class="descname">anova</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>csv</em>, <em>path</em>, <em>effects</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Model.anova" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">anova</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>csv</em>, <em>path</em>, <em>effects</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_model.html#Model.anova"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Model.anova" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run analysis of variance model using rpy2, seaborn and pandas.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -937,7 +937,7 @@ subject (subject_session).</p>
 
 <dl class="classmethod">
 <dt id="mdl.r33.Model.lmer">
-<em class="property">classmethod </em><code class="descname">lmer</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>exclude</em>, <em>csv</em>, <em>path</em>, <em>effects</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Model.lmer" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">lmer</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>exclude</em>, <em>csv</em>, <em>path</em>, <em>effects</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_model.html#Model.lmer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Model.lmer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run linear mixed regression model, using rpy2, seaborn and pandas.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -989,7 +989,7 @@ subject (subject_session).</p>
 
 <dl class="classmethod">
 <dt id="mdl.r33.Model.logistic">
-<em class="property">classmethod </em><code class="descname">logistic</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>me</em>, <em>exclude</em>, <em>csv</em>, <em>path</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Model.logistic" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">logistic</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>me</em>, <em>exclude</em>, <em>csv</em>, <em>path</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_model.html#Model.logistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Model.logistic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run logistic regression model, using rpy2, seaborn and pandas.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1160,7 +1160,7 @@ subject (subject_session).</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.append_classify">
-<code class="descname">append_classify</code><span class="sig-paren">(</span><em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.append_classify" title="Permalink to this definition">¶</a></dt>
+<code class="descname">append_classify</code><span class="sig-paren">(</span><em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.append_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.append_classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appending classification to Dataframe.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1176,7 +1176,7 @@ subject (subject_session).</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.classify">
-<code class="descname">classify</code><span class="sig-paren">(</span><em>config</em>, <em>df</em>, <em>ctype='ivt'</em>, <em>filter_type=None</em>, <em>v_th=None</em>, <em>dr_th=None</em>, <em>di_th=None</em>, <em>missing=None</em>, <em>maxdist=None</em>, <em>mindur=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.classify" title="Permalink to this definition">¶</a></dt>
+<code class="descname">classify</code><span class="sig-paren">(</span><em>config</em>, <em>df</em>, <em>ctype='ivt'</em>, <em>filter_type=None</em>, <em>v_th=None</em>, <em>dr_th=None</em>, <em>di_th=None</em>, <em>missing=None</em>, <em>maxdist=None</em>, <em>mindur=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.classify" title="Permalink to this definition">¶</a></dt>
 <dd><p>I-DT algorithm takes into account the distribution or spatial proximity of
 eye position points in the eye-movement trace.</p>
 <p>In the I-VT model, the velocity value is computed for every eye position
@@ -1232,7 +1232,7 @@ cadidates will be disregarded if they are below this duration  (simple)</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.dwell">
-<code class="descname">dwell</code><span class="sig-paren">(</span><em>df</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.dwell" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dwell</code><span class="sig-paren">(</span><em>df</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.dwell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.dwell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate dwell time for sad and neutral images.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1256,7 +1256,7 @@ cadidates will be disregarded if they are below this duration  (simple)</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.filter_data">
-<code class="descname">filter_data</code><span class="sig-paren">(</span><em>df</em>, <em>filter_type</em>, <em>config</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.filter_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter_data</code><span class="sig-paren">(</span><em>df</em>, <em>filter_type</em>, <em>config</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.filter_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.filter_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Butterworth: Design an Nth-order digital or analog Butterworth filter and return
 the filter coefficients.</p>
 <dl class="field-list">
@@ -1281,7 +1281,7 @@ the filter coefficients.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.getData">
-<code class="descname">getData</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.getData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getData</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.getData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.getData" title="Permalink to this definition">¶</a></dt>
 <dd><p>preparing data for use in analysis</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1322,7 +1322,7 @@ the filter coefficients.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.getEstimatedMonitor">
-<code class="descname">getEstimatedMonitor</code><span class="sig-paren">(</span><em>diagonal</em>, <em>window</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.getEstimatedMonitor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getEstimatedMonitor</code><span class="sig-paren">(</span><em>diagonal</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.getEstimatedMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.getEstimatedMonitor" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</p>
 <dl class="field-list">
 <dt class="field-odd">Attributes</dt>
@@ -1336,7 +1336,7 @@ the filter coefficients.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.onset_diff">
-<code class="descname">onset_diff</code><span class="sig-paren">(</span><em>df0</em>, <em>merge=None</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.onset_diff" title="Permalink to this definition">¶</a></dt>
+<code class="descname">onset_diff</code><span class="sig-paren">(</span><em>df0</em>, <em>merge=None</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.onset_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.onset_diff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1364,7 +1364,7 @@ the filter coefficients.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.preprocess">
-<code class="descname">preprocess</code><span class="sig-paren">(</span><em>df</em>, <em>window</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.preprocess" title="Permalink to this definition">¶</a></dt>
+<code class="descname">preprocess</code><span class="sig-paren">(</span><em>df</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.preprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial data cleaning.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1397,7 +1397,7 @@ the filter coefficients.</p>
 
 <dl class="method">
 <dt id="mdl.r33.Processing.process">
-<code class="descname">process</code><span class="sig-paren">(</span><em>window</em>, <em>filters</em>, <em>gxy_df</em>, <em>trial</em>, <em>_classify=True</em>, <em>ctype='simple'</em>, <em>_param=''</em>, <em>log=False</em>, <em>draw_plot=False</em>, <em>draw_heatmap=False</em>, <em>draw_gazeplot=False</em>, <em>draw_fixplot=False</em>, <em>v_th=20</em>, <em>dr_th=200</em>, <em>di_th=20</em>, <em>_missing=0.0</em>, <em>_maxdist=25</em>, <em>_mindur=50</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.process" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process</code><span class="sig-paren">(</span><em>window</em>, <em>filters</em>, <em>gxy_df</em>, <em>trial</em>, <em>_classify=True</em>, <em>ctype='simple'</em>, <em>_param=''</em>, <em>log=False</em>, <em>draw_plot=False</em>, <em>draw_heatmap=False</em>, <em>draw_gazeplot=False</em>, <em>draw_fixplot=False</em>, <em>v_th=20</em>, <em>dr_th=200</em>, <em>di_th=20</em>, <em>_missing=0.0</em>, <em>_maxdist=25</em>, <em>_mindur=50</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plotting and preparing data for classification. Combined plot of each filter.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1461,7 +1461,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 
 <dl class="method">
 <dt id="mdl.r33.Processing.roi">
-<code class="descname">roi</code><span class="sig-paren">(</span><em>filters=[['SavitzkyGolay', 'sg']], flt=None, df=None, manual=False, monitorSize=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.roi" title="Permalink to this definition">¶</a></dt>
+<code class="descname">roi</code><span class="sig-paren">(</span><em>filters=[['SavitzkyGolay', 'sg']], flt=None, df=None, manual=False, monitorSize=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.roi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if fixation is within bounds.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -1487,7 +1487,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 
 <dl class="method">
 <dt id="mdl.r33.Processing.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>path</em>, <em>task_type='eyetracking'</em>, <em>single_subject=False</em>, <em>single_trial=False</em>, <em>subject=0</em>, <em>trial=0</em>, <em>isMultiprocessing=True</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.run" title="Permalink to this definition">¶</a></dt>
+<code class="descname">run</code><span class="sig-paren">(</span><em>path</em>, <em>task_type='eyetracking'</em>, <em>single_subject=False</em>, <em>single_trial=False</em>, <em>subject=0</em>, <em>trial=0</em>, <em>isMultiprocessing=True</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processing of data. Steps here include: cleaning data, fixation identification, and exporting data.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1521,7 +1521,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 
 <dl class="method">
 <dt id="mdl.r33.Processing.subject_metadata">
-<code class="descname">subject_metadata</code><span class="sig-paren">(</span><em>fpath</em>, <em>spath</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.subject_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descname">subject_metadata</code><span class="sig-paren">(</span><em>fpath</em>, <em>spath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.subject_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.subject_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collect all subjects metadata.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1543,7 +1543,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 
 <dl class="method">
 <dt id="mdl.r33.Processing.variables">
-<code class="descname">variables</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Processing.variables" title="Permalink to this definition">¶</a></dt>
+<code class="descname">variables</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_processing.html#Processing.variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Processing.variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output list of variables for easy html viewing.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1612,7 +1612,7 @@ cadidates will be disregarded if they are below this duration  (simple)
 
 <dl class="classmethod">
 <dt id="mdl.r33.Settings.definitions">
-<em class="property">classmethod </em><code class="descname">definitions</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.r33.Settings.definitions" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">definitions</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_settings.html#Settings.definitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33.Settings.definitions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Store definitions.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1653,7 +1653,7 @@ definition: m_[‘def’][‘cesd_group’] “a binary measure of CESD score (b
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-11T20:47:08-05:00.</div>
+				<div>Updated 2019-05-12T00:09:13-05:00.</div>
 		</div>
 	</div>
 </footer>

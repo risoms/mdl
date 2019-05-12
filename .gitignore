@@ -31,30 +31,36 @@
 # files #
 ######################
 mdl/dist/output/**/*.csv
+mdl/dist/experiments/_js/tools/_py/variable/placebo_2abc.csv
 report.html
 pytest.log
-README.rst
 
 # directories #
 ######################
+# build #
 build/**
+conda/**
 dist/**
 env/**
-anaconda3/**
-conda/**
 imhr.egg-info/**
 mdl.egg-info/**
-.vscode/**
-.ipynb_checkpoints/**
+# ide #
 .spyproject/**
-__pycache__/**
+.vscode/**
+mdl/**/spyproject/**
 mdl/**/vscode/**
-mdl/**/ipynb_checkpoints/**
+# cache #
+__pycache__/**
+.ipynb_checkpoints/**
+.pytest_cache/**
 mdl/**/__pycache__/**
+mdl/**/.ipynb_checkpoints/**
+mdl/**/.pytest_cache/**
+# data #
 mdl/dist/output/data/**
 docs/source/data/img/**
 docs/source/examples/roi/output/**
 docs/source/examples/eyetracking/_psychopy/data/**
+# storage #
 docs/source/examples/eyetracking/backup/psychopyCoreGraphics_1.90.3.zip
 docs/source/examples/eyetracking/backup/psychopy_eyelink.zip
-mdl/dist/experiments/_js/tools/_py/variable/placebo_2abc.csv

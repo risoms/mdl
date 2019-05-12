@@ -9,7 +9,7 @@ This library was created at the Institute for Mental Health Research, at the Uni
 | `@url`: https://semeon.io/d/mdl
 """
 # allowed imports
-__all__ = ['download','eyetracking','plot','r33','settings','tests']
+__all__ = ['download','eyetracking','plot','r33','settings']
 
 # core
 from pdb import set_trace as breakpoint
