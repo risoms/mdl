@@ -17,12 +17,19 @@ or the `anaconda <https://anaconda.org/risoms/imhr>`__ package cloud repo::
 
 	conda install -c risoms imhr
 
-Alternatively, you can install the development version directly from `github <https://github.com/risoms/mdl>`__ repo::
+You can also install the development version directly from `github <https://github.com/risoms/mdl>`__ repo::
 
 	pip install git+https://github.com/risoms/mdl.git
 
+Testing
+"""""""
+
+After installation, you can launch the test suite:
+
+	pytest mdl/tests
+
 Dependencies
-~~~~~~~~~~~~
+""""""""""""
 
 mdl requires the following dependencies:
 

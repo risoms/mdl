@@ -394,6 +394,9 @@ code.descclassname {
 }
 
 /*--kwargs--*/
+.align-center{
+	text-align: left !important;
+}
 table.kwargs, table.longtable {
     width: 100% !important;
     border-spacing: 2px !important;

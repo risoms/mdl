@@ -6,4 +6,5 @@ mdl-R33
 
    mdl
    setup
+   tests
    versioneer
