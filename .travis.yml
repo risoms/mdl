@@ -1,3 +1,4 @@
+# based on https://github.com/matplotlib/matplotlib/blob/master/.travis.yml
 language: python
 dist: xenial
 sudo: false
@@ -28,14 +29,6 @@ env:
 # matrix
 matrix:
   include:
-    - python: 3.6
-      env:
-        - DELETE_FONT_CACHE=1
-    - python: 3.7
-      sudo: true
-    - python: "nightly"
-      env:
-        - PRE=--pre
     - os: osx
       # https://github.com/travis-ci/travis-ci/issues/2312
       language: generic

@@ -23,8 +23,6 @@ def args():
 def test_run(args):
 	# #### Read ROI from photoshop PSD files
 	# ##### import mdl package
-	path = pathlib.Path(__file__).parent
-	sys.path.append(os.path.abspath(os.getcwd() + './../..'))
 	import mdl
 
 	# image_path
