@@ -1,7 +1,5 @@
 # based on https://github.com/matplotlib/matplotlib/blob/master/.travis.yml
 language: python
-dist: xenial
-sudo: false
 
 cache:
   pip: true
@@ -29,9 +27,12 @@ env:
 # matrix
 matrix:
   include:
-    - os: osx
+    - name: "Python 3.6 on OSX"
+      python: 3.6
+      sudo: true
+      os: osx
       # https://github.com/travis-ci/travis-ci/issues/2312
-      language: generic
+      language: shell
       only: master
       cache:
         # As for now travis caches only "$HOME/.cache/pip"
@@ -73,7 +74,7 @@ install:
     # runtime, so an actual import is a better check).
     python3 -m pip install --upgrade pycairo cairocffi>=0.8
     python3 -m pip install --upgrade pyqt5 &&
-      python -c 'import PyQt5.QtCore' &&
+      python3 -c 'import PyQt5.QtCore' &&
       echo 'PyQt5 is available' ||
       echo 'PyQt5 is not available'
   - |
