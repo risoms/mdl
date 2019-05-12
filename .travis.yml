@@ -75,7 +75,8 @@ install:
     # Install pytest dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
     # Install package.
-    python3 -m pip install --quiet -ve imhr
+    # python3 -m pip install --quiet -ve .
+    python3 -m pip install --quiet imhr
 
 before_script: 
   - |
