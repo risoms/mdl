@@ -1,5 +1,5 @@
-mdl-R33
-=======
+mdl
+===
 
 .. toctree::
    :maxdepth: 4

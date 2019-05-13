@@ -26,7 +26,7 @@ Testing
 
 After installation, you can launch the test suite::
 
-	pytest mdl/tests
+	pytest --pyargs mdl.tests --html=report.html --self-contained-html
 
 Dependencies
 ~~~~~~~~~~~~

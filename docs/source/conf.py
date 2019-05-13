@@ -35,13 +35,11 @@ def iso():
 	>>> __time__()
 	'2019-04-23 11:29:44-05:00'
 	"""
-
 	isoname = datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
-
 	return isoname
 
 # Project information --------------------------------------------------------------------------------------------------
-project = 'mdl'
+project = 'mdl-api'
 author = 'Semeon Risom'
 copyright = u'{}, '.format(time.strftime("%Y"))
 
@@ -174,7 +172,7 @@ autodoc_default_options = {
     # 'autosummary': True,
     'show-inheritance': True,
     'member-order': 'bysource',
-    # 'private-members': False,
+    'private-members': True,
     # 'undoc-members': False,
 }
 
@@ -259,7 +257,7 @@ html_sidebars = {'**': ['localtoc.html','sourcelink.html']}
 
 # Options for HTMLHelp output ------------------------------------------------------------------------------------------
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mdl-api'
+htmlhelp_basename = 'mdl'
 
 # Options for manual page output ---------------------------------------------------------------------------------------
 # One entry per manual page. List of tuples

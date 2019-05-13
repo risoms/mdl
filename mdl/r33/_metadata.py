@@ -62,7 +62,7 @@ class Metadata():
 
 		Returns
 		-------
-		df : :class:`ndarray`
+		df : :class:`numpy.ndarray`
 			Pandas dataframe of processed metadata.
 
 		Notes
@@ -248,12 +248,12 @@ class Metadata():
 
 		Parameters
 		----------
-		df : :class:`ndarray`
+		df : :class:`numpy.ndarray`
 			Pandas dataframe of raw data.
 
 		Returns
 		-------
-		df : :class:`ndarray`
+		df : :class:`numpy.ndarray`
 			Pandas dataframe of raw data.
 		"""
 		#clean up sub-version of data

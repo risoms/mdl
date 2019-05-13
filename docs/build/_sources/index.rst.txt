@@ -57,7 +57,7 @@
 	<h1 style="display: none !important;">mdl - psychology and data science suite</h1>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-9 main-page">
 
 This library was created at the `Institute for Mental Health Research <http://mdl.psy.utexas.edu/>`__, 
 at `the University of Texas at Austin <http://www.utexas.edu/>`__ by `Semeon Risom <https://semeon.io>`__, and developed 
@@ -79,37 +79,33 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 
 			</div>
 			<div class="col-md-3">
-				<div class="panel panel-default">   
+				<div class="panel panel-default main-page">   
 					<div class="panel-heading">
 						<h3 class="panel-title">Contents</h3>
 					</div>
 					<div class="panel-body">
-					<ul>
-					<li><a href="features.html">Features</a></li>
-					<li><a href="api/mdl.html">Library</a></li>
-					<li><a href="genindex.html">Glossary</a></li>
-					<li><a href="install.html">Install</a></li>
-					<li><a href="search.html">Search</a></li>
-					</ul>
+						<ul>
+							<li><a href="features.html">Features</a></li>
+							<li><a href="api/mdl.html">Library</a></li>
+							<li><a href="genindex.html">Glossary</a></li>
+							<li><a href="install.html">Install</a></li>
+							<li><a href="search.html">Search</a></li>
+						</ul>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default">   
 					<div class="panel-heading">
 						<h3 class="panel-title">Examples</h3>
 					</div>
 					<div class="panel-body">
-					<ul>
-					<li><a href="examples/R33/process_demographics.html">Process demographics</a></li>
-					<li><a href="examples/R33/download_data.html">Download data</a></li>
-					<li><a href="examples/R33/run_models.html">Run models</a></li>
-					<li><a href="examples/R33/create_plots.html">Create plots</a></li>
-					<li><a href="examples/R33/process_data.html">Process data</a></li>
-					<li><a href="examples/analysis/index.html">Lab analysis</a></li>
-					<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
-					<li><a href="examples/roi/generate_roi.html">Regions of Interest</a></li>
-					</ul>
+						<ul>
+							<li><a href="examples/R33/process_demographics.html">Process demographics</a></li>
+							<li><a href="examples/R33/download_data.html">Download data</a></li>
+							<li><a href="examples/R33/run_models.html">Run models</a></li>
+							<li><a href="examples/R33/create_plots.html">Create plots</a></li>
+							<li><a href="examples/R33/process_data.html">Process data</a></li>
+							<li><a href="examples/analysis/index.html">Lab analysis</a></li>
+							<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
+							<li><a href="examples/roi/generate_roi.html">Regions of Interest</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>

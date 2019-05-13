@@ -19,6 +19,6 @@ mdl.tests
 		:hidden:
 		
 		mdl.tests.test_basic
-		mdl.tests.test_generate_roi
+		mdl.tests.test_roi
 
 

@@ -26,7 +26,7 @@ body>.container>.row>.content{
 		border-right: solid #eaeaea 2px;
 	}
 }
-a{
+a {
 	transition: none !important;
 }
 
@@ -57,16 +57,40 @@ a{
 	height: 12px;
 }
 
+/*--code--*/
+.main-page>div>div.highlight>pre{
+	white-space: normal !important;
+}
+
 /*--panels--*/
-.panel-body>ul{
-	padding-inline-start: 24px !important;
+.panel.main-page{
+	padding: 10px !important;
+	padding-bottom: 0px !important;
+}W
+.main-page>.panel-heading{
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.main-page>.panel-heading>.panel-title{
+	color: #595959 !important;
+}
+.main-page>.panel-body{
+	padding: 5px !important;
+}
+.main-page>.panel-body>ul{
+    padding-left: 14px !important;
+	margin-bottom: 0px !important;
+}
+.main-page>.panel-body>ul>li>a{
+    font-size: 13px !important;
+    font-stretch: normal !important;
+    line-height: 20px !important;
 }
 
 /*--navbar--*/
 #navbar{
-	width: 100vw !important;    
-	/* -webkit-box-shadow: none !important; */
-	/* box-shadow: none !important; */
+	width: 100vw !important;
 }
 @media (min-width: 768px) {
     #navbar>.container {
@@ -135,7 +159,7 @@ ul.current.nav>li.current>a.current{
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul>.toctree-l2>ul,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul>.toctree-l2>ul>.toctree-l3>ul{
-	padding-inline-start: 30px;
+	padding-left: 30px;
 }
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>.internal,
 #imhr-r33>.toctree-wrapper>ul>.toctree-l1>ul>.toctree-l2>.internal,
@@ -349,7 +373,7 @@ ul.dropdown-menu>li.toctree-l2>a {
 }
 .section>.list-container {
     list-style-type: none !important;
-    padding-inline-start: 0px !important;
+    padding-left: 0px !important;
 }
 .section>.list-container>li>ol>li>p {
     margin-bottom: 6px;
@@ -365,27 +389,12 @@ ul.dropdown-menu>li.toctree-l2>a {
     border-left: 5px solid #ffedcc !important;
 }
 /*--code--*/
-@media (max-width: 768px) {
-	.notranslate>div>pre{
-		/* white-space: pre-wrap !important;
-		white-space: -moz-pre-wrap !important;
-		white-space: -pre-wrap !important;
-		white-space: -o-pre-wrap !important;
-		word-wrap: break-word !important; */
-	}
-}
-.rubric{
-	/* margin-top: 0px !important; */
-}
 table.field-list{
 	margin-bottom: 0px !important;
 	margin-top: 10px;
 }
 dl.method {
     padding-top: 5px;
-}
-code.descname, code.descclassname{
-	/*  */
 }
 code.descname{
 	padding-left: 0px !important;
@@ -474,7 +483,7 @@ footer>.container>div>div {
 	margin-bottom: 0px;
 }
 #api-reference>.toctree-wrapper>ul{
-	padding-inline-start: 20px;
+	padding-left: 20px;
 }
 #api-reference>.toctree-wrapper>ul>.toctree-l1>.internal{
 	color: #1c75b1 !important;

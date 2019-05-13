@@ -61,4 +61,4 @@ Testing
 
 After installation, you can launch the test suite:
 
-    pytest
+    pytest --pyargs mdl.tests --html=report.html --self-contained-html
