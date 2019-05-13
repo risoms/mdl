@@ -111,7 +111,3 @@ script:
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache
   rm -rf $HOME/.cache/matplotlib/test_cache
-
-
-# testing
-python3 -m pytest --pyargs mdl.tests

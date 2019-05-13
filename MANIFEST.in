@@ -25,5 +25,8 @@ global-exclude .ipynb_checkpoints
 global-exclude .pytest_cache
 global-exclude .spyproject
 global-exclude .vscode
+global-exclude .git
 global-exclude __pycache__
 global-exclude *.py[co]
+global-exclude *.pyc
+global-exclude .DS_Store
