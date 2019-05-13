@@ -75,8 +75,10 @@ install:
     python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install from PyPI.
+    # Install package dependencies.
+    python3 -m pip install --quiet --requirement requirements.txt
     # Install pytest dependencies.
-    python3 -m pip install --quiet --requirement -ve mdl/tests/dist/pytest_requirements.txt
+    python3 -m pip install --quiet --requirement mdl/tests/dist/pytest_requirements.txt
     # Install other required packages.
     python3 -m pip install --quiet certifi
 
@@ -100,7 +102,7 @@ script:
   # to fail travis need to be the last thing called.
   - |
     # Install package.
-    python3 -m setup.py install --quiet
+    python3 setup.py install --quiet
   - |
     # Run pytest.
     # python3 -m pytest --html=report.html --self-contained-html -p no:warnings
