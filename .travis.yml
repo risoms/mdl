@@ -42,10 +42,6 @@ matrix:
         pip: false
         directories:
           - $HOME/Library/Caches/pip
-          # `cache` does not support `env`-like `global` so copy-paste from top.
-          # https://github.com/travis-ci/travis-ci/issues/5853
-          - $HOME/.ccache
-          - $HOME/.cache/matplotlib
 
 # before install
 before_install: |
@@ -60,8 +56,8 @@ before_install: |
 install:
   - |
     # Setup environment.
-    ccache -s
     git describe --tags
+  - |
     # Set up virtualenv.
     python3 -m venv env
     source env/bin/activate
@@ -70,17 +66,17 @@ install:
     PYTHONPATH=$PYTHONPATH:$('env')
   - |
     # Path of python used.
-    which python
+    which python3
   - |
     # Python version.
-    python --version
+    python3 --version
   - |
     # Upgrade pip, setuptools, wheel to get as clean an install as possible.
     python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install from PyPI.
     # Install pytest dependencies.
-    python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
+    python3 -m pip install --quiet --requirement -ve mdl/tests/dist/pytest_requirements.txt
     # Install other required packages.
     python3 -m pip install --quiet certifi
 
@@ -95,6 +91,7 @@ before_script:
     # delete cache.
     if [[ $DELETE_FONT_CACHE == 1 ]]; then
       rm -rf ~/.cache/matplotlib
+      rm -rf $HOME/Library/Caches/pip
     fi
 
 # command to run tests, e.g. python setup.py test
@@ -103,11 +100,21 @@ script:
   # to fail travis need to be the last thing called.
   - |
     # Install package.
-    python3 -m pip install --quiet -ve .
+    python3 -m pip install --quiet -requirement -ve requirements.txt
+    python3 -m setup.py install --quiet
+    # Install package.
+    #python3 -m pip install --quiet -ve .
   - |
-    # Run.
-    python3 -m pytest --html=report.html --self-contained-html -p no:warnings
+    # Run pytest.
+    # python3 -m pytest --html=report.html --self-contained-html -p no:warnings
+    # Run pytest.
+    # pytest --html=report.html --self-contained-html -p no:warnings
+    # Run pytest.
+    pytest --pyargs mdl.tests --html=report.html --self-contained-html
   
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache
   rm -rf $HOME/.cache/matplotlib/test_cache
+
+# notes
+# -m uses module as script https://stackoverflow.com/questions/7610001/what-is-the-purpose-of-the-m-switch
