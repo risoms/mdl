@@ -9,13 +9,12 @@ This library was created at the Institute for Mental Health Research, at the Uni
 | `@url`: https://semeon.io/d/mdl
 """
 # allowed imports
-__all__ = ['download','eyetracking','plot','r33','settings']
+__all__ = ['download','eyetracking','plot','r33','settings','tests']
 
 # core
 from pdb import set_trace as breakpoint
 import os
 import sys
-import certifi
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
@@ -37,6 +36,7 @@ from . import eyetracking
 from . import plot
 from . import r33
 from . import settings
+from . import tests
 
 # del os, sys
 

@@ -107,7 +107,7 @@ script:
     python3 -m pip install --quiet -ve .
   - |
     # run
-    python3 -m pytest --html=report.html --self-contained-html
+    python3 -m pytest --html=report.html --self-contained-html -p no:warnings
   
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache

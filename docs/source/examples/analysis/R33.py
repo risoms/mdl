@@ -1,28 +1,38 @@
 #%% [markdown]
-# #### mdl-R33-analysis
+# .. R33_:
+ 
+# .. title:: R33
+
+# #### Analysis of R33 Data
+
 #%%
 # Created on Sat May 1 15:12:38 2019  
 # @author: Semeon Risom  
 # @email: semeon.risom@gmail.com  
 # @url: https://semeon.io/d/R33-analysis  
 # @purpose: Hub for running processing and analysis.
-#%%--------------------------------------------------------------------------------------------------------------------------
+
+#%% [markdown]
 #-------------------------------------------------------------------------------------------------------------------resources
-'''
-Useful python references
-    - https://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod
-    - https://realpython.com/python-modules-packages/
-'''
-#%%--------------------------------------------------------------------------------------------------------------------------
-#---------------------------------------------------------------------------------------------------------------------imports
-#----local
+# <ul class="list-container">
+# <li>
+# <div class="title">Useful Python resources:</div>
+# <ol class="list">
+# <li><a>https://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod</a></li>
+# <li><a>https://realpython.com/python-modules-packages/</a></li>
+# </ol>
+# </li>
+# </ul>
+#%% [markdown]
+# ##### local import
 from pdb import set_trace as breakpoint
 from mdl import R33, settings
 import pandas as pd
 import glob, string, pytz, json, codecs
 from datetime import datetime
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #----config
+#%%
 console = settings.console
 config = R33.Settings.config
 filters = config['filter']
@@ -33,19 +43,17 @@ config['processing']['type'] = 'eyetracking'
 config['processing']['single_subject'] = False
 config['processing']['single_trial'] = False
 
-#%%--------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------imports continued
-#----core
-
-
-# set current date
+#%% [markdown]
+# ##### set current date
 date_start = []; date_end = []
 date_now  = datetime.now().replace(microsecond=0).strftime('%Y-%m-%d %H:%M:%S')
-#%%--------------------------------------------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------------------------------------------init
+#%% [markdown]
+# #####init
+#%% 
 processing = processing(config)
-#%%--------------------------------------------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------------------------------create pydoc
+#%% [markdown]
+# ##### create pydoc
+#%% 
 is_['pydoc'] = False
 if is_['pydoc']:
     build = '/Users/mdl-admin/Desktop/imhr-R33/docs'
@@ -53,8 +61,9 @@ if is_['pydoc']:
     path = '/Users/mdl-admin/Desktop/imhr-R33/docs/docs'
     processing.pydoc(path=path, build=build, source=source, copy=True) if __name__ == '__main__' else None
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #-------------------------------------------------------------------------------------------------import raw data from server
+#%% 
 is_['rawdata'] = True
 if is_['rawdata']:
     console('Step: importing raw data from server', 'red')
@@ -76,8 +85,9 @@ if is_['rawdata']:
     d = '/Users/mdl-admin/Desktop/imhr-R33/imhr/dist/output/data/raw/full/'
     log, start, end, now = download.SFTP(source=s, destination=d, hostname=home, username=user, password=pwd, filetype=filetype)
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #----------------------------------------------------------------------------------------------------------import REDCap data
+#%% 
 is_['redcap'] = False
 if is_['redcap']:
     console('Step: importing redcap data', 'red')
@@ -91,8 +101,9 @@ if is_['redcap']:
     # completed: report, participantList, metadata, project
     log, start, end, now = download.REDCap(path=d, token=redcap_token, url=redcap_url, content=content, report_id=report_id)
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #--------------------------------------------------------------------------start preprocessing behavioral or eyetracking data
+#%% 
 is_['preprocessing'] = False
 if is_['preprocessing']:
     console('Step: preprocessing data', 'red')
@@ -125,8 +136,9 @@ pass
 #############################################################################################################################
 #%%
 console('Step: demographics, plots, analysis', 'red')
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #----------------------------------------------------------------------------------------------------------------get metadata
+#%% 
 is_['metadata'] = False
 if is_['metadata']:
     console('processing metadata', 'red')
@@ -137,8 +149,9 @@ if is_['metadata']:
     subject_metadata = processing.subject_metadata(fpath=fpath, spath=spath)
     del fpath, spath, subject_metadata
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #----------------------------------------------------------------------------------------------------------------prepare data
+#%% 
 is_['prepare'] = True
 if is_['prepare']:
     #exclude participants
@@ -286,8 +299,9 @@ if is_['prepare']:
     
     del p_bias, p_cesd, p_demo, p_mmpi, p_subject, color, csv_path
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #------------------------------------------------------------------------------------------------------demographic statistics
+#%% 
 is_['demographic'] = True
 if is_['demographic']:
     #-----------------------------get max, min values
@@ -386,8 +400,9 @@ if is_['demographic']:
     #breakpoint()
     #del df_sum, index, value, above_pct, rows, html_path, title, html, html_name
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #-----------------------------------------------------------------------------------------------------------list of variables
+#%% 
 is_['variables'] = True
 if is_['variables']:
     console('Step: list of variables', 'red')
@@ -399,8 +414,9 @@ if is_['variables']:
     title = '<b>Table 1.</b> Task Variables and Definitions.'
     html = plot.html(config=config, df=df_variables, path=html_path, name=html_name, source="definitions", title=title)
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #----------------------------------------------------------------------------------------------------------descriptive device
+#%% 
 is_['descriptive'] = True
 if is_['descriptive']:
     console('Step: descriptive device', 'red')
@@ -506,8 +522,9 @@ if is_['descriptive']:
     html = plot.html(config=config, df=descriptive, path=html_path, name=html_name, source="device", title=title, footnote=footnote)
     del index, value, above_pct, rows, html_path, title, footnote, html, html_name
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #------------------------------------------------------------------------------------------------------------descriptive task
+#%% 
 is_['task'] = True
 if is_['task']:
     console('Step: descriptive task', 'red')
@@ -612,8 +629,9 @@ if is_['task']:
     
     del html_name, html_path, no_webcam, blocked_webcam, descriptive, total, df_mmpi2, score, cesd, count, pct, rows
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #----------------------------------------------------------------------------------------------------------------summary data
+#%% 
 is_['summary'] = True
 if is_['summary']:
     console('Step: summary data', 'red')
@@ -663,8 +681,9 @@ if is_['summary']:
     
     del l_var, l_var_gaze, l_var_dp, rows, html_name, html_path, title, footnote, html
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #-----------------------------------------------------------------------------------------------------------------save config
+#%% 
 is_['config'] = True
 if is_['config']:
     # add definitions to config
@@ -672,21 +691,18 @@ if is_['config']:
     # save
     p_json = path_['output'] + "/analysis/config.json"
     with open(p_json, 'w') as f:
-        json.dump(config, codecs.open(p_json, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
-        
-        
-    
-        
-        
+        json.dump(config, codecs.open(p_json, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)    
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #-----------------------------------------------------------------------------------------------------------------------plots
+#%% 
 is_['plots'] = True
 if is_['plots']:
     console('Step: plots', 'red')
     is_['single'] = True
-    #%%------------------------------------------------------------------------------------------------------------------
+    #%% [markdown]
     #-----------------------------------------------------------------------------------------------single subject: trial
+	#%% 
     if is_['single']:
         """
         Resources:
@@ -728,8 +744,9 @@ if is_['plots']:
                               display="trial", trial=idx, title=title)
                                  
         del idx, title, path_sns, bokeh_plot, df_single_, html_path, html, subject, session
-    #%%------------------------------------------------------------------------------------------------------------------
+    #%% [markdown]
     #-----------------------------------------------------------------------------single subject: calibration, validation
+	#%% 
         print(console['green'] + 'bokeh_calibration()', 'red')
         subject = 'shellie'
         session = 1
@@ -758,8 +775,9 @@ if is_['plots']:
         #del title, event, full, path_sns, bokeh_plot, html_path, html
 
     is_['density'] = True
-    #%%------------------------------------------------------------------------------------------------------------------
+    #%% [markdown]
     #--------------------------------------------------------------------------------------------------------density plot
+	#%% 
     if is_['density']:
         console('Step: density_plot()', 'red')
         #Computes and draws density plot (kernel density estimate), which is a smoothed version of the histogram. 
@@ -787,8 +805,9 @@ if is_['plots']:
         del density, intro, html_plots, html_path, html, title
         
     is_['corr'] = True 
-    #%%------------------------------------------------------------------------------------------------------------------
+    #%% [markdown]
     #--------------------------------------------------------------------------------------------------correlation matrix
+	#%% 
     if is_['corr']:
         console('Step: corr_matrix()', 'red')
         #run correlation matrix
@@ -808,7 +827,7 @@ if is_['plots']:
         del path, corr_matrix, file, title, method
     
     is_['boxplot'] = True
-    #%%------------------------------------------------------------------------------------------------------------------
+    #%% [markdown]
     #-------------------------------------------------------------------------------------------------------------boxplot
     if is_['boxplot']:
         console('Step: boxplot()', 'red')
@@ -867,8 +886,9 @@ if is_['plots']:
         html = plot.html(config=config, path=html_path, plots=html_plots, source="plots", display="boxplot", intro=intro)
         del intro, html_file, file, title, html_path, html, cat, x, y, footnote
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #---------------------------------------------------------------------------------------------------------------------methods
+#%% 
 is_['methods'] = True
 if is_['methods']:
     '''
@@ -934,7 +954,7 @@ if is_['methods']:
     methods = ('\n\t'.join(map(str, methods)))
     html = plot.html(plots=methods, config=config, path=path, source=source, title=title, name='methods')
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #--------------------------------------------------------------------------------------------------------------------analysis
 is_['analysis'] = True
 if is_['analysis']:
@@ -952,8 +972,9 @@ if is_['analysis']:
         '''
         #----start
         is_['dwell'] = True
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #-----------------------------------------------------------------------------------------------------------anova: dwell time
+#%% 
         if is_['dwell']:
             console('Step: ANOVA (dwell time)', 'red')
             effects = {}
@@ -1013,8 +1034,9 @@ if is_['analysis']:
             del y, f, csv, p
         
         is_['diff'] = True
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #---------------------------------------Linear Mixed Model Regression with random effects: stimulus/dotloc onset error (lmer)
+#%% 		
         if is_['diff']:
             console('Step: Linear Mixed Model Regression', 'red')
             effects = {}
@@ -1062,8 +1084,9 @@ if is_['analysis']:
             del y, _y, f, csv, p
         
         is_['mixed'] = True
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #------------------------------------------------------------------------------------------analysis of varience (anova): bias
+#%% 
         if is_['mixed']:
             effects = {}
             
@@ -1109,9 +1132,10 @@ if is_['analysis']:
                 #-----run
                 anova_, anova_result, anova_r, html = model.anova(config=config, df=df_, y=_y, f=f, csv=csv, path=p, effects=effects)
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #------------------------------------------------------------------------------------------------------------------------test
 #------------------------------------------------------------------------draw flowchart of study identification and inclusion
+#%% 
 is_['flowchart'] = False
 if is_['flowchart']:
     #see https://graphviz.readthedocs.io/en/stable/examples.html
@@ -1136,8 +1160,11 @@ if is_['flowchart']:
     g.edge('d', 'h')
     
     g.view()
-pass#------------------------------------------------------------------------------------------------------------------------test
+pass
+#%% [markdown]
+#------------------------------------------------------------------------------------------------------------------------test
 #------------------------------------------------------------------------draw flowchart of study identification and inclusion
+#%% 
 is_['treeview'] = False
 if is_['treeview']:
     #create file tree view
@@ -1152,7 +1179,7 @@ if is_['treeview']:
     tree.create_node("Mark", "mark", parent="jane")
     tree.show()
 pass
-#%%--------------------------------------------------------------------------------------------------------------------------
+#%% [markdown]
 #--------------------------------------------------------------------------------------------------------------------finished
 #-------------------------------------------------------------------------------------------------------------garbage collect
 # import gc

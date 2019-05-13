@@ -18,10 +18,24 @@ import textwrap
 __all__ = ['test_simple','test_lazy_imports']
 
 def test_simple():
+	"""[summary]
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
 	return 1 + 1 == 2
 
 def test_lazy_imports():
-    source = textwrap.dedent("\
+	"""[summary]
+
+	Returns
+	-------
+	[type]
+		[description]
+	"""
+	source = textwrap.dedent("\
 	import sys\n\
 	import mdl\n\
 	import mdl.eyetracking\n\
@@ -31,4 +45,5 @@ def test_lazy_imports():
 	import mdl.settings\n\
 	import mdl.tests")
 
-    subprocess.check_call([sys.executable, '-c', source])
+	subprocess.check_call([sys.executable, '-c', source])
+	return True

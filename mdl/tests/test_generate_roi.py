@@ -10,30 +10,60 @@
 import os, sys, pathlib, argparse, re, pytest
 from pdb import set_trace as breakpoint
 
-path = pathlib.Path(__file__).parent
+# get local path
+_path = pathlib.Path(__file__).parent
+# default parameters
 params={
-	"image_path":'%s/dist/raw/'%(path),
-	"output_path":'%s/dist/output/'%(path),
-	"metadata_source":'%s/dist/metadata.xlsx'%(path)
+	"image_path":'%s/dist/raw/'%(_path),
+	"output_path":'%s/dist/output/'%(_path),
+	"metadata_source":'%s/dist/metadata.xlsx'%(_path)
 }
-@pytest.fixture(scope="function", autouse=True)
-def args():
-	return params
 
-def test_run(args):
-	# #### Read ROI from photoshop PSD files
+@pytest.mark.filterwarnings("ignore:api v1")
+def test_run(args=None):
+	"""Read ROI from photoshop PSD files.
+
+	Parameters
+	----------
+	args : :obj:`dict`, optional
+		Dict of paths used to run function, by default None.
+
+	Returns
+	-------
+    df : :class:`pandas.DataFrame`
+        Pandas dataframe of generated ROI's.
+    df : :class:`pandas.DataFrame`
+		Pandas dataframe of errors that occured during processing.
+	"""
+	# #### 
+
 	# ##### import mdl package
-	import os, sys; sys.path.append(os.path.abspath('../../'))
-	from .. import eyetracking
+	## resolve travis-ci path problem: https://stackoverflow.com/a/42194190
+	# if running using travis-ci
+	if os.environ.get('TRAVIS') == 'true':
+		modulepath = os.path.abspath('.')
+		sys.path.insert(0, modulepath)
+		import mdl
+		args = param
+	# if running locally
+	else:
+		modulepath = os.path.abspath('..')
+		sys.path.insert(0, modulepath)
+		import mdl
+
+	# python module path
+	print('pypath: %s'%(modulepath))
+	# local path
+	print('localpath: %s'%(_path))
 
 	# image_path
-	image_path = '%s/raw/'%(path) if args["image_path"] is None else args["image_path"]
+	image_path = '%s/dist/raw/'%(_path) if args is None else args["image_path"]
 
 	# output_path
-	output_path = '%s/output/'%(path) if args["output_path"] is None else args["output_path"]
+	output_path = '%s/dist/output/'%(_path) if args is None else args["output_path"]
 
 	# metadata_source
-	metadata_source = '%s/metadata.xlsx'%(path) if args["metadata_source"] is None else args["metadata_source"]
+	metadata_source = '%s/dist/metadata.xlsx'%(_path) if args is None else args["metadata_source"]
 
 	# ##### initiate
 	roi = mdl.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False, isDemo=False,
@@ -42,7 +72,9 @@ def test_run(args):
 		roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})
 
 	# ##### start
-	df, error = roi.process()
+	df, _ = roi.process()
+
+	return df
 
 if __name__ == '__main__':
 	# https://docs.python.org/3.7/library/argparse.html
@@ -59,5 +91,5 @@ if __name__ == '__main__':
 	parser.add_argument("--metadata_source", help="metadata_source.", default=None)
 
 	# start
-	args = parser.parse_args()
-	sys.exit(test_run(args))
+	args_ = parser.parse_args()
+	sys.exit(test_run(args_))

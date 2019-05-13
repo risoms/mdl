@@ -8,7 +8,7 @@
 | `@url`: https://semeon.io/d/mdl
 """
 # allowed imports
-__all__ = ['test_basic','test_generate_roi']
+__all__ = ['test_simple','test_lazy_imports','test_generate_roi']
 
 # core
 from pdb import set_trace as breakpoint
@@ -17,3 +17,8 @@ import sys
 
 # relative paths
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+
+# imports
+from .test_basic import test_simple
+from .test_basic import test_lazy_imports
+from . import test_generate_roi
