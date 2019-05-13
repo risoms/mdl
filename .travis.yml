@@ -100,7 +100,6 @@ script:
   # to fail travis need to be the last thing called.
   - |
     # Install package.
-    python3 -m pip install --quiet --requirement -ve ./requirements.txt
     python3 -m setup.py install --quiet
     # Install package.
     #python3 -m pip install --quiet -ve .

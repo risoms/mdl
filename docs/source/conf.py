@@ -259,7 +259,7 @@ html_sidebars = {'**': ['localtoc.html','sourcelink.html']}
 
 # Options for HTMLHelp output ------------------------------------------------------------------------------------------
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mdl'
+htmlhelp_basename = 'mdl-api'
 
 # Options for manual page output ---------------------------------------------------------------------------------------
 # One entry per manual page. List of tuples
