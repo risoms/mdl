@@ -23,7 +23,8 @@ def args():
 def test_run(args):
 	# #### Read ROI from photoshop PSD files
 	# ##### import mdl package
-	import mdl
+	import os, sys; sys.path.append(os.path.abspath('../../'))
+	from .. import eyetracking
 
 	# image_path
 	image_path = '%s/raw/'%(path) if args["image_path"] is None else args["image_path"]
