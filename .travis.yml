@@ -62,36 +62,32 @@ install:
     # Setup environment.
     ccache -s
     git describe
-    # set up venv
+    # Set up venv.
     python3 -m venv env
     source env/bin/activate
   - |
-    # Which version of python.
+    # Which version of python is used.
     which python
+  - |
+    # Where is python.
     python --version
-    where python
-    # Upgrade pip and setuptools and wheel to get as clean an install as possible.
+  - |
+    # Upgrade pip, setuptools, wheel to get as clean an install as possible.
     python3 -m pip install --upgrade pip setuptools wheel
   - |
-    # Install from PiPY.
+    # Install from PyPI.
     # Install pytest dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
-    # install certify
+    # Install certify.
     python3 -m pip install certifi
-    # Install package.
-    # python3 -m pip install --quiet -ve .
 
 before_script: 
   - |
-    # get environment variables.
     # get current path.
     bash -c 'echo $PWD'
-    # get repository directory path.
-    bash -c 'echo $TRAVIS_BUILD_DIR'
-    # get package path.
+  - |
+    # Get repository directory path..
     bash -c 'echo $PATH'
-    # get python version.
-    bash -c 'echo $TRAVIS_PYTHON_VERSION'
   - |
     # delete cache.
     if [[ $DELETE_FONT_CACHE == 1 ]]; then

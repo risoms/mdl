@@ -12,14 +12,15 @@ from pdb import set_trace as breakpoint
 
 # get local path
 _path = pathlib.Path(__file__).parent
+
 # default parameters
-params={
+params = {
 	"image_path":'%s/dist/raw/'%(_path),
 	"output_path":'%s/dist/output/'%(_path),
 	"metadata_source":'%s/dist/metadata.xlsx'%(_path)
 }
 
-@pytest.mark.filterwarnings("ignore:api v1")
+# pytest
 def test_run(args=None):
 	"""Read ROI from photoshop PSD files.
 
@@ -35,8 +36,6 @@ def test_run(args=None):
     df : :class:`pandas.DataFrame`
 		Pandas dataframe of errors that occured during processing.
 	"""
-	# #### 
-
 	# ##### import mdl package
 	## resolve travis-ci path problem: https://stackoverflow.com/a/42194190
 	# if running using travis-ci
@@ -44,7 +43,7 @@ def test_run(args=None):
 		modulepath = os.path.abspath('.')
 		sys.path.insert(0, modulepath)
 		import mdl
-		args = param
+		args = params
 	# if running locally
 	else:
 		modulepath = os.path.abspath('..')
@@ -53,6 +52,7 @@ def test_run(args=None):
 
 	# python module path
 	print('pypath: %s'%(modulepath))
+
 	# local path
 	print('localpath: %s'%(_path))
 
