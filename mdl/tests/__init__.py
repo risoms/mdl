@@ -21,4 +21,4 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 # imports
 from .test_basic import test_simple
 from .test_basic import test_lazy_imports
-from . import test_generate_roi
+from .test_roi import test_generate_roi

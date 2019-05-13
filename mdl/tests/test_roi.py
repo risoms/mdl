@@ -21,7 +21,7 @@ params = {
 }
 
 # pytest
-def test_run(args=None):
+def test_generate_roi(args=None):
 	"""Read ROI from photoshop PSD files.
 
 	Parameters

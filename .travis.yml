@@ -105,10 +105,6 @@ script:
     python3 setup.py install --quiet
   - |
     # Run pytest.
-    # python3 -m pytest --html=report.html --self-contained-html -p no:warnings
-    # Run pytest.
-    # pytest --html=report.html --self-contained-html -p no:warnings
-    # Run pytest.
     pytest --pyargs mdl.tests --html=report.html --self-contained-html
   
 before_cache: |
