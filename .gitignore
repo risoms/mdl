@@ -38,10 +38,10 @@ pytest.log
 
 # directories
 # build
-build/
-conda/
-dist/
-env/
+build/**
+conda/**
+dist/**
+env/**
 imhr.egg-info
 mdl.egg-info
 # ide
@@ -65,4 +65,3 @@ docs/source/examples/eyetracking/_psychopy/data/*
 # storage
 docs/source/examples/eyetracking/backup/psychopyCoreGraphics_1.90.3.zip
 docs/source/examples/eyetracking/backup/psychopy_eyelink.zip
-
