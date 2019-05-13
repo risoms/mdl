@@ -61,15 +61,18 @@ install:
   - |
     # Setup environment.
     ccache -s
-    git describe
-    # Set up venv.
+    git describe --tags
+    # Set up virtualenv.
     python3 -m venv env
     source env/bin/activate
   - |
-    # Which version of python is used.
+    # Make virtualenv as default python.
+    PYTHONPATH=$PYTHONPATH:$('env')
+  - |
+    # Path of python used.
     which python
   - |
-    # Where is python.
+    # Python version.
     python --version
   - |
     # Upgrade pip, setuptools, wheel to get as clean an install as possible.
@@ -78,15 +81,15 @@ install:
     # Install from PyPI.
     # Install pytest dependencies.
     python3 -m pip install --quiet -r mdl/tests/dist/pytest_requirements.txt
-    # Install certify.
-    python3 -m pip install certifi
+    # Install other required packages.
+    python3 -m pip install --quiet certifi
 
 before_script: 
   - |
-    # get current path.
+    # Get current path.
     bash -c 'echo $PWD'
   - |
-    # Get repository directory path..
+    # Get repository directory path.
     bash -c 'echo $PATH'
   - |
     # delete cache.
@@ -102,9 +105,13 @@ script:
     # Install package.
     python3 -m pip install --quiet -ve .
   - |
-    # run
+    # Run.
     python3 -m pytest --html=report.html --self-contained-html -p no:warnings
   
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache
   rm -rf $HOME/.cache/matplotlib/test_cache
+
+
+# testing
+python3 -m pytest --pyargs mdl.tests

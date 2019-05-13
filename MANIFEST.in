@@ -9,8 +9,9 @@ include setup.cfg
 include versioneer.py
 include mdl/_version.py
 # recursive-include
-graft tests
-graft mdl/dist
+graft mdl/dist/
+graft mdl/eyetracking/dist/
+graft mdl/tests/dist/
 # recursive-exclude of all files within path
 prune build
 prune conda
