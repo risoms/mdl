@@ -18,22 +18,23 @@ import textwrap
 __all__ = ['test_simple','test_lazy_imports']
 
 def test_simple():
-	"""[summary]
+	"""Test simple math.
 
 	Returns
 	-------
-	[type]
-		[description]
+	answer : :obj:`bool`
+		Returns result of 1 + 1 == 2.
 	"""
-	return 1 + 1 == 2
+	answer = 1 + 1 == 2
+	return answer
 
 def test_lazy_imports():
-	"""[summary]
+	"""Testing imports using subprocess.
 
 	Returns
 	-------
-	[type]
-		[description]
+	bool : :obj:`bool`
+		Returns a bool indicating the function has completed.
 	"""
 	source = textwrap.dedent("\
 	import sys\n\
