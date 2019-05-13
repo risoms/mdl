@@ -1,5 +1,4 @@
-# Compiled source #
-###################
+# compiled source
 *.com
 *.class
 *.dll
@@ -9,8 +8,7 @@
 *.DS_Store
 *.py[co]
 
-# Packages #
-############
+# packages
 *.7z
 *.dmg
 *.gz
@@ -19,17 +17,18 @@
 *.rar
 *.tar
 
-# Logs and databases #
-######################
+# passwords and keys
+id_travis_rsa
+
+
+# logs and databases
 *.sql
 *.sqlite
 
-# extensions #
-######################
+# extensions
 *.htaccess
 
-# files #
-######################
+# files
 mdl/tests/dist/output/**
 mdl/dist/output/**/*.csv
 mdl/dist/experiments/_js/tools/_py/variable/placebo_2abc.csv
@@ -37,33 +36,33 @@ report.html
 pytest.log
 *.php
 
-# directories #
-######################
-# build #
-build/**
-conda/**
-dist/**
-env/**
-imhr.egg-info/**
-mdl.egg-info/**
-# ide #
-.spyproject/**
-.vscode/**
-mdl/**/spyproject/**
-mdl/**/vscode/**
-# cache #
-__pycache__/**
-.ipynb_checkpoints/**
-.pytest_cache/**
-mdl/**/__pycache__/**
-mdl/**/.ipynb_checkpoints/**
-mdl/**/.pytest_cache/**
-# data #
-mdl/dist/output/data/**
-docs/source/data/img/**
-docs/source/examples/roi/output/**
-docs/source/examples/eyetracking/_psychopy/data/**
-# storage #
+# directories
+# build
+build/
+conda/
+dist/
+env/
+imhr.egg-info
+mdl.egg-info
+# ide
+.spyproject
+mdl/**/.spyproject
+.vscode
+mdl/**/.vscode
+# cache
+__pycache__
+mdl/**/__pycache__
+*.ipynb_checkpoints
+mdl/**/.ipynb_checkpoints
+.pytest_cache
+mdl/**/.pytest_cache
+# data
+mdl/tests/output/*
+mdl/dist/output/data/*
+docs/source/data/img/*
+docs/source/examples/roi/output/*
+docs/source/examples/eyetracking/_psychopy/data/*
+# storage
 docs/source/examples/eyetracking/backup/psychopyCoreGraphics_1.90.3.zip
 docs/source/examples/eyetracking/backup/psychopy_eyelink.zip
-id_travis_rsa
+
