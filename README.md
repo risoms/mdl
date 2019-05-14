@@ -59,6 +59,10 @@ You can also install the development version directly from [github](https://www.
 Testing
 -------
 
-After installation, you can launch the test suite:
+After installation, you can launch the test suite after downloading from [github](https://www.github.com/risoms/mdl):
 
     pytest --pyargs mdl.tests --html=report.html --self-contained-html
+
+or from the package:
+
+    mdl.tests

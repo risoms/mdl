@@ -16,46 +16,29 @@ __required__ = ['opencv-python','psd-tools','matplotlib','Pillow']
 # local
 from .. import settings
 
-# required for init
-from pdb import set_trace as breakpoint
-import os
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-# plot
-from PIL import Image
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-
 # check if psd_tools and cv2 is available
-# note: anaconda doesn't have a version of psd_tools or opencv-python (cv2) available (5/1/19), so a workaround 
-# when building is to directly install it.
 try:
-	import psd_tools
-	import cv2
+	# required for init
+	from pdb import set_trace as breakpoint
+	import os
+	from pathlib import Path
+	import pandas as pd
+	import numpy as np	
+	# plot
+	from PIL import Image
+	import matplotlib
+	matplotlib.use('Agg')
+	import matplotlib.pyplot as plt
+	import matplotlib.patches as patches	
+	# import photoshop
+	import psd_tools	
+	# math
+	import cv2	
 except ImportError as e:
-	import importlib, sys
 	pkg = e.name
-	settings.console("No module named '%s'. Installing from PyPI."%(pkg),'red')
-	# install
-	settings.library([pkg])
-	# if not all packages are available, reload module
-	for x in [['cv2','opencv-python'],['psd_tools','psd-tools']]:
-		# check if module is not available
-		if importlib.util.find_spec(x[0]) is None:
-			settings.console('%s not available'%(x),'red')
-			importlib.reload(sys.modules[__name__])
-		# import modules
-		else:
-			try:
-				settings.console(('import %s'%(mod[0]),'blue'))
-				globals()[mod[0]] = importlib.import_module(mod[0])
-			except ImportError as e:
-				settings.console("import %s unsuccessful. Trying to install."%(mod[0]),'red')
-				importlib.reload(sys.modules[__name__])
+	x = {'cv2':'opencv-python', 'psd_tools':'psd-tools'}
+	pkg = x[pkg] if pkg in x else pkg
+	raise Exception("No module named '%s'. Please install from PyPI before contiuing."%(pkg),'red')
 
 class ROI():
 	"""Generate regions of interest that can be used for data processing and analysis."""
@@ -138,7 +121,7 @@ class ROI():
 				  - Monitor size is being presented. Default is `[1920, 1080]`.
 				* - **scale** : :class:`int`
 				  - If image is scaled during presentation, set scale. Default is 1.
-				* - **center** : :class:`list` [:obj:`int`]
+				* - **offset** : :class:`list` [:obj:`int`]
 				  - Center point of image, relative to screensize. Default is `[960, 540]`.
 				* - **dpi** : :class:`int` or :obj:`None`
 				  - (if :code:`save_image` == `True`) Quality of exported images, refers to 'dots per inch'. Default is `300`.
@@ -205,9 +188,6 @@ class ROI():
 		# multiprocessing
 		self.isMultiprocessing = isMultiprocessing
 		self.cores = kwargs['cores'] if 'cores' in kwargs else 'max'
-		# if multiprocessing, set number of thread
-		# if isMultiprocessing:
-		# 	cv2.setNumThreads(0)
 		# how to read data
 		self.metadata_source = kwargs['metadata_source'] if 'metadata_source' in kwargs else 'embed'
 		# how to format rois
@@ -218,10 +198,14 @@ class ROI():
 		self.screensize = kwargs['screensize'] if 'screensize' in kwargs else [1920, 1080]
 		# scale
 		self.scale = kwargs['scale'] if 'scale' in kwargs else 1
-		# coordinates
+		# offset image coordinates
 		cx = self.screensize[0]/2
 		cy = self.screensize[1]/2
-		self.coordinates = kwargs['coordinates'] if 'coordinates' in kwargs else [cx, cy]
+		self.offset = kwargs['offset'] if 'offset' in kwargs else [cx, cy]
+		if self.offset is not [cx, cy]:
+			self.newoffset = True
+		else:
+			self.newoffset = False
 		# shape
 		self.shape = shape if shape in ['polygon', 'hull', 'circle', 'rotate', 'straight'] else 'straight'
 		self.shape_d = None #dataviewer shape
@@ -258,8 +242,14 @@ class ROI():
 		else:
 			self.image_path = image_path
 			self.output_path = output_path
-		# set directory of files
-		self.directory = [x for x in Path(self.image_path).glob("*.psd") if x.is_file()]
+		
+		# if no image path and not demo
+		if self.image_path is None:
+			error = "No valid image path found. Please make sure to include an image path. If you wish to run a demo, please set isDemo=True."
+			raise Exception (error)
+		else:
+			# set directory of files
+			self.directory = [x for x in Path(self.image_path).glob("*.psd") if x.is_file()]
 
 		#----read metadata file (if metadata is not None)
 		if metadata_source is not "embedded":
@@ -699,16 +689,23 @@ class ROI():
 		image = psd.topil()
 
 		# scale image
-		if self.scale != 1:
-			_truesize = [image.size[0], image.size[1]]
-			_scalesize = [int(_truesize[0] * self.scale), int(_truesize[1] * self.scale)]
-			image = image.resize(_scalesize, Image.ANTIALIAS)
-			if self.isDebug: 
-				self.console('# export image','blue')
-				self.console('size: %s, scaled: %s'%(_truesize, _scalesize),'green')
-
+		truesize = [image.size[0], image.size[1]]
+		scalesize = [int(truesize[0] * self.scale), int(truesize[1] * self.scale)]
+		image = image.resize(scalesize, Image.ANTIALIAS)
+		if self.isDebug: self.console('# export image','blue'); self.console('size: %s, scaled: %s'%(truesize, scalesize),'green')
+		
+		# offset
+		screensize = self.screensize
+		screencenter = [screensize[0]/2,screensize[1]/2]
+		imagecenter = [scalesize[0]/2,scalesize[1]/2]
+		offset = self.offset
+		if self.newoffset:
+			pass
+		else:
+			pass
+		breakpoint()
 		# center and resize image to template screen
-		background = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+		background = Image.new("RGBA", (screensize), (0, 0, 0, 0))
 		offset = ((self.screensize[0] - image.size[0])//2,(self.screensize[1] - image.size[1])//2)
 		background.paste(image, offset)
 
@@ -794,7 +791,10 @@ class ROI():
 					_bounds, _contours = self.create_contours(image, imagename, roiname)
 
 					# create rois
-					bounds, contours = self.create_rois(imagename, metadata, roiname, roinumber, _bounds, _contours)
+					try:
+						bounds, contours = self.create_rois(imagename, metadata, roiname, roinumber, _bounds, _contours)
+					except:
+						break
 
 					# try:
 					# 	#self.console('test5', 'red')
