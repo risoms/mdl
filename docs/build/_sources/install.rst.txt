@@ -10,24 +10,10 @@ Dependencies
 
 This package requires the following dependencies:
 
-.. cssclass:: dependencies1
+.. cssclass:: dependencies
 .. literalinclude:: ../../requirements.txt
 	:tab-width: 4
 	:language: text
-
--  `Python 3.6 + <https://www.python.org/downloads/>`__
-
--  `numpy <http://www.numpy.org/>`__
-
--  `scipy <https://www.scipy.org/>`__
-
--  `PIL <https://pillow.readthedocs.io/en/stable/index.html>`__
-
--  `matplotlib <https://matplotlib.org>`__
-
--  `pywin32 (if using Windows) <https://pypi.org/project/pywin32/>`__
-
--  `pyobjc (if using Mac OS) <https://pypi.org/project/pyobjc//>`__
 
 Installing
 ~~~~~~~~~~

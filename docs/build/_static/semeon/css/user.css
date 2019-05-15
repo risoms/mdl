@@ -522,6 +522,13 @@ a.list-title:hover, a.list-title:focus{
 .output_area.rendered_html.container{
     max-height: fit-content !important;
 }
+.dependencies>div>pre{
+	background: none !important;
+    border: none !important;
+}
+.dependencies>div>a{
+	display: none !important;
+}
 
 /* copy buttons */
 .output_area.docutils.container>div>a,

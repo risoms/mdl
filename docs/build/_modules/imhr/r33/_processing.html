@@ -282,7 +282,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span> <span class="s1">&#39;sg&#39;</span><span class="p">]]</span>
 		
-<div class="viewcode-block" id="Processing.getEstimatedMonitor"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.getEstimatedMonitor">[docs]</a>    <span class="k">def</span> <span class="nf">getEstimatedMonitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diagonal</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.getEstimatedMonitor"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.getEstimatedMonitor">[docs]</a>    <span class="k">def</span> <span class="nf">getEstimatedMonitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diagonal</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</span>
 
 <span class="sd">        Attributes</span>
@@ -297,7 +297,7 @@
         
         <span class="k">return</span> <span class="n">monitor</span></div>
 
-<div class="viewcode-block" id="Processing.preprocess"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.preprocess">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.preprocess"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.preprocess">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initial data cleaning.</span>
 
 <span class="sd">        Parameters</span>
@@ -421,7 +421,7 @@
 
     <span class="c1">#getting data for analysis</span>
 
-<div class="viewcode-block" id="Processing.getData"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.getData"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;preparing data for use in analysis</span>
 
 <span class="sd">        Parameters</span>
@@ -477,7 +477,7 @@
 
         <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">path</span></div>
 
-<div class="viewcode-block" id="Processing.filter_data"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.filter_data">[docs]</a>    <span class="k">def</span> <span class="nf">filter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">filter_type</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.filter_data"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.filter_data">[docs]</a>    <span class="k">def</span> <span class="nf">filter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">filter_type</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Butterworth: Design an Nth-order digital or analog Butterworth filter and return</span>
 <span class="sd">        the filter coefficients.</span>
@@ -572,7 +572,7 @@
 
         <span class="k">return</span> <span class="n">fxy_df</span></div>
 
-<div class="viewcode-block" id="Processing.classify"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;ivt&#39;</span><span class="p">,</span> <span class="n">filter_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Processing.classify"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.classify">[docs]</a>    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;ivt&#39;</span><span class="p">,</span> <span class="n">filter_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">v_th</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dr_th</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">di_th</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxdist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mindur</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -648,7 +648,7 @@
 
         <span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="Processing.roi"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.roi">[docs]</a>    <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span><span class="s1">&#39;sg&#39;</span><span class="p">]],</span> <span class="n">flt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitorSize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.roi"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.roi">[docs]</a>    <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;SavitzkyGolay&#39;</span><span class="p">,</span><span class="s1">&#39;sg&#39;</span><span class="p">]],</span> <span class="n">flt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitorSize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Check if fixation is within bounds.</span>
 
 <span class="sd">        Attributes</span>
@@ -918,7 +918,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">stim_bounds</span><span class="p">,</span> <span class="n">roi_bounds</span></div>
 
-<div class="viewcode-block" id="Processing.process"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">gxy_df</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">_classify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">,</span> <span class="n">_param</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="Processing.process"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">gxy_df</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">_classify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ctype</span><span class="o">=</span><span class="s1">&#39;simple&#39;</span><span class="p">,</span> <span class="n">_param</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">draw_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="n">draw_heatmap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_gazeplot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_fixplot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">v_th</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">dr_th</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">di_th</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                 <span class="n">_missing</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">_maxdist</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">_mindur</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
@@ -1090,7 +1090,7 @@
 
         <span class="k">return</span> <span class="n">l_cxy</span><span class="p">,</span> <span class="n">fgxy_df</span></div>
 
-<div class="viewcode-block" id="Processing.append_classify"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.append_classify">[docs]</a>    <span class="k">def</span> <span class="nf">append_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cg_df</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.append_classify"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.append_classify">[docs]</a>    <span class="k">def</span> <span class="nf">append_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cg_df</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Appending classification to Dataframe.</span>
 
 <span class="sd">        Parameters</span>
@@ -1111,7 +1111,7 @@
 
         <span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="Processing.run"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;eyetracking&quot;</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.run"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;eyetracking&quot;</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Processing of data. Steps here include: cleaning data, fixation identification, and exporting data.</span>
 
 <span class="sd">        Parameters</span>
@@ -1520,7 +1520,7 @@
             <span class="c1">#-----------------------------------------finished</span>
             <span class="k">return</span> <span class="n">cores</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">proc</span></div>
 
-<div class="viewcode-block" id="Processing.subject_metadata"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.subject_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">subject_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="n">spath</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.subject_metadata"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.subject_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">subject_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="n">spath</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Collect all subjects metadata.</span>
 <span class="sd">        </span>
@@ -1570,7 +1570,7 @@
         
         <span class="k">return</span> <span class="n">df</span></div>
            
-<div class="viewcode-block" id="Processing.variables"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.variables">[docs]</a>    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.variables"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.variables">[docs]</a>    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Output list of variables for easy html viewing.</span>
 
 <span class="sd">        Parameters</span>
@@ -1634,7 +1634,7 @@
         
         <span class="k">return</span> <span class="n">df_variable</span></div>
     
-<div class="viewcode-block" id="Processing.dwell"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.dwell">[docs]</a>    <span class="k">def</span> <span class="nf">dwell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.dwell"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.dwell">[docs]</a>    <span class="k">def</span> <span class="nf">dwell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate dwell time for sad and neutral images.</span>
 
@@ -1826,7 +1826,7 @@
             <span class="n">df</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;cesd_group&#39;</span><span class="p">,</span><span class="s1">&#39;participant&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">&quot;participant&quot;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)),</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;participant&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">df_error</span></div>
     
-<div class="viewcode-block" id="Processing.onset_diff"><a class="viewcode-back" href="../../../api/imhr.r33.html#imhr.r33.Processing.onset_diff">[docs]</a>    <span class="k">def</span> <span class="nf">onset_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">merge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="Processing.onset_diff"><a class="viewcode-back" href="../../../api/imhr.r33._processing.html#imhr.r33.Processing.onset_diff">[docs]</a>    <span class="k">def</span> <span class="nf">onset_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">merge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</span>
 
 <span class="sd">        Parameters</span>
@@ -2027,7 +2027,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T13:51:41-05:00.</div>
+			<div>Updated 2019-05-15T16:15:43-05:00.</div>
 		</div>
 	</div>
 </footer>

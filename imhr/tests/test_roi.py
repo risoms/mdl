@@ -7,17 +7,17 @@
 @`email`: semeon.risom@gmail.com  
 @`url`: https://semeon.io/d/imhr
 """
-import os, sys, pathlib, argparse, re, pytest
+import os, sys, pathlib, pytest
 from pdb import set_trace as breakpoint
 
 # get local path
-_path = pathlib.Path(__file__).parent
+localpath = pathlib.Path(__file__).parent.parent
 
 # default parameters
 params = {
-	"image_path":'%s/dist/raw/'%(_path),
-	"output_path":'%s/dist/output/'%(_path),
-	"metadata_source":'%s/dist/metadata.xlsx'%(_path)
+	"image_path":'%s/dist/raw/'%(localpath),
+	"output_path":'%s/dist/output/'%(localpath),
+	"metadata_source":'%s/dist/metadata.xlsx'%(localpath)
 }
 
 # pytest
@@ -41,30 +41,30 @@ def test_generate_roi(args=None):
 	## resolve travis-ci path problem: https://stackoverflow.com/a/42194190
 	# if running using travis-ci
 	if os.environ.get('TRAVIS') == 'true':
-		modulepath = os.path.abspath('..')
-		sys.path.insert(0, modulepath)
+		pypath = os.path.abspath('../../')
+		sys.path.insert(0, pypath)
 		import imhr
 		args = params
 	# if running locally
 	else:
-		modulepath = os.path.abspath('...')
-		sys.path.insert(0, modulepath)
+		pypath = os.path.abspath('../../')
+		sys.path.insert(0, pypath)
 		import imhr
 
 	# python module path
-	print('pypath: %s'%(modulepath))
+	print('pypath: %s'%(pypath))
 
 	# local path
-	print('localpath: %s'%(_path))
+	print('localpath: %s'%(localpath))
 
 	# image_path
-	image_path = '%s/dist/raw/'%(_path) if args is None else args["image_path"]
+	image_path = '%s/dist/raw/'%(localpath) if args is None else args["image_path"]
 
 	# output_path
-	output_path = '%s/dist/output/'%(_path) if args is None else args["output_path"]
+	output_path = '%s/dist/output/'%(localpath) if args is None else args["output_path"]
 
 	# metadata_source
-	metadata_source = '%s/dist/metadata.xlsx'%(_path) if args is None else args["metadata_source"]
+	metadata_source = '%s/dist/metadata.xlsx'%(localpath) if args is None else args["metadata_source"]
 
 	# ##### initiate
 	roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False, isDemo=False,
@@ -76,21 +76,3 @@ def test_generate_roi(args=None):
 	df, _ = roi.process()
 
 	return df
-
-if __name__ == '__main__':
-	# https://docs.python.org/3.7/library/argparse.html
-	# args
-	sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-	parser = argparse.ArgumentParser(
-		prog = sys.argv[0],
-		usage = "Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python."
-	)
-
-	# main arguments
-	parser.add_argument("--image_path", help="image_path.", default=None)
-	parser.add_argument("--output_path", help="output_path.", default=None)
-	parser.add_argument("--metadata_source", help="metadata_source.", default=None)
-
-	# start
-	args_ = parser.parse_args()
-	sys.exit(test_run(args_))

@@ -78,7 +78,7 @@ install:
     # Install package dependencies.
     python3 -m pip install --quiet --requirement requirements.txt
     # Install pytest dependencies.
-    python3 -m pip install --quiet --requirement mdl/tests/dist/pytest_requirements.txt
+    python3 -m pip install --quiet --requirement imhr/dist/pytest_requirements.txt
     # Install other required packages.
     python3 -m pip install --quiet certifi
 

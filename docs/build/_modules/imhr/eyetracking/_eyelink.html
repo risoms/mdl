@@ -421,7 +421,7 @@
 
         <span class="c1">#----kwargs</span>
 
-<div class="viewcode-block" id="Eyelink.connect"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration_type</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">automatic_calibration_pacing</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">saccade_velocity_threshold</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+<div class="viewcode-block" id="Eyelink.connect"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration_type</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">automatic_calibration_pacing</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">saccade_velocity_threshold</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
                 <span class="n">saccade_acceleration_threshold</span><span class="o">=</span><span class="mi">9500</span><span class="p">,</span> <span class="n">sound</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">select_parser_configuration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                 <span class="n">recording_parse_type</span><span class="o">=</span><span class="s2">&quot;GAZE&quot;</span><span class="p">,</span> <span class="n">enable_search_limits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s1">&#39;100.1.1.1&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -611,7 +611,7 @@
         
         <span class="k">return</span> <span class="n">param</span></div>
 
-<div class="viewcode-block" id="Eyelink.set_eye_used"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.set_eye_used">[docs]</a>    <span class="k">def</span> <span class="nf">set_eye_used</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eye</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.set_eye_used"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.set_eye_used">[docs]</a>    <span class="k">def</span> <span class="nf">set_eye_used</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eye</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set dominant eye. This step is required for recieving gaze coordinates from Eyelink-&gt;Psychopy.</span>
 
@@ -636,7 +636,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span></div>
 
-<div class="viewcode-block" id="Eyelink.calibration"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.calibration">[docs]</a>    <span class="k">def</span> <span class="nf">calibration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.calibration"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.calibration">[docs]</a>    <span class="k">def</span> <span class="nf">calibration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Start calibration procedure.</span>
 <span class="sd">        </span>
@@ -745,7 +745,7 @@
         <span class="c1"># the Routine &quot;drift_message&quot; was not non-slip safe, so reset the non-slip timer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">routineTimer</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         
-<div class="viewcode-block" id="Eyelink.drift_correction"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.drift_correction">[docs]</a>    <span class="k">def</span> <span class="nf">drift_correction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;call&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.drift_correction"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.drift_correction">[docs]</a>    <span class="k">def</span> <span class="nf">drift_correction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;call&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Starts drift correction. This can be done at any point after calibration, including before </span>
 <span class="sd">        and after eyetracking.start_recording has already been initiated.</span>
@@ -812,7 +812,7 @@
         
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDriftCorrection</span></div>
     
-<div class="viewcode-block" id="Eyelink.start_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.start_recording">[docs]</a>    <span class="k">def</span> <span class="nf">start_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.start_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.start_recording">[docs]</a>    <span class="k">def</span> <span class="nf">start_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Starts recording of Eyelink.</span>
 
@@ -883,7 +883,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span></div>
     
-<div class="viewcode-block" id="Eyelink.gc"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.gc">[docs]</a>    <span class="k">def</span> <span class="nf">gc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bound</span><span class="p">,</span> <span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.gc"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.gc">[docs]</a>    <span class="k">def</span> <span class="nf">gc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bound</span><span class="p">,</span> <span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates gaze contigent event. This function needs to be run while recording.</span>
 <span class="sd">        </span>
@@ -975,7 +975,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracker not recording&quot;</span><span class="p">)</span></div>
                      
-<div class="viewcode-block" id="Eyelink.sample"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.sample">[docs]</a>    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.sample"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.sample">[docs]</a>    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Collects new gaze coordinates from Eyelink.</span>
 <span class="sd">        </span>
@@ -1014,7 +1014,7 @@
         
         <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sample</span></div>
 
-<div class="viewcode-block" id="Eyelink.send_message"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.send_message">[docs]</a>    <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.send_message"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.send_message">[docs]</a>    <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send message to Eyelink. This allows post-hoc processing of event markers (i.e. &quot;stimulus onset&quot;).</span>
 
@@ -1029,7 +1029,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Eyelink.send_variable"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.send_variable">[docs]</a>    <span class="k">def</span> <span class="nf">send_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.send_variable"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.send_variable">[docs]</a>    <span class="k">def</span> <span class="nf">send_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        send trial variable to eyelink at the end of trial.</span>
 
@@ -1048,7 +1048,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;no variables entered&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Eyelink.stop_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.stop_recording">[docs]</a>    <span class="k">def</span> <span class="nf">stop_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.stop_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.stop_recording">[docs]</a>    <span class="k">def</span> <span class="nf">stop_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops recording of Eyelink. Also allows transmission of trial-level variables to Eyelink.</span>
 
@@ -1130,7 +1130,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRecording</span></div>
 
-<div class="viewcode-block" id="Eyelink.finish_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.finish_recording">[docs]</a>    <span class="k">def</span> <span class="nf">finish_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Eyelink.finish_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.finish_recording">[docs]</a>    <span class="k">def</span> <span class="nf">finish_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Ending Eyelink recording.</span>
 
@@ -1221,7 +1221,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T13:51:41-05:00.</div>
+			<div>Updated 2019-05-15T16:15:43-05:00.</div>
 		</div>
 	</div>
 </footer>

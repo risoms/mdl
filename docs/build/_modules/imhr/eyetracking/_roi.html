@@ -424,8 +424,8 @@
 		<span class="c1"># offset image coordinates</span>
 		<span class="n">cx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
 		<span class="n">cy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;offset&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;offset&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">[</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">]</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">]:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">recenter</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;recenter&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;recenter&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">[</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">]</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">recenter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">]:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span> <span class="o">=</span> <span class="kc">True</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span> <span class="o">=</span> <span class="kc">False</span>
@@ -457,11 +457,11 @@
 
 		<span class="c1">#----directory</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDemo</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-			<span class="kn">import</span> <span class="nn">sys</span>
-			<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">parent</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">image_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/raw/&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/output/&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-			<span class="n">metadata_source</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/metadata.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+			<span class="kn">import</span> <span class="nn">imhr</span>
+			<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">imhr</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">image_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/dist/raw/&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/dist/output/&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+			<span class="n">metadata_source</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/dist/metadata.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">image_path</span> <span class="o">=</span> <span class="n">image_path</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="n">output_path</span>
@@ -485,7 +485,7 @@
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
 				<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No data for file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_source</span><span class="p">))</span>
 
-<div class="viewcode-block" id="ROI.process_metadata"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.process_metadata">[docs]</a>	<span class="k">def</span> <span class="nf">process_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.process_metadata"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process_metadata">[docs]</a>	<span class="k">def</span> <span class="nf">process_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -533,7 +533,7 @@
 
 		<span class="k">return</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roilabel</span></div>
 
-<div class="viewcode-block" id="ROI.create_contours"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.create_contours">[docs]</a>	<span class="k">def</span> <span class="nf">create_contours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.create_contours"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.create_contours">[docs]</a>	<span class="k">def</span> <span class="nf">create_contours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -691,7 +691,7 @@
 
 		<span class="k">return</span> <span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span></div>
 
-<div class="viewcode-block" id="ROI.create_rois"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.create_rois">[docs]</a>	<span class="k">def</span> <span class="nf">create_rois</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roinumber</span><span class="p">,</span> <span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.create_rois"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.create_rois">[docs]</a>	<span class="k">def</span> <span class="nf">create_rois</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roinumber</span><span class="p">,</span> <span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -766,7 +766,7 @@
 		<span class="c1"># finish</span>
 		<span class="k">return</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">contours</span></div>
 
-<div class="viewcode-block" id="ROI.export_data"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.export_data">[docs]</a>	<span class="k">def</span> <span class="nf">export_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newcolumn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;image&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.export_data"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.export_data">[docs]</a>	<span class="k">def</span> <span class="nf">export_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newcolumn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;image&#39;</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -848,7 +848,7 @@
 
 		<span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="ROI.draw_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.draw_image">[docs]</a>	<span class="k">def</span> <span class="nf">draw_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bounds&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.draw_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.draw_image">[docs]</a>	<span class="k">def</span> <span class="nf">draw_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bounds&#39;</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -895,7 +895,7 @@
 		<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
 		<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ROI.process_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.process_image">[docs]</a>	<span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psd</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.process_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process_image">[docs]</a>	<span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psd</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -911,33 +911,47 @@
 		<span class="c1">## load image directly from PSD</span>
 		<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
 
-		<span class="c1"># scale image</span>
-		<span class="n">truesize</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-		<span class="n">scalesize</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">truesize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">truesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)]</span>
-		<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">scalesize</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;# export image&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;size: </span><span class="si">%s</span><span class="s1">, scaled: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">truesize</span><span class="p">,</span> <span class="n">scalesize</span><span class="p">),</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-		
-		<span class="c1"># offset</span>
-		<span class="n">screensize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span>
-		<span class="n">screencenter</span> <span class="o">=</span> <span class="p">[</span><span class="n">screensize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
-		<span class="n">imagecenter</span> <span class="o">=</span> <span class="p">[</span><span class="n">scalesize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">scalesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
-		<span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span><span class="p">:</span>
-			<span class="k">pass</span>
+		<span class="c1">## set background</span>
+		<span class="n">screen_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span>
+		<span class="n">background</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;# export image&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+		<span class="c1"># if scale image</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="n">old_image_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+			<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)]</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">, scaled to: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">old_image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+		<span class="c1"># else unscaled</span>
 		<span class="k">else</span><span class="p">:</span>
-			<span class="k">pass</span>
-		<span class="n">breakpoint</span><span class="p">()</span>
-		<span class="c1"># center and resize image to template screen</span>
-		<span class="n">background</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screensize</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-		<span class="n">offset</span> <span class="o">=</span> <span class="p">(</span>
-			<span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
-			<span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">//</span><span class="mi">2</span>
-		<span class="p">)</span>
-		<span class="n">background</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+			<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">image_size</span><span class="p">))</span>
+ 		
+		<span class="c1"># if offsetting		</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span><span class="p">:</span>
+			<span class="n">offset_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recenter</span>
+			<span class="c1"># calculate upper-left coordinate for drawing into image</span>
+			<span class="c1"># x-bound &lt;offset_x center&gt; - &lt;1/2 image_x width&gt;</span>
+			<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+			<span class="c1"># y-bound &lt;offset_y center&gt; - &lt;1/2 image_y width&gt;</span>
+			<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+			<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image centered at: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">offset_center</span><span class="p">))</span>
+		<span class="c1"># else not offsetting</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="c1"># calculate upper-left coordinate for drawing into image</span>
+			<span class="c1"># x-bound &lt;screen_x center&gt; - &lt;1/2 image_x width&gt;</span>
+			<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+			<span class="c1"># y-bound &lt;screen_y center&gt; - &lt;1/2 image_y width&gt;</span>
+			<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+			<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+		<span class="c1"># draw</span>
+		<span class="n">background</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">left_xy</span><span class="p">)</span>
 
 		<span class="k">return</span> <span class="n">background</span></div>
 
-<div class="viewcode-block" id="ROI.run"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.run">[docs]</a>	<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.run"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.run">[docs]</a>	<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -1070,7 +1084,7 @@
 		<span class="k">else</span><span class="p">:</span>
 			<span class="k">return</span> <span class="n">l_bounds_all</span><span class="p">,</span> <span class="n">l_contours_all</span><span class="p">,</span> <span class="n">l_error</span></div>
 
-<div class="viewcode-block" id="ROI.process"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.process">[docs]</a>	<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.process"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process">[docs]</a>	<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Returns</span>
@@ -1147,7 +1161,7 @@
 
 		<span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">error</span></div>
 
-<div class="viewcode-block" id="ROI.finished"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.ROI.finished">[docs]</a>	<span class="k">def</span> <span class="nf">finished</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.finished"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.finished">[docs]</a>	<span class="k">def</span> <span class="nf">finished</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Process bounds for all images.</span>
 
@@ -1186,13 +1200,25 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;finished()&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
 		<span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">error</span></div></div>
 
-<span class="c1">#%% test</span>
-<span class="c1"># drawing image</span>
-<span class="c1"># img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)</span>
-<span class="c1"># cv2.imshow(&#39;image&#39;,img)</span>
+<span class="c1"># if calling from cmd/terminal</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+	<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">re</span>
+	<span class="c1"># https://docs.python.org/3.7/library/argparse.html</span>
+	<span class="c1"># args</span>
+	<span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(-script\.pyw?|\.exe)?$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+	<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+		<span class="n">prog</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+		<span class="n">usage</span> <span class="o">=</span> <span class="s2">&quot;Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.&quot;</span>
+	<span class="p">)</span>
 
-<span class="c1"># convert img to np array</span>
-<span class="c1"># np_img = np.array(img)</span>
+	<span class="c1"># main arguments</span>
+	<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--image_path&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;image_path.&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+	<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--output_path&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;output_path.&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+	<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--metadata_source&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;metadata_source.&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+	<span class="c1"># start</span>
+	<span class="n">args_</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+	<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">ROI</span><span class="p">(</span><span class="n">args_</span><span class="p">))</span>
 </pre></div>
 
 		</div>
@@ -1204,7 +1230,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T13:51:41-05:00.</div>
+			<div>Updated 2019-05-15T16:15:43-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -976,10 +976,22 @@ class ROI():
 		self.console('finished()','purple')
 		return df, error
 
-#%% test
-# drawing image
-# img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-# cv2.imshow('image',img)
+# if calling from cmd/terminal
+if __name__ == '__main__':
+	import sys, argparse, re
+	# https://docs.python.org/3.7/library/argparse.html
+	# args
+	sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+	parser = argparse.ArgumentParser(
+		prog = sys.argv[0],
+		usage = "Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python."
+	)
 
-# convert img to np array
-# np_img = np.array(img)
+	# main arguments
+	parser.add_argument("--image_path", help="image_path.", default=None)
+	parser.add_argument("--output_path", help="output_path.", default=None)
+	parser.add_argument("--metadata_source", help="metadata_source.", default=None)
+
+	# start
+	args_ = parser.parse_args()
+	sys.exit(ROI(args_))

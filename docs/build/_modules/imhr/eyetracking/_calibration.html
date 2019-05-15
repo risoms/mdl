@@ -333,7 +333,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">inside</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fillColor</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
 							<span class="n">lineColor</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">)</span> 
 
-<div class="viewcode-block" id="Calibration.setup_cal_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.setup_cal_display">[docs]</a>	<span class="k">def</span> <span class="nf">setup_cal_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.setup_cal_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.setup_cal_display">[docs]</a>	<span class="k">def</span> <span class="nf">setup_cal_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Shows the &#39;Camera Setup&#39; screen along with menu options.</span>
 
@@ -350,7 +350,7 @@
 			<span class="bp">self</span><span class="o">.</span><span class="n">menu</span><span class="o">.</span><span class="n">autoDraw</span> <span class="o">=</span> <span class="kc">True</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Calibration.clear_cal_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.clear_cal_display">[docs]</a>	<span class="k">def</span> <span class="nf">clear_cal_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.clear_cal_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.clear_cal_display">[docs]</a>	<span class="k">def</span> <span class="nf">clear_cal_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Clear the &#39;Camera Setup&#39; screen along with menu options.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;clear_cal_display&#39;</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">menu</span><span class="o">.</span><span class="n">autoDraw</span> <span class="o">=</span> <span class="kc">False</span>
@@ -359,7 +359,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Calibration.exit_cal_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.exit_cal_display">[docs]</a>	<span class="k">def</span> <span class="nf">exit_cal_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.exit_cal_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.exit_cal_display">[docs]</a>	<span class="k">def</span> <span class="nf">exit_cal_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Exit the &#39;Camera Setup&#39; screen along with menu options.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exit_cal_display&#39;</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">setUnits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
@@ -369,17 +369,17 @@
 		<span class="c1">#----flag</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">is_calibration</span> <span class="o">=</span> <span class="kc">False</span></div>
     
-<div class="viewcode-block" id="Calibration.record_abort_hide"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.record_abort_hide">[docs]</a>	<span class="k">def</span> <span class="nf">record_abort_hide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.record_abort_hide"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.record_abort_hide">[docs]</a>	<span class="k">def</span> <span class="nf">record_abort_hide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;This function is called if aborted&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;record_abort_hide&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Calibration.erase_cal_target"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.erase_cal_target">[docs]</a>	<span class="k">def</span> <span class="nf">erase_cal_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.erase_cal_target"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.erase_cal_target">[docs]</a>	<span class="k">def</span> <span class="nf">erase_cal_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Erase the calibration/validation target.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;erase_cal_target&#39;</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">clear_cal_display</span><span class="p">()</span></div>
 		<span class="c1">#self.window.flip()</span>
         
-<div class="viewcode-block" id="Calibration.draw_cal_target"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.draw_cal_target">[docs]</a>	<span class="k">def</span> <span class="nf">draw_cal_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.draw_cal_target"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.draw_cal_target">[docs]</a>	<span class="k">def</span> <span class="nf">draw_cal_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Draw the calibration/validation target.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;draw_cal_target&#39;</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">clear_cal_display</span><span class="p">()</span>
@@ -396,7 +396,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">inside</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Calibration.play_beep"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.play_beep">[docs]</a>	<span class="k">def</span> <span class="nf">play_beep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beepid</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.play_beep"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.play_beep">[docs]</a>	<span class="k">def</span> <span class="nf">play_beep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beepid</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot; Play a sound during calibration/drift correction.&quot;&quot;&quot;</span>
 		<span class="k">if</span> <span class="n">beepid</span> <span class="o">==</span> <span class="n">pylink</span><span class="o">.</span><span class="n">CAL_TARG_BEEP</span> <span class="ow">or</span> <span class="n">beepid</span> <span class="o">==</span> <span class="n">pylink</span><span class="o">.</span><span class="n">DC_TARG_BEEP</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">__target_beep__</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
@@ -405,7 +405,7 @@
 		<span class="k">if</span> <span class="n">beepid</span> <span class="ow">in</span> <span class="p">[</span><span class="n">pylink</span><span class="o">.</span><span class="n">CAL_GOOD_BEEP</span><span class="p">,</span> <span class="n">pylink</span><span class="o">.</span><span class="n">DC_GOOD_BEEP</span><span class="p">]:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">__target_beep__done__</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></div>
         
-<div class="viewcode-block" id="Calibration.getColorFromIndex"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.getColorFromIndex">[docs]</a>	<span class="k">def</span> <span class="nf">getColorFromIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colorindex</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.getColorFromIndex"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.getColorFromIndex">[docs]</a>	<span class="k">def</span> <span class="nf">getColorFromIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colorindex</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Return psychopy colors for elements in the camera image.&quot;&quot;&quot;</span>
 		<span class="k">if</span> <span class="n">colorindex</span>   <span class="o">==</span>  <span class="n">pylink</span><span class="o">.</span><span class="n">CR_HAIR_COLOR</span><span class="p">:</span>          <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 		<span class="k">elif</span> <span class="n">colorindex</span> <span class="o">==</span>  <span class="n">pylink</span><span class="o">.</span><span class="n">PUPIL_HAIR_COLOR</span><span class="p">:</span>       <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -414,7 +414,7 @@
 		<span class="k">elif</span> <span class="n">colorindex</span> <span class="o">==</span>  <span class="n">pylink</span><span class="o">.</span><span class="n">MOUSE_CURSOR_COLOR</span><span class="p">:</span>     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 		<span class="k">else</span><span class="p">:</span>                                              <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span></div>
         
-<div class="viewcode-block" id="Calibration.draw_line"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.draw_line">[docs]</a>	<span class="k">def</span> <span class="nf">draw_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">colorindex</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.draw_line"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.draw_line">[docs]</a>	<span class="k">def</span> <span class="nf">draw_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">colorindex</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Draw a line. This is used for drawing crosshairs/squares.&quot;&quot;&quot;</span>
 		<span class="n">y1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">y1</span>  <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_scaling_factor</span>
 		<span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">+</span><span class="n">x1</span>  <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_scaling_factor</span>
@@ -426,7 +426,7 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">line</span><span class="o">.</span><span class="n">lineColor</span> <span class="o">=</span> <span class="n">color</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">line</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Calibration.draw_lozenge"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.draw_lozenge">[docs]</a>	<span class="k">def</span> <span class="nf">draw_lozenge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">colorindex</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.draw_lozenge"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.draw_lozenge">[docs]</a>	<span class="k">def</span> <span class="nf">draw_lozenge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">colorindex</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</span>
 <span class="sd">		&quot;&quot;&quot;</span>
@@ -455,7 +455,7 @@
 		<span class="n">lozenge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">ShapeStim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">vertices</span><span class="o">=</span><span class="n">vertices</span><span class="p">,</span> <span class="n">lineWidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">lineColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">closeShape</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">)</span>
 		<span class="n">lozenge</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
     
-<div class="viewcode-block" id="Calibration.get_mouse_state"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.get_mouse_state">[docs]</a>	<span class="k">def</span> <span class="nf">get_mouse_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.get_mouse_state"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.get_mouse_state">[docs]</a>	<span class="k">def</span> <span class="nf">get_mouse_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Get the current mouse position and status&quot;&quot;&quot;</span>
 		<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">getPos</span><span class="p">()</span>
 		<span class="n">mX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">2.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">img_scaling_factor</span> <span class="o">+</span> <span class="n">X</span> 
@@ -475,7 +475,7 @@
 
 		<span class="k">return</span> <span class="p">((</span><span class="n">mX</span><span class="p">,</span> <span class="n">mY</span><span class="p">),</span> <span class="n">state</span><span class="p">)</span></div>
     
-<div class="viewcode-block" id="Calibration.get_input_key"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.get_input_key">[docs]</a>	<span class="k">def</span> <span class="nf">get_input_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.get_input_key"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.get_input_key">[docs]</a>	<span class="k">def</span> <span class="nf">get_input_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		This function will be constantly pools, update the stimuli here is you need</span>
 <span class="sd">		dynamic calibration target.</span>
@@ -518,7 +518,7 @@
 
 		<span class="k">return</span> <span class="n">ky</span></div>
 
-<div class="viewcode-block" id="Calibration.exit_image_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.exit_image_display">[docs]</a>	<span class="k">def</span> <span class="nf">exit_image_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.exit_image_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.exit_image_display">[docs]</a>	<span class="k">def</span> <span class="nf">exit_image_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Clear the camera image.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exit_image_display&#39;</span><span class="p">)</span>
 
@@ -526,11 +526,11 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">menu</span><span class="o">.</span><span class="n">autoDraw</span> <span class="o">=</span> <span class="kc">True</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Calibration.alert_printf"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.alert_printf">[docs]</a>	<span class="k">def</span> <span class="nf">alert_printf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.alert_printf"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.alert_printf">[docs]</a>	<span class="k">def</span> <span class="nf">alert_printf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Print error messages.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">%</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Calibration.setup_image_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.setup_image_display">[docs]</a>	<span class="k">def</span> <span class="nf">setup_image_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.setup_image_display"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.setup_image_display">[docs]</a>	<span class="k">def</span> <span class="nf">setup_image_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Set up the camera image, for newer APIs, the size is 384 x 320 pixels.&quot;&quot;&quot;</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;setup_image_display&#39;</span><span class="p">)</span>
 
@@ -544,7 +544,7 @@
 		<span class="sd">&quot;&quot;&quot;Display or update Pupil/CR info on image screen.&quot;&quot;&quot;</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span></div>
 
-<div class="viewcode-block" id="Calibration.draw_image_line"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.draw_image_line">[docs]</a>	<span class="k">def</span> <span class="nf">draw_image_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">totlines</span><span class="p">,</span> <span class="n">buff</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.draw_image_line"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.draw_image_line">[docs]</a>	<span class="k">def</span> <span class="nf">draw_image_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">totlines</span><span class="p">,</span> <span class="n">buff</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Display image pixel by pixel, line by line.&quot;&quot;&quot;</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">totlines</span><span class="p">)</span>
 
@@ -563,7 +563,7 @@
 			<span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">imagebuffer</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgBuffInitType</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Calibration.set_image_palette"><a class="viewcode-back" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Calibration.set_image_palette">[docs]</a>	<span class="k">def</span> <span class="nf">set_image_palette</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<div class="viewcode-block" id="Calibration.set_image_palette"><a class="viewcode-back" href="../../../api/imhr.eyetracking._calibration.html#imhr.eyetracking.Calibration.set_image_palette">[docs]</a>	<span class="k">def</span> <span class="nf">set_image_palette</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</span>
 <span class="sd">		I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000 011111111&quot;&quot;&quot;</span>
 
@@ -589,7 +589,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T13:51:41-05:00.</div>
+			<div>Updated 2019-05-15T16:15:43-05:00.</div>
 		</div>
 	</div>
 </footer>
