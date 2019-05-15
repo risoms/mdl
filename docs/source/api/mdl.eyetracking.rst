@@ -14,8 +14,6 @@ mdl.eyetracking
 
 .. automodule:: mdl.eyetracking
 	:autosummary:
-	:member-order: bysource
-	:inherited-members:
 	:members: Calibration, Eyelink, ROI
 
 	.. toctree::

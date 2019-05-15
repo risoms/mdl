@@ -1,0 +1,17 @@
+# EyeLink Interest Area Set created on 2019-05-13T10:32:25-05:00.
+# Interest area set file using mdl.roi.ROI()
+# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color
+# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color
+# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color
+# example: RECTANGLE 1 350 172 627 286 leftcheek red
+# example: ELLIPSE 2 350 172 627 286 leftcheek red
+# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red
+# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.
+RECTANGLE	1	779	533	942	393	AM_203roi1center
+RECTANGLE	2	984	523	1135	412	AM_203roi2center
+RECTANGLE	3	900	634	1029	542	AM_203roi3center
+RECTANGLE	4	878	752	1044	658	AM_203roi4center
+RECTANGLE	5	1068	843	814	823	AM_203roi5center
+RECTANGLE	6	774	379	771	260	AM_203roi6center
+RECTANGLE	7	711	647	697	478	AM_203roi7center
+RECTANGLE	8	1202	631	1148	629	AM_203roi8center

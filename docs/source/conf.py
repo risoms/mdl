@@ -3,6 +3,13 @@
 # This file does only contain a selection of the most common options. For a full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+'''
+references:
+	* https://sublime-and-sphinx-guide.readthedocs.io/en/latest/
+	* http://www.sphinx-doc.org/en/master/contents.html
+	* http://docutils.sourceforge.net/docs/ref/rst/directives.html
+'''
+
 # core
 import re
 import os
@@ -52,6 +59,30 @@ release = version
 # 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
 isodate = iso()
 html_last_updated_fmt = '%s'%(isodate)
+
+# Required packages ----------------------------------------------------------------------------------------------------
+from jinja2 import Template
+from pathlib import Path
+## get required packages
+path = '%s/%s'%(Path(__file__).parent.parent.parent, 'requirements.txt')
+with open(path) as f:
+	required = f.read().splitlines()
+required = required + ["(if windows) pywin32==224"] + ["(if macos) pyobjc==5.2"]
+required = [x.replace('>=','≥').replace('!=','≠').replace('==','≡') for x in required]
+# for each item
+d = []
+for x in required:
+	if '≥' in x:
+		idx = x.partition("≥")
+	elif '≠' in x:
+		idx = x.partition("≠")
+	elif '≡' in x:
+		idx = x.partition("≡")
+	d.append({'package':idx[0],'version':idx[1] + idx[2]})
+
+## build in jinja
+jinja_ = Template("{{ packages.package }}{{ packages.version }}")
+msg = jinja_.render(packages=required)
 
 # Extensions -----------------------------------------------------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
@@ -155,8 +186,8 @@ def builder_inited(app):
         '--templates', os.path.abspath(os.path.join('.', 'source/_templates/')), #Custom template directory
         '--force', #Overwrite existing files'
         '--separate', #Put documentation for each module on its own page
-        '--output-dir',
-        os.path.abspath(os.path.join('.', 'source/api/')), # output path
+		'--private', #nclude "_private" modules
+        '--output-dir', os.path.abspath(os.path.join('.', 'source/api/')), #Directory to place all output
         os.path.abspath(path) #module path
     ])
 
@@ -164,16 +195,18 @@ def builder_inited(app):
 autosummary_generate = False
 
 # autodoc settings -----------------------------------------------------------------------------------------------------
-autodoc_mock_imports = ["numpy", "pandas", "scipy", "PIL", 'pylink', 'pylink.EyeLinkCustomDisplay', 'setup.py', 'versioneer.py']
-autodoc_member_order = 'bysource' # Sort by source
+## http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+autodoc_mock_imports = ["numpy","pandas","scipy","PIL",'pylink','pylink.EyeLinkCustomDisplay','setup.py','versioneer.py','_version.py']
 autoclass_content = 'init'
 #suppress_warnings = ['misc.highlighting_failure']
 autodoc_default_options = {
     # 'autosummary': True,
-    'show-inheritance': True,
-    'member-order': 'bysource',
-    'private-members': True,
+	# 'special-members': '__init__'
     # 'undoc-members': False,
+    # 'member-order': 'bysource',
+    # 'private-members': True,
+	'inherited-members': True,
+    'show-inheritance': True,
 }
 
 ## Exclude summary tables (summary tables instead are created in autodocsumm)
@@ -189,7 +222,7 @@ def autodoc_process_docstring(app, what, name, obj, options, lines):
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
 def autodoc_skip_member(app, what, name, obj, skip, options):
 	exclusions = (
-		'__weakref__',  # special-members
+		#'__weakref__',  # special-members
 		'__doc__', 
 		'__module__', 
 		'__dict__',  # undoc-members
@@ -224,8 +257,17 @@ language = None
 # Options for todo extension
 todo_include_todos = True
 # List of patterns, relative to source directory, that match files and directories to ignore when looking for source files.
-exclude_patterns = ['_build','**.ipynb_checkpoints','run.rst','notes.rst','tests.rst','tests/test_generate_roi.rst',
-'api/setup.rst','setup.rst','setup.py','versioneer.rst','versioneer.py','api/pylink.rst']
+exclude_patterns = [
+	'_build',
+	'**.ipynb_checkpoints',
+	'run.rst','notes.rst',
+	'mdl._version.rst',
+	'api/mdl._version.rst',
+	'api/setup.rst',
+	'api/mdl.tests.rst',
+	'api/versioneer.rst',
+	'api/mdl.eyetracking.pylink.rst'
+]
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 html_copy_source = True #If true, the reST sources are included in the HTML build as _sources/name. The default is True.

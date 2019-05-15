@@ -14,8 +14,6 @@ mdl.r33
 
 .. automodule:: mdl.r33
 	:autosummary:
-	:member-order: bysource
-	:inherited-members:
 	:members: Classify, Metadata, Model, Processing, Settings
 
 	.. toctree::

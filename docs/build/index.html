@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="mdl, an extensive library for the exploration, visualization, and analysis of psychological data." lang="en" name="description" />
 
-    <title>mdl &#8212; mdl-api 2019-05-13 documentation</title>
+    <title>mdl &#8212; mdl-api 2019-05-14 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="#">
           mdl-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-13</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-14</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -73,8 +73,9 @@
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#testing">Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a><ul>
@@ -84,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/R33/process_demographics.html">Process demographics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
@@ -139,18 +140,10 @@
 <li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/mdl.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/mdl.eyetracking.html">mdl.eyetracking</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/mdl.eyetracking.pylink.html">mdl.eyetracking.pylink</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="api/mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/mdl.r33.html">mdl.r33</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/mdl.tests.html">mdl.tests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/mdl.tests.test_basic.html">mdl.tests.test_basic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/mdl.tests.test_roi.html">mdl.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/mdl.download.html">mdl.download</a><ul class="simple">
@@ -176,7 +169,7 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/index.html">Current Data</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
@@ -219,7 +212,7 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/index.html">Current Data</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
@@ -269,8 +262,8 @@ in part by funding of NIMH grant <a class="reference external" href="https://pro
    Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
 </pre></div>
 </div>
-<p>For a brief introduction to the ideas behind the library, you can read the <a class="reference internal" href="intro.html#intro"><span class="std std-ref">introduction</span></a>. Visit the
-<a class="reference internal" href="install.html#install"><span class="std std-ref">installation page</span></a> to see how you can download the package. You can browse the <a class="reference external" href="https://docs.python.org/3/distutils/examples.html#examples" title="(in Python v3.7)"><span class="xref std std-ref">examples</span></a>
+<p>For a brief introduction to the ideas behind the library, you can read the <span class="xref std std-ref">introduction</span>. Visit the
+<span class="xref std std-ref">installation page</span> to see how you can download the package. You can browse the <span class="xref std std-ref">examples</span>
 to see what you can do with this package, and then check out the <span class="xref std std-ref">API reference</span> to find out how.</p>
 <p>To see the code or report a bug, please visit the <a class="reference external" href="https://github.com/risoms/mdl">github</a> repository.</p>
                 </div>
@@ -317,7 +310,7 @@ to see what you can do with this package, and then check out the <span class="xr
 		<div>
 					<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-				<div>Updated 2019-05-13T15:27:49-05:00.</div>
+				<div>Updated 2019-05-14T13:51:19-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -1,6 +1,0 @@
-Sphinx==1.8.5
-sphinx_copybutton
-nbsphinx
-numpydoc
-autodocsumm
-sphinxcontrib-fulltoc

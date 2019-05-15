@@ -14,8 +14,6 @@ mdl.eyetracking.pylink
 
 .. automodule:: mdl.eyetracking.pylink
 	:autosummary:
-	:member-order: bysource
-	:inherited-members:
 	:members: EyeLinkCustomDisplay, id
 
 	.. toctree::

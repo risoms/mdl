@@ -71,7 +71,7 @@ if __name__ == '__main__':
 		'Documentation': 'http://mdl.psy.utexas.edu/a/mdl',
 		'Source': 'https://github.com/risoms/mdl/'
 	},
-	namespace_packages=['mdl']
+	#namespace_packages=['mdl']
 
 	# init
 	setup(

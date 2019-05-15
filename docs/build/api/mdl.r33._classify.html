@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.r33._classify &#8212; mdl-api 2019-05-14 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+	<meta name="author" content="Semeon Risom">
+	<meta name="email" content="semeon.risom@gmail.com">
+	<meta name="robots" content="index,follow">
+	<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          mdl-api</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-14</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../genindex.html">Glossary</a></li>
+                <li><a href="../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_data.html">Process data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Print-message-to-console/terminal.">(Optional) Print message to console/terminal.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Drift-correction.">(Optional) Drift correction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-recording.">Start recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Example-use-of-eyetracking.sample().">Example use of eyetracking.sample().</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Stop-recording.">Stop recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdl.eyetracking.html">mdl.eyetracking</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdl.r33.html">mdl.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdl.download.html">mdl.download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdl.plot.html">mdl.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdl.settings.html">mdl.settings</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+		<div class="toc col-md-3">
+			<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdl.html">API Reference</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/api/mdl.r33._classify.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+			</div>
+		</div>
+		<div class="col-md-9 content">
+			
+  <div class="section" id="module-mdl.r33._classify">
+<span id="mdl-r33-classify"></span><h1>mdl.r33._classify<a class="headerlink" href="#module-mdl.r33._classify" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">&#64;purpose: Classification of eyetracking data for mdl.r33.procesing.   </div>
+<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019   </div>
+<div class="line">&#64;author: Semeon Risom   </div>
+<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>   </div>
+<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>  </div>
+</div>
+<p><strong>Classes</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify" title="mdl.r33._classify.Classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Classify</span></code></a>([isLibrary])</td>
+<td>Initiate the mdl.r33.Classify module.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="mdl.r33._classify.Classify">
+<em class="property">class </em><code class="descclassname">mdl.r33._classify.</code><code class="descname">Classify</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Initiate the mdl.r33.Classify module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.Acceleration" title="mdl.r33._classify.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
+<td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.Velocity" title="mdl.r33._classify.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
+<td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.VisualAngle" title="mdl.r33._classify.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
+<td>Convert pixel eye-coordinates to visual angle.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.__init__" title="mdl.r33._classify.Classify.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([isLibrary])</td>
+<td>Initiate the mdl.r33.Classify module.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.hmm" title="mdl.r33._classify.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(data,&nbsp;filter_type,&nbsp;config)</td>
+<td>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.idt" title="mdl.r33._classify.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
+<td>Identification with Dispersion Threshold.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.ivt" title="mdl.r33._classify.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(data,&nbsp;v_threshold,&nbsp;config)</td>
+<td>Identification with Velocity Threshold.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.savitzky_golay" title="mdl.r33._classify.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(y,&nbsp;window_size,&nbsp;order[,&nbsp;…])</td>
+<td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.simple" title="mdl.r33._classify.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
+<td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.Acceleration" title="mdl.r33._classify.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
+<td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.Velocity" title="mdl.r33._classify.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
+<td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.VisualAngle" title="mdl.r33._classify.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
+<td>Convert pixel eye-coordinates to visual angle.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.hmm" title="mdl.r33._classify.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(data,&nbsp;filter_type,&nbsp;config)</td>
+<td>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.idt" title="mdl.r33._classify.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
+<td>Identification with Dispersion Threshold.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.ivt" title="mdl.r33._classify.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(data,&nbsp;v_threshold,&nbsp;config)</td>
+<td>Identification with Velocity Threshold.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.r33._classify.Classify.savitzky_golay" title="mdl.r33._classify.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(y,&nbsp;window_size,&nbsp;order[,&nbsp;…])</td>
+<td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.r33._classify.Classify.simple" title="mdl.r33._classify.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
+<td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiate the mdl.r33.Classify module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>isLibrary</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Check if required libraries are available. Default <cite>False</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.VisualAngle">
+<code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.VisualAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert pixel eye-coordinates to visual angle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>g_x,g_y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">List of gaze coordinates.</p>
+</dd>
+<dt><strong>drift</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Counter of drift correct runs.</p>
+</dd>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li>Stimulus positions (g_x,g_y) are defined in x and y pixel units, with the origin (0,0) being at the <strong>center</strong> of 
+the display, as to match the PsychoPy pix unit coord type.</li>
+<li>The pix2deg method is vectorized, meaning that is will perform the pixel to angle calculations on all elements 
+of the provided pixel position numpy arrays in one numpy call.</li>
+<li>The convertion process can use either a fixed eye to calibration plane distance, or a numpy array of eye distances 
+passed as eye_distance_mm. In this case the eye distance array must be the same length as g_x, g_y arrays.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.Velocity">
+<code class="descname">Velocity</code><span class="sig-paren">(</span><em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the 
+time numpy array for time delta information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>time</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Timestamp of each coordinate.</p>
+</dd>
+<dt><strong>d_x,d_y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">List of gaze coordinates.</p>
+</dd>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Numpy arrays time, d_x, and d_y must all be 1D arrays of the same length. If both d_x and d_y are provided, then
+the euclidian distance between each set of points is calculated and used in the velocity calculation. Time must be
+in seconds.msec units, while d_x and d_y are expected to be in visual degrees. If the position traces
+are in pixel coordinate space, use the VisualAngleCalc class to convert the data into degrees.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.Acceleration">
+<code class="descname">Acceleration</code><span class="sig-paren">(</span><em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for
+time delta information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>time</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">Timestamp of each coordinate.</p>
+</dd>
+<dt><strong>d_x,d_y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">List of gaze coordinates.</p>
+</dd>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.savitzky_golay">
+<code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</p>
+<p>The Savitzky-Golay filter removes high frequency noise from data. It has the advantage of preserving the original
+shape and features of the signal better than other types of filtering approaches, such as moving averages techniques.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, shape (N,)</span></dt>
+<dd><p class="first last">the values of the time history of the signal.</p>
+</dd>
+<dt><strong>window_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">the length of the window. Must be an odd integer number.</p>
+</dd>
+<dt><strong>order</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">the order of the polynomial used in the filtering.
+Must be less then <cite>window_size</cite> - 1.</p>
+</dd>
+<dt><strong>deriv</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">the order of the derivative to compute (default = 0 means only smoothing)</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ys</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, shape (N)</span></dt>
+<dd><p class="first last">the smoothed signal (or it’s n-th derivative).</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The Savitzky-Golay is a type of low-pass filter, particularly suited for smoothing noisy data. The main idea behind this
+approach is to make for each point a least-square fit with a polynomial of high order over a odd-sized window centered at
+the point. For more information, see: <a class="reference external" href="http://wiki.scipy.org/Cookbook/SavitzkyGolay">http://wiki.scipy.org/Cookbook/SavitzkyGolay</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r4f97470137f1-1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>A. Savitzky, Golay, M. (1964). Smoothing and Differentiation of Data by Simplified Least Squares Procedures. 
+Analytical Chemistry. 36(8), pp 1627-1639.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r4f97470137f1-2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>S.A. Teukolsky, W.T. Vetterling, B.P. Flannery Numerical Recipes 3rd Edition: The Art of Scientific 
+Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ysg</span> <span class="o">=</span> <span class="n">savitzky_golay</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Noisy signal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original signal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ysg</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Filtered signal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.ivt">
+<code class="descname">ivt</code><span class="sig-paren">(</span><em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.ivt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification with Velocity Threshold.</p>
+<p>In the I-VT model, the velocity value is computed for every eye position sample.  The velocity value is then compared 
+to the threshold. If the sampled velocity is less than the threshold, the corresponding eye-position sample is 
+marked as part of a fixation, otherwise it is marked as a part of a saccade.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, shape (N,)</span></dt>
+<dd><p class="first last">the smoothed signal (or it’s n-th derivative).</p>
+</dd>
+<dt><strong>v_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Velocity threshold in pix/sec.</p>
+</dd>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ys</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, shape (N,)</span></dt>
+<dd><p class="first last">the smoothed signal (or it’s n-th derivative).</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>From <a class="reference external" href="https://github.com/ecekt/eyegaze">https://github.com/ecekt/eyegaze</a>. Formula from: <a class="reference external" href="https://dl.acm.org/citation.cfm?id=355028">https://dl.acm.org/citation.cfm?id=355028</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.hmm">
+<code class="descname">hmm</code><span class="sig-paren">(</span><em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.hmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.hmm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt>
+<dd><p class="first last">Pandas dataframe of x,y and timestamp positions.</p>
+</dd>
+<dt><strong>filter_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Types of filters to use.</p>
+</dd>
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt><strong>Definitions</strong></dt>
+<dd><ul class="first last simple">
+<li><strong>Saccade</strong>: The saccade is a ballistic movement, meaning it is pre-programmed and does not change once it
+has started. Saccades of amplitude 40° peak at velocities of 300–600°/s and last for 80–150 ms.</li>
+<li><strong>Fixation</strong>: The point between any two saccades, during which the eyes are relatively stationary and
+virtually all visual input occurs. Regular eye movement alternates between saccades and visual fixations, the
+notable exception being in smooth pursuit.</li>
+<li><strong>Smooth pursuit</strong>: Smooth pursuit movements are much slower tracking movements of the eyes designed to
+keep a moving stimulus on the fovea. Such movements are under voluntary control in the sense that the observer
+can choose whether or not to track a moving stimulus. (Neuroscience 2nd edition).</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="rec71a10e3012-1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Pekkanen, J., &amp; Lappi, O. (2017). A new and general approach to signal denoising and eye movement
+classification based on segmented linear regression. Scientific Reports, 7(1). doi:10.1038/s41598-017-17983-x.</td></tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">The smoothed signal (or it’s n-th derivative).</p>
+</dd>
+<dt><strong>dr_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Data threshold.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.idt">
+<code class="descname">idt</code><span class="sig-paren">(</span><em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.idt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.idt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification with Dispersion Threshold.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">The smoothed signal (or it’s n-th derivative).</p>
+</dd>
+<dt><strong>dr_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Fixation duration threshold in pix/msec</p>
+</dd>
+<dt><strong>di_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Dispersion threshold in pixels</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ys</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">The smoothed signal (or it’s n-th derivative).</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The I-DT algorithm has two parameters: a dispersion threshold and the length of a time window in which the dispersion 
+is calculated. The length of the time window is often set to the minimum duration of a fixation, which is around
+100-200 ms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.r33._classify.Classify.simple">
+<code class="descname">simple</code><span class="sig-paren">(</span><em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mdl/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.r33._classify.Classify.simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of 
+pixels (disregarding missing data).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt>
+<dd><p class="first last">Pandas dataframe of x,y and timestamp positions</p>
+</dd>
+<dt><strong>missing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Value to be used for missing data (default = 0.0)</p>
+</dd>
+<dt><strong>maxdist</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Maximal inter-sample distance in pixels (default = 25)</p>
+</dd>
+<dt><strong>mindur</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Minimal duration of a fixation in milliseconds; detected fixation cadidates will be 
+disregarded if they are below this duration (default = 100).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Sfix</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> shape (N)</span></dt>
+<dd><p class="first last">list of lists, each containing [starttime]</p>
+</dd>
+<dt><strong>Efix</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> shape (N)</span></dt>
+<dd><p class="first last">list of lists, each containing [starttime, endtime, duration, endx, endy]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>From <a class="reference external" href="https://github.com/esdalmaijer/PyGazeAnalyser/blob/master/pygazeanalyser/detectors.py">https://github.com/esdalmaijer/PyGazeAnalyser/blob/master/pygazeanalyser/detectors.py</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+					<div>&copy; Copyright 2019, </div>
+			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
+				<div>Updated 2019-05-14T13:51:19-05:00.</div>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>

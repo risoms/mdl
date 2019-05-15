@@ -63,6 +63,9 @@ After installation, you can launch the test suite after downloading from [github
 
     pytest --pyargs mdl.tests --html=report.html --self-contained-html
 
-or from the package:
+or from the Python interpreter:
 
+	import mdl
     mdl.tests
+
+Note that the test suite requires pytest. Please install with pip or your package manager of choice.

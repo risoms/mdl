@@ -23,6 +23,7 @@ mdl
 		mdl.eyetracking
 		mdl.r33
 		mdl.tests
+		mdl._version
 		mdl.download
 		mdl.plot
 		mdl.settings
@@ -36,6 +37,7 @@ mdl
 	mdl.eyetracking
 	mdl.r33
 	mdl.tests
+	mdl._version
 	mdl.download
 	mdl.plot
 	mdl.settings

@@ -23,8 +23,8 @@
 	:inherited-members:
 	{%- elif members %}
 	:autosummary:
-	:member-order: bysource
-	:inherited-members:
+	{#- :member-order: bysource #}
+	{#- :inherited-members: #}
 	:members: {{ members|join(", ") }}
 	{%- endif %}
 

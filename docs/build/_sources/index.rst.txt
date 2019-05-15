@@ -10,7 +10,7 @@
 	Introduction <intro.rst>
 	Installation <install.rst>
 	Features <features.rst>
-	Examples <examples/index.rst>
+	Examples/Guides <examples/index.rst>
 	Current Data <data/index.rst>
 	Live Data <http://localhost:8889/>
 	Dashboard <dashboard.rst>
@@ -69,9 +69,9 @@ in part by funding of NIMH grant `5R33MH109600-03 <https://projectreporter.nih.g
 	   Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial.   
 	   Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
 
-For a brief introduction to the ideas behind the library, you can read the :ref:`introduction <intro>`. Visit the 
-:ref:`installation page <install>` to see how you can download the package. You can browse the :ref:`examples <examples>` 
-to see what you can do with this package, and then check out the :ref:`API reference <mdl>` to find out how.
+For a brief introduction to the ideas behind the library, you can read the :ref:`introduction <intro.rst>`. Visit the 
+:ref:`installation page <install.rst>` to see how you can download the package. You can browse the :ref:`examples <examples/index.rst>` 
+to see what you can do with this package, and then check out the :ref:`API reference <api/mdl.rst>` to find out how.
 
 To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl>`_ repository.
 
