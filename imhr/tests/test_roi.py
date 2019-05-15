@@ -41,13 +41,13 @@ def test_generate_roi(args=None):
 	## resolve travis-ci path problem: https://stackoverflow.com/a/42194190
 	# if running using travis-ci
 	if os.environ.get('TRAVIS') == 'true':
-		modulepath = os.path.abspath('.')
+		modulepath = os.path.abspath('..')
 		sys.path.insert(0, modulepath)
 		import imhr
 		args = params
 	# if running locally
 	else:
-		modulepath = os.path.abspath('..')
+		modulepath = os.path.abspath('...')
 		sys.path.insert(0, modulepath)
 		import imhr
 

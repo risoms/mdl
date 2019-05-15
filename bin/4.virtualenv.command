@@ -17,7 +17,7 @@ python -m venv env
 source env/bin/activate
 
 # download TestPyPI to virtualenv 
-#pip install -i -no-deps https://test.pypi.org/simple/ imhr
+# -no-deps: Install without dependencies. This is to prevent inaccessible dependencies in test.pypi
 python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps imhr
 
 # download dependencies directly from pip

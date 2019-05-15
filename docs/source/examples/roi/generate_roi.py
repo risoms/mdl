@@ -19,11 +19,11 @@ import imhr
 
 
 #%% [markdown]
-# ##### initiate
+# ##### creating ROIs at .5 scale and recentering at x=1920/2, y=1080/4
 #%%
-roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False, isDemo=True,
-	scale=0.5, screensize=[1920,1080], offset=[(1920*.25),(1080*.25)], shape='straight', 
-	roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})
+roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isDemo=True,
+	scale=0.5, screensize=[1920,1080], recenter=[(1920*.50),(1080*.25)], shape='straight', 
+	roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'topcenter'})
 
 #%% [markdown]
 # ##### run

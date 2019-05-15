@@ -200,8 +200,8 @@ class ROI():
 		# offset image coordinates
 		cx = self.screensize[0]/2
 		cy = self.screensize[1]/2
-		self.offset = kwargs['offset'] if 'offset' in kwargs else [cx, cy]
-		if self.offset is not [cx, cy]:
+		self.recenter = kwargs['recenter'] if 'recenter' in kwargs else [cx, cy]
+		if self.recenter is not [cx, cy]:
 			self.newoffset = True
 		else:
 			self.newoffset = False
@@ -233,11 +233,11 @@ class ROI():
 
 		#----directory
 		if self.isDemo is True:
-			import sys
-			path = Path(sys.argv[0]).parent
-			self.image_path = "%s/raw/"%(path)
-			self.output_path = "%s/output/"%(path)
-			metadata_source = "%s/metadata.xlsx"%(path)
+			import imhr
+			path = Path(imhr.__file__).parent
+			self.image_path = "%s/dist/raw/"%(path)
+			self.output_path = "%s/dist/output/"%(path)
+			metadata_source = "%s/dist/metadata.xlsx"%(path)
 		else:
 			self.image_path = image_path
 			self.output_path = output_path
@@ -687,29 +687,43 @@ class ROI():
 		## load image directly from PSD
 		image = psd.topil()
 
-		# scale image
-		truesize = [image.size[0], image.size[1]]
-		scalesize = [int(truesize[0] * self.scale), int(truesize[1] * self.scale)]
-		image = image.resize(scalesize, Image.ANTIALIAS)
-		if self.isDebug: self.console('# export image','blue'); self.console('size: %s, scaled: %s'%(truesize, scalesize),'green')
-		
-		# offset
-		screensize = self.screensize
-		screencenter = [screensize[0]/2,screensize[1]/2]
-		imagecenter = [scalesize[0]/2,scalesize[1]/2]
-		center = self.offset
-		if self.newoffset:
-			pass
+		## set background
+		screen_size = self.screensize
+		background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
+		if self.isDebug: self.console('# export image','blue')
+		# if scale image
+		if self.scale != 1:
+			old_image_size = [image.size[0], image.size[1]]
+			image_size = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
+			image = image.resize(image_size, Image.ANTIALIAS)
+			if self.isDebug:
+				self.console('image size: %s, scaled to: %s'%(old_image_size, image_size), 'green')
+		# else unscaled
 		else:
-			pass
-		breakpoint()
-		# center and resize image to template screen
-		background = Image.new("RGBA", (screensize), (0, 0, 0, 0))
-		offset = (
-			(self.screensize[0] - image.size[0])//2,
-			(self.screensize[1] - image.size[1])//2
-		)
-		background.paste(image, offset)
+			image_size = [int(image.size[0]), int(image.size[1])]
+			if self.isDebug: self.console('image size: %s'%(image_size))
+ 		
+		# if offsetting		
+		if self.newoffset:
+			offset_center = self.recenter
+			# calculate upper-left coordinate for drawing into image
+			# x-bound <offset_x center> - <1/2 image_x width>
+			x = (offset_center[0]) - (image_size[0]/2)
+			# y-bound <offset_y center> - <1/2 image_y width>
+			y = (offset_center[1]) - (image_size[1]/2)
+			left_xy = (int(x),int(y))
+			if self.isDebug: self.console('image centered at: %s'%(offset_center))
+		# else not offsetting
+		else:
+			# calculate upper-left coordinate for drawing into image
+			# x-bound <screen_x center> - <1/2 image_x width>
+			x = (screen_size[0]/2) - (image_size[0]/2)
+			# y-bound <screen_y center> - <1/2 image_y width>
+			y = (screen_size[1]/2) - (image_size[1]/2)
+			left_xy = (int(x),int(y))
+
+		# draw
+		background.paste(image, left_xy)
 
 		return background
 
