@@ -105,7 +105,7 @@ script:
     python3 setup.py install --quiet
   - |
     # Run pytest.
-    pytest --pyargs mdl.tests --html=report.html --self-contained-html
+    pytest --pyargs imhr.tests --html=report.html --self-contained-html
   
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache

@@ -8,11 +8,12 @@ include setup.cfg
 include versioneer.py
 include imhr/_version.py
 # recursive-include
-graft imhr/*
-graft imhr/eyetracking/*
-graft imhr/lib/*
-graft imhr/r33/*
-graft imhr/tests/*
+graft imhr/
+graft imhr/dist/
+graft imhr/eyetracking/
+graft imhr/lib/
+graft imhr/r33/
+graft imhr/tests/
 # recursive-exclude of all files within path
 prune build
 prune conda
@@ -20,7 +21,9 @@ prune docs
 prune env
 prune imhr.egg-info
 prune __pycache__
+prune imhr/dist/all
 prune imhr/dist/experiments
+prune imhr/dist/output
 # global-include
 global-include __init__.py
 # global-exclude
