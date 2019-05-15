@@ -29,8 +29,7 @@ if __name__ == '__main__':
 class Metadata():
 	"""Process participants metadata for analysis and export."""
 	def __init__(self, isLibrary=False):
-		"""
-		Initiate the mdl.r33.Metadata module.
+		"""Process participants metadata for analysis and export.
 
         Parameters
         ----------

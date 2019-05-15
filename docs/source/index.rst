@@ -14,7 +14,7 @@
 	Current Data <data/index.rst>
 	Live Data <http://localhost:8889/>
 	Dashboard <dashboard.rst>
-	API Reference <api/mdl.rst>
+	API Reference <api/imhr.rst>
 
 .. raw:: html
 
@@ -71,7 +71,7 @@ in part by funding of NIMH grant `5R33MH109600-03 <https://projectreporter.nih.g
 
 For a brief introduction to the ideas behind the library, you can read the :ref:`introduction <intro.rst>`. Visit the 
 :ref:`installation page <install.rst>` to see how you can download the package. You can browse the :ref:`examples <examples/index.rst>` 
-to see what you can do with this package, and then check out the :ref:`API reference <api/mdl.rst>` to find out how.
+to see what you can do with this package, and then check out the :ref:`API reference <api/imhr.rst>` to find out how.
 
 To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl>`_ repository.
 

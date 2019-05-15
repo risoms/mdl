@@ -6,7 +6,7 @@ Features
 Accesesing Raw Data
 ~~~~~~~~~~~~~~~~~~~
 
-.. currentmodule:: mdl.download
+.. currentmodule:: imhr.download
 
 .. autosummary::
 
@@ -17,7 +17,7 @@ Accesesing Raw Data
 Preprocessing
 ~~~~~~~~~~~~~
 
-.. currentmodule:: mdl.r33
+.. currentmodule:: imhr.r33
 
 .. autosummary::
 
@@ -27,7 +27,7 @@ Preprocessing
 Data Analysis
 ~~~~~~~~~~~~~
 
-.. currentmodule:: mdl.r33
+.. currentmodule:: imhr.r33
 
 .. autosummary::
 
@@ -38,7 +38,7 @@ Data Analysis
 Relational plots
 ~~~~~~~~~~~~~~~~
 
-.. currentmodule:: mdl
+.. currentmodule:: imhr
 
 .. autosummary::
 

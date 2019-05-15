@@ -599,8 +599,8 @@ subject = expInfo['participant']
 dominant_eye = expInfo['dominant eye']
 
 # Initialize the Eyelink.
-import mdl
-eyetracking = mdl.eyetracking(window=win, libraries=False, subject=subject, timer=routineTimer)
+import imhr
+eyetracking = imhr.eyetracking(window=win, libraries=False, subject=subject, timer=routineTimer)
 
 # Connect to the Eyelink Host.
 param = eyetracking.connect(calibration_type=13)

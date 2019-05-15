@@ -5,7 +5,7 @@
 cd "$(dirname "$0")"
 
 # build docs
-sphinx-build -E source build
+sphinx-build -E source build -w=log.txt
 
 # upload to github
 # cd "$(dirname "$0")"

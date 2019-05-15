@@ -1206,8 +1206,8 @@ pass
 # from pycallgraph.output import GraphvizOutput
 # with PyCallGraph(output=GraphvizOutput()):
 #     from mdl import plot, processing, raw, redcap
-#     import mdl.model as model
-#     import mdl.settings as settings
+#     import imhr.model as model
+#     import imhr.settings as settings
 
 # method 2
 #profiling run.py

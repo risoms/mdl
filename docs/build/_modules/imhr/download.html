@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>imhr.download &#8212; imhr-api 2019-05-15 documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          imhr-api</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../genindex.html">Glossary</a></li>
+                <li><a href="../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples/Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/R33/process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/R33/download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/R33/process_data.html">Process data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/R33/process_data.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Print-message-to-console/terminal.">(Optional) Print message to console/terminal.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Drift-correction.">(Optional) Drift correction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Start-recording.">Start recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Example-use-of-eyetracking.sample().">Example use of eyetracking.sample().</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Stop-recording.">Stop recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#set-path">set path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#initiate">initiate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#start">start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/roi/generate_roi.html#results">results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.download.html">imhr.download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.plot.html">imhr.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.settings.html">imhr.settings</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples/Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+<div class="toc col-md-3">
+	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples/Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a></li>
+</ul>
+
+	</div>
+</div>
+		<div class="col-md-9 content">
+			
+  <h1>Source code for imhr.download</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">| @purpose: Download raw data from apache, Box, or REDCap servers.  </span>
+<span class="sd">| @date: Created on Sat May 1 15:12:38 2019  </span>
+<span class="sd">| @author: Semeon Risom  </span>
+<span class="sd">| @email: semeon.risom@gmail.com  </span>
+<span class="sd">| @url: https://semeon.io/d/imhr</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># available functions</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Download&#39;</span><span class="p">]</span>
+
+<span class="c1"># core</span>
+<span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+
+<span class="c1"># local libraries</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+	<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">settings</span>
+
+<span class="c1"># required external libraries</span>
+<span class="n">__required__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paramiko&#39;</span><span class="p">,</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">,</span><span class="s1">&#39;requests&#39;</span><span class="p">,</span><span class="s1">&#39;ftplib&#39;</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Download"><a class="viewcode-back" href="../../api/imhr.download.html#imhr.download.Download">[docs]</a><span class="k">class</span> <span class="nc">Download</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;Download raw data from apache, Box, or REDCap servers.&quot;&quot;&quot;</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Initiate the imhr.Download module.</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		isLibrary : :obj:`bool`</span>
+<span class="sd">			Check if required libraries are available.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="c1">#check libraries</span>
+		<span class="k">if</span> <span class="n">isLibrary</span><span class="p">:</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">(</span><span class="n">__required__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Download.REDCap"><a class="viewcode-back" href="../../api/imhr.download.html#imhr.download.Download.REDCap">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">REDCap</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Download data from an Research Electronic Data Capture (REDCap) server.</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		path : :obj:`str`</span>
+<span class="sd">			Path to save data.</span>
+<span class="sd">			For example::</span>
+<span class="sd">				&gt;&gt;&gt; path = &#39;/Users/mdl-admin/Desktop/r33/redcap&#39;</span>
+<span class="sd">		token : :obj:`str`</span>
+<span class="sd">			The API token specific to your REDCap project and username. This is usually found on the Applications &gt; API page.</span>
+<span class="sd">			For example::</span>
+<span class="sd">				&gt;&gt;&gt; token = &#39;D19859823032SFDMR24395298&#39;</span>
+<span class="sd">		url : :obj:`str`</span>
+<span class="sd">			The URL of the REDCap project.</span>
+<span class="sd">			For example::</span>
+<span class="sd">				&gt;&gt;&gt; url = &#39;https://redcap.prc.utexas.edu/redcap/api/&#39;.</span>
+<span class="sd">		content : :obj:`str` {report, file, raw, arm, instrument, returnFormat, metadata, project, surveyLink, user, participantList}</span>
+<span class="sd">			Type of export. Examples include exporting a report (`report`), file (`file`), or project info (`project`).</span>
+<span class="sd">		payload_ : :obj:`dict` or :obj:`None`, optional</span>
+<span class="sd">			Manually submit parameters for exporting or importing data. Can be entered within the function for convenience.</span>
+<span class="sd">		**kwargs : :obj:`str` or :obj:`None`, optional</span>
+<span class="sd">			Additional properties, relevent for specific content types. Here&#39;s a list of available properties:</span>
+
+<span class="sd">			.. list-table::</span>
+<span class="sd">				:class: kwargs</span>
+<span class="sd">				:widths: 25 50</span>
+<span class="sd">				:header-rows: 1</span>
+
+<span class="sd">				* - Property</span>
+<span class="sd">				  - Description</span>
+<span class="sd">				* - **report_id** : :obj:`str`</span>
+<span class="sd">				  - (report, record) The report ID number provided next to the report name on the report list page.</span>
+<span class="sd">				* - **cformat** : :obj:`str` {csv, json, xml, odm}</span>
+<span class="sd">				  - Format to return data, either csv, json, xml, or odm. Default is json.</span>
+<span class="sd">				* - **ctype** : :obj:`str`</span>
+<span class="sd">				  - Shape of data. Default is flat.</span>
+<span class="sd">				* - **rawOrLabel**: :obj:`str` {raw, label}</span>
+<span class="sd">				  - (report, record) TExport the raw coded values or labels for the options of multiple choice fields.</span>
+<span class="sd">				* - **rawOrLabelHeaders**: :obj:`str`</span>
+<span class="sd">				  - (report, record) TExport the variable/field names (raw) or the field labels (label).</span>
+<span class="sd">				* - **exportCheckboxLabel**: :obj:`str`</span>
+<span class="sd">				  - Specifies the format of checkbox field values specifically when exporting the data as labels (i.e., when rawOrLabel=label).</span>
+<span class="sd">				* - **returnFormat** : :obj:`str`</span>
+<span class="sd">				  -  Format to return errors. Default is `json`.</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		log : :obj:`pandas.DataFrame` or :obj:`None`</span>
+<span class="sd">			Pandas dataframe of each download request.</span>
+<span class="sd">		content : :obj:`pandas.DataFrame` or :obj:`None`</span>
+<span class="sd">			Pandas dataframe of all data downloaded.</span>
+<span class="sd">		start, end : :obj:`str`</span>
+<span class="sd">			Timestamp (ISO format) and name of most recent (`end`) and first (`start`) file created in folder.</span>
+<span class="sd">		now : :obj:`str`</span>
+<span class="sd">			Current timestamp in ISO format.</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="kn">import</span> <span class="nn">openpyxl</span><span class="o">,</span> <span class="nn">requests</span>
+		<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+		<span class="c1">#----constants, lists to prepare</span>
+		<span class="n">ldate</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#list of dates</span>
+		<span class="n">file_num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#file counter</span>
+		<span class="c1"># bool</span>
+		<span class="n">log</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#log of events</span>
+		<span class="n">start</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
+		<span class="n">end</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
+
+		<span class="c1">#----path</span>
+		<span class="c1"># log</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+		<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/../&quot;</span><span class="p">))</span>
+
+		<span class="c1"># destination</span>
+		<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+		<span class="c1">#----kwargs</span>
+		<span class="c1"># general</span>
+		<span class="n">cformat</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;cformat&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;cformat&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;json&#39;</span>
+		<span class="n">ctype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ctype&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;ctype&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;flat&#39;</span>
+		<span class="n">rawOrLabel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;rawOrLabel&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;rawOrLabel&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;raw&#39;</span>
+		<span class="n">rawOrLabelHeaders</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;rawOrLabelHeaders&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;rawOrLabelHeaders&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;raw&#39;</span>
+		<span class="n">exportCheckboxLabel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;exportCheckboxLabel&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;exportCheckboxLabel&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;false&#39;</span>
+		<span class="n">returnFormat</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;returnFormat&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;returnFormat&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;json&#39;</span>
+		<span class="c1"># report</span>
+		<span class="n">report_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;report_id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;report_id&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;None&#39;</span>
+		<span class="c1"># participantList</span>
+		<span class="n">instrument</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;instrument&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;instrument&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;cssrs&#39;</span>
+		<span class="n">event</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;event&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;online_eligibility_arm_1&#39;</span>
+
+		<span class="c1">#----start</span>
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;connecting to REDCap&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+		<span class="c1">#----make sure local path exists</span>
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)):</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;creating local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+		<span class="c1">#----start download</span>
+		<span class="c1"># prepare</span>
+		<span class="k">if</span> <span class="n">payload</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="c1"># report</span>
+			<span class="k">if</span> <span class="n">content</span> <span class="o">==</span> <span class="s1">&#39;report&#39;</span><span class="p">:</span>
+				<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+					<span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span>
+					<span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span>
+					<span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">cformat</span><span class="p">,</span>
+					<span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">ctype</span><span class="p">,</span>
+					<span class="s1">&#39;returnFormat&#39;</span><span class="p">:</span> <span class="n">returnFormat</span><span class="p">,</span>
+					<span class="s1">&#39;report_id&#39;</span><span class="p">:</span> <span class="n">report_id</span><span class="p">,</span>
+					<span class="s1">&#39;rawOrLabel&#39;</span><span class="p">:</span> <span class="n">rawOrLabel</span><span class="p">,</span>
+					<span class="s1">&#39;rawOrLabelHeaders&#39;</span><span class="p">:</span> <span class="n">rawOrLabelHeaders</span><span class="p">,</span>
+					<span class="s1">&#39;exportCheckboxLabel&#39;</span><span class="p">:</span> <span class="n">exportCheckboxLabel</span>
+				<span class="p">}</span>
+			<span class="k">elif</span> <span class="n">content</span> <span class="o">==</span> <span class="s1">&#39;participantList&#39;</span><span class="p">:</span>
+				<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+					<span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span>
+					<span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span>
+					<span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">cformat</span><span class="p">,</span>
+					<span class="s1">&#39;returnFormat&#39;</span><span class="p">:</span> <span class="n">returnFormat</span><span class="p">,</span>
+					<span class="s1">&#39;instrument&#39;</span><span class="p">:</span> <span class="n">instrument</span><span class="p">,</span>
+					<span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="n">event</span><span class="p">,</span>
+				<span class="p">}</span>
+			<span class="k">elif</span> <span class="n">content</span> <span class="o">==</span> <span class="s1">&#39;metadata&#39;</span><span class="p">:</span>
+				<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+					<span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span>
+					<span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span>
+					<span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">cformat</span><span class="p">,</span>
+					<span class="s1">&#39;returnFormat&#39;</span><span class="p">:</span> <span class="n">returnFormat</span><span class="p">,</span>
+				<span class="p">}</span>
+			<span class="k">elif</span> <span class="n">content</span> <span class="o">==</span> <span class="s1">&#39;project&#39;</span><span class="p">:</span>
+				<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+					<span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span>
+					<span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span>
+					<span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">cformat</span><span class="p">,</span>
+					<span class="s1">&#39;returnFormat&#39;</span><span class="p">:</span> <span class="n">returnFormat</span><span class="p">,</span>
+				<span class="p">}</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Not finished. Content `</span><span class="si">%s</span><span class="s1">` unavailable.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+
+		<span class="c1"># get data</span>
+		<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+		<span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+		<span class="c1"># if error</span>
+		<span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">json</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Export failed. Reason: </span><span class="si">%s</span><span class="s1">.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">json</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]))</span>
+
+		<span class="c1"># convert to dataframe</span>
+		<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+
+		<span class="c1"># save data</span>
+		<span class="n">path_</span><span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/REDCap/</span><span class="si">%s</span><span class="s2">.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+		<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">path_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+		<span class="c1"># if list isnt empty get start and end dates</span>
+		<span class="k">if</span> <span class="n">ldate</span><span class="p">:</span>
+			<span class="c1">## start</span>
+			<span class="n">start</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">ldate</span><span class="p">))</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;oldest file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="c1">## end</span>
+			<span class="n">end</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">ldate</span><span class="p">))</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;newest file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+		<span class="c1">#----log</span>
+		<span class="c1"># if new files</span>
+		<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+
+		<span class="c1">#!!! add values to go into dataframe----</span>
+		<span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">token</span><span class="p">,</span><span class="n">content</span><span class="p">,</span><span class="n">now</span><span class="p">]</span>
+		<span class="c1"># log file path</span>
+		<span class="n">fpath</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">log_path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+		<span class="c1"># if log exists, update</span>
+		<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;Log updated @: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="c1">#load file</span>
+			<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+			<span class="c1"># Select First Worksheet</span>
+			<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">worksheets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+			<span class="c1"># add data</span>
+			<span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+			<span class="c1"># update</span>
+			<span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+			<span class="c1"># import log</span>
+			<span class="n">log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+		<span class="c1"># else create log</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;Log created @: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subjects&#39;</span><span class="p">,</span> <span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">]</span>
+			<span class="c1"># creating datafame and save as xlsx</span>
+			<span class="n">log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">row</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+			<span class="n">log</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+		<span class="k">return</span> <span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span></div>
+
+<div class="viewcode-block" id="Download.SFTP"><a class="viewcode-back" href="../../api/imhr.download.html#imhr.download.Download.SFTP">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">SFTP</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Connect to a remote server using a Secure File Transfer Protocol (SFTP).</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		source : :obj:`str`</span>
+<span class="sd">			The directory path to retrieve paticipant data.</span>
+<span class="sd">		destination : :obj:`str`</span>
+<span class="sd">			The directory path to save paticipant data.</span>
+<span class="sd">		hostname : :obj:`str`</span>
+<span class="sd">			SFTP hostname.</span>
+<span class="sd">		username : :obj:`str`</span>
+<span class="sd">			SFTP username.</span>
+<span class="sd">		password : :obj:`str`</span>
+<span class="sd">			SFTP password.</span>
+<span class="sd">		**kwargs : :obj:`str` or :obj:`None`, optional</span>
+<span class="sd">			Additional properties, relevent for specific content types. Here&#39;s a list of available properties:</span>
+
+<span class="sd">			.. list-table::</span>
+<span class="sd">				:class: kwargs</span>
+<span class="sd">				:widths: 25 50</span>
+<span class="sd">				:header-rows: 1</span>
+
+<span class="sd">				* - Property</span>
+<span class="sd">				  - Description</span>
+<span class="sd">				* - **filetype** : ::obj:`str` or :obj:`None`</span>
+<span class="sd">				  - Filetype to download. Default is csv.</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		log : :obj:`pandas.DataFrame` or :obj:`None`</span>
+<span class="sd">			Pandas dataframe of each download request.</span>
+<span class="sd">		content : :obj:`pandas.DataFrame` or :obj:`None`</span>
+<span class="sd">			Pandas dataframe of all files downloaded.</span>
+<span class="sd">		start, end : :obj:`str`</span>
+<span class="sd">			Timestamp (ISO format) and name of most recent (`end`) and first (`start`) file created in folder.</span>
+<span class="sd">		now : :obj:`str`</span>
+<span class="sd">			Current timestamp in ISO format.</span>
+
+<span class="sd">		Examples</span>
+<span class="sd">		--------</span>
+<span class="sd">		&gt;&gt;&gt; name=&#39;r33&#39;; source=&#39;/home/utweb/utw1211/public_html/r33&#39;; d=&#39;/Users/mdl/Desktop/r33/&#39;; un=&#39;utw1211&#39;; pwd=&#39;43#!9amZ?K$&#39;</span>
+<span class="sd">		&gt;&gt;&gt; log, start, end, now = download.SFTP(source=s, destination=d, hostname=hostname, username=un, password=pwd)</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="kn">import</span> <span class="nn">paramiko</span><span class="o">,</span> <span class="nn">openpyxl</span>
+		<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+		<span class="c1">#----kwargs</span>
+		<span class="n">lfiletype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;filetype&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;filetype&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;csv&#39;</span><span class="p">]</span>
+
+		<span class="c1">#----constants, lists to prepare</span>
+		<span class="n">ldate</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#list of dates</span>
+		<span class="n">file_num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#file counter</span>
+		<span class="c1"># bool</span>
+		<span class="n">log</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#log of events</span>
+		<span class="n">start</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
+		<span class="n">end</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
+		<span class="c1"># path</span>
+
+		<span class="c1">## log</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+		<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">destination</span> <span class="o">+</span> <span class="s2">&quot;/../&quot;</span><span class="p">))</span>
+		<span class="c1">## destination</span>
+		<span class="n">destination</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;connecting to sftp&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+		<span class="c1">#----make sure local path exists</span>
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)):</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;creating local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span>
+
+		<span class="c1">#----connect to SSH client</span>
+		<span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+		<span class="n">client</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
+		<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+		<span class="n">sftp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+
+		<span class="c1">#----set path and get list of files</span>
+		<span class="n">sftp</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+		<span class="n">remote_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sftp</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+		<span class="n">remote_directory</span> <span class="o">=</span> <span class="n">sftp</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+		<span class="n">remote_attr</span> <span class="o">=</span> <span class="n">sftp</span><span class="o">.</span><span class="n">listdir_attr</span><span class="p">()</span>
+
+		<span class="c1">#----check number of files in remote directory</span>
+		<span class="c1"># list comprehension: &lt;for each file in remote directory&gt; &lt;check if file extension matches&gt; &lt;and if file extension isn&#39;t empty string&gt;</span>
+		<span class="n">remote_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">remote_directory</span> <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">lfiletype</span> <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))])</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">remote_num</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+				<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;Total files in </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">remote_path</span><span class="p">,</span> <span class="n">remote_num</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error: No </span><span class="si">%s</span><span class="s2"> found in folder: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lfiletype</span><span class="p">,</span> <span class="n">remote_path</span><span class="p">))</span>
+		<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+			<span class="k">raise</span>
+
+		<span class="c1">#----export files</span>
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;Starting download from </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">remote_path</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+		<span class="c1"># for each file in remote directory</span>
+		<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">remote_attr</span><span class="p">:</span>
+			<span class="c1"># file</span>
+			<span class="n">filename</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span>
+			<span class="n">filetype</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+			<span class="c1"># if file is correct filetype and not empty string</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">filetype</span> <span class="ow">in</span> <span class="n">lfiletype</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">filetype</span><span class="p">)):</span>
+				<span class="c1"># path</span>
+				<span class="n">remote_fpath</span> <span class="o">=</span> <span class="n">remote_path</span> <span class="o">+</span> <span class="n">filename</span>
+				<span class="n">local_fpath</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+				<span class="c1"># date</span>
+				<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+				<span class="n">ldate</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">date</span><span class="p">,</span> <span class="n">filename</span><span class="p">])</span>
+
+				<span class="c1"># if file not in local drive, download</span>
+				<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">local_fpath</span><span class="p">):</span>
+					<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;filename: </span><span class="si">%s</span><span class="s1">, type: </span><span class="si">%s</span><span class="s1">, date: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">lfiletype</span><span class="p">,</span> <span class="n">date</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+					<span class="c1"># counter</span>
+					<span class="n">file_num</span> <span class="o">=</span> <span class="n">file_num</span> <span class="o">+</span> <span class="mi">1</span>
+					<span class="c1"># download</span>
+					<span class="n">sftp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">remote_fpath</span><span class="p">,</span> <span class="n">local_fpath</span><span class="p">)</span>
+
+		<span class="c1"># if list isnt empty get start and end dates</span>
+		<span class="k">if</span> <span class="n">ldate</span><span class="p">:</span>
+			<span class="c1">## start</span>
+			<span class="n">start</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">ldate</span><span class="p">))</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;oldest file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="c1">## end</span>
+			<span class="n">end</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">ldate</span><span class="p">))</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;newest file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+		<span class="c1">#closing sftp</span>
+		<span class="n">sftp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+		<span class="c1">#----log</span>
+		<span class="c1"># if new files</span>
+		<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">file_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;Finished downloading files&quot;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="n">now</span><span class="p">,</span> <span class="n">file_num</span><span class="p">,</span> <span class="n">remote_num</span><span class="p">,</span> <span class="n">end</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+			<span class="n">fpath</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">log_path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+			<span class="c1"># if log exists, update</span>
+			<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+				<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;Log updated @: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+				<span class="c1">#load file</span>
+				<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+				<span class="c1"># Select First Worksheet</span>
+				<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">worksheets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+				<span class="c1"># add data</span>
+				<span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+				<span class="c1"># update</span>
+				<span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+				<span class="c1"># import log</span>
+				<span class="n">log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+			<span class="c1"># else create log</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;Log created @: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+				<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">,</span> <span class="s1">&#39;downloaded&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="s1">&#39;newest&#39;</span><span class="p">]</span>
+				<span class="c1"># creating datafame and save as xlsx</span>
+				<span class="n">log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">row</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+				<span class="n">log</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;No files to download&quot;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+		<span class="k">return</span> <span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span></div>
+
+
+<div class="viewcode-block" id="Download.box"><a class="viewcode-back" href="../../api/imhr.download.html#imhr.download.Download.box">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">box</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		source : :obj:`str`</span>
+<span class="sd">			The remoate path on box to retrieve data.</span>
+<span class="sd">		destination : :obj:`str`</span>
+<span class="sd">			The local path to download data.</span>
+<span class="sd">		server : :obj:`str`</span>
+<span class="sd">			Name of box server.</span>
+<span class="sd">		username : :obj:`str`</span>
+<span class="sd">			Box account email address.</span>
+<span class="sd">		password : :obj:`str`</span>
+<span class="sd">			Box account password.</span>
+
+<span class="sd">		Notes</span>
+<span class="sd">		-----</span>
+<span class="sd">		- The username and password must be seperate from your &#39;Secure Sign On&#39; associated with your UT login.</span>
+<span class="sd">		- box only allows connections via FTPS for downloading and uploading data.</span>
+<span class="sd">		- For more information: https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="kn">import</span> <span class="nn">openpyxl</span>
+		<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+		<span class="kn">import</span> <span class="nn">ftplib</span>
+
+		<span class="c1">#----constants, lists to prepare</span>
+		<span class="n">ldate</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#list of dates</span>
+		<span class="n">file_num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#file counter</span>
+		<span class="c1"># bool</span>
+		<span class="n">log</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#log of events</span>
+		<span class="n">start</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
+		<span class="n">end</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
+		<span class="c1"># path</span>
+
+		<span class="c1">## log</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+		<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;/</span><span class="si">%s</span><span class="s2">.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+		<span class="c1">## destination</span>
+		<span class="n">destination</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;connecting to sftp&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+		<span class="c1">#----make sure local path exists</span>
+		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)):</span>
+			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;creating local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span>
+
+		<span class="c1">#----start ftplib</span>
+		<span class="n">ftps</span> <span class="o">=</span> <span class="n">ftplib</span><span class="o">.</span><span class="n">FTP_TLS</span><span class="p">()</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">set_debuglevel</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+		<span class="c1"># connect to host and authorize</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">server</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">990</span><span class="p">)</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">set_pasv</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">auth</span><span class="p">()</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">prot_p</span><span class="p">()</span>
+
+		<span class="c1"># login</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+		<span class="c1">#check path</span>
+		<span class="n">path</span> <span class="o">=</span> <span class="n">ftps</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
+
+		<span class="c1">#get files in directory</span>
+		<span class="n">files</span> <span class="o">=</span> <span class="n">ftps</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
+
+		<span class="c1"># file to send</span>
+		<span class="c1"># file = open(&#39;kitten.jpg&#39;,&#39;rb&#39;)</span>
+		<span class="c1"># send the file</span>
+		<span class="c1"># session.storbinary(&#39;STOR kitten.jpg&#39;, file)</span>
+
+		<span class="c1"># logout</span>
+		<span class="n">ftps</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+
+		<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+		<span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+		<span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+		<span class="n">now</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+		<span class="k">return</span> <span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span></div></div>
+</pre></div>
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+			<div>&copy; Copyright 2019, </div>
+			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
+			<div>Updated 2019-05-15T13:51:41-05:00.</div>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>

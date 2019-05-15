@@ -36,8 +36,7 @@ if __name__ == '__main__':
 class Processing():
     """Hub for running processing and analyzing raw data."""
     def __init__(self, config, isLibrary=True):
-        """
-		Initiate the mdl.r33.Processing module.
+        """Hub for running processing and analyzing raw data.
 
         Parameters
         ----------

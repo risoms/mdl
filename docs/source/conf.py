@@ -24,8 +24,8 @@ print('path %s'%(path))
 # module directory
 sys.path.append(path)
 sys.path.append('/anaconda3/lib/python3.6/site-packages/')
-import mdl
-from mdl.settings import console
+import imhr
+from imhr.settings import console
 
 # date -----------------------------------------------------------------------------------------------------------------
 def iso():
@@ -46,7 +46,7 @@ def iso():
 	return isoname
 
 # Project information --------------------------------------------------------------------------------------------------
-project = 'mdl-api'
+project = 'imhr-api'
 author = 'Semeon Risom'
 copyright = u'{}, '.format(time.strftime("%Y"))
 
@@ -64,26 +64,56 @@ html_last_updated_fmt = '%s'%(isodate)
 from jinja2 import Template
 from pathlib import Path
 ## get required packages
-path = '%s/%s'%(Path(__file__).parent.parent.parent, 'requirements.txt')
-with open(path) as f:
-	required = f.read().splitlines()
-required = required + ["(if windows) pywin32==224"] + ["(if macos) pyobjc==5.2"]
-required = [x.replace('>=','≥').replace('!=','≠').replace('==','≡') for x in required]
-# for each item
-d = []
-for x in required:
-	if '≥' in x:
-		idx = x.partition("≥")
-	elif '≠' in x:
-		idx = x.partition("≠")
-	elif '≡' in x:
-		idx = x.partition("≡")
-	d.append({'package':idx[0],'version':idx[1] + idx[2]})
+required = ['bokeh≥1.0.4',
+ 'pip≥19.1.1',
+ 'scipy≥1.2.1',
+ 'seaborn≥0.9.0',
+ 'PsychoPy≥3.1.0',
+ 'pandas≥0.24.2',
+ 'opencv_python≥4.1.0.25',
+ 'setuptools≥40.8.0',
+ 'requests≥2.21.0',
+ 'docopt≥0.6.2',
+ 'openpyxl≥2.6.1',
+ 'numpy≥1.16.2',
+ 'matplotlib≥3.0.3',
+ 'psd_tools≥1.8.14',
+ 'Pillow≠6.0.0',
+ 'paramiko≥2.4.2',
+ 'rpy2≥3.0.3',
+ 'scikit_learn≥0.21.0',
+ 'certifi≥2019.3.9',
+ '(if windows) pywin32≡224',
+ '(if macos) pyobjc≡5.2']
+required_ = [{'package': 'bokeh', 'version': '≥1.0.4'},
+ {'package': 'pip', 'version': '≥19.1.1'},
+ {'package': 'scipy', 'version': '≥1.2.1'},
+ {'package': 'seaborn', 'version': '≥0.9.0'},
+ {'package': 'PsychoPy', 'version': '≥3.1.0'},
+ {'package': 'pandas', 'version': '≥0.24.2'},
+ {'package': 'opencv_python', 'version': '≥4.1.0.25'},
+ {'package': 'setuptools', 'version': '≥40.8.0'},
+ {'package': 'requests', 'version': '≥2.21.0'},
+ {'package': 'docopt', 'version': '≥0.6.2'},
+ {'package': 'openpyxl', 'version': '≥2.6.1'},
+ {'package': 'numpy', 'version': '≥1.16.2'},
+ {'package': 'matplotlib', 'version': '≥3.0.3'},
+ {'package': 'psd_tools', 'version': '≥1.8.14'},
+ {'package': 'Pillow', 'version': '≠6.0.0'},
+ {'package': 'paramiko', 'version': '≥2.4.2'},
+ {'package': 'rpy2', 'version': '≥3.0.3'},
+ {'package': 'scikit_learn', 'version': '≥0.21.0'},
+ {'package': 'certifi', 'version': '≥2019.3.9'},
+ {'package': '(if windows) pywin32', 'version': '≡224'},
+ {'package': '(if macos) pyobjc', 'version': '≡5.2'}]
 
 ## build in jinja
-jinja_ = Template("{{ packages.package }}{{ packages.version }}")
-msg = jinja_.render(packages=required)
-
+# jinja_ = Template("{{ packages.package }}{{ packages.version }}")
+# msg = jinja_.render(packages=required_)
+# html_context = {
+# 	'required' :required,
+# 	'required_' :required_
+# }
 # Extensions -----------------------------------------------------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -177,17 +207,23 @@ class AutoAutoSummary(Autosummary):
 			return super(AutoAutoSummary, self).run()
 
 # better-apidoc settings -----------------------------------------------------------------------------------------------
+path_ = os.path.dirname(__file__)
+temp_ = path_ + '/_templates/'
+api_ = path_ + '/api/'
+print(path_)
+print(temp_)
+print(api_)
 def builder_inited(app):
     """Generate API documentation"""
     import better_apidoc
     better_apidoc.APP = app
     better_apidoc.main([
         'better-apidoc',
-        '--templates', os.path.abspath(os.path.join('.', 'source/_templates/')), #Custom template directory
+        '--templates', temp_, #Custom template directory
         '--force', #Overwrite existing files'
-        '--separate', #Put documentation for each module on its own page
+        #'--separate', #Put documentation for each module on its own page
 		'--private', #nclude "_private" modules
-        '--output-dir', os.path.abspath(os.path.join('.', 'source/api/')), #Directory to place all output
+        '--output-dir', api_, #Directory to place all output
         os.path.abspath(path) #module path
     ])
 
@@ -197,7 +233,7 @@ autosummary_generate = False
 # autodoc settings -----------------------------------------------------------------------------------------------------
 ## http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 autodoc_mock_imports = ["numpy","pandas","scipy","PIL",'pylink','pylink.EyeLinkCustomDisplay','setup.py','versioneer.py','_version.py']
-autoclass_content = 'init'
+# autoclass_content = 'init'
 #suppress_warnings = ['misc.highlighting_failure']
 autodoc_default_options = {
     # 'autosummary': True,
@@ -222,21 +258,23 @@ def autodoc_process_docstring(app, what, name, obj, options, lines):
 ### http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#event-autodoc-skip-member
 def autodoc_skip_member(app, what, name, obj, skip, options):
 	exclusions = (
-		#'__weakref__',  # special-members
+		# '__weakref__',  # special-members
+		'__init__',
 		'__doc__', 
 		'__module__', 
 		'__dict__',  # undoc-members
 	)
 	exclude = name in exclusions
 
-	if name == "__init__":
-		return False	
-	else:
-		return skip or exclude
+	# if name == "__init__":
+	# 	return False	
+	# else:
+	# 	return skip or exclude
+	return skip or exclude
 
 # autodocsumm settings -------------------------------------------------------------------------------------------------
 def grouper_autodocsumm(app, what, name, obj, section, options, parent):
-    if parent is mdl.eyetracking and section == 'Attributes':
+    if parent is imhr.eyetracking and section == 'Attributes':
         return 'Alternative Section'
 
 # General settings -----------------------------------------------------------------------------------------------------
@@ -261,12 +299,12 @@ exclude_patterns = [
 	'_build',
 	'**.ipynb_checkpoints',
 	'run.rst','notes.rst',
-	'mdl._version.rst',
-	'api/mdl._version.rst',
+	'imhr._version.rst',
+	'api/imhr._version.rst',
 	'api/setup.rst',
-	'api/mdl.tests.rst',
+	'api/imhr.tests.rst',
 	'api/versioneer.rst',
-	'api/mdl.eyetracking.pylink.rst'
+	'api/imhr.eyetracking.pylink.rst'
 ]
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -299,14 +337,14 @@ html_sidebars = {'**': ['localtoc.html','sourcelink.html']}
 
 # Options for HTMLHelp output ------------------------------------------------------------------------------------------
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mdl'
+htmlhelp_basename = 'imhr'
 
 # Options for manual page output ---------------------------------------------------------------------------------------
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'mdl', 'mdl', [author], 1)]
+man_pages = [(master_doc, 'imhr', 'imhr', [author], 1)]
 # Options for Texinfo output -------------------------------------------------------------------------------------------
-texinfo_documents = [ (master_doc, 'mdl', 'mdl', author, 'mdl', 'One line description of project.', 'Miscellaneous'),]
+texinfo_documents = [ (master_doc, 'imhr', 'imhr', author, 'imhr', 'One line description of project.', 'Miscellaneous'),]
 
 # Options for Epub output ----------------------------------------------------------------------------------------------
 epub_title = project

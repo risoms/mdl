@@ -31,8 +31,7 @@ if __name__ == '__main__':
 class Model():
 	"""Run statistical models for analysis."""
 	def __init__(self, isLibrary=False):
-		"""
-		Initiate the mdl.r33.Model module.
+		"""Run statistical models for analysis.
 
         Parameters
         ----------

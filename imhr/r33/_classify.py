@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Classification of eyetracking data for mdl.r33.procesing.   
+| @purpose: Classification of eyetracking data for imhr.r33.procesing.   
 | @date: Created on Sat May 1 15:12:38 2019   
 | @author: Semeon Risom   
 | @email: semeon.risom@gmail.com   
@@ -23,10 +23,9 @@ if __name__ == "__main__":
 	from .. import settings
 
 class Classify():
-	"""Analysis methods for mdl.processing.preprocesing."""
+	"""Analysis methods for imhr.processing.preprocesing."""
 	def __init__(self, isLibrary=False):
-		"""
-		Initiate the mdl.r33.Classify module.
+		"""Analysis methods for imhr.processing.preprocesing.
 
 		Parameters
 		----------

@@ -5,7 +5,7 @@
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
-| `@url`: https://semeon.io/d/mdl
+| `@url`: https://semeon.io/d/imhr
 """
 # allowed imports
 __all__ = ['Classify','Metadata','Model','nslr_hmm','Processing','Settings']
@@ -39,33 +39,33 @@ except ImportError:
     del pkgutil
 
 # classes
-@copyInherit(_Classify)
 class Classify(_Classify):
-	"""Classification of eyetracking data for mdl.r33.procesing."""
+	"""Classification of eyetracking data for imhr.r33.procesing."""
+	__doc__ = _Classify.__init__.__doc__
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
-@copyInherit(_Metadata)
 class Metadata(_Metadata):
 	"""Process participants metadata for analysis and export."""
+	__doc__ = _Metadata.__init__.__doc__
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
-@copyInherit(_Model)
 class Model(_Model):
 	"""Run statistical models for analysis."""
+	__doc__ = _Model.__init__.__doc__
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
-@copyInherit(_Processing)
 class Processing(_Processing):
 	"""Hub for running processing and analyzing raw data."""
+	__doc__ = _Processing.__init__.__doc__
 	def __init__(self, config, isLibrary=False):
 		super().__init__(config, isLibrary=False)
 
-@copyInherit(_Settings)
 class Settings(_Settings):
-	"""Default settings for mdl.r33.Processing"""
+	"""Default settings for imhr.r33.Processing"""
+	__doc__ = _Settings.__init__.__doc__
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 

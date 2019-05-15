@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: Allow mdl.eyetracking.Eyelink to initiate calibration/validation/drift correction.  
+| `@purpose`: Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction.  
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
-| `@url`: https://semeon.io/d/mdl
+| `@url`: https://semeon.io/d/imhr
 """
 # allowed imports
 __all__ = ['Calibration']
@@ -24,10 +24,9 @@ from .. import settings
 from . import pylink
 
 class Calibration(pylink.EyeLinkCustomDisplay):
-	"""Allow mdl.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
+	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
 	def __init__(self, w, h, tracker, window):
-		"""
-        Initiate the mdl.eyetracking.Calibration module.
+		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction..
 
         Parameters
         ----------

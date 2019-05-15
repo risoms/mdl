@@ -6,7 +6,7 @@ This library was created at the Institute for Mental Health Research, at the Uni
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
-| `@url`: https://semeon.io/d/mdl
+| `@url`: https://semeon.io/d/imhr
 """
 
 # allowed imports

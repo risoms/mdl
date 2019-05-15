@@ -203,8 +203,8 @@ calibration_keyboard = event.BuilderKeyResponse()
 # Initialize the Eyelink.
 import os, sys
 sys.path.append(os.path.abspath(os.getcwd() + '../../../../../../../'))
-import mdl
-eyetracking = mdl.eyetracking.run(window=win, libraries=True, subject=subject, timer=routineTimer, demo=True)
+import imhr
+eyetracking = imhr.eyetracking.run(window=win, libraries=True, subject=subject, timer=routineTimer, demo=True)
 
 # Connect to the Eyelink Host.
 param = eyetracking.connect(calibration_type=13)

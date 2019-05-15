@@ -1,5 +1,5 @@
 # EyeLink Interest Area Set created on 2019-05-13T10:32:21-05:00.
-# Interest area set file using mdl.roi.ROI()
+# Interest area set file using imhr.roi.ROI()
 # columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color
 # columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color
 # columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color

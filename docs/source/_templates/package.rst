@@ -18,7 +18,7 @@
 	{#- :show-inheritance: #}
 	{#- :undoc-members: #}
 	
-	{%- if name == "mdl" %}
+	{%- if name == "imhr" %}
 	:member-order: bysource
 	:inherited-members:
 	{%- elif members %}
@@ -38,7 +38,7 @@
 		{%- endif -%} -#}
 
 		{#- if package -#}
-		{%- if name == "mdl" %}
+		{%- if name == "imhr" %}
 		
 		{%- if subpackages -%}
 		{%- for item in subpackages %}
@@ -55,7 +55,7 @@
 		{%- endif -%}
 
 		{#- else if not package -#}
-		{%- if name != "mdl" -%}
+		{%- if name != "imhr" -%}
 		
 		{%- if subpackages -%}
 		{%- for item in subpackages %}
@@ -92,8 +92,8 @@
 		{%- endif -%}
 {%- endif %}
 
-{# create autosummary list for mdl -#}
-{%- if name == "mdl" %}
+{# create autosummary list for imhr -#}
+{%- if name == "imhr" %}
 .. currentmodule:: {{ name }}
 
 .. autosummary::

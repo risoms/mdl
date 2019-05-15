@@ -4,6 +4,6 @@ mdl
 .. toctree::
    :maxdepth: 4
 
-   mdl
+   imhr
    setup
    versioneer

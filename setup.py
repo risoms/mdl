@@ -6,7 +6,7 @@ but should be compatiable with earlier systems.
 @`date`: Created on Sat May 1 15:12:38 2019
 @`author`: Semeon Risom
 @`email`: semeon.risom@gmail.com
-@`url`: https://semeon.io/d/mdl-R33
+@`url`: https://semeon.io/d/imhr
 """
 if __name__ == '__main__':
 	import os
@@ -93,6 +93,6 @@ if __name__ == '__main__':
 		long_description = long_description,
 		long_description_content_type = 'text/markdown',
 		classifiers=classifiers,
-		namespace_packages=namespace_packages,
+		#namespace_packages=namespace_packages,
 		**setuptools_kwargs
 	)

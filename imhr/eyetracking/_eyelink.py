@@ -5,7 +5,7 @@
 | `@date`: Created on Wed Feb 13 15:37:43 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
-| `@url`: https://semeon.io/d/mdl
+| `@url`: https://semeon.io/d/imhr
 """
 # allowed imports
 __all__ = ['Eyelink']
@@ -33,8 +33,7 @@ if __name__ == '__main__':
 class Eyelink():
     """Interface for the SR Research Eyelink eyetracking system."""
     def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
-        """
-        Initiate the mdl.eyetracking.Eyelink module.
+        """Interface for the SR Research Eyelink eyetracking system..
 
         Parameters
         ----------
@@ -65,7 +64,7 @@ class Eyelink():
 
         Examples
         --------
-        >>> eytracking = mdl.eyetracking(window=window, subject=subject)
+        >>> eytracking = imhr.eyetracking(window=window, subject=subject)
 
 	    Notes
 	    -----
@@ -84,7 +83,7 @@ class Eyelink():
         from psychopy.constants import (NOT_STARTED, STARTED, FINISHED)
 
         #----introduction
-        settings.console(msg="mdl.eyetracking() found.", c='green')
+        settings.console(msg="imhr.eyetracking() found.", c='green')
 
         #----screen size
         if isPsychopy:
@@ -102,7 +101,7 @@ class Eyelink():
 				# get width, height	
                 self.w = int(GetSystemMetrics(0))
                 self.h = int(GetSystemMetrics(1))
-                settings.console(msg="mdl.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
+                settings.console(msg="imhr.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
             # else if osx
             elif platform.system() == 'Darwin':
                 ## try to import
@@ -115,7 +114,7 @@ class Eyelink():
 				# get width, height	
                 self.w = int(NSScreen.mainScreen().frame().size.width)
                 self.h = int(NSScreen.mainScreen().frame().size.height)
-                settings.console(msg="mdl.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
+                settings.console(msg="imhr.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
 
         #----parameters
         # instants

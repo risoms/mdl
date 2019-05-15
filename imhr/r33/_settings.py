@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| @purpose: Default settings for mdl.r33.Processing.  
+| @purpose: Default settings for imhr.r33.Processing.  
 | @date: Created on Sat May 1 15:12:38 2019
 | @author: Semeon Risom
 | @email: semeon.risom@gmail.com
@@ -109,14 +109,13 @@ config={
 }
 
 class Settings():
-    """Default settings for mdl.r33.Processing"""
+    """Default settings for imhr.r33.Processing."""
 
 	# default configuration parameters
     config = config
 
     def __init__(self, isLibrary=False):
-        """
-		Initiate the mdl.r33.Settings module.
+        """Default settings for imhr.r33.Processing..
 
 		Parameters
 		----------

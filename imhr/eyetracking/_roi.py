@@ -5,7 +5,7 @@
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
-| `@url`: https://semeon.io/d/mdl
+| `@url`: https://semeon.io/d/imhr
 """
 # allowed imports
 __all__ = ['ROI']
@@ -44,8 +44,7 @@ class ROI():
 	"""Generate regions of interest that can be used for data processing and analysis."""
 	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, metadata_source=None, 
 			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
-		"""
-        Initiate the mdl.eyetracking.ROI module.
+		"""Generate regions of interest that can be used for data processing and analysis.
 
 		Parameters
 		----------
@@ -159,7 +158,7 @@ class ROI():
 
 		Examples
 		--------
-		>>> from mdl.roi import ROI
+		>>> from imhr.roi import ROI
 		>>> s="/dist/example/raw/"; d="/dist/example/"
 		>>> ROI(source=s, output_path=d, shape='box')
 
@@ -606,7 +605,7 @@ class ROI():
 			filepath = Path("%s/%s.ias"%(path, filename))
 			_bounds = '\n'.join(map(str, [
 				"# EyeLink Interest Area Set created on %s."%(self.now()),
-				"# Interest area set file using mdl.roi.ROI()",
+				"# Interest area set file using imhr.roi.ROI()",
 				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
 				"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
 				"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color",

@@ -5,10 +5,10 @@
 @`date`: Created on Sat May 1 15:12:38 2019  
 @`author`: Semeon Risom  
 @`email`: semeon.risom@gmail.com  
-@`url`: https://semeon.io/d/mdl
+@`url`: https://semeon.io/d/imhr
 """
 from pdb import set_trace as breakpoint
-import mdl
+import imhr
 import os
 import subprocess
 import sys
@@ -38,13 +38,13 @@ def test_lazy_imports():
 	"""
 	source = textwrap.dedent("\
 	import sys\n\
-	import mdl\n\
-	import mdl.eyetracking\n\
-	import mdl.lib\n\
-	import mdl.plot\n\
-	import mdl.r33\n\
-	import mdl.settings\n\
-	import mdl.tests")
+	import imhr\n\
+	import imhr.eyetracking\n\
+	import imhr.lib\n\
+	import imhr.plot\n\
+	import imhr.r33\n\
+	import imhr.settings\n\
+	import imhr.tests")
 
 	subprocess.check_call([sys.executable, '-c', source])
 	return True
