@@ -1,4 +1,4 @@
-# EyeLink Interest Area Set created on 2019-05-17T12:11:14-05:00.
+# EyeLink Interest Area Set created on 2019-05-17T15:08:06-05:00.
 # Interest area set file using imhr.eyetracking.ROI()
 # columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label
 # example: RECTANGLE 1 350 172 627 286 leftcheek

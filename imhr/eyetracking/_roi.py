@@ -292,8 +292,8 @@ class ROI():
 			if self.metadata_all.empty:
 				raise Exception('No data for file: %s'%(self.metadata_source))
 
-	def process_metadata(self, imagename, layer):
-		"""[summary]
+	def extract_metadata(self, imagename, layer):
+		"""Extract metadata for each region of interest.
 
 		Parameters
 		----------
@@ -304,8 +304,6 @@ class ROI():
 
 		Returns
 		-------
-		[type]
-			[description]
 		[type]
 			[description]
 		[type]
@@ -338,9 +336,86 @@ class ROI():
 			self.console('## roiname: %s'%(roiname),'blue')
 			self.console('## roilabel: %s'%(roilabel),'green')
 
-		return metadata, roiname, roilabel
+		return metadata, roiname
 
-	def create_contours(self, image, imagename, roiname):
+	def format_image(self, psd=None, xcf=None, bitmap=None, isRaw=False):
+		"""Resize image and reposition image, relative to screensize.
+
+		Parameters
+		----------
+		psd : :obj:`None` or `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
+		xcf : :obj:`None` or ###, optional
+			[description], by default None
+		bitmap : :obj:`None` or ###, optional
+			[description], by default None
+		isRaw : :obj:`None` or ###, optional
+			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is `False`.
+
+		Attributes
+		----------
+		image : :class:`PIL.Image.Image`
+			PIL image object class.
+
+		Returns
+		-------
+		image, background : :class:`PIL.Image.Image`
+			PIL image object class.
+		"""
+
+		## load image from PSD, xcf, or bitmap as PIL
+		if psd is not None:
+			image = psd.topil()
+		elif xcf is not None:
+			image = psd.topil()
+		elif bitmap is not None:
+			image = psd.topil()
+
+		# if returning raw image
+		if isRaw:
+			return image
+		else:
+			## set background
+			screen_size = self.screensize
+			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
+			if self.isDebug: self.console('# export image','blue')
+			# if scale image
+			if self.scale != 1:
+				old_image_size = [image.size[0], image.size[1]]
+				image_size = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
+				image = image.resize(image_size, Image.ANTIALIAS)
+				if self.isDebug:
+					self.console('image size: %s, scaled to: %s'%(old_image_size, image_size), 'green')
+			# else unscaled
+			else:
+				image_size = [int(image.size[0]), int(image.size[1])]
+				if self.isDebug: self.console('image size: %s'%(image_size))
+
+			# if offsetting
+			if self.newoffset:
+				offset_center = self.recenter
+				# calculate upper-left coordinate for drawing into image
+				# x-bound <offset_x center> - <1/2 image_x width>
+				x = (offset_center[0]) - (image_size[0]/2)
+				# y-bound <offset_y center> - <1/2 image_y width>
+				y = (offset_center[1]) - (image_size[1]/2)
+				left_xy = (int(x),int(y))
+				if self.isDebug: self.console('image centered at: %s'%(offset_center))
+			# else not offsetting
+			else:
+				# calculate upper-left coordinate for drawing into image
+				# x-bound <screen_x center> - <1/2 image_x width>
+				x = (screen_size[0]/2) - (image_size[0]/2)
+				# y-bound <screen_y center> - <1/2 image_y width>
+				y = (screen_size[1]/2) - (image_size[1]/2)
+				left_xy = (int(x),int(y))
+
+			# draw
+			background.paste(image, left_xy)
+
+			return background
+
+	def extract_contours(self, image, imagename, roiname):
 		"""[summary]
 
 		Parameters
@@ -398,7 +473,7 @@ class ROI():
 		else:
 			if self.isDebug: self.console('automatic ROI detection from haar cascades','blue')
 			# load classifier
-			_classifer = self.default_classifers[self.classifier]
+			_classifer = self.default_classifiers[self.classifier]
 			haar = cv2.CascadeClassifier(_classifer)
 			contours = haar.detectMultiScale(
 			    image,
@@ -412,7 +487,7 @@ class ROI():
 		#when saving the contours below, only one drawContours function from above can be run
 		#any other drawContours function will overlay on the others if multiple functions are run
 		#----param
-		color = (0,0,255)
+		color = (0, 255, 0)
 		#self.console('test4.5', 'red')
 
 		#----straight bounding box
@@ -514,7 +589,7 @@ class ROI():
 
 		return _bounds, _contours
 
-	def create_rois(self, imagename, metadata, roiname, roinumber, _bounds, _contours):
+	def format_contours(self, imagename, metadata, roiname, roinumber, bounds_, contours_):
 		"""[summary]
 
 		Parameters
@@ -529,9 +604,9 @@ class ROI():
 			[description]
 		roilabel : [type]
 			[description]
-		_bounds : [type]
+		bounds_ : [type]
 			[description]
-		_contours : [type]
+		contours_ : [type]
 			[description]
 
 		Returns
@@ -547,7 +622,7 @@ class ROI():
 			[description]
 		"""
 		#----store bounds as df
-		_bounds = pd.DataFrame(_bounds)
+		_bounds = pd.DataFrame(bounds_)
 
 		# transpose bounds (x0, y0, x1, y1)
 		_x = _bounds[0].unique().tolist()
@@ -577,7 +652,7 @@ class ROI():
 		#----save roi contours
 		#!! get working: draw exact contours as coordinates
 		if self.save['contours']:
-			contours = _contours
+			contours = contours_
 		# combine metadata with coordinates
 		##!!! get working
 
@@ -588,6 +663,55 @@ class ROI():
 
 		# finish
 		return bounds, contours
+
+	def draw_contours(self, filepath, data, fig, source='bounds'):
+		"""[summary]
+		
+		Parameters
+		----------
+		filepath : [type]
+			[description]
+		data : [type]
+			[description]
+		fig : [type]
+			[description]
+		source : str, optional
+			[description], by default 'bounds'
+		"""
+		# draw image
+		ax = fig.add_subplot(111)
+		## create blank image and draw to figure
+		_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+
+		## for each bound draw on figure
+		if source=="bounds":
+			ax.imshow(_img)
+			#for _bounds in data:
+			## get bounds
+			x0 = data['x0'].item()
+			y0 = data['y0'].item()
+			x1 = data['x1'].item()
+			y1 = data['y1'].item()
+			_width = x1 - x0
+			_height = y1 - y0
+			ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
+			## check folder
+			filepath_ = Path(filepath).parent
+			if not os.path.exists(filepath_):
+				os.makedirs(filepath_)
+			## save
+			if self.isDebug: self.console('## image saved @: %s'%(filepath),'blue')
+		## for each contour draw on figure
+		elif source=="contours":
+			#for _contours in data:
+			contours = cv2.cvtColor(data, cv2.COLOR_GRAY2RGB)
+			plt.imshow(contours, zorder=1, interpolation='bilinear')
+			## check folder
+			filepath_ = Path(filepath).parent
+			if not os.path.exists(filepath_):
+				os.makedirs(filepath_)
+			## save
+			if self.isDebug: self.console('## image saved @: %s'%(filepath),'blue')
 
 	def export_data(self, df, path, filename, uuid=None, newcolumn=None, level='image'):
 		"""[summary]
@@ -671,130 +795,6 @@ class ROI():
 
 		return df
 
-	def draw_image(self, imagename, data, source='bounds'):
-		"""[summary]
-
-		Parameters
-		----------
-		imagename : [type]
-			[description]
-		data : [type]
-			[description]
-		source : [type]
-			[description]
-		"""
-		# draw image
-		fig = plt.figure()
-		ax = fig.add_subplot(111)
-		## create blank image and draw to figure
-		_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
-		ax.imshow(_img)
-		## for each bound draw on figure
-		if source=="bounds":
-			for _bounds in data:
-				## get bounds
-				x0 = _bounds['x0'].item()
-				y0 = _bounds['y0'].item()
-				x1 = _bounds['x1'].item()
-				y1 = _bounds['y1'].item()
-				_width = x1 - x0
-				_height = y1 - y0
-				ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
-			## draw image
-			_folder = '%s/img/bounds'%(self.output_path)
-		## for each contour draw on figure
-		elif source=="contours":
-			for _contours in data:
-				contours = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
-				plt.imshow(contours, zorder=1, interpolation='bilinear', alpha=1)
-			## draw image
-			_folder = '%s/img/contours'%(self.output_path)
-		## check folder
-		if not os.path.exists(_folder):
-			os.makedirs(_folder)
-		## save
-		filepath = Path('%s/%s.png'%(_folder, imagename))
-		if self.isDebug: self.console('## image saved @: %s'%(filepath),'blue')
-		plt.savefig(filepath, dpi=self.dpi)
-		plt.close(fig)
-
-	def process_image(self, psd=None, xcf=None, bitmap=None, isRaw=False):
-		"""[summary]
-
-		Parameters
-		----------
-		psd : :obj:`None` or `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
-			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
-		xcf : :obj:`None` or ###, optional
-			[description], by default None
-		bitmap : :obj:`None` or ###, optional
-			[description], by default None
-		isRaw : :obj:`None` or ###, optional
-			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is `False`.
-
-		Attributes
-		----------
-		image : :class:`PIL.Image.Image`
-			PIL image object class.
-
-		Returns
-		-------
-		image, background : :class:`PIL.Image.Image`
-			PIL image object class.
-		"""
-
-		## load image from PSD, xcf, or bitmap as PIL
-		if psd is not None:
-			image = psd.topil()
-		elif xcf is not None:
-			image = psd.topil()
-		elif bitmap is not None:
-			image = psd.topil()
-
-		# if returning raw image
-		if isRaw:
-			return image
-		else:
-			## set background
-			screen_size = self.screensize
-			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
-			if self.isDebug: self.console('# export image','blue')
-			# if scale image
-			if self.scale != 1:
-				old_image_size = [image.size[0], image.size[1]]
-				image_size = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
-				image = image.resize(image_size, Image.ANTIALIAS)
-				if self.isDebug:
-					self.console('image size: %s, scaled to: %s'%(old_image_size, image_size), 'green')
-			# else unscaled
-			else:
-				image_size = [int(image.size[0]), int(image.size[1])]
-				if self.isDebug: self.console('image size: %s'%(image_size))
-
-			# if offsetting
-			if self.newoffset:
-				offset_center = self.recenter
-				# calculate upper-left coordinate for drawing into image
-				# x-bound <offset_x center> - <1/2 image_x width>
-				x = (offset_center[0]) - (image_size[0]/2)
-				# y-bound <offset_y center> - <1/2 image_y width>
-				y = (offset_center[1]) - (image_size[1]/2)
-				left_xy = (int(x),int(y))
-				if self.isDebug: self.console('image centered at: %s'%(offset_center))
-			# else not offsetting
-			else:
-				# calculate upper-left coordinate for drawing into image
-				# x-bound <screen_x center> - <1/2 image_x width>
-				x = (screen_size[0]/2) - (image_size[0]/2)
-				# y-bound <screen_y center> - <1/2 image_y width>
-				y = (screen_size[1]/2) - (image_size[1]/2)
-				left_xy = (int(x),int(y))
-
-			# draw
-			background.paste(image, left_xy)
-
-			return background
-
 	def run(self, directory, core=0, queue=None):
 		"""[summary]
 
@@ -856,7 +856,7 @@ class ROI():
 
 			#!!!----for each image, save image file
 			# raw imaage
-			image = self.process_image(psd=psd, xcf=xcf, bitmap=bitmap, isRaw=True)
+			image = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap, isRaw=True)
 			## check folder
 			_folder = '%s/img/raw/'%(self.output_path)
 			if not os.path.exists(_folder):
@@ -864,11 +864,11 @@ class ROI():
 			## save raw
 			fig = plt.figure()
 			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
+			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi,bbox_inches='tight')
 			plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)
-			image = self.process_image(psd=psd, xcf=xcf, bitmap=bitmap)
+			image = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap)
 			## check folder
 			_folder = '%s/img/preprocessed/'%(self.output_path)
 			if not os.path.exists(_folder):
@@ -876,7 +876,7 @@ class ROI():
 			## save preprocessed
 			fig = plt.figure()
 			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
+			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi, bbox_inches='tight')
 			plt.close(fig)
 
 			#!!!----for each region of interest
@@ -889,34 +889,38 @@ class ROI():
 				if Path(layer.name).stem == imagename:
 					continue
 				else:
-					# process metadata
-					#self.console('test2', 'red')
-					metadata, roiname, roilabel = self.process_metadata(imagename, layer)
+					#. Extract metadata for each region of interest.
+					metadata, roiname = self.extract_metadata(imagename=imagename, layer=layer)
 
-					# process image
-					#self.console('test3', 'red')
-					image = self.process_image(psd=layer, xcf=xcf, bitmap=bitmap)
+					#. Resize image and reposition image, relative to screensize.
+					image = self.format_image(psd=layer, xcf=xcf, bitmap=bitmap)
 
-					# create contours
-					#self.console('test4', 'red')
-					_bounds, _contours = self.create_contours(image, imagename, roiname)
-
-					# create rois
+					#. Extract contours from np.array of image.
 					try:
-						bounds, contours = self.create_rois(imagename, metadata, roiname, roinumber, _bounds, _contours)
+						bounds_, contours_ = self.extract_contours(image=image, imagename=imagename, roiname=roiname)
 					except:
 						break
 
-					# try:
-					# 	#self.console('test5', 'red')
-
-					# except Exception as e:
-					# 	# error
-					# 	print(e)
-					# 	#store error
-					# 	l_error.append([imagename, roiname, e]) # <image><roi><error message>
-					# 	# continue to next image
-					# 	break
+					#. Format contours as Dataframe, for exporting to xlsx or ias.
+					bounds, contours = self.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, 
+															roinumber=roinumber, bounds_=bounds_, contours_=contours_)
+					#. Draw bounds or contours.
+					## draw bounds
+					if self.shape == 'straight':
+						## img path
+						filepath = '%s/img/bounds/roi/%s.%s.png'%(self.output_path, imagename, roiname)
+						fig = plt.figure()
+						self.draw_contours(filepath=filepath, data=bounds, source='bounds', fig=fig)
+						plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+						plt.close(fig)
+					## draw contours
+					else:
+						## img path
+						filepath = '%s/img/bounds/roi/%s.%s.png'%(self.output_path, imagename, roiname)
+						fig = plt.figure()
+						self.draw_contours(filepath=filepath, data=contours, source='contours', fig=fig)
+						plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+						plt.close(fig)
 
 					# store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
@@ -925,11 +929,23 @@ class ROI():
 					# update counter
 					roinumber = roinumber + 1
 
-			#!!!----for each image, export data
+			#!!!----for each image
 			# draw bounds
-			self.draw_image(imagename, l_bounds, 'bounds')
+			if self.shape == 'straight':
+				## img path
+				filepath = '%s/img/bounds/%s.png'%(self.output_path, imagename)
+				fig = plt.figure()
+				[self.draw_contours(filepath=filepath, data=b, source='bounds', fig=fig) for b in l_bounds]
+				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+				plt.close(fig)
 			# draw contours
-			self.draw_image(imagename, l_contours, 'contours')
+			else:
+				## img path
+				filepath = '%s/img/bounds/%s.png'%(self.output_path, imagename)
+				fig = plt.figure()
+				[self.draw_contours(filepath=filepath, data=c, source='contours', fig=fig) for c in l_contours]
+				plt.savefig(filepath, dpi=self.dpi)
+				plt.close(fig)
 
 			# concatinate and store bounds for all rois
 			df = pd.concat(l_bounds)

@@ -1,20 +1,19 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #%% [markdown]
-# .. roi_:
-# 
-# .. title:: roi
-# 
-# #### Region of Interest
-# 
-# """
-# @`purpose`: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.  
-# @`date`: Created on Sat May 1 15:12:38 2019  
-# @`author`: Semeon Risom  
-# @`email`: semeon.risom@gmail.com  
-# @`url`: https://semeon.io/d/imhr
-# """
-
+#.. roi_:  
+#  
+#.. title:: roi  
+#
+##### Region of Interest
+#%% [markdown]
+# <div class='info'>
+# <p>@`purpose`: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.</p>  
+# <p>@`date`: Created on Sat May 1 15:12:38 2019</p>  
+# <p>@`author`: Semeon Risom</p>  
+# <p>@`email`: semeon.risom@gmail.com</p>  
+# <p>@`url`: https://semeon.io/d/imhr</p>
+# </div>
 #%% [markdown]
 # <ul class="list-container">
 #     <li>
@@ -42,8 +41,11 @@
 #         </ol>
 #     </li>
 # </ul>
+#%%
+%pwd 
+%cd /Users/mdl-admin/Desktop/mdl/
 #%% [markdown]
-# ##### 1. Demonstration
+##### 1. Demonstration
 #%%
 # import
 import imhr
@@ -52,10 +54,14 @@ roi = imhr.eyetracking.ROI(isDebug=True, isDemo=True)
 # run
 df, error = roi.process()
 #%% [markdown]
-# ##### 2. Highlighted ROI from Photoshop PSD
+# <p>and here are the results.</p>
+#%%
+# results
+df
+#%% [markdown]
+##### 2. Highlighted ROI from Photoshop PSD
 #%% 
-#!/usr/bin/python3
-% matplotlib notebook
+%matplotlib notebook
 import matplotlib.pyplot as plt
 import matplotlib.image as image
 image = image.imread('/Users/mdl-admin/Desktop/roi/output/img/raw/2550.png')
@@ -65,6 +71,11 @@ ax.axis('off')
 plt.tight_layout()
 plt.show()
 #%%
+%config InlineBackend.close_figures
+%matplotlib inline
+#%%
+# import
+import imhr
 # set path
 image_path = '/Users/mdl-admin/Desktop/roi/raw/2/'
 output_path = '/Users/mdl-admin/Desktop/roi/output/'
@@ -72,9 +83,14 @@ metadata_source = '/Users/mdl-admin/Desktop/roi/raw/2/metadata.xlsx'
 # initiate
 roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isDemo=False, detection='manual',
 	   image_path=image_path, output_path=output_path, metadata_source=metadata_source,
-	   scale=1, screensize=[1920,1080], shape='polygon', 
+	   scale=1, screensize=[1920,1080], shape='straight', 
 	   roi_format='both', recenter=[(1920*.50),(1080*.50)], 
 	   uuid=['image','roi','position'], 
-	   newcolumn={'position': 'topcenter'})
+	   newcolumn={'position': 'center'})
 # run
 df, error = roi.process()
+#%% [markdown]
+# <p>and here are the results.</p>
+#%%
+# results
+df
