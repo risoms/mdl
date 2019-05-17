@@ -42,7 +42,7 @@ except ImportError as e:
 
 class ROI():
 	"""Generate regions of interest that can be used for data processing and analysis."""
-	def __init__(self, isMultiprocessing=False, image_path=None, output_path=None, metadata_source=None, 
+	def __init__(self, isMultiprocessing=False, detection='manual', image_path=None, output_path=None, metadata_source=None, 
 			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
 		"""Generate regions of interest that can be used for data processing and analysis.
 
@@ -50,17 +50,17 @@ class ROI():
 		----------
 		isMultiprocessing : :obj:`bool`
 			Should the rois be generated using multiprocessing. Default `False`.
-		detection : :obj:`str`
-			How should the regions of interest be detected. Either manually, through the use of highlight layers, or automatically
-			using haar cascades opencv. Default `manual`.
+		detection : :obj:`str` {'manual', 'haarcascade'}
+			How should the regions of interest be detected. Either manually (`manual`), through the use of highlighting layers in photo-editing
+			software, or automatically through feature detection using `haarcascade` classifers from opencv. Default `manual`.
 		image_path : :obj:`str`
 			Image directory path.
 		output_path : :class:`str`
 			Path to save data.
-		roi_format : :obj:`str` {`raw`,`dataviewer`, `both`}
-			Format to export ROIs. Either to 'csv' (`raw`) or to Eyelink DataViewer 'ias' (`dataviewer`) or both (`both`). 
-			Default is `raw`. Note: If :code:`roi_format` = `dataviewer`, :code:`shape` must be either be `circle`, `rotate`, or `straight`.
-		metadata_source : :class:`str` or :obj:`None`
+		roi_format : :obj:`str` {'raw', 'dataviewer', 'both'}
+			Format to export ROIs. Either to 'csv' (`raw`) or to Eyelink DataViewer 'ias' (`dataviewer`) or both (`both`).
+			Default is `both`. Note: If :code:`roi_format` = `dataviewer`, :code:`shape` must be either be `circle`, `rotate`, or `straight`.
+		metadata_source : :class:`str` or :obj:`None` {'path', 'embedded'}
 			Metadata source. If metadata is being read from a spreadsheet, :code:`metadata_source` should be equal to path the to
 			the metadata file, else if metadata is embed within the image as a layer name, :code:`metadata_source` = `embedded`.
 			Default is `embedded`. For example:
@@ -73,9 +73,9 @@ class ROI():
 			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
 			be either `;` `,` `|` `\\t` or `\\s` (Delimiter type must be identified when running this code using the
 			code:`delimiter` parameter. The default is `;`.). Here's an example using `;` as a delimiter:
-				>>> imagename=BM001;roiname=1;feature=lefteye
+				>>> imagename = "BM001"; roiname = 1; feature = "lefteye"
 			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.
-		shape : :obj:`str` {`polygon`, `hull`, `circle`, `rotate`, `straight`}
+		shape : :obj:`str` {'polygon', 'hull', 'circle', 'rotate', 'straight'}
 			Shape of machine readable boundaries for region of interest. Default is `straight`. `polygon` creates a Contour
 			Approximation and will most closely match the orginal shape of the roi. `hull` creates a Convex Hull, which
 			is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
@@ -107,15 +107,23 @@ class ROI():
 				  - Tests code with in-house images and metadata. Default is :obj:`False`.
 				* - **save_data** : :class:`bool`
 				  - Save coordinates. Default is :obj:`True.`
-				* - **newcolumn** : :class:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
-				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. 
-					Default is :obj:`False.`
+				* - **newcolumn** : :obj:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
+				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is :obj:`False.`
 				* - **save_raw_image** : :class:`bool`
 				  - Save images. Default is True.
 				* - **save_contour_image** : :class:`bool`
 				  - Save generated contours as images. Default is :obj:`True`.
-				* - **delimiter** : :class:`str`
-				  - (if :code:`source` == `psd`) How is metadata delimited, options are: `;` `,` `|` `tab` or `space` Default is `;`.
+				* - **delimiter** : :class:`str` {';' , ',' , '|' , 'tab' , 'space'}
+				  - (if :code:`source` == `psd`) How is metadata delimited. Default is `;`.
+				* - **classifier** : :obj:`str` {'eye_tree_eyeglasses','eye','frontalface_alt_tree','frontalface_alt','frontalface_alt2',
+				    'frontalface_default','fullbody','lowerbody','profileface','smile','upperbody'}
+				  - (if :code:`detection` == `haarcascade`) Type of trained classifier to use. Default 'frontalface_default'.
+				* - **classScaleFactor** : :obj:`float`
+				  - Parameter specifying how much the image size is reduced at each image scale.
+				* - **classMinNeighbors** : :obj:`float`
+				  - Parameter specifying how many neighbors each candidate rectangle should have to retain it.
+				* - **classMinSize** : :obj:`tuple`
+				  - Minimum possible object size. Objects smaller than that are ignored.
 				* - **screensize** : :class:`list` [:obj:`int`]
 				  - Monitor size is being presented. Default is `[1920, 1080]`.
 				* - **scale** : :class:`int`
@@ -127,7 +135,7 @@ class ROI():
 
 		Attributes
 		----------
-		shape_d : :class:`str` {`ELLIPSE`, `FREEHAND`, `RECTANGLE`}
+		shape_d : :class:`str` {'ELLIPSE', 'FREEHAND', 'RECTANGLE'}
 			DataViewer ROI shape.
 		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
@@ -146,8 +154,6 @@ class ROI():
 			for more information.
 		image_contours : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.
-		image_contours : :obj:`numpy.ndarray`
-			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.
 
 		Raises
 		------
@@ -158,9 +164,11 @@ class ROI():
 
 		Examples
 		--------
-		>>> from imhr.roi import ROI
-		>>> s="/dist/example/raw/"; d="/dist/example/"
-		>>> ROI(source=s, output_path=d, shape='box')
+		.. code-block:: python
+
+			>>> from imhr.roi import ROI
+			>>> s = "/dist/example/raw/"; d="/dist/example/"
+			>>> ROI(source=s, output_path=d, shape='box')
 
 		Notes
 		-----
@@ -182,6 +190,7 @@ class ROI():
 			settings.library(__required__)
 
 		#----parameters
+		self.detection = detection
 		# demo
 		self.isDemo = kwargs['isDemo'] if 'isDemo' in kwargs else False
 		# multiprocessing
@@ -225,6 +234,25 @@ class ROI():
 		# save raw images
 		self.save['raw'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
 
+		#-----classifiers
+		self.classifier = kwargs['classifier'] if 'classifier' in kwargs else 'frontalface_default'
+		self.classScaleFactor = kwargs['classScaleFactor'] if 'classScaleFactor' in kwargs else 1.1
+		self.classMinNeighbors = kwargs['classMinNeighbors'] if 'classMinNeighbors' in kwargs else 5
+		self.classMinSize = kwargs['classMinSize'] if 'classMinSize' in kwargs else (1,1)
+		self.default_classifiers = {
+			'eye_tree_eyeglasses': 'haarcascade_eye_tree_eyeglasses.xml',
+			'eye': 'haarcascade_eye.xml',
+			'frontalface_alt_tree': 'haarcascade_frontalface_alt_tree.xml',
+			'frontalface_alt': 'haarcascade_frontalface_alt.xml',
+			'frontalface_alt2': 'haarcascade_frontalface_alt2.xml',
+			'frontalface_default': 'haarcascade_frontalface_default.xml',
+			'fullbody': 'haarcascade_fullbody.xml',
+			'lowerbody': 'haarcascade_lowerbody.xml',
+			'profileface': 'haarcascade_profileface.xml',
+			'smile': 'haarcascade_smile.xml',
+			'upperbody': 'haarcascade_upperbody.xml',
+		}
+
 		#----shape
 		# check if trying to do complex ROI using dataviewer
 		if (self.shape in ['polygon', 'hull']) and (self.roi_format == "dataviewer"):
@@ -241,11 +269,11 @@ class ROI():
 		else:
 			self.image_path = image_path
 			self.output_path = output_path
-		
+
 		# if no image path and not demo
 		if self.image_path is None:
 			error = "No valid image path found. Please make sure to include an image path. If you wish to run a demo, please set isDemo=True."
-			raise Exception (error)
+			raise Exception(error)
 		else:
 			# set directory of files
 			self.directory = [x for x in Path(self.image_path).glob("*.psd") if x.is_file()]
@@ -256,6 +284,9 @@ class ROI():
 			_type = Path(self.metadata_source).suffix
 			if _type == ".csv": self.metadata_all = pd.read_csv(self.metadata_source)
 			elif _type == ".xlsx": self.metadata_all = pd.read_excel(self.metadata_source)
+
+			# convert to string
+			self.metadata_all = self.metadata_all.astype(str)
 
 			# check if metadata is empty
 			if self.metadata_all.empty:
@@ -345,21 +376,37 @@ class ROI():
 		#self.console('test4.1.5', 'red')
 		#image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-		# threshold the image
-		## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
-		#self.console('test4.2', 'red')
-		retval, threshold = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+		# if drawing in PSD files
+		if self.detection == 'manual':
+			if self.isDebug: self.console('manual ROI detection','blue')
+			# threshold the image
+			## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
+			#self.console('test4.2', 'red')
+			retval, threshold = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
 
-		# find contour in image
-		#self.console('test4.3', 'red')
-		## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
-		contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+			# find contour in image
+			#self.console('test4.3', 'red')
+			## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
+			contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-		# if contours empty raise Exception
-		#self.console('test4.4', 'red')
-		if not bool(contours):
-			_err = [imagename, roiname, 'Not able to identify contours']
-			raise Exception('%s; %s; %s'%(_err[0],_err[1],_err[2]))
+			# if contours empty raise Exception
+			#self.console('test4.4', 'red')
+			if not bool(contours):
+				_err = [imagename, roiname, 'Not able to identify contours']
+				raise Exception('%s; %s; %s'%(_err[0],_err[1],_err[2]))
+		# if drawing in PSD files
+		else:
+			if self.isDebug: self.console('automatic ROI detection from haar cascades','blue')
+			# load classifier
+			_classifer = self.default_classifers[self.classifier]
+			haar = cv2.CascadeClassifier(_classifer)
+			contours = haar.detectMultiScale(
+			    image,
+			    scaleFactor=1.1,
+			    minNeighbors=5,
+			    minSize=(1,1),
+			    flags = cv2.CASCADE_SCALE_IMAGE
+			)
 
 		#------------------------------------------------------------------------for each layer: save images and contours
 		#when saving the contours below, only one drawContours function from above can be run
@@ -605,14 +652,14 @@ class ROI():
 			filepath = Path("%s/%s.ias"%(path, filename))
 			_bounds = '\n'.join(map(str, [
 				"# EyeLink Interest Area Set created on %s."%(self.now()),
-				"# Interest area set file using imhr.roi.ROI()",
-				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color",
-				"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color",
-				"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color",
-				"# example: RECTANGLE 1 350 172 627 286 leftcheek red",
-				"# example: ELLIPSE 2 350 172 627 286 leftcheek red",
-				"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red",
-				"# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.",
+				"# Interest area set file using imhr.eyetracking.ROI()",
+				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label",
+				"# example: RECTANGLE 1 350 172 627 286 leftcheek",
+				"# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label",
+				"# example: ELLIPSE 2 350 172 627 286 leftcheek",
+				"# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label",
+				"# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek",
+				"# For more information see Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1).",
 				df[['shape_d','id','x0','y0','x1','y1',uuid_column]].to_csv(index=False, header=False).replace(',', '	')
 			]))
 			# save to ias
@@ -654,14 +701,14 @@ class ROI():
 				_height = y1 - y0
 				ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
 			## draw image
-			_folder = '%s/img/roi/bounds'%(self.output_path)
+			_folder = '%s/img/bounds'%(self.output_path)
 		## for each contour draw on figure
 		elif source=="contours":
 			for _contours in data:
 				contours = cv2.cvtColor(_contours, cv2.COLOR_BGR2RGB)
 				plt.imshow(contours, zorder=1, interpolation='bilinear', alpha=1)
 			## draw image
-			_folder = '%s/img/roi/contours'%(self.output_path)
+			_folder = '%s/img/contours'%(self.output_path)
 		## check folder
 		if not os.path.exists(_folder):
 			os.makedirs(_folder)
@@ -671,61 +718,82 @@ class ROI():
 		plt.savefig(filepath, dpi=self.dpi)
 		plt.close(fig)
 
-	def process_image(self, psd):
+	def process_image(self, psd=None, xcf=None, bitmap=None, isRaw=False):
 		"""[summary]
 
 		Parameters
 		----------
-		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
-			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
+		psd : :obj:`None` or `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
+		xcf : :obj:`None` or ###, optional
+			[description], by default None
+		bitmap : :obj:`None` or ###, optional
+			[description], by default None
+		isRaw : :obj:`None` or ###, optional
+			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is `False`.
+
+		Attributes
+		----------
+		image : :class:`PIL.Image.Image`
+			PIL image object class.
 
 		Returns
 		-------
-		[type]
-			[description]
+		image, background : :class:`PIL.Image.Image`
+			PIL image object class.
 		"""
-		## load image directly from PSD
-		image = psd.topil()
 
-		## set background
-		screen_size = self.screensize
-		background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
-		if self.isDebug: self.console('# export image','blue')
-		# if scale image
-		if self.scale != 1:
-			old_image_size = [image.size[0], image.size[1]]
-			image_size = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
-			image = image.resize(image_size, Image.ANTIALIAS)
-			if self.isDebug:
-				self.console('image size: %s, scaled to: %s'%(old_image_size, image_size), 'green')
-		# else unscaled
+		## load image from PSD, xcf, or bitmap as PIL
+		if psd is not None:
+			image = psd.topil()
+		elif xcf is not None:
+			image = psd.topil()
+		elif bitmap is not None:
+			image = psd.topil()
+
+		# if returning raw image
+		if isRaw:
+			return image
 		else:
-			image_size = [int(image.size[0]), int(image.size[1])]
-			if self.isDebug: self.console('image size: %s'%(image_size))
- 		
-		# if offsetting		
-		if self.newoffset:
-			offset_center = self.recenter
-			# calculate upper-left coordinate for drawing into image
-			# x-bound <offset_x center> - <1/2 image_x width>
-			x = (offset_center[0]) - (image_size[0]/2)
-			# y-bound <offset_y center> - <1/2 image_y width>
-			y = (offset_center[1]) - (image_size[1]/2)
-			left_xy = (int(x),int(y))
-			if self.isDebug: self.console('image centered at: %s'%(offset_center))
-		# else not offsetting
-		else:
-			# calculate upper-left coordinate for drawing into image
-			# x-bound <screen_x center> - <1/2 image_x width>
-			x = (screen_size[0]/2) - (image_size[0]/2)
-			# y-bound <screen_y center> - <1/2 image_y width>
-			y = (screen_size[1]/2) - (image_size[1]/2)
-			left_xy = (int(x),int(y))
+			## set background
+			screen_size = self.screensize
+			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
+			if self.isDebug: self.console('# export image','blue')
+			# if scale image
+			if self.scale != 1:
+				old_image_size = [image.size[0], image.size[1]]
+				image_size = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
+				image = image.resize(image_size, Image.ANTIALIAS)
+				if self.isDebug:
+					self.console('image size: %s, scaled to: %s'%(old_image_size, image_size), 'green')
+			# else unscaled
+			else:
+				image_size = [int(image.size[0]), int(image.size[1])]
+				if self.isDebug: self.console('image size: %s'%(image_size))
 
-		# draw
-		background.paste(image, left_xy)
+			# if offsetting
+			if self.newoffset:
+				offset_center = self.recenter
+				# calculate upper-left coordinate for drawing into image
+				# x-bound <offset_x center> - <1/2 image_x width>
+				x = (offset_center[0]) - (image_size[0]/2)
+				# y-bound <offset_y center> - <1/2 image_y width>
+				y = (offset_center[1]) - (image_size[1]/2)
+				left_xy = (int(x),int(y))
+				if self.isDebug: self.console('image centered at: %s'%(offset_center))
+			# else not offsetting
+			else:
+				# calculate upper-left coordinate for drawing into image
+				# x-bound <screen_x center> - <1/2 image_x width>
+				x = (screen_size[0]/2) - (image_size[0]/2)
+				# y-bound <screen_y center> - <1/2 image_y width>
+				y = (screen_size[1]/2) - (image_size[1]/2)
+				left_xy = (int(x),int(y))
 
-		return background
+			# draw
+			background.paste(image, left_xy)
+
+			return background
 
 	def run(self, directory, core=0, queue=None):
 		"""[summary]
@@ -756,39 +824,66 @@ class ROI():
 		for file in directory:
 			# console
 			if self.isDebug and self.isMultiprocessing: self.console('core: %s'%(core),'orange')
+			# defaults
+			psd=None
+			xcf=None
+			bitmap=None
 
 			# read image
-			psd = psd_tools.PSDImage.open(file)
-			imagename = os.path.splitext(os.path.basename(file))[0]
-			if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
+			ext = (Path(file).suffix).lower()
+			## if psd
+			if ext == '.psd':
+				psd = psd_tools.PSDImage.open(file)
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
+			## else if xcf (GIMP)
+			elif ext == '.xcf':
+				psd = psd_tools.PSDImage.open(file)
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
+			## else if bitmap
+			elif ext in ['.bmp','.jpeg','.jpg','.png']:
+				psd = psd_tools.PSDImage.open(file)
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
+			else:
+				error = "Image format not valid. Acceptable image formats are: psd (photoshop), xcf (gimp), or png/bmp/jpg (bitmap)."
+				raise Exception(error)
 
 			# clear lists
 			l_bounds = [] #list of bounds
 			l_contours = [] #list of contours
 
 			#!!!----for each image, save image file
-			if self.save['raw']:
-				#self.console('test')
-				# process imaage
-				image = self.process_image(psd=psd)
+			# raw imaage
+			image = self.process_image(psd=psd, xcf=xcf, bitmap=bitmap, isRaw=True)
+			## check folder
+			_folder = '%s/img/raw/'%(self.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			## save raw
+			fig = plt.figure()
+			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
+			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
+			plt.close(fig)
 
-				# check folder
-				_folder = '%s/img/'%(self.output_path)
-				if not os.path.exists(_folder):
-					os.makedirs(_folder)
-
-				# figure
-				fig = plt.figure()
-				plt.imshow(np.array(image), zorder=1, interpolation='bilinear', alpha=1)
-				plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
-				plt.close(fig)
-				#self.console('test1', 'red')
+			# preprocessed imaage (image with relevant screensize and position)
+			image = self.process_image(psd=psd, xcf=xcf, bitmap=bitmap)
+			## check folder
+			_folder = '%s/img/preprocessed/'%(self.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			## save preprocessed
+			fig = plt.figure()
+			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
+			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi)
+			plt.close(fig)
 
 			#!!!----for each region of interest
 			## counter
 			roinumber = 1
-			## create matplotlib plot()
-			## do for each roi
+
+			## run
 			for layer in psd:
 				# skip if layer is main image
 				if Path(layer.name).stem == imagename:
@@ -800,7 +895,7 @@ class ROI():
 
 					# process image
 					#self.console('test3', 'red')
-					image = self.process_image(layer)
+					image = self.process_image(psd=layer, xcf=xcf, bitmap=bitmap)
 
 					# create contours
 					#self.console('test4', 'red')

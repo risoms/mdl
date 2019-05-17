@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking._eyelink &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>imhr.eyetracking._eyelink &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -125,11 +125,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +137,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
@@ -259,37 +259,37 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.calibration" title="imhr.eyetracking._eyelink.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.calibration" title="imhr.eyetracking._eyelink.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>(self)</td>
 <td>Start calibration procedure.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.connect" title="imhr.eyetracking._eyelink.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.connect" title="imhr.eyetracking._eyelink.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(self[,&nbsp;calibration_type,&nbsp;…])</td>
 <td>Connect to Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.drift_correction" title="imhr.eyetracking._eyelink.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.drift_correction" title="imhr.eyetracking._eyelink.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>(self[,&nbsp;origin])</td>
 <td>Starts drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.finish_recording" title="imhr.eyetracking._eyelink.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.finish_recording" title="imhr.eyetracking._eyelink.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>(self[,&nbsp;path])</td>
 <td>Ending Eyelink recording.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.gc" title="imhr.eyetracking._eyelink.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.gc" title="imhr.eyetracking._eyelink.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(self,&nbsp;bound,&nbsp;min_[,&nbsp;max_])</td>
 <td>Creates gaze contigent event.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.sample" title="imhr.eyetracking._eyelink.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.sample" title="imhr.eyetracking._eyelink.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(self)</td>
 <td>Collects new gaze coordinates from Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_message" title="imhr.eyetracking._eyelink.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_message" title="imhr.eyetracking._eyelink.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(self,&nbsp;msg)</td>
 <td>Send message to Eyelink.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_variable" title="imhr.eyetracking._eyelink.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_variable" title="imhr.eyetracking._eyelink.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(self,&nbsp;variables)</td>
 <td>send trial variable to eyelink at the end of trial.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.set_eye_used" title="imhr.eyetracking._eyelink.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.set_eye_used" title="imhr.eyetracking._eyelink.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(self,&nbsp;eye)</td>
 <td>Set dominant eye.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.start_recording" title="imhr.eyetracking._eyelink.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.start_recording" title="imhr.eyetracking._eyelink.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(self,&nbsp;trial,&nbsp;block)</td>
 <td>Starts recording of Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.stop_recording" title="imhr.eyetracking._eyelink.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.stop_recording" title="imhr.eyetracking._eyelink.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>(self[,&nbsp;trial,&nbsp;block,&nbsp;variables])</td>
 <td>Stops recording of Eyelink.</td>
 </tr>
 </tbody>
@@ -300,44 +300,44 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.calibration" title="imhr.eyetracking._eyelink.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.calibration" title="imhr.eyetracking._eyelink.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>(self)</td>
 <td>Start calibration procedure.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.connect" title="imhr.eyetracking._eyelink.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.connect" title="imhr.eyetracking._eyelink.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(self[,&nbsp;calibration_type,&nbsp;…])</td>
 <td>Connect to Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.drift_correction" title="imhr.eyetracking._eyelink.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.drift_correction" title="imhr.eyetracking._eyelink.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>(self[,&nbsp;origin])</td>
 <td>Starts drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.finish_recording" title="imhr.eyetracking._eyelink.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.finish_recording" title="imhr.eyetracking._eyelink.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>(self[,&nbsp;path])</td>
 <td>Ending Eyelink recording.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.gc" title="imhr.eyetracking._eyelink.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.gc" title="imhr.eyetracking._eyelink.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(self,&nbsp;bound,&nbsp;min_[,&nbsp;max_])</td>
 <td>Creates gaze contigent event.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.sample" title="imhr.eyetracking._eyelink.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.sample" title="imhr.eyetracking._eyelink.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(self)</td>
 <td>Collects new gaze coordinates from Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_message" title="imhr.eyetracking._eyelink.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_message" title="imhr.eyetracking._eyelink.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(self,&nbsp;msg)</td>
 <td>Send message to Eyelink.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_variable" title="imhr.eyetracking._eyelink.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.send_variable" title="imhr.eyetracking._eyelink.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(self,&nbsp;variables)</td>
 <td>send trial variable to eyelink at the end of trial.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.set_eye_used" title="imhr.eyetracking._eyelink.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.set_eye_used" title="imhr.eyetracking._eyelink.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(self,&nbsp;eye)</td>
 <td>Set dominant eye.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.start_recording" title="imhr.eyetracking._eyelink.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.start_recording" title="imhr.eyetracking._eyelink.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(self,&nbsp;trial,&nbsp;block)</td>
 <td>Starts recording of Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.stop_recording" title="imhr.eyetracking._eyelink.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._eyelink.Eyelink.stop_recording" title="imhr.eyetracking._eyelink.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>(self[,&nbsp;trial,&nbsp;block,&nbsp;variables])</td>
 <td>Stops recording of Eyelink.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.connect">
-<code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">connect</code><span class="sig-paren">(</span><em>self</em>, <em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect to Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -347,24 +347,24 @@
 <dt><strong>ip</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code></a></span></dt>
 <dd><p class="first last">Host PC ip address.</p>
 </dd>
-<dt><strong>calibration_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>calibration_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Calibration type. Default is 13-point. [see <a class="reference external" href="../manual/EyeLink%201000%20Plus%20User%20Manual%201.0.12.pdf">Eyelink 1000 Plus User Manual, 3.7 Calibration</a>]</p>
 </dd>
-<dt><strong>automatic_calibration_pacing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>automatic_calibration_pacing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Select the delay in milliseconds, between successive calibration or validation targets 
 if automatic target detection is activeSet automatic calibration pacing. [see <a class="reference external" href="../manual/pylink.chm">pylink.chm</a>]</p>
 </dd>
-<dt><strong>saccade_velocity_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>saccade_velocity_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Sets velocity threshold of saccade detector: usually 30 for cognitive research, 22 for 
 pursuit and neurological work. Default is 35. Note: EyeLink II and EyeLink 1000,
 select select_parser_configuration should be used instead. [see <a class="reference external" href="../manual/EyeLink%20Programmers%20Guide.pdf">EyeLink Programmer’s Guide,             Section 25.9: Parser Configuration</a>; <a class="reference external" href="../manual/EyeLink%201000%20Plus%20User%20Manual%201.0.12.pdf">Eyelink 1000 Plus                     User Manual, Section 4.3.5 Saccadic Thresholds</a>]</p>
 </dd>
-<dt><strong>saccade_acceleration_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>saccade_acceleration_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Sets acceleration threshold of saccade detector: usually 9500 for cognitive research, 5000 
 for pursuit and neurological work. Default is 9500. Note: For EyeLink II and EyeLink 1000,
 select select_parser_configuration should be used instead. [see <a class="reference external" href="../manual/EyeLink%20Programmers%20Guide.pdf">EyeLink Programmer’s Guide,             Section 25.9: Parser Configuration</a>;                        <a class="reference external" href="../manual/EyeLink%201000%20Plus%20User%20Manual%201.0.12.pdf">Eyelink 1000 Plus User Manual, Section 4.3.5 Saccadic Thresholds</a>]</p>
 </dd>
-<dt><strong>select_parser_configuration</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>select_parser_configuration</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Selects the preset standard parser setup (0) or more sensitive (1). These are equivalent
 to the cognitive and psychophysical configurations. Default is 0. [see <a class="reference external" href="../manual/EyeLink%20Programmers%20Guide.pdf">EyeLink Programmer’s             Guide, Section 25.9: Parser Configuration</a>]</p>
 </dd>
@@ -398,7 +398,7 @@ Enter either ‘GAZE’ or ‘HREF’. Default is ‘GAZE’. [see <a class="ref
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.set_eye_used">
-<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>self</em>, <em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dominant eye. This step is required for recieving gaze coordinates from Eyelink-&gt;Psychopy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -422,7 +422,7 @@ Enter either ‘GAZE’ or ‘HREF’. Default is ‘GAZE’. [see <a class="ref
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.calibration">
-<code class="descname">calibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calibration</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start calibration procedure.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -445,7 +445,7 @@ Enter either ‘GAZE’ or ‘HREF’. Default is ‘GAZE’. [see <a class="ref
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.drift_correction">
-<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>self</em>, <em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts drift correction. This can be done at any point after calibration, including before 
 and after eyetracking.start_recording has already been initiated.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -479,7 +479,7 @@ correction has occured, it is safe to run start_recording.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.start_recording">
-<code class="descname">start_recording</code><span class="sig-paren">(</span><em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">start_recording</code><span class="sig-paren">(</span><em>self</em>, <em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts recording of Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -535,22 +535,22 @@ trial start is lost.
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.gc">
-<code class="descname">gc</code><span class="sig-paren">(</span><em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gc</code><span class="sig-paren">(</span><em>self</em>, <em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates gaze contigent event. This function needs to be run while recording.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bound</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]:</span></dt>
+<dt><strong>bound</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]:</span></dt>
 <dd><p class="first last">Dictionary of the bounding box for each region of interest. Keys are each side of the 
 bounding box and values are their corresponding coordinates in pixels.</p>
 </dd>
-<dt><strong>min_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>min_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Mininum duration (msec) in which gaze contigent capture is collecting data before allowing
 the task to continue.</p>
 </dd>
-<dt><strong>max_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
+<dt><strong>max_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
 <dd><p class="first last">Maxinum duration (msec) before task is forced to go into drift correction.</p>
 </dd>
 </dl>
@@ -569,7 +569,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects new gaze coordinates from Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -598,7 +598,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.send_message">
-<code class="descname">send_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_message</code><span class="sig-paren">(</span><em>self</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send message to Eyelink. This allows post-hoc processing of event markers (i.e. “stimulus onset”).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -621,7 +621,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.send_variable">
-<code class="descname">send_variable</code><span class="sig-paren">(</span><em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_variable</code><span class="sig-paren">(</span><em>self</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>send trial variable to eyelink at the end of trial.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -640,17 +640,17 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.stop_recording">
-<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>self</em>, <em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops recording of Eyelink. Also allows transmission of trial-level variables to Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Trial Number.</p>
 </dd>
-<dt><strong>block</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>block</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Block Number.</p>
 </dd>
 <dt><strong>variables</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
@@ -709,7 +709,7 @@ data loading preference settings.
 
 <dl class="method">
 <dt id="imhr.eyetracking._eyelink.Eyelink.finish_recording">
-<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>self</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._eyelink.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ending Eyelink recording.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -778,7 +778,7 @@ filename should be given.
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -43,13 +43,13 @@ After installation, you can launch the test suite after downloading from `github
 
 .. code-block:: console
 	
-	$ pytest --pyargs mdl.tests --html=report.html --self-contained-html
+	$ pytest --pyargs imhr.tests --html=report.html --self-contained-html
 
 or from the Python interpreter:
 
 .. code-block:: python
 	
-	import mdl
-	mdl.tests
+	import imhr
+	imhr.tests
 
 Note that the test suite requires pytest. Please install with pip or your package manager of choice.

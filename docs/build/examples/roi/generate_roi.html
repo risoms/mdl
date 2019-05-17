@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>roi &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>roi &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -113,7 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -127,11 +127,6 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +139,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.download.html">imhr.download</a><ul class="simple">
@@ -178,11 +178,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -238,11 +233,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -463,58 +453,51 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Region-of-Interest">
 <h1>Region of Interest<a class="headerlink" href="#Region-of-Interest" title="Permalink to this headline">¶</a></h1>
-<div class="info"><p><p>&#64;date:Created on Sat May 1 15:12:38 2019</p>
+<div class="info"><p><p>&#64;purpose: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.</p>
+</p><p><p>&#64;date:Created on Sat May 1 15:12:38 2019</p>
 </p><p><p>&#64;author: Semeon Risom</p>
 </p><p><p>&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </p><p><p>&#64;url: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></p>
-</p><p><p>&#64;purpose: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.</p>
 </p></div><div class="section" id="Read-ROI-from-photoshop-PSD-files">
 <h2>Read ROI from photoshop PSD files<a class="headerlink" href="#Read-ROI-from-photoshop-PSD-files" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="import-mdl-package">
-<h2>import mdl package<a class="headerlink" href="#import-mdl-package" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
+<p><p>Import imhr package.</p>
+</p><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">mdl</span>
+<span></span><span class="kn">import</span> <span class="nn">imhr</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="set-path">
-<h2>set path<a class="headerlink" href="#set-path" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
+<p><p>Declare the path of the images to be processed, the output, and (if using) the metadata source.</p>
+</p><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/raw/&#39;</span>
+<span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/raw/1/&#39;</span>
 <span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/output/&#39;</span>
-<span class="n">metadata_source</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/metadata.xlsx&#39;</span>
+<span class="n">metadata_source</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/roi/raw/1/metadata.xlsx&#39;</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="initiate">
-<h2>initiate<a class="headerlink" href="#initiate" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
+<p><p>Initiate the <a class="reference external" href="../../../build/api/imhr.eyetracking.html#imhr.eyetracking.ROI">imhr.eyetracking.ROI</a> module, along with relevant parameters.</p>
+</p><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">isLibrary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span><span class="n">roi</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">detection</span><span class="o">=</span><span class="s1">&#39;manual&#39;</span><span class="p">,</span>
     <span class="n">image_path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="n">metadata_source</span><span class="p">,</span>
-    <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">5</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">5</span><span class="p">)],</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span>
-    <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;position&#39;</span><span class="p">],</span> <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">})</span>
+    <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span> <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span>
+    <span class="n">recenter</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">50</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">25</span><span class="p">)],</span> <span class="n">uuid</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;position&#39;</span><span class="p">],</span>
+    <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;topcenter&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="start">
-<h2>start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
+<p><p>Start module.</p>
+</p><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -529,83 +512,196 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-magenta-bg">not multiprocessing</span>
-<span class="ansi-yellow-bg">core: 0</span>
-<span class="ansi-green-bg">for each image</span>
+<span class="ansi-magenta-bg">starting()</span>
+<span class="ansi-magenta-bg">for each image</span>
 <span class="ansi-cyan-bg">
 # file: AM_201</span>
-<span class="ansi-magenta-bg">virtual memory used: 60.6 %</span>
-
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi1</span>
 <span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi2</span>
 <span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi3</span>
 <span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi4</span>
 <span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi5</span>
 <span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi6</span>
 <span class="ansi-green-bg">## roilabel: roi6</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi7</span>
 <span class="ansi-green-bg">## roilabel: roi7</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi8</span>
 <span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_201_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_201_bounds.ias</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/bounds/AM_201.png</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/contours/AM_201.png</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_201_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_201_bounds.ias</span>
 <span class="ansi-cyan-bg">
 # file: AM_203</span>
-<span class="ansi-magenta-bg">virtual memory used: 61.2 %</span>
-
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi1</span>
 <span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi2</span>
 <span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi3</span>
 <span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi4</span>
 <span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi5</span>
 <span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi6</span>
 <span class="ansi-green-bg">## roilabel: roi6</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi7</span>
 <span class="ansi-green-bg">## roilabel: roi7</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi8</span>
 <span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_203_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_203_bounds.ias</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/bounds/AM_203.png</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/contours/AM_203.png</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_203_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_203_bounds.ias</span>
 <span class="ansi-cyan-bg">
 # file: AM_204</span>
-<span class="ansi-magenta-bg">virtual memory used: 61.3 %</span>
-
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi1</span>
 <span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi2</span>
 <span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi3</span>
 <span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi4</span>
 <span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi5</span>
 <span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi6</span>
 <span class="ansi-green-bg">## roilabel: roi6</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi7</span>
 <span class="ansi-green-bg">## roilabel: roi7</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
 <span class="ansi-cyan-bg">## roiname: roi8</span>
 <span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_204_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output//data/img//AM_204_bounds.ias</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/bounds/AM_204.png</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/contours/AM_204.png</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_204_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_204_bounds.ias</span>
+<span class="ansi-cyan-bg">
+# file: AM_223</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## roiname: roi1</span>
+<span class="ansi-green-bg">## roilabel: roi1</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## roiname: roi2</span>
+<span class="ansi-green-bg">## roilabel: roi2</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## roiname: roi3</span>
+<span class="ansi-green-bg">## roilabel: roi3</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## roiname: roi4</span>
+<span class="ansi-green-bg">## roilabel: roi4</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## roiname: roi5</span>
+<span class="ansi-green-bg">## roilabel: roi5</span>
+<span class="ansi-cyan-bg"># export image</span>
+<span class="ansi-green-bg">image size: [1222, 859], scaled to: [611, 429]</span>
+<span class="ansi-cyan-bg">image centered at: [960.0, 270.0]</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/bounds/AM_223.png</span>
+<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/roi/output/img/contours/AM_223.png</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_223_bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output/data/AM_223_bounds.ias</span>
+<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output/bounds.xlsx</span>
+<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output/bounds.ias</span>
 <span class="ansi-magenta-bg">finished()</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/roi/output///bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/roi/output///bounds.ias</span>
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="results">
-<h2>results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
+<p><p>Finally, here are the results.</p>
+</p><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
@@ -654,367 +750,1240 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>445</td>
-      <td>440</td>
-      <td>580</td>
-      <td>314</td>
+      <td>874</td>
+      <td>277</td>
+      <td>946</td>
+      <td>209</td>
       <td>AM_201</td>
       <td>roi1</td>
       <td>1</td>
       <td>RECTANGLE</td>
       <td>asian</td>
       <td>lefteye</td>
-      <td>center</td>
-      <td>AM_201roi1center</td>
+      <td>topcenter</td>
+      <td>AM_201roi1topcenter</td>
     </tr>
     <tr>
       <th>0</th>
-      <td>625</td>
-      <td>437</td>
-      <td>764</td>
-      <td>313</td>
+      <td>964</td>
+      <td>275</td>
+      <td>1038</td>
+      <td>209</td>
       <td>AM_201</td>
       <td>roi2</td>
       <td>2</td>
       <td>RECTANGLE</td>
       <td>asian</td>
       <td>righteye</td>
-      <td>center</td>
-      <td>AM_201roi2center</td>
+      <td>topcenter</td>
+      <td>AM_201roi2topcenter</td>
     </tr>
     <tr>
       <th>0</th>
-      <td>550</td>
-      <td>537</td>
-      <td>660</td>
-      <td>457</td>
+      <td>926</td>
+      <td>325</td>
+      <td>986</td>
+      <td>281</td>
       <td>AM_201</td>
       <td>roi3</td>
       <td>3</td>
       <td>RECTANGLE</td>
       <td>asian</td>
       <td>nose</td>
-      <td>center</td>
-      <td>AM_201roi3center</td>
+      <td>topcenter</td>
+      <td>AM_201roi3topcenter</td>
     </tr>
     <tr>
       <th>0</th>
-      <td>534</td>
-      <td>643</td>
-      <td>685</td>
-      <td>562</td>
+      <td>920</td>
+      <td>379</td>
+      <td>997</td>
+      <td>334</td>
       <td>AM_201</td>
       <td>roi4</td>
       <td>4</td>
       <td>RECTANGLE</td>
       <td>asian</td>
       <td>mouth</td>
-      <td>center</td>
-      <td>AM_201roi4center</td>
+      <td>topcenter</td>
+      <td>AM_201roi4topcenter</td>
     </tr>
     <tr>
       <th>0</th>
-      <td>476</td>
-      <td>751</td>
-      <td>475</td>
-      <td>659</td>
-      <td>AM_201</td>
-      <td>roi5</td>
-      <td>5</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>chin</td>
-      <td>center</td>
-      <td>AM_201roi5center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>457</td>
-      <td>294</td>
-      <td>752</td>
-      <td>197</td>
-      <td>AM_201</td>
-      <td>roi6</td>
-      <td>6</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>forehead</td>
-      <td>center</td>
-      <td>AM_201roi6center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>381</td>
-      <td>560</td>
-      <td>352</td>
-      <td>428</td>
-      <td>AM_201</td>
-      <td>roi7</td>
-      <td>7</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>leftear</td>
-      <td>center</td>
-      <td>AM_201roi7center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>850</td>
-      <td>534</td>
-      <td>795</td>
-      <td>530</td>
-      <td>AM_201</td>
-      <td>roi8</td>
-      <td>8</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>rightear</td>
-      <td>center</td>
-      <td>AM_201roi8center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>430</td>
-      <td>422</td>
-      <td>593</td>
-      <td>282</td>
-      <td>AM_203</td>
-      <td>roi1</td>
-      <td>1</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>lefteye</td>
-      <td>center</td>
-      <td>AM_203roi1center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>635</td>
-      <td>413</td>
-      <td>786</td>
-      <td>302</td>
-      <td>AM_203</td>
-      <td>roi2</td>
-      <td>2</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>righteye</td>
-      <td>center</td>
-      <td>AM_203roi2center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>550</td>
-      <td>525</td>
-      <td>679</td>
-      <td>433</td>
-      <td>AM_203</td>
-      <td>roi3</td>
-      <td>3</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>nose</td>
-      <td>center</td>
-      <td>AM_203roi3center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>529</td>
-      <td>642</td>
-      <td>695</td>
-      <td>548</td>
-      <td>AM_203</td>
-      <td>roi4</td>
-      <td>4</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>mouth</td>
-      <td>center</td>
-      <td>AM_203roi4center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>719</td>
-      <td>733</td>
-      <td>465</td>
-      <td>713</td>
-      <td>AM_203</td>
-      <td>roi5</td>
-      <td>5</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>chin</td>
-      <td>center</td>
-      <td>AM_203roi5center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>425</td>
-      <td>269</td>
-      <td>422</td>
-      <td>150</td>
-      <td>AM_203</td>
-      <td>roi6</td>
-      <td>6</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>forehead</td>
-      <td>center</td>
-      <td>AM_203roi6center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>362</td>
-      <td>537</td>
-      <td>348</td>
-      <td>368</td>
-      <td>AM_203</td>
-      <td>roi7</td>
-      <td>7</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>leftear</td>
-      <td>center</td>
-      <td>AM_203roi7center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>853</td>
-      <td>521</td>
-      <td>799</td>
-      <td>519</td>
-      <td>AM_203</td>
-      <td>roi8</td>
-      <td>8</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>rightear</td>
-      <td>center</td>
-      <td>AM_203roi8center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>440</td>
-      <td>440</td>
-      <td>587</td>
-      <td>327</td>
-      <td>AM_204</td>
-      <td>roi1</td>
-      <td>1</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>lefteye</td>
-      <td>center</td>
-      <td>AM_204roi1center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>631</td>
-      <td>434</td>
-      <td>778</td>
-      <td>310</td>
-      <td>AM_204</td>
-      <td>roi2</td>
-      <td>2</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>righteye</td>
-      <td>center</td>
-      <td>AM_204roi2center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>674</td>
-      <td>524</td>
-      <td>536</td>
-      <td>514</td>
-      <td>AM_204</td>
-      <td>roi3</td>
-      <td>3</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>nose</td>
-      <td>center</td>
-      <td>AM_204roi3center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>520</td>
-      <td>631</td>
-      <td>695</td>
-      <td>538</td>
-      <td>AM_204</td>
-      <td>roi4</td>
-      <td>4</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>mouth</td>
-      <td>center</td>
-      <td>AM_204roi4center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>714</td>
-      <td>727</td>
-      <td>486</td>
-      <td>715</td>
-      <td>AM_204</td>
-      <td>roi5</td>
-      <td>5</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>chin</td>
-      <td>center</td>
-      <td>AM_204roi5center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>434</td>
-      <td>282</td>
+      <td>889</td>
       <td>432</td>
-      <td>157</td>
+      <td>888</td>
+      <td>382</td>
+      <td>AM_201</td>
+      <td>roi5</td>
+      <td>5</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>chin</td>
+      <td>topcenter</td>
+      <td>AM_201roi5topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>880</td>
+      <td>204</td>
+      <td>1032</td>
+      <td>151</td>
+      <td>AM_201</td>
+      <td>roi6</td>
+      <td>6</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>forehead</td>
+      <td>topcenter</td>
+      <td>AM_201roi6topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>842</td>
+      <td>337</td>
+      <td>827</td>
+      <td>266</td>
+      <td>AM_201</td>
+      <td>roi7</td>
+      <td>7</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>leftear</td>
+      <td>topcenter</td>
+      <td>AM_201roi7topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1081</td>
+      <td>323</td>
+      <td>1048</td>
+      <td>321</td>
+      <td>AM_201</td>
+      <td>roi8</td>
+      <td>8</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>rightear</td>
+      <td>topcenter</td>
+      <td>AM_201roi8topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>866</td>
+      <td>268</td>
+      <td>953</td>
+      <td>194</td>
+      <td>AM_203</td>
+      <td>roi1</td>
+      <td>1</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>lefteye</td>
+      <td>topcenter</td>
+      <td>AM_203roi1topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>969</td>
+      <td>263</td>
+      <td>1049</td>
+      <td>203</td>
+      <td>AM_203</td>
+      <td>roi2</td>
+      <td>2</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>righteye</td>
+      <td>topcenter</td>
+      <td>AM_203roi2topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>927</td>
+      <td>319</td>
+      <td>996</td>
+      <td>269</td>
+      <td>AM_203</td>
+      <td>roi3</td>
+      <td>3</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>nose</td>
+      <td>topcenter</td>
+      <td>AM_203roi3topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>916</td>
+      <td>378</td>
+      <td>1004</td>
+      <td>326</td>
+      <td>AM_203</td>
+      <td>roi4</td>
+      <td>4</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>mouth</td>
+      <td>topcenter</td>
+      <td>AM_203roi4topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1016</td>
+      <td>423</td>
+      <td>883</td>
+      <td>413</td>
+      <td>AM_203</td>
+      <td>roi5</td>
+      <td>5</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>chin</td>
+      <td>topcenter</td>
+      <td>AM_203roi5topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>864</td>
+      <td>191</td>
+      <td>863</td>
+      <td>127</td>
+      <td>AM_203</td>
+      <td>roi6</td>
+      <td>6</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>forehead</td>
+      <td>topcenter</td>
+      <td>AM_203roi6topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>832</td>
+      <td>325</td>
+      <td>825</td>
+      <td>237</td>
+      <td>AM_203</td>
+      <td>roi7</td>
+      <td>7</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>leftear</td>
+      <td>topcenter</td>
+      <td>AM_203roi7topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1082</td>
+      <td>318</td>
+      <td>1050</td>
+      <td>316</td>
+      <td>AM_203</td>
+      <td>roi8</td>
+      <td>8</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>rightear</td>
+      <td>topcenter</td>
+      <td>AM_203roi8topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>871</td>
+      <td>277</td>
+      <td>950</td>
+      <td>216</td>
+      <td>AM_204</td>
+      <td>roi1</td>
+      <td>1</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>lefteye</td>
+      <td>topcenter</td>
+      <td>AM_204roi1topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>967</td>
+      <td>274</td>
+      <td>1046</td>
+      <td>208</td>
+      <td>AM_204</td>
+      <td>roi2</td>
+      <td>2</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>righteye</td>
+      <td>topcenter</td>
+      <td>AM_204roi2topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>993</td>
+      <td>318</td>
+      <td>919</td>
+      <td>314</td>
+      <td>AM_204</td>
+      <td>roi3</td>
+      <td>3</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>nose</td>
+      <td>topcenter</td>
+      <td>AM_204roi3topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>912</td>
+      <td>373</td>
+      <td>1004</td>
+      <td>322</td>
+      <td>AM_204</td>
+      <td>roi4</td>
+      <td>4</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>mouth</td>
+      <td>topcenter</td>
+      <td>AM_204roi4topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1013</td>
+      <td>420</td>
+      <td>894</td>
+      <td>415</td>
+      <td>AM_204</td>
+      <td>roi5</td>
+      <td>5</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>chin</td>
+      <td>topcenter</td>
+      <td>AM_204roi5topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>868</td>
+      <td>198</td>
+      <td>867</td>
+      <td>131</td>
       <td>AM_204</td>
       <td>roi6</td>
       <td>6</td>
       <td>RECTANGLE</td>
       <td>asian</td>
       <td>forehead</td>
-      <td>center</td>
-      <td>AM_204roi6center</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>389</td>
-      <td>547</td>
-      <td>336</td>
-      <td>396</td>
-      <td>AM_204</td>
-      <td>roi7</td>
-      <td>7</td>
-      <td>RECTANGLE</td>
-      <td>asian</td>
-      <td>leftear</td>
-      <td>center</td>
-      <td>AM_204roi7center</td>
+      <td>topcenter</td>
+      <td>AM_204roi6topcenter</td>
     </tr>
     <tr>
       <th>0</th>
       <td>847</td>
-      <td>529</td>
-      <td>794</td>
-      <td>522</td>
+      <td>331</td>
+      <td>819</td>
+      <td>251</td>
+      <td>AM_204</td>
+      <td>roi7</td>
+      <td>7</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>leftear</td>
+      <td>topcenter</td>
+      <td>AM_204roi7topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1055</td>
+      <td>319</td>
+      <td>1088</td>
+      <td>239</td>
       <td>AM_204</td>
       <td>roi8</td>
       <td>8</td>
       <td>RECTANGLE</td>
       <td>asian</td>
       <td>rightear</td>
-      <td>center</td>
-      <td>AM_204roi8center</td>
+      <td>topcenter</td>
+      <td>AM_204roi8topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>869</td>
+      <td>275</td>
+      <td>953</td>
+      <td>200</td>
+      <td>AM_223</td>
+      <td>roi1</td>
+      <td>1</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>lefteye</td>
+      <td>topcenter</td>
+      <td>AM_223roi1topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>966</td>
+      <td>270</td>
+      <td>1048</td>
+      <td>200</td>
+      <td>AM_223</td>
+      <td>roi2</td>
+      <td>2</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>righteye</td>
+      <td>topcenter</td>
+      <td>AM_223roi2topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>926</td>
+      <td>326</td>
+      <td>1000</td>
+      <td>277</td>
+      <td>AM_223</td>
+      <td>roi3</td>
+      <td>3</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>nose</td>
+      <td>topcenter</td>
+      <td>AM_223roi3topcenter</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1004</td>
+      <td>373</td>
+      <td>919</td>
+      <td>369</td>
+      <td>AM_223</td>
+      <td>roi4</td>
+      <td>4</td>
+      <td>RECTANGLE</td>
+      <td>asian</td>
+      <td>mouth</td>
+      <td>topcenter</td>
+      <td>AM_223roi4topcenter</td>
     </tr>
   </tbody>
 </table>
 </div></div>
+</div>
+<p><p>Here’s an example ROI that was created.</p>
+</p><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;/Users/mdl-admin/Desktop/roi/output/img/bounds/AM_201.png&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+/* Put everything inside the global mpl namespace */
+window.mpl = {};
+
+
+mpl.get_websocket_type = function() {
+    if (typeof(WebSocket) !== 'undefined') {
+        return WebSocket;
+    } else if (typeof(MozWebSocket) !== 'undefined') {
+        return MozWebSocket;
+    } else {
+        alert('Your browser does not have WebSocket support.' +
+              'Please try Chrome, Safari or Firefox ≥ 6. ' +
+              'Firefox 4 and 5 are also supported but you ' +
+              'have to enable WebSockets in about:config.');
+    };
+}
+
+mpl.figure = function(figure_id, websocket, ondownload, parent_element) {
+    this.id = figure_id;
+
+    this.ws = websocket;
+
+    this.supports_binary = (this.ws.binaryType != undefined);
+
+    if (!this.supports_binary) {
+        var warnings = document.getElementById("mpl-warnings");
+        if (warnings) {
+            warnings.style.display = 'block';
+            warnings.textContent = (
+                "This browser does not support binary websocket messages. " +
+                    "Performance may be slow.");
+        }
+    }
+
+    this.imageObj = new Image();
+
+    this.context = undefined;
+    this.message = undefined;
+    this.canvas = undefined;
+    this.rubberband_canvas = undefined;
+    this.rubberband_context = undefined;
+    this.format_dropdown = undefined;
+
+    this.image_mode = 'full';
+
+    this.root = $('<div/>');
+    this._root_extra_style(this.root)
+    this.root.attr('style', 'display: inline-block');
+
+    $(parent_element).append(this.root);
+
+    this._init_header(this);
+    this._init_canvas(this);
+    this._init_toolbar(this);
+
+    var fig = this;
+
+    this.waiting = false;
+
+    this.ws.onopen =  function () {
+            fig.send_message("supports_binary", {value: fig.supports_binary});
+            fig.send_message("send_image_mode", {});
+            if (mpl.ratio != 1) {
+                fig.send_message("set_dpi_ratio", {'dpi_ratio': mpl.ratio});
+            }
+            fig.send_message("refresh", {});
+        }
+
+    this.imageObj.onload = function() {
+            if (fig.image_mode == 'full') {
+                // Full images could contain transparency (where diff images
+                // almost always do), so we need to clear the canvas so that
+                // there is no ghosting.
+                fig.context.clearRect(0, 0, fig.canvas.width, fig.canvas.height);
+            }
+            fig.context.drawImage(fig.imageObj, 0, 0);
+        };
+
+    this.imageObj.onunload = function() {
+        fig.ws.close();
+    }
+
+    this.ws.onmessage = this._make_on_message_function(this);
+
+    this.ondownload = ondownload;
+}
+
+mpl.figure.prototype._init_header = function() {
+    var titlebar = $(
+        '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ' +
+        'ui-helper-clearfix"/>');
+    var titletext = $(
+        '<div class="ui-dialog-title" style="width: 100%; ' +
+        'text-align: center; padding: 3px;"/>');
+    titlebar.append(titletext)
+    this.root.append(titlebar);
+    this.header = titletext[0];
+}
+
+
+
+mpl.figure.prototype._canvas_extra_style = function(canvas_div) {
+
+}
+
+
+mpl.figure.prototype._root_extra_style = function(canvas_div) {
+
+}
+
+mpl.figure.prototype._init_canvas = function() {
+    var fig = this;
+
+    var canvas_div = $('<div/>');
+
+    canvas_div.attr('style', 'position: relative; clear: both; outline: 0');
+
+    function canvas_keyboard_event(event) {
+        return fig.key_event(event, event['data']);
+    }
+
+    canvas_div.keydown('key_press', canvas_keyboard_event);
+    canvas_div.keyup('key_release', canvas_keyboard_event);
+    this.canvas_div = canvas_div
+    this._canvas_extra_style(canvas_div)
+    this.root.append(canvas_div);
+
+    var canvas = $('<canvas/>');
+    canvas.addClass('mpl-canvas');
+    canvas.attr('style', "left: 0; top: 0; z-index: 0; outline: 0")
+
+    this.canvas = canvas[0];
+    this.context = canvas[0].getContext("2d");
+
+    var backingStore = this.context.backingStorePixelRatio ||
+    this.context.webkitBackingStorePixelRatio ||
+    this.context.mozBackingStorePixelRatio ||
+    this.context.msBackingStorePixelRatio ||
+    this.context.oBackingStorePixelRatio ||
+    this.context.backingStorePixelRatio || 1;
+
+    mpl.ratio = (window.devicePixelRatio || 1) / backingStore;
+
+    var rubberband = $('<canvas/>');
+    rubberband.attr('style', "position: absolute; left: 0; top: 0; z-index: 1;")
+
+    var pass_mouse_events = true;
+
+    canvas_div.resizable({
+        start: function(event, ui) {
+            pass_mouse_events = false;
+        },
+        resize: function(event, ui) {
+            fig.request_resize(ui.size.width, ui.size.height);
+        },
+        stop: function(event, ui) {
+            pass_mouse_events = true;
+            fig.request_resize(ui.size.width, ui.size.height);
+        },
+    });
+
+    function mouse_event_fn(event) {
+        if (pass_mouse_events)
+            return fig.mouse_event(event, event['data']);
+    }
+
+    rubberband.mousedown('button_press', mouse_event_fn);
+    rubberband.mouseup('button_release', mouse_event_fn);
+    // Throttle sequential mouse events to 1 every 20ms.
+    rubberband.mousemove('motion_notify', mouse_event_fn);
+
+    rubberband.mouseenter('figure_enter', mouse_event_fn);
+    rubberband.mouseleave('figure_leave', mouse_event_fn);
+
+    canvas_div.on("wheel", function (event) {
+        event = event.originalEvent;
+        event['data'] = 'scroll'
+        if (event.deltaY < 0) {
+            event.step = 1;
+        } else {
+            event.step = -1;
+        }
+        mouse_event_fn(event);
+    });
+
+    canvas_div.append(canvas);
+    canvas_div.append(rubberband);
+
+    this.rubberband = rubberband;
+    this.rubberband_canvas = rubberband[0];
+    this.rubberband_context = rubberband[0].getContext("2d");
+    this.rubberband_context.strokeStyle = "#000000";
+
+    this._resize_canvas = function(width, height) {
+        // Keep the size of the canvas, canvas container, and rubber band
+        // canvas in synch.
+        canvas_div.css('width', width)
+        canvas_div.css('height', height)
+
+        canvas.attr('width', width * mpl.ratio);
+        canvas.attr('height', height * mpl.ratio);
+        canvas.attr('style', 'width: ' + width + 'px; height: ' + height + 'px;');
+
+        rubberband.attr('width', width);
+        rubberband.attr('height', height);
+    }
+
+    // Set the figure to an initial 600x600px, this will subsequently be updated
+    // upon first draw.
+    this._resize_canvas(600, 600);
+
+    // Disable right mouse context menu.
+    $(this.rubberband_canvas).bind("contextmenu",function(e){
+        return false;
+    });
+
+    function set_focus () {
+        canvas.focus();
+        canvas_div.focus();
+    }
+
+    window.setTimeout(set_focus, 100);
+}
+
+mpl.figure.prototype._init_toolbar = function() {
+    var fig = this;
+
+    var nav_element = $('<div/>')
+    nav_element.attr('style', 'width: 100%');
+    this.root.append(nav_element);
+
+    // Define a callback function for later on.
+    function toolbar_event(event) {
+        return fig.toolbar_button_onclick(event['data']);
+    }
+    function toolbar_mouse_event(event) {
+        return fig.toolbar_button_onmouseover(event['data']);
+    }
+
+    for(var toolbar_ind in mpl.toolbar_items) {
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) {
+            // put a spacer in here.
+            continue;
+        }
+        var button = $('<button/>');
+        button.addClass('ui-button ui-widget ui-state-default ui-corner-all ' +
+                        'ui-button-icon-only');
+        button.attr('role', 'button');
+        button.attr('aria-disabled', 'false');
+        button.click(method_name, toolbar_event);
+        button.mouseover(tooltip, toolbar_mouse_event);
+
+        var icon_img = $('<span/>');
+        icon_img.addClass('ui-button-icon-primary ui-icon');
+        icon_img.addClass(image);
+        icon_img.addClass('ui-corner-all');
+
+        var tooltip_span = $('<span/>');
+        tooltip_span.addClass('ui-button-text');
+        tooltip_span.html(tooltip);
+
+        button.append(icon_img);
+        button.append(tooltip_span);
+
+        nav_element.append(button);
+    }
+
+    var fmt_picker_span = $('<span/>');
+
+    var fmt_picker = $('<select/>');
+    fmt_picker.addClass('mpl-toolbar-option ui-widget ui-widget-content');
+    fmt_picker_span.append(fmt_picker);
+    nav_element.append(fmt_picker_span);
+    this.format_dropdown = fmt_picker[0];
+
+    for (var ind in mpl.extensions) {
+        var fmt = mpl.extensions[ind];
+        var option = $(
+            '<option/>', {selected: fmt === mpl.default_extension}).html(fmt);
+        fmt_picker.append(option)
+    }
+
+    // Add hover states to the ui-buttons
+    $( ".ui-button" ).hover(
+        function() { $(this).addClass("ui-state-hover");},
+        function() { $(this).removeClass("ui-state-hover");}
+    );
+
+    var status_bar = $('<span class="mpl-message"/>');
+    nav_element.append(status_bar);
+    this.message = status_bar[0];
+}
+
+mpl.figure.prototype.request_resize = function(x_pixels, y_pixels) {
+    // Request matplotlib to resize the figure. Matplotlib will then trigger a resize in the client,
+    // which will in turn request a refresh of the image.
+    this.send_message('resize', {'width': x_pixels, 'height': y_pixels});
+}
+
+mpl.figure.prototype.send_message = function(type, properties) {
+    properties['type'] = type;
+    properties['figure_id'] = this.id;
+    this.ws.send(JSON.stringify(properties));
+}
+
+mpl.figure.prototype.send_draw_message = function() {
+    if (!this.waiting) {
+        this.waiting = true;
+        this.ws.send(JSON.stringify({type: "draw", figure_id: this.id}));
+    }
+}
+
+
+mpl.figure.prototype.handle_save = function(fig, msg) {
+    var format_dropdown = fig.format_dropdown;
+    var format = format_dropdown.options[format_dropdown.selectedIndex].value;
+    fig.ondownload(fig, format);
+}
+
+
+mpl.figure.prototype.handle_resize = function(fig, msg) {
+    var size = msg['size'];
+    if (size[0] != fig.canvas.width || size[1] != fig.canvas.height) {
+        fig._resize_canvas(size[0], size[1]);
+        fig.send_message("refresh", {});
+    };
+}
+
+mpl.figure.prototype.handle_rubberband = function(fig, msg) {
+    var x0 = msg['x0'] / mpl.ratio;
+    var y0 = (fig.canvas.height - msg['y0']) / mpl.ratio;
+    var x1 = msg['x1'] / mpl.ratio;
+    var y1 = (fig.canvas.height - msg['y1']) / mpl.ratio;
+    x0 = Math.floor(x0) + 0.5;
+    y0 = Math.floor(y0) + 0.5;
+    x1 = Math.floor(x1) + 0.5;
+    y1 = Math.floor(y1) + 0.5;
+    var min_x = Math.min(x0, x1);
+    var min_y = Math.min(y0, y1);
+    var width = Math.abs(x1 - x0);
+    var height = Math.abs(y1 - y0);
+
+    fig.rubberband_context.clearRect(
+        0, 0, fig.canvas.width, fig.canvas.height);
+
+    fig.rubberband_context.strokeRect(min_x, min_y, width, height);
+}
+
+mpl.figure.prototype.handle_figure_label = function(fig, msg) {
+    // Updates the figure title.
+    fig.header.textContent = msg['label'];
+}
+
+mpl.figure.prototype.handle_cursor = function(fig, msg) {
+    var cursor = msg['cursor'];
+    switch(cursor)
+    {
+    case 0:
+        cursor = 'pointer';
+        break;
+    case 1:
+        cursor = 'default';
+        break;
+    case 2:
+        cursor = 'crosshair';
+        break;
+    case 3:
+        cursor = 'move';
+        break;
+    }
+    fig.rubberband_canvas.style.cursor = cursor;
+}
+
+mpl.figure.prototype.handle_message = function(fig, msg) {
+    fig.message.textContent = msg['message'];
+}
+
+mpl.figure.prototype.handle_draw = function(fig, msg) {
+    // Request the server to send over a new figure.
+    fig.send_draw_message();
+}
+
+mpl.figure.prototype.handle_image_mode = function(fig, msg) {
+    fig.image_mode = msg['mode'];
+}
+
+mpl.figure.prototype.updated_canvas_event = function() {
+    // Called whenever the canvas gets updated.
+    this.send_message("ack", {});
+}
+
+// A function to construct a web socket function for onmessage handling.
+// Called in the figure constructor.
+mpl.figure.prototype._make_on_message_function = function(fig) {
+    return function socket_on_message(evt) {
+        if (evt.data instanceof Blob) {
+            /* FIXME: We get "Resource interpreted as Image but
+             * transferred with MIME type text/plain:" errors on
+             * Chrome.  But how to set the MIME type?  It doesn't seem
+             * to be part of the websocket stream */
+            evt.data.type = "image/png";
+
+            /* Free the memory for the previous frames */
+            if (fig.imageObj.src) {
+                (window.URL || window.webkitURL).revokeObjectURL(
+                    fig.imageObj.src);
+            }
+
+            fig.imageObj.src = (window.URL || window.webkitURL).createObjectURL(
+                evt.data);
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+        else if (typeof evt.data === 'string' && evt.data.slice(0, 21) == "data:image/png;base64") {
+            fig.imageObj.src = evt.data;
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+
+        var msg = JSON.parse(evt.data);
+        var msg_type = msg['type'];
+
+        // Call the  "handle_{type}" callback, which takes
+        // the figure and JSON message as its only arguments.
+        try {
+            var callback = fig["handle_" + msg_type];
+        } catch (e) {
+            console.log("No handler for the '" + msg_type + "' message type: ", msg);
+            return;
+        }
+
+        if (callback) {
+            try {
+                // console.log("Handling '" + msg_type + "' message: ", msg);
+                callback(fig, msg);
+            } catch (e) {
+                console.log("Exception inside the 'handler_" + msg_type + "' callback:", e, e.stack, msg);
+            }
+        }
+    };
+}
+
+// from http://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
+mpl.findpos = function(e) {
+    //this section is from http://www.quirksmode.org/js/events_properties.html
+    var targ;
+    if (!e)
+        e = window.event;
+    if (e.target)
+        targ = e.target;
+    else if (e.srcElement)
+        targ = e.srcElement;
+    if (targ.nodeType == 3) // defeat Safari bug
+        targ = targ.parentNode;
+
+    // jQuery normalizes the pageX and pageY
+    // pageX,Y are the mouse positions relative to the document
+    // offset() returns the position of the element relative to the document
+    var x = e.pageX - $(targ).offset().left;
+    var y = e.pageY - $(targ).offset().top;
+
+    return {"x": x, "y": y};
+};
+
+/*
+ * return a copy of an object with only non-object keys
+ * we need this to avoid circular references
+ * http://stackoverflow.com/a/24161582/3208463
+ */
+function simpleKeys (original) {
+  return Object.keys(original).reduce(function (obj, key) {
+    if (typeof original[key] !== 'object')
+        obj[key] = original[key]
+    return obj;
+  }, {});
+}
+
+mpl.figure.prototype.mouse_event = function(event, name) {
+    var canvas_pos = mpl.findpos(event)
+
+    if (name === 'button_press')
+    {
+        this.canvas.focus();
+        this.canvas_div.focus();
+    }
+
+    var x = canvas_pos.x * mpl.ratio;
+    var y = canvas_pos.y * mpl.ratio;
+
+    this.send_message(name, {x: x, y: y, button: event.button,
+                             step: event.step,
+                             guiEvent: simpleKeys(event)});
+
+    /* This prevents the web browser from automatically changing to
+     * the text insertion cursor when the button is pressed.  We want
+     * to control all of the cursor setting manually through the
+     * 'cursor' event from matplotlib */
+    event.preventDefault();
+    return false;
+}
+
+mpl.figure.prototype._key_event_extra = function(event, name) {
+    // Handle any extra behaviour associated with a key event
+}
+
+mpl.figure.prototype.key_event = function(event, name) {
+
+    // Prevent repeat events
+    if (name == 'key_press')
+    {
+        if (event.which === this._key)
+            return;
+        else
+            this._key = event.which;
+    }
+    if (name == 'key_release')
+        this._key = null;
+
+    var value = '';
+    if (event.ctrlKey && event.which != 17)
+        value += "ctrl+";
+    if (event.altKey && event.which != 18)
+        value += "alt+";
+    if (event.shiftKey && event.which != 16)
+        value += "shift+";
+
+    value += 'k';
+    value += event.which.toString();
+
+    this._key_event_extra(event, name);
+
+    this.send_message(name, {key: value,
+                             guiEvent: simpleKeys(event)});
+    return false;
+}
+
+mpl.figure.prototype.toolbar_button_onclick = function(name) {
+    if (name == 'download') {
+        this.handle_save(this, null);
+    } else {
+        this.send_message("toolbar_button", {name: name});
+    }
+};
+
+mpl.figure.prototype.toolbar_button_onmouseover = function(tooltip) {
+    this.message.textContent = tooltip;
+};
+mpl.toolbar_items = [["Home", "Reset original view", "fa fa-home icon-home", "home"], ["Back", "Back to previous view", "fa fa-arrow-left icon-arrow-left", "back"], ["Forward", "Forward to next view", "fa fa-arrow-right icon-arrow-right", "forward"], ["", "", "", ""], ["Pan", "Pan axes with left mouse, zoom with right", "fa fa-arrows icon-move", "pan"], ["Zoom", "Zoom to rectangle", "fa fa-square-o icon-check-empty", "zoom"], ["", "", "", ""], ["Download", "Download plot", "fa fa-floppy-o icon-save", "download"]];
+
+mpl.extensions = ["eps", "jpeg", "pdf", "png", "ps", "raw", "svg", "tif"];
+
+mpl.default_extension = "png";var comm_websocket_adapter = function(comm) {
+    // Create a "websocket"-like object which calls the given IPython comm
+    // object with the appropriate methods. Currently this is a non binary
+    // socket, so there is still some room for performance tuning.
+    var ws = {};
+
+    ws.close = function() {
+        comm.close()
+    };
+    ws.send = function(m) {
+        //console.log('sending', m);
+        comm.send(m);
+    };
+    // Register the callback with on_msg.
+    comm.on_msg(function(msg) {
+        //console.log('receiving', msg['content']['data'], msg);
+        // Pass the mpl event to the overridden (by mpl) onmessage function.
+        ws.onmessage(msg['content']['data'])
+    });
+    return ws;
+}
+
+mpl.mpl_figure_comm = function(comm, msg) {
+    // This is the function which gets called when the mpl process
+    // starts-up an IPython Comm through the "matplotlib" channel.
+
+    var id = msg.content.data.id;
+    // Get hold of the div created by the display call when the Comm
+    // socket was opened in Python.
+    var element = $("#" + id);
+    var ws_proxy = comm_websocket_adapter(comm)
+
+    function ondownload(figure, format) {
+        window.open(figure.imageObj.src);
+    }
+
+    var fig = new mpl.figure(id, ws_proxy,
+                           ondownload,
+                           element.get(0));
+
+    // Call onopen now - mpl needs it, as it is assuming we've passed it a real
+    // web socket which is closed, not our websocket->open comm proxy.
+    ws_proxy.onopen();
+
+    fig.parent_element = element.get(0);
+    fig.cell_info = mpl.find_output_cell("<div id='" + id + "'></div>");
+    if (!fig.cell_info) {
+        console.error("Failed to find cell for figure", id, fig);
+        return;
+    }
+
+    var output_index = fig.cell_info[2]
+    var cell = fig.cell_info[0];
+
+};
+
+mpl.figure.prototype.handle_close = function(fig, msg) {
+    var width = fig.canvas.width/mpl.ratio
+    fig.root.unbind('remove')
+
+    // Update the output cell to use the data from the current canvas.
+    fig.push_to_output();
+    var dataURL = fig.canvas.toDataURL();
+    // Re-enable the keyboard manager in IPython - without this line, in FF,
+    // the notebook keyboard shortcuts fail.
+    IPython.keyboard_manager.enable()
+    $(fig.parent_element).html('<img src="' + dataURL + '" width="' + width + '">');
+    fig.close_ws(fig, msg);
+}
+
+mpl.figure.prototype.close_ws = function(fig, msg){
+    fig.send_message('closing', msg);
+    // fig.ws.close()
+}
+
+mpl.figure.prototype.push_to_output = function(remove_interactive) {
+    // Turn the data on the canvas into data in the output cell.
+    var width = this.canvas.width/mpl.ratio
+    var dataURL = this.canvas.toDataURL();
+    this.cell_info[1]['text/html'] = '<img src="' + dataURL + '" width="' + width + '">';
+}
+
+mpl.figure.prototype.updated_canvas_event = function() {
+    // Tell IPython that the notebook contents must change.
+    IPython.notebook.set_dirty(true);
+    this.send_message("ack", {});
+    var fig = this;
+    // Wait a second, then push the new image to the DOM so
+    // that it is saved nicely (might be nice to debounce this).
+    setTimeout(function () { fig.push_to_output() }, 1000);
+}
+
+mpl.figure.prototype._init_toolbar = function() {
+    var fig = this;
+
+    var nav_element = $('<div/>')
+    nav_element.attr('style', 'width: 100%');
+    this.root.append(nav_element);
+
+    // Define a callback function for later on.
+    function toolbar_event(event) {
+        return fig.toolbar_button_onclick(event['data']);
+    }
+    function toolbar_mouse_event(event) {
+        return fig.toolbar_button_onmouseover(event['data']);
+    }
+
+    for(var toolbar_ind in mpl.toolbar_items){
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) { continue; };
+
+        var button = $('<button class="btn btn-default" href="#" title="' + name + '"><i class="fa ' + image + ' fa-lg"></i></button>');
+        button.click(method_name, toolbar_event);
+        button.mouseover(tooltip, toolbar_mouse_event);
+        nav_element.append(button);
+    }
+
+    // Add the status bar.
+    var status_bar = $('<span class="mpl-message" style="text-align:right; float: right;"/>');
+    nav_element.append(status_bar);
+    this.message = status_bar[0];
+
+    // Add the close button to the window.
+    var buttongrp = $('<div class="btn-group inline pull-right"></div>');
+    var button = $('<button class="btn btn-mini btn-primary" href="#" title="Stop Interaction"><i class="fa fa-power-off icon-remove icon-large"></i></button>');
+    button.click(function (evt) { fig.handle_close(fig, {}); } );
+    button.mouseover('Stop Interaction', toolbar_mouse_event);
+    buttongrp.append(button);
+    var titlebar = this.root.find($('.ui-dialog-titlebar'));
+    titlebar.prepend(buttongrp);
+}
+
+mpl.figure.prototype._root_extra_style = function(el){
+    var fig = this
+    el.on("remove", function(){
+    fig.close_ws(fig, {});
+    });
+}
+
+mpl.figure.prototype._canvas_extra_style = function(el){
+    // this is important to make the div 'focusable
+    el.attr('tabindex', 0)
+    // reach out to IPython and tell the keyboard manager to turn it's self
+    // off when our div gets focus
+
+    // location in version 3
+    if (IPython.notebook.keyboard_manager) {
+        IPython.notebook.keyboard_manager.register_events(el);
+    }
+    else {
+        // location in version 2
+        IPython.keyboard_manager.register_events(el);
+    }
+
+}
+
+mpl.figure.prototype._key_event_extra = function(event, name) {
+    var manager = IPython.notebook.keyboard_manager;
+    if (!manager)
+        manager = IPython.keyboard_manager;
+
+    // Check for shift+enter
+    if (event.shiftKey && event.which == 13) {
+        this.canvas_div.blur();
+        event.shiftKey = false;
+        // Send a "J" for go to next cell
+        event.which = 74;
+        event.keyCode = 74;
+        manager.command_mode();
+        manager.handle_keydown(event);
+    }
+}
+
+mpl.figure.prototype.handle_save = function(fig, msg) {
+    fig.ondownload(fig, null);
+}
+
+
+mpl.find_output_cell = function(html_output) {
+    // Return the cell and output element which can be found *uniquely* in the notebook.
+    // Note - this is a bit hacky, but it is done because the "notebook_saving.Notebook"
+    // IPython event is triggered only after the cells have been serialised, which for
+    // our purposes (turning an active figure into a static one), is too late.
+    var cells = IPython.notebook.get_cells();
+    var ncells = cells.length;
+    for (var i=0; i<ncells; i++) {
+        var cell = cells[i];
+        if (cell.cell_type === 'code'){
+            for (var j=0; j<cell.output_area.outputs.length; j++) {
+                var data = cell.output_area.outputs[j];
+                if (data.data) {
+                    // IPython >= 3 moved mimebundle to data attribute of output
+                    data = data.data;
+                }
+                if (data['text/html'] == html_output) {
+                    return [cell, data, j];
+                }
+            }
+        }
+    }
+}
+
+// Register the function which deals with the matplotlib target/channel.
+// The kernel may be null if the page has been refreshed.
+if (IPython.notebook.kernel != null) {
+    IPython.notebook.kernel.comm_manager.register_target('matplotlib', mpl.mpl_figure_comm);
+}
+
+</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABIAAAAJACAYAAAD1kB3UAAAgAElEQVR4Xu3dCbCkVXk//gPKsEUFlE2dcplCTXALiAJKFEVUEEVcgLigcQEJYlyoMjHqTDSLxi2iBtwAE40QFEUFEYwYw2ICaAzRqMhiEiQzgqIgDKLzr9P/6vu7S3fffu+9p8/pcz5dZRXeed+zfJ6ne/p+5+23NwseBAgQIECAAAECBAgQIECAAAECVQtsVvXubI4AAQIECBAgQIAAAQIECBAgQCAIgDQBAQIECBAgQIAAAQIECBAgQKByAQFQ5QW2PQIECBAgQIAAAQIECBAgQICAAEgPECBAgAABAgQIECBAgAABAgQqFxAAVV5g2yNAgAABAgQIECBAgAABAgQICID0AAECBAgQIECAAAECBAgQIECgcgEBUOUFtj0CBAgQIECAAAECBAgQIECAgABIDxAgQIAAAQIECBAgQIAAAQIEKhcQAFVeYNsjQIAAAQIECBAgQIAAAQIECAiA9AABAgQIECBAgAABAgQIECBAoHIBAVDlBbY9AgQIECBAgAABAgQIECBAgIAASA8QIECAAAECBAgQIECAAAECBCoXEABVXmDbI0CAAAECBAgQIECAAAECBAgIgPQAAQIECBAgQIAAAQIECBAgQKByAQFQ5QW2vbIENm3atKmsFVkNAQIECBAgQIAAgXwCm222md9J8/GbuTEBT7bGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgAoriOUQIECAAAECBAhkFRAAZeU3eWMCAqDGCm67eQUEQHn9zU6AAAECBAgQIFCWgACorHpYTd0CAqC662t3hQkIgIYX5Mgjjwyf+tSnZg7Yeeedww033FBYBS2HAAECBAgQIEBgJQUEQCupaSwCowUEQDqEwAQFBECDsU844YTwzne+M5x44onhuOOOC9/5znfC7rvvHq6//vqw6667TrBCpiJAgAABAgQIEJikgABoktrmal1AANR6B9j/RAUEQIO5N9vs/38p2rRp08wBhx9+eDjjjDPm/GyixTIZAQIECBAgQIBAcgEBUHJiExCYERAAaQYCExQQAA0PgM4+++xwyCGHzDkgBkNf+cpXwhOf+MQJVslUBAgQIECAAAECkxIQAE1K2jwEQhAA6QICExQQAC3Evvrqq8OaNWsGXukTA6CjjjoqnHrqqROskqkIECBAgAABAgQmJSAAmpS0eQgIgPQAgYkKCIAWcl988cXhsY997NAA6MADDwznnXfeghPXrl0b1q1bN9H6mYwAAQIECBAgsFSB2R91X+oYNZ4nAKqxqvZUqoArgEqtjHVVKSAAWljWxa4AetGLXhROO+20BSeuX78+bNiwYc7P482jn/e854Urr7yyyv6xKQIECBAgQGD6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pZI1LgECJQgIgARAJfShNRAQAOkBAhMWEAClBRcApfU1OoFUApMOgFLtw7gECBAYJCAAEgB5ZhAoRWCzUhZiHQRaEBAApa2yACitr9EJpBIQAKWSNS4BAiUICIAEQCX0oTUQiAICIH1AYIICAqC02AKgtL5GJ5BKQACUSta4BAiUICAAEgCV0IfWQEAApAcITFhAAJQWXACU1tfoBKZdYH7QtJL7ufavDl7J4YxFgEBFAgIgAVBF7WwrUy7gCqApL6DlT5eAAChtvQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKyAAChtaQRAaX2NTmDaBQRA015B6ycwnQICIAHQdHauVdcoIACqsar2VKxAjQHQ2WefHZ75zGf2zDdt2jTH/txzzw0HHXTQnJ/dcsstYdttt53zsyOPPDJ86lOfmvOz+WONU1QB0DhKjiFAgAABAgQmKSAAEgBNst/MRWCUgABIfxCYoECNAVB8U/Oe97wnvOY1r1kQAMU/23fffcNFF13UU/7sZz8bnvWsZ8057uqrrw5r1qzp/Vk/SIrnXHLJJQvGW6xUAqDFhPw5AQIECBAgMGkBAZAAaNI9Zz4CwwQEQHqDwAQFaguAjj/++PDFL34xfPSjHw3777//nMBm3bp1Ye3atQNDodtuuy1stdVWPfl4NdAvf/nLgcd1vQpIADTBZjYVAQIECBAgMJaAAEgANFajOIjABAQEQBNANgWBvkBtAVB8QxNDmgsvvHBBABT/bI899giXX375nAaIP99vv/3CP//zP/d+Hv9//BjZIYccsuC4r3zlK+GJT3zi2A0kABqbyoEECBAgQIDAhAQEQAKgCbWaaQgsKiAAWpTIAQRWTqCmACi+mbnmmmvC/e9//6EB0Dve8Y5wwgknzAHceuutw+233z5zxU8/RJqvHH9+1FFHhVNPPXXsAgiAxqZyIAECBAgQIDAhAQGQAGhCrWYaAosKCIAWJXIAgZUTqCUA2meffcKll146E+IMuwLowx/+cHjZy142B/A+97lPuP7668cKgA488MBw3nnnDSxA/HhZ/JjZoEfXj46tXIWNRIAAAQIECBCYKyAAEgB5ThAoRUAAVEolrKMJgRoCoBiubL755r379sSreeJjWAA06AqgbbbZJsR7APVDmlFXAL3oRS8Kp5122sDeWL9+fdiwYcOcP7vqqqvCoYce2vnm0U00n00SIECAAAECWQQEQAKgLI1nUgIDBARA2oLABAVqCIC22267cPPNNw9V++Y3vxke+chH9u7tM+weQI973OPC17/+9d4Yo+4BdMEFF4QnPelJY1fIR8DGpnIgAQIECBAgMCEBAZAAaEKtZhoCiwoIgBYlcgCBlRNoKQB6xCMeEb797W8P/Havz33uc+EZz3jGTAAUP1J28cUXz4EedmXQqGoIgFauV41EgAABAgQIrIyAAEgAtDKdZBQCyxcQAC3f0AgExhaoIQAatNlBHwGLx8U3PPvuu2+46KKLeqfF4Gf+R7SuvvrqsGbNmt6f9UOhxz72sb1AqOu9fARAY7eiAwkQIECAAIEJCQiABEATajXTEFhUQAC0KJEDCKycQGsB0DnnnBMOPvjgOYC33HJL2Hbbbef87Igjjginn376nJ91DX/iyQKgletVIxEgQIAAAQIrIyAAEgCtTCcZhcDyBQRAyzc0AoGxBWoNgMYGSHygACgxsOEJECBAgACBzgICIAFQ56ZxAoFEAgKgRLCGJTBIQACUti8EQGl9jU6AAAECBAh0FxAACYC6d40zCKQREAClcTUqgYECAqC0jSEASutrdAIECBAgQKC7gABIANS9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mZ9//OMfDy984Qs7dZIAqBOXgwkQIECAAIEJCAiABEATaDNTEBhLQAA0FpODCKyMQC0B0AMe8IBw7bXXhjvuuCNsscUWPZzLLrss7LXXXnNCnEFveOLPLr744rDPPvvMoM4/7je/+U24y13uMmescSogABpHyTEECBAgQIDAJAUEQAKgSfabuQiMEhAA6Q8CExSoJQAa9kYm/nz2VTzx/++9997hkksumVHeeuutw+23377guC996UvhKU95ypxQ6KUvfWn4yEc+MnaFBEBjUzmQAAECBAgQmJCAAEgANKFWMw2BRQUEQIsSOYDAygnUEgBttdVWYePGjQuu0JkdAF111VVht912W3DMt7/97fCIRzxi5ucveMELwic+8YkFxx122GHhrLPO6nQVkABo5XrVSAQIECBAgMDKCAiABEAr00lGIbB8AQHQ8g2NQGBsgVoCoLjhPfbYI/z7v/97+Na3vhVuvfXW3ke6Hv3oR4dvfOMbPY83v/nN4a1vfevAAGd2UDTsTdHpp58ejjjiCAHQ2N3lQAIECBAgQKBEAQGQAKjEvrSmNgUEQG3W3a4zCdQUAMWPcW277bYh3q8nPlavXh1+9KMfzci+4hWvCB/+8IeXHACdf/754cADDxwaAK1duzasW7duYCVnfwwtU6lNS4AAAQIECBDoCQiABECeCgRKERAAlVIJ62hCoJYAaKeddgobNmwIN998c7j73e/eq92ll17auwqoH74s9wqgM844Ixx++OFDA6D169f31jD7ET92duihh3a6aqiJxrNJAgQIECBAIJuAAEgAlK35TExgnoAASEsQmKBALQHQqJtA//7v/37vnj4/+MEPwoMe9KAFYcx//Md/hIc//OEzP3/+858fPvnJTy447tnPfnb4zGc+0ynMcQ+gCTazqQgQIECAAIGxBARAAqCxGsVBBCYgIACaALIpCPQFWgiAjj322PCBD3ygt+VB3wK2zTbbhNtuu22sbwH7gz/4g/DRj3507AYSAI1N5UACBAgQIEBgQgICIAHQhFrNNAQWFRAALUrkAAIrJ1BzABS/FSx+O9hNN90Utt9++5kAKP7H/K+Gv/jii3sfF+s/5r8xivcVustd7tLp6p84lgBo5XrVSAQIECBAgMDKCAiABEAr00lGIbB8AQHQ8g2NQGBsgVoCoLjhvfbaK1x22WVz9h5v/Hzy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kEZAAJTG1agEBgpMSwB0wgknhHe+853hfve7X7j22msH7mXDhg1hp512mvmzTZs2DTzuzDPPDM997nN7f7bDDjuEG2+8ceBxxx57bPjbv/3b3p/tu+++4aKLLurcRQKgzmROIECAAAECBBILCIAEQIlbzPAExhYQAI1N5UACyxcoPQB673vfG17zmtfMbHRYAHThhReG/fffP8Q3NAcccEA4//zze+fMD4EOPvjgcM4554Qdd9wxrF69OlxxxRVhyy23DLfffvsczPizO+64I+y5557huuuuCz/5yU/CIYccEs4+++xO6AKgTlwOJkCAAAECBCYgIAASAE2gzUxBYCwBAdBYTA4isDICpQdAP/3pT8P222/f22x8szIsAIp/tmrVqrBx48YZmPizl7zkJeFjH/vYnJ+9+MUvDqeccsqcn/3whz8MD3zgA3s/+8EPfhAe9KAHhe9///tht912m3PcsKuKhlVDALQyfWoUAgQIECBAYOUEBEACoJXrJiMRWJ6AAGh5fs4m0Emg9ABo9maGBUA33HBD2HXXXcMtt9wStt1225lT3vCGN4S3v/3tM1cBHXPMMeHkk09ecFXQFltsEe68886Zn8d57nrXu4Zf/epXcyzjz+MY/Y+FjQMtABpHyTEECBAgQIDAJAUEQAKgSfabuQiMEhAA6Q8CExSoIQA6/vjjw4knnrgg2ImB0N3udrc5wU6knX8Vz+te97rw7ne/e85xr3/968Nf//VfLwiABp0/qlwCoAk2s6kIECBAgACBsQQEQAKgsRrFQQQmICAAmgCyKQj0BWoIgA477LBw1llnLQh24h7jG5x+4BP/+573vGfvfj6zH+973/vCq1/96jnHxUDpuOOOm3NcvGF0/EjasI+BrV+/PsQbUc9+XHXVVeHQQw8deo5OJECAAAECBAhMWkAAJACadM+Zj8AwAQGQ3iAwQQEBUOhdPRSvIpodFA0KgGJ4dNNNNw0Nc9auXRvWrVs3sHpd7x00wRYwFQECBAgQINCYgABIANRYy9tuwQICoIKLY2n1CdQQAM2/gqdfpfkfvxp2BU/8Svj41fCzA6DnPe954fTTT59T8PhmadTXxg/qDh8Bq+85Y0cECBAgQGDaBQRAAqBp72Hrr0dAAFRPLe1kCgRqCIB+/OMfh3vf+97h1ltvDdtss82M+vybQB999NHhQx/6kJtAT0FfWiIBAgQIECCQTkAAJABK111GJtBNQADUzcvRBJYlUEMAFAGW+zXw8V49a9as6Vn6GvhltZSTCRAgQIAAgcIFBEACoMJb1PIaEhAANVRsW80vMA0BUP9Nynyt2ffVufDCC8P+++/fC4IOPPDAcN555/UOn3/vnYMOOiice+65YaeddgqrV68Ol19+eVi1alXYuHHjnOG33HLLcMcdd4RHPepR4brrruvd3PnpT396+PznP9+paD4C1onLwQQIECBAgMAEBARAAqAJtJkpCIwlIAAai8lBBFZGoJYAKGrEb+HaeeedZ2CG3Xg53u8n3vcnPkbd0+eVr3xlOOmkk3rH7b333uGSSy7pjC4A6kzmBAIECBAgQCCxgABIAJS4xQxPYGwBAdDYVA4ksHyBaQiAlr/LfCMIgPLZm5kAAQIECBAYLCAAEgB5bhAoRUAAVEolrKMJAQFQ2jILgNL6Gp0AAQIECBDoLiAAEgB17xpnEEgjIABK42pUAgMFBEBpG0MAlNbX6AQIECBAgEB3AQGQAKh71ziDQBoBAVAaV6MSEABl6AEBUAZ0UxIgQIAAAQIjBQRAAiBPEQKlCAiASqmEdTQh4AqgtGUWAKX1NToBAgQIECDQXUAAJADq3jXOIJBGQACUxtWoBAYKCIDSNoYAKK2v0QkQIECAAIHuAgIgAVD3rnEGgTQCAqA0rkYlIADK0AMCoAzopiRAgAABAgRGCgiABECeIgRKERAAlVIJ62hCwBVAacssAErra3QCBAgQIECgu4AASADUvWucQSCNgAAojatRCQwUEAClbQwBUFpfoxMgQIAAAQLdBQRAAqDuXeMMAmkEBEBpXI1KQACUoQcEQBnQTUmAAAECBAiMFBAACYA8RQiUIiAAKqUS1tGEgCuA0pZZAJTW1+gECBAgQIBAdwEBkACoe9c4g0AaAQFQGlejEhgoIABK2xgCoLS+RidAgAABAgS6CwiABEDdu8YZBNIICIDSuBqVgAAoQw8IgDKgm5IAAQIECBAYKSAAEgB5ihAoRUAAVEolrKMJAVcApS2zACitr9EJECBAgACB7gICIAFQ965xBoE0AgKgNK5GJTBQQACUtjEEQGl9jU6AAAECBAh0FxAACYC6d40zCKQREAClcTUqAQFQhh4QAGVANyUBAgQIECAwUkAAJADyFCFQioAAqJRKWEcTAq4ASlvmK664Iuy5557hyiuvTDuR0QkQIECAAAECYwo89KEP7R25adOmMc9o67DN+glZW9u2WwJZBARAWdhN2qqAACht5U888cRw/PHHp53E6AQIECBAgACBJQgIgAajCYCW0ExOIbBEAQHQEuGcRmApAgKgpaiNf46PgI224sNn/GfTwiN9hGG0XvSJVx/uvvvuy2Gu9tzo45ff4eXlM9zG313VvizMbEwAVH+N7bAcAQFQObWwkgYEBEBpi+xNooBjOR2mfxYPOOIRfokf7CQAWrx/9I4AaCmv0V6bl6I2XecIgKarXlY73QICoOmun9VPmYAAKG3BvEkUAC2nw/TP4r/AC4BG/wLvCiABx1Jfg1wBNFzOa/NSu2p6zhMATU+trHT6BQRA019DO5giAQFQ2mJ5kygAWk6H6R8B0HL6xxVAi/ePK4AEZEt5jnltXoradJ0jAJquelntdAsIgKa7flY/ZQICoLQF8yZRALScDtM/i/8CH4/wS/xgJwHQ4v2jdwRAS3mN9tq8FLXpOkcANF31strpFhAATXf9rH7KBARAU1YwyyVAgAABAgQIEEgqIABKymtwAnMEBEAagsAEBQRAE8Q2FQECBAgQIECAQPECAqDiS2SBFQkIgCoqpq2ULyAAKr9GVkiAAAECBAgQIDA5AQHQ5KzNREAApAcITFBAADRBbFMRIECAAAECBAgULyAAKr5EFliRgACoomLaSvkCAqC0NbrmmmvCGWecEV772teGLbbYIu1khYx+1llnhe9+97vhsY99bHj84x+/7FXFsb785S+HRz/60WGfffZZ9njTMsCFF14YvvGNb4TDDz883P/+9x+67Oj9/e9/v6ke61LDM888M2zcuDEceeSRYfPNN+9y6tQcu9K98vGPfzz84he/CH/4h384NQbDFvrTn/40fOxjHwtbbbXViu3nlFNO6fXUMcccM/U+XTbwgQ98IDz0oQ8d+br+q1/9Krz73e9e9HWry7w1HfvLX/4yvO997wsvfvGLwy677FLT1qrbiwCoupLaUMECAqCCi2Np9QkIgNLU9Ne//nW4613v2hv8uc99bvjHf/zH3n/X/I0zj3rUo8Lll18e7nOf+4THPe5xvT3/5je/CQ960IPC9773vRnoa6+9NjzgAQ8YCD/fJ36LUXwcdNBB4Zxzzun993/913+FBz/4wWkKl3jU/n5m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CBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2nUdAAJTH3awECBAgQIAAAQJlCgiAyqyLVdUpIACqs652VaiAAKjQwlgWAQIECBAgQIBAFgEBUBZ2kzYqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQqIABqtPC2TYAAAQIECBAgQIAAAQIECLQjIABqp9Z2SoAAAQIECBAgQIAAAQIECDQq8P8BfLMiTpohjHwAAAAASUVORK5CYII=" width="1152"></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1029,7 +1998,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

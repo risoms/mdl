@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-| `@purpose`: Path for tests.    
+| `@purpose`: Test examples from some of the code in the package.  
 | `@date`: Created on Sat May 1 15:12:38 2019  
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  

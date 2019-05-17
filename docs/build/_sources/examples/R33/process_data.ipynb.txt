@@ -36,9 +36,9 @@
    "outputs": [],
    "source": [
     "#----local\n",
-    "from mdl import plot, processing, raw, redcap\n",
-    "import mdl.model as model\n",
-    "import mdl.settings as settings\n",
+    "from imhr import plot, processing, raw, redcap\n",
+    "import imhr.model as model\n",
+    "import imhr.settings as settings\n",
     "\n",
     "# check if required libraries are available\n",
     "is_library = False\n",

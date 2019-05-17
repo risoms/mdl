@@ -52,7 +52,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "import mdl"
+    "import imhr"
    ]
   },
   {
@@ -74,8 +74,8 @@
    ],
    "source": [
     "#----config\n",
-    "console = mdl.settings.console\n",
-    "config = mdl.R33.settings.config\n",
+    "console = imhr.settings.console\n",
+    "config = imhr.R33.settings.config\n",
     "filters = config['filter']\n",
     "is_ = config['metadata']['is']\n",
     "path_ = config['path']\n",
@@ -1398,9 +1398,9 @@
     "# from pycallgraph import PyCallGraph\n",
     "# from pycallgraph.output import GraphvizOutput\n",
     "# with PyCallGraph(output=GraphvizOutput()):\n",
-    "#     from mdl import plot, processing, raw, redcap\n",
-    "#     import mdl.model as model\n",
-    "#     import mdl.settings as settings\n",
+    "#     from imhr import plot, processing, raw, redcap\n",
+    "#     import imhr.model as model\n",
+    "#     import imhr.settings as settings\n",
     "\n",
     "# method 2\n",
     "#profiling run.py\n",

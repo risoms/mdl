@@ -26,7 +26,7 @@
 #%% [markdown]
 # ##### local import
 from pdb import set_trace as breakpoint
-from mdl import R33, settings
+from imhr import R33, settings
 import pandas as pd
 import glob, string, pytz, json, codecs
 from datetime import datetime
@@ -1205,7 +1205,7 @@ pass
 # from pycallgraph import PyCallGraph
 # from pycallgraph.output import GraphvizOutput
 # with PyCallGraph(output=GraphvizOutput()):
-#     from mdl import plot, processing, raw, redcap
+#     from imhr import plot, processing, raw, redcap
 #     import imhr.model as model
 #     import imhr.settings as settings
 

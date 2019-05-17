@@ -33,12 +33,6 @@
 	}
 	</style>
 
-.. :title:
-
-.. title:: mdl
-
-.. _mdl::
-
 .. raw:: html
 
 	<div style="clear: both"></div>

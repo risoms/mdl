@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Plots &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>Plots &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -113,7 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -127,11 +127,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +139,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.download.html">imhr.download</a><ul class="simple">
@@ -461,9 +461,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----local</span>
-<span class="kn">from</span> <span class="nn">mdl</span> <span class="k">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="n">redcap</span>
-<span class="kn">import</span> <span class="nn">mdl.model</span> <span class="k">as</span> <span class="nn">model</span>
-<span class="kn">import</span> <span class="nn">mdl.settings</span> <span class="k">as</span> <span class="nn">settings</span>
+<span class="kn">from</span> <span class="nn">imhr</span> <span class="k">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="n">redcap</span>
+<span class="kn">import</span> <span class="nn">imhr.model</span> <span class="k">as</span> <span class="nn">model</span>
+<span class="kn">import</span> <span class="nn">imhr.settings</span> <span class="k">as</span> <span class="nn">settings</span>
 
 <span class="c1">#----check if required libraries are available</span>
 <span class="n">is_library</span> <span class="o">=</span> <span class="kc">False</span>
@@ -725,7 +725,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

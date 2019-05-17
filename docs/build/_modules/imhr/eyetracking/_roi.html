@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking._roi &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>imhr.eyetracking._roi &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -125,11 +125,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +137,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.download.html">imhr.download</a><ul class="simple">
@@ -266,7 +266,7 @@
 
 <div class="viewcode-block" id="ROI"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI">[docs]</a><span class="k">class</span> <span class="nc">ROI</span><span class="p">():</span>
 	<span class="sd">&quot;&quot;&quot;Generate regions of interest that can be used for data processing and analysis.&quot;&quot;&quot;</span>
-	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">image_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">detection</span><span class="o">=</span><span class="s1">&#39;manual&#39;</span><span class="p">,</span> <span class="n">image_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
 			  <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">roicolumn</span><span class="o">=</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Generate regions of interest that can be used for data processing and analysis.</span>
 
@@ -274,17 +274,17 @@
 <span class="sd">		----------</span>
 <span class="sd">		isMultiprocessing : :obj:`bool`</span>
 <span class="sd">			Should the rois be generated using multiprocessing. Default `False`.</span>
-<span class="sd">		detection : :obj:`str`</span>
-<span class="sd">			How should the regions of interest be detected. Either manually, through the use of highlight layers, or automatically</span>
-<span class="sd">			using haar cascades opencv. Default `manual`.</span>
+<span class="sd">		detection : :obj:`str` {&#39;manual&#39;, &#39;haarcascade&#39;}</span>
+<span class="sd">			How should the regions of interest be detected. Either manually, through the use of highlighting layers in photo-editing</span>
+<span class="sd">			software, or automatically through feature detection using `haarcascade` classifers from opencv. Default `manual`.</span>
 <span class="sd">		image_path : :obj:`str`</span>
 <span class="sd">			Image directory path.</span>
 <span class="sd">		output_path : :class:`str`</span>
 <span class="sd">			Path to save data.</span>
-<span class="sd">		roi_format : :obj:`str` {`raw`,`dataviewer`, `both`}</span>
-<span class="sd">			Format to export ROIs. Either to &#39;csv&#39; (`raw`) or to Eyelink DataViewer &#39;ias&#39; (`dataviewer`) or both (`both`). </span>
-<span class="sd">			Default is `raw`. Note: If :code:`roi_format` = `dataviewer`, :code:`shape` must be either be `circle`, `rotate`, or `straight`.</span>
-<span class="sd">		metadata_source : :class:`str` or :obj:`None`</span>
+<span class="sd">		roi_format : :obj:`str` {&#39;raw&#39;, &#39;dataviewer&#39;, &#39;both&#39;}</span>
+<span class="sd">			Format to export ROIs. Either to &#39;csv&#39; (`raw`) or to Eyelink DataViewer &#39;ias&#39; (`dataviewer`) or both (`both`).</span>
+<span class="sd">			Default is `both`. Note: If :code:`roi_format` = `dataviewer`, :code:`shape` must be either be `circle`, `rotate`, or `straight`.</span>
+<span class="sd">		metadata_source : :class:`str` or :obj:`None` {&#39;path&#39;, &#39;embedded&#39;}</span>
 <span class="sd">			Metadata source. If metadata is being read from a spreadsheet, :code:`metadata_source` should be equal to path the to</span>
 <span class="sd">			the metadata file, else if metadata is embed within the image as a layer name, :code:`metadata_source` = `embedded`.</span>
 <span class="sd">			Default is `embedded`. For example:</span>
@@ -297,9 +297,9 @@
 <span class="sd">			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can</span>
 <span class="sd">			be either `;` `,` `|` `\\t` or `\\s` (Delimiter type must be identified when running this code using the</span>
 <span class="sd">			code:`delimiter` parameter. The default is `;`.). Here&#39;s an example using `;` as a delimiter:</span>
-<span class="sd">				&gt;&gt;&gt; imagename=BM001;roiname=1;feature=lefteye</span>
+<span class="sd">				&gt;&gt;&gt; imagename = &quot;BM001&quot;; roiname = 1; feature = &quot;lefteye&quot;</span>
 <span class="sd">			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</span>
-<span class="sd">		shape : :obj:`str` {`polygon`, `hull`, `circle`, `rotate`, `straight`}</span>
+<span class="sd">		shape : :obj:`str` {&#39;polygon&#39;, &#39;hull&#39;, &#39;circle&#39;, &#39;rotate&#39;, &#39;straight&#39;}</span>
 <span class="sd">			Shape of machine readable boundaries for region of interest. Default is `straight`. `polygon` creates a Contour</span>
 <span class="sd">			Approximation and will most closely match the orginal shape of the roi. `hull` creates a Convex Hull, which</span>
 <span class="sd">			is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.</span>
@@ -331,15 +331,23 @@
 <span class="sd">				  - Tests code with in-house images and metadata. Default is :obj:`False`.</span>
 <span class="sd">				* - **save_data** : :class:`bool`</span>
 <span class="sd">				  - Save coordinates. Default is :obj:`True.`</span>
-<span class="sd">				* - **newcolumn** : :class:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`</span>
-<span class="sd">				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. </span>
-<span class="sd">					Default is :obj:`False.`</span>
+<span class="sd">				* - **newcolumn** : :obj:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`</span>
+<span class="sd">				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is :obj:`False.`</span>
 <span class="sd">				* - **save_raw_image** : :class:`bool`</span>
 <span class="sd">				  - Save images. Default is True.</span>
 <span class="sd">				* - **save_contour_image** : :class:`bool`</span>
 <span class="sd">				  - Save generated contours as images. Default is :obj:`True`.</span>
-<span class="sd">				* - **delimiter** : :class:`str`</span>
-<span class="sd">				  - (if :code:`source` == `psd`) How is metadata delimited, options are: `;` `,` `|` `tab` or `space` Default is `;`.</span>
+<span class="sd">				* - **delimiter** : :class:`str` {&#39;;&#39; , &#39;,&#39; , &#39;|&#39; , &#39;tab&#39; , &#39;space&#39;}</span>
+<span class="sd">				  - (if :code:`source` == `psd`) How is metadata delimited. Default is `;`.</span>
+<span class="sd">				* - **classifier** : :obj:`str` {&#39;eye_tree_eyeglasses&#39;,&#39;eye&#39;,&#39;frontalface_alt_tree&#39;,&#39;frontalface_alt&#39;,&#39;frontalface_alt2&#39;,</span>
+<span class="sd">				    &#39;frontalface_default&#39;,&#39;fullbody&#39;,&#39;lowerbody&#39;,&#39;profileface&#39;,&#39;smile&#39;,&#39;upperbody&#39;}</span>
+<span class="sd">				  - (if :code:`detection` == `haarcascade`) Type of trained classifier to use. Default &#39;frontalface_default&#39;.</span>
+<span class="sd">				* - **classScaleFactor** : :obj:`float`</span>
+<span class="sd">				  - Parameter specifying how much the image size is reduced at each image scale.</span>
+<span class="sd">				* - **classMinNeighbors** : :obj:`float`</span>
+<span class="sd">				  - Parameter specifying how many neighbors each candidate rectangle should have to retain it.</span>
+<span class="sd">				* - **classMinSize** : :obj:`tuple`</span>
+<span class="sd">				  - Minimum possible object size. Objects smaller than that are ignored.</span>
 <span class="sd">				* - **screensize** : :class:`list` [:obj:`int`]</span>
 <span class="sd">				  - Monitor size is being presented. Default is `[1920, 1080]`.</span>
 <span class="sd">				* - **scale** : :class:`int`</span>
@@ -351,7 +359,7 @@
 
 <span class="sd">		Attributes</span>
 <span class="sd">		----------</span>
-<span class="sd">		shape_d : :class:`str` {`ELLIPSE`, `FREEHAND`, `RECTANGLE`}</span>
+<span class="sd">		shape_d : :class:`str` {&#39;ELLIPSE&#39;, &#39;FREEHAND&#39;, &#39;RECTANGLE&#39;}</span>
 <span class="sd">			DataViewer ROI shape.</span>
 <span class="sd">		psd :  `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
 <span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</span>
@@ -370,8 +378,6 @@
 <span class="sd">			for more information.</span>
 <span class="sd">		image_contours : :obj:`numpy.ndarray`</span>
 <span class="sd">			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.</span>
-<span class="sd">		image_contours : :obj:`numpy.ndarray`</span>
-<span class="sd">			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.</span>
 
 <span class="sd">		Raises</span>
 <span class="sd">		------</span>
@@ -382,9 +388,11 @@
 
 <span class="sd">		Examples</span>
 <span class="sd">		--------</span>
-<span class="sd">		&gt;&gt;&gt; from imhr.roi import ROI</span>
-<span class="sd">		&gt;&gt;&gt; s=&quot;/dist/example/raw/&quot;; d=&quot;/dist/example/&quot;</span>
-<span class="sd">		&gt;&gt;&gt; ROI(source=s, output_path=d, shape=&#39;box&#39;)</span>
+<span class="sd">		.. code-block:: python</span>
+
+<span class="sd">			&gt;&gt;&gt; from imhr.roi import ROI</span>
+<span class="sd">			&gt;&gt;&gt; s = &quot;/dist/example/raw/&quot;; d=&quot;/dist/example/&quot;</span>
+<span class="sd">			&gt;&gt;&gt; ROI(source=s, output_path=d, shape=&#39;box&#39;)</span>
 
 <span class="sd">		Notes</span>
 <span class="sd">		-----</span>
@@ -406,6 +414,7 @@
 			<span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">(</span><span class="n">__required__</span><span class="p">)</span>
 
 		<span class="c1">#----parameters</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">detection</span> <span class="o">=</span> <span class="n">detection</span>
 		<span class="c1"># demo</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">isDemo</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;isDemo&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;isDemo&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span>
 		<span class="c1"># multiprocessing</span>
@@ -449,6 +458,25 @@
 		<span class="c1"># save raw images</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save_contour_image&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;save_contour_image&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">True</span>
 
+		<span class="c1">#-----classifiers</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classifier&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classifier&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;frontalface_default&#39;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">classScaleFactor</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classScaleFactor&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classScaleFactor&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">1.1</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">classMinNeighbors</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classMinNeighbors&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classMinNeighbors&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">5</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">classMinSize</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classMinSize&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classMinSize&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">default_classifiers</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s1">&#39;eye_tree_eyeglasses&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_eye_tree_eyeglasses.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;eye&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_eye.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;frontalface_alt_tree&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_alt_tree.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;frontalface_alt&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_alt.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;frontalface_alt2&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_alt2.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;frontalface_default&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_default.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;fullbody&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_fullbody.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;lowerbody&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_lowerbody.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;profileface&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_profileface.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;smile&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_smile.xml&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;upperbody&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_upperbody.xml&#39;</span><span class="p">,</span>
+		<span class="p">}</span>
+
 		<span class="c1">#----shape</span>
 		<span class="c1"># check if trying to do complex ROI using dataviewer</span>
 		<span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;polygon&#39;</span><span class="p">,</span> <span class="s1">&#39;hull&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">roi_format</span> <span class="o">==</span> <span class="s2">&quot;dataviewer&quot;</span><span class="p">):</span>
@@ -480,6 +508,9 @@
 			<span class="n">_type</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_source</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
 			<span class="k">if</span> <span class="n">_type</span> <span class="o">==</span> <span class="s2">&quot;.csv&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_source</span><span class="p">)</span>
 			<span class="k">elif</span> <span class="n">_type</span> <span class="o">==</span> <span class="s2">&quot;.xlsx&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_source</span><span class="p">)</span>
+			
+			<span class="c1"># convert to string</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 
 			<span class="c1"># check if metadata is empty</span>
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
@@ -569,21 +600,37 @@
 		<span class="c1">#self.console(&#39;test4.1.5&#39;, &#39;red&#39;)</span>
 		<span class="c1">#image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)</span>
 
-		<span class="c1"># threshold the image</span>
-		<span class="c1">## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original</span>
-		<span class="c1">#self.console(&#39;test4.2&#39;, &#39;red&#39;)</span>
-		<span class="n">retval</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+		<span class="c1"># if drawing in PSD files</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">detection</span> <span class="o">==</span> <span class="s1">&#39;manual&#39;</span><span class="p">:</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;manual ROI detection&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="c1"># threshold the image</span>
+			<span class="c1">## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original</span>
+			<span class="c1">#self.console(&#39;test4.2&#39;, &#39;red&#39;)</span>
+			<span class="n">retval</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
 
-		<span class="c1"># find contour in image</span>
-		<span class="c1">#self.console(&#39;test4.3&#39;, &#39;red&#39;)</span>
-		<span class="c1">## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL</span>
-		<span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>
+			<span class="c1"># find contour in image</span>
+			<span class="c1">#self.console(&#39;test4.3&#39;, &#39;red&#39;)</span>
+			<span class="c1">## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL</span>
+			<span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>
 
-		<span class="c1"># if contours empty raise Exception</span>
-		<span class="c1">#self.console(&#39;test4.4&#39;, &#39;red&#39;)</span>
-		<span class="k">if</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
-			<span class="n">_err</span> <span class="o">=</span> <span class="p">[</span><span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="s1">&#39;Not able to identify contours&#39;</span><span class="p">]</span>
-			<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">; </span><span class="si">%s</span><span class="s1">; </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_err</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">_err</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">_err</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+			<span class="c1"># if contours empty raise Exception</span>
+			<span class="c1">#self.console(&#39;test4.4&#39;, &#39;red&#39;)</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">contours</span><span class="p">):</span>
+				<span class="n">_err</span> <span class="o">=</span> <span class="p">[</span><span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="s1">&#39;Not able to identify contours&#39;</span><span class="p">]</span>
+				<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">; </span><span class="si">%s</span><span class="s1">; </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_err</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">_err</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">_err</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+		<span class="c1"># if drawing in PSD files</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;automatic ROI detection from haar cascades&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="c1"># load classifier</span>
+			<span class="n">_classifer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_classifers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">]</span>
+			<span class="n">haar</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="n">_classifer</span><span class="p">)</span>
+			<span class="n">contours</span> <span class="o">=</span> <span class="n">haar</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span>
+			    <span class="n">image</span><span class="p">,</span>
+			    <span class="n">scaleFactor</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
+			    <span class="n">minNeighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+			    <span class="n">minSize</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+			    <span class="n">flags</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CASCADE_SCALE_IMAGE</span>
+			<span class="p">)</span>
 
 		<span class="c1">#------------------------------------------------------------------------for each layer: save images and contours</span>
 		<span class="c1">#when saving the contours below, only one drawContours function from above can be run</span>
@@ -829,14 +876,14 @@
 			<span class="n">filepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">.ias&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
 			<span class="n">_bounds</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="p">[</span>
 				<span class="s2">&quot;# EyeLink Interest Area Set created on </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">()),</span>
-				<span class="s2">&quot;# Interest area set file using imhr.roi.ROI()&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label | color&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label | color&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label | color&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# example: RECTANGLE 1 350 172 627 286 leftcheek red&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# example: ELLIPSE 2 350 172 627 286 leftcheek red&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek red&quot;</span><span class="p">,</span>
-				<span class="s2">&quot;# See Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1) for more information.&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# Interest area set file using imhr.eyetracking.ROI()&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# example: RECTANGLE 1 350 172 627 286 leftcheek&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# example: ELLIPSE 2 350 172 627 286 leftcheek&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;# For more information see Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1).&quot;</span><span class="p">,</span>
 				<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;shape_d&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span><span class="s1">&#39;y0&#39;</span><span class="p">,</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span><span class="n">uuid_column</span><span class="p">]]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;	&#39;</span><span class="p">)</span>
 			<span class="p">]))</span>
 			<span class="c1"># save to ias</span>
@@ -878,14 +925,14 @@
 				<span class="n">_height</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span>
 				<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="n">_width</span><span class="p">,</span> <span class="n">_height</span><span class="p">))</span>
 			<span class="c1">## draw image</span>
-			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/roi/bounds&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
+			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/bounds&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
 		<span class="c1">## for each contour draw on figure</span>
 		<span class="k">elif</span> <span class="n">source</span><span class="o">==</span><span class="s2">&quot;contours&quot;</span><span class="p">:</span>
 			<span class="k">for</span> <span class="n">_contours</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
 				<span class="n">contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">_contours</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
 				<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 			<span class="c1">## draw image</span>
-			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/roi/contours&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
+			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/contours&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
 		<span class="c1">## check folder</span>
 		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
 			<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">_folder</span><span class="p">)</span>
@@ -895,21 +942,38 @@
 		<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
 		<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ROI.process_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process_image">[docs]</a>	<span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psd</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.process_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process_image">[docs]</a>	<span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
 <span class="sd">		----------</span>
-<span class="sd">		psd :  `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
-<span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</span>
+<span class="sd">		psd : :obj:`None` or `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
+<span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</span>
+<span class="sd">		xcf : :obj:`None` or ###, optional</span>
+<span class="sd">			[description], by default None</span>
+<span class="sd">		bitmap : :obj:`None` or ###, optional</span>
+<span class="sd">			[description], by default None</span>
+
+<span class="sd">		Attributes</span>
+<span class="sd">		----------</span>
+<span class="sd">		image : :class:`PIL.Image.Image`</span>
+<span class="sd">			PIL image object class.</span>
 
 <span class="sd">		Returns</span>
 <span class="sd">		-------</span>
-<span class="sd">		[type]</span>
-<span class="sd">			[description]</span>
+<span class="sd">		background : :class:`PIL.Image.Image`</span>
+<span class="sd">			PIL image object class.</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="c1">## load image directly from PSD</span>
-		<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+
+		<span class="c1">## load image from PSD, xcf, or bitmap as PIL</span>
+		<span class="k">if</span> <span class="n">psd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+		<span class="k">elif</span> <span class="n">xcf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+		<span class="k">elif</span> <span class="n">bitmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+
+		<span class="c1"># convert PIL format to np.array</span>
 
 		<span class="c1">## set background</span>
 		<span class="n">screen_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span>
@@ -926,7 +990,7 @@
 		<span class="k">else</span><span class="p">:</span>
 			<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">image_size</span><span class="p">))</span>
- 		
+
 		<span class="c1"># if offsetting		</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span><span class="p">:</span>
 			<span class="n">offset_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recenter</span>
@@ -978,6 +1042,11 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;starting()&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;for each image&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
 		<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">directory</span><span class="p">:</span>
+			<span class="c1">#----defaults</span>
+			<span class="n">psd</span><span class="o">=</span><span class="kc">None</span>
+			<span class="n">xcf</span><span class="o">=</span><span class="kc">None</span>
+			<span class="n">bitmap</span><span class="o">=</span><span class="kc">None</span>
+
 			<span class="c1"># console</span>
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">isMultiprocessing</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;core: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">core</span><span class="p">),</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
 
@@ -991,28 +1060,27 @@
 			<span class="n">l_contours</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#list of contours</span>
 
 			<span class="c1">#!!!----for each image, save image file</span>
-			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]:</span>
-				<span class="c1">#self.console(&#39;test&#39;)</span>
-				<span class="c1"># process imaage</span>
-				<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">psd</span><span class="p">)</span>
+			<span class="c1">#self.console(&#39;test&#39;)</span>
+			<span class="c1"># process imaage</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">psd</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">)</span>
 
-				<span class="c1"># check folder</span>
-				<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
-				<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
-					<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">_folder</span><span class="p">)</span>
+			<span class="c1"># check folder</span>
+			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/preprocessed/&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
+				<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">_folder</span><span class="p">)</span>
 
-				<span class="c1"># figure</span>
-				<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-				<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-				<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
-				<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-				<span class="c1">#self.console(&#39;test1&#39;, &#39;red&#39;)</span>
+			<span class="c1"># figure</span>
+			<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+			<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+			<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+			<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+			<span class="c1">#self.console(&#39;test1&#39;, &#39;red&#39;)</span>
 
 			<span class="c1">#!!!----for each region of interest</span>
 			<span class="c1">## counter</span>
 			<span class="n">roinumber</span> <span class="o">=</span> <span class="mi">1</span>
-			<span class="c1">## create matplotlib plot()</span>
-			<span class="c1">## do for each roi</span>
+
+			<span class="c1">## run</span>
 			<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">psd</span><span class="p">:</span>
 				<span class="c1"># skip if layer is main image</span>
 				<span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="n">imagename</span><span class="p">:</span>
@@ -1024,7 +1092,7 @@
 
 					<span class="c1"># process image</span>
 					<span class="c1">#self.console(&#39;test3&#39;, &#39;red&#39;)</span>
-					<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+					<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">)</span>
 
 					<span class="c1"># create contours</span>
 					<span class="c1">#self.console(&#39;test4&#39;, &#39;red&#39;)</span>
@@ -1230,7 +1298,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

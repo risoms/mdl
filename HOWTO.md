@@ -18,7 +18,7 @@ resources
 steps
 -----
 - create/update requirements.txt
-	pipreqs --encoding=iso-8859-1 --debug --force --savepath=requirements.txt mdl/
+	pipreqs --encoding=iso-8859-1 --debug --force --savepath=requirements.txt imhr/
 - upload to github
 	git push https://github.com/risoms/mdl-R33.git
 - update version
@@ -29,8 +29,8 @@ steps
 	- upload package to test pypi
 		python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 	- install test package 
-		pip install --index-url https://test.pypi.org/simple/ --no-deps --upgrade --force-reinstall mdl
+		pip install --index-url https://test.pypi.org/simple/ --no-deps --upgrade --force-reinstall imhr
 	- upload package to real pypi
 		python -m twine upload dist/*
 	- install test package 
-		pip install mdl
+		pip install imhr

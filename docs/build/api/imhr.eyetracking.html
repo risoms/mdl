@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>imhr.eyetracking &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -27,6 +27,7 @@
     <link rel="shortcut icon" href="../_static/imhr.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="imhr.r33" href="imhr.r33.html" />
     <link rel="prev" title="imhr" href="imhr.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -51,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -112,7 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -126,11 +127,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +139,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
@@ -177,6 +178,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
@@ -229,6 +231,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
@@ -304,225 +307,154 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.alert_printf" title="imhr.eyetracking.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.alert_printf" title="imhr.eyetracking.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(self,&nbsp;msg)</td>
 <td>Print error messages.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.clear_cal_display" title="imhr.eyetracking.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.clear_cal_display" title="imhr.eyetracking.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>(self)</td>
 <td>Clear the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_cal_target" title="imhr.eyetracking.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_cal_target" title="imhr.eyetracking.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(self,&nbsp;x,&nbsp;y)</td>
 <td>Draw the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_image_line" title="imhr.eyetracking.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_image_line" title="imhr.eyetracking.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(self,&nbsp;width,&nbsp;line,&nbsp;totlines,&nbsp;…)</td>
 <td>Display image pixel by pixel, line by line.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_line" title="imhr.eyetracking.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_line" title="imhr.eyetracking.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(self,&nbsp;x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
 <td>Draw a line.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_lozenge" title="imhr.eyetracking.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_lozenge" title="imhr.eyetracking.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(self,&nbsp;x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;…)</td>
 <td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.erase_cal_target" title="imhr.eyetracking.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.erase_cal_target" title="imhr.eyetracking.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>(self)</td>
 <td>Erase the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.exit_cal_display" title="imhr.eyetracking.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.exit_cal_display" title="imhr.eyetracking.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>(self)</td>
 <td>Exit the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.exit_image_display" title="imhr.eyetracking.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.exit_image_display" title="imhr.eyetracking.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>(self)</td>
 <td>Clear the camera image.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.getColorFromIndex" title="imhr.eyetracking.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.getColorFromIndex" title="imhr.eyetracking.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(self,&nbsp;colorindex)</td>
 <td>Return psychopy colors for elements in the camera image.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.get_input_key" title="imhr.eyetracking.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.get_input_key" title="imhr.eyetracking.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>(self)</td>
 <td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.get_mouse_state" title="imhr.eyetracking.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.get_mouse_state" title="imhr.eyetracking.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>(self)</td>
 <td>Get the current mouse position and status</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.play_beep" title="imhr.eyetracking.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.play_beep" title="imhr.eyetracking.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(self,&nbsp;beepid)</td>
 <td>Play a sound during calibration/drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.record_abort_hide" title="imhr.eyetracking.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.record_abort_hide" title="imhr.eyetracking.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>(self)</td>
 <td>This function is called if aborted</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.set_image_palette" title="imhr.eyetracking.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.set_image_palette" title="imhr.eyetracking.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(self,&nbsp;r,&nbsp;g,&nbsp;b)</td>
 <td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.setup_cal_display" title="imhr.eyetracking.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.setup_cal_display" title="imhr.eyetracking.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>(self)</td>
 <td>Shows the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.setup_image_display" title="imhr.eyetracking.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.setup_image_display" title="imhr.eyetracking.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(self,&nbsp;width,&nbsp;height)</td>
 <td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.alert_printf" title="imhr.eyetracking.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
-<td>Print error messages.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.clear_cal_display" title="imhr.eyetracking.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
-<td>Clear the ‘Camera Setup’ screen along with menu options.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_cal_target" title="imhr.eyetracking.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
-<td>Draw the calibration/validation target.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_image_line" title="imhr.eyetracking.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
-<td>Display image pixel by pixel, line by line.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_line" title="imhr.eyetracking.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
-<td>Draw a line.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.draw_lozenge" title="imhr.eyetracking.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
-<td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.erase_cal_target" title="imhr.eyetracking.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
-<td>Erase the calibration/validation target.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.exit_cal_display" title="imhr.eyetracking.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
-<td>Exit the ‘Camera Setup’ screen along with menu options.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.exit_image_display" title="imhr.eyetracking.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
-<td>Clear the camera image.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.getColorFromIndex" title="imhr.eyetracking.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
-<td>Return psychopy colors for elements in the camera image.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.get_input_key" title="imhr.eyetracking.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
-<td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.get_mouse_state" title="imhr.eyetracking.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
-<td>Get the current mouse position and status</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.play_beep" title="imhr.eyetracking.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
-<td>Play a sound during calibration/drift correction.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.record_abort_hide" title="imhr.eyetracking.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
-<td>This function is called if aborted</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.set_image_palette" title="imhr.eyetracking.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
-<td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.setup_cal_display" title="imhr.eyetracking.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
-<td>Shows the ‘Camera Setup’ screen along with menu options.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Calibration.setup_image_display" title="imhr.eyetracking.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
-<td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="60%" />
-<col width="40%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>image_title</strong></td>
-<td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.alert_printf">
-<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>self</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print error messages.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.clear_cal_display">
-<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.draw_cal_target">
-<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>self</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.draw_image_line">
-<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>self</em>, <em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display image pixel by pixel, line by line.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.draw_line">
-<code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_line</code><span class="sig-paren">(</span><em>self</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a line. This is used for drawing crosshairs/squares.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.draw_lozenge">
-<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>self</em>, <em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.erase_cal_target">
-<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erase the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.exit_cal_display">
-<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exit the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.exit_image_display">
-<code class="descname">exit_image_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_image_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.getColorFromIndex">
-<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>self</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return psychopy colors for elements in the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.get_input_key">
-<code class="descname">get_input_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_input_key</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will be constantly pools, update the stimuli here is you need
 dynamic calibration target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.get_mouse_state">
-<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current mouse position and status</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.play_beep">
-<code class="descname">play_beep</code><span class="sig-paren">(</span><em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
+<code class="descname">play_beep</code><span class="sig-paren">(</span><em>self</em>, <em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound during calibration/drift correction.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.record_abort_hide">
-<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
+<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is called if aborted</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.set_image_palette">
-<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>self</em>, <em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.
 I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000 011111111</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.setup_cal_display">
-<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows the ‘Camera Setup’ screen along with menu options.</p>
 <p class="rubric">Notes</p>
 <p>This function is called to setup calibration/validation display. This will be called just before we enter into 
@@ -532,7 +464,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 
 <dl class="method">
 <dt id="imhr.eyetracking.Calibration.setup_image_display">
-<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>self</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</p>
 </dd></dl>
 
@@ -557,7 +489,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <dt><strong>isPsychopy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
 <dd><p class="first last">Is Psychopy being used. Default <cite>True</cite>.</p>
 </dd>
-<dt><strong>subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Subject number.</p>
 </dd>
 <dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
@@ -597,37 +529,37 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.calibration" title="imhr.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.calibration" title="imhr.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>(self)</td>
 <td>Start calibration procedure.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.connect" title="imhr.eyetracking.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.connect" title="imhr.eyetracking.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(self[,&nbsp;calibration_type,&nbsp;…])</td>
 <td>Connect to Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.drift_correction" title="imhr.eyetracking.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.drift_correction" title="imhr.eyetracking.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>(self[,&nbsp;origin])</td>
 <td>Starts drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.finish_recording" title="imhr.eyetracking.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.finish_recording" title="imhr.eyetracking.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>(self[,&nbsp;path])</td>
 <td>Ending Eyelink recording.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.gc" title="imhr.eyetracking.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.gc" title="imhr.eyetracking.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(self,&nbsp;bound,&nbsp;min_[,&nbsp;max_])</td>
 <td>Creates gaze contigent event.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.sample" title="imhr.eyetracking.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.sample" title="imhr.eyetracking.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(self)</td>
 <td>Collects new gaze coordinates from Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.send_message" title="imhr.eyetracking.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.send_message" title="imhr.eyetracking.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(self,&nbsp;msg)</td>
 <td>Send message to Eyelink.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.send_variable" title="imhr.eyetracking.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.send_variable" title="imhr.eyetracking.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(self,&nbsp;variables)</td>
 <td>send trial variable to eyelink at the end of trial.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.set_eye_used" title="imhr.eyetracking.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.set_eye_used" title="imhr.eyetracking.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(self,&nbsp;eye)</td>
 <td>Set dominant eye.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.start_recording" title="imhr.eyetracking.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.start_recording" title="imhr.eyetracking.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(self,&nbsp;trial,&nbsp;block)</td>
 <td>Starts recording of Eyelink.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.stop_recording" title="imhr.eyetracking.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.stop_recording" title="imhr.eyetracking.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>(self[,&nbsp;trial,&nbsp;block,&nbsp;variables])</td>
 <td>Stops recording of Eyelink.</td>
 </tr>
 </tbody>
@@ -650,51 +582,9 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eytracking</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.calibration" title="imhr.eyetracking.Eyelink.calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration</span></code></a>()</td>
-<td>Start calibration procedure.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.connect" title="imhr.eyetracking.Eyelink.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([calibration_type,&nbsp;…])</td>
-<td>Connect to Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.drift_correction" title="imhr.eyetracking.Eyelink.drift_correction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drift_correction</span></code></a>([origin])</td>
-<td>Starts drift correction.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.finish_recording" title="imhr.eyetracking.Eyelink.finish_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finish_recording</span></code></a>([path])</td>
-<td>Ending Eyelink recording.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.gc" title="imhr.eyetracking.Eyelink.gc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gc</span></code></a>(bound,&nbsp;min_[,&nbsp;max_])</td>
-<td>Creates gaze contigent event.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.sample" title="imhr.eyetracking.Eyelink.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>()</td>
-<td>Collects new gaze coordinates from Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.send_message" title="imhr.eyetracking.Eyelink.send_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_message</span></code></a>(msg)</td>
-<td>Send message to Eyelink.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.send_variable" title="imhr.eyetracking.Eyelink.send_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_variable</span></code></a>(variables)</td>
-<td>send trial variable to eyelink at the end of trial.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.set_eye_used" title="imhr.eyetracking.Eyelink.set_eye_used"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eye_used</span></code></a>(eye)</td>
-<td>Set dominant eye.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.start_recording" title="imhr.eyetracking.Eyelink.start_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_recording</span></code></a>(trial,&nbsp;block)</td>
-<td>Starts recording of Eyelink.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.Eyelink.stop_recording" title="imhr.eyetracking.Eyelink.stop_recording"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_recording</span></code></a>([trial,&nbsp;block,&nbsp;variables])</td>
-<td>Stops recording of Eyelink.</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.calibration">
-<code class="descname">calibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calibration</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.calibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.calibration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start calibration procedure.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -717,7 +607,7 @@ correction can be done here. Also, it is normal to clear the display in this cal
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.connect">
-<code class="descname">connect</code><span class="sig-paren">(</span><em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">connect</code><span class="sig-paren">(</span><em>self</em>, <em>calibration_type=13</em>, <em>automatic_calibration_pacing=1000</em>, <em>saccade_velocity_threshold=35</em>, <em>saccade_acceleration_threshold=9500</em>, <em>sound=True</em>, <em>select_parser_configuration=0</em>, <em>recording_parse_type='GAZE'</em>, <em>enable_search_limits=True</em>, <em>ip='100.1.1.1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect to Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -727,24 +617,24 @@ correction can be done here. Also, it is normal to clear the display in this cal
 <dt><strong>ip</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code></a></span></dt>
 <dd><p class="first last">Host PC ip address.</p>
 </dd>
-<dt><strong>calibration_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>calibration_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Calibration type. Default is 13-point. [see <a class="reference external" href="../manual/EyeLink%201000%20Plus%20User%20Manual%201.0.12.pdf">Eyelink 1000 Plus User Manual, 3.7 Calibration</a>]</p>
 </dd>
-<dt><strong>automatic_calibration_pacing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>automatic_calibration_pacing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Select the delay in milliseconds, between successive calibration or validation targets 
 if automatic target detection is activeSet automatic calibration pacing. [see <a class="reference external" href="../manual/pylink.chm">pylink.chm</a>]</p>
 </dd>
-<dt><strong>saccade_velocity_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>saccade_velocity_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Sets velocity threshold of saccade detector: usually 30 for cognitive research, 22 for 
 pursuit and neurological work. Default is 35. Note: EyeLink II and EyeLink 1000,
 select select_parser_configuration should be used instead. [see <a class="reference external" href="../manual/EyeLink%20Programmers%20Guide.pdf">EyeLink Programmer’s Guide,             Section 25.9: Parser Configuration</a>; <a class="reference external" href="../manual/EyeLink%201000%20Plus%20User%20Manual%201.0.12.pdf">Eyelink 1000 Plus                     User Manual, Section 4.3.5 Saccadic Thresholds</a>]</p>
 </dd>
-<dt><strong>saccade_acceleration_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>saccade_acceleration_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Sets acceleration threshold of saccade detector: usually 9500 for cognitive research, 5000 
 for pursuit and neurological work. Default is 9500. Note: For EyeLink II and EyeLink 1000,
 select select_parser_configuration should be used instead. [see <a class="reference external" href="../manual/EyeLink%20Programmers%20Guide.pdf">EyeLink Programmer’s Guide,             Section 25.9: Parser Configuration</a>;                        <a class="reference external" href="../manual/EyeLink%201000%20Plus%20User%20Manual%201.0.12.pdf">Eyelink 1000 Plus User Manual, Section 4.3.5 Saccadic Thresholds</a>]</p>
 </dd>
-<dt><strong>select_parser_configuration</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>select_parser_configuration</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Selects the preset standard parser setup (0) or more sensitive (1). These are equivalent
 to the cognitive and psychophysical configurations. Default is 0. [see <a class="reference external" href="../manual/EyeLink%20Programmers%20Guide.pdf">EyeLink Programmer’s             Guide, Section 25.9: Parser Configuration</a>]</p>
 </dd>
@@ -778,7 +668,7 @@ Enter either ‘GAZE’ or ‘HREF’. Default is ‘GAZE’. [see <a class="ref
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.drift_correction">
-<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drift_correction</code><span class="sig-paren">(</span><em>self</em>, <em>origin='call'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.drift_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.drift_correction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts drift correction. This can be done at any point after calibration, including before 
 and after eyetracking.start_recording has already been initiated.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -812,7 +702,7 @@ correction has occured, it is safe to run start_recording.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.finish_recording">
-<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finish_recording</code><span class="sig-paren">(</span><em>self</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.finish_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.finish_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ending Eyelink recording.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -869,22 +759,22 @@ filename should be given.
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.gc">
-<code class="descname">gc</code><span class="sig-paren">(</span><em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gc</code><span class="sig-paren">(</span><em>self</em>, <em>bound</em>, <em>min_</em>, <em>max_=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.gc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.gc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates gaze contigent event. This function needs to be run while recording.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bound</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]:</span></dt>
+<dt><strong>bound</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]:</span></dt>
 <dd><p class="first last">Dictionary of the bounding box for each region of interest. Keys are each side of the 
 bounding box and values are their corresponding coordinates in pixels.</p>
 </dd>
-<dt><strong>min_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>min_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Mininum duration (msec) in which gaze contigent capture is collecting data before allowing
 the task to continue.</p>
 </dd>
-<dt><strong>max_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
+<dt><strong>max_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
 <dd><p class="first last">Maxinum duration (msec) before task is forced to go into drift correction.</p>
 </dd>
 </dl>
@@ -903,7 +793,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects new gaze coordinates from Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -932,7 +822,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.send_message">
-<code class="descname">send_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_message</code><span class="sig-paren">(</span><em>self</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.send_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send message to Eyelink. This allows post-hoc processing of event markers (i.e. “stimulus onset”).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -955,7 +845,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.send_variable">
-<code class="descname">send_variable</code><span class="sig-paren">(</span><em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_variable</code><span class="sig-paren">(</span><em>self</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.send_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.send_variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>send trial variable to eyelink at the end of trial.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -974,7 +864,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.set_eye_used">
-<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_eye_used</code><span class="sig-paren">(</span><em>self</em>, <em>eye</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.set_eye_used"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.set_eye_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dominant eye. This step is required for recieving gaze coordinates from Eyelink-&gt;Psychopy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -998,7 +888,7 @@ the task to continue.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.start_recording">
-<code class="descname">start_recording</code><span class="sig-paren">(</span><em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">start_recording</code><span class="sig-paren">(</span><em>self</em>, <em>trial</em>, <em>block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.start_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.start_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts recording of Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1054,17 +944,17 @@ trial start is lost.
 
 <dl class="method">
 <dt id="imhr.eyetracking.Eyelink.stop_recording">
-<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
+<code class="descname">stop_recording</code><span class="sig-paren">(</span><em>self</em>, <em>trial=None</em>, <em>block=None</em>, <em>variables=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_eyelink.html#Eyelink.stop_recording"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.Eyelink.stop_recording" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops recording of Eyelink. Also allows transmission of trial-level variables to Eyelink.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Trial Number.</p>
 </dd>
-<dt><strong>block</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>block</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">Block Number.</p>
 </dd>
 <dt><strong>variables</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
@@ -1136,9 +1026,9 @@ data loading preference settings.
 <dt><strong>isMultiprocessing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
 <dd><p class="first last">Should the rois be generated using multiprocessing. Default <cite>False</cite>.</p>
 </dd>
-<dt><strong>detection</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">How should the regions of interest be detected. Either manually, through the use of highlight layers, or automatically
-using haar cascades opencv. Default <cite>manual</cite>.</p>
+<dt><strong>detection</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘manual’, ‘haarcascade’}</span></dt>
+<dd><p class="first last">How should the regions of interest be detected. Either manually, through the use of highlighting layers in photo-editing
+software, or automatically through feature detection using <cite>haarcascade</cite> classifers from opencv. Default <cite>manual</cite>.</p>
 </dd>
 <dt><strong>image_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
 <dd><p class="first last">Image directory path.</p>
@@ -1146,11 +1036,11 @@ using haar cascades opencv. Default <cite>manual</cite>.</p>
 <dt><strong>output_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
 <dd><p class="first last">Path to save data.</p>
 </dd>
-<dt><strong>roi_format</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>raw</cite>,`dataviewer`, <cite>both</cite>}</span></dt>
-<dd><p class="first last">Format to export ROIs. Either to ‘csv’ (<cite>raw</cite>) or to Eyelink DataViewer ‘ias’ (<cite>dataviewer</cite>) or both (<cite>both</cite>). 
-Default is <cite>raw</cite>. Note: If <code class="code docutils literal notranslate"><span class="pre">roi_format</span></code> = <cite>dataviewer</cite>, <code class="code docutils literal notranslate"><span class="pre">shape</span></code> must be either be <cite>circle</cite>, <cite>rotate</cite>, or <cite>straight</cite>.</p>
+<dt><strong>roi_format</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘raw’, ‘dataviewer’, ‘both’}</span></dt>
+<dd><p class="first last">Format to export ROIs. Either to ‘csv’ (<cite>raw</cite>) or to Eyelink DataViewer ‘ias’ (<cite>dataviewer</cite>) or both (<cite>both</cite>).
+Default is <cite>both</cite>. Note: If <code class="code docutils literal notranslate"><span class="pre">roi_format</span></code> = <cite>dataviewer</cite>, <code class="code docutils literal notranslate"><span class="pre">shape</span></code> must be either be <cite>circle</cite>, <cite>rotate</cite>, or <cite>straight</cite>.</p>
 </dd>
-<dt><strong>metadata_source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
+<dt><strong>metadata_source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> {‘path’, ‘embedded’}</span></dt>
 <dd><p class="first">Metadata source. If metadata is being read from a spreadsheet, <code class="code docutils literal notranslate"><span class="pre">metadata_source</span></code> should be equal to path the to
 the metadata file, else if metadata is embed within the image as a layer name, <code class="code docutils literal notranslate"><span class="pre">metadata_source</span></code> = <cite>embedded</cite>.
 Default is <cite>embedded</cite>. For example:</p>
@@ -1165,12 +1055,12 @@ as a seperate layer within a PSD, the layer name can be used to store metadata. 
 to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
 be either <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>t</cite> or <cite>s</cite> (Delimiter type must be identified when running this code using the
 code:<cite>delimiter</cite> parameter. The default is <cite>;</cite>.). Here’s an example using <cite>;</cite> as a delimiter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span><span class="o">=</span><span class="n">BM001</span><span class="p">;</span><span class="n">roiname</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">feature</span><span class="o">=</span><span class="n">lefteye</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span> <span class="o">=</span> <span class="s2">&quot;BM001&quot;</span><span class="p">;</span> <span class="n">roiname</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">feature</span> <span class="o">=</span> <span class="s2">&quot;lefteye&quot;</span>
 </pre></div>
 </div>
 <p class="last">Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</p>
 </dd>
-<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>polygon</cite>, <cite>hull</cite>, <cite>circle</cite>, <cite>rotate</cite>, <cite>straight</cite>}</span></dt>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘polygon’, ‘hull’, ‘circle’, ‘rotate’, ‘straight’}</span></dt>
 <dd><p class="first last">Shape of machine readable boundaries for region of interest. Default is <cite>straight</cite>. <cite>polygon</cite> creates a Contour
 Approximation and will most closely match the orginal shape of the roi. <cite>hull</cite> creates a Convex Hull, which
 is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
@@ -1213,12 +1103,8 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save coordinates. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">True.</span></code></td>
 </tr>
-<tr class="row-odd"><td><strong>newcolumn</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a></td>
-<td><dl class="first last docutils">
-<dt>Add additional column to metadata. This must be in the form of a dict in this form {key: value}. </dt>
-<dd>Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">False.</span></code></dd>
-</dl>
-</td>
+<tr class="row-odd"><td><strong>newcolumn</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a></td>
+<td>Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">False.</span></code></td>
 </tr>
 <tr class="row-even"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save images. Default is True.</td>
@@ -1226,16 +1112,29 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <tr class="row-odd"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save generated contours as images. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>.</td>
 </tr>
-<tr class="row-even"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
-<td>(if <code class="code docutils literal notranslate"><span class="pre">source</span></code> == <cite>psd</cite>) How is metadata delimited, options are: <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>tab</cite> or <cite>space</cite> Default is <cite>;</cite>.</td>
+<tr class="row-even"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {‘;’ , ‘,’ , ‘|’ , ‘tab’ , ‘space’}</td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">source</span></code> == <cite>psd</cite>) How is metadata delimited. Default is <cite>;</cite>.</td>
 </tr>
-<tr class="row-odd"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<tr class="row-odd"><td><strong>classifier</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘eye_tree_eyeglasses’,’eye’,’frontalface_alt_tree’,’frontalface_alt’,’frontalface_alt2’,
+‘frontalface_default’,’fullbody’,’lowerbody’,’profileface’,’smile’,’upperbody’}</td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">detection</span></code> == <cite>haarcascade</cite>) Type of trained classifier to use. Default ‘frontalface_default’.</td>
+</tr>
+<tr class="row-even"><td><strong>classScaleFactor</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#float" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+<td>Parameter specifying how much the image size is reduced at each image scale.</td>
+</tr>
+<tr class="row-odd"><td><strong>classMinNeighbors</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#float" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+<td>Parameter specifying how many neighbors each candidate rectangle should have to retain it.</td>
+</tr>
+<tr class="row-even"><td><strong>classMinSize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></td>
+<td>Minimum possible object size. Objects smaller than that are ignored.</td>
+</tr>
+<tr class="row-odd"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
 <td>Monitor size is being presented. Default is <cite>[1920, 1080]</cite>.</td>
 </tr>
 <tr class="row-even"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
 <td>If image is scaled during presentation, set scale. Default is 1.</td>
 </tr>
-<tr class="row-odd"><td><strong>offset</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<tr class="row-odd"><td><strong>offset</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
 <td>Center point of image, relative to screensize. Default is <cite>[960, 540]</cite>.</td>
 </tr>
 <tr class="row-even"><td><strong>dpi</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
@@ -1247,76 +1146,8 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 </dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>Exception</strong></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-<dt><strong>Exception</strong></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Methods</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.create_contours" title="imhr.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.create_rois" title="imhr.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.draw_image" title="imhr.eyetracking.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(imagename,&nbsp;data[,&nbsp;source])</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.export_data" title="imhr.eyetracking.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.finished" title="imhr.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(df[,&nbsp;errors])</td>
-<td>Process bounds for all images.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process" title="imhr.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process_image" title="imhr.eyetracking.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(psd)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process_metadata" title="imhr.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.run" title="imhr.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
-<td>[summary]</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<dl class="docutils">
-<dt>Resources</dt>
-<dd><ul class="first last simple">
-<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
-<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
-<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds are created.</li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">imhr.roi</span> <span class="k">import</span> <span class="n">ROI</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ROI</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>shape_d</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {<cite>ELLIPSE</cite>, <cite>FREEHAND</cite>, <cite>RECTANGLE</cite>}</span></dt>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>shape_d</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {‘ELLIPSE’, ‘FREEHAND’, ‘RECTANGLE’}</span></dt>
 <dd><p class="first last">DataViewer ROI shape.</p>
 </dd>
 <dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
@@ -1340,53 +1171,76 @@ for more information.</p>
 <dt><strong>image_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
 <dd><p class="first last">Returns from <span class="xref std std-ref">cv2.drawContours</span>. This draws filled contours from the image.</p>
 </dd>
-<dt><strong>image_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
-<dd><p class="first last">Returns from <span class="xref std std-ref">cv2.drawContours</span>. This draws filled contours from the image.</p>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt>Exception</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt>Exception</dt>
+<dd><p class="first last">[description]</p>
 </dd>
 </dl>
 </td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Methods</p>
+<p><strong>Methods</strong></p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.create_contours" title="imhr.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.create_contours" title="imhr.eyetracking.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(self,&nbsp;image,&nbsp;imagename,&nbsp;roiname)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.create_rois" title="imhr.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(imagename,&nbsp;metadata,&nbsp;roiname,&nbsp;…)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.create_rois" title="imhr.eyetracking.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(self,&nbsp;imagename,&nbsp;metadata,&nbsp;…)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.draw_image" title="imhr.eyetracking.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(imagename,&nbsp;data[,&nbsp;source])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.draw_image" title="imhr.eyetracking.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(self,&nbsp;imagename,&nbsp;data[,&nbsp;source])</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.export_data" title="imhr.eyetracking.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.export_data" title="imhr.eyetracking.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(self,&nbsp;df,&nbsp;path,&nbsp;filename[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.finished" title="imhr.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(df[,&nbsp;errors])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.finished" title="imhr.eyetracking.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(self,&nbsp;df[,&nbsp;errors])</td>
 <td>Process bounds for all images.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process" title="imhr.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process" title="imhr.eyetracking.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process_image" title="imhr.eyetracking.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(psd)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process_image" title="imhr.eyetracking.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap])</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process_metadata" title="imhr.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(imagename,&nbsp;layer)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking.ROI.process_metadata" title="imhr.eyetracking.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.run" title="imhr.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking.ROI.run" title="imhr.eyetracking.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;directory[,&nbsp;core,&nbsp;queue])</td>
 <td>[summary]</td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt>Resources</dt>
+<dd><ul class="first last simple">
+<li>See <a class="reference external" href="https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html">https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html</a> for more information about each shape.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html">https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html</a> for more information about how images are drawn.</li>
+<li>See <a class="reference external" href="https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html">https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</a> to understand how bounds are created.</li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">imhr.roi</span> <span class="kn">import</span> <span class="n">ROI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;/dist/example/raw/&quot;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;/dist/example/&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ROI</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.create_contours">
-<code class="descname">create_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_contours</code><span class="sig-paren">(</span><em>self</em>, <em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1406,17 +1260,17 @@ for more information.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>Exception</strong></dt>
+<dt>Exception</dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>Exception</strong></dt>
+<dt>Exception</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1428,7 +1282,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.create_rois">
-<code class="descname">create_rois</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_rois</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1460,17 +1314,17 @@ for more information.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>Exception</strong></dt>
+<dt>Exception</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1482,7 +1336,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.draw_image">
-<code class="descname">draw_image</code><span class="sig-paren">(</span><em>imagename</em>, <em>data</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.draw_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.draw_image" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_image</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>data</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.draw_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.draw_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1507,7 +1361,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.export_data">
-<code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em>, <em>level='image'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.export_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">export_data</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em>, <em>level='image'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.export_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.export_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1536,7 +1390,7 @@ for more information.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1548,7 +1402,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.finished">
-<code class="descname">finished</code><span class="sig-paren">(</span><em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.finished" title="Permalink to this definition">¶</a></dt>
+<code class="descname">finished</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.finished" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process bounds for all images.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1570,14 +1424,14 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.process">
-<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.process" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1589,22 +1443,35 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.process_image">
-<code class="descname">process_image</code><span class="sig-paren">(</span><em>psd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.process_image" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_image</code><span class="sig-paren">(</span><em>self</em>, <em>psd=None</em>, <em>xcf=None</em>, <em>bitmap=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.process_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
-<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest.</p>
+<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</p>
+</dd>
+<dt><strong>xcf</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>bitmap</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
 </dd>
 </dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>[type]</strong></dt>
-<dd><p class="first last">[description]</p>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dd><p class="first last">PIL image object class.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>background</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dd><p class="first last">PIL image object class.</p>
 </dd>
 </dl>
 </td>
@@ -1615,7 +1482,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.process_metadata">
-<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1632,13 +1499,13 @@ for more information.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1650,7 +1517,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="imhr.eyetracking.ROI.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.run" title="Permalink to this definition">¶</a></dt>
+<code class="descname">run</code><span class="sig-paren">(</span><em>self</em>, <em>directory</em>, <em>core=0</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking.ROI.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1660,7 +1527,7 @@ for more information.</p>
 <dt><strong>directory</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>core</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>core</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">(if isMultiprocessing) Core used for this function. Default <cite>0</cite>.</p>
 </dd>
 <dt><strong>queue</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/queue.html#queue.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queue.Queue</span></code></a></span></dt>
@@ -1670,7 +1537,7 @@ for more information.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>[type]</strong></dt>
+<dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -1694,7 +1561,7 @@ for more information.</p>
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

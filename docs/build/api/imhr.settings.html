@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.settings &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>imhr.settings &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -51,7 +51,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -126,11 +126,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +138,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
@@ -175,6 +175,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.settings</a></li>
@@ -225,6 +226,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.settings</a></li>
@@ -464,7 +466,7 @@ for more.</p>
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

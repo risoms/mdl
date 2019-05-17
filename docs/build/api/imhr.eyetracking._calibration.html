@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking._calibration &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>imhr.eyetracking._calibration &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -125,11 +125,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +137,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
@@ -259,58 +259,58 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.alert_printf" title="imhr.eyetracking._calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.alert_printf" title="imhr.eyetracking._calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(self,&nbsp;msg)</td>
 <td>Print error messages.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.clear_cal_display" title="imhr.eyetracking._calibration.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.clear_cal_display" title="imhr.eyetracking._calibration.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>(self)</td>
 <td>Clear the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_cal_target" title="imhr.eyetracking._calibration.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_cal_target" title="imhr.eyetracking._calibration.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(self,&nbsp;x,&nbsp;y)</td>
 <td>Draw the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_image_line" title="imhr.eyetracking._calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_image_line" title="imhr.eyetracking._calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(self,&nbsp;width,&nbsp;line,&nbsp;totlines,&nbsp;…)</td>
 <td>Display image pixel by pixel, line by line.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_line" title="imhr.eyetracking._calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_line" title="imhr.eyetracking._calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(self,&nbsp;x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
 <td>Draw a line.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_lozenge" title="imhr.eyetracking._calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_lozenge" title="imhr.eyetracking._calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(self,&nbsp;x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;…)</td>
 <td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.erase_cal_target" title="imhr.eyetracking._calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.erase_cal_target" title="imhr.eyetracking._calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>(self)</td>
 <td>Erase the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_cal_display" title="imhr.eyetracking._calibration.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_cal_display" title="imhr.eyetracking._calibration.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>(self)</td>
 <td>Exit the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_image_display" title="imhr.eyetracking._calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_image_display" title="imhr.eyetracking._calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>(self)</td>
 <td>Clear the camera image.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.getColorFromIndex" title="imhr.eyetracking._calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.getColorFromIndex" title="imhr.eyetracking._calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(self,&nbsp;colorindex)</td>
 <td>Return psychopy colors for elements in the camera image.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_input_key" title="imhr.eyetracking._calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_input_key" title="imhr.eyetracking._calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>(self)</td>
 <td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_mouse_state" title="imhr.eyetracking._calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_mouse_state" title="imhr.eyetracking._calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>(self)</td>
 <td>Get the current mouse position and status</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.image_title" title="imhr.eyetracking._calibration.Calibration.image_title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_title</span></code></a>(text)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.image_title" title="imhr.eyetracking._calibration.Calibration.image_title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_title</span></code></a>(self,&nbsp;text)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.play_beep" title="imhr.eyetracking._calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.play_beep" title="imhr.eyetracking._calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(self,&nbsp;beepid)</td>
 <td>Play a sound during calibration/drift correction.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.record_abort_hide" title="imhr.eyetracking._calibration.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.record_abort_hide" title="imhr.eyetracking._calibration.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>(self)</td>
 <td>This function is called if aborted</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.set_image_palette" title="imhr.eyetracking._calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.set_image_palette" title="imhr.eyetracking._calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(self,&nbsp;r,&nbsp;g,&nbsp;b)</td>
 <td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_cal_display" title="imhr.eyetracking._calibration.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_cal_display" title="imhr.eyetracking._calibration.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>(self)</td>
 <td>Shows the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_image_display" title="imhr.eyetracking._calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_image_display" title="imhr.eyetracking._calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(self,&nbsp;width,&nbsp;height)</td>
 <td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
 </tr>
 </tbody>
@@ -321,55 +321,55 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.alert_printf" title="imhr.eyetracking._calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(msg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.alert_printf" title="imhr.eyetracking._calibration.Calibration.alert_printf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alert_printf</span></code></a>(self,&nbsp;msg)</td>
 <td>Print error messages.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.clear_cal_display" title="imhr.eyetracking._calibration.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.clear_cal_display" title="imhr.eyetracking._calibration.Calibration.clear_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cal_display</span></code></a>(self)</td>
 <td>Clear the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_cal_target" title="imhr.eyetracking._calibration.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(x,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_cal_target" title="imhr.eyetracking._calibration.Calibration.draw_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_cal_target</span></code></a>(self,&nbsp;x,&nbsp;y)</td>
 <td>Draw the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_image_line" title="imhr.eyetracking._calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(width,&nbsp;line,&nbsp;totlines,&nbsp;buff)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_image_line" title="imhr.eyetracking._calibration.Calibration.draw_image_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image_line</span></code></a>(self,&nbsp;width,&nbsp;line,&nbsp;totlines,&nbsp;…)</td>
 <td>Display image pixel by pixel, line by line.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_line" title="imhr.eyetracking._calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_line" title="imhr.eyetracking._calibration.Calibration.draw_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_line</span></code></a>(self,&nbsp;x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;colorindex)</td>
 <td>Draw a line.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_lozenge" title="imhr.eyetracking._calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.draw_lozenge" title="imhr.eyetracking._calibration.Calibration.draw_lozenge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_lozenge</span></code></a>(self,&nbsp;x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;…)</td>
 <td>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.erase_cal_target" title="imhr.eyetracking._calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.erase_cal_target" title="imhr.eyetracking._calibration.Calibration.erase_cal_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase_cal_target</span></code></a>(self)</td>
 <td>Erase the calibration/validation target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_cal_display" title="imhr.eyetracking._calibration.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_cal_display" title="imhr.eyetracking._calibration.Calibration.exit_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_cal_display</span></code></a>(self)</td>
 <td>Exit the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_image_display" title="imhr.eyetracking._calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.exit_image_display" title="imhr.eyetracking._calibration.Calibration.exit_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit_image_display</span></code></a>(self)</td>
 <td>Clear the camera image.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.getColorFromIndex" title="imhr.eyetracking._calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(colorindex)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.getColorFromIndex" title="imhr.eyetracking._calibration.Calibration.getColorFromIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getColorFromIndex</span></code></a>(self,&nbsp;colorindex)</td>
 <td>Return psychopy colors for elements in the camera image.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_input_key" title="imhr.eyetracking._calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_input_key" title="imhr.eyetracking._calibration.Calibration.get_input_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_key</span></code></a>(self)</td>
 <td>This function will be constantly pools, update the stimuli here is you need dynamic calibration target.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_mouse_state" title="imhr.eyetracking._calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.get_mouse_state" title="imhr.eyetracking._calibration.Calibration.get_mouse_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouse_state</span></code></a>(self)</td>
 <td>Get the current mouse position and status</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.play_beep" title="imhr.eyetracking._calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(beepid)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.play_beep" title="imhr.eyetracking._calibration.Calibration.play_beep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play_beep</span></code></a>(self,&nbsp;beepid)</td>
 <td>Play a sound during calibration/drift correction.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.record_abort_hide" title="imhr.eyetracking._calibration.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.record_abort_hide" title="imhr.eyetracking._calibration.Calibration.record_abort_hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_abort_hide</span></code></a>(self)</td>
 <td>This function is called if aborted</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.set_image_palette" title="imhr.eyetracking._calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(r,&nbsp;g,&nbsp;b)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.set_image_palette" title="imhr.eyetracking._calibration.Calibration.set_image_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_image_palette</span></code></a>(self,&nbsp;r,&nbsp;g,&nbsp;b)</td>
 <td>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_cal_display" title="imhr.eyetracking._calibration.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_cal_display" title="imhr.eyetracking._calibration.Calibration.setup_cal_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_cal_display</span></code></a>(self)</td>
 <td>Shows the ‘Camera Setup’ screen along with menu options.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_image_display" title="imhr.eyetracking._calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(width,&nbsp;height)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._calibration.Calibration.setup_image_display" title="imhr.eyetracking._calibration.Calibration.setup_image_display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_image_display</span></code></a>(self,&nbsp;width,&nbsp;height)</td>
 <td>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</td>
 </tr>
 </tbody>
@@ -387,7 +387,7 @@
 </table>
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.setup_cal_display">
-<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_cal_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.setup_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows the ‘Camera Setup’ screen along with menu options.</p>
 <p class="rubric">Notes</p>
 <p>This function is called to setup calibration/validation display. This will be called just before we enter into 
@@ -397,103 +397,103 @@ correction can be done here. Also, it is normal to clear the display in this cal
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.clear_cal_display">
-<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear_cal_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.clear_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.clear_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.exit_cal_display">
-<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_cal_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_cal_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.exit_cal_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exit the ‘Camera Setup’ screen along with menu options.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.record_abort_hide">
-<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
+<code class="descname">record_abort_hide</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.record_abort_hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.record_abort_hide" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is called if aborted</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.erase_cal_target">
-<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">erase_cal_target</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.erase_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.erase_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erase the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.draw_cal_target">
-<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_cal_target</code><span class="sig-paren">(</span><em>self</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_cal_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_cal_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw the calibration/validation target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.play_beep">
-<code class="descname">play_beep</code><span class="sig-paren">(</span><em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
+<code class="descname">play_beep</code><span class="sig-paren">(</span><em>self</em>, <em>beepid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.play_beep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.play_beep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound during calibration/drift correction.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.getColorFromIndex">
-<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getColorFromIndex</code><span class="sig-paren">(</span><em>self</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.getColorFromIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.getColorFromIndex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return psychopy colors for elements in the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.draw_line">
-<code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_line</code><span class="sig-paren">(</span><em>self</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a line. This is used for drawing crosshairs/squares.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.draw_lozenge">
-<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_lozenge</code><span class="sig-paren">(</span><em>self</em>, <em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>colorindex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_lozenge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_lozenge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.get_mouse_state">
-<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_mouse_state</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_mouse_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.get_mouse_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current mouse position and status</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.get_input_key">
-<code class="descname">get_input_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_input_key</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.get_input_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.get_input_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will be constantly pools, update the stimuli here is you need
 dynamic calibration target.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.exit_image_display">
-<code class="descname">exit_image_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exit_image_display</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.exit_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.exit_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the camera image.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.alert_printf">
-<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
+<code class="descname">alert_printf</code><span class="sig-paren">(</span><em>self</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.alert_printf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.alert_printf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print error messages.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.setup_image_display">
-<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_image_display</code><span class="sig-paren">(</span><em>self</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.setup_image_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.setup_image_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up the camera image, for newer APIs, the size is 384 x 320 pixels.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.image_title">
-<code class="descname">image_title</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.image_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.image_title" title="Permalink to this definition">¶</a></dt>
+<code class="descname">image_title</code><span class="sig-paren">(</span><em>self</em>, <em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.image_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.image_title" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.draw_image_line">
-<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
+<code class="descname">draw_image_line</code><span class="sig-paren">(</span><em>self</em>, <em>width</em>, <em>line</em>, <em>totlines</em>, <em>buff</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.draw_image_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.draw_image_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display image pixel by pixel, line by line.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.eyetracking._calibration.Calibration.set_image_palette">
-<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_image_palette</code><span class="sig-paren">(</span><em>self</em>, <em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_calibration.html#Calibration.set_image_palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._calibration.Calibration.set_image_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a set of RGB colors, create a list of 24bit numbers representing the pallet.
 I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000 011111111</p>
 </dd></dl>
@@ -512,7 +512,7 @@ I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

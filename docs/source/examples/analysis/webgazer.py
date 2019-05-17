@@ -16,7 +16,7 @@ Useful python references
 #%%--------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------imports
 #----local
-from mdl import download, model, plot, processing, raw, redcap, settings
+from imhr import download, model, plot, processing, raw, redcap, settings
 
 #----config
 settings = settings()
@@ -1193,7 +1193,7 @@ pass
 # from pycallgraph import PyCallGraph
 # from pycallgraph.output import GraphvizOutput
 # with PyCallGraph(output=GraphvizOutput()):
-#     from mdl import plot, processing, raw, redcap
+#     from imhr import plot, processing, raw, redcap
 #     import imhr.model as model
 #     import imhr.settings as settings
 

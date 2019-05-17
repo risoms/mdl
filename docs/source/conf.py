@@ -8,6 +8,10 @@ references:
 	* https://sublime-and-sphinx-guide.readthedocs.io/en/latest/
 	* http://www.sphinx-doc.org/en/master/contents.html
 	* http://docutils.sourceforge.net/docs/ref/rst/directives.html
+	* https://numpydoc.readthedocs.io/en/latest/validation.html
+	* https://www.numpy.org/devdocs/docs/howto_document.html
+note:
+	* it's possible to convert python to rst by using: https://numpydoc.readthedocs.io/en/latest/validation.html
 '''
 
 # core
@@ -61,58 +65,35 @@ isodate = iso()
 html_last_updated_fmt = '%s'%(isodate)
 
 # Required packages ----------------------------------------------------------------------------------------------------
-from jinja2 import Template
-from pathlib import Path
-## get required packages
-required = ['bokeh≥1.0.4',
- 'pip≥19.1.1',
- 'scipy≥1.2.1',
- 'seaborn≥0.9.0',
- 'PsychoPy≥3.1.0',
- 'pandas≥0.24.2',
- 'opencv_python≥4.1.0.25',
- 'setuptools≥40.8.0',
- 'requests≥2.21.0',
- 'docopt≥0.6.2',
- 'openpyxl≥2.6.1',
- 'numpy≥1.16.2',
- 'matplotlib≥3.0.3',
- 'psd_tools≥1.8.14',
- 'Pillow≠6.0.0',
- 'paramiko≥2.4.2',
- 'rpy2≥3.0.3',
- 'scikit_learn≥0.21.0',
- 'certifi≥2019.3.9',
- '(if windows) pywin32≡224',
- '(if macos) pyobjc≡5.2']
-required_ = [{'package': 'bokeh', 'version': '≥1.0.4'},
- {'package': 'pip', 'version': '≥19.1.1'},
- {'package': 'scipy', 'version': '≥1.2.1'},
- {'package': 'seaborn', 'version': '≥0.9.0'},
- {'package': 'PsychoPy', 'version': '≥3.1.0'},
- {'package': 'pandas', 'version': '≥0.24.2'},
- {'package': 'opencv_python', 'version': '≥4.1.0.25'},
- {'package': 'setuptools', 'version': '≥40.8.0'},
- {'package': 'requests', 'version': '≥2.21.0'},
- {'package': 'docopt', 'version': '≥0.6.2'},
- {'package': 'openpyxl', 'version': '≥2.6.1'},
- {'package': 'numpy', 'version': '≥1.16.2'},
- {'package': 'matplotlib', 'version': '≥3.0.3'},
- {'package': 'psd_tools', 'version': '≥1.8.14'},
- {'package': 'Pillow', 'version': '≠6.0.0'},
- {'package': 'paramiko', 'version': '≥2.4.2'},
- {'package': 'rpy2', 'version': '≥3.0.3'},
- {'package': 'scikit_learn', 'version': '≥0.21.0'},
- {'package': 'certifi', 'version': '≥2019.3.9'},
- {'package': '(if windows) pywin32', 'version': '≡224'},
- {'package': '(if macos) pyobjc', 'version': '≡5.2'}]
-
+# from jinja2 import Template
+# from pathlib import Path
+# ## get required packages
+# required = ['bokeh≥1.0.4',
+#  'pip≥19.1.1',
+#  'scipy≥1.2.1',
+#  'seaborn≥0.9.0',
+#  'PsychoPy≥3.1.0',
+#  'pandas≥0.24.2',
+#  'opencv_python≥4.1.0.25',
+#  'setuptools≥40.8.0',
+#  'requests≥2.21.0',
+#  'docopt≥0.6.2',
+#  'openpyxl≥2.6.1',
+#  'numpy≥1.16.2',
+#  'matplotlib≥3.0.3',
+#  'psd_tools≥1.8.14',
+#  'Pillow≠6.0.0',
+#  'paramiko≥2.4.2',
+#  'rpy2≥3.0.3',
+#  'scikit_learn≥0.21.0',
+#  'certifi≥2019.3.9',
+#  '(if windows) pywin32≡224',
+#  '(if macos) pyobjc≡5.2']
 ## build in jinja
 # jinja_ = Template("{{ packages.package }}{{ packages.version }}")
 # msg = jinja_.render(packages=required_)
 # html_context = {
 # 	'required' :required,
-# 	'required_' :required_
 # }
 # Extensions -----------------------------------------------------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
@@ -221,7 +202,7 @@ def builder_inited(app):
         'better-apidoc',
         '--templates', temp_, #Custom template directory
         '--force', #Overwrite existing files'
-        #'--separate', #Put documentation for each module on its own page
+        '--separate', #Put documentation for each module on its own page
 		'--private', #nclude "_private" modules
         '--output-dir', api_, #Directory to place all output
         os.path.abspath(path) #module path
@@ -239,8 +220,8 @@ autodoc_default_options = {
     # 'autosummary': True,
 	# 'special-members': '__init__'
     # 'undoc-members': False,
-    # 'member-order': 'bysource',
     # 'private-members': True,
+	'member-order': 'bysource',
 	'inherited-members': True,
     'show-inheritance': True,
 }
@@ -302,7 +283,6 @@ exclude_patterns = [
 	'imhr._version.rst',
 	'api/imhr._version.rst',
 	'api/setup.rst',
-	'api/imhr.tests.rst',
 	'api/versioneer.rst',
 	'api/imhr.eyetracking.pylink.rst'
 ]
@@ -361,7 +341,8 @@ intersphinx_mapping = {
 	'h5py' : ('http://docs.h5py.org/en/latest/', None),
 	'pandas' : ('http://pandas.pydata.org/pandas-docs/stable/', None),
 	'matplotlib': ('https://matplotlib.org/', None),
-	'psd_tools': ('https://psd-tools.readthedocs.io/en/latest/', None),
+	'psd_tools': ('https://psd-tools.readthedocs.io/en/stable/', None),
+	'PIL': ('https://pillow.readthedocs.io/en/stable/', None),
 }
 
 # setup ----------------------------------------------------------------------------------------------------------------

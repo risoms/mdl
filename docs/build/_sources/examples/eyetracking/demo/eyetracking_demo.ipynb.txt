@@ -34,7 +34,7 @@
     "         <div class=\"title\">The sequence of operations for implementing the trial is:</div>\n",
     "         <ol class=\"list\">\n",
     "             <li>[Import packages](demo.html#import).</li>\n",
-    "             <li>[Initialize the mdl.eyetracking package](demo.html#init).</li>\n",
+    "             <li>[Initialize the imhr.eyetracking package](demo.html#init).</li>\n",
     "             <li>[Connect to the Eyelink Host](demo.html#connect).</li>\n",
     "             <li>[Set the dominamt eye](demo.html#eye).</li>\n",
     "             <li>[Start calibration](demo.html#calibration).</li>\n",
@@ -71,7 +71,7 @@
     "import os, sys, time\n",
     "sys.path.append(os.path.abspath(os.getcwd() + '../../../../../../..'))\n",
     "from psychopy import visual, core\n",
-    "import mdl"
+    "import imhr"
    ]
   },
   {
@@ -103,7 +103,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "##### Initialize the [mdl.eyetracking](../../../eyetracking.html#mdl.eyetracking.run) package.\n",
+    "##### Initialize the [imhr.eyetracking](../../../eyetracking.html#imhr.eyetracking.run) package.\n",
     ".. note:: Before initializing, make sure code is placed after PsychoPy window instance has been created in the experiment file. This window will be used in the calibration function."
    ]
   },
@@ -113,8 +113,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Initialize mdl.eyetracking()\n",
-    "eyetracking = mdl.eyetracking.run(window=window, libraries=True, subject=subject, timer=routineTimer, demo=True)"
+    "# Initialize imhr.eyetracking()\n",
+    "eyetracking = imhr.eyetracking.run(window=window, libraries=True, subject=subject, timer=routineTimer, demo=True)"
    ]
   },
   {
@@ -202,7 +202,7 @@
    "metadata": {},
    "source": [
     "##### (Optional) Drift correction.\n",
-    "This can be done at any point after calibration, including before and after [eyetracking.start_recording()](../../../eyetracking.rst#mdl.eyetracking.run.start_recording) has started. When drift correction has been completed, it returns `True`."
+    "This can be done at any point after calibration, including before and after [eyetracking.start_recording()](../../../eyetracking.rst#imhr.eyetracking.run.start_recording) has started. When drift correction has been completed, it returns `True`."
    ]
   },
   {
@@ -292,7 +292,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "##### Example use of [eyetracking.sample()](../../../eyetracking.html#mdl.eyetracking.run.sample)."
+    "##### Example use of [eyetracking.sample()](../../../eyetracking.html#imhr.eyetracking.run.sample)."
    ]
   },
   {

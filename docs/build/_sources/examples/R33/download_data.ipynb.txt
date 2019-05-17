@@ -33,7 +33,7 @@
       "cell_type": "code",
       "source": [
         "import os, sys; sys.path.append(os.path.abspath('../../../'))\n",
-        "from mdl.download import Download"
+        "from imhr.download import Download"
       ],
       "outputs": [],
       "execution_count": null,

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.r33._classify &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>imhr.r33._classify &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
@@ -125,11 +125,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +137,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
@@ -259,28 +259,28 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Acceleration" title="imhr.r33._classify.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Acceleration" title="imhr.r33._classify.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(self,&nbsp;time,&nbsp;data_x[,&nbsp;data_y])</td>
 <td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Velocity" title="imhr.r33._classify.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Velocity" title="imhr.r33._classify.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(self,&nbsp;time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
 <td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.VisualAngle" title="imhr.r33._classify.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.VisualAngle" title="imhr.r33._classify.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(self,&nbsp;g_x,&nbsp;g_y,&nbsp;config)</td>
 <td>Convert pixel eye-coordinates to visual angle.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.hmm" title="imhr.r33._classify.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(data,&nbsp;filter_type,&nbsp;config)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.hmm" title="imhr.r33._classify.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(self,&nbsp;data,&nbsp;filter_type,&nbsp;config)</td>
 <td>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.idt" title="imhr.r33._classify.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.idt" title="imhr.r33._classify.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(self,&nbsp;data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
 <td>Identification with Dispersion Threshold.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.ivt" title="imhr.r33._classify.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(data,&nbsp;v_threshold,&nbsp;config)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.ivt" title="imhr.r33._classify.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(self,&nbsp;data,&nbsp;v_threshold,&nbsp;config)</td>
 <td>Identification with Velocity Threshold.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.savitzky_golay" title="imhr.r33._classify.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(y,&nbsp;window_size,&nbsp;order[,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.savitzky_golay" title="imhr.r33._classify.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(self,&nbsp;y,&nbsp;window_size,&nbsp;order)</td>
 <td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.simple" title="imhr.r33._classify.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.simple" title="imhr.r33._classify.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(self,&nbsp;df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
 <td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
 </tr>
 </tbody>
@@ -291,35 +291,35 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Acceleration" title="imhr.r33._classify.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Acceleration" title="imhr.r33._classify.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(self,&nbsp;time,&nbsp;data_x[,&nbsp;data_y])</td>
 <td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Velocity" title="imhr.r33._classify.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.Velocity" title="imhr.r33._classify.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(self,&nbsp;time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
 <td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.VisualAngle" title="imhr.r33._classify.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.VisualAngle" title="imhr.r33._classify.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(self,&nbsp;g_x,&nbsp;g_y,&nbsp;config)</td>
 <td>Convert pixel eye-coordinates to visual angle.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.hmm" title="imhr.r33._classify.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(data,&nbsp;filter_type,&nbsp;config)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.hmm" title="imhr.r33._classify.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(self,&nbsp;data,&nbsp;filter_type,&nbsp;config)</td>
 <td>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.idt" title="imhr.r33._classify.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.idt" title="imhr.r33._classify.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(self,&nbsp;data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
 <td>Identification with Dispersion Threshold.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.ivt" title="imhr.r33._classify.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(data,&nbsp;v_threshold,&nbsp;config)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.ivt" title="imhr.r33._classify.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(self,&nbsp;data,&nbsp;v_threshold,&nbsp;config)</td>
 <td>Identification with Velocity Threshold.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.savitzky_golay" title="imhr.r33._classify.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(y,&nbsp;window_size,&nbsp;order[,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33._classify.Classify.savitzky_golay" title="imhr.r33._classify.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(self,&nbsp;y,&nbsp;window_size,&nbsp;order)</td>
 <td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.simple" title="imhr.r33._classify.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33._classify.Classify.simple" title="imhr.r33._classify.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(self,&nbsp;df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
 <td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.VisualAngle">
-<code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.VisualAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>self</em>, <em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.VisualAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert pixel eye-coordinates to visual angle.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -353,7 +353,7 @@ passed as eye_distance_mm. In this case the eye distance array must be the same 
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.Velocity">
-<code class="descname">Velocity</code><span class="sig-paren">(</span><em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Velocity</code><span class="sig-paren">(</span><em>self</em>, <em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the 
 time numpy array for time delta information.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -384,7 +384,7 @@ are in pixel coordinate space, use the VisualAngleCalc class to convert the data
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.Acceleration">
-<code class="descname">Acceleration</code><span class="sig-paren">(</span><em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Acceleration</code><span class="sig-paren">(</span><em>self</em>, <em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for
 time delta information.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -410,7 +410,7 @@ time delta information.</p>
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.savitzky_golay">
-<code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
+<code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>self</em>, <em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</p>
 <p>The Savitzky-Golay filter removes high frequency noise from data. It has the advantage of preserving the original
 shape and features of the signal better than other types of filtering approaches, such as moving averages techniques.</p>
@@ -422,14 +422,14 @@ shape and features of the signal better than other types of filtering approaches
 <dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, shape (N,)</span></dt>
 <dd><p class="first last">the values of the time history of the signal.</p>
 </dd>
-<dt><strong>window_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>window_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">the length of the window. Must be an odd integer number.</p>
 </dd>
-<dt><strong>order</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>order</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">the order of the polynomial used in the filtering.
 Must be less then <cite>window_size</cite> - 1.</p>
 </dd>
-<dt><strong>deriv</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dt><strong>deriv</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
 <dd><p class="first last">the order of the derivative to compute (default = 0 means only smoothing)</p>
 </dd>
 </dl>
@@ -448,21 +448,6 @@ Must be less then <cite>window_size</cite> - 1.</p>
 <p>The Savitzky-Golay is a type of low-pass filter, particularly suited for smoothing noisy data. The main idea behind this
 approach is to make for each point a least-square fit with a polynomial of high order over a odd-sized window centered at
 the point. For more information, see: <a class="reference external" href="http://wiki.scipy.org/Cookbook/SavitzkyGolay">http://wiki.scipy.org/Cookbook/SavitzkyGolay</a>.</p>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r93d3c306db29-1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>A. Savitzky, Golay, M. (1964). Smoothing and Differentiation of Data by Simplified Least Squares Procedures. 
-Analytical Chemistry. 36(8), pp 1627-1639.</td></tr>
-</tbody>
-</table>
-<table class="docutils citation" frame="void" id="r93d3c306db29-2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>S.A. Teukolsky, W.T. Vetterling, B.P. Flannery Numerical Recipes 3rd Edition: The Art of Scientific 
-Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</td></tr>
-</tbody>
-</table>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -475,11 +460,26 @@ Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</td></t
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r93d3c306db29-1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>A. Savitzky, Golay, M. (1964). Smoothing and Differentiation of Data by Simplified Least Squares Procedures. 
+Analytical Chemistry. 36(8), pp 1627-1639.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r93d3c306db29-2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>S.A. Teukolsky, W.T. Vetterling, B.P. Flannery Numerical Recipes 3rd Edition: The Art of Scientific 
+Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</td></tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.ivt">
-<code class="descname">ivt</code><span class="sig-paren">(</span><em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.ivt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ivt</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.ivt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identification with Velocity Threshold.</p>
 <p>In the I-VT model, the velocity value is computed for every eye position sample.  The velocity value is then compared 
 to the threshold. If the sampled velocity is less than the threshold, the corresponding eye-position sample is 
@@ -516,13 +516,13 @@ marked as part of a fixation, otherwise it is marked as a part of a saccade.</p>
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.hmm">
-<code class="descname">hmm</code><span class="sig-paren">(</span><em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.hmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.hmm" title="Permalink to this definition">¶</a></dt>
+<code class="descname">hmm</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.hmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.hmm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt>
 <dd><p class="first last">Pandas dataframe of x,y and timestamp positions.</p>
 </dd>
@@ -531,6 +531,16 @@ marked as part of a fixation, otherwise it is marked as a part of a saccade.</p>
 </dd>
 <dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
 <dd><p class="first last">Configuration data for data analysis. i.e. trial number, location.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
+<dd><p class="first last">The smoothed signal (or it’s n-th derivative).</p>
+</dd>
+<dt><strong>dr_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Data threshold.</p>
 </dd>
 </dl>
 </td>
@@ -556,31 +566,15 @@ can choose whether or not to track a moving stimulus. (Neuroscience 2nd edition)
 <table class="docutils citation" frame="void" id="rca2e627716ea-1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Pekkanen, J., &amp; Lappi, O. (2017). A new and general approach to signal denoising and eye movement
+<tr><td class="label">[1]</td><td>Pekkanen, J., &amp; Lappi, O. (2017). A new and general approach to signal denoising and eye movement
 classification based on segmented linear regression. Scientific Reports, 7(1). doi:10.1038/s41598-017-17983-x.</td></tr>
-</tbody>
-</table>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt>
-<dd><p class="first last">The smoothed signal (or it’s n-th derivative).</p>
-</dd>
-<dt><strong>dr_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Data threshold.</p>
-</dd>
-</dl>
-</td>
-</tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.idt">
-<code class="descname">idt</code><span class="sig-paren">(</span><em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.idt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.idt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">idt</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.idt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.idt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identification with Dispersion Threshold.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -616,7 +610,7 @@ is calculated. The length of the time window is often set to the minimum duratio
 
 <dl class="method">
 <dt id="imhr.r33._classify.Classify.simple">
-<code class="descname">simple</code><span class="sig-paren">(</span><em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.simple" title="Permalink to this definition">¶</a></dt>
+<code class="descname">simple</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33._classify.Classify.simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of 
 pixels (disregarding missing data).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -670,7 +664,7 @@ disregarded if they are below this duration (default = 100).</p>
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

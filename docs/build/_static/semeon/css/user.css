@@ -211,6 +211,10 @@ ul.current.nav>li.current>a.current{
 dd p{
 	margin: 0px;
 }
+.class>dd>p>strong{
+    margin-top: 10px;
+    display: block;	
+}
 .class>dt, .classmethod>dt, .method>dt, .function>dt{
 	background: #eaeaea;
 	padding: 0 4px;
@@ -278,10 +282,10 @@ table.citation>tbody>tr>td:nth-of-type(2) {
 
 /* fix duplicate table issue */
 dl.class>dd>table:nth-of-type(2){
-	display: none;
+	/* display: none; */
 }
 dd>p>strong {
-    display: none;
+    /* display: none; */
 }
 p.rubric{
     margin-top: 10px !important;
@@ -296,7 +300,7 @@ p{
     border-bottom: 1px solid #888;
 }
 .longtable>tbody>tr>td {
-    border: solid 1px #ccc !important;
+    /* border: solid 1px #ccc !important; */
     border-left: 0px !important;
     border-right: 0px !important;
 }
@@ -413,7 +417,7 @@ table.kwargs, table.longtable {
     width: 100% !important;
     border-spacing: 2px !important;
     border-collapse: collapse !important;
-	margin-top: 10px !important;
+	/* margin-top: 10px !important; */
 }
 table.kwargs th, table.longtable th {
     padding: 2px 10px !important;

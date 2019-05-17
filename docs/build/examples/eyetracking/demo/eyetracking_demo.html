@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Eyelink Demo\_ &#8212; imhr-api 2019-05-15 documentation</title>
+    <title>Eyelink Demo\_ &#8212; imhr-api 2019-05-17 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-15</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -113,7 +113,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Start-calibration.">Start calibration.</a></li>
@@ -127,11 +127,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../roi/generate_roi.html">Region of Interest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/generate_roi.html#import-mdl-package">import mdl package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/generate_roi.html#set-path">set path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/generate_roi.html#initiate">initiate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/generate_roi.html#start">start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../roi/generate_roi.html#results">results</a></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +139,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.download.html">imhr.download</a><ul class="simple">
@@ -178,7 +178,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Start-calibration.">Start calibration.</a></li>
@@ -244,7 +244,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Import-packages.">Import packages.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Initialize-the-mdl.eyetracking-package.">Initialize the mdl.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Start-calibration.">Start calibration.</a></li>
@@ -482,7 +482,7 @@ div.rendered_html tbody tr:hover {
 </p><p><p>&#64;url: <a class="reference external" href="https://semeon.io/d/mdl">https://semeon.io/d/mdl</a></p>
 </p></div><ul class="list-container"><li><div class="title"><p>The sequence of operations for implementing the trial is:</p>
 </div><ol class="list"><li><p><a class="reference external" href="demo.html#import">Import packages</a>.</p>
-</li><li><p><a class="reference external" href="demo.html#init">Initialize the mdl.eyetracking package</a>.</p>
+</li><li><p><a class="reference external" href="demo.html#init">Initialize the imhr.eyetracking package</a>.</p>
 </li><li><p><a class="reference external" href="demo.html#connect">Connect to the Eyelink Host</a>.</p>
 </li><li><p><a class="reference external" href="demo.html#eye">Set the dominamt eye</a>.</p>
 </li><li><p><a class="reference external" href="demo.html#calibration">Start calibration</a>.</p>
@@ -504,7 +504,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;../../../../../../..&#39;</span><span class="p">))</span>
 <span class="kn">from</span> <span class="nn">psychopy</span> <span class="k">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">core</span>
-<span class="kn">import</span> <span class="nn">mdl</span>
+<span class="kn">import</span> <span class="nn">imhr</span>
 </pre></div>
 </div>
 </div>
@@ -528,8 +528,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="Initialize-the-mdl.eyetracking-package.">
-<h2>Initialize the <a class="reference external" href="../../../eyetracking.html#mdl.eyetracking.run">mdl.eyetracking</a> package.<a class="headerlink" href="#Initialize-the-mdl.eyetracking-package." title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Initialize-the-imhr.eyetracking-package.">
+<h2>Initialize the <a class="reference external" href="../../../eyetracking.html#imhr.eyetracking.run">imhr.eyetracking</a> package.<a class="headerlink" href="#Initialize-the-imhr.eyetracking-package." title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Before initializing, make sure code is placed after PsychoPy window instance has been created in the experiment file. This window will be used in the calibration function.</p>
@@ -539,8 +539,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Initialize mdl.eyetracking()</span>
-<span class="n">eyetracking</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">libraries</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">timer</span><span class="o">=</span><span class="n">routineTimer</span><span class="p">,</span> <span class="n">demo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="c1"># Initialize imhr.eyetracking()</span>
+<span class="n">eyetracking</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">libraries</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">timer</span><span class="o">=</span><span class="n">routineTimer</span><span class="p">,</span> <span class="n">demo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -611,7 +611,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="(Optional)-Drift-correction.">
 <h2>(Optional) Drift correction.<a class="headerlink" href="#(Optional)-Drift-correction." title="Permalink to this headline">¶</a></h2>
-<p>This can be done at any point after calibration, including before and after <a class="reference external" href="../../../eyetracking.rst#mdl.eyetracking.run.start_recording">eyetracking.start_recording()</a> has started. When drift correction has been completed, it returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>This can be done at any point after calibration, including before and after <a class="reference external" href="../../../eyetracking.rst#imhr.eyetracking.run.start_recording">eyetracking.start_recording()</a> has started. When drift correction has been completed, it returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -686,7 +686,7 @@ This is used for realtime data collection from Eyelink->PsychoPy.<div class="nbi
 </div>
 </div>
 <div class="section" id="Example-use-of-eyetracking.sample().">
-<h2>Example use of <a class="reference external" href="../../../eyetracking.html#mdl.eyetracking.run.sample">eyetracking.sample()</a>.<a class="headerlink" href="#Example-use-of-eyetracking.sample()." title="Permalink to this headline">¶</a></h2>
+<h2>Example use of <a class="reference external" href="../../../eyetracking.html#imhr.eyetracking.run.sample">eyetracking.sample()</a>.<a class="headerlink" href="#Example-use-of-eyetracking.sample()." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -781,7 +781,7 @@ This allows post-hoc processing of event markers (i.e. “stimulus onset”).<di
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-15T16:15:43-05:00.</div>
+			<div>Updated 2019-05-17T09:03:24-05:00.</div>
 		</div>
 	</div>
 </footer>

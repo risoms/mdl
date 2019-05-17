@@ -22,8 +22,7 @@ params = {
 
 # pytest
 def test_generate_roi(args=None):
-	"""
-	Read ROI from photoshop PSD files.
+	"""Read ROI from photoshop PSD files.
 
 	Parameters
 	----------
@@ -34,7 +33,7 @@ def test_generate_roi(args=None):
 	-------
     df : :class:`pandas.DataFrame`
         Pandas dataframe of generated ROI's.
-    df : :class:`pandas.DataFrame`
+    error : :class:`pandas.DataFrame`
 		Pandas dataframe of errors that occured during processing.
 	"""
 	# ##### import imhr package
@@ -73,6 +72,6 @@ def test_generate_roi(args=None):
 		roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})
 
 	# ##### start
-	df, _ = roi.process()
+	df, error = roi.process()
 
-	return df
+	return df, error
