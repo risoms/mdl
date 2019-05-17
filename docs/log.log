@@ -127,7 +127,6 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:315: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:413: WARNING: File not found: 'eyetracking.rst#imhr.eyetracking.run.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:514: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run.sample'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/generate_roi.ipynb:147: WARNING: File not found: '../build/api/imhr.eyetracking.html#imhr.eyetracking.ROI'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._calibration.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._eyelink.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._roi.rst: WARNING: document isn't included in any toctree[39;49;00m
@@ -139,6 +138,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._settings.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -148,6 +148,7 @@
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -159,6 +160,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:112: WARNING: undefined label: cv2.thresh_binary (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:120: WARNING: undefined label: cv2.findcontours (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:127: WARNING: undefined label: cv2.drawcontours (if the link has no caption the label must precede a section header)[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -179,6 +181,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.set_image_palette'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.setup_cal_display'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.setup_image_display'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -193,6 +196,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.set_eye_used'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.stop_recording'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -205,12 +209,15 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.process_image'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.process_metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.run'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -222,23 +229,27 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.ivt'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.savitzky_golay'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.simple'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_metadata.py:docstring of imhr.r33._metadata.Metadata:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._metadata.Metadata.predict'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_metadata.py:docstring of imhr.r33._metadata.Metadata:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._metadata.Metadata.summary'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_model.py:docstring of imhr.r33._model.Model:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._model.Model.anova'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_model.py:docstring of imhr.r33._model.Model:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._model.Model.lmer'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_model.py:docstring of imhr.r33._model.Model:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._model.Model.logistic'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.dist'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.liks'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -255,68 +266,106 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.subject_metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.py:docstring of imhr.r33._settings.Settings:24:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._settings.Settings.definitions'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst:8: WARNING: toctree contains reference to document 'examples/analysis/webgazer' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
@@ -324,72 +373,95 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:66: WARNING: undefined label: install.rst (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:66: WARNING: undefined label: examples/index.rst (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:66: WARNING: undefined label: api/imhr.rst (if the link has no caption the label must precede a section header)[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to document 'examples/roi/generate_roi' that doesn't have a title: no link will be generated[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m

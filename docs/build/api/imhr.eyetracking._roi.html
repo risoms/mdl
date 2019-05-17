@@ -123,10 +123,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#Read-ROI-from-photoshop-PSD-files">Read ROI from photoshop PSD files</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
@@ -277,7 +273,7 @@
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process" title="imhr.eyetracking._roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_image" title="imhr.eyetracking._roi.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_image" title="imhr.eyetracking._roi.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap,&nbsp;isRaw])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_metadata" title="imhr.eyetracking._roi.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
@@ -312,7 +308,7 @@
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process" title="imhr.eyetracking._roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self)</td>
 <td>[summary]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_image" title="imhr.eyetracking._roi.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_image" title="imhr.eyetracking._roi.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap,&nbsp;isRaw])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_metadata" title="imhr.eyetracking._roi.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
@@ -522,7 +518,7 @@
 
 <dl class="method">
 <dt id="imhr.eyetracking._roi.ROI.process_image">
-<code class="descname">process_image</code><span class="sig-paren">(</span><em>self</em>, <em>psd=None</em>, <em>xcf=None</em>, <em>bitmap=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.process_image" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_image</code><span class="sig-paren">(</span><em>self</em>, <em>psd=None</em>, <em>xcf=None</em>, <em>bitmap=None</em>, <em>isRaw=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.process_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -538,6 +534,9 @@
 <dt><strong>bitmap</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
 <dd><p class="first last">[description], by default None</p>
 </dd>
+<dt><strong>isRaw</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">If <cite>True</cite>, the image will be returned withour resizing or placed on top of a background image. Default is <cite>False</cite>.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -549,7 +548,7 @@
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>background</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dt><strong>image, background</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
 <dd><p class="first last">PIL image object class.</p>
 </dd>
 </dl>
@@ -646,7 +645,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T09:03:24-05:00.</div>
+			<div>Updated 2019-05-17T12:12:58-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -42,32 +42,39 @@
 #         </ol>
 #     </li>
 # </ul>
-
 #%% [markdown]
-# ##### Highlighted ROI from Photoshop PSD
-#!/usr/bin/python3
-#%matplotlib notebook
-#import matplotlib.pyplot as plt
-#import matplotlib.image as image
-#image = image.imread('/Users/mdl-admin/Desktop/roi/output/img/raw/2550.png')
-#fig, ax = plt.subplots(figsize=(16,8))
-#im = ax.imshow(image)
-#ax.axis('off')
-#plt.tight_layout()
-#plt.show()
+# ##### 1. Demonstration
 #%%
 # import
 import imhr
+# initiate
+roi = imhr.eyetracking.ROI(isDebug=True, isDemo=True)
+# run
+df, error = roi.process()
+#%% [markdown]
+# ##### 2. Highlighted ROI from Photoshop PSD
+#%% 
+#!/usr/bin/python3
+% matplotlib notebook
+import matplotlib.pyplot as plt
+import matplotlib.image as image
+image = image.imread('/Users/mdl-admin/Desktop/roi/output/img/raw/2550.png')
+fig, ax = plt.subplots(figsize=(16,8))
+im = ax.imshow(image)
+ax.axis('off')
+plt.tight_layout()
+plt.show()
+#%%
 # set path
 image_path = '/Users/mdl-admin/Desktop/roi/raw/2/'
 output_path = '/Users/mdl-admin/Desktop/roi/output/'
 metadata_source = '/Users/mdl-admin/Desktop/roi/raw/2/metadata.xlsx'
-# run
+# initiate
 roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isDemo=False, detection='manual',
 	   image_path=image_path, output_path=output_path, metadata_source=metadata_source,
 	   scale=1, screensize=[1920,1080], shape='polygon', 
 	   roi_format='both', recenter=[(1920*.50),(1080*.50)], 
 	   uuid=['image','roi','position'], 
 	   newcolumn={'position': 'topcenter'})
-# initiate
+# run
 df, error = roi.process()
