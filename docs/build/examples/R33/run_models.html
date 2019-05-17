@@ -125,10 +125,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#1.-Demonstration">1. Demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
@@ -172,10 +178,12 @@
 <li class="toctree-l2"><a class="reference internal" href="create_plots.html">Create plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a></li>
 </ul>
@@ -223,10 +231,12 @@
 <li class="toctree-l2"><a class="reference internal" href="create_plots.html">Create plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a></li>
 </ul>
@@ -467,12 +477,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----local</span>
-<span class="kn">from</span> <span class="nn">imhr</span> <span class="k">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="n">redcap</span>
-<span class="kn">import</span> <span class="nn">imhr.model</span> <span class="k">as</span> <span class="nn">model</span>
-<span class="kn">import</span> <span class="nn">imhr.settings</span> <span class="k">as</span> <span class="nn">settings</span>
+<span class="kn">from</span> <span class="nn">imhr</span> <span class="kn">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">processing</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="n">redcap</span>
+<span class="kn">import</span> <span class="nn">imhr.model</span> <span class="kn">as</span> <span class="nn">model</span>
+<span class="kn">import</span> <span class="nn">imhr.settings</span> <span class="kn">as</span> <span class="nn">settings</span>
 
 <span class="c1">#----check if required libraries are available</span>
-<span class="n">is_library</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_library</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_library</span><span class="p">:</span>
     <span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">()</span>
 <span class="k">pass</span>
@@ -534,7 +544,7 @@ div.rendered_html tbody tr:hover {
 
 <span class="c1">#-----calculate dwell time using multiprocessing</span>
 <span class="c1"># use __name__ to protect main module</span>
-<span class="n">df_dwell</span><span class="p">,</span> <span class="n">error_dwell</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">dwell</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="n">df_dwell</span><span class="p">,</span> <span class="n">error_dwell</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">dwell</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">None</span>
 
 <span class="c1">#----normalize dwell_time for comparison between iaps and pofa</span>
 <span class="n">df_dwell</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">4500</span><span class="p">)</span>
@@ -670,7 +680,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T12:12:58-05:00.</div>
+			<div>Updated 2019-05-17T18:54:41-05:00.</div>
 		</div>
 	</div>
 </footer>

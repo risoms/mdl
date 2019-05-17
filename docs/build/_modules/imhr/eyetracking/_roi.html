@@ -123,10 +123,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#1.-Demonstration">1. Demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/generate_roi.html#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
@@ -164,8 +170,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/imhr.html">API Reference</a></li>
 </ul>
@@ -207,8 +214,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/imhr.html">API Reference</a></li>
 </ul>
@@ -512,8 +520,8 @@
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_all</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
 				<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No data for file: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_source</span><span class="p">))</span>
 
-<div class="viewcode-block" id="ROI.process_metadata"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process_metadata">[docs]</a>	<span class="k">def</span> <span class="nf">process_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
-		<span class="sd">&quot;&quot;&quot;[summary]</span>
+<div class="viewcode-block" id="ROI.extract_metadata"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.extract_metadata">[docs]</a>	<span class="k">def</span> <span class="nf">extract_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Extract metadata for each region of interest.</span>
 
 <span class="sd">		Parameters</span>
 <span class="sd">		----------</span>
@@ -524,8 +532,6 @@
 
 <span class="sd">		Returns</span>
 <span class="sd">		-------</span>
-<span class="sd">		[type]</span>
-<span class="sd">			[description]</span>
 <span class="sd">		[type]</span>
 <span class="sd">			[description]</span>
 <span class="sd">		[type]</span>
@@ -558,9 +564,86 @@
 			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;## roiname: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">roiname</span><span class="p">),</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;## roilabel: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">roilabel</span><span class="p">),</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
-		<span class="k">return</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roilabel</span></div>
+		<span class="k">return</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span></div>
 
-<div class="viewcode-block" id="ROI.create_contours"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.create_contours">[docs]</a>	<span class="k">def</span> <span class="nf">create_contours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.format_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.format_image">[docs]</a>	<span class="k">def</span> <span class="nf">format_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">isRaw</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Resize image and reposition image, relative to screensize.</span>
+
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		psd : :obj:`None` or `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
+<span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</span>
+<span class="sd">		xcf : :obj:`None` or ###, optional</span>
+<span class="sd">			[description], by default None</span>
+<span class="sd">		bitmap : :obj:`None` or ###, optional</span>
+<span class="sd">			[description], by default None</span>
+<span class="sd">		isRaw : :obj:`None` or ###, optional</span>
+<span class="sd">			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is `False`.</span>
+
+<span class="sd">		Attributes</span>
+<span class="sd">		----------</span>
+<span class="sd">		image : :class:`PIL.Image.Image`</span>
+<span class="sd">			PIL image object class.</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		image, background : :class:`PIL.Image.Image`</span>
+<span class="sd">			PIL image object class.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="c1">## load image from PSD, xcf, or bitmap as PIL</span>
+		<span class="k">if</span> <span class="n">psd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+		<span class="k">elif</span> <span class="n">xcf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+		<span class="k">elif</span> <span class="n">bitmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+
+		<span class="c1"># if returning raw image</span>
+		<span class="k">if</span> <span class="n">isRaw</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">image</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="c1">## set background</span>
+			<span class="n">screen_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span>
+			<span class="n">background</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;# export image&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+			<span class="c1"># if scale image</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+				<span class="n">old_image_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+				<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)]</span>
+				<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span>
+					<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">, scaled to: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">old_image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+			<span class="c1"># else unscaled</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">image_size</span><span class="p">))</span>
+
+			<span class="c1"># if offsetting</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span><span class="p">:</span>
+				<span class="n">offset_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recenter</span>
+				<span class="c1"># calculate upper-left coordinate for drawing into image</span>
+				<span class="c1"># x-bound &lt;offset_x center&gt; - &lt;1/2 image_x width&gt;</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+				<span class="c1"># y-bound &lt;offset_y center&gt; - &lt;1/2 image_y width&gt;</span>
+				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+				<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image centered at: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">offset_center</span><span class="p">))</span>
+			<span class="c1"># else not offsetting</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="c1"># calculate upper-left coordinate for drawing into image</span>
+				<span class="c1"># x-bound &lt;screen_x center&gt; - &lt;1/2 image_x width&gt;</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+				<span class="c1"># y-bound &lt;screen_y center&gt; - &lt;1/2 image_y width&gt;</span>
+				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+				<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+			<span class="c1"># draw</span>
+			<span class="n">background</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">left_xy</span><span class="p">)</span>
+
+			<span class="k">return</span> <span class="n">background</span></div>
+
+<div class="viewcode-block" id="ROI.extract_contours"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.extract_contours">[docs]</a>	<span class="k">def</span> <span class="nf">extract_contours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -618,7 +701,7 @@
 		<span class="k">else</span><span class="p">:</span>
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;automatic ROI detection from haar cascades&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 			<span class="c1"># load classifier</span>
-			<span class="n">_classifer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_classifers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">]</span>
+			<span class="n">_classifer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_classifiers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">]</span>
 			<span class="n">haar</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="n">_classifer</span><span class="p">)</span>
 			<span class="n">contours</span> <span class="o">=</span> <span class="n">haar</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span>
 			    <span class="n">image</span><span class="p">,</span>
@@ -632,7 +715,7 @@
 		<span class="c1">#when saving the contours below, only one drawContours function from above can be run</span>
 		<span class="c1">#any other drawContours function will overlay on the others if multiple functions are run</span>
 		<span class="c1">#----param</span>
-		<span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+		<span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 		<span class="c1">#self.console(&#39;test4.5&#39;, &#39;red&#39;)</span>
 
 		<span class="c1">#----straight bounding box</span>
@@ -734,7 +817,7 @@
 
 		<span class="k">return</span> <span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span></div>
 
-<div class="viewcode-block" id="ROI.create_rois"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.create_rois">[docs]</a>	<span class="k">def</span> <span class="nf">create_rois</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roinumber</span><span class="p">,</span> <span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span><span class="p">):</span>
+<div class="viewcode-block" id="ROI.format_contours"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.format_contours">[docs]</a>	<span class="k">def</span> <span class="nf">format_contours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roinumber</span><span class="p">,</span> <span class="n">bounds_</span><span class="p">,</span> <span class="n">contours_</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">		Parameters</span>
@@ -749,9 +832,9 @@
 <span class="sd">			[description]</span>
 <span class="sd">		roilabel : [type]</span>
 <span class="sd">			[description]</span>
-<span class="sd">		_bounds : [type]</span>
+<span class="sd">		bounds_ : [type]</span>
 <span class="sd">			[description]</span>
-<span class="sd">		_contours : [type]</span>
+<span class="sd">		contours_ : [type]</span>
 <span class="sd">			[description]</span>
 
 <span class="sd">		Returns</span>
@@ -767,7 +850,7 @@
 <span class="sd">			[description]</span>
 <span class="sd">		&quot;&quot;&quot;</span>
 		<span class="c1">#----store bounds as df</span>
-		<span class="n">_bounds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_bounds</span><span class="p">)</span>
+		<span class="n">_bounds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bounds_</span><span class="p">)</span>
 
 		<span class="c1"># transpose bounds (x0, y0, x1, y1)</span>
 		<span class="n">_x</span> <span class="o">=</span> <span class="n">_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -797,7 +880,7 @@
 		<span class="c1">#----save roi contours</span>
 		<span class="c1">#!! get working: draw exact contours as coordinates</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">[</span><span class="s1">&#39;contours&#39;</span><span class="p">]:</span>
-			<span class="n">contours</span> <span class="o">=</span> <span class="n">_contours</span>
+			<span class="n">contours</span> <span class="o">=</span> <span class="n">contours_</span>
 		<span class="c1"># combine metadata with coordinates</span>
 		<span class="c1">##!!! get working</span>
 
@@ -808,6 +891,55 @@
 
 		<span class="c1"># finish</span>
 		<span class="k">return</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">contours</span></div>
+
+<div class="viewcode-block" id="ROI.draw_contours"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.draw_contours">[docs]</a>	<span class="k">def</span> <span class="nf">draw_contours</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bounds&#39;</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;[summary]</span>
+<span class="sd">		</span>
+<span class="sd">		Parameters</span>
+<span class="sd">		----------</span>
+<span class="sd">		filepath : [type]</span>
+<span class="sd">			[description]</span>
+<span class="sd">		data : [type]</span>
+<span class="sd">			[description]</span>
+<span class="sd">		fig : [type]</span>
+<span class="sd">			[description]</span>
+<span class="sd">		source : str, optional</span>
+<span class="sd">			[description], by default &#39;bounds&#39;</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="c1"># get current axis</span>
+		<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+		<span class="c1">## create blank image and draw to figure</span>
+		<span class="n">_img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+		<span class="c1">## for each bound draw on figure</span>
+		<span class="k">if</span> <span class="n">source</span><span class="o">==</span><span class="s2">&quot;bounds&quot;</span><span class="p">:</span>
+			<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">_img</span><span class="p">)</span>
+			<span class="c1">#for _bounds in data:</span>
+			<span class="c1">## get bounds</span>
+			<span class="n">x0</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+			<span class="n">y0</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+			<span class="n">x1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+			<span class="n">y1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+			<span class="n">_width</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+			<span class="n">_height</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span>
+			<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="n">_width</span><span class="p">,</span> <span class="n">_height</span><span class="p">))</span>
+			<span class="c1">## check folder</span>
+			<span class="n">filepath_</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath_</span><span class="p">):</span>
+				<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">filepath_</span><span class="p">)</span>
+			<span class="c1">## save</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;## image saved @: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">filepath</span><span class="p">),</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+		<span class="c1">## for each contour draw on figure</span>
+		<span class="k">elif</span> <span class="n">source</span><span class="o">==</span><span class="s2">&quot;contours&quot;</span><span class="p">:</span>
+			<span class="c1">#for _contours in data:</span>
+			<span class="n">contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2RGB</span><span class="p">)</span>
+			<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+			<span class="c1">## check folder</span>
+			<span class="n">filepath_</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath_</span><span class="p">):</span>
+				<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">filepath_</span><span class="p">)</span>
+			<span class="c1">## save</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;## image saved @: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">filepath</span><span class="p">),</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ROI.export_data"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.export_data">[docs]</a>	<span class="k">def</span> <span class="nf">export_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newcolumn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;image&#39;</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
@@ -891,130 +1023,6 @@
 
 		<span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="ROI.draw_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.draw_image">[docs]</a>	<span class="k">def</span> <span class="nf">draw_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bounds&#39;</span><span class="p">):</span>
-		<span class="sd">&quot;&quot;&quot;[summary]</span>
-
-<span class="sd">		Parameters</span>
-<span class="sd">		----------</span>
-<span class="sd">		imagename : [type]</span>
-<span class="sd">			[description]</span>
-<span class="sd">		data : [type]</span>
-<span class="sd">			[description]</span>
-<span class="sd">		source : [type]</span>
-<span class="sd">			[description]</span>
-<span class="sd">		&quot;&quot;&quot;</span>
-		<span class="c1"># draw image</span>
-		<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-		<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-		<span class="c1">## create blank image and draw to figure</span>
-		<span class="n">_img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-		<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">_img</span><span class="p">)</span>
-		<span class="c1">## for each bound draw on figure</span>
-		<span class="k">if</span> <span class="n">source</span><span class="o">==</span><span class="s2">&quot;bounds&quot;</span><span class="p">:</span>
-			<span class="k">for</span> <span class="n">_bounds</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-				<span class="c1">## get bounds</span>
-				<span class="n">x0</span> <span class="o">=</span> <span class="n">_bounds</span><span class="p">[</span><span class="s1">&#39;x0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-				<span class="n">y0</span> <span class="o">=</span> <span class="n">_bounds</span><span class="p">[</span><span class="s1">&#39;y0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-				<span class="n">x1</span> <span class="o">=</span> <span class="n">_bounds</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-				<span class="n">y1</span> <span class="o">=</span> <span class="n">_bounds</span><span class="p">[</span><span class="s1">&#39;y1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-				<span class="n">_width</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
-				<span class="n">_height</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span>
-				<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="n">_width</span><span class="p">,</span> <span class="n">_height</span><span class="p">))</span>
-			<span class="c1">## draw image</span>
-			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/bounds&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
-		<span class="c1">## for each contour draw on figure</span>
-		<span class="k">elif</span> <span class="n">source</span><span class="o">==</span><span class="s2">&quot;contours&quot;</span><span class="p">:</span>
-			<span class="k">for</span> <span class="n">_contours</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-				<span class="n">contours</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">_contours</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
-				<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-			<span class="c1">## draw image</span>
-			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/contours&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
-		<span class="c1">## check folder</span>
-		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
-			<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">_folder</span><span class="p">)</span>
-		<span class="c1">## save</span>
-		<span class="n">filepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">))</span>
-		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;## image saved @: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">filepath</span><span class="p">),</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-		<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
-		<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="ROI.process_image"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.process_image">[docs]</a>	<span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">isRaw</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-		<span class="sd">&quot;&quot;&quot;[summary]</span>
-
-<span class="sd">		Parameters</span>
-<span class="sd">		----------</span>
-<span class="sd">		psd : :obj:`None` or `psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
-<span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</span>
-<span class="sd">		xcf : :obj:`None` or ###, optional</span>
-<span class="sd">			[description], by default None</span>
-<span class="sd">		bitmap : :obj:`None` or ###, optional</span>
-<span class="sd">			[description], by default None</span>
-<span class="sd">		isRaw : :obj:`None` or ###, optional</span>
-<span class="sd">			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is `False`.</span>
-
-<span class="sd">		Attributes</span>
-<span class="sd">		----------</span>
-<span class="sd">		image : :class:`PIL.Image.Image`</span>
-<span class="sd">			PIL image object class.</span>
-
-<span class="sd">		Returns</span>
-<span class="sd">		-------</span>
-<span class="sd">		image, background : :class:`PIL.Image.Image`</span>
-<span class="sd">			PIL image object class.</span>
-<span class="sd">		&quot;&quot;&quot;</span>
-
-		<span class="c1">## load image from PSD, xcf, or bitmap as PIL</span>
-		<span class="k">if</span> <span class="n">psd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
-		<span class="k">elif</span> <span class="n">xcf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
-		<span class="k">elif</span> <span class="n">bitmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
-
-		<span class="c1"># if returning raw image</span>
-		<span class="k">if</span> <span class="n">isRaw</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">image</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="c1">## set background</span>
-			<span class="n">screen_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">screensize</span>
-			<span class="n">background</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;# export image&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-			<span class="c1"># if scale image</span>
-			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-				<span class="n">old_image_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-				<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">)]</span>
-				<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
-				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span>
-					<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">, scaled to: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">old_image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
-			<span class="c1"># else unscaled</span>
-			<span class="k">else</span><span class="p">:</span>
-				<span class="n">image_size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
-				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">image_size</span><span class="p">))</span>
-
-			<span class="c1"># if offsetting</span>
-			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">newoffset</span><span class="p">:</span>
-				<span class="n">offset_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recenter</span>
-				<span class="c1"># calculate upper-left coordinate for drawing into image</span>
-				<span class="c1"># x-bound &lt;offset_x center&gt; - &lt;1/2 image_x width&gt;</span>
-				<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-				<span class="c1"># y-bound &lt;offset_y center&gt; - &lt;1/2 image_y width&gt;</span>
-				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-				<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image centered at: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">offset_center</span><span class="p">))</span>
-			<span class="c1"># else not offsetting</span>
-			<span class="k">else</span><span class="p">:</span>
-				<span class="c1"># calculate upper-left coordinate for drawing into image</span>
-				<span class="c1"># x-bound &lt;screen_x center&gt; - &lt;1/2 image_x width&gt;</span>
-				<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-				<span class="c1"># y-bound &lt;screen_y center&gt; - &lt;1/2 image_y width&gt;</span>
-				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-				<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-
-			<span class="c1"># draw</span>
-			<span class="n">background</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">left_xy</span><span class="p">)</span>
-
-			<span class="k">return</span> <span class="n">background</span></div>
-
 <div class="viewcode-block" id="ROI.run"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.run">[docs]</a>	<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
 
@@ -1076,7 +1084,7 @@
 
 			<span class="c1">#!!!----for each image, save image file</span>
 			<span class="c1"># raw imaage</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">psd</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">,</span> <span class="n">isRaw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">psd</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">,</span> <span class="n">isRaw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 			<span class="c1">## check folder</span>
 			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/raw/&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
 			<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
@@ -1084,11 +1092,11 @@
 			<span class="c1">## save raw</span>
 			<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 			<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-			<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+			<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 			<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
 			<span class="c1"># preprocessed imaage (image with relevant screensize and position)</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">psd</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">)</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">psd</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">)</span>
 			<span class="c1">## check folder</span>
 			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/preprocessed/&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
 			<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_folder</span><span class="p">):</span>
@@ -1096,7 +1104,7 @@
 			<span class="c1">## save preprocessed</span>
 			<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 			<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-			<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+			<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">_folder</span><span class="p">,</span> <span class="n">imagename</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 			<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
 			<span class="c1">#!!!----for each region of interest</span>
@@ -1109,34 +1117,38 @@
 				<span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="n">imagename</span><span class="p">:</span>
 					<span class="k">continue</span>
 				<span class="k">else</span><span class="p">:</span>
-					<span class="c1"># process metadata</span>
-					<span class="c1">#self.console(&#39;test2&#39;, &#39;red&#39;)</span>
-					<span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roilabel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_metadata</span><span class="p">(</span><span class="n">imagename</span><span class="p">,</span> <span class="n">layer</span><span class="p">)</span>
+					<span class="c1">#. Extract metadata for each region of interest.</span>
+					<span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_metadata</span><span class="p">(</span><span class="n">imagename</span><span class="o">=</span><span class="n">imagename</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">)</span>
 
-					<span class="c1"># process image</span>
-					<span class="c1">#self.console(&#39;test3&#39;, &#39;red&#39;)</span>
-					<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">)</span>
+					<span class="c1">#. Resize image and reposition image, relative to screensize.</span>
+					<span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_image</span><span class="p">(</span><span class="n">psd</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span> <span class="n">xcf</span><span class="o">=</span><span class="n">xcf</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">bitmap</span><span class="p">)</span>
 
-					<span class="c1"># create contours</span>
-					<span class="c1">#self.console(&#39;test4&#39;, &#39;red&#39;)</span>
-					<span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_contours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">)</span>
-
-					<span class="c1"># create rois</span>
+					<span class="c1">#. Extract contours from np.array of image.</span>
 					<span class="k">try</span><span class="p">:</span>
-						<span class="n">bounds</span><span class="p">,</span> <span class="n">contours</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_rois</span><span class="p">(</span><span class="n">imagename</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="p">,</span> <span class="n">roinumber</span><span class="p">,</span> <span class="n">_bounds</span><span class="p">,</span> <span class="n">_contours</span><span class="p">)</span>
+						<span class="n">bounds_</span><span class="p">,</span> <span class="n">contours_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_contours</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">imagename</span><span class="o">=</span><span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="o">=</span><span class="n">roiname</span><span class="p">)</span>
 					<span class="k">except</span><span class="p">:</span>
 						<span class="k">break</span>
 
-					<span class="c1"># try:</span>
-					<span class="c1"># 	#self.console(&#39;test5&#39;, &#39;red&#39;)</span>
-
-					<span class="c1"># except Exception as e:</span>
-					<span class="c1"># 	# error</span>
-					<span class="c1"># 	print(e)</span>
-					<span class="c1"># 	#store error</span>
-					<span class="c1"># 	l_error.append([imagename, roiname, e]) # &lt;image&gt;&lt;roi&gt;&lt;error message&gt;</span>
-					<span class="c1"># 	# continue to next image</span>
-					<span class="c1"># 	break</span>
+					<span class="c1">#. Format contours as Dataframe, for exporting to xlsx or ias.</span>
+					<span class="n">bounds</span><span class="p">,</span> <span class="n">contours</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_contours</span><span class="p">(</span><span class="n">imagename</span><span class="o">=</span><span class="n">imagename</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="n">roiname</span><span class="o">=</span><span class="n">roiname</span><span class="p">,</span> 
+															<span class="n">roinumber</span><span class="o">=</span><span class="n">roinumber</span><span class="p">,</span> <span class="n">bounds_</span><span class="o">=</span><span class="n">bounds_</span><span class="p">,</span> <span class="n">contours_</span><span class="o">=</span><span class="n">contours_</span><span class="p">)</span>
+					<span class="c1">#. Draw bounds or contours.</span>
+					<span class="c1">## draw bounds</span>
+					<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+						<span class="c1">## img path</span>
+						<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/bounds/roi/</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">)</span>
+						<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+						<span class="bp">self</span><span class="o">.</span><span class="n">draw_contours</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bounds&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
+						<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+						<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+					<span class="c1">## draw contours</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="c1">## img path</span>
+						<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/bounds/roi/</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">,</span> <span class="n">imagename</span><span class="p">,</span> <span class="n">roiname</span><span class="p">)</span>
+						<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+						<span class="bp">self</span><span class="o">.</span><span class="n">draw_contours</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">contours</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;contours&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
+						<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+						<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
 					<span class="c1"># store processed bounds and contours to combine across image</span>
 					<span class="n">l_bounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
@@ -1145,11 +1157,23 @@
 					<span class="c1"># update counter</span>
 					<span class="n">roinumber</span> <span class="o">=</span> <span class="n">roinumber</span> <span class="o">+</span> <span class="mi">1</span>
 
-			<span class="c1">#!!!----for each image, export data</span>
+			<span class="c1">#!!!----for each image</span>
 			<span class="c1"># draw bounds</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="n">imagename</span><span class="p">,</span> <span class="n">l_bounds</span><span class="p">,</span> <span class="s1">&#39;bounds&#39;</span><span class="p">)</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+				<span class="c1">## img path</span>
+				<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/bounds/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">,</span> <span class="n">imagename</span><span class="p">)</span>
+				<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+				<span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">draw_contours</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;bounds&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">l_bounds</span><span class="p">]</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 			<span class="c1"># draw contours</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="n">imagename</span><span class="p">,</span> <span class="n">l_contours</span><span class="p">,</span> <span class="s1">&#39;contours&#39;</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="c1">## img path</span>
+				<span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/bounds/</span><span class="si">%s</span><span class="s1">.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">,</span> <span class="n">imagename</span><span class="p">)</span>
+				<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+				<span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">draw_contours</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;contours&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">l_contours</span><span class="p">]</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+				<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
 			<span class="c1"># concatinate and store bounds for all rois</span>
 			<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">l_bounds</span><span class="p">)</span>
@@ -1321,7 +1345,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T12:12:58-05:00.</div>
+			<div>Updated 2019-05-17T18:54:41-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -123,10 +123,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#1.-Demonstration">1. Demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/generate_roi.html#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
@@ -164,8 +170,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
 </ul>
@@ -207,8 +214,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
 </ul>
@@ -255,28 +263,28 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.create_contours" title="imhr.eyetracking._roi.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(self,&nbsp;image,&nbsp;imagename,&nbsp;roiname)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.create_rois" title="imhr.eyetracking._roi.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(self,&nbsp;imagename,&nbsp;metadata,&nbsp;…)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.draw_image" title="imhr.eyetracking._roi.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(self,&nbsp;imagename,&nbsp;data[,&nbsp;source])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.draw_contours" title="imhr.eyetracking._roi.ROI.draw_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_contours</span></code></a>(self,&nbsp;filepath,&nbsp;data,&nbsp;fig[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.export_data" title="imhr.eyetracking._roi.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(self,&nbsp;df,&nbsp;path,&nbsp;filename[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_contours" title="imhr.eyetracking._roi.ROI.extract_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_contours</span></code></a>(self,&nbsp;image,&nbsp;imagename,&nbsp;roiname)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_metadata" title="imhr.eyetracking._roi.ROI.extract_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
+<td>Extract metadata for each region of interest.</td>
+</tr>
 <tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.finished" title="imhr.eyetracking._roi.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(self,&nbsp;df[,&nbsp;errors])</td>
 <td>Process bounds for all images.</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_contours" title="imhr.eyetracking._roi.ROI.format_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_contours</span></code></a>(self,&nbsp;imagename,&nbsp;metadata,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_image" title="imhr.eyetracking._roi.ROI.format_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap,&nbsp;isRaw])</td>
+<td>Resize image and reposition image, relative to screensize.</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process" title="imhr.eyetracking._roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_image" title="imhr.eyetracking._roi.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap,&nbsp;isRaw])</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_metadata" title="imhr.eyetracking._roi.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.run" title="imhr.eyetracking._roi.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;directory[,&nbsp;core,&nbsp;queue])</td>
@@ -290,28 +298,28 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.create_contours" title="imhr.eyetracking._roi.ROI.create_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_contours</span></code></a>(self,&nbsp;image,&nbsp;imagename,&nbsp;roiname)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.create_rois" title="imhr.eyetracking._roi.ROI.create_rois"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_rois</span></code></a>(self,&nbsp;imagename,&nbsp;metadata,&nbsp;…)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.draw_image" title="imhr.eyetracking._roi.ROI.draw_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_image</span></code></a>(self,&nbsp;imagename,&nbsp;data[,&nbsp;source])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.draw_contours" title="imhr.eyetracking._roi.ROI.draw_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_contours</span></code></a>(self,&nbsp;filepath,&nbsp;data,&nbsp;fig[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.export_data" title="imhr.eyetracking._roi.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(self,&nbsp;df,&nbsp;path,&nbsp;filename[,&nbsp;…])</td>
 <td>[summary]</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_contours" title="imhr.eyetracking._roi.ROI.extract_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_contours</span></code></a>(self,&nbsp;image,&nbsp;imagename,&nbsp;roiname)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_metadata" title="imhr.eyetracking._roi.ROI.extract_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
+<td>Extract metadata for each region of interest.</td>
+</tr>
 <tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.finished" title="imhr.eyetracking._roi.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(self,&nbsp;df[,&nbsp;errors])</td>
 <td>Process bounds for all images.</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_contours" title="imhr.eyetracking._roi.ROI.format_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_contours</span></code></a>(self,&nbsp;imagename,&nbsp;metadata,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_image" title="imhr.eyetracking._roi.ROI.format_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap,&nbsp;isRaw])</td>
+<td>Resize image and reposition image, relative to screensize.</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process" title="imhr.eyetracking._roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(self)</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_image" title="imhr.eyetracking._roi.ROI.process_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_image</span></code></a>(self[,&nbsp;psd,&nbsp;xcf,&nbsp;bitmap,&nbsp;isRaw])</td>
-<td>[summary]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process_metadata" title="imhr.eyetracking._roi.ROI.process_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_metadata</span></code></a>(self,&nbsp;imagename,&nbsp;layer)</td>
 <td>[summary]</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.run" title="imhr.eyetracking._roi.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self,&nbsp;directory[,&nbsp;core,&nbsp;queue])</td>
@@ -320,9 +328,9 @@
 </tbody>
 </table>
 <dl class="method">
-<dt id="imhr.eyetracking._roi.ROI.process_metadata">
-<code class="descname">process_metadata</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.process_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dt id="imhr.eyetracking._roi.ROI.extract_metadata">
+<code class="descname">extract_metadata</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.extract_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.extract_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract metadata for each region of interest.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -344,8 +352,47 @@
 <dt>[type]</dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt>[type]</dt>
-<dd><p class="first last">[description]</p>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imhr.eyetracking._roi.ROI.format_image">
+<code class="descname">format_image</code><span class="sig-paren">(</span><em>self</em>, <em>psd=None</em>, <em>xcf=None</em>, <em>bitmap=None</em>, <em>isRaw=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.format_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.format_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize image and reposition image, relative to screensize.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</p>
+</dd>
+<dt><strong>xcf</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>bitmap</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>isRaw</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">If <cite>True</cite>, the image will be returned withour resizing or placed on top of a background image. Default is <cite>False</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dd><p class="first last">PIL image object class.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>image, background</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dd><p class="first last">PIL image object class.</p>
 </dd>
 </dl>
 </td>
@@ -355,8 +402,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="imhr.eyetracking._roi.ROI.create_contours">
-<code class="descname">create_contours</code><span class="sig-paren">(</span><em>self</em>, <em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.create_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.create_contours" title="Permalink to this definition">¶</a></dt>
+<dt id="imhr.eyetracking._roi.ROI.extract_contours">
+<code class="descname">extract_contours</code><span class="sig-paren">(</span><em>self</em>, <em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.extract_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.extract_contours" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -397,8 +444,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="imhr.eyetracking._roi.ROI.create_rois">
-<code class="descname">create_rois</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>_bounds</em>, <em>_contours</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.create_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.create_rois" title="Permalink to this definition">¶</a></dt>
+<dt id="imhr.eyetracking._roi.ROI.format_contours">
+<code class="descname">format_contours</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>bounds_</em>, <em>contours_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.format_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.format_contours" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -420,10 +467,10 @@
 <dt><strong>roilabel</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>_bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dt><strong>bounds_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
 <dd><p class="first last">[description]</p>
 </dd>
-<dt><strong>_contours</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dt><strong>contours_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
 <dd><p class="first last">[description]</p>
 </dd>
 </dl>
@@ -442,6 +489,34 @@
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
 <dt>Exception</dt>
 <dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imhr.eyetracking._roi.ROI.draw_contours">
+<code class="descname">draw_contours</code><span class="sig-paren">(</span><em>self</em>, <em>filepath</em>, <em>data</em>, <em>fig</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.draw_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.draw_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>filepath</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>fig</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">[description], by default ‘bounds’</p>
 </dd>
 </dl>
 </td>
@@ -483,73 +558,6 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt>[type]</dt>
 <dd><p class="first last">[description]</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="imhr.eyetracking._roi.ROI.draw_image">
-<code class="descname">draw_image</code><span class="sig-paren">(</span><em>self</em>, <em>imagename</em>, <em>data</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.draw_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.draw_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
-<dd><p class="first last">[description]</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="imhr.eyetracking._roi.ROI.process_image">
-<code class="descname">process_image</code><span class="sig-paren">(</span><em>self</em>, <em>psd=None</em>, <em>xcf=None</em>, <em>bitmap=None</em>, <em>isRaw=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.process_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
-<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</p>
-</dd>
-<dt><strong>xcf</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
-<dd><p class="first last">[description], by default None</p>
-</dd>
-<dt><strong>bitmap</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
-<dd><p class="first last">[description], by default None</p>
-</dd>
-<dt><strong>isRaw</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
-<dd><p class="first last">If <cite>True</cite>, the image will be returned withour resizing or placed on top of a background image. Default is <cite>False</cite>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
-<dd><p class="first last">PIL image object class.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>image, background</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
-<dd><p class="first last">PIL image object class.</p>
 </dd>
 </dl>
 </td>
@@ -645,7 +653,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T12:12:58-05:00.</div>
+			<div>Updated 2019-05-17T18:54:41-05:00.</div>
 		</div>
 	</div>
 </footer>

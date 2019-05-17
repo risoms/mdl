@@ -123,7 +123,11 @@ extensions = [
 	# Include documentation from docstrings
 	'sphinx.ext.autodoc',
 	# Extending autodoc API
-	'autodocsumm'
+	'autodocsumm',
+	# A directive for including a matplotlib plot in a Sphinx document.
+    'matplotlib.sphinxext.plot_directive',
+    'IPython.sphinxext.ipython_directive',
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
 
 # Napoleon settings ----------------------------------------------------------------------------------------------------

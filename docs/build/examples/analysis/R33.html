@@ -123,10 +123,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../roi/generate_roi.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#1.-Demonstration">1. Demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../roi/generate_roi.html#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
@@ -164,8 +170,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a></li>
 </ul>
@@ -207,8 +214,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Current Data</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://localhost:8889/">Live Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/Webgazer/index.html">Webgazer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a></li>
 </ul>
@@ -455,11 +463,11 @@ div.rendered_html tbody tr:hover {
 <span class="n">path_</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
 <span class="c1">#set parameters</span>
 <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;eyetracking&#39;</span>
-<span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_trial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_trial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="c1">#----check if required libraries are available</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;library&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;library&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;library&#39;</span><span class="p">]:</span>
     <span class="n">settings</span><span class="o">.</span><span class="n">library</span><span class="p">()</span>
 <span class="k">pass</span>
@@ -490,10 +498,10 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#-----------------------------------------------------------------------------------------------------------imports continued</span>
 <span class="c1">#----core</span>
-<span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pdb</span> <span class="kn">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">glob</span><span class="o">,</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">pytz</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">codecs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># set current date</span>
 <span class="n">date_start</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">date_end</span> <span class="o">=</span> <span class="p">[]</span>
@@ -517,12 +525,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----------------------------------------------------------------------------------------------------------------create pydoc</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;pydoc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;pydoc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;pydoc&#39;</span><span class="p">]:</span>
     <span class="n">build</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/imhr-R33/docs&#39;</span>
     <span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/imhr-R33/docs/source&#39;</span>
     <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/imhr-R33/docs/docs&#39;</span>
-    <span class="n">processing</span><span class="o">.</span><span class="n">pydoc</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">build</span><span class="o">=</span><span class="n">build</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">processing</span><span class="o">.</span><span class="n">pydoc</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">build</span><span class="o">=</span><span class="n">build</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">None</span>
 <span class="k">pass</span>
 </pre></div>
 </div>
@@ -533,7 +541,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#-------------------------------------------------------------------------------------------------import raw data from server</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;rawdata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;rawdata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;rawdata&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: importing raw data from server&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="c1">#----path</span>
@@ -563,7 +571,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----------------------------------------------------------------------------------------------------------import REDCap data</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;redcap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;redcap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;redcap&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: importing redcap data&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="c1">#----login, paths</span>
@@ -585,7 +593,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#--------------------------------------------------------------------------start preprocessing behavioral or eyetracking data</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;preprocessing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;preprocessing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;preprocessing&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: preprocessing data&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="c1">#----parameters</span>
@@ -594,19 +602,19 @@ div.rendered_html tbody tr:hover {
     <span class="n">trial</span> <span class="o">=</span> <span class="mi">35</span>
     <span class="c1">#----if single subject, single trial</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_subject&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_trial&#39;</span><span class="p">]):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;processing: single subject, single trial&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;processing: single subject, single trial&#39;</span><span class="p">)</span>
         <span class="n">task_type</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
-        <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="n">trial</span><span class="p">)</span>
+        <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="n">trial</span><span class="p">)</span>
     <span class="c1">#----else if single subject, all trials</span>
     <span class="k">elif</span> <span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_subject&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_trial&#39;</span><span class="p">]):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;processing: single subject, all trials&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;processing: single subject, all trials&#39;</span><span class="p">)</span>
         <span class="n">task_type</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
-        <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>
+        <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">)</span>
     <span class="c1">#----if all subjects, all trials</span>
     <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_subject&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;single_trial&#39;</span><span class="p">]):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;processing: all subjects, all trials&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;processing: all subjects, all trials&#39;</span><span class="p">)</span>
         <span class="n">task_type</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
-        <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+        <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span> <span class="n">single_subject</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">single_trial</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">isMultiprocessing</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
     <span class="c1">#----finished</span>
     <span class="n">date_end</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;preprocessing&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())})</span>
 <span class="k">pass</span>
@@ -633,7 +641,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----------------------------------------------------------------------------------------------------------------get metadata</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;processing metadata&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="c1">#file path</span>
@@ -652,7 +660,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----------------------------------------------------------------------------------------------------------------prepare data</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;prepare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;prepare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;prepare&#39;</span><span class="p">]:</span>
     <span class="c1">#exclude participants</span>
     <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="mi">999999</span><span class="p">,</span> <span class="mi">111111</span><span class="p">,</span> <span class="mi">156</span><span class="p">]</span>
@@ -692,7 +700,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">p_subject</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/subject_metadata.csv&quot;</span>
     <span class="n">df_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p_subject</span><span class="p">,</span> <span class="n">float_precision</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">)</span>
     <span class="c1"># drop duplicate participant listings</span>
-    <span class="n">df_metadata</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">&quot;participant&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_metadata</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">&quot;participant&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="c1"># start and end dates</span>
     <span class="n">date_start</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;metadata&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())})</span>
     <span class="n">date_end</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;metadata&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())})</span>
@@ -701,7 +709,7 @@ div.rendered_html tbody tr:hover {
     <span class="c1"># rename variables</span>
     <span class="n">df_metadata</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;isWindowSuccess&quot;</span><span class="p">:</span> <span class="s2">&quot;is_calibrated&quot;</span><span class="p">})</span>
     <span class="c1"># all rows repersent participants</span>
-    <span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_task&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_task&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 
     <span class="c1">##-------read bias summary and rename id=&quot;participant&quot;</span>
     <span class="c1">#if eyetracking</span>
@@ -733,14 +741,14 @@ div.rendered_html tbody tr:hover {
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">exclude</span><span class="p">)]</span>
     <span class="c1">#rename columns</span>
     <span class="c1">##rename microsoft os to msos, mac os to macos</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Microsoft Windows&#39;</span><span class="p">,</span> <span class="s1">&#39;macOS&#39;</span><span class="p">,</span><span class="s1">&#39;Chrome OS&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;msos&#39;</span><span class="p">,</span> <span class="s1">&#39;macos&#39;</span><span class="p">,</span> <span class="s1">&#39;cos&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Microsoft Windows&#39;</span><span class="p">,</span> <span class="s1">&#39;macOS&#39;</span><span class="p">,</span><span class="s1">&#39;Chrome OS&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;msos&#39;</span><span class="p">,</span> <span class="s1">&#39;macos&#39;</span><span class="p">,</span> <span class="s1">&#39;cos&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
     <span class="c1">##-------calculate difference between real stimulus, dotloc onset and real value #then merge medians with df</span>
     <span class="n">merge</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">,</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span><span class="s1">&#39;is_normalvision&#39;</span><span class="p">,</span><span class="s1">&#39;os&#39;</span><span class="p">,</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span>
     <span class="n">df_error</span><span class="p">,</span> <span class="n">onset_error</span><span class="p">,</span> <span class="n">drop</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">onset_diff</span><span class="p">(</span><span class="n">df0</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">merge</span><span class="o">=</span><span class="n">merge</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
     <span class="c1"># save data</span>
     <span class="n">csv_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/error.csv&quot;</span>
-    <span class="n">df_error</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">df_error</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 
     <span class="c1"># combine exclude lists</span>
     <span class="n">exclude</span> <span class="o">=</span> <span class="n">drop</span> <span class="o">+</span> <span class="n">exclude</span>
@@ -755,7 +763,7 @@ div.rendered_html tbody tr:hover {
     <span class="c1">##export for seperate analysis in r</span>
     <span class="n">csv_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/final_data.csv&quot;</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: export for R analysis: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">csv_path</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 
     <span class="c1">##--------number of subjects</span>
     <span class="c1"># demographics</span>
@@ -765,13 +773,13 @@ div.rendered_html tbody tr:hover {
     <span class="n">l_task</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
     <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;task&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_task</span>
     <span class="c1"># eyetracking</span>
-    <span class="n">l_eyetracking</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_eyetracking&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">l_eyetracking</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_eyetracking&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
     <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;eyetracking&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_eyetracking</span>
     <span class="c1">## calibratied</span>
-    <span class="n">l_calibrated</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_calibrated&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">l_calibrated</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_calibrated&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
     <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;calibrated&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">l_calibrated</span>
     <span class="c1"># behavioral</span>
-    <span class="n">l_behavioral</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_eyetracking&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">l_behavioral</span> <span class="o">=</span> <span class="n">df_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_metadata</span><span class="p">[</span><span class="s1">&#39;is_eyetracking&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">][</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
     <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;subjects&#39;</span><span class="p">][</span><span class="s1">&#39;behavioral&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_behavioral</span>
     <span class="c1"># cesd</span>
     <span class="n">l_cesd</span> <span class="o">=</span> <span class="n">df_cesd</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
@@ -808,7 +816,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#------------------------------------------------------------------------------------------------------demographic statistics</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;demographic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;demographic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;demographic&#39;</span><span class="p">]:</span>
     <span class="c1">#-----------------------------get max, min values</span>
     <span class="n">total</span> <span class="o">=</span> <span class="p">{}</span>
@@ -841,7 +849,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">l_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vision&#39;</span><span class="p">,</span><span class="s1">&#39;Vision&#39;</span><span class="p">,</span><span class="s1">&#39;Handedness (Right)&#39;</span><span class="p">,</span><span class="s1">&#39;Hispanic or Latino&#39;</span><span class="p">]</span>
     <span class="n">l_group</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span><span class="s1">&#39;Corrective&#39;</span><span class="p">,</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span><span class="s1">&#39;(%)&#39;</span><span class="p">]</span>
     <span class="n">l_category</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;is_normalvision&#39;</span><span class="p">,</span><span class="s1">&#39;is_corrective&#39;</span><span class="p">,</span><span class="s1">&#39;handedness&#39;</span><span class="p">,</span><span class="s1">&#39;hispanic&#39;</span><span class="p">]</span>
-    <span class="n">l_condition</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">]</span>
+    <span class="n">l_condition</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span><span class="bp">True</span><span class="p">]</span>
     <span class="c1">#Handedness (Right), Corrective, is_corrective, True</span>
     <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">condition</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">l_label</span><span class="p">,</span> <span class="n">l_group</span><span class="p">,</span> <span class="n">l_category</span><span class="p">,</span> <span class="n">l_condition</span><span class="p">):</span>
         <span class="c1">#cesd low</span>
@@ -887,12 +895,12 @@ div.rendered_html tbody tr:hover {
               <span class="s1">&#39;Center for Epidemiologic Studies Depression Scale&#39;</span><span class="p">,</span><span class="s1">&#39;Ruminative Response Scale&#39;</span><span class="p">]</span>
     <span class="n">descriptive</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">descriptive</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">],</span> <span class="n">l_sort</span><span class="p">)</span>
     <span class="c1"># sort</span>
-    <span class="n">descriptive</span> <span class="o">=</span> <span class="n">descriptive</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span><span class="n">cesd_col</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+    <span class="n">descriptive</span> <span class="o">=</span> <span class="n">descriptive</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span><span class="n">cesd_col</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
     <span class="c1"># merge columns</span>
     <span class="n">descriptive</span><span class="p">[</span><span class="n">cesd_col</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">descriptive</span><span class="p">[[</span><span class="n">cesd_col</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;a&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">descriptive</span><span class="p">[</span><span class="n">cesd_col</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">descriptive</span><span class="p">[[</span><span class="n">cesd_col</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="c1"># delete</span>
-    <span class="n">descriptive</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">descriptive</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">descriptive</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">descriptive</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="k">del</span> <span class="n">descriptive</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span>
 
     <span class="c1">#-----create html</span>
@@ -915,7 +923,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#-----------------------------------------------------------------------------------------------------------list of variables</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;variables&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;variables&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;variables&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: list of variables&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="n">df_variables</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">variables</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
@@ -935,7 +943,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----------------------------------------------------------------------------------------------------------descriptive device</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;descriptive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;descriptive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;descriptive&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: descriptive device&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1049,7 +1057,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#------------------------------------------------------------------------------------------------------------descriptive task</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: descriptive task&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1083,7 +1091,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">l_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Task&#39;</span><span class="p">,</span><span class="s1">&#39;Task&#39;</span><span class="p">,</span><span class="s1">&#39;Task&#39;</span><span class="p">,</span><span class="s1">&#39;Task&#39;</span><span class="p">]</span>
     <span class="n">l_group</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Task&#39;</span><span class="p">,</span><span class="s1">&#39;Eyetracking&#39;</span><span class="p">,</span><span class="s1">&#39;Calibrated&#39;</span><span class="p">,</span><span class="s1">&#39;Behavioral&#39;</span><span class="p">]</span>
     <span class="n">l_category</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;is_task&#39;</span><span class="p">,</span><span class="s1">&#39;is_eyetracking&#39;</span><span class="p">,</span><span class="s1">&#39;is_calibrated&#39;</span><span class="p">,</span><span class="s1">&#39;is_eyetracking&#39;</span><span class="p">]</span>
-    <span class="n">l_bool</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">]</span>
+    <span class="n">l_bool</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">False</span><span class="p">]</span>
     <span class="c1">#convert to bool</span>
     <span class="n">df_s</span><span class="p">[</span><span class="n">l_category</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_s</span><span class="p">[</span><span class="n">l_category</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
     <span class="c1">#for each</span>
@@ -1162,7 +1170,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#----------------------------------------------------------------------------------------------------------------summary data</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: summary data&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1187,7 +1195,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">df_mean_std</span><span class="p">[</span><span class="s1">&#39;pofa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mean_std</span><span class="p">[</span><span class="s1">&#39;pofa mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="n">df_mean_std</span><span class="p">[</span><span class="s1">&#39;pofa std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
     <span class="c1">#reindex and make new column for factor</span>
     <span class="n">df_mean_std</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mean_std</span><span class="o">.</span><span class="n">index</span>
-    <span class="n">df_mean_std</span> <span class="o">=</span> <span class="n">df_mean_std</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;variable&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_mean_std</span> <span class="o">=</span> <span class="n">df_mean_std</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;variable&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="c1">#create group column</span>
     <span class="n">df_mean_std</span> <span class="o">=</span> <span class="n">df_mean_std</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;dp_gaze_corr&#39;</span><span class="p">:</span> <span class="s1">&#39;dpg_core&#39;</span><span class="p">})</span>
     <span class="n">df_mean_std</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_mean_std</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;gaze_&quot;</span><span class="p">),</span> <span class="s2">&quot;gaze&quot;</span><span class="p">,</span>
@@ -1220,14 +1228,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#-----------------------------------------------------------------------------------------------------------------save config</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]:</span>
     <span class="c1"># add definitions to config</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">definitions</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
     <span class="c1"># save</span>
     <span class="n">p_json</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/config.json&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">p_json</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">p_json</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">),</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">p_json</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">),</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
 
 
@@ -1243,10 +1251,10 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#-----------------------------------------------------------------------------------------------------------------------plots</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;plots&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;plots&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;plots&#39;</span><span class="p">]:</span>
     <span class="n">console</span><span class="p">(</span><span class="s1">&#39;Step: plots&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;single&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;single&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="c1">#%%------------------------------------------------------------------------------------------------------------------</span>
     <span class="c1">#-----------------------------------------------------------------------------------------------single subject: trial</span>
     <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;single&#39;</span><span class="p">]:</span>
@@ -1273,16 +1281,16 @@ div.rendered_html tbody tr:hover {
                                 <span class="s1">&#39;left_bound&#39;</span><span class="p">,</span><span class="s1">&#39;right_bound&#39;</span><span class="p">,</span><span class="s1">&#39;dwell&#39;</span><span class="p">]]</span>
 
         <span class="c1">#get rois</span>
-        <span class="n">stim_bounds</span><span class="p">,</span> <span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">roi</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span> <span class="n">flt</span><span class="o">=</span><span class="n">filters</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">=</span><span class="n">df_single</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">stim_bounds</span><span class="p">,</span> <span class="n">roi_bounds</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">roi</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span> <span class="n">flt</span><span class="o">=</span><span class="n">filters</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">=</span><span class="n">df_single</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="c1">#for each subject</span>
         <span class="n">flt</span> <span class="o">=</span> <span class="s1">&#39;sg&#39;</span>
         <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">198</span><span class="p">):</span>
             <span class="c1">#subset data</span>
-            <span class="n">df_single_</span> <span class="o">=</span> <span class="n">df_single</span><span class="p">[</span><span class="n">df_single</span><span class="p">[</span><span class="s1">&#39;TrialNum&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">idx</span><span class="p">])]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">df_single_</span> <span class="o">=</span> <span class="n">df_single</span><span class="p">[</span><span class="n">df_single</span><span class="p">[</span><span class="s1">&#39;TrialNum&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">idx</span><span class="p">])]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
             <span class="c1">#draw plot</span>
             <span class="n">bokeh_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">bokeh_trial</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_single_</span><span class="p">,</span> <span class="n">stim_bounds</span><span class="o">=</span><span class="n">stim_bounds</span><span class="p">,</span> <span class="n">roi_bounds</span><span class="o">=</span><span class="n">roi_bounds</span><span class="p">,</span> <span class="n">flt</span><span class="o">=</span><span class="s1">&#39;sg&#39;</span><span class="p">)</span>
             <span class="c1">##get is_congruent</span>
-            <span class="n">isCongruent</span> <span class="o">=</span> <span class="s2">&quot;congruent&quot;</span> <span class="k">if</span> <span class="n">df_single_</span><span class="p">[</span><span class="s1">&#39;isCongruent&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span> <span class="k">else</span> <span class="s2">&quot;incongruent&quot;</span>
+            <span class="n">isCongruent</span> <span class="o">=</span> <span class="s2">&quot;congruent&quot;</span> <span class="k">if</span> <span class="n">df_single_</span><span class="p">[</span><span class="s1">&#39;isCongruent&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span> <span class="k">else</span> <span class="s2">&quot;incongruent&quot;</span>
             <span class="c1">#html</span>
             <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;(</span><span class="si">%s</span><span class="s2">) Participant </span><span class="si">%s</span><span class="s2">, session </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">isCongruent</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">session</span><span class="p">)</span>
             <span class="n">html_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/trial/</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">.html&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span><span class="n">session</span><span class="p">,</span><span class="n">idx</span><span class="p">)</span>
@@ -1292,7 +1300,7 @@ div.rendered_html tbody tr:hover {
         <span class="k">del</span> <span class="n">idx</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">path_sns</span><span class="p">,</span> <span class="n">bokeh_plot</span><span class="p">,</span> <span class="n">df_single_</span><span class="p">,</span> <span class="n">html_path</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">session</span>
     <span class="c1">#%%------------------------------------------------------------------------------------------------------------------</span>
     <span class="c1">#-----------------------------------------------------------------------------single subject: calibration, validation</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">console</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;bokeh_calibration()&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">console</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;bokeh_calibration()&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
         <span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;shellie&#39;</span>
         <span class="n">session</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="c1">#monitorSize = [1920,1080] #session 0</span>
@@ -1308,7 +1316,7 @@ div.rendered_html tbody tr:hover {
             <span class="c1">#calibration and validation</span>
             <span class="k">for</span> <span class="n">event</span><span class="p">,</span> <span class="n">full</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;isCalibrating&#39;</span><span class="p">,</span><span class="s1">&#39;isValidating&#39;</span><span class="p">],[</span><span class="s1">&#39;calibration&#39;</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">]):</span>
                 <span class="c1">#subset data</span>
-                <span class="n">df_cv_</span> <span class="o">=</span> <span class="n">df_cv</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_cv</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">df_cv_</span> <span class="o">=</span> <span class="n">df_cv</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_cv</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
                 <span class="c1">#draw plot</span>
                 <span class="n">bokeh_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">bokeh_calibration</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_cv_</span><span class="p">,</span> <span class="n">cxy</span><span class="o">=</span><span class="n">cxy</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">full</span><span class="p">,</span> <span class="n">monitorSize</span><span class="o">=</span><span class="n">monitorSize</span><span class="p">)</span>
                 <span class="c1">#html</span>
@@ -1319,7 +1327,7 @@ div.rendered_html tbody tr:hover {
 
         <span class="c1">#del title, event, full, path_sns, bokeh_plot, html_path, html</span>
 
-    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="c1">#%%------------------------------------------------------------------------------------------------------------------</span>
     <span class="c1">#--------------------------------------------------------------------------------------------------------density plot</span>
     <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]:</span>
@@ -1348,7 +1356,7 @@ div.rendered_html tbody tr:hover {
         <span class="n">html</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">html_path</span><span class="p">,</span> <span class="n">plots</span><span class="o">=</span><span class="n">html_plots</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;plots&quot;</span><span class="p">,</span> <span class="n">intro</span><span class="o">=</span><span class="n">intro</span><span class="p">)</span>
         <span class="k">del</span> <span class="n">density</span><span class="p">,</span> <span class="n">intro</span><span class="p">,</span> <span class="n">html_plots</span><span class="p">,</span> <span class="n">html_path</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">title</span>
 
-    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;corr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;corr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="c1">#%%------------------------------------------------------------------------------------------------------------------</span>
     <span class="c1">#--------------------------------------------------------------------------------------------------correlation matrix</span>
     <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;corr&#39;</span><span class="p">]:</span>
@@ -1361,15 +1369,15 @@ div.rendered_html tbody tr:hover {
                       <span class="s1">&#39;luminance&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;nested&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;subject&#39;</span><span class="p">]</span>
 
         <span class="c1">#file</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;corr_matrix&#39;</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="s1">&#39;corr_matrix&#39;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;spearman&#39;</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> correlation coefficient matrix (p-value).&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">method</span><span class="p">))</span>
 
-        <span class="n">path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/</span><span class="si">%s</span><span class="s2">.html&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/</span><span class="si">%s</span><span class="s2">.html&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
         <span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">corr_matrix</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_corr</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-        <span class="k">del</span> <span class="n">path</span><span class="p">,</span> <span class="n">corr_matrix</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">method</span>
+        <span class="k">del</span> <span class="n">path</span><span class="p">,</span> <span class="n">corr_matrix</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">method</span>
 
-    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;boxplot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;boxplot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="c1">#%%------------------------------------------------------------------------------------------------------------------</span>
     <span class="c1">#-------------------------------------------------------------------------------------------------------------boxplot</span>
     <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;boxplot&#39;</span><span class="p">]:</span>
@@ -1390,11 +1398,11 @@ div.rendered_html tbody tr:hover {
 <span class="s2">        races&#39;, &#39;Black or African American&#39;, &#39;None of the above&#39; were excluded here for displaying purposes.</span><span class="se">\</span>
 <span class="s2">        </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">])</span>
         <span class="c1">#create plot</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;rt_boxplot&#39;</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="s1">&#39;rt_boxplot&#39;</span>
         <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Boxplots, </span><span class="si">%s</span><span class="s1"> (N = </span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">subjects_used</span><span class="p">)</span>
-        <span class="n">sns_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/img/</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">sns_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/img/</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
         <span class="n">plot</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">sns_path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cat</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
-        <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote</span><span class="p">})</span>
+        <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote</span><span class="p">})</span>
 
         <span class="c1">##-------diff_dotloc</span>
         <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;diff_dotloc&#39;</span>
@@ -1404,11 +1412,11 @@ div.rendered_html tbody tr:hover {
 <span class="s2">        races&#39;, &#39;Black or African American&#39;, &#39;None of the above&#39; were excluded here for displaying purposes.</span><span class="se">\</span>
 <span class="s2">        </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">])</span>
         <span class="c1">#create plot</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;dotloc_boxplot&#39;</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="s1">&#39;dotloc_boxplot&#39;</span>
         <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Boxplots, </span><span class="si">%s</span><span class="s1"> (N = </span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">subjects_used</span><span class="p">)</span>
-        <span class="n">sns_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/img/</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">sns_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/img/</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
         <span class="n">plot</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">sns_path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cat</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
-        <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote</span><span class="p">})</span>
+        <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote</span><span class="p">})</span>
 
         <span class="c1">##-------diff_stim</span>
         <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;diff_stim&#39;</span>
@@ -1418,16 +1426,16 @@ div.rendered_html tbody tr:hover {
 <span class="s2">        races&#39;, &#39;Black or African American&#39;, &#39;None of the above&#39; were excluded here for displaying purposes.</span><span class="se">\</span>
 <span class="s2">        </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">][</span><span class="s1">&#39;exclude&#39;</span><span class="p">])</span>
         <span class="c1">#create plot</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;stim_boxplot&#39;</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="s1">&#39;stim_boxplot&#39;</span>
         <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Boxplots, </span><span class="si">%s</span><span class="s1"> (N = </span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">subjects_used</span><span class="p">)</span>
-        <span class="n">sns_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/img/</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">sns_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/img/</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
         <span class="n">plot</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">sns_path</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cat</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
-        <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote</span><span class="p">})</span>
+        <span class="n">html_plots</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.png&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">file</span><span class="p">),</span><span class="s2">&quot;footnote&quot;</span><span class="p">:</span><span class="n">footnote</span><span class="p">})</span>
 
         <span class="c1">#-------save folders</span>
         <span class="n">html_path</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/html/</span><span class="si">%s</span><span class="s2">.html&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">html_file</span><span class="p">)</span>
         <span class="n">html</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">html_path</span><span class="p">,</span> <span class="n">plots</span><span class="o">=</span><span class="n">html_plots</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;plots&quot;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s2">&quot;boxplot&quot;</span><span class="p">,</span> <span class="n">intro</span><span class="o">=</span><span class="n">intro</span><span class="p">)</span>
-        <span class="k">del</span> <span class="n">intro</span><span class="p">,</span> <span class="n">html_file</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">html_path</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">cat</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">footnote</span>
+        <span class="k">del</span> <span class="n">intro</span><span class="p">,</span> <span class="n">html_file</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">html_path</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">cat</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">footnote</span>
 <span class="k">pass</span>
 </pre></div>
 </div>
@@ -1438,7 +1446,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#---------------------------------------------------------------------------------------------------------------------methods</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;methods&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;methods&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;methods&#39;</span><span class="p">]:</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Resources</span>
@@ -1512,7 +1520,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#--------------------------------------------------------------------------------------------------------------------analysis</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">]:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Resources</span>
@@ -1527,7 +1535,7 @@ div.rendered_html tbody tr:hover {
 <span class="sd">            -</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="c1">#----start</span>
-        <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;dwell&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;dwell&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
 </div>
@@ -1577,7 +1585,7 @@ div.rendered_html tbody tr:hover {
 
                     <span class="c1">#-----calculate dwell time using multiprocessing</span>
                     <span class="c1"># use __name__ to protect main module</span>
-            <span class="n">df_dwell</span><span class="p">,</span> <span class="n">error_dwell</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">dwell</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">df_dwell</span><span class="p">,</span> <span class="n">error_dwell</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">dwell</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df_</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="k">else</span> <span class="bp">None</span>
 
             <span class="c1">#----normalize dwell_time for comparison between iaps and pofa</span>
             <span class="n">df_dwell</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dwell</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dwell_time&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">4500</span><span class="p">)</span>
@@ -1595,7 +1603,7 @@ div.rendered_html tbody tr:hover {
             <span class="c1">#-----delete</span>
             <span class="k">del</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">p</span>
 
-        <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
 </div>
@@ -1651,7 +1659,7 @@ div.rendered_html tbody tr:hover {
             <span class="c1">#-----delete</span>
             <span class="k">del</span> <span class="n">y</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">p</span>
 
-        <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;mixed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;mixed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
 </div>
@@ -1716,10 +1724,10 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#------------------------------------------------------------------------------------------------------------------------test</span>
 <span class="c1">#------------------------------------------------------------------------draw flowchart of study identification and inclusion</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;flowchart&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;flowchart&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;flowchart&#39;</span><span class="p">]:</span>
     <span class="c1">#see https://graphviz.readthedocs.io/en/stable/examples.html</span>
-    <span class="kn">import</span> <span class="nn">graphviz</span> <span class="k">as</span> <span class="nn">gv</span>
+    <span class="kn">import</span> <span class="nn">graphviz</span> <span class="kn">as</span> <span class="nn">gv</span>
 
     <span class="c1">#path</span>
     <span class="n">folder</span> <span class="o">=</span> <span class="n">path_</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/analysis/&quot;</span>
@@ -1742,11 +1750,11 @@ div.rendered_html tbody tr:hover {
     <span class="n">g</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
 <span class="k">pass</span><span class="c1">#------------------------------------------------------------------------------------------------------------------------test</span>
 <span class="c1">#------------------------------------------------------------------------draw flowchart of study identification and inclusion</span>
-<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;treeview&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">is_</span><span class="p">[</span><span class="s1">&#39;treeview&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">if</span> <span class="n">is_</span><span class="p">[</span><span class="s1">&#39;treeview&#39;</span><span class="p">]:</span>
     <span class="c1">#create file tree view</span>
     <span class="c1">#see https://graphviz.readthedocs.io/en/stable/examples.html</span>
-    <span class="kn">from</span> <span class="nn">treelib</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Tree</span>
+    <span class="kn">from</span> <span class="nn">treelib</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Tree</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">()</span>
     <span class="n">tree</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s2">&quot;Harry&quot;</span><span class="p">,</span> <span class="s2">&quot;harry&quot;</span><span class="p">)</span>  <span class="c1"># root node</span>
     <span class="n">tree</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;jane&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="s2">&quot;harry&quot;</span><span class="p">)</span>
@@ -1820,7 +1828,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T12:12:58-05:00.</div>
+			<div>Updated 2019-05-17T18:54:41-05:00.</div>
 		</div>
 	</div>
 </footer>

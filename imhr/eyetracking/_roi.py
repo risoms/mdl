@@ -678,8 +678,8 @@ class ROI():
 		source : str, optional
 			[description], by default 'bounds'
 		"""
-		# draw image
-		ax = fig.add_subplot(111)
+		# get current axis
+		ax = fig.gca()
 		## create blank image and draw to figure
 		_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 
@@ -864,7 +864,7 @@ class ROI():
 			## save raw
 			fig = plt.figure()
 			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi,bbox_inches='tight')
+			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi, bbox_inches='tight')
 			plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)

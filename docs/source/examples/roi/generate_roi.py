@@ -5,7 +5,7 @@
 #  
 #.. title:: roi  
 #
-##### Region of Interest
+#### Region of Interest
 #%% [markdown]
 # <div class='info'>
 # <p>@`purpose`: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.</p>  
@@ -60,19 +60,29 @@ df, error = roi.process()
 df
 #%% [markdown]
 ##### 2. Highlighted ROI from Photoshop PSD
-#%% 
-%matplotlib notebook
-import matplotlib.pyplot as plt
-import matplotlib.image as image
-image = image.imread('/Users/mdl-admin/Desktop/roi/output/img/raw/2550.png')
-fig, ax = plt.subplots(figsize=(16,8))
-im = ax.imshow(image)
-ax.axis('off')
-plt.tight_layout()
-plt.show()
-#%%
-%config InlineBackend.close_figures
-%matplotlib inline
+#%% [markdown]
+#.. plot::  
+# 	:include-source:
+#  
+# 	from pylab import *  
+# 	import matplotlib.pyplot as plt  
+# 	import matplotlib.image as image  
+# 	fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True, figsize=(12,6))  
+# 	# roi  
+# 	im = image.imread('/Users/mdl-admin/Desktop/roi/output/img/preprocessed/AM_201.png')  
+# 	ax1.imshow(im)  
+# 	ax1.axis('off')  
+# 	ax1.set_title('Region of Interest')  
+# 	# contour  
+# 	im = image.imread('/Users/mdl-admin/Desktop/roi/output/img/bounds/AM_201.png')  
+# 	ax2.imshow(im)  
+# 	ax2.axis('off')  
+# 	ax2.set_title('Rectangular Bounds')  
+# 	# show 
+# 	plt.tight_layout()  
+# 	plt.show()  
+# 	show()
+#
 #%%
 # import
 import imhr

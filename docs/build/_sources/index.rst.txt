@@ -11,8 +11,7 @@
 	Installation <install.rst>
 	Features <features.rst>
 	Examples/Guides <examples/index.rst>
-	Current Data <data/index.rst>
-	Live Data <http://localhost:8889/>
+	Studies <studies/index.rst>
 	Dashboard <dashboard.rst>
 	API Reference <api/imhr.rst>
 
