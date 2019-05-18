@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Python Module Index &#8212; imhr-api 2019-05-17 documentation</title>
+    <title>Python Module Index &#8212; imhr-api 2019-05-18 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -53,7 +53,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-18</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -133,14 +133,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="api/imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/imhr.r33.html">imhr.r33</a><ul class="simple">
 </ul>
 </li>
@@ -149,11 +152,10 @@
 <li class="toctree-l3"><a class="reference internal" href="api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/imhr.download.html">imhr.download</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="api/imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/imhr.plot.html">imhr.plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/imhr.settings.html">imhr.settings</a></li>
 </ul>
 </li>
 </ul>
@@ -173,8 +175,6 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a></li>
@@ -211,14 +211,12 @@
 		<div class="bar"></div>
 	</div>
 	<div class="row">
-<div class="toc col-md-3">
+<div class="toc col-md-3" style="width: 25%;">
 	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a></li>
@@ -330,6 +328,61 @@
        <td>&#160;&#160;&#160;
        <a href="api/imhr.tests.test_roi.html#module-imhr.tests.test_roi"><code class="xref">imhr.tests.test_roi</code></a></td><td>
        <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.html#module-imhr.Webgazer"><code class="xref">imhr.Webgazer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.classify.html#module-imhr.Webgazer.classify"><code class="xref">imhr.Webgazer.classify</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.download.html#module-imhr.Webgazer.download"><code class="xref">imhr.Webgazer.download</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.metadata.html#module-imhr.Webgazer.metadata"><code class="xref">imhr.Webgazer.metadata</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.model.html#module-imhr.Webgazer.model"><code class="xref">imhr.Webgazer.model</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.nslr_hmm.html#module-imhr.Webgazer.nslr_hmm"><code class="xref">imhr.Webgazer.nslr_hmm</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.plot.html#module-imhr.Webgazer.plot"><code class="xref">imhr.Webgazer.plot</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.processing.html#module-imhr.Webgazer.processing"><code class="xref">imhr.Webgazer.processing</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.raw.html#module-imhr.Webgazer.raw"><code class="xref">imhr.Webgazer.raw</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.redcap.html#module-imhr.Webgazer.redcap"><code class="xref">imhr.Webgazer.redcap</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="api/imhr.Webgazer.settings.html#module-imhr.Webgazer.settings"><code class="xref">imhr.Webgazer.settings</code></a></td><td>
+       <em></em></td></tr>
    </table>
 
 
@@ -342,7 +395,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T18:54:41-05:00.</div>
+			<div>Updated 2019-05-18T17:13:51-05:00.</div>
 		</div>
 	</div>
 </footer>

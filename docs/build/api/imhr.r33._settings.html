@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.r33._settings &#8212; imhr-api 2019-05-17 documentation</title>
+    <title>imhr.r33._settings &#8212; imhr-api 2019-05-18 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-18</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -130,14 +130,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
 </ul>
 </li>
@@ -146,11 +149,10 @@
 <li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
 </ul>
 </li>
 </ul>
@@ -170,8 +172,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
@@ -208,14 +208,12 @@
 		<div class="bar"></div>
 	</div>
 	<div class="row">
-<div class="toc col-md-3">
+<div class="toc col-md-3" style="width: 25%;">
 	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
@@ -293,7 +291,7 @@
 </table>
 <dl class="attribute">
 <dt id="imhr.r33._settings.Settings.config">
-<code class="descname">config</code><em class="property"> = {'classify': {'classify_eyelink_data': True, 'ctype': 'hmm', 'di_th': 60, 'dr_th': 50, 'filters': [['SavitzkyGolay', 'sg']], 'is_classify': True, 'maxdist': 360, 'mindur': 200, 'missing': 0.0, 'v_th': 5}, 'cores': 7, 'filter': {'f_a': {'weights': [1.0, 2.0, 3.0, 2.0, 1.0]}, 'f_b': {'N': 2, 'Wn': 0.2, 'btype': 'low'}, 'f_g': {'sigma': 2}, 'f_m': {'size': 5}, 'f_sg': {'order': 3, 'window': 11}}, 'metadata': {'articles': ['One algorithm to rule them all? An evaluation and discussion of ten eye movement event-detection algorithms', 'Comparison of eye movement filters used in HCI'], 'cite': {}, 'def': {}, 'events': {'fixation': 1500, 'stimulus': {'iaps': 4500, 'pofa': 3000}}, 'img': {}, 'is': {}, 'lab': {'distance': 615.0, 'eyelink_webcam': 'Eyelink 1000 Plus', 'lab_monitor_device': 'Dell UltraSharp U2414H', 'lab_webcam': 'Logitech C922 Pro Stream Webcam', 'monitor.cm': [52, 29.5], 'resolution.px': [1920, 1080]}, 'long': {}, 'redcap': {'token': 'D04484634409375EA8CC34F5B71BC14A'}, 'short': {}, 'subjects': {}, 'url': {}, 'var': {}}, 'path': {'home': '/Users/mdl-admin/Desktop/mdl/docs/source', 'output': '/Users/mdl-admin/Desktop/mdl/docs/sourcedist/output', 'processed': '/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.pydist/output/data/process', 'r': '/Users/mdl-admin/Desktop/mdl/docs/sourcedist/_R', 'root': '/Users/mdl-admin/Desktop/mdl/docs/source', 'summary': '/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.pydist/output/data/R33-dotprobe-js.csv'}, 'preprocessing': {'remove_bounds': False, 'remove_missing': False, 'remove_spikes': False, 'spike_delta': 50}, 'processing': {'single_subject': False, 'single_trial': False, 'task': 'gRT', 'type': 'eyetracking'}, 'style': {'seaborn': 'ticks'}}</em><a class="headerlink" href="#imhr.r33._settings.Settings.config" title="Permalink to this definition">¶</a></dt>
+<code class="descname">config</code><em class="property"> = {'classify': {'classify_eyelink_data': True, 'ctype': 'hmm', 'di_th': 60, 'dr_th': 50, 'filters': [['SavitzkyGolay', 'sg']], 'is_classify': True, 'maxdist': 360, 'mindur': 200, 'missing': 0.0, 'v_th': 5}, 'cores': 7, 'filter': {'f_a': {'weights': [1.0, 2.0, 3.0, 2.0, 1.0]}, 'f_b': {'N': 2, 'Wn': 0.2, 'btype': 'low'}, 'f_g': {'sigma': 2}, 'f_m': {'size': 5}, 'f_sg': {'order': 3, 'window': 11}}, 'metadata': {'articles': ['One algorithm to rule them all? An evaluation and discussion of ten eye movement event-detection algorithms', 'Comparison of eye movement filters used in HCI'], 'cite': {}, 'def': {}, 'events': {'fixation': 1500, 'stimulus': {'iaps': 4500, 'pofa': 3000}}, 'img': {}, 'is': {}, 'lab': {'distance': 615.0, 'eyelink_webcam': 'Eyelink 1000 Plus', 'lab_monitor_device': 'Dell UltraSharp U2414H', 'lab_webcam': 'Logitech C922 Pro Stream Webcam', 'monitor.cm': [52, 29.5], 'resolution.px': [1920, 1080]}, 'long': {}, 'redcap': {'token': 'D04484634409375EA8CC34F5B71BC14A'}, 'short': {}, 'subjects': {}, 'url': {}, 'var': {}}, 'output': {'save_data': True}, 'path': {'home': '/Users/mdl-admin/Desktop/mdl/docs/source', 'output': '/Users/mdl-admin/Desktop/mdl/docs/sourcedist/output', 'processed': '/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.pydist/output/data/process', 'r': '/Users/mdl-admin/Desktop/mdl/docs/sourcedist/_R', 'root': '/Users/mdl-admin/Desktop/mdl/docs/source', 'summary': '/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.pydist/output/data/R33-dotprobe-js.csv'}, 'preprocessing': {'remove_bounds': False, 'remove_missing': False, 'remove_spikes': False, 'spike_delta': 50}, 'processing': {'session': 0, 'single_subject': False, 'single_trial': False, 'source': 'webgazer', 'subject': 31, 'task': 'gRT', 'trial': 35, 'type': 'eyetracking'}, 'style': {'seaborn': 'ticks'}}</em><a class="headerlink" href="#imhr.r33._settings.Settings.config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="classmethod">
@@ -346,7 +344,7 @@ definition: m_[‘def’][‘cesd_group’] “a binary measure of CESD score (b
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T18:54:41-05:00.</div>
+			<div>Updated 2019-05-18T17:13:51-05:00.</div>
 		</div>
 	</div>
 </footer>

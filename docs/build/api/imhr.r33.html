@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.r33 &#8212; imhr-api 2019-05-17 documentation</title>
+    <title>imhr.r33 &#8212; imhr-api 2019-05-18 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="imhr.tests" href="imhr.tests.html" />
-    <link rel="prev" title="imhr.eyetracking" href="imhr.eyetracking.html" />
+    <link rel="prev" title="imhr.plot" href="imhr.plot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-18</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,14 +132,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.r33</a><ul class="simple">
 </ul>
 </li>
@@ -148,11 +151,10 @@
 <li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
 </ul>
 </li>
 </ul>
@@ -172,19 +174,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.r33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a></li>
 </ul>
 </li>
 </ul>
@@ -220,25 +220,23 @@
 		<div class="bar"></div>
 	</div>
 	<div class="row">
-<div class="toc col-md-3">
+<div class="toc col-md-3" style="width: 25%;">
 	<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.r33</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.download.html">imhr.download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a></li>
 </ul>
 </li>
 </ul>
@@ -311,35 +309,35 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.Acceleration" title="imhr.r33.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(self,&nbsp;time,&nbsp;data_x[,&nbsp;data_y])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.Acceleration" title="imhr.r33.Classify.Acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Acceleration</span></code></a>(time,&nbsp;data_x[,&nbsp;data_y])</td>
 <td>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for time delta information.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.Velocity" title="imhr.r33.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(self,&nbsp;time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.Velocity" title="imhr.r33.Classify.Velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Velocity</span></code></a>(time,&nbsp;config,&nbsp;d_x[,&nbsp;d_y])</td>
 <td>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the  time numpy array for time delta information.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.VisualAngle" title="imhr.r33.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(self,&nbsp;g_x,&nbsp;g_y,&nbsp;config)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.VisualAngle" title="imhr.r33.Classify.VisualAngle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VisualAngle</span></code></a>(g_x,&nbsp;g_y,&nbsp;config)</td>
 <td>Convert pixel eye-coordinates to visual angle.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.hmm" title="imhr.r33.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(self,&nbsp;data,&nbsp;filter_type,&nbsp;config)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.hmm" title="imhr.r33.Classify.hmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hmm</span></code></a>(data,&nbsp;filter_type,&nbsp;config)</td>
 <td>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.idt" title="imhr.r33.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(self,&nbsp;data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.idt" title="imhr.r33.Classify.idt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idt</span></code></a>(data,&nbsp;dis_threshold,&nbsp;dur_threshold)</td>
 <td>Identification with Dispersion Threshold.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.ivt" title="imhr.r33.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(self,&nbsp;data,&nbsp;v_threshold,&nbsp;config)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.ivt" title="imhr.r33.Classify.ivt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ivt</span></code></a>(data,&nbsp;v_threshold,&nbsp;config)</td>
 <td>Identification with Velocity Threshold.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.savitzky_golay" title="imhr.r33.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(self,&nbsp;y,&nbsp;window_size,&nbsp;order)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.r33.Classify.savitzky_golay" title="imhr.r33.Classify.savitzky_golay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savitzky_golay</span></code></a>(y,&nbsp;window_size,&nbsp;order[,&nbsp;…])</td>
 <td>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.simple" title="imhr.r33.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(self,&nbsp;df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.r33.Classify.simple" title="imhr.r33.Classify.simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple</span></code></a>(df,&nbsp;missing,&nbsp;maxdist,&nbsp;mindur)</td>
 <td>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of  pixels (disregarding missing data).</td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.Acceleration">
-<code class="descname">Acceleration</code><span class="sig-paren">(</span><em>self</em>, <em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">Acceleration</code><span class="sig-paren">(</span><em>time</em>, <em>data_x</em>, <em>data_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Acceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.Acceleration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the acceleration (deg/sec/sec) for data points in d_x and (optionally) d_y, using the time numpy array for
 time delta information.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -363,9 +361,9 @@ time delta information.</p>
 </table>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.Velocity">
-<code class="descname">Velocity</code><span class="sig-paren">(</span><em>self</em>, <em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">Velocity</code><span class="sig-paren">(</span><em>time</em>, <em>config</em>, <em>d_x</em>, <em>d_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.Velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.Velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the instantaneous velocity (degrees / second) for data points in d_x and (optionally) d_y, using the 
 time numpy array for time delta information.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -394,9 +392,9 @@ in seconds.msec units, while d_x and d_y are expected to be in visual degrees. I
 are in pixel coordinate space, use the VisualAngleCalc class to convert the data into degrees.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.VisualAngle">
-<code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>self</em>, <em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.VisualAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">VisualAngle</code><span class="sig-paren">(</span><em>g_x</em>, <em>g_y</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.VisualAngle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.VisualAngle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert pixel eye-coordinates to visual angle.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -428,9 +426,9 @@ passed as eye_distance_mm. In this case the eye distance array must be the same 
 </ul>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.hmm">
-<code class="descname">hmm</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.hmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.hmm" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">hmm</code><span class="sig-paren">(</span><em>data</em>, <em>filter_type</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.hmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.hmm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hidden Makov Model, adapted from <a class="reference external" href="https://gitlab.com/nslr/nslr-hmm">https://gitlab.com/nslr/nslr-hmm</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -486,9 +484,9 @@ classification based on segmented linear regression. Scientific Reports, 7(1). d
 </table>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.idt">
-<code class="descname">idt</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.idt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.idt" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">idt</code><span class="sig-paren">(</span><em>data</em>, <em>dis_threshold</em>, <em>dur_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.idt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.idt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identification with Dispersion Threshold.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -522,9 +520,9 @@ is calculated. The length of the time window is often set to the minimum duratio
 100-200 ms.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.ivt">
-<code class="descname">ivt</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.ivt" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">ivt</code><span class="sig-paren">(</span><em>data</em>, <em>v_threshold</em>, <em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.ivt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.ivt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identification with Velocity Threshold.</p>
 <p>In the I-VT model, the velocity value is computed for every eye position sample.  The velocity value is then compared 
 to the threshold. If the sampled velocity is less than the threshold, the corresponding eye-position sample is 
@@ -559,9 +557,9 @@ marked as part of a fixation, otherwise it is marked as a part of a saccade.</p>
 <p>From <a class="reference external" href="https://github.com/ecekt/eyegaze">https://github.com/ecekt/eyegaze</a>. Formula from: <a class="reference external" href="https://dl.acm.org/citation.cfm?id=355028">https://dl.acm.org/citation.cfm?id=355028</a></p>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.savitzky_golay">
-<code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>self</em>, <em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">savitzky_golay</code><span class="sig-paren">(</span><em>y</em>, <em>window_size</em>, <em>order</em>, <em>deriv=0</em>, <em>rate=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.savitzky_golay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.savitzky_golay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Smooth (and optionally differentiate) data with a Savitzky-Golay filter.</p>
 <p>The Savitzky-Golay filter removes high frequency noise from data. It has the advantage of preserving the original
 shape and features of the signal better than other types of filtering approaches, such as moving averages techniques.</p>
@@ -628,9 +626,9 @@ Computing. W.H. Press,Cambridge University Press ISBN-13: 9780521880688.</td></t
 </table>
 </dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="imhr.r33.Classify.simple">
-<code class="descname">simple</code><span class="sig-paren">(</span><em>self</em>, <em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.simple" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">simple</code><span class="sig-paren">(</span><em>df</em>, <em>missing</em>, <em>maxdist</em>, <em>mindur</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/r33/_classify.html#Classify.simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.r33.Classify.simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects fixations, defined as consecutive samples with an inter-sample distance of less than a set amount of 
 pixels (disregarding missing data).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1749,7 +1747,7 @@ definition: m_[‘def’][‘cesd_group’] “a binary measure of CESD score (b
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T18:54:41-05:00.</div>
+			<div>Updated 2019-05-18T17:13:51-05:00.</div>
 		</div>
 	</div>
 </footer>

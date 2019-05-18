@@ -24,9 +24,8 @@ import datetime
 os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resources/"
 
 # local libraries
-if __name__ == '__main__':
-	from .. import plot
-	from .. import settings
+from .. import plot
+from .. import settings
 
 class Model():
 	"""Run statistical models for analysis."""

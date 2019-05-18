@@ -263,9 +263,9 @@ class ROI():
 		if self.isDemo is True:
 			import imhr
 			path = Path(imhr.__file__).parent
-			self.image_path = "%s/dist/raw/1/"%(path)
-			self.output_path = "%s/dist/output/"%(path)
-			metadata_source = "%s/dist/raw/1/metadata.xlsx"%(path)
+			self.image_path = "%s/dist/roi/raw/1/"%(path)
+			self.output_path = "%s/dist/roi/output/"%(path)
+			metadata_source = "%s/dist/roi/raw/1/metadata.xlsx"%(path)
 		else:
 			self.image_path = image_path
 			self.output_path = output_path

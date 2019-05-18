@@ -5,7 +5,63 @@
 [31;01mWARNING: while setting up extension autodocsumm: directive 'autoattribute' is already registered, it will be overridden[39;49;00m
 [31;01mWARNING: while setting up extension autodocsumm: directive 'automodule' is already registered, it will be overridden[39;49;00m
 [31;01mWARNING: while setting up extension autodocsumm: directive 'autoclass' is already registered, it will be overridden[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.rst:19: WARNING: toctree contains reference to excluded document 'api/imhr._version'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.rst:21: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download:7: WARNING: toctree references unknown document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download:7: WARNING: toctree references unknown document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download:7: WARNING: toctree references unknown document 'api/imhr.Download.box'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download.REDCap:11: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download.REDCap:16: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download.REDCap:21: WARNING: Unexpected indentation.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.Classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.Metadata'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.Velocity'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.VisualAngle'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.hmm'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.idt'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.ivt'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.savitzky_golay'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.simple'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.download.download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.download.download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.download.download.box'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:11: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:16: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:21: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:41: WARNING: Unknown target name: "format".[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:43: WARNING: Unknown target name: "type".[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:45: WARNING: Unknown target name: "raworlabel".[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:47: WARNING: Unknown target name: "raworlabelheaders".[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:49: WARNING: Unknown target name: "exportcheckboxlabel".[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download.REDCap:51: WARNING: Unknown target name: "returnformat".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/metadata.py:docstring of imhr.Webgazer.metadata.Metadata:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.metadata.Metadata.predict'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/metadata.py:docstring of imhr.Webgazer.metadata.Metadata:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.metadata.Metadata.summary'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/model.py:docstring of imhr.Webgazer.model.anova:51: WARNING: Inline interpreted text or phrase reference start-string without end-string.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/model.py:docstring of imhr.Webgazer.model.lmer:54: WARNING: Inline interpreted text or phrase reference start-string without end-string.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/model.py:docstring of imhr.Webgazer.model.logistic:51: WARNING: Inline interpreted text or phrase reference start-string without end-string.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/model.py:docstring of imhr.Webgazer.model.anova:57: WARNING: Unknown target name: "slides".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/nslr_hmm.py:docstring of imhr.Webgazer.nslr_hmm.ObservationModel:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.nslr_hmm.ObservationModel.classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/nslr_hmm.py:docstring of imhr.Webgazer.nslr_hmm.ObservationModel:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.nslr_hmm.ObservationModel.dist'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/nslr_hmm.py:docstring of imhr.Webgazer.nslr_hmm.ObservationModel:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.nslr_hmm.ObservationModel.liks'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.append_classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.dwell'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.filter_data'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.getData'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.getEstimatedMonitor'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.onset_diff'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.preprocess'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.process'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.roi'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.run'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.subject_metadata'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.processing.Processing.variables'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/raw.py:docstring of imhr.Webgazer.raw.raw:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.raw.raw.download'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/raw.py:docstring of imhr.Webgazer.raw.raw:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.raw.raw.library'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.redcap.redcap.cesd'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.redcap.redcap.demographics'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.redcap.redcap.mmpi'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/settings.py:docstring of imhr.Webgazer.settings.Settings:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.settings.Settings.definitions'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/download.py:docstring of imhr.download.Download:7: WARNING: toctree references unknown document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/download.py:docstring of imhr.download.Download:7: WARNING: toctree references unknown document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/download.py:docstring of imhr.download.Download:7: WARNING: toctree references unknown document 'api/imhr.download.Download.box'[39;49;00m
@@ -71,13 +127,11 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.format_image'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.process'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.run'[39;49;00m
-[31;01mWARNING: missing attribute mentioned in :members: or __all__: module imhr.r33, attribute nslr_hmm[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Model'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Processing'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Settings'[39;49;00m
-[31;01mWARNING: missing attribute mentioned in :members: or __all__: module imhr.r33, attribute nslr_hmm[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/imhr/r33/__init__.py:docstring of imhr.r33.Model.anova:57: WARNING: Unknown target name: "slides".[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.r33._classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.r33._classify.Classify.Velocity'[39;49;00m
@@ -127,6 +181,17 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:315: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:413: WARNING: File not found: 'eyetracking.rst#imhr.eyetracking.run.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:514: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run.sample'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.classify.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.download.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.metadata.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.model.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.nslr_hmm.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.plot.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.processing.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.raw.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.redcap.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.settings.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.download.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._calibration.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._eyelink.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._roi.rst: WARNING: document isn't included in any toctree[39;49;00m
@@ -140,29 +205,112 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/raw/1/README.md: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/raw/2/README.md: WARNING: document isn't included in any toctree[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download:13:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download:13:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/__init__.py:docstring of imhr.Download:13:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Velocity'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.VisualAngle'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.hmm'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.idt'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.ivt'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.savitzky_golay'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.simple'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.download.download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.download.download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/download.py:docstring of imhr.Webgazer.download.download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.download.download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/metadata.py:docstring of imhr.Webgazer.metadata.Metadata:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.metadata.Metadata.predict'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/metadata.py:docstring of imhr.Webgazer.metadata.Metadata:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.metadata.Metadata.summary'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/nslr_hmm.py:docstring of imhr.Webgazer.nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.nslr_hmm.ObservationModel.classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/nslr_hmm.py:docstring of imhr.Webgazer.nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.nslr_hmm.ObservationModel.dist'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/nslr_hmm.py:docstring of imhr.Webgazer.nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.nslr_hmm.ObservationModel.liks'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.append_classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.classify'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.dwell'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.filter_data'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.getData'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.getEstimatedMonitor'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.onset_diff'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.preprocess'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.process'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.roi'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.run'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.subject_metadata'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/processing.py:docstring of imhr.Webgazer.processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.processing.Processing.variables'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/raw.py:docstring of imhr.Webgazer.raw.raw:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.raw.raw.download'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/raw.py:docstring of imhr.Webgazer.raw.raw:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.raw.raw.library'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.redcap.redcap.cesd'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.redcap.redcap.demographics'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.redcap.redcap.mmpi'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/settings.py:docstring of imhr.Webgazer.settings.Settings:24:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.settings.Settings.definitions'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/download.py:docstring of imhr.download.Download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/download.py:docstring of imhr.download.Download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/download.py:docstring of imhr.download.Download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:112: WARNING: undefined label: cv2.threshold (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:112: WARNING: undefined label: cv2.thresh_otsu (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:112: WARNING: undefined label: cv2.thresh_binary (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:120: WARNING: undefined label: cv2.findcontours (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:127: WARNING: undefined label: cv2.drawcontours (if the link has no caption the label must precede a section header)[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.alert_printf'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.clear_cal_display'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.draw_cal_target'[39;49;00m
@@ -180,9 +328,9 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.set_image_palette'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.setup_cal_display'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:28:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._calibration.Calibration.setup_image_display'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.calibration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.connect'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.drift_correction'[39;49;00m
@@ -194,9 +342,9 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.set_eye_used'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.stop_recording'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.draw_contours'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.export_data'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.extract_contours'[39;49;00m
@@ -206,15 +354,27 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.format_image'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.process'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.run'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.Velocity'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.VisualAngle'[39;49;00m
@@ -223,26 +383,26 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.ivt'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.savitzky_golay'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.simple'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_metadata.py:docstring of imhr.r33._metadata.Metadata:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._metadata.Metadata.predict'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_metadata.py:docstring of imhr.r33._metadata.Metadata:25:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._metadata.Metadata.summary'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_model.py:docstring of imhr.r33._model.Model:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._model.Model.anova'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_model.py:docstring of imhr.r33._model.Model:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._model.Model.lmer'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_model.py:docstring of imhr.r33._model.Model:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._model.Model.logistic'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.dist'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.liks'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.append_classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.dwell'[39;49;00m
@@ -256,153 +416,216 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.subject_metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.py:docstring of imhr.r33._settings.Settings:24:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._settings.Settings.definitions'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst:8: WARNING: toctree contains reference to document 'examples/analysis/webgazer' that doesn't have a title: no link will be generated[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst:8: WARNING: toctree contains reference to document 'examples/analysis/Webgazer' that doesn't have a title: no link will be generated[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:65: WARNING: undefined label: intro.rst (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:65: WARNING: undefined label: install.rst (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:65: WARNING: undefined label: examples/index.rst (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:65: WARNING: undefined label: api/imhr.rst (if the link has no caption the label must precede a section header)[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.REDCap'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.SFTP'[39;49;00m
-[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.REDCap'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.SFTP'[39;49;00m
+[31;01mWARNING: toctree contains reference to nonexisting document 'api/imhr.Download.box'[39;49;00m

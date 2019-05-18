@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index &#8212; imhr-api 2019-05-17 documentation</title>
+    <title>Index &#8212; imhr-api 2019-05-18 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -51,7 +51,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-17</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-18</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -131,14 +131,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="api/imhr.plot.html">imhr.plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/imhr.r33.html">imhr.r33</a><ul class="simple">
 </ul>
 </li>
@@ -147,11 +150,10 @@
 <li class="toctree-l3"><a class="reference internal" href="api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/imhr.download.html">imhr.download</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="api/imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/imhr.plot.html">imhr.plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/imhr.settings.html">imhr.settings</a></li>
 </ul>
 </li>
 </ul>
@@ -171,8 +173,6 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a></li>
@@ -209,14 +209,12 @@
 		<div class="bar"></div>
 	</div>
 	<div class="row">
-<div class="toc col-md-3">
+<div class="toc col-md-3" style="width: 25%;">
 	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/R33/index.html">R33</a></li>
-<li class="toctree-l1"><a class="reference internal" href="studies/Webgazer/index.html">Webgazer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a></li>
@@ -253,10 +251,14 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.Acceleration">Acceleration() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.Acceleration">Acceleration() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.Acceleration">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.Acceleration">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.Acceleration">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.Acceleration">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.alert_printf">alert_printf() (imhr.eyetracking._calibration.Calibration method)</a>
@@ -272,10 +274,16 @@
       <ul>
         <li><a href="api/imhr.r33.html#imhr.r33.Model.anova">(imhr.r33.Model class method)</a>
 </li>
+        <li><a href="api/imhr.Webgazer.model.html#imhr.Webgazer.model.anova">(in module imhr.Webgazer.model)</a>
+</li>
       </ul></li>
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.append_classify">append_classify() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.append_classify">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.append_classify">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.append_classify">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
@@ -286,15 +294,33 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.plot.html#imhr.plot.bokeh_calibration">bokeh_calibration() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.bokeh_calibration">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.plot.html#imhr.plot.bokeh_trial">bokeh_trial() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.bokeh_trial">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imhr.download.html#imhr.download.Download.box">box() (imhr.download.Download class method)</a>
+      <li><a href="api/imhr.html#imhr.Download.box">box() (imhr.Download class method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.download.html#imhr.Webgazer.download.download.box">(imhr.Webgazer.download.download class method)</a>
 </li>
+        <li><a href="api/imhr.download.html#imhr.download.Download.box">(imhr.download.Download class method)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.plot.html#imhr.plot.boxplot">boxplot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.boxplot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -313,15 +339,31 @@
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.calibration">(imhr.eyetracking.Eyelink method)</a>
 </li>
       </ul></li>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.redcap.cesd">cesd() (imhr.Webgazer.redcap class method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.redcap.html#imhr.Webgazer.redcap.redcap.cesd">(imhr.Webgazer.redcap.redcap class method)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.r33.html#imhr.r33.Classify">Classify (class in imhr.r33)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify">(class in imhr.Webgazer)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify">(class in imhr.Webgazer.classify)</a>
+</li>
         <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify">(class in imhr.r33._classify)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.ObservationModel.classify">classify() (imhr.r33._nslr_hmm.ObservationModel method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.classify">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.ObservationModel.classify">(imhr.Webgazer.nslr_hmm.ObservationModel method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.classify">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.classify">(imhr.r33.Processing method)</a>
 </li>
         <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.classify">(imhr.r33._processing.Processing method)</a>
@@ -330,7 +372,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.classify_gaze">classify_gaze() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.classify_gaze">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.clear_cal_display">clear_cal_display() (imhr.eyetracking._calibration.Calibration method)</a>
 
       <ul>
@@ -338,7 +384,11 @@
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._settings.html#imhr.r33._settings.Settings.config">config (imhr.r33._settings.Settings attribute)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.settings.html#imhr.Webgazer.settings.Settings.config">(imhr.Webgazer.settings.Settings attribute)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.eyetracking._eyelink.html#imhr.eyetracking._eyelink.Eyelink.connect">connect() (imhr.eyetracking._eyelink.Eyelink method)</a>
 
       <ul>
@@ -348,9 +398,17 @@
       <li><a href="api/imhr.settings.html#imhr.settings.console">console() (in module imhr.settings)</a>
 </li>
       <li><a href="api/imhr.plot.html#imhr.plot.cooks_plot">cooks_plot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.cooks_plot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.plot.html#imhr.plot.corr_matrix">corr_matrix() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.corr_matrix">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -358,19 +416,53 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.dataset_features">dataset_features() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.dataset_features">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.r33._settings.html#imhr.r33._settings.Settings.definitions">definitions() (imhr.r33._settings.Settings class method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.settings.html#imhr.Webgazer.settings.Settings.definitions">(imhr.Webgazer.settings.Settings class method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Settings.definitions">(imhr.r33.Settings class method)</a>
 </li>
       </ul></li>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.redcap.demographics">demographics() (imhr.Webgazer.redcap class method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.redcap.html#imhr.Webgazer.redcap.redcap.demographics">(imhr.Webgazer.redcap.redcap class method)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.plot.html#imhr.plot.density_plot">density_plot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.density_plot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.ObservationModel.dist">dist() (imhr.r33._nslr_hmm.ObservationModel method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.ObservationModel.dist">(imhr.Webgazer.nslr_hmm.ObservationModel method)</a>
 </li>
-      <li><a href="api/imhr.download.html#imhr.download.Download">Download (class in imhr.download)</a>
+      </ul></li>
+      <li><a href="api/imhr.html#imhr.Download">Download (class in imhr)</a>
+
+      <ul>
+        <li><a href="api/imhr.download.html#imhr.download.Download">(class in imhr.download)</a>
 </li>
+      </ul></li>
+      <li><a href="api/imhr.Webgazer.download.html#imhr.Webgazer.download.download">download (class in imhr.Webgazer.download)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.raw.download">download() (imhr.Webgazer.raw method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.raw.html#imhr.Webgazer.raw.raw.download">(imhr.Webgazer.raw.raw method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.draw_cal_target">draw_cal_target() (imhr.eyetracking._calibration.Calibration method)</a>
 
       <ul>
@@ -383,8 +475,6 @@
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.ROI.draw_contours">(imhr.eyetracking.ROI method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.draw_image_line">draw_image_line() (imhr.eyetracking._calibration.Calibration method)</a>
 
       <ul>
@@ -412,6 +502,10 @@
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.dwell">dwell() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.dwell">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.dwell">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.dwell">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
@@ -474,6 +568,10 @@
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.filter_data">filter_data() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.filter_data">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.filter_data">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.filter_data">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
@@ -504,7 +602,11 @@
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.forward_backward">forward_backward() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.forward_backward">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -512,9 +614,17 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.gaze_observation_model">gaze_observation_model() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.gaze_observation_model">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.gaze_transition_model">gaze_transition_model() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.gaze_transition_model">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.eyetracking._eyelink.html#imhr.eyetracking._eyelink.Eyelink.gc">gc() (imhr.eyetracking._eyelink.Eyelink method)</a>
 
       <ul>
@@ -544,12 +654,20 @@
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.getData">getData() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.getData">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.getData">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.getData">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.getEstimatedMonitor">getEstimatedMonitor() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.getEstimatedMonitor">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.getEstimatedMonitor">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.getEstimatedMonitor">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
@@ -559,26 +677,38 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.hmm">hmm() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.hmm">hmm() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.hmm">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.hmm">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.hmm">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.hmm">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.plot.html#imhr.plot.html">html() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.html">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.idt">idt() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.idt">idt() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.idt">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.idt">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.idt">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.idt">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.image_title">image_title() (imhr.eyetracking._calibration.Calibration method)</a>
@@ -599,8 +729,6 @@
 </li>
       <li><a href="api/imhr.r33.html#module-imhr.r33">imhr.r33 (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._classify.html#module-imhr.r33._classify">imhr.r33._classify (module)</a>
 </li>
       <li><a href="api/imhr.r33._metadata.html#module-imhr.r33._metadata">imhr.r33._metadata (module)</a>
@@ -613,6 +741,8 @@
 </li>
       <li><a href="api/imhr.r33._settings.html#module-imhr.r33._settings">imhr.r33._settings (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.settings.html#module-imhr.settings">imhr.settings (module)</a>
 </li>
       <li><a href="api/imhr.tests.html#module-imhr.tests">imhr.tests (module)</a>
@@ -621,10 +751,36 @@
 </li>
       <li><a href="api/imhr.tests.test_roi.html#module-imhr.tests.test_roi">imhr.tests.test_roi (module)</a>
 </li>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.ivt">ivt() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.Webgazer.html#module-imhr.Webgazer">imhr.Webgazer (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.classify.html#module-imhr.Webgazer.classify">imhr.Webgazer.classify (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.download.html#module-imhr.Webgazer.download">imhr.Webgazer.download (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.metadata.html#module-imhr.Webgazer.metadata">imhr.Webgazer.metadata (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.model.html#module-imhr.Webgazer.model">imhr.Webgazer.model (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.nslr_hmm.html#module-imhr.Webgazer.nslr_hmm">imhr.Webgazer.nslr_hmm (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.plot.html#module-imhr.Webgazer.plot">imhr.Webgazer.plot (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.processing.html#module-imhr.Webgazer.processing">imhr.Webgazer.processing (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.raw.html#module-imhr.Webgazer.raw">imhr.Webgazer.raw (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.redcap.html#module-imhr.Webgazer.redcap">imhr.Webgazer.redcap (module)</a>
+</li>
+      <li><a href="api/imhr.Webgazer.settings.html#module-imhr.Webgazer.settings">imhr.Webgazer.settings (module)</a>
+</li>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.ivt">ivt() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.ivt">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.ivt">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.ivt">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.ivt">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -633,16 +789,28 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imhr.settings.html#imhr.settings.library">library() (in module imhr.settings)</a>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.raw.library">library() (imhr.Webgazer.raw method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.raw.html#imhr.Webgazer.raw.raw.library">(imhr.Webgazer.raw.raw method)</a>
 </li>
+        <li><a href="api/imhr.settings.html#imhr.settings.library">(in module imhr.settings)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.ObservationModel.liks">liks() (imhr.r33._nslr_hmm.ObservationModel method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.ObservationModel.liks">(imhr.Webgazer.nslr_hmm.ObservationModel method)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.settings.html#imhr.settings.link">link() (in module imhr.settings)</a>
 </li>
       <li><a href="api/imhr.r33._model.html#imhr.r33._model.Model.lmer">lmer() (imhr.r33._model.Model class method)</a>
 
       <ul>
         <li><a href="api/imhr.r33.html#imhr.r33.Model.lmer">(imhr.r33.Model class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.model.html#imhr.Webgazer.model.lmer">(in module imhr.Webgazer.model)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -652,9 +820,15 @@
       <ul>
         <li><a href="api/imhr.r33.html#imhr.r33.Model.logistic">(imhr.r33.Model class method)</a>
 </li>
+        <li><a href="api/imhr.Webgazer.model.html#imhr.Webgazer.model.logistic">(in module imhr.Webgazer.model)</a>
+</li>
       </ul></li>
       <li><a href="api/imhr.plot.html#imhr.plot.logit_plot">logit_plot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.logit_plot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -664,11 +838,21 @@
       <li><a href="api/imhr.r33.html#imhr.r33.Metadata">Metadata (class in imhr.r33)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Metadata">(class in imhr.Webgazer)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.metadata.html#imhr.Webgazer.metadata.Metadata">(class in imhr.Webgazer.metadata)</a>
+</li>
         <li><a href="api/imhr.r33._metadata.html#imhr.r33._metadata.Metadata">(class in imhr.r33._metadata)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.redcap.mmpi">mmpi() (imhr.Webgazer.redcap class method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.redcap.html#imhr.Webgazer.redcap.redcap.mmpi">(imhr.Webgazer.redcap.redcap class method)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.r33.html#imhr.r33.Model">Model (class in imhr.r33)</a>
 
       <ul>
@@ -682,17 +866,29 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.ObservationModel">ObservationModel (class in imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.ObservationModel">(class in imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.onset_diff">onset_diff() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.onset_diff">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.onset_diff">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.onset_diff">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.plot.html#imhr.plot.onset_diff_plot">onset_diff_plot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.onset_diff_plot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -710,12 +906,20 @@
       <li><a href="api/imhr.r33._metadata.html#imhr.r33._metadata.Metadata.predict">predict() (imhr.r33._metadata.Metadata class method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Metadata.predict">(imhr.Webgazer.Metadata class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.metadata.html#imhr.Webgazer.metadata.Metadata.predict">(imhr.Webgazer.metadata.Metadata class method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Metadata.predict">(imhr.r33.Metadata class method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.preprocess">preprocess() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.preprocess">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.preprocess">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.preprocess">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
@@ -724,6 +928,10 @@
       <li><a href="api/imhr.eyetracking._roi.html#imhr.eyetracking._roi.ROI.process">process() (imhr.eyetracking._roi.ROI method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.process">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.process">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.ROI.process">(imhr.eyetracking.ROI method)</a>
 </li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.process">(imhr.r33.Processing method)</a>
@@ -734,6 +942,10 @@
       <li><a href="api/imhr.r33.html#imhr.r33.Processing">Processing (class in imhr.r33)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing">(class in imhr.Webgazer)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing">(class in imhr.Webgazer.processing)</a>
+</li>
         <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing">(class in imhr.r33._processing)</a>
 </li>
       </ul></li>
@@ -744,40 +956,74 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.plot.html#imhr.plot.qq_plot">qq_plot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.qq_plot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.raw">raw (class in imhr.Webgazer)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.raw.html#imhr.Webgazer.raw.raw">(class in imhr.Webgazer.raw)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.record_abort_hide">record_abort_hide() (imhr.eyetracking._calibration.Calibration method)</a>
 
       <ul>
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.Calibration.record_abort_hide">(imhr.eyetracking.Calibration method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imhr.download.html#imhr.download.Download.REDCap">REDCap() (imhr.download.Download class method)</a>
+      <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.redcap">redcap (class in imhr.Webgazer)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.redcap.html#imhr.Webgazer.redcap.redcap">(class in imhr.Webgazer.redcap)</a>
 </li>
+      </ul></li>
+      <li><a href="api/imhr.html#imhr.Download.REDCap">REDCap() (imhr.Download class method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.download.html#imhr.Webgazer.download.download.REDCap">(imhr.Webgazer.download.download class method)</a>
+</li>
+        <li><a href="api/imhr.download.html#imhr.download.Download.REDCap">(imhr.download.Download class method)</a>
+</li>
+      </ul></li>
       <li><a href="api/imhr.plot.html#imhr.plot.residual_plot">residual_plot() (in module imhr.plot)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.plot.html#imhr.Webgazer.plot.residual_plot">(in module imhr.Webgazer.plot)</a>
 </li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.ROI">ROI (class in imhr.eyetracking)</a>
 
       <ul>
         <li><a href="api/imhr.eyetracking._roi.html#imhr.eyetracking._roi.ROI">(class in imhr.eyetracking._roi)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.roi">roi() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.roi">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.roi">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.roi">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.eyetracking._roi.html#imhr.eyetracking._roi.ROI.run">run() (imhr.eyetracking._roi.ROI method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.run">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.run">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.ROI.run">(imhr.eyetracking.ROI method)</a>
 </li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.run">(imhr.r33.Processing method)</a>
@@ -792,21 +1038,33 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.safelog">safelog() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.safelog">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.eyetracking._eyelink.html#imhr.eyetracking._eyelink.Eyelink.sample">sample() (imhr.eyetracking._eyelink.Eyelink method)</a>
 
       <ul>
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.sample">(imhr.eyetracking.Eyelink method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.savitzky_golay">savitzky_golay() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.savitzky_golay">savitzky_golay() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.savitzky_golay">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.savitzky_golay">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.savitzky_golay">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.savitzky_golay">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.segment_features">segment_features() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.segment_features">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
       <li><a href="api/imhr.eyetracking._eyelink.html#imhr.eyetracking._eyelink.Eyelink.send_message">send_message() (imhr.eyetracking._eyelink.Eyelink method)</a>
 
       <ul>
@@ -834,29 +1092,41 @@
       <li><a href="api/imhr.r33.html#imhr.r33.Settings">Settings (class in imhr.r33)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.settings.html#imhr.Webgazer.settings.Settings">(class in imhr.Webgazer.settings)</a>
+</li>
         <li><a href="api/imhr.r33._settings.html#imhr.r33._settings.Settings">(class in imhr.r33._settings)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.setup_cal_display">setup_cal_display() (imhr.eyetracking._calibration.Calibration method)</a>
 
       <ul>
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.Calibration.setup_cal_display">(imhr.eyetracking.Calibration method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/imhr.eyetracking._calibration.html#imhr.eyetracking._calibration.Calibration.setup_image_display">setup_image_display() (imhr.eyetracking._calibration.Calibration method)</a>
 
       <ul>
         <li><a href="api/imhr.eyetracking.html#imhr.eyetracking.Calibration.setup_image_display">(imhr.eyetracking.Calibration method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imhr.download.html#imhr.download.Download.SFTP">SFTP() (imhr.download.Download class method)</a>
-</li>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.simple">simple() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.html#imhr.Download.SFTP">SFTP() (imhr.Download class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.simple">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.download.html#imhr.Webgazer.download.download.SFTP">(imhr.Webgazer.download.download class method)</a>
+</li>
+        <li><a href="api/imhr.download.html#imhr.download.Download.SFTP">(imhr.download.Download class method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.simple">simple() (imhr.r33._classify.Classify class method)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.simple">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.simple">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.simple">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.eyetracking._eyelink.html#imhr.eyetracking._eyelink.Eyelink.start_recording">start_recording() (imhr.eyetracking._eyelink.Eyelink method)</a>
@@ -876,12 +1146,20 @@
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.subject_metadata">subject_metadata() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.subject_metadata">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.subject_metadata">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.subject_metadata">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._metadata.html#imhr.r33._metadata.Metadata.summary">summary() (imhr.r33._metadata.Metadata class method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Metadata.summary">(imhr.Webgazer.Metadata class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.metadata.html#imhr.Webgazer.metadata.Metadata.summary">(imhr.Webgazer.metadata.Metadata class method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Metadata.summary">(imhr.r33.Metadata class method)</a>
 </li>
       </ul></li>
@@ -912,7 +1190,11 @@
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.transition_estimates">transition_estimates() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.transition_estimates">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -922,25 +1204,41 @@
       <li><a href="api/imhr.r33._processing.html#imhr.r33._processing.Processing.variables">variables() (imhr.r33._processing.Processing method)</a>
 
       <ul>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Processing.variables">(imhr.Webgazer.Processing method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.processing.html#imhr.Webgazer.processing.Processing.variables">(imhr.Webgazer.processing.Processing method)</a>
+</li>
         <li><a href="api/imhr.r33.html#imhr.r33.Processing.variables">(imhr.r33.Processing method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.Velocity">Velocity() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.Velocity">Velocity() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.Velocity">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.Velocity">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.Velocity">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.Velocity">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.VisualAngle">VisualAngle() (imhr.r33._classify.Classify method)</a>
+      <li><a href="api/imhr.r33._classify.html#imhr.r33._classify.Classify.VisualAngle">VisualAngle() (imhr.r33._classify.Classify class method)</a>
 
       <ul>
-        <li><a href="api/imhr.r33.html#imhr.r33.Classify.VisualAngle">(imhr.r33.Classify method)</a>
+        <li><a href="api/imhr.Webgazer.html#imhr.Webgazer.Classify.VisualAngle">(imhr.Webgazer.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.Webgazer.classify.html#imhr.Webgazer.classify.Classify.VisualAngle">(imhr.Webgazer.classify.Classify class method)</a>
+</li>
+        <li><a href="api/imhr.r33.html#imhr.r33.Classify.VisualAngle">(imhr.r33.Classify class method)</a>
 </li>
       </ul></li>
       <li><a href="api/imhr.r33._nslr_hmm.html#imhr.r33._nslr_hmm.viterbi">viterbi() (in module imhr.r33._nslr_hmm)</a>
+
+      <ul>
+        <li><a href="api/imhr.Webgazer.nslr_hmm.html#imhr.Webgazer.nslr_hmm.viterbi">(in module imhr.Webgazer.nslr_hmm)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -955,7 +1253,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-17T18:54:41-05:00.</div>
+			<div>Updated 2019-05-18T17:13:51-05:00.</div>
 		</div>
 	</div>
 </footer>

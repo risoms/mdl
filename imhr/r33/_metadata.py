@@ -23,8 +23,7 @@ import numpy as np
 import json
 
 # local libraries
-if __name__ == '__main__':
-	from . import settings
+from .. import settings
 
 class Metadata():
 	"""Process participants metadata for analysis and export."""

@@ -27,7 +27,7 @@
 {% if theme_bootstrap_version == "3" %}
 {%- macro bsidebar() %}
 {%- if render_sidebar %}
-<div class="toc {{ bs_span_prefix }}3">
+<div class="toc {{ bs_span_prefix }}3" style="width: 25%;">
 	<div id="sidebar" class="bs-sidenav" role="complementary">
 		{%- for sidebartemplate in sidebars %}
 		{%- include sidebartemplate %}

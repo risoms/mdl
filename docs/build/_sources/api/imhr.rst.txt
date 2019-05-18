@@ -12,6 +12,8 @@
 imhr
 ~~~~
 
+.. currentmodule:: imhr
+
 .. automodule:: imhr
 	:member-order: bysource
 	:inherited-members:
@@ -19,25 +21,21 @@ imhr
 	.. toctree::
 		:maxdepth: 2
 		:hidden:
-		
+
+		imhr.Download
 		imhr.eyetracking
+		imhr.plot
 		imhr.r33
 		imhr.tests
-		imhr._version
-		imhr.download
-		imhr.plot
 		imhr.settings
-
-
-.. currentmodule:: imhr
+		imhr.Webgazer
 
 .. autosummary::
-	
-	
+
+	imhr.Download
 	imhr.eyetracking
+	imhr.plot
 	imhr.r33
 	imhr.tests
-	imhr._version
-	imhr.download
-	imhr.plot
 	imhr.settings
+	imhr.Webgazer

@@ -29,9 +29,8 @@ import logging
 import datetime
 
 # local libraries
-if __name__ == '__main__':
-	from .. import Settings
-	from .. import Metadata
+from .. import settings
+from . import Metadata
 
 class Processing():
     """Hub for running processing and analyzing raw data."""

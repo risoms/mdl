@@ -9,4 +9,4 @@ Examples
    :maxdepth: 1
 
    R33 study <R33.ipynb>
-   webgazer study <webgazer.ipynb>
+   Webgazer study <Webgazer.ipynb>

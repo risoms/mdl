@@ -103,7 +103,7 @@ a {
 	top: 40px;
 }
 .toc.col-md-3 {
-    width: 240px;
+	/* width: fit-content; */
 }
 @media (max-width: 991px) {
 	.body>.container{

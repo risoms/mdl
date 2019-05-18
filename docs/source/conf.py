@@ -192,6 +192,7 @@ class AutoAutoSummary(Autosummary):
 			return super(AutoAutoSummary, self).run()
 
 # better-apidoc settings -----------------------------------------------------------------------------------------------
+# better-apidoc - generate rst files
 path_ = os.path.dirname(__file__)
 temp_ = path_ + '/_templates/'
 api_ = path_ + '/api/'
@@ -351,6 +352,13 @@ intersphinx_mapping = {
 
 # setup ----------------------------------------------------------------------------------------------------------------
 def setup(app):
+	"""[summary]
+
+	Parameters
+	----------
+	app : [type]
+		[description]
+	"""
 	# copybutton
 	app.add_javascript("semeon/js/clipboard.js")
 	app.add_stylesheet('semeon/css/user.css')
@@ -358,7 +366,7 @@ def setup(app):
 	app.add_javascript("semeon/js/copybutton.js")
 	app.connect("autodoc-process-docstring", autodoc_process_docstring) # exclude modules
 	app.connect("autodoc-skip-member", autodoc_skip_member) # include init
-	app.connect('builder-inited', builder_inited) # better apidoc
+	# app.connect('builder-inited', builder_inited) # better apidoc: generate rst files
 	# app.connect('viewcode-find-source', viewcode_find_source) # viewcode alter source
 	# app.connect('viewcode-follow-imported', viewcode_follow_imported) # viewcode follow source
 	# app.add_directive('autoautosummary', AutoAutoSummary) # auto add function in toctree

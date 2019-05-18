@@ -19,24 +19,18 @@ import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
-from . import _nslr_hmm
-from ..settings import copyInherit
+from . import _nslr_hmm as nslr_hmm
 from ._classify import Classify as _Classify
-from ._metadata import Metadata as _Metadata
+from ._metadata import Metadata
 from ._model import Model as _Model
 from ._processing import Processing as _Processing
 from ._settings import Settings as _Settings
 
 # set as namespace package
 # see https://stackoverflow.com/questions/41621131/python-namespace-packages-in-python3
-try:
-    import pkg_resources
-    pkg_resources.declare_namespace(__name__)
-    del pkg_resources
-except ImportError:
-    import pkgutil
-    __path__ = pkgutil.extend_path(__path__, __name__)
-    del pkgutil
+import pkg_resources
+pkg_resources.declare_namespace(__name__)
+del pkg_resources
 
 # classes
 class Classify(_Classify):
@@ -45,9 +39,9 @@ class Classify(_Classify):
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 
-class Metadata(_Metadata):
+class Metadata(Metadata):
 	"""Process participants metadata for analysis and export."""
-	__doc__ = _Metadata.__init__.__doc__
+	__doc__ = Metadata.__init__.__doc__
 	def __init__(self, isLibrary=False):
 		super().__init__(isLibrary=False)
 

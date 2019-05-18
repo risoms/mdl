@@ -18,8 +18,7 @@ from datetime import datetime
 from pathlib import Path
 
 # local libraries
-if __name__ == '__main__':
-	from . import settings
+from . import settings
 
 # required external libraries
 __required__ = ['paramiko','openpyxl','requests','ftplib','pandas']
@@ -27,7 +26,7 @@ __required__ = ['paramiko','openpyxl','requests','ftplib','pandas']
 class Download():
 	"""Download raw data from apache, Box, or REDCap servers."""
 	def __init__(self, isLibrary=False):
-		"""Initiate the imhr.Download module.
+		"""Download raw data from apache, Box, or REDCap servers.
 
 		Parameters
 		----------

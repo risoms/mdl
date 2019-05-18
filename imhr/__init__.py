@@ -10,7 +10,7 @@ This library was created at the Institute for Mental Health Research, at the Uni
 """
 
 # allowed imports
-__all__ = ['download','eyetracking','plot','r33','settings','tests']
+__all__ = ['Download','eyetracking','plot','r33','settings','tests', 'Webgazer']
 
 # core
 from pdb import set_trace as breakpoint
@@ -32,14 +32,23 @@ except ImportError:
 
 
 # imports
-from . import download
+## modules
 from . import eyetracking
-from . import plot
 from . import r33
+from . import Webgazer
+## classes
+from .download import Download
+## function lists
+from . import plot
 from . import settings
 from . import tests
 
-# del os, sys
+# classes
+class Download(Download):
+	"""Download raw data from apache, Box, or REDCap servers."""
+	__doc__ = Download.__init__.__doc__
+	def __init__(self, isLibrary=False, **kwargs):
+		super().__init__(isLibrary=False, **kwargs)
 
 # version
 from ._version import get_versions

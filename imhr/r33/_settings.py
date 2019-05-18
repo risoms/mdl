@@ -19,8 +19,7 @@ import os
 import re
 
 # local libraries
-if __name__ == '__main__':
-	from .. import settings
+from .. import settings
 
 config={
     #!!!----path
@@ -72,8 +71,12 @@ config={
     'processing':{
         'task': 'gRT',
         'type': 'eyetracking',
+		'source': 'webgazer',
         'single_subject': False,
         'single_trial': False,
+        'subject': 31,
+        'session': 0,
+        'trial': 35,
     },
     #!!!----preprocessing (for processing.py)
     'preprocessing':{
@@ -105,7 +108,11 @@ config={
         'dr_th': 50, #Fixation duration threshold in px/msec (idt; default 100)
         'di_th': 60, #Dispersion threshold in px (idt; default 20)
         'filters':[['SavitzkyGolay','sg']]
-    }
+    },
+    #!!!----output
+	'output':{
+		'save_data': True
+	}
 }
 
 class Settings():
@@ -389,4 +396,3 @@ class Settings():
         config['metadata']['img'] = m_['img']
 
         return config
-
