@@ -5,11 +5,18 @@
 
 '''
 references:
-	* https://sublime-and-sphinx-guide.readthedocs.io/en/latest/
-	* http://www.sphinx-doc.org/en/master/contents.html
-	* http://docutils.sourceforge.net/docs/ref/rst/directives.html
-	* https://numpydoc.readthedocs.io/en/latest/validation.html
-	* https://www.numpy.org/devdocs/docs/howto_document.html
+	* reSt
+		* https://sublime-and-sphinx-guide.readthedocs.io/en/latest/
+		* http://www.sphinx-doc.org/en/master/contents.html
+		* http://docutils.sourceforge.net/docs/ref/rst/directives.html
+	* numpydoc
+		* https://numpydoc.readthedocs.io/en/latest/validation.html
+		* https://www.numpy.org/devdocs/docs/howto_document.html
+	* matplotlib
+		* https://matplotlib.org/devel/documenting_mpl.html
+		* https://matplotlib.org/devel/plot_directive.html
+	* useful guides/resources
+		* how to document: https://ofosos.org/
 note:
 	* it's possible to convert python to rst by using: https://numpydoc.readthedocs.io/en/latest/validation.html
 '''
@@ -30,7 +37,14 @@ sys.path.append(path)
 sys.path.append('/anaconda3/lib/python3.6/site-packages/')
 import imhr
 from imhr.settings import console
+# ensure that your package is importable by any IPython kernels 
+# see: https://jupyter-sphinx.readthedocs.io/en/latest/
+package_path = os.path.abspath('../..')
+os.environ['PYTHONPATH'] = ':'.join((package_path, os.environ.get('PYTHONPATH', '')))
 
+# Add extensions manually-----------------------------------------------------------------------------------------------
+sys.path.append(os.path.abspath('./sphinxext/'))
+sys.path.insert(0, os.path.abspath('./sphinxext'))
 # date -----------------------------------------------------------------------------------------------------------------
 def iso():
 	"""
@@ -64,37 +78,6 @@ release = version
 isodate = iso()
 html_last_updated_fmt = '%s'%(isodate)
 
-# Required packages ----------------------------------------------------------------------------------------------------
-# from jinja2 import Template
-# from pathlib import Path
-# ## get required packages
-# required = ['bokeh≥1.0.4',
-#  'pip≥19.1.1',
-#  'scipy≥1.2.1',
-#  'seaborn≥0.9.0',
-#  'PsychoPy≥3.1.0',
-#  'pandas≥0.24.2',
-#  'opencv_python≥4.1.0.25',
-#  'setuptools≥40.8.0',
-#  'requests≥2.21.0',
-#  'docopt≥0.6.2',
-#  'openpyxl≥2.6.1',
-#  'numpy≥1.16.2',
-#  'matplotlib≥3.0.3',
-#  'psd_tools≥1.8.14',
-#  'Pillow≠6.0.0',
-#  'paramiko≥2.4.2',
-#  'rpy2≥3.0.3',
-#  'scikit_learn≥0.21.0',
-#  'certifi≥2019.3.9',
-#  '(if windows) pywin32≡224',
-#  '(if macos) pyobjc≡5.2']
-## build in jinja
-# jinja_ = Template("{{ packages.package }}{{ packages.version }}")
-# msg = jinja_.render(packages=required_)
-# html_context = {
-# 	'required' :required,
-# }
 # Extensions -----------------------------------------------------------------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -124,11 +107,54 @@ extensions = [
 	'sphinx.ext.autodoc',
 	# Extending autodoc API
 	'autodocsumm',
+	# E include jinja based templates based documentation into a sphinx doc
+	'sphinxcontrib.jinja',
 	# A directive for including a matplotlib plot in a Sphinx document.
     'matplotlib.sphinxext.plot_directive',
-    'IPython.sphinxext.ipython_directive',
     'IPython.sphinxext.ipython_console_highlighting',
+    'IPython.sphinxext.ipython_directive',
 ]
+
+# sphinx-jinja: Adding constants ---------------------------------------------------------------------------------------
+## This allows variables to be accessable by jinja
+## https://github.com/tardyp/sphinx-jinja
+required = [
+	'bokeh≥1.0.4',
+	'pip≥19.1.1',
+	'scipy≥1.2.1',
+	'seaborn≥0.9.0',
+	'PsychoPy≥3.1.0',
+	'pandas≥0.24.2',
+	'opencv_python≥4.1.0.25',
+	'setuptools≥40.8.0',
+	'requests≥2.21.0',
+	'docopt≥0.6.2',
+	'openpyxl≥2.6.1',
+	'numpy≥1.16.2',
+	'matplotlib≥3.0.3',
+	'psd_tools≥1.8.14',
+	'Pillow≠6.0.0',
+	'paramiko≥2.4.2',
+	'rpy2≥3.0.3',
+	'scikit_learn≥0.21.0',
+	'certifi≥2019.3.9',
+	'(if windows) pywin32≡224',
+	'(if macos) pyobjc≡5.2'
+]
+jinja_contexts = {
+    'required': {'packages': required}
+}
+
+# IPython settings -----------------------------------------------------------------------------------------------------
+# https://ipython.readthedocs.io/en/stable/sphinxext.html?highlight=sphinx
+ipython_mplbackend = 'agg'
+
+# matplotlib plot_directive settings -----------------------------------------------------------------------------------
+plot_include_source = True
+plot_html_show_source_link = True
+plot_template = True
+plot_html_show_formats = True 
+plot_formats = ['png', 'hires.png', 'pdf']
 
 # Napoleon settings ----------------------------------------------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
@@ -316,6 +342,13 @@ html_theme_options = {
          ("Install", "install"),
     ],
 }
+# templates for additional pages
+## let Sphinx know that we still want to generate the following pages in html_additional_pages
+## http://www.sphinx-doc.org/en/master/usage/configuration.html?highlight=html_additional_pages#confval-html_additional_pages
+## https://ofosos.org/2018/12/28/landing-page-template/
+# html_additional_pages = {
+# 	'install': 'install.rst'
+# }
 #no 'searchresults.html'
 # #localtoc #fulltoc #globaltoc
 html_sidebars = {'**': ['localtoc.html','sourcelink.html']}

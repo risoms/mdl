@@ -1,22 +1,27 @@
 .. _install:
 
-.. currentmodule:: mdl
+.. title: install
 
 Installation
 """"""""""""
 
+============
 Dependencies
-~~~~~~~~~~~~
+============
 
 This package requires the following dependencies:
 
 .. cssclass:: dependencies
-.. literalinclude:: ../../requirements.txt
-	:tab-width: 4
-	:language: text
 
+.. jinja:: required
+
+	{% for item in packages %}
+	- {{ item }}
+	{%- endfor %}
+
+==========
 Installing
-~~~~~~~~~~
+==========
 
 This package and its dependencies are available as wheel packages for macOS and Windows distributions from `PyPI <https://pypi.org/project/imhr>`__:
 
@@ -36,8 +41,9 @@ You can also install the development version directly from `github <https://gith
 	
 	$ pip install git+https://github.com/risoms/mdl.git
 
+=======
 Testing
-~~~~~~~
+=======
 
 After installation, you can launch the test suite after downloading from `github <https://github.com/risoms/mdl>`__:
 

@@ -247,6 +247,11 @@ span.pre,
 	color: #42aef7 !important;
 	font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
 }
+span.pre.name{
+	padding: 3px;
+	background: #eaeaea;
+	font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
+}
 /* if mobile */
 @media (max-width: 600px) {
 	.class>dd, .function>dt{

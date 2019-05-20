@@ -1,3 +1,7 @@
+.. _index:
+
+..title:: mdl
+
 .. meta::
 	:description lang=en: mdl, an extensive library for the exploration, visualization, and analysis of psychological data.
 
@@ -10,7 +14,7 @@
 	Introduction <intro.rst>
 	Installation <install.rst>
 	Features <features.rst>
-	Examples/Guides <examples/index.rst>
+	Guides <examples/index.rst>
 	Studies <studies/index.rst>
 	Dashboard <dashboard.rst>
 	API Reference <api/imhr.rst>

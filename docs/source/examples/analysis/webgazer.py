@@ -142,7 +142,7 @@ if is_['preprocessing']:
 	elif (not config['processing']['single_subject']) and (not config['processing']['single_trial']):
 		print('processing: all subjects, all trials')
 		task_type = config['processing']['type']
-		processing.run(path=path, task_type=task_type, single_subject=False, single_trial=False, isMultiprocessing=True, cores=4)
+		processing.run(path=path, task_type=task_type, single_subject=False, single_trial=False, isMultiprocessing=False, cores=4)
 	#----finished	
 	date_end.append({'preprocessing':'%s'%(datetime.now().replace(microsecond=0).isoformat())})
 pass

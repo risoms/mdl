@@ -57,13 +57,13 @@ def test_generate_roi(args=None):
 	print('localpath: %s'%(localpath))
 
 	# image_path
-	image_path = '%s/dist/raw/'%(localpath) if args is None else args["image_path"]
+	image_path = '%s/dist/roi/raw/1/'%(localpath) if args is None else args["image_path"]
 
 	# output_path
 	output_path = '%s/dist/output/'%(localpath) if args is None else args["output_path"]
 
 	# metadata_source
-	metadata_source = '%s/dist/metadata.xlsx'%(localpath) if args is None else args["metadata_source"]
+	metadata_source = '%s/dist/roi/raw/1/metadata.xlsx'%(localpath) if args is None else args["metadata_source"]
 
 	# ##### initiate
 	roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False, isDemo=False,

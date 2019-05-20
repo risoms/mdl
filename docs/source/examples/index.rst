@@ -1,9 +1,9 @@
-.. examples:
+.. _examples:
 
 .. title: examples
 
-Examples
-""""""""
+Guide
+"""""
 
 .. toctree::
    :maxdepth: 1
@@ -14,4 +14,4 @@ Examples
    Create plots <R33/create_plots>
    Process data <R33/process_data>
    Eyetracking demo <eyetracking/demo/eyetracking_demo>
-   Region of Interest <roi/generate_roi>
+   Region of Interest <roi/index.rst>

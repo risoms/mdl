@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; imhr-api 2019-05-18 documentation</title>
+    <title>Installation &#8212; imhr-api 2019-05-20 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-18</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-20</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -85,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="features.html#relational-plots">Relational plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Guides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/R33/process_demographics.html">Process demographics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
@@ -125,9 +125,9 @@
 <li class="toctree-l3"><a class="reference internal" href="examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="examples/roi/generate_roi.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples/roi/generate_roi.html#1.-Demonstration">1. Demonstration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples/roi/generate_roi.html#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/roi/index.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/roi/index.html#demonstration">1. Demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/roi/index.html#highlighted-roi-from-photoshop-psd">2. Highlighted ROI from Photoshop PSD</a></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +178,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a></li>
@@ -225,7 +225,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples/Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/imhr.html">API Reference</a></li>
@@ -239,32 +239,34 @@
 </div>
 		<div class="col-md-9 content">
 			
-  <div class="section" id="installation">
-<span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="install"></span><div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>This package requires the following dependencies:</p>
-<div class="dependencies highlight-text notranslate"><div class="highlight"><pre><span></span>bokeh&gt;=1.0.4
-pip&gt;=19.1.1
-scipy&gt;=1.2.1
-seaborn&gt;=0.9.0
-PsychoPy&gt;=3.1.0
-pandas&gt;=0.24.2
-opencv_python&gt;=4.1.0.25
-setuptools&gt;=40.8.0
-requests&gt;=2.21.0
-docopt&gt;=0.6.2
-openpyxl&gt;=2.6.1
-numpy&gt;=1.16.2
-matplotlib&gt;=3.0.3
-psd_tools&gt;=1.8.14
-Pillow!=6.0.0
-paramiko&gt;=2.4.2
-rpy2&gt;=3.0.3
-scikit_learn&gt;=0.21.0
-certifi&gt;=2019.3.9
-</pre></div>
-</div>
+<ul class="dependencies simple">
+<li>bokeh≥1.0.4</li>
+<li>pip≥19.1.1</li>
+<li>scipy≥1.2.1</li>
+<li>seaborn≥0.9.0</li>
+<li>PsychoPy≥3.1.0</li>
+<li>pandas≥0.24.2</li>
+<li>opencv_python≥4.1.0.25</li>
+<li>setuptools≥40.8.0</li>
+<li>requests≥2.21.0</li>
+<li>docopt≥0.6.2</li>
+<li>openpyxl≥2.6.1</li>
+<li>numpy≥1.16.2</li>
+<li>matplotlib≥3.0.3</li>
+<li>psd_tools≥1.8.14</li>
+<li>Pillow≠6.0.0</li>
+<li>paramiko≥2.4.2</li>
+<li>rpy2≥3.0.3</li>
+<li>scikit_learn≥0.21.0</li>
+<li>certifi≥2019.3.9</li>
+<li>(if windows) pywin32≡224</li>
+<li>(if macos) pyobjc≡5.2</li>
+</ul>
 </div>
 <div class="section" id="installing">
 <h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
@@ -306,7 +308,7 @@ certifi&gt;=2019.3.9
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-18T17:13:51-05:00.</div>
+			<div>Updated 2019-05-20T09:51:57-05:00.</div>
 		</div>
 	</div>
 </footer>

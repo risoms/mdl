@@ -7,9 +7,14 @@ Studies
 
 .. toctree::
 	:maxdepth: 1
+	:hidden:
 
 	R33 <R33/index.rst>
 	Webgazer <Webgazer/index.rst>
 
-R33 - fill in
-Webgazer exploratory study - fill in
+
+`R33 <R33/index.rst>`__:
+[Add info]
+
+`Webgazer exploratory study <Webgazer/index.rst>`__:
+[Add info]

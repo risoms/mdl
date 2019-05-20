@@ -1257,25 +1257,26 @@ class Processing():
 
 			#get directory
 			fdir = glob.glob(os.path.join(self.config['path']['raw'] + "/*.csv"))
-
-			#get cpu cores to be used
-			cores = self.config['cores']
-
-			#if requested cores is 1, run without multiprocessing
-			if (cores == 1):
+			
+			## if requested cores is 0 or 1 or isMultiprocessing = False, run without multiprocessing
+			if ((cores == 0) or (cores == 1) or (isMultiprocessing==False)):
+				self.console('processing.process() not multiprocessing', 'green')
 				isMultiprocessing = False
-			##if requested cores are less than/equal 7, and less than available cores plus 1
-			elif (cores <= 7) and (multiprocessing.cpu_count() >= cores + 1):
+			##else if requested cores are less than available cores plus 1 and isMultiprocessing = True
+			elif ((multiprocessing.cpu_count() >= cores + 1) and (isMultiprocessing)):
+				self.console('processing.process() multiprocessing with %s cores'%(cores), 'green')
 				isMultiprocessing = True
-				fdir_chunk = np.array_split(fdir, cores)
+				fdir_part = np.array_split(fdir, cores)
 				for index in range(0, cores):
-					arg.append((fdir_chunk[index],index))
-			##else use less than half of total available cores
+					arg.append((fdir_part[index],index))
+			## else use less than half of total available cores
 			else:
+				self.console('processing.process() multiprocessing with %s cores'%(cores), 'green')
 				isMultiprocessing = True
-				cores = int(self.config['cores']/2)
-				fdir_chunk = np.array_split(fdir, cores)
-			#breakpoint()
+				cores = int(cores/2)
+				fdir_part = np.array_split(fdir, cores)
+				for index in range(0, cores):
+					arg.append((fdir_part[index],index))
 
 			#------------------------------------------run multiprocessing
 			#if not multiprocessing
@@ -1283,8 +1284,7 @@ class Processing():
 				all_subjects(fdir, cores)
 			#else multiprocessing
 			else:
-				proc = [multiprocessing.Process(target=all_subjects,\
-						args=(fdir_chunk[x].tolist(), x)) for x in range(cores)]
+				proc = [multiprocessing.Process(target=all_subjects, args=(fdir_part[x].tolist(), x)) for x in range(cores)]
 				for p in proc:
 					p.daemon = True
 					p.start()
@@ -1406,7 +1406,7 @@ class Processing():
 
 		return df_variable
 
-	def dwell(self, df, cores=1):
+	def dwell(self, df, cores=1, isMultiprocessing=False):
 		"""
 		Calculate dwell time for sad and neutral images.
 
@@ -1536,12 +1536,12 @@ class Processing():
 
 		#------------------------------------------check if running using multiprocessing
 		#----get cores
-		##if requested cores is 1, run without multiprocessing
-		if ((cores == 0) or (cores == 1)):
+		##if requested cores is 0 or 1 or isMultiprocessing = False, run without multiprocessing
+		if ((cores == 0) or (cores == 1) or (isMultiprocessing==False)):
 			isMultiprocessing = False
 			self.console('processing.dwell() not multiprocessing', 'green')
-		##else if requested cores are less than/equal 7, and less than available cores plus 1
-		elif ((cores <= 7) and (multiprocessing.cpu_count() >= cores + 1)):
+		##else if requested cores are less than available cores plus 1 and isMultiprocessing = True
+		elif ((multiprocessing.cpu_count() >= cores + 1) and (isMultiprocessing)):
 			isMultiprocessing = True
 			dir_p = np.array_split(dir_, cores)
 			self.console('processing.dwell() multiprocessing with %s cores'%(cores), 'green')
