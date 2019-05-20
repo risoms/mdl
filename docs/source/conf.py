@@ -15,6 +15,8 @@ references:
 	* matplotlib
 		* https://matplotlib.org/devel/documenting_mpl.html
 		* https://matplotlib.org/devel/plot_directive.html
+	* ipython
+		* https://ipython.readthedocs.io/en/stable/sphinxext.html
 	* useful guides/resources
 		* how to document: https://ofosos.org/
 note:
@@ -147,14 +149,14 @@ jinja_contexts = {
 
 # IPython settings -----------------------------------------------------------------------------------------------------
 # https://ipython.readthedocs.io/en/stable/sphinxext.html?highlight=sphinx
-ipython_mplbackend = 'agg'
+#ipython_mplbackend = 'agg'
 
 # matplotlib plot_directive settings -----------------------------------------------------------------------------------
-plot_include_source = True
-plot_html_show_source_link = True
-plot_template = True
-plot_html_show_formats = True 
-plot_formats = ['png', 'hires.png', 'pdf']
+# plot_include_source = True
+# plot_html_show_source_link = True
+# plot_template = True
+# plot_html_show_formats = True 
+# plot_formats = ['png', 'hires.png', 'pdf']
 
 # Napoleon settings ----------------------------------------------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html

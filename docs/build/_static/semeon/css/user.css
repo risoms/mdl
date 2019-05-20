@@ -521,7 +521,7 @@ a.list-title:hover, a.list-title:focus{
 	overflow-y: hidden !important;
 }
 .output_area.docutils.container{
-    max-height: 150px !important;
+    max-height: 300px !important;
     padding: 0.4em !important;
     margin-top: 5px;
 	border: 1px solid #e0e0e0;

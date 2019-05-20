@@ -10,16 +10,6 @@
 import os, sys, pathlib, pytest
 from pdb import set_trace as breakpoint
 
-# get local path
-localpath = pathlib.Path(__file__).parent.parent
-
-# default parameters
-params = {
-	"image_path":'%s/dist/raw/'%(localpath),
-	"output_path":'%s/dist/output/'%(localpath),
-	"metadata_source":'%s/dist/metadata.xlsx'%(localpath)
-}
-
 # pytest
 def test_generate_roi(args=None):
 	"""Read ROI from photoshop PSD files.
@@ -36,39 +26,33 @@ def test_generate_roi(args=None):
     error : :class:`pandas.DataFrame`
 		Pandas dataframe of errors that occured during processing.
 	"""
-	# ##### import imhr package
-	## resolve travis-ci path problem: https://stackoverflow.com/a/42194190
-	# if running using travis-ci
-	if os.environ.get('TRAVIS') == 'true':
-		pypath = os.path.abspath('../../')
-		sys.path.insert(0, pypath)
-		import imhr
-		args = params
-	# if running locally
-	else:
-		pypath = os.path.abspath('../../')
-		sys.path.insert(0, pypath)
-		import imhr
+	# import imhr package
+	import imhr
 
-	# python module path
+	# python package path
+	pypath = pathlib.Path(imhr.__file__).parent
 	print('pypath: %s'%(pypath))
 
-	# local path
+	# local path: debugging
+	localpath = Path.cwd()
 	print('localpath: %s'%(localpath))
 
 	# image_path
-	image_path = '%s/dist/roi/raw/1/'%(localpath) if args is None else args["image_path"]
+	image_path = '%s/dist/roi/raw/1/'%(pypath) if args is None else args["image_path"]
+	print('image_path: %s'%(image_path))
 
 	# output_path
-	output_path = '%s/dist/output/'%(localpath) if args is None else args["output_path"]
+	output_path = '%s/dist/output/'%(pypath) if args is None else args["output_path"]
+	print('output_path: %s'%(output_path))
 
 	# metadata_source
-	metadata_source = '%s/dist/roi/raw/1/metadata.xlsx'%(localpath) if args is None else args["metadata_source"]
+	metadata_source = '%s/dist/roi/raw/1/metadata.xlsx'%(pypath) if args is None else args["metadata_source"]
+	print('metadata_source: %s'%(metadata_source))
 
 	# ##### initiate
 	roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isLibrary=False, isDemo=False,
 		image_path=image_path, output_path=output_path, metadata_source=metadata_source, 
-		scale=1, screensize=[1920,1080], center=[(1920*.5),(1080*.5)], shape='straight', 
+		scale=1, screensize=[1920,1080], recenter=[(1920*.5),(1080*.5)], shape='straight', 
 		roi_format='both', uuid=['image','roi','position'], newcolumn={'position': 'center'})
 
 	# ##### start

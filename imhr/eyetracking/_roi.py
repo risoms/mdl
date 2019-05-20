@@ -23,7 +23,8 @@ try:
 	import os
 	from pathlib import Path
 	import pandas as pd
-	import numpy as np	
+	import numpy as np
+	import random
 	# plot
 	from PIL import Image
 	import matplotlib
@@ -132,12 +133,20 @@ class ROI():
 				  - Center point of image, relative to screensize. Default is `[960, 540]`.
 				* - **dpi** : :class:`int` or :obj:`None`
 				  - (if :code:`save_image` == `True`) Quality of exported images, refers to 'dots per inch'. Default is `300`.
+				* - **remove_axis** : :class:`bool`
+				  - Remove axis from :obj:`matplotlib.pyplot`. Default is `False`.
+				* - **tight_layout** : :class:`bool`
+				  - Remove whitespace from :obj:`matplotlib.pyplot`. Default is `False`.
+				* - **set_size_inches** : :class:`bool`
+				  - Set size of :obj:`matplotlib.pyplot` according to screensize of ROI. Default is `False`.
+				* - **image_backend** : :class:`str` {'matplotlib','PIL'}
+				  - Backend for exporting image. Either `'matplotlib' <https://matplotlib.org/index.html>`__ or `'PIL' <https://pillow.readthedocs.io/en/stable/>`__. Default 'matplotlib'.
 
 		Attributes
 		----------
 		shape_d : :class:`str` {'ELLIPSE', 'FREEHAND', 'RECTANGLE'}
 			DataViewer ROI shape.
-		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+		psd :  `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`__
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
 		retval, threshold : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.
@@ -223,8 +232,6 @@ class ROI():
 		self.roicolumn = roicolumn
 		# add column
 		self.newcolumn = kwargs['newcolumn'] if 'newcolumn' in kwargs else None
-		# dpi
-		self.dpi =  kwargs['dpi'] if 'dpi' in kwargs else 300
 		# save
 		self.save = {}
 		# save csv
@@ -234,6 +241,13 @@ class ROI():
 		# save raw images
 		self.save['raw'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
 
+		#-----matplotlib
+		self.dpi =  kwargs['dpi'] if 'dpi' in kwargs else 300
+		self.remove_axis = kwargs['remove_axis'] if 'remove_axis' in kwargs else False
+		self.tight_layout = kwargs['tight_layout'] if 'tight_layout' in kwargs else False
+		self.set_size_inches = kwargs['set_size_inches'] if 'set_size_inches' in kwargs else False
+		self.image_backend = kwargs['image_backend'] if 'image_backend' in kwargs else 'matplotlib'
+		if self.remove_axis: plt.rcParams.update({'axes.titlesize':0, 'axes.labelsize':0, 'xtick.labelsize':0, 'ytick.labelsize':0, 'savefig.pad_inches':0, 'font.size': 0})
 		#-----classifiers
 		self.classifier = kwargs['classifier'] if 'classifier' in kwargs else 'frontalface_default'
 		self.classScaleFactor = kwargs['classScaleFactor'] if 'classScaleFactor' in kwargs else 1.1
@@ -252,6 +266,10 @@ class ROI():
 			'smile': 'haarcascade_smile.xml',
 			'upperbody': 'haarcascade_upperbody.xml',
 		}
+
+		#-----colors
+		self.color = ['#2179F1','#331AE5','#96E421','#C56D88','#61CAC5','#4980EC','#2E3400','#E0DB68','#C4EC5C','#D407D7','#FBB61B',
+		'#067E8B','#76A502','#0AD8AB','#EAF3BF','#D479FE','#3B62CD','#789BDD','#7F141E','#949CBE']
 
 		#----shape
 		# check if trying to do complex ROI using dataviewer
@@ -373,7 +391,8 @@ class ROI():
 
 		# if returning raw image
 		if isRaw:
-			return image
+			imagesize = [image.size[0], image.size[1]]
+			return image, imagesize
 		else:
 			## set background
 			screen_size = self.screensize
@@ -381,39 +400,39 @@ class ROI():
 			if self.isDebug: self.console('# export image','blue')
 			# if scale image
 			if self.scale != 1:
-				old_image_size = [image.size[0], image.size[1]]
-				image_size = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
-				image = image.resize(image_size, Image.ANTIALIAS)
+				old_imagesize = [image.size[0], image.size[1]]
+				imagesize = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
+				image = image.resize(imagesize, Image.ANTIALIAS)
 				if self.isDebug:
-					self.console('image size: %s, scaled to: %s'%(old_image_size, image_size), 'green')
+					self.console('image size: %s, scaled to: %s'%(old_imagesize, imagesize), 'green')
 			# else unscaled
 			else:
-				image_size = [int(image.size[0]), int(image.size[1])]
-				if self.isDebug: self.console('image size: %s'%(image_size))
+				imagesize = [int(image.size[0]), int(image.size[1])]
+				if self.isDebug: self.console('image size: %s'%(imagesize))
 
 			# if offsetting
 			if self.newoffset:
 				offset_center = self.recenter
 				# calculate upper-left coordinate for drawing into image
 				# x-bound <offset_x center> - <1/2 image_x width>
-				x = (offset_center[0]) - (image_size[0]/2)
+				x = (offset_center[0]) - (imagesize[0]/2)
 				# y-bound <offset_y center> - <1/2 image_y width>
-				y = (offset_center[1]) - (image_size[1]/2)
+				y = (offset_center[1]) - (imagesize[1]/2)
 				left_xy = (int(x),int(y))
 				if self.isDebug: self.console('image centered at: %s'%(offset_center))
 			# else not offsetting
 			else:
 				# calculate upper-left coordinate for drawing into image
 				# x-bound <screen_x center> - <1/2 image_x width>
-				x = (screen_size[0]/2) - (image_size[0]/2)
+				x = (screen_size[0]/2) - (imagesize[0]/2)
 				# y-bound <screen_y center> - <1/2 image_y width>
-				y = (screen_size[1]/2) - (image_size[1]/2)
+				y = (screen_size[1]/2) - (imagesize[1]/2)
 				left_xy = (int(x),int(y))
 
 			# draw
 			background.paste(image, left_xy)
 
-			return background
+			return background, imagesize
 
 	def extract_contours(self, image, imagename, roiname):
 		"""[summary]
@@ -666,7 +685,7 @@ class ROI():
 
 	def draw_contours(self, filepath, data, fig, source='bounds'):
 		"""[summary]
-		
+
 		Parameters
 		----------
 		filepath : [type]
@@ -680,6 +699,9 @@ class ROI():
 		"""
 		# get current axis
 		ax = fig.gca()
+		if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+		if self.tight_layout: plt.tight_layout()
+		if self.remove_axis: fig.tight_layout(pad=0); ax.set_position([0, 0, 1, 1], which='both')
 		## create blank image and draw to figure
 		_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
 
@@ -694,7 +716,8 @@ class ROI():
 			y1 = data['y1'].item()
 			_width = x1 - x0
 			_height = y1 - y0
-			ax.add_patch(patches.Rectangle((x0, y0), _width, _height))
+			_color = random.choice(self.color)
+			ax.add_patch(patches.Rectangle((x0, y0), _width, _height, color=_color, alpha=0.5))
 			## check folder
 			filepath_ = Path(filepath).parent
 			if not os.path.exists(filepath_):
@@ -855,34 +878,52 @@ class ROI():
 			l_contours = [] #list of contours
 
 			#!!!----for each image, save image file
-			# raw imaage
-			image = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap, isRaw=True)
+			# raw image
+			image, imagesize = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap, isRaw=True)
 			## check folder
 			_folder = '%s/img/raw/'%(self.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
 			## save raw
-			fig = plt.figure()
-			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi, bbox_inches='tight')
-			plt.close(fig)
+			filepath = '%s/%s.png'%(_folder, imagename)
+			if self.image_backend == 'PIL':
+				image.save(filepath)
+			else:
+				fig = plt.figure()
+				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if self.tight_layout: plt.tight_layout()
+				plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
+				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+				plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)
-			image = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap)
+			image, imagesize = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap)
 			## check folder
 			_folder = '%s/img/preprocessed/'%(self.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
 			## save preprocessed
-			fig = plt.figure()
-			plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-			plt.savefig('%s/%s.png'%(_folder, imagename), dpi=self.dpi, bbox_inches='tight')
-			plt.close(fig)
+			filepath = '%s/%s.png'%(_folder, imagename)
+			if self.image_backend == 'PIL':
+				image.save(filepath)
+			else:
+				fig = plt.figure()
+				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if self.tight_layout: plt.tight_layout()
+				plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
+				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+				plt.close(fig)
 
 			#!!!----for each region of interest
 			## counter
 			roinumber = 1
 
+			## check path
+			_folderpath = '%s/img/bounds/roi/'%(self.output_path)
+			if not os.path.exists(_folderpath):
+				os.makedirs(_folderpath)
 			## run
 			for layer in psd:
 				# skip if layer is main image
@@ -893,7 +934,7 @@ class ROI():
 					metadata, roiname = self.extract_metadata(imagename=imagename, layer=layer)
 
 					#. Resize image and reposition image, relative to screensize.
-					image = self.format_image(psd=layer, xcf=xcf, bitmap=bitmap)
+					image, imagesize = self.format_image(psd=layer, xcf=xcf, bitmap=bitmap)
 
 					#. Extract contours from np.array of image.
 					try:
@@ -902,31 +943,45 @@ class ROI():
 						break
 
 					#. Format contours as Dataframe, for exporting to xlsx or ias.
-					bounds, contours = self.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, 
-															roinumber=roinumber, bounds_=bounds_, contours_=contours_)
+					bounds, contours = self.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, roinumber=roinumber, bounds_=bounds_, contours_=contours_)
+
 					#. Draw bounds or contours.
 					## draw bounds
 					if self.shape == 'straight':
 						## img path
 						filepath = '%s/img/bounds/roi/%s.%s.png'%(self.output_path, imagename, roiname)
-						fig = plt.figure()
-						self.draw_contours(filepath=filepath, data=bounds, source='bounds', fig=fig)
-						plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
-						plt.close(fig)
+						# save image
+						if self.image_backend == 'PIL':
+							image.save(filepath)
+						else:
+							fig = plt.figure()
+							if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+							if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+							if self.tight_layout: plt.tight_layout()
+							self.draw_contours(filepath=filepath, data=bounds, source='bounds', fig=fig)
+							plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+							plt.close(fig)
 					## draw contours
 					else:
 						## img path
 						filepath = '%s/img/bounds/roi/%s.%s.png'%(self.output_path, imagename, roiname)
-						fig = plt.figure()
-						self.draw_contours(filepath=filepath, data=contours, source='contours', fig=fig)
-						plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
-						plt.close(fig)
+						# save image
+						if self.image_backend == 'PIL':
+							image.save(filepath)
+						else:				
+							fig = plt.figure()
+							if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+							if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+							if self.tight_layout: plt.tight_layout()
+							self.draw_contours(filepath=filepath, data=contours, source='contours', fig=fig)
+							plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+							plt.close(fig)
 
-					# store processed bounds and contours to combine across image
+					#. store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
 					l_contours.append(contours)
 
-					# update counter
+					#. update counter
 					roinumber = roinumber + 1
 
 			#!!!----for each image
@@ -935,6 +990,9 @@ class ROI():
 				## img path
 				filepath = '%s/img/bounds/%s.png'%(self.output_path, imagename)
 				fig = plt.figure()
+				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if self.tight_layout: plt.tight_layout()
 				[self.draw_contours(filepath=filepath, data=b, source='bounds', fig=fig) for b in l_bounds]
 				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
 				plt.close(fig)
@@ -943,8 +1001,11 @@ class ROI():
 				## img path
 				filepath = '%s/img/bounds/%s.png'%(self.output_path, imagename)
 				fig = plt.figure()
+				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
+				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if self.tight_layout: plt.tight_layout()
 				[self.draw_contours(filepath=filepath, data=c, source='contours', fig=fig) for c in l_contours]
-				plt.savefig(filepath, dpi=self.dpi)
+				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
 				plt.close(fig)
 
 			# concatinate and store bounds for all rois

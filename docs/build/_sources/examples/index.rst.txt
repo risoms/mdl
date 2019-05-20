@@ -14,4 +14,5 @@ Guide
    Create plots <R33/create_plots>
    Process data <R33/process_data>
    Eyetracking demo <eyetracking/demo/eyetracking_demo>
-   Region of Interest <roi/index.rst>
+   Region of Interest <roi/index>
+   
