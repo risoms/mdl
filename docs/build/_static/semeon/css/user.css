@@ -178,7 +178,7 @@ ul.current.nav>li.current>a.current{
 }
 .content>.section>h1,
 .content>.section>.section>h2,
-.content>.section>div>.section>h2{
+.content>.section>.section>.section>h3{
     white-space: pre-wrap !important;
     white-space: -moz-pre-wrap !important;
     white-space: -pre-wrap !important;
@@ -188,16 +188,21 @@ ul.current.nav>li.current>a.current{
     display: flex !important;
     align-items: center;
 }
-.content>.section>h1{
+.content>.section>h1,
+.content>.section>h1>a{
     font-size: 40px !important;
     line-height: 50px !important;
 }
 
 .content>.section>.section>h2,
-.content>.section>.section>h2>a,
-.content>.section>div>.section>h2{
+.content>.section>.section>h2>a{
     font-size: 30px !important;
-    line-height: 40px !important;
+    line-height: 38px !important;
+}
+.content>.section>.section>.section>h3,
+.content>.section>.section>.section>h3>a{
+    font-size: 20px !important;
+    line-height: 25px !important;
 }
 
 /*--class and methods--*/
@@ -417,6 +422,11 @@ code.descclassname {
 /*--kwargs--*/
 .align-center{
 	text-align: left !important;
+}
+table.kwargs {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    width: 50%;
 }
 table.kwargs, table.longtable {
     width: 100% !important;

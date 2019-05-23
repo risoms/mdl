@@ -29,6 +29,7 @@ import os
 import sys
 import time
 import datetime
+from pathlib import Path
 from pdb import set_trace as breakpoint
 
 # Path setup -----------------------------------------------------------------------------------------------------------
@@ -120,43 +121,19 @@ extensions = [
 # sphinx-jinja: Adding constants ---------------------------------------------------------------------------------------
 ## This allows variables to be accessable by jinja
 ## https://github.com/tardyp/sphinx-jinja
-required = [
-	'bokeh≥1.0.4',
-	'pip≥19.1.1',
-	'scipy≥1.2.1',
-	'seaborn≥0.9.0',
-	'PsychoPy≥3.1.0',
-	'pandas≥0.24.2',
-	'opencv_python≥4.1.0.25',
-	'setuptools≥40.8.0',
-	'requests≥2.21.0',
-	'docopt≥0.6.2',
-	'openpyxl≥2.6.1',
-	'numpy≥1.16.2',
-	'matplotlib≥3.0.3',
-	'psd_tools≥1.8.14',
-	'Pillow≠6.0.0',
-	'paramiko≥2.4.2',
-	'rpy2≥3.0.3',
-	'scikit_learn≥0.21.0',
-	'certifi≥2019.3.9',
-	'(if windows) pywin32≡224',
-	'(if macos) pyobjc≡5.2'
-]
+filename_ = '%s/requirements.txt'%(Path(imhr.__file__).parent.parent)
+import re
+with open(filename_, 'rb') as f:
+    required = [re.sub('\n', '', line.decode('utf-8')) for line in f]
 jinja_contexts = {
     'required': {'packages': required}
 }
 
-# IPython settings -----------------------------------------------------------------------------------------------------
-# https://ipython.readthedocs.io/en/stable/sphinxext.html?highlight=sphinx
-#ipython_mplbackend = 'agg'
-
 # matplotlib plot_directive settings -----------------------------------------------------------------------------------
-# plot_include_source = True
-# plot_html_show_source_link = True
-# plot_template = True
-# plot_html_show_formats = True 
-# plot_formats = ['png', 'hires.png', 'pdf']
+plot_html_show_source_link = False
+plot_html_show_source_link = True
+plot_html_show_formats = True
+plot_formats = ['png', 'hires.png']
 
 # Napoleon settings ----------------------------------------------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Region of Interest &#8212; imhr-api 2019-05-20 documentation</title>
+    <title>Region of Interest &#8212; imhr-api 2019-05-23 documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-20</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-23</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -126,8 +126,26 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#1.-Example">1. Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Document-Tree">Document Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ROI-Detection">ROI Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Boundary-Shape">Boundary Shape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Polygon">Polygon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Hull">Hull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Circle">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rectangle-(rotated)">Rectangle (rotated)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rectangle-(straight)">Rectangle (straight)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Output-Format">Output Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Excel-(.xlsx)">Excel (.xlsx)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EyeLink-DataViewer-(.ias)">EyeLink DataViewer (.ias)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -139,6 +157,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../dashboard.html">Dashboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/imhr.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/imhr.Download.html">imhr.Download</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
 </ul>
 </li>
@@ -181,8 +202,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../R33/process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#1.-Example">1. Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Document-Tree">Document Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ROI-Detection">ROI Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Boundary-Shape">Boundary Shape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Polygon">Polygon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Hull">Hull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Circle">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rectangle-(rotated)">Rectangle (rotated)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rectangle-(straight)">Rectangle (straight)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Output-Format">Output Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Excel-(.xlsx)">Excel (.xlsx)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EyeLink-DataViewer-(.ias)">EyeLink DataViewer (.ias)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -236,8 +275,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../R33/process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#1.-Example">1. Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Document-Tree">Document Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ROI-Detection">ROI Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Boundary-Shape">Boundary Shape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Polygon">Polygon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Hull">Hull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Circle">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rectangle-(rotated)">Rectangle (rotated)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rectangle-(straight)">Rectangle (straight)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Output-Format">Output Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Excel-(.xlsx)">Excel (.xlsx)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EyeLink-DataViewer-(.ias)">EyeLink DataViewer (.ias)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -456,7 +513,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="section" id="Region-of-Interest">
-<span id="roi2"></span><h1>Region of Interest<a class="headerlink" href="#Region-of-Interest" title="Permalink to this headline">¶</a></h1>
+<span id="roi"></span><h1>Region of Interest<a class="headerlink" href="#Region-of-Interest" title="Permalink to this headline">¶</a></h1>
 <div class='info'>
     <p>
         <span class="pre name">purpose</span>
@@ -482,344 +539,114 @@ div.rendered_html tbody tr:hover {
 
 <ul class="list-container">
     <li>
-        <div class="title">ROI Detection:</div>
+        <div class="title"><a href="#ROI-Detection">ROI Detection</a></div>
         <ol class="list">
-            <li><a href="#demonstration">Demonstration</a></li>
-            <li><a href="#highlighted-roi-from-photoshop-psd">Highlighted ROI from Photoshop PSD</a></li>
-            <li><a href="#classified-using-haar-cascades">Classified using Haar Cascades</a></li>
+            <li><a href="#Example">Example</a></li>
+            <li><a href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+            <li><a href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
         </ol>
     </li>
     <li>
-        <div class="title">Boundary shape:</div>
+        <div class="title"><a href="#Boundary-Shape">Boundary Shape</a></div>
         <ol class="list">
-            <li><a href="Polygon">Polygon</a></li>
-            <li><a href="Hull">Hull</a></li>
-            <li><a href="Circle">Circle</a></li>
-            <li><a href="#Rectangle (rotated)">Rectangle (rotated)</a></li>
-            <li><a href="Rectangle (straight)">Rectangle (straight)</a></li>
+            <li><a href="#Polygon">Polygon</a></li>
+            <li><a href="#Hull">Hull</a></li>
+            <li><a href="#Circle">Circle</a></li>
+            <li><a href="#Rectangle-(rotated)">Rectangle (rotated)</a></li>
+            <li><a href="#Rectangle-(straight)">Rectangle (straight)</a></li>
         </ol>
     </li>
     <li>
-        <div class="title">Output format:</div>
+        <div class="title"><a href="#Output-Format">Output-Format</a></div>
         <ol class="list">
-            <li><a href="#Excel">Excel</a></li>
-            <li><a href="#EyeLink DataViewer ias">EyeLink DataViewer ias</a></li>
+            <li><a href="#Excel-(.xlsx)">Excel (.xlsx)</a></li>
+            <li><a href="#EyeLink-DataViewer-(.ias)">EyeLink DataViewer (.ias)</a></li>
         </ol>
     </li>
-</ul><div class="section" id="1.-Example">
-<h2>1. Example<a class="headerlink" href="#1.-Example" title="Permalink to this headline">¶</a></h2>
-<p>Here is a brief demonstration of how the module works and produces an output. After running the following code, a few types of data will be outputted: * Dataviewer Region of Interest (.ias): ./output/<em>.ias, ./output/data/</em>.ias * Excel Region of Interest (.xlsx): ./output/<em>.xlsx, ./output/data/</em>.xlsx</p>
-<p>In addition, for each image, their corresponding ROI’s will be drawn to a png file (./img/bounds). Individual ROI’s are also drawn (./img/bounds/roi).</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</ul><div class="section" id="Document-Tree">
+<h2>Document Tree<a class="headerlink" href="#Document-Tree" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roi/
+├── output/
+│   ├── bounds.ias
+│   ├── bounds.xlsx
+│   ├── data/
+│   │   ├── 2550_bounds.ias
+│   │   └── 2550_bounds.xlsx
+│   └── img/
+│       ├── bounds/
+│       │   ├── 2550.png
+│       │   └── roi/
+│       │       ├── 2550.1.png
+│       │       └── 2550.2.png
+│       ├── preprocessed/
+│       │   └── 2550.png
+│       └── raw/
+│           └── 2550.png
+└── raw/
+    ├── 1/
+    │   ├── AM_201.psd
+    │   ├── AM_201.xcf
+    │   └── metadata.xlsx
+    └── 2/
+        ├── 2550.psd
+        ├── 2550.xcf
+        └── metadata.xlsx
+</pre></div>
+</div>
+<p>Description</p>
+<ul class="simple">
+<li>bounds.ias The…</li>
+<li>bounds.xlsx The…</li>
+<li>data/: The…<ul>
+<li>2550_bounds.ias The…</li>
+<li>2550_bounds.xlsx The…</li>
+</ul>
+</li>
+<li>img/ The…<ul>
+<li>bounds/ The…<ul>
+<li>2550.png The…</li>
+<li>roi/ The…<ul>
+<li>2550.1.png The…</li>
+<li>2550.1.png The…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>preprocessed/ The…<ul>
+<li>2550.png The…</li>
+</ul>
+</li>
+<li>raw/ The…<ul>
+<li>2550.png The…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ROI-Detection">
+<h2>ROI Detection<a class="headerlink" href="#ROI-Detection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Example">
+<h3>Example<a class="headerlink" href="#Example" title="Permalink to this headline">¶</a></h3>
+<p>Here is a brief demonstration of how the module works and produces an output. After running the following code, a few types of data will be outputted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Dataviewer</span> <span class="n">Region</span> <span class="n">of</span> <span class="n">Interest</span> <span class="p">(</span><span class="o">.</span><span class="n">ias</span><span class="p">):</span> <span class="s1">&#39;./output/*.ias&#39;</span><span class="p">,</span> <span class="s1">&#39;./output/data/*.ias&#39;</span>
+<span class="o">*</span> <span class="n">Excel</span> <span class="n">Region</span> <span class="n">of</span> <span class="n">Interest</span> <span class="p">(</span><span class="o">.</span><span class="n">xlsx</span><span class="p">):</span> <span class="s1">&#39;./output/*.xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;./output/data/*.xlsx&#39;</span>
+</pre></div>
+</div>
+<p>In addition, for each image, their corresponding ROIs will be drawn to a png file (./img/bounds). Individual ROIs are also drawn (‘./img/bounds/roi’).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#import</span>
 <span class="kn">import</span> <span class="nn">imhr</span>
 <span class="c1">#initiate</span>
-<span class="n">roi</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isDebug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">isDemo</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">roi</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isDebug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="c1">#run</span>
 <span class="n">df</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">process</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-magenta-bg">not multiprocessing</span>
-<span class="ansi-magenta-bg">starting()</span>
-<span class="ansi-magenta-bg">for each image</span>
-<span class="ansi-cyan-bg">
-# file: AM_201</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">## roiname: roi1</span>
-<span class="ansi-green-bg">## roilabel: roi1</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi1.png</span>
-<span class="ansi-cyan-bg">## roiname: roi2</span>
-<span class="ansi-green-bg">## roilabel: roi2</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi2.png</span>
-<span class="ansi-cyan-bg">## roiname: roi3</span>
-<span class="ansi-green-bg">## roilabel: roi3</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi3.png</span>
-<span class="ansi-cyan-bg">## roiname: roi4</span>
-<span class="ansi-green-bg">## roilabel: roi4</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi4.png</span>
-<span class="ansi-cyan-bg">## roiname: roi5</span>
-<span class="ansi-green-bg">## roilabel: roi5</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi5.png</span>
-<span class="ansi-cyan-bg">## roiname: roi6</span>
-<span class="ansi-green-bg">## roilabel: roi6</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi6.png</span>
-<span class="ansi-cyan-bg">## roiname: roi7</span>
-<span class="ansi-green-bg">## roilabel: roi7</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi7.png</span>
-<span class="ansi-cyan-bg">## roiname: roi8</span>
-<span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_201.roi8.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_201.png</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_201_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_201_bounds.ias</span>
-<span class="ansi-cyan-bg">
-# file: AM_203</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">## roiname: roi1</span>
-<span class="ansi-green-bg">## roilabel: roi1</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi1.png</span>
-<span class="ansi-cyan-bg">## roiname: roi2</span>
-<span class="ansi-green-bg">## roilabel: roi2</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi2.png</span>
-<span class="ansi-cyan-bg">## roiname: roi3</span>
-<span class="ansi-green-bg">## roilabel: roi3</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi3.png</span>
-<span class="ansi-cyan-bg">## roiname: roi4</span>
-<span class="ansi-green-bg">## roilabel: roi4</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi4.png</span>
-<span class="ansi-cyan-bg">## roiname: roi5</span>
-<span class="ansi-green-bg">## roilabel: roi5</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi5.png</span>
-<span class="ansi-cyan-bg">## roiname: roi6</span>
-<span class="ansi-green-bg">## roilabel: roi6</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi6.png</span>
-<span class="ansi-cyan-bg">## roiname: roi7</span>
-<span class="ansi-green-bg">## roilabel: roi7</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi7.png</span>
-<span class="ansi-cyan-bg">## roiname: roi8</span>
-<span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_203.roi8.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_203.png</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_203_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_203_bounds.ias</span>
-<span class="ansi-cyan-bg">
-# file: AM_204</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">## roiname: roi1</span>
-<span class="ansi-green-bg">## roilabel: roi1</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi1.png</span>
-<span class="ansi-cyan-bg">## roiname: roi2</span>
-<span class="ansi-green-bg">## roilabel: roi2</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi2.png</span>
-<span class="ansi-cyan-bg">## roiname: roi3</span>
-<span class="ansi-green-bg">## roilabel: roi3</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi3.png</span>
-<span class="ansi-cyan-bg">## roiname: roi4</span>
-<span class="ansi-green-bg">## roilabel: roi4</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi4.png</span>
-<span class="ansi-cyan-bg">## roiname: roi5</span>
-<span class="ansi-green-bg">## roilabel: roi5</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi5.png</span>
-<span class="ansi-cyan-bg">## roiname: roi6</span>
-<span class="ansi-green-bg">## roilabel: roi6</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi6.png</span>
-<span class="ansi-cyan-bg">## roiname: roi7</span>
-<span class="ansi-green-bg">## roilabel: roi7</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi7.png</span>
-<span class="ansi-cyan-bg">## roiname: roi8</span>
-<span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_204.roi8.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_204.png</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_204_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_204_bounds.ias</span>
-<span class="ansi-cyan-bg">
-# file: AM_223</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">## roiname: roi1</span>
-<span class="ansi-green-bg">## roilabel: roi1</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi1.png</span>
-<span class="ansi-cyan-bg">## roiname: roi2</span>
-<span class="ansi-green-bg">## roilabel: roi2</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi2.png</span>
-<span class="ansi-cyan-bg">## roiname: roi3</span>
-<span class="ansi-green-bg">## roilabel: roi3</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi3.png</span>
-<span class="ansi-cyan-bg">## roiname: roi4</span>
-<span class="ansi-green-bg">## roilabel: roi4</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi4.png</span>
-<span class="ansi-cyan-bg">## roiname: roi5</span>
-<span class="ansi-green-bg">## roilabel: roi5</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi5.png</span>
-<span class="ansi-cyan-bg">## roiname: roi6</span>
-<span class="ansi-green-bg">## roilabel: roi6</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi6.png</span>
-<span class="ansi-cyan-bg">## roiname: roi7</span>
-<span class="ansi-green-bg">## roilabel: roi7</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi7.png</span>
-<span class="ansi-cyan-bg">## roiname: roi8</span>
-<span class="ansi-green-bg">## roilabel: roi8</span>
-<span class="ansi-cyan-bg"># export image</span>
-<span class="ansi-cyan-bg">image size: [1222, 859]</span>
-<span class="ansi-cyan-bg">image centered at: [960.0, 540.0]</span>
-<span class="ansi-cyan-bg">manual ROI detection</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/roi/AM_223.roi8.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-cyan-bg">## image saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output//img/bounds/AM_223.png</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_223_bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/data/AM_223_bounds.ias</span>
-<span class="ansi-green-bg">## raw data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/bounds.xlsx</span>
-<span class="ansi-green-bg">## dataviewer data saved @: /Users/mdl-admin/Desktop/mdl/imhr/dist/roi/output/bounds.ias</span>
-<span class="ansi-magenta-bg">finished()</span>
-</pre></div></div>
 </div>
 <p>…and here are the results.</p>
 <div class="nbinput docutils container">
@@ -1288,48 +1115,148 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 </div>
-<div class="section" id="2.-Highlighted-ROI-from-Photoshop-PSD">
-<h2>2. Highlighted ROI from Photoshop PSD<a class="headerlink" href="#2.-Highlighted-ROI-from-Photoshop-PSD" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="section" id="Highlighted-ROI-from-Photoshop-(.psd)">
+<h3>Highlighted ROI from Photoshop (.psd)<a class="headerlink" href="#Highlighted-ROI-from-Photoshop-(.psd)" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="../../examples/roi/roi.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../../_images/roi.png" class="roi-psd" src="../../_images/roi.png" />
+</div>
+<p>Highlighted ROI from Photoshop (.psd)</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>Note:</strong></p>
+<p>Include Note Here.</p>
+</div>
+<p>Here are all of the required parameters that are part of this module:</p>
+<dl class="docutils">
+<dt>isMultiprocessing <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd>Should the rois be generated using multiprocessing. Default <cite>False</cite>.</dd>
+<dt>detection <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘manual’, ‘haarcascade’}</span></dt>
+<dd>How should the regions of interest be detected. Either manually (<cite>manual</cite>), through the use of highlighting layers in photo-editing
+software, or automatically through feature detection using <cite>haarcascade</cite> classifers from opencv. Default <cite>manual</cite>.</dd>
+<dt>image_path <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd>Image directory path.</dd>
+<dt>output_path <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd>Path to save data.</dd>
+<dt>roi_format <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘raw’, ‘dataviewer’, ‘both’}</span></dt>
+<dd>Format to export ROIs. Either to ‘csv’ (<cite>raw</cite>) or to Eyelink DataViewer ‘ias’ (<cite>dataviewer</cite>) or both (<cite>both</cite>).
+Default is <cite>both</cite>. Note: If <code class="code docutils literal notranslate"><span class="pre">roi_format</span></code> = <cite>dataviewer</cite>, <code class="code docutils literal notranslate"><span class="pre">shape</span></code> must be either be <cite>circle</cite>, <cite>rotate</cite>, or <cite>straight</cite>.</dd>
+<dt>metadata_source <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> {‘path’, ‘embedded’}</span></dt>
+<dd><p class="first">Metadata source. If metadata is being read from a spreadsheet, <code class="code docutils literal notranslate"><span class="pre">metadata_source</span></code> should be equal to path the to
+the metadata file, else if metadata is embed within the image as a layer name, <code class="code docutils literal notranslate"><span class="pre">metadata_source</span></code> = <cite>embedded</cite>.
+Default is <cite>embedded</cite>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is in PSD images</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="s1">&#39;embedded&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is an external xlsx file.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="s1">&#39;roi/metadata.xlsx&#39;</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">image</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="c1"># path</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/roi/example/&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">imhr</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
-<span class="c1"># draw plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-<span class="c1">## roi</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/2550_pre.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Region of Interest&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Screen Y (pixels)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Screen X (pixels)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="c1">## bounds</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/2550_roi.png&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Rectangular Bounds&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Screen Y (pixels)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Screen X (pixels)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="c1">## show</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;#ffffff&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
+as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
+to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
+be either <cite>;</cite> <cite>,</cite> <cite>|</cite> <cite>\t</cite> or <cite>\s</cite> (Delimiter type must be identified when running this code using the
+code:<cite>delimiter</cite> parameter. The default is <cite>;</cite>.). Here’s an example using <cite>;</cite> as a delimiter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span> <span class="o">=</span> <span class="s2">&quot;BM001&quot;</span><span class="p">;</span> <span class="n">roiname</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">feature</span> <span class="o">=</span> <span class="s2">&quot;lefteye&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/examples_roi_index_9_0.png" src="../../_images/examples_roi_index_9_0.png" />
-</div>
-</div>
+<p class="last">Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</p>
+</dd>
+<dt>shape <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘polygon’, ‘hull’, ‘circle’, ‘rotate’, ‘straight’}</span></dt>
+<dd>Shape of machine readable boundaries for region of interest. Default is <cite>straight</cite>. <cite>polygon</cite> creates a Contour
+Approximation and will most closely match the orginal shape of the roi. <cite>hull</cite> creates a Convex Hull, which
+is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
+<cite>circle</cite> creates a mininum enclosing circle. Finally, both <cite>rotate</cite> and <cite>straight</cite> create a Bounding Rectangle,
+with the only difference being compensation for the mininum enclosing area for the box when using <cite>rotate</cite>.</dd>
+<dt>roicolumn <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd>The name of the label for the region of interest in your metadata. For example you may want to extract the column
+‘feature’ from your metadata and use this as the label. Default is <cite>roi</cite>.</dd>
+<dt>uuid <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
+<dd>Create a unique id by combining a list of existing variables in the metadata. This is recommended
+if <code class="code docutils literal notranslate"><span class="pre">roi_format</span></code> == <cite>dataviewer</cite> because of the limited variables allowed for ias files. Default <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
+<dd>Additional properties. Here’s a list of available properties:</dd>
+</dl>
+<p>Here are optional parameters, not required to run the code, but allow output tweaking:</p>
+<table border="1" class="colwidths-given kwargs docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>cores</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">isMultiprocessing</span></code> == <cite>True</cite>) Number of cores to use. Default is total available cores - 1.</td>
+</tr>
+<tr class="row-odd"><td><strong>isLibrary</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Check if required packages have been installed. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><strong>isDebug</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Allow flags to be visible. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</td>
+</tr>
+<tr class="row-odd"><td><strong>isDemo</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Tests code with in-house images and metadata. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save coordinates. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">True.</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>newcolumn</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a></td>
+<td>Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">False.</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save images. Default is True.</td>
+</tr>
+<tr class="row-odd"><td><strong>append_output_name</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<td>Add appending name to all exported files (i.e. &lt;’top_center’&gt; IMG001_top_center.ias). Default is False.</td>
+</tr>
+<tr class="row-even"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Save generated contours as images. Default is <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>.</td>
+</tr>
+<tr class="row-odd"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {‘;’ , ‘,’ , ‘|’ , ‘tab’ , ‘space’}</td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">source</span></code> == <cite>psd</cite>) How is metadata delimited. Default is <cite>;</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>classifier</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘eye_tree_eyeglasses’,’eye’,’frontalface_alt_tree’,’frontalface_alt’,’frontalface_alt2’,
+‘frontalface_default’,’fullbody’,’lowerbody’,’profileface’,’smile’,’upperbody’}</td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">detection</span></code> == <cite>haarcascade</cite>) Type of trained classifier to use. Default ‘frontalface_default’.</td>
+</tr>
+<tr class="row-odd"><td><strong>classScaleFactor</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#float" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+<td>Parameter specifying how much the image size is reduced at each image scale.</td>
+</tr>
+<tr class="row-even"><td><strong>classMinNeighbors</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#float" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+<td>Parameter specifying how many neighbors each candidate rectangle should have to retain it.</td>
+</tr>
+<tr class="row-odd"><td><strong>classMinSize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></td>
+<td>Minimum possible object size. Objects smaller than that are ignored.</td>
+</tr>
+<tr class="row-even"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Monitor size is being presented. Default is <cite>[1920, 1080]</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<td>If image is scaled during presentation, set scale. Default is 1.</td>
+</tr>
+<tr class="row-even"><td><strong>offset</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Center point of image, relative to screensize. Default is <cite>[960, 540]</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>dpi</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<td>(if <code class="code docutils literal notranslate"><span class="pre">save_image</span></code> == <cite>True</cite>) Quality of exported images, refers to ‘dots per inch’. Default is <cite>300</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>remove_axis</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Remove axis from <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.1.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></a>. Default is <cite>False</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>tight_layout</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Remove whitespace from <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.1.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></a>. Default is <cite>False</cite>.</td>
+</tr>
+<tr class="row-even"><td><strong>set_size_inches</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<td>Set size of <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot" title="(in Matplotlib v3.1.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></a> according to screensize of ROI. Default is <cite>False</cite>.</td>
+</tr>
+<tr class="row-odd"><td><strong>image_backend</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {‘matplotlib’,’PIL’}</td>
+<td>Backend for exporting image. Either <a class="reference external" href="https://matplotlib.org/index.html">‘matplotlib’</a> or <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">‘PIL’</a>. Default ‘matplotlib’.</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example of how to run the code:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -1337,20 +1264,20 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># import</span>
 <span class="kn">import</span> <span class="nn">imhr</span>
-
-<span class="c1"># set path</span>
+<span class="c1"># parameters</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">__path__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/roi/raw/2/&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/roi/output/&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">metadata_source</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/roi/raw/2/metadata.xlsx&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
+<span class="n">position</span> <span class="o">=</span> <span class="s1">&#39;topcenter&#39;</span>
 <span class="c1"># initiate</span>
 <span class="n">roi</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">isMultiprocessing</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">isDebug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">isDemo</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-    <span class="n">detection</span><span class="o">=</span><span class="s1">&#39;manual&#39;</span><span class="p">,</span> <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;polygon&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">detection</span><span class="o">=</span><span class="s1">&#39;manual&#39;</span><span class="p">,</span> <span class="n">roi_format</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;straight&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">image_path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">metadata_source</span><span class="o">=</span><span class="n">metadata_source</span><span class="p">,</span>
     <span class="n">screensize</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1080</span><span class="p">],</span> <span class="n">recenter</span><span class="o">=</span><span class="p">[(</span><span class="mi">1920</span><span class="o">*.</span><span class="mi">50</span><span class="p">),(</span><span class="mi">1080</span><span class="o">*.</span><span class="mi">50</span><span class="p">)],</span>
-    <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">},</span> <span class="n">uuid</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;position&#39;</span><span class="p">])</span>
-
+    <span class="n">newcolumn</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="n">position</span><span class="p">},</span> <span class="n">uuid</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s1">&#39;roi&#39;</span><span class="p">,</span><span class="s1">&#39;position&#39;</span><span class="p">],</span>
+    <span class="n">append_output_name</span><span class="o">=</span><span class="n">position</span><span class="p">,</span> <span class="n">image_backend</span><span class="o">=</span><span class="s1">&#39;PIL&#39;</span><span class="p">,</span>
+    <span class="n">axis_fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tick_fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="c1"># run</span>
 <span class="n">df</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
 </pre></div>
@@ -1757,6 +1684,435 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 </div>
+<div class="section" id="Classified-using-Haar-Cascades">
+<h3>Classified using Haar Cascades<a class="headerlink" href="#Classified-using-Haar-Cascades" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="Boundary-Shape">
+<h2>Boundary Shape<a class="headerlink" href="#Boundary-Shape" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Polygon">
+<h3>Polygon<a class="headerlink" href="#Polygon" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="../../examples/roi/polygon.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../../_images/polygon.png" class="roi-psd" src="../../_images/polygon.png" />
+</div>
+<p class="figure-label">Polygon boundaries</p>
+</div>
+<div class="section" id="Hull">
+<h3>Hull<a class="headerlink" href="#Hull" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="../../examples/roi/hull.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../../_images/hull.png" class="roi-psd" src="../../_images/hull.png" />
+</div>
+<p class="figure-label">Hull boundaries</p>
+</div>
+<div class="section" id="Circle">
+<h3>Circle<a class="headerlink" href="#Circle" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="../../examples/roi/circle.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../../_images/circle.png" class="roi-psd" src="../../_images/circle.png" />
+</div>
+<p class="figure-label">Circular boundaries</p>
+</div>
+<div class="section" id="Rectangle-(rotated)">
+<h3>Rectangle (rotated)<a class="headerlink" href="#Rectangle-(rotated)" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="../../examples/roi/rotated.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../../_images/rotated.png" class="roi-psd" src="../../_images/rotated.png" />
+</div>
+<p class="figure-label">Rotated rectangular boundaries</p>
+</div>
+<div class="section" id="Rectangle-(straight)">
+<h3>Rectangle (straight)<a class="headerlink" href="#Rectangle-(straight)" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="../../examples/roi/straight.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../../_images/straight.png" class="roi-psd" src="../../_images/straight.png" />
+</div>
+<p class="figure-label">Straight rectangular boundaries</p>
+</div>
+</div>
+<div class="section" id="Output-Format">
+<h2>Output Format<a class="headerlink" href="#Output-Format" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Excel-(.xlsx)">
+<h3>Excel (.xlsx)<a class="headerlink" href="#Excel-(.xlsx)" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"># EyeLink Interest Area Set created on 2019-05-23T17:22:22-05:00.</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+<tr class="row-even"><th class="head"># Interest area set file using imhr.eyetracking.ROI()</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+<tr class="row-odd"><th class="head"># columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td># example: RECTANGLE 1 350 172 627 286 leftcheek</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td># columns: ELLIPSE | IA number | x0 | y0 | x1 | y1 | label</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td># example: ELLIPSE 2 350 172 627 286 leftcheek</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td># columns: FREEHAND | IA number | x0</td>
+<td>y0 | x1</td>
+<td>y1 | x2</td>
+<td>y2 | x3</td>
+<td>y3 | label</td>
+</tr>
+<tr class="row-even"><td># example: FREEHAND 3 350</td>
+<td>172 627</td>
+<td>172 627</td>
+<td>286 350</td>
+<td>286 leftcheek</td>
+</tr>
+<tr class="row-odd"><td># For more information see Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1).</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>FREEHAND	1	877	953	390	860	25501rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>FREEHAND	2	1105	993	756	486	25502rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>FREEHAND	1	822	792	900	703	26911rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>FREEHAND	2	947	514	930	373	26912rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>FREEHAND	1	1047	632	632	614	46401rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>FREEHAND	2	1030	918	1254	730	46402rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>FREEHAND	3	722	889	504	858	46403rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>FREEHAND	1	717	410	1024	156	94211rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>FREEHAND	2	1033	955	812	882	94212rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>FREEHAND	3	1238	414	1419	210	94213rotate</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Include text here</p>
+</div>
+<div class="section" id="EyeLink-DataViewer-(.ias)">
+<h3>EyeLink DataViewer (.ias)<a class="headerlink" href="#EyeLink-DataViewer-(.ias)" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>x0</td>
+<td>y0</td>
+<td>x1</td>
+<td>y1</td>
+<td>image</td>
+<td>roi</td>
+<td>id</td>
+<td>shape_d</td>
+<td>valence</td>
+<td>meanvalence</td>
+<td>meanarousal</td>
+<td>species</td>
+<td>gender</td>
+<td>behavior</td>
+<td>object</td>
+<td>other</td>
+<td>resolution</td>
+<td>position</td>
+<td>uuid</td>
+</tr>
+<tr class="row-even"><td>877</td>
+<td>953</td>
+<td>390</td>
+<td>860</td>
+<td>2550</td>
+<td>1</td>
+<td>1</td>
+<td>FREEHAND</td>
+<td>positive</td>
+<td>7.769999981</td>
+<td>4.679999828</td>
+<td>human</td>
+<td>female</td>
+<td>happy</td>
+<td>face</td>
+<td>couple</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>25501rotate</td>
+</tr>
+<tr class="row-odd"><td>1105</td>
+<td>993</td>
+<td>756</td>
+<td>486</td>
+<td>2550</td>
+<td>2</td>
+<td>2</td>
+<td>FREEHAND</td>
+<td>positive</td>
+<td>7.769999981</td>
+<td>4.679999828</td>
+<td>human</td>
+<td>male</td>
+<td>happy</td>
+<td>face</td>
+<td>couple</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>25502rotate</td>
+</tr>
+<tr class="row-even"><td>822</td>
+<td>792</td>
+<td>900</td>
+<td>703</td>
+<td>2691</td>
+<td>1</td>
+<td>1</td>
+<td>FREEHAND</td>
+<td>negative</td>
+<td>3.039999962</td>
+<td>5.849999905</td>
+<td>nan</td>
+<td>male</td>
+<td>throw</td>
+<td>rock</td>
+<td>protest</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>26911rotate</td>
+</tr>
+<tr class="row-odd"><td>947</td>
+<td>514</td>
+<td>930</td>
+<td>373</td>
+<td>2691</td>
+<td>2</td>
+<td>2</td>
+<td>FREEHAND</td>
+<td>negative</td>
+<td>3.039999962</td>
+<td>5.849999905</td>
+<td>nan</td>
+<td>male</td>
+<td>ready</td>
+<td>rock</td>
+<td>protest</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>26912rotate</td>
+</tr>
+<tr class="row-even"><td>1047</td>
+<td>632</td>
+<td>632</td>
+<td>614</td>
+<td>4640</td>
+<td>1</td>
+<td>1</td>
+<td>FREEHAND</td>
+<td>positive</td>
+<td>7.179999828</td>
+<td>5.519999981</td>
+<td>human</td>
+<td>all</td>
+<td>kiss</td>
+<td>face</td>
+<td>couple</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>46401rotate</td>
+</tr>
+<tr class="row-odd"><td>1030</td>
+<td>918</td>
+<td>1254</td>
+<td>730</td>
+<td>4640</td>
+<td>2</td>
+<td>2</td>
+<td>FREEHAND</td>
+<td>positive</td>
+<td>7.179999828</td>
+<td>5.519999981</td>
+<td>human</td>
+<td>all</td>
+<td>hold</td>
+<td>hands</td>
+<td>couple</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>46402rotate</td>
+</tr>
+<tr class="row-even"><td>722</td>
+<td>889</td>
+<td>504</td>
+<td>858</td>
+<td>4640</td>
+<td>3</td>
+<td>3</td>
+<td>FREEHAND</td>
+<td>positive</td>
+<td>7.179999828</td>
+<td>5.519999981</td>
+<td>human</td>
+<td>all</td>
+<td>hold</td>
+<td>hands</td>
+<td>couple</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>46403rotate</td>
+</tr>
+<tr class="row-odd"><td>717</td>
+<td>410</td>
+<td>1024</td>
+<td>156</td>
+<td>9421</td>
+<td>1</td>
+<td>1</td>
+<td>FREEHAND</td>
+<td>negative</td>
+<td>2.210000038</td>
+<td>5.039999962</td>
+<td>human</td>
+<td>male</td>
+<td>cry</td>
+<td>face</td>
+<td>helmet</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>94211rotate</td>
+</tr>
+<tr class="row-even"><td>1033</td>
+<td>955</td>
+<td>812</td>
+<td>882</td>
+<td>9421</td>
+<td>2</td>
+<td>2</td>
+<td>FREEHAND</td>
+<td>negative</td>
+<td>2.210000038</td>
+<td>5.039999962</td>
+<td>human</td>
+<td>male</td>
+<td>pain</td>
+<td>arm</td>
+<td>splint</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>94212rotate</td>
+</tr>
+<tr class="row-odd"><td>1238</td>
+<td>414</td>
+<td>1419</td>
+<td>210</td>
+<td>9421</td>
+<td>3</td>
+<td>3</td>
+<td>FREEHAND</td>
+<td>negative</td>
+<td>2.210000038</td>
+<td>5.039999962</td>
+<td>human</td>
+<td>male</td>
+<td>pain</td>
+<td>face</td>
+<td>bandage</td>
+<td>(1024, 768)</td>
+<td>rotate</td>
+<td>94213rotate</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
@@ -1769,7 +2125,7 @@ div.rendered_html tbody tr:hover {
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-20T18:33:30-05:00.</div>
+			<div>Updated 2019-05-23T18:08:55-05:00.</div>
 		</div>
 	</div>
 </footer>

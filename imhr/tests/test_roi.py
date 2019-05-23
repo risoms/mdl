@@ -34,7 +34,7 @@ def test_generate_roi(args=None):
 	print('pypath: %s'%(pypath))
 
 	# local path: debugging
-	localpath = Path.cwd()
+	localpath = pathlib.Path.cwd()
 	print('localpath: %s'%(localpath))
 
 	# image_path

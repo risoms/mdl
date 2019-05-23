@@ -12,17 +12,15 @@
 imhr
 ~~~~
 
-.. currentmodule:: imhr
-
 .. automodule:: imhr
 	:member-order: bysource
-	:inherited-members:
+	:exclude-members: Download
 
 	.. toctree::
 		:maxdepth: 2
 		:hidden:
-
-		imhr.Download
+		
+		imhr.Download <imhr.Download>
 		imhr.eyetracking
 		imhr.plot
 		imhr.r33
@@ -32,7 +30,7 @@ imhr
 
 .. autosummary::
 
-	imhr.Download
+	imhr.Download <imhr.Download>
 	imhr.eyetracking
 	imhr.plot
 	imhr.r33

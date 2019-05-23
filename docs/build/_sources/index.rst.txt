@@ -101,7 +101,7 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 							<li><a href="examples/R33/process_data.html">Process data</a></li>
 							<li><a href="examples/analysis/index.html">Lab analysis</a></li>
 							<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
-							<li><a href="examples/roi/generate_roi.html">Regions of Interest</a></li>
+							<li><a href="examples/roi/index.html">Regions of Interest</a></li>
 						</ul>
 					</div>
 				</div>

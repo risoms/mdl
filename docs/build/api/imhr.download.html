@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.download &#8212; imhr-api 2019-05-20 documentation</title>
+    <title>imhr.Download &#8212; imhr-api 2019-05-23 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -27,6 +27,8 @@
     <link rel="shortcut icon" href="../_static/imhr.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="imhr.eyetracking" href="imhr.eyetracking.html" />
+    <link rel="prev" title="imhr" href="imhr.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -50,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-20</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-23</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -68,7 +70,7 @@
      href="../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
@@ -124,8 +126,26 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/roi/index.html">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#1.-Example">1. Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#2.-Highlighted-ROI-from-Photoshop-PSD">2. Highlighted ROI from Photoshop PSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Document-Tree">Document Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#ROI-Detection">ROI Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Boundary-Shape">Boundary Shape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Polygon">Polygon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Hull">Hull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Circle">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Rectangle-(rotated)">Rectangle (rotated)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Rectangle-(straight)">Rectangle (straight)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Output-Format">Output Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Excel-(.xlsx)">Excel (.xlsx)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#EyeLink-DataViewer-(.ias)">EyeLink DataViewer (.ias)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -136,7 +156,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.Download</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
 </ul>
 </li>
@@ -167,14 +190,25 @@
      href="#">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"
       role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
+      aria-labelledby="dLabelLocalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.Download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -209,292 +243,40 @@
 	</div>
 	<div class="row">
 <div class="toc col-md-3" style="width: 25%;">
-	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+	<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="imhr.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">imhr.Download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a></li>
+</ul>
+</li>
 </ul>
 
 <div id="sourcelink">
-  <a href="../_sources/api/imhr.download.rst.txt"
+  <a href="../_sources/api/imhr.Download.rst.txt"
      rel="nofollow">Source</a>
 </div>
 	</div>
 </div>
 		<div class="col-md-9 content">
 			
-  <div class="section" id="module-imhr.download">
-<span id="imhr-download"></span><h1>imhr.download<a class="headerlink" href="#module-imhr.download" title="Permalink to this headline">¶</a></h1>
-<div class="line-block">
-<div class="line">&#64;purpose: Download raw data from apache, Box, or REDCap servers.  </div>
-<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019  </div>
-<div class="line">&#64;author: Semeon Risom  </div>
-<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
-<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/imhr">https://semeon.io/d/imhr</a></div>
-</div>
-<p><strong>Classes</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.download.Download" title="imhr.download.Download"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Download</span></code></a>([isLibrary])</td>
-<td>Download raw data from apache, Box, or REDCap servers.</td>
-</tr>
-</tbody>
-</table>
-<dl class="class">
-<dt id="imhr.download.Download">
-<em class="property">class </em><code class="descclassname">imhr.download.</code><code class="descname">Download</code><span class="sig-paren">(</span><em>isLibrary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/download.html#Download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.download.Download" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+  <span class="target" id="imhr-download-download"></span><div class="section" id="module-imhr.download.Download">
+<span id="imhr-download"></span><h1>imhr.Download<a class="headerlink" href="#module-imhr.download.Download" title="Permalink to this headline">¶</a></h1>
 <p>Download raw data from apache, Box, or REDCap servers.</p>
-<p class="rubric">Methods</p>
-<p><strong>Methods</strong></p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.download.Download.REDCap" title="imhr.download.Download.REDCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REDCap</span></code></a>(path,&nbsp;token,&nbsp;url,&nbsp;content[,&nbsp;payload])</td>
-<td>Download data from an Research Electronic Data Capture (REDCap) server.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.download.Download.SFTP" title="imhr.download.Download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
-<td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.download.Download.box" title="imhr.download.Download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;username,&nbsp;…)</td>
-<td>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.download.Download.REDCap" title="imhr.download.Download.REDCap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REDCap</span></code></a>(path,&nbsp;token,&nbsp;url,&nbsp;content[,&nbsp;payload])</td>
-<td>Download data from an Research Electronic Data Capture (REDCap) server.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#imhr.download.Download.SFTP" title="imhr.download.Download.SFTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SFTP</span></code></a>(source,&nbsp;destination,&nbsp;hostname,&nbsp;…)</td>
-<td>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.download.Download.box" title="imhr.download.Download.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>(source,&nbsp;destination,&nbsp;server,&nbsp;username,&nbsp;…)</td>
-<td>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</td>
-</tr>
-</tbody>
-</table>
-<dl class="classmethod">
-<dt id="imhr.download.Download.REDCap">
-<em class="property">classmethod </em><code class="descname">REDCap</code><span class="sig-paren">(</span><em>path</em>, <em>token</em>, <em>url</em>, <em>content</em>, <em>payload=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/download.html#Download.REDCap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.download.Download.REDCap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download data from an Research Electronic Data Capture (REDCap) server.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first">Path to save data.
-For example:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mdl-admin/Desktop/r33/redcap&#39;</span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-</dd>
-<dt><strong>token</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first">The API token specific to your REDCap project and username. This is usually found on the Applications &gt; API page.
-For example:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;D19859823032SFDMR24395298&#39;</span>
-</pre></div>
-</div>
-</dd>
-<dt><strong>url</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first">The URL of the REDCap project.
-For example:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://redcap.prc.utexas.edu/redcap/api/&#39;</span><span class="o">.</span>
-</pre></div>
-</div>
-</dd>
-<dt><strong>content</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {report, file, raw, arm, instrument, returnFormat, metadata, project, surveyLink, user, participantList}</span></dt>
-<dd><p class="first last">Type of export. Examples include exporting a report (<cite>report</cite>), file (<cite>file</cite>), or project info (<cite>project</cite>).</p>
-</dd>
-<dt><strong>payload_</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
-<dd><p class="first last">Manually submit parameters for exporting or importing data. Can be entered within the function for convenience.</p>
-</dd>
-<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
-<dd><p class="first">Additional properties, relevent for specific content types. Here’s a list of available properties:</p>
-<table border="1" class="colwidths-given kwargs last docutils">
-<colgroup>
-<col width="33%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><strong>report_id</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
-<td>(report, record) The report ID number provided next to the report name on the report list page.</td>
-</tr>
-<tr class="row-odd"><td><strong>cformat</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {csv, json, xml, odm}</td>
-<td>Format to return data, either csv, json, xml, or odm. Default is json.</td>
-</tr>
-<tr class="row-even"><td><strong>ctype</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
-<td>Shape of data. Default is flat.</td>
-</tr>
-<tr class="row-odd"><td><strong>rawOrLabel</strong>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {raw, label}</td>
-<td>(report, record) TExport the raw coded values or labels for the options of multiple choice fields.</td>
-</tr>
-<tr class="row-even"><td><strong>rawOrLabelHeaders</strong>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
-<td>(report, record) TExport the variable/field names (raw) or the field labels (label).</td>
-</tr>
-<tr class="row-odd"><td><strong>exportCheckboxLabel</strong>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
-<td>Specifies the format of checkbox field values specifically when exporting the data as labels (i.e., when rawOrLabel=label).</td>
-</tr>
-<tr class="row-even"><td><strong>returnFormat</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
-<td>Format to return errors. Default is <cite>json</cite>.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>log</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
-<dd><p class="first last">Pandas dataframe of each download request.</p>
-</dd>
-<dt><strong>content</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
-<dd><p class="first last">Pandas dataframe of all data downloaded.</p>
-</dd>
-<dt><strong>start, end</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Timestamp (ISO format) and name of most recent (<cite>end</cite>) and first (<cite>start</cite>) file created in folder.</p>
-</dd>
-<dt><strong>now</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Current timestamp in ISO format.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="imhr.download.Download.SFTP">
-<em class="property">classmethod </em><code class="descname">SFTP</code><span class="sig-paren">(</span><em>source</em>, <em>destination</em>, <em>hostname</em>, <em>username</em>, <em>password</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/download.html#Download.SFTP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.download.Download.SFTP" title="Permalink to this definition">¶</a></dt>
-<dd><p>Connect to a remote server using a Secure File Transfer Protocol (SFTP).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">The directory path to retrieve paticipant data.</p>
-</dd>
-<dt><strong>destination</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">The directory path to save paticipant data.</p>
-</dd>
-<dt><strong>hostname</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">SFTP hostname.</p>
-</dd>
-<dt><strong>username</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">SFTP username.</p>
-</dd>
-<dt><strong>password</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">SFTP password.</p>
-</dd>
-<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
-<dd><p class="first">Additional properties, relevent for specific content types. Here’s a list of available properties:</p>
-<table border="1" class="colwidths-given kwargs last docutils">
-<colgroup>
-<col width="33%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><strong>filetype</strong> : :<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
-<td>Filetype to download. Default is csv.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>log</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
-<dd><p class="first last">Pandas dataframe of each download request.</p>
-</dd>
-<dt><strong>content</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
-<dd><p class="first last">Pandas dataframe of all files downloaded.</p>
-</dd>
-<dt><strong>start, end</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Timestamp (ISO format) and name of most recent (<cite>end</cite>) and first (<cite>start</cite>) file created in folder.</p>
-</dd>
-<dt><strong>now</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Current timestamp in ISO format.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;r33&#39;</span><span class="p">;</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;/home/utweb/utw1211/public_html/r33&#39;</span><span class="p">;</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;/Users/mdl/Desktop/r33/&#39;</span><span class="p">;</span> <span class="n">un</span><span class="o">=</span><span class="s1">&#39;utw1211&#39;</span><span class="p">;</span> <span class="n">pwd</span><span class="o">=</span><span class="s1">&#39;43#!9amZ?K$&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">download</span><span class="o">.</span><span class="n">SFTP</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">un</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pwd</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="imhr.download.Download.box">
-<em class="property">classmethod </em><code class="descname">box</code><span class="sig-paren">(</span><em>source</em>, <em>destination</em>, <em>server</em>, <em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/download.html#Download.box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.download.Download.box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">The remoate path on box to retrieve data.</p>
-</dd>
-<dt><strong>destination</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">The local path to download data.</p>
-</dd>
-<dt><strong>server</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Name of box server.</p>
-</dd>
-<dt><strong>username</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Box account email address.</p>
-</dd>
-<dt><strong>password</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
-<dd><p class="first last">Box account password.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<ul class="simple">
-<li>The username and password must be seperate from your ‘Secure Sign On’ associated with your UT login.</li>
-<li>box only allows connections via FTPS for downloading and uploading data.</li>
-<li>For more information: <a class="reference external" href="https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050">https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050</a></li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 
 
@@ -507,7 +289,7 @@ For example:</p>
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-20T18:33:30-05:00.</div>
+			<div>Updated 2019-05-23T18:08:55-05:00.</div>
 		</div>
 	</div>
 </footer>

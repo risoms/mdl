@@ -26,23 +26,24 @@ try:
 	import numpy as np
 	import random
 	# plot
-	from PIL import Image
+	from PIL import Image, ImageOps
 	import matplotlib
-	matplotlib.use('Agg')
+	#matplotlib.use('Agg')
 	import matplotlib.pyplot as plt
-	import matplotlib.patches as patches	
+	import matplotlib.patches as patches
 	# import photoshop
-	import psd_tools	
+	import psd_tools
 	# math
 	import cv2	
 except ImportError as e:
 	pkg = e.name
 	x = {'cv2':'opencv-python', 'psd_tools':'psd-tools'}
 	pkg = x[pkg] if pkg in x else pkg
-	raise Exception("No module named '%s'. Please install from PyPI before contiuing."%(pkg),'red')
+	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg),'red')
 
 class ROI():
 	"""Generate regions of interest that can be used for data processing and analysis."""
+	@classmethod
 	def __init__(self, isMultiprocessing=False, detection='manual', image_path=None, output_path=None, metadata_source=None, 
 			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
 		"""Generate regions of interest that can be used for data processing and analysis.
@@ -112,6 +113,8 @@ class ROI():
 				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is :obj:`False.`
 				* - **save_raw_image** : :class:`bool`
 				  - Save images. Default is True.
+				* - **append_output_name** : :class:`bool` or :class:`str`
+				  - Add appending name to all exported files (i.e. <'top_center'> IMG001_top_center.ias). Default is False.
 				* - **save_contour_image** : :class:`bool`
 				  - Save generated contours as images. Default is :obj:`True`.
 				* - **delimiter** : :class:`str` {';' , ',' , '|' , 'tab' , 'space'}
@@ -173,18 +176,31 @@ class ROI():
 
 		Examples
 		--------
+
 		.. code-block:: python
 
 			>>> from imhr.roi import ROI
 			>>> s = "/dist/example/raw/"; d="/dist/example/"
 			>>> ROI(source=s, output_path=d, shape='box')
+	
+		.. code-block:: python
+			
+			>>> img.save('/Users/mdl-admin/Desktop/roi/PIL.png') #DEBUG: save PIL
+			>>> cv2.imwrite('/Users/mdl-admin/Desktop/roi/cv2.png', img_cv2) #DEBUG: save cv2
+			>>> plt.imshow(img_np); plt.savefig('/Users/mdl-admin/Desktop/roi/matplotlib.png') #DEBUG: save matplotlib
 
 		Notes
 		-----
 		Resources
-			- See https://docs.opencv.org/3.1.0/dd/d49/tutorial_py_contour_features.html for more information about each shape.
-			- See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html for more information about how images are drawn.
-			- See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html to understand how bounds are created.
+			* Guide
+				* https://docs.opencv.org/master/d4/d73/tutorial_py_contours_begin.html
+			* Details
+				* For more information about each shape:
+					* See https://docs.opencv.org/master/dd/d49/tutorial_py_contour_features.html 
+				* For more information how images are drawn:
+					* See https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html
+				* To understand how bounds are created:
+					* See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html
 		"""
 		# get console and time
 		self.console = settings.console
@@ -232,6 +248,8 @@ class ROI():
 		self.roicolumn = roicolumn
 		# add column
 		self.newcolumn = kwargs['newcolumn'] if 'newcolumn' in kwargs else None
+		# add appendix to name
+		self.append_output_name = kwargs['append_output_name'] if 'append_output_name' in kwargs else False
 		# save
 		self.save = {}
 		# save csv
@@ -242,12 +260,28 @@ class ROI():
 		self.save['raw'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
 
 		#-----matplotlib
-		self.dpi =  kwargs['dpi'] if 'dpi' in kwargs else 300
+		self.image_backend = kwargs['image_backend'] if 'image_backend' in kwargs else 'matplotlib'
+		# hide/show
 		self.remove_axis = kwargs['remove_axis'] if 'remove_axis' in kwargs else False
 		self.tight_layout = kwargs['tight_layout'] if 'tight_layout' in kwargs else False
 		self.set_size_inches = kwargs['set_size_inches'] if 'set_size_inches' in kwargs else False
-		self.image_backend = kwargs['image_backend'] if 'image_backend' in kwargs else 'matplotlib'
-		if self.remove_axis: plt.rcParams.update({'axes.titlesize':0, 'axes.labelsize':0, 'xtick.labelsize':0, 'ytick.labelsize':0, 'savefig.pad_inches':0, 'font.size': 0})
+		if self.remove_axis: plt.rcParams.update({'axes.titlesize':0, 'axes.labelsize':0, 'xtick.labelsize':0, 
+		'ytick.labelsize':0, 'savefig.pad_inches':0, 'font.size': 0})
+		# sizes
+		self.dpi = kwargs['dpi'] if 'dpi' in kwargs else 300
+		self.axis_tick_fontsize =  kwargs['axis_tick_fontsize'] if 'axis_tick_fontsize' in kwargs else 8
+		self.axis_title_fontsize =  kwargs['axis_title_fontsize'] if 'axis_title_fontsize' in kwargs else 10
+		self.figure_title_fontsize =  kwargs['figure_title_fontsize'] if 'figure_title_fontsize' in kwargs else 12
+		plt.rcParams.update({
+			#dpi
+			'figure.dpi': self.dpi,
+			#font
+			'ytick.labelsize': self.axis_tick_fontsize, 
+			'xtick.labelsize': self.axis_tick_fontsize,
+			'axes.titlesize': self.axis_title_fontsize,
+			'figure.titlesize': self.figure_title_fontsize
+		})
+
 		#-----classifiers
 		self.classifier = kwargs['classifier'] if 'classifier' in kwargs else 'frontalface_default'
 		self.classScaleFactor = kwargs['classScaleFactor'] if 'classScaleFactor' in kwargs else 1.1
@@ -268,8 +302,11 @@ class ROI():
 		}
 
 		#-----colors
-		self.color = ['#2179F1','#331AE5','#96E421','#C56D88','#61CAC5','#4980EC','#2E3400','#E0DB68','#C4EC5C','#D407D7','#FBB61B',
+		self.hex = ['#2179F1','#331AE5','#96E421','#C56D88','#61CAC5','#4980EC','#2E3400','#E0DB68','#C4EC5C','#D407D7','#FBB61B',
 		'#067E8B','#76A502','#0AD8AB','#EAF3BF','#D479FE','#3B62CD','#789BDD','#7F141E','#949CBE']
+		self.rgb = [(102,12,15),(153,3,8),(179,47,45),(229,28,35),(242,216,167),(255,255,153),(255,255,77),(242,132,68),(242,141,119),
+	    (150,217,184),(85,217,153),(16,187,111),(54,140,98),(96,154,191),(64,112,160),(33,150,243),(43,71,171),(165,140,255),
+		(217,35,237),(97,18,179)]
 
 		#----shape
 		# check if trying to do complex ROI using dataviewer
@@ -310,7 +347,8 @@ class ROI():
 			if self.metadata_all.empty:
 				raise Exception('No data for file: %s'%(self.metadata_source))
 
-	def extract_metadata(self, imagename, layer):
+	@classmethod
+	def extract_metadata(cls, imagename, layer):
 		"""Extract metadata for each region of interest.
 
 		Parameters
@@ -330,33 +368,34 @@ class ROI():
 
 		#----prepare metadata
 		# if metadata is stored in image files directly
-		if self.metadata_source == 'embedded':
-			metadata = pd.DataFrame(data=(item.split("=") for item in layer.name.split(self.delimiter)),columns=['key','value'])
+		if cls.metadata_source == 'embedded':
+			metadata = pd.DataFrame(data=(item.split("=") for item in layer.name.split(cls.delimiter)),columns=['key','value'])
 			metadata.set_index('key', inplace=True)
 			metadata.loc['name']['value'] = metadata.loc['name']['value'].replace("roi","")
 			roiname = metadata.loc['name']['value']
-			roilabel = metadata.loc[self.roicolumn]['value']
+			roilabel = metadata.loc[cls.roicolumn]['value']
 
 		# else read metadata from file
 		else:
 			# get metadata
 			roiname = layer.name.strip(' \t\n\r') # strip whitespace
-			metadata = self.metadata_all.loc[(self.metadata_all['image'] == imagename) & (self.metadata_all['roi'] == roiname)]
+			metadata = cls.metadata_all.loc[(cls.metadata_all['image'] == imagename) & (cls.metadata_all['roi'] == roiname)]
 			# if datafame empty
 			if metadata.empty:
 				message = 'No data for %s:%s (image:roi).'%(imagename, roiname)
 				raise Exception(message)
 			else:
-				roilabel = metadata[self.roicolumn].item()
+				roilabel = metadata[cls.roicolumn].item()
 
 		# print results
-		if self.isDebug:
-			self.console('## roiname: %s'%(roiname),'blue')
-			self.console('## roilabel: %s'%(roilabel),'green')
+		if cls.isDebug:
+			cls.console('## roiname: %s'%(roiname),'blue')
+			cls.console('## roilabel: %s'%(roilabel),'green')
 
 		return metadata, roiname
 
-	def format_image(self, psd=None, xcf=None, bitmap=None, isRaw=False):
+	@classmethod
+	def format_image(cls, psd=None, xcf=None, TIFF=None, bitmap=None, isRaw=False):
 		"""Resize image and reposition image, relative to screensize.
 
 		Parameters
@@ -364,6 +403,8 @@ class ROI():
 		psd : :obj:`None` or `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
 		xcf : :obj:`None` or ###, optional
+			[description], by default None
+		TIFF : :obj:`None` or ###, optional
 			[description], by default None
 		bitmap : :obj:`None` or ###, optional
 			[description], by default None
@@ -386,6 +427,8 @@ class ROI():
 			image = psd.topil()
 		elif xcf is not None:
 			image = psd.topil()
+		elif TIFF is not None:
+			image = psd.topil()
 		elif bitmap is not None:
 			image = psd.topil()
 
@@ -395,31 +438,34 @@ class ROI():
 			return image, imagesize
 		else:
 			## set background
-			screen_size = self.screensize
+			screen_size = cls.screensize
 			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
-			if self.isDebug: self.console('# export image','blue')
+			if cls.isDebug: cls.console('# export image','blue')
+
 			# if scale image
-			if self.scale != 1:
+			if cls.scale != 1:
 				old_imagesize = [image.size[0], image.size[1]]
-				imagesize = [int(image.size[0] * self.scale), int(image.size[1] * self.scale)]
-				image = image.resize(imagesize, Image.ANTIALIAS)
-				if self.isDebug:
-					self.console('image size: %s, scaled to: %s'%(old_imagesize, imagesize), 'green')
+				imagesize = [int(image.size[0] * cls.scale), int(image.size[1] * cls.scale)]
+				# image = image.resize(imagesize, Image.ANTIALIAS)
+				if cls.isDebug:
+					cls.console('image size: %s, scaled to: %s'%(old_imagesize, imagesize), 'green')
+				imagesize = [int(image.size[0]), int(image.size[1])]
+				if cls.isDebug: cls.console('image size: %s'%(imagesize))
 			# else unscaled
 			else:
 				imagesize = [int(image.size[0]), int(image.size[1])]
-				if self.isDebug: self.console('image size: %s'%(imagesize))
+				if cls.isDebug: cls.console('image size: %s'%(imagesize))
 
 			# if offsetting
-			if self.newoffset:
-				offset_center = self.recenter
+			if cls.newoffset:
+				offset_center = cls.recenter
 				# calculate upper-left coordinate for drawing into image
 				# x-bound <offset_x center> - <1/2 image_x width>
-				x = (offset_center[0]) - (imagesize[0]/2)
+				x = ((offset_center[0] * cls.scale) - (imagesize[0]/2))
 				# y-bound <offset_y center> - <1/2 image_y width>
-				y = (offset_center[1]) - (imagesize[1]/2)
+				y = (offset_center[1] * cls.scale) - (imagesize[1]/2)
 				left_xy = (int(x),int(y))
-				if self.isDebug: self.console('image centered at: %s'%(offset_center))
+				if cls.isDebug: cls.console('image centered at: %s'%(offset_center))
 			# else not offsetting
 			else:
 				# calculate upper-left coordinate for drawing into image
@@ -428,13 +474,15 @@ class ROI():
 				# y-bound <screen_y center> - <1/2 image_y width>
 				y = (screen_size[1]/2) - (imagesize[1]/2)
 				left_xy = (int(x),int(y))
+				if cls.isDebug: cls.console('image centered at: %s'%([screen_size[0]/2,screen_size[1]/2]))
 
 			# draw
 			background.paste(image, left_xy)
 
 			return background, imagesize
 
-	def extract_contours(self, image, imagename, roiname):
+	@classmethod
+	def extract_contours(cls, image, imagename, roiname):
 		"""[summary]
 
 		Parameters
@@ -458,41 +506,70 @@ class ROI():
 		Exception
 			[description]
 		"""
-		# convert pil image to grayscale (using pil)
-		#self.console('test4.0.5', 'red')
-		image = image.convert(mode='L')
+		def store(image, colors):
+			# post: prepare for export
+			img = Image.fromarray(image)
+			img = img.convert("RGBA")
+			pixdata = img.load() # allow PIL processing
+			width, height = img.size
+			color = random.choice(cls.rgb) # apply color to ROI
+			# store shape
+			for y in range(height):
+				for x in range(width):
+					# convert background to transparent
+					if pixdata[x, y] == (255, 255, 255, 255):
+						pixdata[x, y] = (255, 255, 255, 0)
+					# convert forground to color
+					elif pixdata[x, y] == (0, 0, 0, 255):
+						pixdata[x, y] = color
+						# store coordinates for ROI export (ias, xlsx)
+						coord.append([x,y])
+			# close editing PIL image
+			#img.close()
 
-		# convert to np.array
-		#self.console('test4.1.0', 'red')
-		image = np.array(image)
+			return coord, img
+
+		# convert pil image to grayscale (using PIL)
+		#image = image.convert(mode='L')
+		#imagesize = [image.size[0], image.size[1]]
+		## convert to np.array
+		#image = np.array(image)# image.shape: height x width x channel
 
 		# or convert pil image to grayscale (using cv2)
-		#self.console('test4.1.5', 'red')
-		#image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+		# paste image to white background, convert to RGB
+		size = image.size
+		image.load()
+		image_RGB = Image.new("RGB", size=size, color=(255, 255, 255))
+		image_RGB.paste(image, mask=image.split()[3])
+		## invert image
+		image_invert = ImageOps.invert(image_RGB)
+		## convert to numpy
+		image_np = np.array(image_invert)
+		## convert to greyscale
+		image_gray = cv2.cvtColor(image_np, cv2.COLOR_BGR2GRAY)
 
 		# if drawing in PSD files
-		if self.detection == 'manual':
-			if self.isDebug: self.console('manual ROI detection','blue')
+		if cls.detection == 'manual':
+			if cls.isDebug: cls.console('manual ROI detection','blue')
 			# threshold the image
 			## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
-			#self.console('test4.2', 'red')
-			retval, threshold = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+			_retval, threshold = cv2.threshold(src=image_gray, thresh=1, maxval=255, type=0)
 
-			# find contour in image
-			#self.console('test4.3', 'red')
+			# find contours in image
 			## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
-			contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+			contours, _hierarchy = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 			# if contours empty raise Exception
-			#self.console('test4.4', 'red')
 			if not bool(contours):
 				_err = [imagename, roiname, 'Not able to identify contours']
-				raise Exception('%s; %s; %s'%(_err[0],_err[1],_err[2]))
-		# if drawing in PSD files
+				message = '%s; %s; %s'%(_err[0],_err[1],_err[2])
+				raise Exception(message)
+		# else using haar cascades
+		##%!!! TODO: Finish haarcascades
 		else:
-			if self.isDebug: self.console('automatic ROI detection from haar cascades','blue')
+			if cls.isDebug: cls.console('automatic ROI detection from haar cascades','blue')
 			# load classifier
-			_classifer = self.default_classifiers[self.classifier]
+			_classifer = cls.default_classifiers[cls.classifier]
 			haar = cv2.CascadeClassifier(_classifer)
 			contours = haar.detectMultiScale(
 			    image,
@@ -506,109 +583,116 @@ class ROI():
 		#when saving the contours below, only one drawContours function from above can be run
 		#any other drawContours function will overlay on the others if multiple functions are run
 		#----param
-		color = (0, 255, 0)
-		#self.console('test4.5', 'red')
-
+		s_color = [(91,150,190,255), (247,222,168,255), (33,150,243,255), (229,28,35,255)]
+		image_blank = np.full_like(image_gray, 255) ## Return an array of x with the same shape and type as a given array.
+		coord = [] #store shape of each contour: approx polygon, circle, etc.
+		#breakpoint()
 		#----straight bounding box
-		if self.shape == 'straight':
-			# self.console('## roishape: straight bounding box','green')
-			self.shape_d = 'RECTANGLE' # dataviewer shape
-			# for each contour
-			for ind, itm in enumerate(contours):
-				cnt = contours[ind]
-				# get bounds
-				_x,_y,_w,_h = cv2.boundingRect(cnt)
-				# convert all coordinates floating point values to int
-				roi_bounds = np.int0(cv2.boxPoints(cv2.minAreaRect(cnt)))
-				#draw contours
-				roi_contours = cv2.rectangle(img=image, pt1=(_x,_y), pt2=(_x+_w,_y+_h), color=color, thickness=cv2.FILLED)
+		if cls.shape == 'straight':
+			# cls.console('## roishape: straight bounding box','green')
+			cls.shape_d = 'RECTANGLE' # dataviewer shape
+			# contour
+			cnt = contours[0]
+			# get bounds
+			_x,_y,_w,_h = cv2.boundingRect(cnt)
+			# convert all coordinates floating point values to int
+			roi_bounds = np.int0(cv2.boxPoints(cv2.minAreaRect(cnt)))
+			# draw an individual contour
+			cv2.rectangle(img=image_blank, pt1=(_x,_y), pt2=(_x+_w,_y+_h), color=(0,0,0), thickness=cv2.FILLED)
+			# create coords, prepare for visualization of ROIs
+			coord, image_contours = store(image_blank, s_color)
 			# create bounds
 			_bounds = roi_bounds
 			# create contours
-			_contours = sum([roi_contours])
+			_contours = image_contours
 
 		#----rotated bounding box
-		elif self.shape == 'rotate':
-			# self.console('## roishape: rotated bounding box','green')
-			self.shape_d = 'FREEHAND' # dataviewer shape
-			# for each contour
-			for ind, itm in enumerate(contours):
-				cnt = contours[ind]
-				# get bounds
-				rect = cv2.minAreaRect(cnt)
-				roi_bounds = cv2.boxPoints(rect)
-				# convert all coordinates floating point values to int
-				roi_bounds = np.int0(roi_bounds)
-				#draw contours
-				roi_contours = cv2.drawContours(image=image, contours=[roi_bounds], contourIdx=0, color=color, thickness=cv2.FILLED)
+		elif cls.shape == 'rotate':
+			# cls.console('## roishape: rotated bounding box','green')
+			cls.shape_d = 'FREEHAND' # dataviewer shape
+			# contour
+			cnt = contours[0]
+			# get bounds
+			rect = cv2.minAreaRect(cnt)
+			roi_bounds = cv2.boxPoints(rect)
+			# convert all coordinates floating point values to int
+			roi_bounds = np.int0(roi_bounds)
+			# draw an individual contour
+			cv2.drawContours(image=image_blank, contours=[roi_bounds], contourIdx=-1, color=(0,0,0), thickness=cv2.FILLED)
+			# create coords, prepare for visualization of ROIs
+			coord, image_contours = store(image_blank, s_color)
 			# create bounds
 			_bounds = roi_bounds
 			# create contours
-			_contours = sum([roi_contours])
+			_contours = image_contours
 
 		#----circle enclosing
-		elif self.shape == 'circle':
-			# self.console('## roishape: bounding circle','green')
-			self.shape_d = 'ELLIPSE' # dataviewer shape
-			# for each contour
-			for ind, itm in enumerate(contours):
-				cnt = contours[ind]
-				# get minimal enclosing circle
-				(_x,_y),_r = cv2.minEnclosingCircle(cnt)
-				# convert all coordinates floating point values to int
-				roi_bounds = np.int0(cv2.boxPoints(cv2.minAreaRect(cnt)))
-				#get center and radius of circle
-				center = (int(_x),int(_y))
-				radius = int(_r)
-				#draw contours
-				roi_contours = cv2.circle(img=image, center=center, radius=radius, color=color, thickness=cv2.FILLED)
+		elif cls.shape == 'circle':
+			# cls.console('## roishape: bounding circle','green')
+			cls.shape_d = 'ELLIPSE' # dataviewer shape
+			# contour
+			cnt = contours[0]
+			# get minimal enclosing circle
+			(_x,_y),_r = cv2.minEnclosingCircle(cnt)
+			# convert all coordinates floating point values to int
+			roi_bounds = np.int0(cv2.boxPoints(cv2.minAreaRect(cnt)))
+			# get center and radius of circle
+			center = (int(_x),int(_y))
+			radius = int(_r)
+			# draw an individual contour
+			cv2.circle(img=image_blank, center=center, radius=radius, color=(0,0,0), thickness=cv2.FILLED)
+			# create coords, prepare for visualization of ROIs
+			coord, image_contours = store(image_blank, s_color)
 			# create bounds
 			_bounds = roi_bounds
 			# create contours
-			_contours = sum([roi_contours])
+			_contours = image_contours
 
 		#----Contour Approximation
-		elif self.shape == 'polygon':
-			# self.console('## roishape: approximate polygon','green')
-			self.shape_d = 'FREEHAND' # dataviewer shape
-			# for each contour
-			for ind, itm in enumerate(contours):
-				cnt = contours[ind]
-				epsilon = 0.01 * cv2.arcLength(cnt, True)
-				# get approx polygons
-				roi_bounds = cv2.approxPolyDP(cnt, epsilon, True)
-				# draw approx polygons
-				roi_contours = cv2.drawContours(image=image, contours=[roi_bounds], contourIdx=-1 ,color=color, thickness=cv2.FILLED)
+		elif cls.shape == 'polygon':
+			# cls.console('## roishape: approximate polygon','green')
+			cls.shape_d = 'FREEHAND' # dataviewer shape
+			# contour
+			cnt = contours[0]
+			_epsilon = 0.01 * cv2.arcLength(cnt, True)
+			# get approx polygons
+			polygon = cv2.approxPolyDP(curve=cnt, epsilon=_epsilon, closed=True)
+			# draw approx polygons
+			cv2.drawContours(image=image_blank, contours=[polygon],  contourIdx=-1, color=(0,0,0), thickness=cv2.FILLED)
+			# create coords, prepare for visualization of ROIs
+			coord, image_contours = store(image_blank, s_color)
 			# create bounds
-			_bounds = roi_bounds[:,0,:]
+			_bounds = polygon[:,0,:]
 			# create contours
-			_contours = sum([roi_contours])
+			_contours = image_contours
 
 		#----convex hull
-		elif self.shape == 'hull':
-			# self.console('## roishape: hull','green')
-			self.shape_d = 'FREEHAND' # dataviewer shape
-			# for each contour
-			for ind, itm in enumerate(contours):
-				cnt = contours[ind]
-				# get convex hull
-				roi_bounds = cv2.convexHull(itm)
-				# draw hull
-				roi_contours = cv2.drawContours(image=image,contours=[roi_bounds], contourIdx=-1, color=color, thickness=cv2.FILLED)
+		elif cls.shape == 'hull':
+			# cls.console('## roishape: hull','green')
+			cls.shape_d = 'FREEHAND' # dataviewer shape
+			# contour
+			cnt = contours[0]
+			# get convex hull
+			hull = cv2.convexHull(cnt)
+			# draw hull
+			cv2.drawContours(image=image_blank, contours=[hull], contourIdx=-1, color=(0,0,0), thickness=cv2.FILLED)
+			# create coords, prepare for visualization of ROIs
+			coord, image_contours = store(image_blank, s_color)
 			# create bounds
-			_bounds = roi_bounds[:,0,:]
+			_bounds = hull[:,0,:]
 			# create contours
-			_contours = sum([roi_contours])
+			_contours = image_contours
 
 		#----no shape chosen
 		else:
 			raise Exception('Please select either straight, rotate, circle, polygon, box, or hull shape.')
 
-		#self.console('test4.6', 'red')
+		#cls.console('test4.6', 'red')
 
-		return _bounds, _contours
+		return _bounds, _contours, coord
 
-	def format_contours(self, imagename, metadata, roiname, roinumber, bounds_, contours_):
+	@classmethod
+	def format_contours(cls, imagename, metadata, roiname, roinumber, bounds_, contours_):
 		"""[summary]
 
 		Parameters
@@ -648,7 +732,7 @@ class ROI():
 		_y = _bounds[1].unique().tolist()
 
 		# check if bounding box has two x and y coordinate pairs
-		if (((len(_x) == 1) or (len(_y) == 1)) and self.shape == 'straight'):
+		if (((len(_x) == 1) or (len(_y) == 1)) and cls.shape == 'straight'):
 			raise Exception ("Error creating bounding box for image:roi %s:%s."%(imagename, roiname))
 
 		# set as df
@@ -661,7 +745,7 @@ class ROI():
 		bounds['image'] = imagename
 		bounds['roi'] = roiname
 		bounds['id'] = roinumber
-		bounds['shape_d'] = self.shape_d
+		bounds['shape_d'] = cls.shape_d
 
 		# clean-up
 		## convert to int
@@ -670,7 +754,7 @@ class ROI():
 		#----save image:roi level image bounds and con
 		#----save roi contours
 		#!! get working: draw exact contours as coordinates
-		if self.save['contours']:
+		if cls.save['contours']:
 			contours = contours_
 		# combine metadata with coordinates
 		##!!! get working
@@ -683,7 +767,8 @@ class ROI():
 		# finish
 		return bounds, contours
 
-	def draw_contours(self, filepath, data, fig, source='bounds'):
+	@classmethod
+	def draw_contours(cls, filepath, data=None, ax=None, img=None, source='bounds'):
 		"""[summary]
 
 		Parameters
@@ -697,13 +782,8 @@ class ROI():
 		source : str, optional
 			[description], by default 'bounds'
 		"""
-		# get current axis
-		ax = fig.gca()
-		if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-		if self.tight_layout: plt.tight_layout()
-		if self.remove_axis: fig.tight_layout(pad=0); ax.set_position([0, 0, 1, 1], which='both')
 		## create blank image and draw to figure
-		_img = Image.new("RGBA", (self.screensize[0], self.screensize[1]), (0, 0, 0, 0))
+		_img = Image.new("RGBA", (cls.screensize[0], cls.screensize[1]), (0, 0, 0, 0))
 
 		## for each bound draw on figure
 		if source=="bounds":
@@ -716,27 +796,30 @@ class ROI():
 			y1 = data['y1'].item()
 			_width = x1 - x0
 			_height = y1 - y0
-			_color = random.choice(self.color)
+			_color = random.choice(cls.rgb)
 			ax.add_patch(patches.Rectangle((x0, y0), _width, _height, color=_color, alpha=0.5))
 			## check folder
 			filepath_ = Path(filepath).parent
 			if not os.path.exists(filepath_):
 				os.makedirs(filepath_)
 			## save
-			if self.isDebug: self.console('## image saved @: %s'%(filepath),'blue')
+			if cls.isDebug: cls.console('## image saved @: %s'%(filepath),'blue')
 		## for each contour draw on figure
 		elif source=="contours":
-			#for _contours in data:
-			contours = cv2.cvtColor(data, cv2.COLOR_GRAY2RGB)
-			plt.imshow(contours, zorder=1, interpolation='bilinear')
+			img_np = np.array(img) #convert pil to np
+			img_cv2 = cv2.cvtColor(img_np, cv2.COLOR_BGRA2RGBA) #read np as cv2 then convert to rgb
+			img.save('/Users/mdl-admin/Desktop/roi/PIL.png') #DEBUG: save PIL
+			cv2.imwrite('/Users/mdl-admin/Desktop/roi/cv2.png', img_cv2) #DEBUG: save cv2
+			plt.imshow(img_np); plt.savefig('/Users/mdl-admin/Desktop/roi/matplotlib.png') #DEBUG: save matplotlib
 			## check folder
 			filepath_ = Path(filepath).parent
 			if not os.path.exists(filepath_):
 				os.makedirs(filepath_)
 			## save
-			if self.isDebug: self.console('## image saved @: %s'%(filepath),'blue')
+			if cls.isDebug: cls.console('## image saved @: %s'%(filepath),'blue')
 
-	def export_data(self, df, path, filename, uuid=None, newcolumn=None, level='image'):
+	@classmethod
+	def export_data(cls, df, path, filename, uuid=None, newcolumn=None, level='image'):
 		"""[summary]
 
 		Parameters
@@ -771,7 +854,7 @@ class ROI():
 				uuid_column = 'uuid'
 			# else simply use roiname
 			else:
-				uuid_column = self.roicolumn
+				uuid_column = cls.roicolumn
 
 		#else if workng with all images
 		elif level == 'all':
@@ -780,25 +863,34 @@ class ROI():
 				uuid_column = 'uuid'
 			# else simply use roiname
 			else:
-				uuid_column = self.roicolumn
+				uuid_column = cls.roicolumn
 
 		# check if folder exists
 		if not os.path.exists(path):
 			os.makedirs(path)
 
 		# export to excel
-		if ((self.roi_format == 'raw') or (self.roi_format == 'both')):
-			filepath = Path("%s/%s.xlsx"%(path, filename))
+		if ((cls.roi_format == 'raw') or (cls.roi_format == 'both')):
+			#if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path("%s/%s_%s.xlsx"%(path, filename, cls.append_output_name))
+			else:
+				filepath = Path("%s/%s.xlsx"%(path, filename))
+			#save
 			df.to_excel("%s"%(filepath), index=False)
 
 			# if debug
-			if self.isDebug: self.console("## raw data saved @: %s"%(filepath),'green')
+			if cls.isDebug: cls.console("## raw data saved @: %s"%(filepath),'green')
 
 		# export to ias (dataviewer)
-		if ((self.roi_format == 'dataviewer') or (self.roi_format == 'both')):
-			filepath = Path("%s/%s.ias"%(path, filename))
+		if ((cls.roi_format == 'dataviewer') or (cls.roi_format == 'both')):
+			#if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path("%s/%s_%s.ias"%(path, filename, cls.append_output_name))
+			else:
+				filepath = Path("%s/%s.ias"%(path, filename))
 			_bounds = '\n'.join(map(str, [
-				"# EyeLink Interest Area Set created on %s."%(self.now()),
+				"# EyeLink Interest Area Set created on %s."%(cls.now()),
 				"# Interest area set file using imhr.eyetracking.ROI()",
 				"# columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label",
 				"# example: RECTANGLE 1 350 172 627 286 leftcheek",
@@ -814,11 +906,12 @@ class ROI():
 				file.write(_bounds)
 
 			# if debug
-			if self.isDebug: self.console("## dataviewer data saved @: %s"%(filepath),'green')
+			if cls.isDebug: cls.console("## dataviewer data saved @: %s"%(filepath),'green')
 
 		return df
 
-	def run(self, directory, core=0, queue=None):
+	@classmethod
+	def run(cls, directory, core=0, queue=None):
 		"""[summary]
 
 		Parameters
@@ -842,15 +935,16 @@ class ROI():
 		l_error = []
 
 		#!!!----for each image
-		self.console('starting()','purple')
-		if self.isDebug: self.console('for each image','purple')
+		cls.console('starting()','purple')
+		if cls.isDebug: cls.console('for each image','purple')
 		for file in directory:
 			# console
-			if self.isDebug and self.isMultiprocessing: self.console('core: %s'%(core),'orange')
+			if cls.isDebug and cls.isMultiprocessing: cls.console('core: %s'%(core),'orange')
 			# defaults
 			psd=None
-			xcf=None
-			bitmap=None
+			xcf=None #%%!!! TODO: get working
+			TIFF=None #%%!!! TODO: get working
+			bitmap=None #%%!!! TODO: get working
 
 			# read image
 			ext = (Path(file).suffix).lower()
@@ -858,19 +952,24 @@ class ROI():
 			if ext == '.psd':
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
-				if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
-			## else if xcf (GIMP)
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
+			## else if xcf (GIMP) #%%!!! TODO: get working
 			elif ext == '.xcf':
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
-				if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
-			## else if bitmap
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
+			## else if TIFF (multiple layers) #%%!!! TODO: get working
+			elif ext == '.TIFF':
+				psd = psd_tools.PSDImage.open(file)
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
+			## else if bitmap #%%!!! TODO: get working
 			elif ext in ['.bmp','.jpeg','.jpg','.png']:
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
-				if self.isDebug: self.console('\n# file: %s'%(imagename),'blue')
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
 			else:
-				error = "Image format not valid. Acceptable image formats are: psd (photoshop), xcf (gimp), or png/bmp/jpg (bitmap)."
+				error = "Image format not valid. Acceptable image formats are: psd (photoshop), xcf (gimp), TIFF (multiple layers), or png/bmp/jpg (bitmap)."
 				raise Exception(error)
 
 			# clear lists
@@ -879,102 +978,121 @@ class ROI():
 
 			#!!!----for each image, save image file
 			# raw image
-			image, imagesize = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap, isRaw=True)
+			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, TIFF=TIFF, bitmap=bitmap, isRaw=True)
 			## check folder
-			_folder = '%s/img/raw/'%(self.output_path)
+			_folder = '%s/img/raw/'%(cls.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
+			## if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path("%s/%s_%s.png"%(_folder, imagename, cls.append_output_name))
+			else:
+				filepath = '%s/%s.png'%(_folder, imagename)
 			## save raw
-			filepath = '%s/%s.png'%(_folder, imagename)
-			if self.image_backend == 'PIL':
+			if cls.image_backend == 'PIL':
 				image.save(filepath)
 			else:
 				fig = plt.figure()
-				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-				if self.tight_layout: plt.tight_layout()
+				if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+				if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if cls.tight_layout: plt.tight_layout()
 				plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+				plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
 				plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)
-			image, imagesize = self.format_image(psd=psd, xcf=xcf, bitmap=bitmap)
+			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, TIFF=TIFF, bitmap=bitmap) #%%!!! TODO: get working
 			## check folder
-			_folder = '%s/img/preprocessed/'%(self.output_path)
+			_folder = '%s/img/preprocessed/'%(cls.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
-			## save preprocessed
-			filepath = '%s/%s.png'%(_folder, imagename)
-			if self.image_backend == 'PIL':
+			## if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path("%s/%s_%s.png"%(_folder, imagename, cls.append_output_name))
+			else:
+				filepath = '%s/%s.png'%(_folder, imagename)
+			## save raw
+			if cls.image_backend == 'PIL':
 				image.save(filepath)
 			else:
 				fig = plt.figure()
-				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-				if self.tight_layout: plt.tight_layout()
+				if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+				if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if cls.tight_layout: plt.tight_layout()
 				plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
-				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+				plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
 				plt.close(fig)
 
 			#!!!----for each region of interest
 			## counter
 			roinumber = 1
-
 			## check path
-			_folderpath = '%s/img/bounds/roi/'%(self.output_path)
+			_folderpath = '%s/img/bounds/roi/'%(cls.output_path)
 			if not os.path.exists(_folderpath):
 				os.makedirs(_folderpath)
-			## run
+			## for each layer in psd (if using psd)
+			#!!! TODO: get working for other image types (xcf, TIFF, bitmap)
 			for layer in psd:
 				# skip if layer is main image
 				if Path(layer.name).stem == imagename:
 					continue
 				else:
 					#. Extract metadata for each region of interest.
-					metadata, roiname = self.extract_metadata(imagename=imagename, layer=layer)
+					metadata, roiname = cls.extract_metadata(imagename=imagename, layer=layer)
 
-					#. Resize image and reposition image, relative to screensize.
-					image, imagesize = self.format_image(psd=layer, xcf=xcf, bitmap=bitmap)
+					#. Resize PIL image and reposition image, relative to screensize.
+					image, imagesize = cls.format_image(psd=layer, xcf=xcf, TIFF=TIFF, bitmap=bitmap)
 
-					#. Extract contours from np.array of image.
-					try:
-						bounds_, contours_ = self.extract_contours(image=image, imagename=imagename, roiname=roiname)
-					except:
-						break
+					#. Extract cv2 bounds, contours, and coordinates from np.array(image).
+					bounds_, contours_, coord = cls.extract_contours(image=image, imagename=imagename, roiname=roiname)
 
 					#. Format contours as Dataframe, for exporting to xlsx or ias.
-					bounds, contours = self.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, roinumber=roinumber, bounds_=bounds_, contours_=contours_)
-
+					bounds, contours = cls.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, roinumber=roinumber,
+															bounds_=bounds_, contours_=contours_)
 					#. Draw bounds or contours.
 					## draw bounds
-					if self.shape == 'straight':
-						## img path
-						filepath = '%s/img/bounds/roi/%s.%s.png'%(self.output_path, imagename, roiname)
-						# save image
-						if self.image_backend == 'PIL':
+					if cls.shape == 'straight':
+						## if append_output_name
+						if not (cls.append_output_name is False):
+							filepath = '%s/img/bounds/roi/%s.%s_%s.png'%(cls.output_path, imagename, roiname, cls.append_output_name)
+						else:
+							filepath = '%s/img/bounds/roi/%s.%s.png'%(cls.output_path, imagename, roiname)
+						## save image
+						if cls.image_backend == 'PIL':
 							image.save(filepath)
 						else:
 							fig = plt.figure()
-							if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-							if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-							if self.tight_layout: plt.tight_layout()
-							self.draw_contours(filepath=filepath, data=bounds, source='bounds', fig=fig)
-							plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+							ax = fig.gca()
+							if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+							if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+							if cls.tight_layout: plt.tight_layout()
+							cls.draw_contours(filepath=filepath, data=bounds, source='bounds', ax=ax)
+							plt.title('Region of Interest')
+							plt.ylabel('Screen Y (pixels)')
+							plt.xlabel('Screen X (pixels)')
+							plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
 							plt.close(fig)
 					## draw contours
 					else:
-						## img path
-						filepath = '%s/img/bounds/roi/%s.%s.png'%(self.output_path, imagename, roiname)
-						# save image
-						if self.image_backend == 'PIL':
-							image.save(filepath)
-						else:				
+						## if append_output_name
+						if not (cls.append_output_name is False):
+							filepath = '%s/img/bounds/roi/%s.%s_%s.png'%(cls.output_path, imagename, roiname, cls.append_output_name)
+						else:
+							filepath = '%s/img/bounds/roi/%s.%s.png'%(cls.output_path, imagename, roiname)
+						## save image
+						if cls.image_backend == 'PIL':
+							contours.save(filepath)
+						else:
 							fig = plt.figure()
-							if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-							if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-							if self.tight_layout: plt.tight_layout()
-							self.draw_contours(filepath=filepath, data=contours, source='contours', fig=fig)
-							plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
+							ax = fig.gca()
+							if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+							if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+							if cls.tight_layout: plt.tight_layout()
+							cls.draw_contours(filepath=filepath, img=contours, source='contours', ax=ax)
+							plt.title('Region of Interest')
+							plt.ylabel('Screen Y (pixels)')
+							plt.xlabel('Screen X (pixels)')
+							plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
 							plt.close(fig)
 
 					#. store processed bounds and contours to combine across image
@@ -986,38 +1104,65 @@ class ROI():
 
 			#!!!----for each image
 			# draw bounds
-			if self.shape == 'straight':
-				## img path
-				filepath = '%s/img/bounds/%s.png'%(self.output_path, imagename)
-				fig = plt.figure()
-				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-				if self.tight_layout: plt.tight_layout()
-				[self.draw_contours(filepath=filepath, data=b, source='bounds', fig=fig) for b in l_bounds]
-				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
-				plt.close(fig)
+			if cls.shape == 'straight':
+				## if append_output_name
+				if not (cls.append_output_name is False):
+					filepath = Path('%s/img/bounds/%s_%s.png'%(cls.output_path, imagename, cls.append_output_name))
+				else:
+					filepath = '%s/img/bounds/%s.png'%(cls.output_path, imagename)
+				## save image
+				if cls.image_backend == 'PIL':
+					img_ = Image.new('RGBA', l_contours[0].size)
+					for c in l_contours:
+						img_ = Image.blend(img_, c, .5)
+					img_.save(filepath)
+				else:
+					fig = plt.figure(); ax = fig.gca()
+					if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+					if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+					if cls.tight_layout: plt.tight_layout()
+					[cls.draw_contours(filepath=filepath, data=b, source='bounds', ax=ax) for b in l_bounds]
+					plt.title('Region of Interest')
+					plt.ylabel('Screen Y (pixels)')
+					plt.xlabel('Screen X (pixels)')
+					plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
+					plt.close(fig)
 			# draw contours
 			else:
 				## img path
-				filepath = '%s/img/bounds/%s.png'%(self.output_path, imagename)
-				fig = plt.figure()
-				if self.set_size_inches is not None: fig.set_size_inches(self.screensize[0]/self.dpi, self.screensize[1]/self.dpi)
-				if self.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-				if self.tight_layout: plt.tight_layout()
-				[self.draw_contours(filepath=filepath, data=c, source='contours', fig=fig) for c in l_contours]
-				plt.savefig(filepath, dpi=self.dpi, bbox_inches='tight')
-				plt.close(fig)
+				### if append_output_name
+				if not (cls.append_output_name is False):
+					filepath = Path('%s/img/bounds/%s_%s.png'%(cls.output_path, imagename, cls.append_output_name))
+				else:
+					filepath = '%s/img/bounds/%s.png'%(cls.output_path, imagename)
+				## save image
+				if cls.image_backend == 'PIL':
+					img_ = Image.new('RGBA', l_contours[0].size)
+					for c in l_contours:
+						img_ = Image.blend(img_, c, .5)
+					img_.save(filepath)
+				else:
+					fig = plt.figure(); ax = fig.gca()
+					if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+					if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+					if cls.tight_layout: plt.tight_layout()
+					[cls.draw_contours(filepath=filepath, img=cnt, source='contours', ax=ax) for cnt in l_contours]
+					plt.title('Region of Interest')
+					plt.ylabel('Screen Y (pixels)')
+					plt.xlabel('Screen X (pixels)')
+					plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
+					plt.close(fig)
 
-			# concatinate and store bounds for all rois
+			# concatenate and store bounds for all rois
 			df = pd.concat(l_bounds)
 			l_bounds_all.append(df)
 
 			# export data
 			_filename = "%s_bounds"%(imagename)
-			_folder = '%s/data/'%(self.output_path)
+			_folder = '%s/data/'%(cls.output_path)
 			if not os.path.exists(_folder):
 				os.makedirs(_folder)
-			df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, newcolumn=self.newcolumn, level='image')
+			df = cls.export_data(df=df, path=_folder, filename=_filename, uuid=cls.uuid, newcolumn=cls.newcolumn, level='image')
 
 			# contours
 			##!!! create roi file for complex shapes (not with dataviewer)
@@ -1025,14 +1170,15 @@ class ROI():
 		#!!!----finished for all images
 		# store
 		## if multiprocessing, store in queue
-		if self.isMultiprocessing:
+		if cls.isMultiprocessing:
 			queue.put(l_bounds_all)
 			pass
 		# if not multiprocessing, return
 		else:
 			return l_bounds_all, l_contours_all, l_error
 
-	def process(self):
+	@classmethod
+	def process(cls):
 		"""[summary]
 
 		Returns
@@ -1044,41 +1190,41 @@ class ROI():
 		df = ''
 
 		# if multiprocessing, get total cores
-		if self.isMultiprocessing:
+		if cls.isMultiprocessing:
 			import multiprocessing
 
 			#----get number of available cores
 			_max = multiprocessing.cpu_count() - 1
 
 			#---check if selected max or value above possible cores
-			if (self.cores == 'max') or (self.cores >= _max):
-				self.cores = _max
+			if (cls.cores == 'max') or (cls.cores >= _max):
+				cls.cores = _max
 			else:
-				self.cores = self.cores
+				cls.cores = cls.cores
 
 			#----double check multiproessing
 			# if requested cores is 0 or 1, run without multiprocessing
-			if ((self.cores == 0) or (self.cores == 1)):
-				self.isMultiprocessing = False
-				self.console('not multiprocessing', 'purple')
+			if ((cls.cores == 0) or (cls.cores == 1)):
+				cls.isMultiprocessing = False
+				cls.console('not multiprocessing', 'purple')
 			# split directory by number of cores
 			else:
-				self.isMultiprocessing = True
-				l_directory = np.array_split(self.directory, self.cores)
-				self.console('multiprocessing with %s cores'%(self.cores), 'purple')
+				cls.isMultiprocessing = True
+				l_directory = np.array_split(cls.directory, cls.cores)
+				cls.console('multiprocessing with %s cores'%(cls.cores), 'purple')
 
 		# not multiprocessing
 		else:
-			self.isMultiprocessing = False
-			self.console('not multiprocessing', 'purple')
+			cls.isMultiprocessing = False
+			cls.console('not multiprocessing', 'purple')
 
 		#----prepare to run
 		# if not multiprocessing
-		if not self.isMultiprocessing:
-			l_bounds_all, l_contours_all, l_error = self.run(self.directory)
+		if not cls.isMultiprocessing:
+			l_bounds_all, l_contours_all, l_error = cls.run(cls.directory)
 
 			# finish
-			df, error = self.finished(df=l_bounds_all)
+			df, error = cls.finished(df=l_bounds_all)
 
 		# else if multiprocessing
 		else:
@@ -1086,7 +1232,7 @@ class ROI():
 			queue = multiprocessing.Queue()
 
 			# prepare threads
-			process = [multiprocessing.Process(target=self.run, args=(l_directory[core].tolist(), core, queue,)) for core in range(self.cores)]
+			process = [multiprocessing.Process(target=cls.run, args=(l_directory[core].tolist(), core, queue,)) for core in range(cls.cores)]
 
             # start each thread
 			for p in process:
@@ -1104,12 +1250,13 @@ class ROI():
 				p.join()
 
 			#----after running
-			if self.isDebug: self.console('process() finished (multiprocessing)','purple')
-			df, error = self.finished(returns)
+			if cls.isDebug: cls.console('process() finished (multiprocessing)','purple')
+			df, error = cls.finished(returns)
 
 		return df, error
 
-	def finished(self, df, errors=None):
+	@classmethod
+	def finished(cls, df, errors=None):
 		"""
 		Process bounds for all images.
 
@@ -1121,8 +1268,8 @@ class ROI():
 			[description], by default None
 		"""
 		# if multiprocessing, combine df from each thread
-		if self.isMultiprocessing:
-			#concat data
+		if cls.isMultiprocessing:
+			#concatenate data
 			df = [i[0] for i in df if len(i) != 0] #check if lists are empty (i.e. if there are more threads than directories)
 			df = pd.concat(df)
 		# else combine lists of df to df
@@ -1131,21 +1278,21 @@ class ROI():
 
 		#!!!----combine all rois across images
 		# export to csv or dataviewer
-		_folder = '%s/'%(self.output_path)
+		_folder = '%s/'%(cls.output_path)
 		_filename = "bounds"
-		df = self.export_data(df=df, path=_folder, filename=_filename, uuid=self.uuid, level='all')
+		df = cls.export_data(df=df, path=_folder, filename=_filename, uuid=cls.uuid, level='all')
 
 		#!!!----error log
 		if bool(errors):
-			_filename = Path('%s/error.csv'%(self.output_path))
-			self.console("Errors found. See log %s"%(_filename), 'red')
+			_filename = Path('%s/error.csv'%(cls.output_path))
+			cls.console("Errors found. See log %s"%(_filename), 'red')
 			error = pd.DataFrame(errors, columns=['image','roi','message'])
 			error.to_csv(_filename, index=False)
 		else:
 			error = None
 
 		# finished
-		self.console('finished()','purple')
+		cls.console('finished()','purple')
 		return df, error
 
 # if calling from cmd/terminal

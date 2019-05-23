@@ -1,0 +1,2456 @@
+mdl/
+├── .spyproject/
+│   ├── codestyle.ini
+│   ├── encoding.ini
+│   ├── vcs.ini
+│   └── workspace.ini
+├── .travis.yml
+├── __pycache__/
+│   ├── setup.cpython-37.pyc
+│   └── versioneer.cpython-37.pyc
+├── bin/
+│   ├── .DS_Store
+│   ├── 0.versioneer.command
+│   ├── 1.requirements.command
+│   ├── 2.git.command
+│   ├── 3.archive.command
+│   ├── 4.virtualenv.command
+│   ├── 5.publish-pypi.command
+│   └── 6.publish-conda.command
+├── build/
+│   ├── .DS_Store
+│   ├── bdist.macosx-10.7-x86_64/
+│   └── lib/
+│       ├── .DS_Store
+│       └── imhr/
+│           ├── .DS_Store
+│           ├── __init__.py
+│           ├── _version.py
+│           ├── dist/
+│           │   ├── .DS_Store
+│           │   ├── audio/
+│           │   │   ├── error.wav
+│           │   │   ├── qbeep.wav
+│           │   │   └── type.wav
+│           │   ├── metadata.xlsx
+│           │   ├── pytest_requirements.txt
+│           │   ├── R/
+│           │   │   ├── .Rhistory
+│           │   │   ├── analysis.R
+│           │   │   ├── bias.R
+│           │   │   ├── bias_behavioral.R
+│           │   │   ├── bias_eyetracking.R
+│           │   │   ├── bias_summary.pdf
+│           │   │   ├── bias_summary_report.pdf
+│           │   │   ├── factor_analysis.pdf
+│           │   │   └── old/
+│           │   │       └── _summarize_bias.R
+│           │   ├── raw/
+│           │   │   ├── AM_201.psd
+│           │   │   ├── AM_203.psd
+│           │   │   └── AM_204.psd
+│           │   ├── requirements.txt
+│           │   └── resources/
+│           │       ├── Helvetica.ttf
+│           │       ├── nyas12705-sup-0001-text.docx
+│           │       ├── pylink_3.4-3.6_win.zip
+│           │       └── pylink_3.6_MacOSX_x64.zip
+│           ├── download.py
+│           ├── eyetracking/
+│           │   ├── __init__.py
+│           │   ├── _calibration.py
+│           │   ├── _eyelink.py
+│           │   ├── _roi.py
+│           │   └── pylink/
+│           │       └── __init__.py
+│           ├── lib/
+│           │   └── pipreqs/
+│           │       ├── __init__.py
+│           │       ├── mapping
+│           │       ├── pipreqs.py
+│           │       └── stdlib
+│           ├── plot.py
+│           ├── r33/
+│           │   ├── __init__.py
+│           │   ├── _classify.py
+│           │   ├── _metadata.py
+│           │   ├── _model.py
+│           │   ├── _nslr_hmm.py
+│           │   ├── _processing.py
+│           │   └── _settings.py
+│           ├── settings.py
+│           └── tests/
+│               ├── __init__.py
+│               ├── test_basic.py
+│               └── test_roi.py
+├── delete.py
+├── dist/
+│   ├── imhr-0.3.18-py2.py3-none-any.whl
+│   ├── imhr-0.3.18-py3.7.egg
+│   └── imhr-0.3.18.tar.gz
+├── docs/
+│   ├── .DS_Store
+│   ├── .nojekyll
+│   ├── apidoc.command
+│   ├── autobuild.command
+│   ├── autogen.command
+│   ├── build/
+│   │   ├── .buildinfo
+│   │   ├── .doctrees/
+│   │   │   ├── api/
+│   │   │   │   ├── imhr.doctree
+│   │   │   │   ├── imhr.download.doctree
+│   │   │   │   ├── imhr.eyetracking._calibration.doctree
+│   │   │   │   ├── imhr.eyetracking._eyelink.doctree
+│   │   │   │   ├── imhr.eyetracking._roi.doctree
+│   │   │   │   ├── imhr.eyetracking.doctree
+│   │   │   │   ├── imhr.plot.doctree
+│   │   │   │   ├── imhr.r33._classify.doctree
+│   │   │   │   ├── imhr.r33._metadata.doctree
+│   │   │   │   ├── imhr.r33._model.doctree
+│   │   │   │   ├── imhr.r33._nslr_hmm.doctree
+│   │   │   │   ├── imhr.r33._processing.doctree
+│   │   │   │   ├── imhr.r33._settings.doctree
+│   │   │   │   ├── imhr.r33.doctree
+│   │   │   │   ├── imhr.settings.doctree
+│   │   │   │   ├── imhr.tests.doctree
+│   │   │   │   ├── imhr.tests.test_basic.doctree
+│   │   │   │   ├── imhr.tests.test_roi.doctree
+│   │   │   │   ├── imhr.Webgazer.classify.doctree
+│   │   │   │   ├── imhr.Webgazer.doctree
+│   │   │   │   ├── imhr.Webgazer.download.doctree
+│   │   │   │   ├── imhr.Webgazer.metadata.doctree
+│   │   │   │   ├── imhr.Webgazer.model.doctree
+│   │   │   │   ├── imhr.Webgazer.nslr_hmm.doctree
+│   │   │   │   ├── imhr.Webgazer.plot.doctree
+│   │   │   │   ├── imhr.Webgazer.processing.doctree
+│   │   │   │   ├── imhr.Webgazer.raw.doctree
+│   │   │   │   ├── imhr.Webgazer.redcap.doctree
+│   │   │   │   ├── imhr.Webgazer.settings.doctree
+│   │   │   │   └── modules.doctree
+│   │   │   ├── dashboard.doctree
+│   │   │   ├── data/
+│   │   │   │   └── index.doctree
+│   │   │   ├── environment.pickle
+│   │   │   ├── examples/
+│   │   │   │   ├── analysis/
+│   │   │   │   │   ├── index.doctree
+│   │   │   │   │   ├── R33.doctree
+│   │   │   │   │   └── webgazer.doctree
+│   │   │   │   ├── eyetracking/
+│   │   │   │   │   └── demo/
+│   │   │   │   │       └── eyetracking_demo.doctree
+│   │   │   │   ├── index.doctree
+│   │   │   │   ├── R33/
+│   │   │   │   │   ├── create_plots.doctree
+│   │   │   │   │   ├── download_data.doctree
+│   │   │   │   │   ├── process_data.doctree
+│   │   │   │   │   ├── process_demographics.doctree
+│   │   │   │   │   └── run_models.doctree
+│   │   │   │   └── roi/
+│   │   │   │       ├── generate_roi.doctree
+│   │   │   │       ├── index.doctree
+│   │   │   │       ├── raw/
+│   │   │   │       │   ├── 1/
+│   │   │   │       │   │   └── README.doctree
+│   │   │   │       │   └── 2/
+│   │   │   │       │       └── README.doctree
+│   │   │   │       └── Untitled.doctree
+│   │   │   ├── features.doctree
+│   │   │   ├── index.doctree
+│   │   │   ├── install.doctree
+│   │   │   ├── intro.doctree
+│   │   │   ├── nbsphinx/
+│   │   │   │   ├── examples_roi_generate_roi_9_0.png
+│   │   │   │   ├── examples_roi_index_10_0.png
+│   │   │   │   ├── examples_roi_index_11_0.png
+│   │   │   │   ├── examples_roi_index_12_0.png
+│   │   │   │   └── examples_roi_index_9_0.png
+│   │   │   ├── studies/
+│   │   │   │   ├── index.doctree
+│   │   │   │   ├── R33/
+│   │   │   │   │   └── index.doctree
+│   │   │   │   └── Webgazer/
+│   │   │   │       └── index.doctree
+│   │   │   └── test.doctree
+│   │   ├── .DS_Store
+│   │   ├── .gitikeep
+│   │   ├── .nojekyll
+│   │   ├── _images/
+│   │   │   ├── examples_roi_index_10_0.png
+│   │   │   ├── examples_roi_index_11_0.png
+│   │   │   ├── examples_roi_index_12_0.png
+│   │   │   ├── examples_roi_index_9_0.png
+│   │   │   ├── roi.png
+│   │   │   └── roi_psd.png
+│   │   ├── _modules/
+│   │   │   ├── imhr/
+│   │   │   │   ├── download.html
+│   │   │   │   ├── eyetracking/
+│   │   │   │   │   ├── _calibration.html
+│   │   │   │   │   ├── _eyelink.html
+│   │   │   │   │   └── _roi.html
+│   │   │   │   ├── eyetracking.html
+│   │   │   │   ├── plot.html
+│   │   │   │   ├── r33/
+│   │   │   │   │   ├── _classify.html
+│   │   │   │   │   ├── _metadata.html
+│   │   │   │   │   ├── _model.html
+│   │   │   │   │   ├── _nslr_hmm.html
+│   │   │   │   │   ├── _processing.html
+│   │   │   │   │   └── _settings.html
+│   │   │   │   ├── r33.html
+│   │   │   │   ├── settings.html
+│   │   │   │   ├── tests/
+│   │   │   │   │   ├── test_basic.html
+│   │   │   │   │   └── test_roi.html
+│   │   │   │   ├── Webgazer/
+│   │   │   │   │   ├── classify.html
+│   │   │   │   │   ├── download.html
+│   │   │   │   │   ├── metadata.html
+│   │   │   │   │   ├── model.html
+│   │   │   │   │   ├── nslr_hmm.html
+│   │   │   │   │   ├── plot.html
+│   │   │   │   │   ├── processing.html
+│   │   │   │   │   ├── raw.html
+│   │   │   │   │   ├── redcap.html
+│   │   │   │   │   └── settings.html
+│   │   │   │   └── Webgazer.html
+│   │   │   ├── imhr.html
+│   │   │   └── index.html
+│   │   ├── _sources/
+│   │   │   ├── api/
+│   │   │   │   ├── imhr.download.rst.txt
+│   │   │   │   ├── imhr.eyetracking._calibration.rst.txt
+│   │   │   │   ├── imhr.eyetracking._eyelink.rst.txt
+│   │   │   │   ├── imhr.eyetracking._roi.rst.txt
+│   │   │   │   ├── imhr.eyetracking.rst.txt
+│   │   │   │   ├── imhr.plot.rst.txt
+│   │   │   │   ├── imhr.r33._classify.rst.txt
+│   │   │   │   ├── imhr.r33._metadata.rst.txt
+│   │   │   │   ├── imhr.r33._model.rst.txt
+│   │   │   │   ├── imhr.r33._nslr_hmm.rst.txt
+│   │   │   │   ├── imhr.r33._processing.rst.txt
+│   │   │   │   ├── imhr.r33._settings.rst.txt
+│   │   │   │   ├── imhr.r33.rst.txt
+│   │   │   │   ├── imhr.rst.txt
+│   │   │   │   ├── imhr.settings.rst.txt
+│   │   │   │   ├── imhr.tests.rst.txt
+│   │   │   │   ├── imhr.tests.test_basic.rst.txt
+│   │   │   │   ├── imhr.tests.test_roi.rst.txt
+│   │   │   │   ├── imhr.Webgazer.classify.rst.txt
+│   │   │   │   ├── imhr.Webgazer.download.rst.txt
+│   │   │   │   ├── imhr.Webgazer.metadata.rst.txt
+│   │   │   │   ├── imhr.Webgazer.model.rst.txt
+│   │   │   │   ├── imhr.Webgazer.nslr_hmm.rst.txt
+│   │   │   │   ├── imhr.Webgazer.plot.rst.txt
+│   │   │   │   ├── imhr.Webgazer.processing.rst.txt
+│   │   │   │   ├── imhr.Webgazer.raw.rst.txt
+│   │   │   │   ├── imhr.Webgazer.redcap.rst.txt
+│   │   │   │   ├── imhr.Webgazer.rst.txt
+│   │   │   │   ├── imhr.Webgazer.settings.rst.txt
+│   │   │   │   └── modules.rst.txt
+│   │   │   ├── dashboard.rst.txt
+│   │   │   ├── examples/
+│   │   │   │   ├── analysis/
+│   │   │   │   │   ├── index.rst.txt
+│   │   │   │   │   ├── R33.ipynb.txt
+│   │   │   │   │   └── Webgazer.ipynb.txt
+│   │   │   │   ├── eyetracking/
+│   │   │   │   │   └── demo/
+│   │   │   │   │       └── eyetracking_demo.ipynb.txt
+│   │   │   │   ├── index.rst.txt
+│   │   │   │   ├── R33/
+│   │   │   │   │   ├── create_plots.ipynb.txt
+│   │   │   │   │   ├── download_data.ipynb.txt
+│   │   │   │   │   ├── process_data.ipynb.txt
+│   │   │   │   │   ├── process_demographics.ipynb.txt
+│   │   │   │   │   └── run_models.ipynb.txt
+│   │   │   │   └── roi/
+│   │   │   │       └── index.ipynb.txt
+│   │   │   ├── features.rst.txt
+│   │   │   ├── index.rst.txt
+│   │   │   ├── install.rst.txt
+│   │   │   ├── intro.rst.txt
+│   │   │   └── studies/
+│   │   │       ├── index.rst.txt
+│   │   │       ├── R33/
+│   │   │       │   └── index.rst.txt
+│   │   │       └── Webgazer/
+│   │   │           └── index.rst.txt
+│   │   ├── _static/
+│   │   │   ├── ajax-loader.gif
+│   │   │   ├── basic.css
+│   │   │   ├── bootstrap-3.3.7/
+│   │   │   │   ├── css/
+│   │   │   │   │   └── bootstrap.min.css
+│   │   │   │   ├── fonts/
+│   │   │   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   │   │   ├── glyphicons-halflings-regular.woff
+│   │   │   │   │   └── glyphicons-halflings-regular.woff2
+│   │   │   │   └── js/
+│   │   │   │       └── bootstrap.min.js
+│   │   │   ├── bootstrap-sphinx.css
+│   │   │   ├── bootstrap-sphinx.js
+│   │   │   ├── bootswatch-3.3.7/
+│   │   │   │   └── paper/
+│   │   │   │       └── bootstrap.min.css
+│   │   │   ├── comment-bright.png
+│   │   │   ├── comment-close.png
+│   │   │   ├── comment.png
+│   │   │   ├── copy-button.svg
+│   │   │   ├── copybutton.css
+│   │   │   ├── copybutton.js
+│   │   │   ├── copybutton.svg
+│   │   │   ├── css/
+│   │   │   │   ├── extend.css
+│   │   │   │   ├── pygments.css
+│   │   │   │   ├── scipy-central.css
+│   │   │   │   ├── spc-bootstrap.css
+│   │   │   │   └── spc-extend.css
+│   │   │   ├── doctools.js
+│   │   │   ├── documentation_options.js
+│   │   │   ├── down-pressed.png
+│   │   │   ├── down.png
+│   │   │   ├── file.png
+│   │   │   ├── graphviz.css
+│   │   │   ├── img/
+│   │   │   │   ├── glyphicons-halflings-white.png
+│   │   │   │   ├── glyphicons-halflings.png
+│   │   │   │   ├── imhr-header.png
+│   │   │   │   ├── imhr.ico
+│   │   │   │   └── imhr.png
+│   │   │   ├── imhr.ico
+│   │   │   ├── jquery-3.2.1.js
+│   │   │   ├── jquery.js
+│   │   │   ├── js/
+│   │   │   │   ├── jquery-1.11.0.min.js
+│   │   │   │   └── jquery-fix.js
+│   │   │   ├── language_data.js
+│   │   │   ├── less/
+│   │   │   │   ├── bootstrap/
+│   │   │   │   │   ├── accordion.less
+│   │   │   │   │   ├── alerts.less
+│   │   │   │   │   ├── bootstrap.less
+│   │   │   │   │   ├── breadcrumbs.less
+│   │   │   │   │   ├── button-groups.less
+│   │   │   │   │   ├── buttons.less
+│   │   │   │   │   ├── carousel.less
+│   │   │   │   │   ├── close.less
+│   │   │   │   │   ├── code.less
+│   │   │   │   │   ├── component-animations.less
+│   │   │   │   │   ├── dropdowns.less
+│   │   │   │   │   ├── forms.less
+│   │   │   │   │   ├── grid.less
+│   │   │   │   │   ├── hero-unit.less
+│   │   │   │   │   ├── labels-badges.less
+│   │   │   │   │   ├── layouts.less
+│   │   │   │   │   ├── media.less
+│   │   │   │   │   ├── mixins.less
+│   │   │   │   │   ├── modals.less
+│   │   │   │   │   ├── navbar.less
+│   │   │   │   │   ├── navs.less
+│   │   │   │   │   ├── pager.less
+│   │   │   │   │   ├── pagination.less
+│   │   │   │   │   ├── popovers.less
+│   │   │   │   │   ├── progress-bars.less
+│   │   │   │   │   ├── reset.less
+│   │   │   │   │   ├── responsive-1200px-min.less
+│   │   │   │   │   ├── responsive-767px-max.less
+│   │   │   │   │   ├── responsive-768px-979px.less
+│   │   │   │   │   ├── responsive-navbar.less
+│   │   │   │   │   ├── responsive-utilities.less
+│   │   │   │   │   ├── responsive.less
+│   │   │   │   │   ├── scaffolding.less
+│   │   │   │   │   ├── sprites.less
+│   │   │   │   │   ├── tables.less
+│   │   │   │   │   ├── thumbnails.less
+│   │   │   │   │   ├── tooltip.less
+│   │   │   │   │   ├── type.less
+│   │   │   │   │   ├── utilities.less
+│   │   │   │   │   ├── variables.less
+│   │   │   │   │   └── wells.less
+│   │   │   │   ├── spc-bootstrap.less
+│   │   │   │   ├── spc-content.less
+│   │   │   │   ├── spc-extend.less
+│   │   │   │   ├── spc-footer.less
+│   │   │   │   ├── spc-header.less
+│   │   │   │   ├── spc-rightsidebar.less
+│   │   │   │   └── spc-utils.less
+│   │   │   ├── minus.png
+│   │   │   ├── plus.png
+│   │   │   ├── pygments.css
+│   │   │   ├── scipy.css
+│   │   │   ├── searchtools.js
+│   │   │   ├── semeon/
+│   │   │   │   ├── css/
+│   │   │   │   │   └── user.css
+│   │   │   │   ├── img/
+│   │   │   │   │   └── copybutton.svg
+│   │   │   │   └── js/
+│   │   │   │       ├── clipboard.js
+│   │   │   │       ├── copybutton.js
+│   │   │   │       └── user.js
+│   │   │   ├── sphinx_paramlinks.css
+│   │   │   ├── style.css
+│   │   │   ├── underscore-1.3.1.js
+│   │   │   ├── underscore.js
+│   │   │   ├── up-pressed.png
+│   │   │   ├── up.png
+│   │   │   └── websupport.js
+│   │   ├── api/
+│   │   │   ├── imhr.download.html
+│   │   │   ├── imhr.eyetracking._calibration.html
+│   │   │   ├── imhr.eyetracking._eyelink.html
+│   │   │   ├── imhr.eyetracking._roi.html
+│   │   │   ├── imhr.eyetracking.html
+│   │   │   ├── imhr.html
+│   │   │   ├── imhr.plot.html
+│   │   │   ├── imhr.r33._classify.html
+│   │   │   ├── imhr.r33._metadata.html
+│   │   │   ├── imhr.r33._model.html
+│   │   │   ├── imhr.r33._nslr_hmm.html
+│   │   │   ├── imhr.r33._processing.html
+│   │   │   ├── imhr.r33._settings.html
+│   │   │   ├── imhr.r33.html
+│   │   │   ├── imhr.settings.html
+│   │   │   ├── imhr.tests.html
+│   │   │   ├── imhr.tests.test_basic.html
+│   │   │   ├── imhr.tests.test_roi.html
+│   │   │   ├── imhr.Webgazer.classify.html
+│   │   │   ├── imhr.Webgazer.download.html
+│   │   │   ├── imhr.Webgazer.html
+│   │   │   ├── imhr.Webgazer.metadata.html
+│   │   │   ├── imhr.Webgazer.model.html
+│   │   │   ├── imhr.Webgazer.nslr_hmm.html
+│   │   │   ├── imhr.Webgazer.plot.html
+│   │   │   ├── imhr.Webgazer.processing.html
+│   │   │   ├── imhr.Webgazer.raw.html
+│   │   │   ├── imhr.Webgazer.redcap.html
+│   │   │   ├── imhr.Webgazer.settings.html
+│   │   │   └── modules.html
+│   │   ├── dashboard.html
+│   │   ├── data/
+│   │   │   ├── .DS_Store
+│   │   │   ├── css/
+│   │   │   │   ├── .DS_Store
+│   │   │   │   ├── bokeh/
+│   │   │   │   │   ├── bokeh-1.0.4.min.css
+│   │   │   │   │   ├── bokeh-tables-1.0.4.min.css
+│   │   │   │   │   └── bokeh-widgets-1.0.4.min.css
+│   │   │   │   ├── bootstrap/
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── bootstrap.css
+│   │   │   │   │   ├── bootstrap.min.css
+│   │   │   │   │   ├── bootstrap.min.css.map
+│   │   │   │   │   └── fonts/
+│   │   │   │   │       ├── glyphicons-halflings-regular.ttf
+│   │   │   │   │       ├── glyphicons-halflings-regular.woff
+│   │   │   │   │       └── glyphicons-halflings-regular.woff2
+│   │   │   │   ├── datatables/
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── buttons.bootstrap.min.css
+│   │   │   │   │   ├── dataTables.bootstrap.min.css
+│   │   │   │   │   └── responsive.bootstrap.min.css
+│   │   │   │   ├── fonts/
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── ejicons.eot
+│   │   │   │   │   ├── ejicons.ttf
+│   │   │   │   │   └── ejicons.woff
+│   │   │   │   ├── fonts.css
+│   │   │   │   ├── images/
+│   │   │   │   │   ├── ejicons.svg
+│   │   │   │   │   ├── ui-bg_diagonals-thick_90_eeeeee_40x40.png
+│   │   │   │   │   ├── ui-bg_glass_100_e4f1fb_1x400.png
+│   │   │   │   │   ├── ui-bg_glass_50_3baae3_1x400.png
+│   │   │   │   │   ├── ui-bg_glass_80_d7ebf9_1x400.png
+│   │   │   │   │   ├── ui-bg_highlight-hard_100_f2f5f7_1x100.png
+│   │   │   │   │   ├── ui-bg_highlight-hard_70_000000_1x100.png
+│   │   │   │   │   ├── ui-bg_highlight-soft_100_deedf7_1x100.png
+│   │   │   │   │   ├── ui-bg_highlight-soft_25_ffef8f_1x100.png
+│   │   │   │   │   ├── ui-icons_2694e8_256x240.png
+│   │   │   │   │   ├── ui-icons_2e83ff_256x240.png
+│   │   │   │   │   ├── ui-icons_3d80b3_256x240.png
+│   │   │   │   │   ├── ui-icons_444444_256x240.png
+│   │   │   │   │   ├── ui-icons_555555_256x240.png
+│   │   │   │   │   ├── ui-icons_72a7cf_256x240.png
+│   │   │   │   │   ├── ui-icons_777620_256x240.png
+│   │   │   │   │   ├── ui-icons_777777_256x240.png
+│   │   │   │   │   ├── ui-icons_cc0000_256x240.png
+│   │   │   │   │   └── ui-icons_ffffff_256x240.png
+│   │   │   │   ├── index.css
+│   │   │   │   ├── jquery/
+│   │   │   │   │   └── jquery-ui.css
+│   │   │   │   ├── prism/
+│   │   │   │   │   ├── prism-line-numbers.css
+│   │   │   │   │   └── prism.css
+│   │   │   │   ├── tinymce/
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── fonts/
+│   │   │   │   │   │   ├── copy.svg
+│   │   │   │   │   │   ├── cut.svg
+│   │   │   │   │   │   ├── paste.svg
+│   │   │   │   │   │   ├── save.svg
+│   │   │   │   │   │   ├── selectall.svg
+│   │   │   │   │   │   ├── semeon.woff
+│   │   │   │   │   │   └── tinymce-mobile.woff
+│   │   │   │   │   └── semeon/
+│   │   │   │   │       ├── .DS_Store
+│   │   │   │   │       ├── content.inline.css
+│   │   │   │   │       ├── content.inline.min.css
+│   │   │   │   │       ├── content.min.css
+│   │   │   │   │       ├── content.mobile.min.css
+│   │   │   │   │       ├── fonts/
+│   │   │   │   │       │   ├── copy.svg
+│   │   │   │   │       │   ├── cut.svg
+│   │   │   │   │       │   ├── paste.svg
+│   │   │   │   │       │   ├── save.svg
+│   │   │   │   │       │   ├── selectall.svg
+│   │   │   │   │       │   ├── semeon.woff
+│   │   │   │   │       │   └── tinymce-mobile.woff
+│   │   │   │   │       ├── skin.min.css
+│   │   │   │   │       └── skin.mobile.min.css
+│   │   │   │   └── user.css
+│   │   │   ├── data.html
+│   │   │   ├── img/
+│   │   │   │   ├── .DS_Store
+│   │   │   │   ├── corr/
+│   │   │   │   │   ├── x=cesd_score, y=cesd_score.png
+│   │   │   │   │   ├── x=cesd_score, y=dp_bias.png
+│   │   │   │   │   ├── x=cesd_score, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=cesd_score, y=gaze_bias.png
+│   │   │   │   │   ├── x=cesd_score, y=luminance.png
+│   │   │   │   │   ├── x=cesd_score, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=cesd_score, y=m_diff_stim.png
+│   │   │   │   │   ├── x=cesd_score, y=m_rt.png
+│   │   │   │   │   ├── x=cesd_score, y=n_dp_valid.png
+│   │   │   │   │   ├── x=cesd_score, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=cesd_score, y=rrs_brooding.png
+│   │   │   │   │   ├── x=cesd_score, y=var_dp_bias.png
+│   │   │   │   │   ├── x=cesd_score, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=dp_bias, y=cesd_score.png
+│   │   │   │   │   ├── x=dp_bias, y=dp_bias.png
+│   │   │   │   │   ├── x=dp_bias, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=dp_bias, y=gaze_bias.png
+│   │   │   │   │   ├── x=dp_bias, y=luminance.png
+│   │   │   │   │   ├── x=dp_bias, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=dp_bias, y=m_diff_stim.png
+│   │   │   │   │   ├── x=dp_bias, y=m_rt.png
+│   │   │   │   │   ├── x=dp_bias, y=n_dp_valid.png
+│   │   │   │   │   ├── x=dp_bias, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=dp_bias, y=rrs_brooding.png
+│   │   │   │   │   ├── x=dp_bias, y=var_dp_bias.png
+│   │   │   │   │   ├── x=dp_bias, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=cesd_score.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=dp_bias.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=gaze_bias.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=luminance.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=m_diff_stim.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=m_rt.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=n_dp_valid.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=rrs_brooding.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=var_dp_bias.png
+│   │   │   │   │   ├── x=final_gaze_bias, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=gaze_bias, y=cesd_score.png
+│   │   │   │   │   ├── x=gaze_bias, y=dp_bias.png
+│   │   │   │   │   ├── x=gaze_bias, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=gaze_bias, y=gaze_bias.png
+│   │   │   │   │   ├── x=gaze_bias, y=luminance.png
+│   │   │   │   │   ├── x=gaze_bias, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=gaze_bias, y=m_diff_stim.png
+│   │   │   │   │   ├── x=gaze_bias, y=m_rt.png
+│   │   │   │   │   ├── x=gaze_bias, y=n_dp_valid.png
+│   │   │   │   │   ├── x=gaze_bias, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=gaze_bias, y=rrs_brooding.png
+│   │   │   │   │   ├── x=gaze_bias, y=var_dp_bias.png
+│   │   │   │   │   ├── x=gaze_bias, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=luminance, y=cesd_score.png
+│   │   │   │   │   ├── x=luminance, y=dp_bias.png
+│   │   │   │   │   ├── x=luminance, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=luminance, y=gaze_bias.png
+│   │   │   │   │   ├── x=luminance, y=luminance.png
+│   │   │   │   │   ├── x=luminance, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=luminance, y=m_diff_stim.png
+│   │   │   │   │   ├── x=luminance, y=m_rt.png
+│   │   │   │   │   ├── x=luminance, y=n_dp_valid.png
+│   │   │   │   │   ├── x=luminance, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=luminance, y=rrs_brooding.png
+│   │   │   │   │   ├── x=luminance, y=var_dp_bias.png
+│   │   │   │   │   ├── x=luminance, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=cesd_score.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=dp_bias.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=gaze_bias.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=luminance.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=m_diff_stim.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=m_rt.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=n_dp_valid.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=rrs_brooding.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=var_dp_bias.png
+│   │   │   │   │   ├── x=m_diff_dotloc, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=m_diff_stim, y=cesd_score.png
+│   │   │   │   │   ├── x=m_diff_stim, y=dp_bias.png
+│   │   │   │   │   ├── x=m_diff_stim, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=m_diff_stim, y=gaze_bias.png
+│   │   │   │   │   ├── x=m_diff_stim, y=luminance.png
+│   │   │   │   │   ├── x=m_diff_stim, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=m_diff_stim, y=m_diff_stim.png
+│   │   │   │   │   ├── x=m_diff_stim, y=m_rt.png
+│   │   │   │   │   ├── x=m_diff_stim, y=n_dp_valid.png
+│   │   │   │   │   ├── x=m_diff_stim, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=m_diff_stim, y=rrs_brooding.png
+│   │   │   │   │   ├── x=m_diff_stim, y=var_dp_bias.png
+│   │   │   │   │   ├── x=m_diff_stim, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=m_rt, y=cesd_score.png
+│   │   │   │   │   ├── x=m_rt, y=dp_bias.png
+│   │   │   │   │   ├── x=m_rt, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=m_rt, y=gaze_bias.png
+│   │   │   │   │   ├── x=m_rt, y=luminance.png
+│   │   │   │   │   ├── x=m_rt, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=m_rt, y=m_diff_stim.png
+│   │   │   │   │   ├── x=m_rt, y=m_rt.png
+│   │   │   │   │   ├── x=m_rt, y=n_dp_valid.png
+│   │   │   │   │   ├── x=m_rt, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=m_rt, y=rrs_brooding.png
+│   │   │   │   │   ├── x=m_rt, y=var_dp_bias.png
+│   │   │   │   │   ├── x=m_rt, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=n_dp_valid, y=cesd_score.png
+│   │   │   │   │   ├── x=n_dp_valid, y=dp_bias.png
+│   │   │   │   │   ├── x=n_dp_valid, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=n_dp_valid, y=gaze_bias.png
+│   │   │   │   │   ├── x=n_dp_valid, y=luminance.png
+│   │   │   │   │   ├── x=n_dp_valid, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=n_dp_valid, y=m_diff_stim.png
+│   │   │   │   │   ├── x=n_dp_valid, y=m_rt.png
+│   │   │   │   │   ├── x=n_dp_valid, y=n_dp_valid.png
+│   │   │   │   │   ├── x=n_dp_valid, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=n_dp_valid, y=rrs_brooding.png
+│   │   │   │   │   ├── x=n_dp_valid, y=var_dp_bias.png
+│   │   │   │   │   ├── x=n_dp_valid, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=cesd_score.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=dp_bias.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=gaze_bias.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=luminance.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=m_diff_stim.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=m_rt.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=n_dp_valid.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=rrs_brooding.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=var_dp_bias.png
+│   │   │   │   │   ├── x=n_gaze_valid, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=rrs_brooding, y=cesd_score.png
+│   │   │   │   │   ├── x=rrs_brooding, y=dp_bias.png
+│   │   │   │   │   ├── x=rrs_brooding, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=rrs_brooding, y=gaze_bias.png
+│   │   │   │   │   ├── x=rrs_brooding, y=luminance.png
+│   │   │   │   │   ├── x=rrs_brooding, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=rrs_brooding, y=m_diff_stim.png
+│   │   │   │   │   ├── x=rrs_brooding, y=m_rt.png
+│   │   │   │   │   ├── x=rrs_brooding, y=n_dp_valid.png
+│   │   │   │   │   ├── x=rrs_brooding, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=rrs_brooding, y=rrs_brooding.png
+│   │   │   │   │   ├── x=rrs_brooding, y=var_dp_bias.png
+│   │   │   │   │   ├── x=rrs_brooding, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=var_dp_bias, y=cesd_score.png
+│   │   │   │   │   ├── x=var_dp_bias, y=dp_bias.png
+│   │   │   │   │   ├── x=var_dp_bias, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=var_dp_bias, y=gaze_bias.png
+│   │   │   │   │   ├── x=var_dp_bias, y=luminance.png
+│   │   │   │   │   ├── x=var_dp_bias, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=var_dp_bias, y=m_diff_stim.png
+│   │   │   │   │   ├── x=var_dp_bias, y=m_rt.png
+│   │   │   │   │   ├── x=var_dp_bias, y=n_dp_valid.png
+│   │   │   │   │   ├── x=var_dp_bias, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=var_dp_bias, y=rrs_brooding.png
+│   │   │   │   │   ├── x=var_dp_bias, y=var_dp_bias.png
+│   │   │   │   │   ├── x=var_dp_bias, y=var_gaze_bias.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=cesd_score.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=dp_bias.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=final_gaze_bias.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=gaze_bias.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=luminance.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=m_diff_dotloc.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=m_diff_stim.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=m_rt.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=n_dp_valid.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=n_gaze_valid.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=rrs_brooding.png
+│   │   │   │   │   ├── x=var_gaze_bias, y=var_dp_bias.png
+│   │   │   │   │   └── x=var_gaze_bias, y=var_gaze_bias.png
+│   │   │   │   ├── density/
+│   │   │   │   │   ├── density_cesd_score.png
+│   │   │   │   │   ├── density_dp_bias.png
+│   │   │   │   │   ├── density_final_gaze_bias.png
+│   │   │   │   │   ├── density_gaze_bias.png
+│   │   │   │   │   ├── density_luminance.png
+│   │   │   │   │   ├── density_m_diff_dotloc.png
+│   │   │   │   │   ├── density_m_diff_stim.png
+│   │   │   │   │   ├── density_m_rt.png
+│   │   │   │   │   ├── density_n_dp_valid.png
+│   │   │   │   │   ├── density_n_gaze_valid.png
+│   │   │   │   │   ├── density_participant.png
+│   │   │   │   │   ├── density_rrs_brooding.png
+│   │   │   │   │   └── density_var_gaze_bias.png
+│   │   │   │   ├── dotloc_boxplot.png
+│   │   │   │   ├── rt_boxplot.png
+│   │   │   │   └── stim_boxplot.png
+│   │   │   ├── imhr/
+│   │   │   │   ├── .DS_Store
+│   │   │   │   ├── favicon/
+│   │   │   │   │   ├── favicon-114.png
+│   │   │   │   │   ├── favicon-120.png
+│   │   │   │   │   ├── favicon-144.png
+│   │   │   │   │   ├── favicon-150.png
+│   │   │   │   │   ├── favicon-152.png
+│   │   │   │   │   ├── favicon-16.png
+│   │   │   │   │   ├── favicon-160.png
+│   │   │   │   │   ├── favicon-180.png
+│   │   │   │   │   ├── favicon-192.png
+│   │   │   │   │   ├── favicon-310.png
+│   │   │   │   │   ├── favicon-32.png
+│   │   │   │   │   ├── favicon-57.png
+│   │   │   │   │   ├── favicon-60.png
+│   │   │   │   │   ├── favicon-64.png
+│   │   │   │   │   ├── favicon-70.png
+│   │   │   │   │   ├── favicon-72.png
+│   │   │   │   │   ├── favicon-76.png
+│   │   │   │   │   ├── favicon-96.png
+│   │   │   │   │   └── favicon.ico
+│   │   │   │   ├── icon.png
+│   │   │   │   ├── imhr.png
+│   │   │   │   ├── imhr.psd
+│   │   │   │   ├── imhr.svg
+│   │   │   │   ├── imhr.tif
+│   │   │   │   ├── orignal/
+│   │   │   │   │   ├── IMHR.psd
+│   │   │   │   │   └── IMHR_vector.psd
+│   │   │   │   └── tutorial.mp4
+│   │   │   ├── index.html
+│   │   │   ├── js/
+│   │   │   │   ├── .DS_Store
+│   │   │   │   ├── bokeh/
+│   │   │   │   │   ├── bokeh-1.0.4.min.js
+│   │   │   │   │   ├── bokeh-api-1.0.4.min.js
+│   │   │   │   │   ├── bokeh-gl-1.0.4.min.js
+│   │   │   │   │   ├── bokeh-tables-1.0.4.min.js
+│   │   │   │   │   └── bokeh-widgets-1.0.4.min.js
+│   │   │   │   ├── bootstrap/
+│   │   │   │   │   ├── bootstrap.bundle.js
+│   │   │   │   │   ├── bootstrap.bundle.js.map
+│   │   │   │   │   └── bootstrap.js
+│   │   │   │   ├── datatables/
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── buttons.bootstrap.min.js
+│   │   │   │   │   ├── buttons.html5.min.js
+│   │   │   │   │   ├── dataTables.bootstrap.min.js
+│   │   │   │   │   ├── dataTables.buttons.min.js
+│   │   │   │   │   ├── dataTables.responsive.min.js
+│   │   │   │   │   ├── dataTables.rowGroup.min.js
+│   │   │   │   │   ├── dataTables.rowsGroup.js
+│   │   │   │   │   ├── jquery.dataTables.min.js
+│   │   │   │   │   ├── jszip.min.js
+│   │   │   │   │   └── responsive.bootstrap.min.js
+│   │   │   │   ├── jquery/
+│   │   │   │   │   ├── jquery-3.2.1.min.js
+│   │   │   │   │   └── jquery.simpler-sidebar.min.js
+│   │   │   │   ├── lodash.min.js
+│   │   │   │   ├── popper.js
+│   │   │   │   ├── prism/
+│   │   │   │   │   ├── prism-line-numbers.js
+│   │   │   │   │   ├── prism-normalize-whitespace.js
+│   │   │   │   │   ├── prism-python.js
+│   │   │   │   │   ├── prism-r.js
+│   │   │   │   │   └── prism.js
+│   │   │   │   ├── tinymce/
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── plugins/
+│   │   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   │   ├── fullpage/
+│   │   │   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   │   │   └── plugin.js
+│   │   │   │   │   │   └── fullscreen/
+│   │   │   │   │   │       ├── .DS_Store
+│   │   │   │   │   │       └── plugin.js
+│   │   │   │   │   ├── semeon/
+│   │   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   │   └── icons.js
+│   │   │   │   │   ├── tinymce-autoresize.js
+│   │   │   │   │   ├── tinymce-codesample.js
+│   │   │   │   │   ├── tinymce-mobile.js
+│   │   │   │   │   ├── tinymce-save.js
+│   │   │   │   │   ├── tinymce-silver.js
+│   │   │   │   │   └── tinymce.js
+│   │   │   │   └── user.js
+│   │   │   ├── workflow.gv
+│   │   │   └── workflow.gv.pdf
+│   │   ├── doctres/
+│   │   │   ├── api/
+│   │   │   │   ├── imhr.doctree
+│   │   │   │   ├── imhr.download.doctree
+│   │   │   │   ├── imhr.eyetracking._calibration.doctree
+│   │   │   │   ├── imhr.eyetracking._eyelink.doctree
+│   │   │   │   ├── imhr.eyetracking._roi.doctree
+│   │   │   │   ├── imhr.eyetracking.doctree
+│   │   │   │   ├── imhr.plot.doctree
+│   │   │   │   ├── imhr.r33._classify.doctree
+│   │   │   │   ├── imhr.r33._metadata.doctree
+│   │   │   │   ├── imhr.r33._model.doctree
+│   │   │   │   ├── imhr.r33._nslr_hmm.doctree
+│   │   │   │   ├── imhr.r33._processing.doctree
+│   │   │   │   ├── imhr.r33._settings.doctree
+│   │   │   │   ├── imhr.r33.doctree
+│   │   │   │   ├── imhr.settings.doctree
+│   │   │   │   ├── imhr.tests.doctree
+│   │   │   │   ├── imhr.tests.test_basic.doctree
+│   │   │   │   ├── imhr.tests.test_roi.doctree
+│   │   │   │   ├── imhr.Webgazer.classify.doctree
+│   │   │   │   ├── imhr.Webgazer.doctree
+│   │   │   │   ├── imhr.Webgazer.download.doctree
+│   │   │   │   ├── imhr.Webgazer.metadata.doctree
+│   │   │   │   ├── imhr.Webgazer.model.doctree
+│   │   │   │   ├── imhr.Webgazer.nslr_hmm.doctree
+│   │   │   │   ├── imhr.Webgazer.plot.doctree
+│   │   │   │   ├── imhr.Webgazer.processing.doctree
+│   │   │   │   ├── imhr.Webgazer.raw.doctree
+│   │   │   │   ├── imhr.Webgazer.redcap.doctree
+│   │   │   │   ├── imhr.Webgazer.settings.doctree
+│   │   │   │   └── modules.doctree
+│   │   │   ├── dashboard.doctree
+│   │   │   ├── data/
+│   │   │   │   └── index.doctree
+│   │   │   ├── examples/
+│   │   │   │   ├── analysis/
+│   │   │   │   │   ├── index.doctree
+│   │   │   │   │   ├── R33.doctree
+│   │   │   │   │   └── webgazer.doctree
+│   │   │   │   ├── eyetracking/
+│   │   │   │   │   └── demo/
+│   │   │   │   │       └── eyetracking_demo.doctree
+│   │   │   │   ├── index.doctree
+│   │   │   │   ├── R33/
+│   │   │   │   │   ├── create_plots.doctree
+│   │   │   │   │   ├── download_data.doctree
+│   │   │   │   │   ├── process_data.doctree
+│   │   │   │   │   ├── process_demographics.doctree
+│   │   │   │   │   └── run_models.doctree
+│   │   │   │   └── roi/
+│   │   │   │       └── generate_roi.doctree
+│   │   │   ├── features.doctree
+│   │   │   ├── index.doctree
+│   │   │   ├── install.doctree
+│   │   │   ├── intro.doctree
+│   │   │   └── nbsphinx/
+│   │   ├── examples/
+│   │   │   ├── analysis/
+│   │   │   │   ├── index.html
+│   │   │   │   ├── R33.html
+│   │   │   │   └── Webgazer.html
+│   │   │   ├── eyetracking/
+│   │   │   │   └── demo/
+│   │   │   │       └── eyetracking_demo.html
+│   │   │   ├── index.html
+│   │   │   ├── R33/
+│   │   │   │   ├── create_plots.html
+│   │   │   │   ├── download_data.html
+│   │   │   │   ├── process_data.html
+│   │   │   │   ├── process_demographics.html
+│   │   │   │   └── run_models.html
+│   │   │   └── roi/
+│   │   │       ├── index-1.py
+│   │   │       ├── index.html
+│   │   │       ├── roi.hires.png
+│   │   │       ├── roi.pdf
+│   │   │       ├── roi.png
+│   │   │       ├── roi.py
+│   │   │       ├── roi_psd.hires.png
+│   │   │       ├── roi_psd.pdf
+│   │   │       ├── roi_psd.png
+│   │   │       └── roi_psd.py
+│   │   ├── features.html
+│   │   ├── genindex.html
+│   │   ├── index.html
+│   │   ├── install.html
+│   │   ├── intro.html
+│   │   ├── manual/
+│   │   │   ├── .DS_Store
+│   │   │   ├── EyeLink 1000 Plus User Manual 1.0.12.pdf
+│   │   │   ├── EyeLink Data Viewer User Manual 3.2.1.pdf
+│   │   │   ├── EyeLink Programmers Guide.pdf
+│   │   │   ├── pylink.chm
+│   │   │   └── pylink.chw
+│   │   ├── objects.inv
+│   │   ├── plot_directive/
+│   │   │   └── examples/
+│   │   │       └── roi/
+│   │   │           ├── roi.hires.png
+│   │   │           ├── roi.pdf
+│   │   │           ├── roi.png
+│   │   │           ├── roi_psd.hires.png
+│   │   │           ├── roi_psd.pdf
+│   │   │           └── roi_psd.png
+│   │   ├── py-modindex.html
+│   │   ├── search.html
+│   │   ├── searchindex.js
+│   │   ├── studies/
+│   │   │   ├── index.html
+│   │   │   ├── R33/
+│   │   │   │   └── index.html
+│   │   │   └── Webgazer/
+│   │   │       └── index.html
+│   │   └── test.html
+│   ├── log.log
+│   ├── run.bat
+│   ├── run.command
+│   ├── run.py
+│   └── source/
+│       ├── .DS_Store
+│       ├── .nojekyll
+│       ├── _static/
+│       │   ├── .DS_Store
+│       │   ├── .nojekyll
+│       │   ├── ajax-loader.gif
+│       │   ├── basic.css
+│       │   ├── bootstrap-3.3.7/
+│       │   │   ├── .DS_Store
+│       │   │   ├── css/
+│       │   │   │   └── bootstrap.min.css
+│       │   │   ├── fonts/
+│       │   │   │   ├── glyphicons-halflings-regular.eot
+│       │   │   │   ├── glyphicons-halflings-regular.svg
+│       │   │   │   ├── glyphicons-halflings-regular.ttf
+│       │   │   │   ├── glyphicons-halflings-regular.woff
+│       │   │   │   └── glyphicons-halflings-regular.woff2
+│       │   │   └── js/
+│       │   │       ├── .DS_Store
+│       │   │       └── bootstrap.min.js
+│       │   ├── bootstrap-sphinx.css
+│       │   ├── bootstrap-sphinx.js
+│       │   ├── bootswatch-3.3.7/
+│       │   │   ├── .DS_Store
+│       │   │   └── paper/
+│       │   │       └── bootstrap.min.css
+│       │   ├── css/
+│       │   │   ├── extend.css
+│       │   │   ├── pygments.css
+│       │   │   ├── scipy-central.css
+│       │   │   ├── spc-bootstrap.css
+│       │   │   └── spc-extend.css
+│       │   ├── doctools.js
+│       │   ├── documentation_options.js
+│       │   ├── img/
+│       │   │   ├── .DS_Store
+│       │   │   ├── glyphicons-halflings-white.png
+│       │   │   ├── glyphicons-halflings.png
+│       │   │   ├── imhr-header.png
+│       │   │   └── imhr.ico
+│       │   ├── jquery-3.2.1.js
+│       │   ├── jquery.js
+│       │   ├── js/
+│       │   │   ├── jquery-1.11.0.min.js
+│       │   │   └── jquery-fix.js
+│       │   ├── less/
+│       │   │   ├── bootstrap/
+│       │   │   │   ├── accordion.less
+│       │   │   │   ├── alerts.less
+│       │   │   │   ├── bootstrap.less
+│       │   │   │   ├── breadcrumbs.less
+│       │   │   │   ├── button-groups.less
+│       │   │   │   ├── buttons.less
+│       │   │   │   ├── carousel.less
+│       │   │   │   ├── close.less
+│       │   │   │   ├── code.less
+│       │   │   │   ├── component-animations.less
+│       │   │   │   ├── dropdowns.less
+│       │   │   │   ├── forms.less
+│       │   │   │   ├── grid.less
+│       │   │   │   ├── hero-unit.less
+│       │   │   │   ├── labels-badges.less
+│       │   │   │   ├── layouts.less
+│       │   │   │   ├── media.less
+│       │   │   │   ├── mixins.less
+│       │   │   │   ├── modals.less
+│       │   │   │   ├── navbar.less
+│       │   │   │   ├── navs.less
+│       │   │   │   ├── pager.less
+│       │   │   │   ├── pagination.less
+│       │   │   │   ├── popovers.less
+│       │   │   │   ├── progress-bars.less
+│       │   │   │   ├── reset.less
+│       │   │   │   ├── responsive-1200px-min.less
+│       │   │   │   ├── responsive-767px-max.less
+│       │   │   │   ├── responsive-768px-979px.less
+│       │   │   │   ├── responsive-navbar.less
+│       │   │   │   ├── responsive-utilities.less
+│       │   │   │   ├── responsive.less
+│       │   │   │   ├── scaffolding.less
+│       │   │   │   ├── sprites.less
+│       │   │   │   ├── tables.less
+│       │   │   │   ├── thumbnails.less
+│       │   │   │   ├── tooltip.less
+│       │   │   │   ├── type.less
+│       │   │   │   ├── utilities.less
+│       │   │   │   ├── variables.less
+│       │   │   │   └── wells.less
+│       │   │   ├── spc-bootstrap.less
+│       │   │   ├── spc-content.less
+│       │   │   ├── spc-extend.less
+│       │   │   ├── spc-footer.less
+│       │   │   ├── spc-header.less
+│       │   │   ├── spc-rightsidebar.less
+│       │   │   └── spc-utils.less
+│       │   ├── pygments.css
+│       │   ├── scipy.css
+│       │   ├── searchtools.js
+│       │   ├── semeon/
+│       │   │   ├── .DS_Store
+│       │   │   ├── css/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   └── user.css
+│       │   │   ├── img/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   └── copybutton.svg
+│       │   │   └── js/
+│       │   │       ├── clipboard.js
+│       │   │       ├── copybutton.js
+│       │   │       └── user.js
+│       │   ├── style.css
+│       │   ├── underscore-1.3.1.js
+│       │   ├── underscore.js
+│       │   └── websupport.js
+│       ├── _templates/
+│       │   ├── .DS_Store
+│       │   ├── .nojekyll
+│       │   ├── base.rst
+│       │   ├── class.rst
+│       │   ├── function.rst
+│       │   ├── module.rst
+│       │   ├── numpydoc_docstring.rst
+│       │   ├── package.rst
+│       │   └── sphinx_bootstrap_theme/
+│       │       ├── .DS_Store
+│       │       ├── __init__.py
+│       │       └── bootstrap/
+│       │           ├── .DS_Store
+│       │           ├── fulltoc.html
+│       │           ├── globaltoc.html
+│       │           ├── layout.html
+│       │           ├── localtoc.html
+│       │           ├── navbar-2.html
+│       │           ├── navbar.html
+│       │           ├── navbarsearchbox.html
+│       │           ├── navbartoc.html
+│       │           ├── relations.html
+│       │           ├── search.html
+│       │           ├── searchbox.html
+│       │           ├── searchresults.html
+│       │           ├── sourcelink.html
+│       │           └── theme.conf
+│       ├── api/
+│       │   ├── .DS_Store
+│       │   ├── imhr._version.rst
+│       │   ├── imhr.download.rst
+│       │   ├── imhr.eyetracking._calibration.rst
+│       │   ├── imhr.eyetracking._eyelink.rst
+│       │   ├── imhr.eyetracking._roi.rst
+│       │   ├── imhr.eyetracking.pylink.rst
+│       │   ├── imhr.eyetracking.rst
+│       │   ├── imhr.plot.rst
+│       │   ├── imhr.r33._classify.rst
+│       │   ├── imhr.r33._metadata.rst
+│       │   ├── imhr.r33._model.rst
+│       │   ├── imhr.r33._nslr_hmm.rst
+│       │   ├── imhr.r33._processing.rst
+│       │   ├── imhr.r33._settings.rst
+│       │   ├── imhr.r33.rst
+│       │   ├── imhr.rst
+│       │   ├── imhr.settings.rst
+│       │   ├── imhr.tests.rst
+│       │   ├── imhr.tests.test_basic.rst
+│       │   ├── imhr.tests.test_roi.rst
+│       │   ├── imhr.Webgazer.classify.rst
+│       │   ├── imhr.Webgazer.download.rst
+│       │   ├── imhr.Webgazer.metadata.rst
+│       │   ├── imhr.Webgazer.model.rst
+│       │   ├── imhr.Webgazer.nslr_hmm.rst
+│       │   ├── imhr.Webgazer.plot.rst
+│       │   ├── imhr.Webgazer.processing.rst
+│       │   ├── imhr.Webgazer.raw.rst
+│       │   ├── imhr.Webgazer.redcap.rst
+│       │   ├── imhr.Webgazer.rst
+│       │   ├── imhr.Webgazer.settings.rst
+│       │   ├── modules.rst
+│       │   ├── setup.rst
+│       │   └── versioneer.rst
+│       ├── conf.py
+│       ├── dashboard.rst
+│       ├── examples/
+│       │   ├── .DS_Store
+│       │   ├── .ipynb_checkpoints/
+│       │   ├── .nojekyll
+│       │   ├── analysis/
+│       │   │   ├── .DS_Store
+│       │   │   ├── .ipynb_checkpoints/
+│       │   │   │   ├── R33-checkpoint.ipynb
+│       │   │   │   └── webgazer-checkpoint.ipynb
+│       │   │   ├── index.rst
+│       │   │   ├── R33.ipynb
+│       │   │   ├── R33.py
+│       │   │   ├── Webgazer.ipynb
+│       │   │   └── Webgazer.py
+│       │   ├── eyetracking/
+│       │   │   ├── .DS_Store
+│       │   │   ├── _open_sesame/
+│       │   │   ├── _psychopy/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── _psychopy.psyexp
+│       │   │   │   ├── _psychopy.py
+│       │   │   │   ├── _psychopy_lastrun.py
+│       │   │   │   ├── data/
+│       │   │   │   │   ├── 001.csv
+│       │   │   │   │   ├── 001.log
+│       │   │   │   │   ├── 001.psydat
+│       │   │   │   │   ├── 001_1.csv
+│       │   │   │   │   ├── 001_1.psydat
+│       │   │   │   │   ├── 001_10.csv
+│       │   │   │   │   ├── 001_10.psydat
+│       │   │   │   │   ├── 001_11.csv
+│       │   │   │   │   ├── 001_11.psydat
+│       │   │   │   │   ├── 001_12.csv
+│       │   │   │   │   ├── 001_12.psydat
+│       │   │   │   │   ├── 001_13.csv
+│       │   │   │   │   ├── 001_13.psydat
+│       │   │   │   │   ├── 001_14.csv
+│       │   │   │   │   ├── 001_14.psydat
+│       │   │   │   │   ├── 001_2.csv
+│       │   │   │   │   ├── 001_2.psydat
+│       │   │   │   │   ├── 001_3.csv
+│       │   │   │   │   ├── 001_3.psydat
+│       │   │   │   │   ├── 001_4.csv
+│       │   │   │   │   ├── 001_4.psydat
+│       │   │   │   │   ├── 001_5.csv
+│       │   │   │   │   ├── 001_5.psydat
+│       │   │   │   │   ├── 001_6.csv
+│       │   │   │   │   ├── 001_6.psydat
+│       │   │   │   │   ├── 001_7.csv
+│       │   │   │   │   ├── 001_7.psydat
+│       │   │   │   │   ├── 001_8.csv
+│       │   │   │   │   ├── 001_8.psydat
+│       │   │   │   │   ├── 001_9.csv
+│       │   │   │   │   ├── 001_9.psydat
+│       │   │   │   │   └── edf/
+│       │   │   │   │       └── 001.txt
+│       │   │   │   └── trialTypes.xlsx
+│       │   │   ├── backup/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── psychopy_eyelink.zip
+│       │   │   │   ├── psychopyCoreGraphics_1.90.3.zip
+│       │   │   │   └── RB_ContextET_BBS1.py
+│       │   │   └── demo/
+│       │   │       ├── .DS_Store
+│       │   │       ├── .ipynb_checkpoints/
+│       │   │       │   ├── demo-checkpoint.ipynb
+│       │   │       │   └── eyetracking_demo-checkpoint.ipynb
+│       │   │       ├── data/
+│       │   │       │   └── edf/
+│       │   │       │       ├── 001.edf
+│       │   │       │       └── 001.txt
+│       │   │       ├── eyetracking_demo.ipynb
+│       │   │       ├── eyetracking_demo.py
+│       │   │       └── stimuli/
+│       │   │           └── 8380.bmp
+│       │   ├── index.rst
+│       │   ├── R33/
+│       │   │   ├── .DS_Store
+│       │   │   ├── .ipynb_checkpoints/
+│       │   │   │   ├── create_plots-checkpoint.ipynb
+│       │   │   │   ├── process_-checkpoint.ipynb
+│       │   │   │   ├── run_models-checkpoint.ipynb
+│       │   │   │   └── Untitled-checkpoint.ipynb
+│       │   │   ├── create_plots.ipynb
+│       │   │   ├── download_data.ipynb
+│       │   │   ├── process_data.ipynb
+│       │   │   ├── process_demographics.ipynb
+│       │   │   └── run_models.ipynb
+│       │   └── roi/
+│       │       ├── .DS_Store
+│       │       ├── .ipynb_checkpoints/
+│       │       │   └── index-checkpoint.ipynb
+│       │       ├── index.ipynb
+│       │       └── roi.py
+│       ├── features.rst
+│       ├── index.rst
+│       ├── install.rst
+│       ├── intro.rst
+│       ├── manual/
+│       │   ├── .DS_Store
+│       │   ├── EyeLink 1000 Plus User Manual 1.0.12.pdf
+│       │   ├── EyeLink Data Viewer User Manual 3.2.1.pdf
+│       │   ├── EyeLink Programmers Guide.pdf
+│       │   ├── pylink.chm
+│       │   └── pylink.chw
+│       ├── savefig/
+│       ├── sphinxext/
+│       │   ├── .DS_Store
+│       │   ├── __init__.py
+│       │   ├── mathmpl.py
+│       │   └── plot_directive.py
+│       ├── studies/
+│       │   ├── .DS_Store
+│       │   ├── index.rst
+│       │   ├── R33/
+│       │   │   ├── .DS_Store
+│       │   │   ├── css/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── bokeh/
+│       │   │   │   │   ├── bokeh-1.0.4.min.css
+│       │   │   │   │   ├── bokeh-tables-1.0.4.min.css
+│       │   │   │   │   └── bokeh-widgets-1.0.4.min.css
+│       │   │   │   ├── bootstrap/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── bootstrap.css
+│       │   │   │   │   ├── bootstrap.min.css
+│       │   │   │   │   ├── bootstrap.min.css.map
+│       │   │   │   │   └── fonts/
+│       │   │   │   │       ├── glyphicons-halflings-regular.ttf
+│       │   │   │   │       ├── glyphicons-halflings-regular.woff
+│       │   │   │   │       └── glyphicons-halflings-regular.woff2
+│       │   │   │   ├── datatables/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── buttons.bootstrap.min.css
+│       │   │   │   │   ├── dataTables.bootstrap.min.css
+│       │   │   │   │   └── responsive.bootstrap.min.css
+│       │   │   │   ├── fonts/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── ejicons.eot
+│       │   │   │   │   ├── ejicons.ttf
+│       │   │   │   │   └── ejicons.woff
+│       │   │   │   ├── fonts.css
+│       │   │   │   ├── images/
+│       │   │   │   │   ├── ejicons.svg
+│       │   │   │   │   ├── ui-bg_diagonals-thick_90_eeeeee_40x40.png
+│       │   │   │   │   ├── ui-bg_glass_100_e4f1fb_1x400.png
+│       │   │   │   │   ├── ui-bg_glass_50_3baae3_1x400.png
+│       │   │   │   │   ├── ui-bg_glass_80_d7ebf9_1x400.png
+│       │   │   │   │   ├── ui-bg_highlight-hard_100_f2f5f7_1x100.png
+│       │   │   │   │   ├── ui-bg_highlight-hard_70_000000_1x100.png
+│       │   │   │   │   ├── ui-bg_highlight-soft_100_deedf7_1x100.png
+│       │   │   │   │   ├── ui-bg_highlight-soft_25_ffef8f_1x100.png
+│       │   │   │   │   ├── ui-icons_2694e8_256x240.png
+│       │   │   │   │   ├── ui-icons_2e83ff_256x240.png
+│       │   │   │   │   ├── ui-icons_3d80b3_256x240.png
+│       │   │   │   │   ├── ui-icons_444444_256x240.png
+│       │   │   │   │   ├── ui-icons_555555_256x240.png
+│       │   │   │   │   ├── ui-icons_72a7cf_256x240.png
+│       │   │   │   │   ├── ui-icons_777620_256x240.png
+│       │   │   │   │   ├── ui-icons_777777_256x240.png
+│       │   │   │   │   ├── ui-icons_cc0000_256x240.png
+│       │   │   │   │   └── ui-icons_ffffff_256x240.png
+│       │   │   │   ├── index.css
+│       │   │   │   ├── jquery/
+│       │   │   │   │   └── jquery-ui.css
+│       │   │   │   ├── prism/
+│       │   │   │   │   ├── prism-line-numbers.css
+│       │   │   │   │   └── prism.css
+│       │   │   │   ├── tinymce/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── fonts/
+│       │   │   │   │   │   ├── copy.svg
+│       │   │   │   │   │   ├── cut.svg
+│       │   │   │   │   │   ├── paste.svg
+│       │   │   │   │   │   ├── save.svg
+│       │   │   │   │   │   ├── selectall.svg
+│       │   │   │   │   │   ├── semeon.woff
+│       │   │   │   │   │   └── tinymce-mobile.woff
+│       │   │   │   │   └── semeon/
+│       │   │   │   │       ├── .DS_Store
+│       │   │   │   │       ├── content.inline.css
+│       │   │   │   │       ├── content.inline.min.css
+│       │   │   │   │       ├── content.min.css
+│       │   │   │   │       ├── content.mobile.min.css
+│       │   │   │   │       ├── fonts/
+│       │   │   │   │       │   ├── copy.svg
+│       │   │   │   │       │   ├── cut.svg
+│       │   │   │   │       │   ├── paste.svg
+│       │   │   │   │       │   ├── save.svg
+│       │   │   │   │       │   ├── selectall.svg
+│       │   │   │   │       │   ├── semeon.woff
+│       │   │   │   │       │   └── tinymce-mobile.woff
+│       │   │   │   │       ├── skin.min.css
+│       │   │   │   │       └── skin.mobile.min.css
+│       │   │   │   └── user.css
+│       │   │   ├── img/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── .gitikeep
+│       │   │   │   ├── corr/
+│       │   │   │   │   ├── x=cesd_score, y=cesd_score.png
+│       │   │   │   │   ├── x=cesd_score, y=dp_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=gaze_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=luminance.png
+│       │   │   │   │   ├── x=cesd_score, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=cesd_score, y=m_diff_stim.png
+│       │   │   │   │   ├── x=cesd_score, y=m_rt.png
+│       │   │   │   │   ├── x=cesd_score, y=n_dp_valid.png
+│       │   │   │   │   ├── x=cesd_score, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=cesd_score, y=rrs_brooding.png
+│       │   │   │   │   ├── x=cesd_score, y=var_dp_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=dp_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=luminance.png
+│       │   │   │   │   ├── x=dp_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=dp_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=dp_bias, y=m_rt.png
+│       │   │   │   │   ├── x=dp_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=dp_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=dp_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=dp_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=luminance.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=m_rt.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=gaze_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=luminance.png
+│       │   │   │   │   ├── x=gaze_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=gaze_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=gaze_bias, y=m_rt.png
+│       │   │   │   │   ├── x=gaze_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=gaze_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=gaze_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=gaze_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=luminance, y=cesd_score.png
+│       │   │   │   │   ├── x=luminance, y=dp_bias.png
+│       │   │   │   │   ├── x=luminance, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=luminance, y=gaze_bias.png
+│       │   │   │   │   ├── x=luminance, y=luminance.png
+│       │   │   │   │   ├── x=luminance, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=luminance, y=m_diff_stim.png
+│       │   │   │   │   ├── x=luminance, y=m_rt.png
+│       │   │   │   │   ├── x=luminance, y=n_dp_valid.png
+│       │   │   │   │   ├── x=luminance, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=luminance, y=rrs_brooding.png
+│       │   │   │   │   ├── x=luminance, y=var_dp_bias.png
+│       │   │   │   │   ├── x=luminance, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=cesd_score.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=dp_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=luminance.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=m_diff_stim.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=m_rt.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=n_dp_valid.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=rrs_brooding.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=var_dp_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=cesd_score.png
+│       │   │   │   │   ├── x=m_diff_stim, y=dp_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=luminance.png
+│       │   │   │   │   ├── x=m_diff_stim, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=m_diff_stim, y=m_diff_stim.png
+│       │   │   │   │   ├── x=m_diff_stim, y=m_rt.png
+│       │   │   │   │   ├── x=m_diff_stim, y=n_dp_valid.png
+│       │   │   │   │   ├── x=m_diff_stim, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=m_diff_stim, y=rrs_brooding.png
+│       │   │   │   │   ├── x=m_diff_stim, y=var_dp_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=m_rt, y=cesd_score.png
+│       │   │   │   │   ├── x=m_rt, y=dp_bias.png
+│       │   │   │   │   ├── x=m_rt, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=m_rt, y=gaze_bias.png
+│       │   │   │   │   ├── x=m_rt, y=luminance.png
+│       │   │   │   │   ├── x=m_rt, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=m_rt, y=m_diff_stim.png
+│       │   │   │   │   ├── x=m_rt, y=m_rt.png
+│       │   │   │   │   ├── x=m_rt, y=n_dp_valid.png
+│       │   │   │   │   ├── x=m_rt, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=m_rt, y=rrs_brooding.png
+│       │   │   │   │   ├── x=m_rt, y=var_dp_bias.png
+│       │   │   │   │   ├── x=m_rt, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=cesd_score.png
+│       │   │   │   │   ├── x=n_dp_valid, y=dp_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=gaze_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=luminance.png
+│       │   │   │   │   ├── x=n_dp_valid, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=n_dp_valid, y=m_diff_stim.png
+│       │   │   │   │   ├── x=n_dp_valid, y=m_rt.png
+│       │   │   │   │   ├── x=n_dp_valid, y=n_dp_valid.png
+│       │   │   │   │   ├── x=n_dp_valid, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=n_dp_valid, y=rrs_brooding.png
+│       │   │   │   │   ├── x=n_dp_valid, y=var_dp_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=cesd_score.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=dp_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=gaze_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=luminance.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=m_diff_stim.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=m_rt.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=n_dp_valid.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=rrs_brooding.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=var_dp_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=cesd_score.png
+│       │   │   │   │   ├── x=rrs_brooding, y=dp_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=gaze_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=luminance.png
+│       │   │   │   │   ├── x=rrs_brooding, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=rrs_brooding, y=m_diff_stim.png
+│       │   │   │   │   ├── x=rrs_brooding, y=m_rt.png
+│       │   │   │   │   ├── x=rrs_brooding, y=n_dp_valid.png
+│       │   │   │   │   ├── x=rrs_brooding, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=rrs_brooding, y=rrs_brooding.png
+│       │   │   │   │   ├── x=rrs_brooding, y=var_dp_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=var_dp_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=luminance.png
+│       │   │   │   │   ├── x=var_dp_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=var_dp_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=var_dp_bias, y=m_rt.png
+│       │   │   │   │   ├── x=var_dp_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=var_dp_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=var_dp_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=var_dp_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=luminance.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=m_rt.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=var_dp_bias.png
+│       │   │   │   │   └── x=var_gaze_bias, y=var_gaze_bias.png
+│       │   │   │   ├── density/
+│       │   │   │   │   ├── density_cesd_score.png
+│       │   │   │   │   ├── density_dp_bias.png
+│       │   │   │   │   ├── density_final_gaze_bias.png
+│       │   │   │   │   ├── density_gaze_bias.png
+│       │   │   │   │   ├── density_luminance.png
+│       │   │   │   │   ├── density_m_diff_dotloc.png
+│       │   │   │   │   ├── density_m_diff_stim.png
+│       │   │   │   │   ├── density_m_rt.png
+│       │   │   │   │   ├── density_n_dp_valid.png
+│       │   │   │   │   ├── density_n_gaze_valid.png
+│       │   │   │   │   ├── density_participant.png
+│       │   │   │   │   ├── density_rrs_brooding.png
+│       │   │   │   │   └── density_var_gaze_bias.png
+│       │   │   │   ├── dotloc_boxplot.png
+│       │   │   │   ├── rt_boxplot.png
+│       │   │   │   └── stim_boxplot.png
+│       │   │   ├── imhr/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── favicon/
+│       │   │   │   │   ├── favicon-114.png
+│       │   │   │   │   ├── favicon-120.png
+│       │   │   │   │   ├── favicon-144.png
+│       │   │   │   │   ├── favicon-150.png
+│       │   │   │   │   ├── favicon-152.png
+│       │   │   │   │   ├── favicon-16.png
+│       │   │   │   │   ├── favicon-160.png
+│       │   │   │   │   ├── favicon-180.png
+│       │   │   │   │   ├── favicon-192.png
+│       │   │   │   │   ├── favicon-310.png
+│       │   │   │   │   ├── favicon-32.png
+│       │   │   │   │   ├── favicon-57.png
+│       │   │   │   │   ├── favicon-60.png
+│       │   │   │   │   ├── favicon-64.png
+│       │   │   │   │   ├── favicon-70.png
+│       │   │   │   │   ├── favicon-72.png
+│       │   │   │   │   ├── favicon-76.png
+│       │   │   │   │   ├── favicon-96.png
+│       │   │   │   │   └── favicon.ico
+│       │   │   │   ├── icon.png
+│       │   │   │   ├── imhr.png
+│       │   │   │   ├── imhr.psd
+│       │   │   │   ├── imhr.svg
+│       │   │   │   ├── imhr.tif
+│       │   │   │   ├── orignal/
+│       │   │   │   │   ├── IMHR.psd
+│       │   │   │   │   └── IMHR_vector.psd
+│       │   │   │   └── tutorial.mp4
+│       │   │   ├── index.rst
+│       │   │   └── js/
+│       │   │       ├── .DS_Store
+│       │   │       ├── bokeh/
+│       │   │       │   ├── bokeh-1.0.4.min.js
+│       │   │       │   ├── bokeh-api-1.0.4.min.js
+│       │   │       │   ├── bokeh-gl-1.0.4.min.js
+│       │   │       │   ├── bokeh-tables-1.0.4.min.js
+│       │   │       │   └── bokeh-widgets-1.0.4.min.js
+│       │   │       ├── bootstrap/
+│       │   │       │   ├── bootstrap.bundle.js
+│       │   │       │   ├── bootstrap.bundle.js.map
+│       │   │       │   └── bootstrap.js
+│       │   │       ├── datatables/
+│       │   │       │   ├── .DS_Store
+│       │   │       │   ├── buttons.bootstrap.min.js
+│       │   │       │   ├── buttons.html5.min.js
+│       │   │       │   ├── dataTables.bootstrap.min.js
+│       │   │       │   ├── dataTables.buttons.min.js
+│       │   │       │   ├── dataTables.responsive.min.js
+│       │   │       │   ├── dataTables.rowGroup.min.js
+│       │   │       │   ├── dataTables.rowsGroup.js
+│       │   │       │   ├── jquery.dataTables.min.js
+│       │   │       │   ├── jszip.min.js
+│       │   │       │   └── responsive.bootstrap.min.js
+│       │   │       ├── jquery/
+│       │   │       │   ├── jquery-3.2.1.min.js
+│       │   │       │   └── jquery.simpler-sidebar.min.js
+│       │   │       ├── lodash.min.js
+│       │   │       ├── popper.js
+│       │   │       ├── prism/
+│       │   │       │   ├── prism-line-numbers.js
+│       │   │       │   ├── prism-normalize-whitespace.js
+│       │   │       │   ├── prism-python.js
+│       │   │       │   ├── prism-r.js
+│       │   │       │   └── prism.js
+│       │   │       ├── tinymce/
+│       │   │       │   ├── .DS_Store
+│       │   │       │   ├── plugins/
+│       │   │       │   │   ├── .DS_Store
+│       │   │       │   │   ├── fullpage/
+│       │   │       │   │   │   ├── .DS_Store
+│       │   │       │   │   │   └── plugin.js
+│       │   │       │   │   └── fullscreen/
+│       │   │       │   │       ├── .DS_Store
+│       │   │       │   │       └── plugin.js
+│       │   │       │   ├── semeon/
+│       │   │       │   │   ├── .DS_Store
+│       │   │       │   │   └── icons.js
+│       │   │       │   ├── tinymce-autoresize.js
+│       │   │       │   ├── tinymce-codesample.js
+│       │   │       │   ├── tinymce-mobile.js
+│       │   │       │   ├── tinymce-save.js
+│       │   │       │   ├── tinymce-silver.js
+│       │   │       │   └── tinymce.js
+│       │   │       └── user.js
+│       │   ├── Webgazer/
+│       │   │   ├── .DS_Store
+│       │   │   ├── css/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── bokeh/
+│       │   │   │   │   ├── bokeh-1.0.4.min.css
+│       │   │   │   │   ├── bokeh-tables-1.0.4.min.css
+│       │   │   │   │   └── bokeh-widgets-1.0.4.min.css
+│       │   │   │   ├── bootstrap/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── bootstrap.css
+│       │   │   │   │   ├── bootstrap.min.css
+│       │   │   │   │   ├── bootstrap.min.css.map
+│       │   │   │   │   └── fonts/
+│       │   │   │   │       ├── glyphicons-halflings-regular.ttf
+│       │   │   │   │       ├── glyphicons-halflings-regular.woff
+│       │   │   │   │       └── glyphicons-halflings-regular.woff2
+│       │   │   │   ├── datatables/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── buttons.bootstrap.min.css
+│       │   │   │   │   ├── dataTables.bootstrap.min.css
+│       │   │   │   │   └── responsive.bootstrap.min.css
+│       │   │   │   ├── fonts/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── ejicons.eot
+│       │   │   │   │   ├── ejicons.ttf
+│       │   │   │   │   └── ejicons.woff
+│       │   │   │   ├── fonts.css
+│       │   │   │   ├── images/
+│       │   │   │   │   ├── ejicons.svg
+│       │   │   │   │   ├── ui-bg_diagonals-thick_90_eeeeee_40x40.png
+│       │   │   │   │   ├── ui-bg_glass_100_e4f1fb_1x400.png
+│       │   │   │   │   ├── ui-bg_glass_50_3baae3_1x400.png
+│       │   │   │   │   ├── ui-bg_glass_80_d7ebf9_1x400.png
+│       │   │   │   │   ├── ui-bg_highlight-hard_100_f2f5f7_1x100.png
+│       │   │   │   │   ├── ui-bg_highlight-hard_70_000000_1x100.png
+│       │   │   │   │   ├── ui-bg_highlight-soft_100_deedf7_1x100.png
+│       │   │   │   │   ├── ui-bg_highlight-soft_25_ffef8f_1x100.png
+│       │   │   │   │   ├── ui-icons_2694e8_256x240.png
+│       │   │   │   │   ├── ui-icons_2e83ff_256x240.png
+│       │   │   │   │   ├── ui-icons_3d80b3_256x240.png
+│       │   │   │   │   ├── ui-icons_444444_256x240.png
+│       │   │   │   │   ├── ui-icons_555555_256x240.png
+│       │   │   │   │   ├── ui-icons_72a7cf_256x240.png
+│       │   │   │   │   ├── ui-icons_777620_256x240.png
+│       │   │   │   │   ├── ui-icons_777777_256x240.png
+│       │   │   │   │   ├── ui-icons_cc0000_256x240.png
+│       │   │   │   │   └── ui-icons_ffffff_256x240.png
+│       │   │   │   ├── index.css
+│       │   │   │   ├── jquery/
+│       │   │   │   │   └── jquery-ui.css
+│       │   │   │   ├── prism/
+│       │   │   │   │   ├── prism-line-numbers.css
+│       │   │   │   │   └── prism.css
+│       │   │   │   ├── tinymce/
+│       │   │   │   │   ├── .DS_Store
+│       │   │   │   │   ├── fonts/
+│       │   │   │   │   │   ├── copy.svg
+│       │   │   │   │   │   ├── cut.svg
+│       │   │   │   │   │   ├── paste.svg
+│       │   │   │   │   │   ├── save.svg
+│       │   │   │   │   │   ├── selectall.svg
+│       │   │   │   │   │   ├── semeon.woff
+│       │   │   │   │   │   └── tinymce-mobile.woff
+│       │   │   │   │   └── semeon/
+│       │   │   │   │       ├── .DS_Store
+│       │   │   │   │       ├── content.inline.css
+│       │   │   │   │       ├── content.inline.min.css
+│       │   │   │   │       ├── content.min.css
+│       │   │   │   │       ├── content.mobile.min.css
+│       │   │   │   │       ├── fonts/
+│       │   │   │   │       │   ├── copy.svg
+│       │   │   │   │       │   ├── cut.svg
+│       │   │   │   │       │   ├── paste.svg
+│       │   │   │   │       │   ├── save.svg
+│       │   │   │   │       │   ├── selectall.svg
+│       │   │   │   │       │   ├── semeon.woff
+│       │   │   │   │       │   └── tinymce-mobile.woff
+│       │   │   │   │       ├── skin.min.css
+│       │   │   │   │       └── skin.mobile.min.css
+│       │   │   │   └── user.css
+│       │   │   ├── img/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── .gitikeep
+│       │   │   │   ├── corr/
+│       │   │   │   │   ├── x=cesd_score, y=cesd_score.png
+│       │   │   │   │   ├── x=cesd_score, y=dp_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=gaze_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=luminance.png
+│       │   │   │   │   ├── x=cesd_score, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=cesd_score, y=m_diff_stim.png
+│       │   │   │   │   ├── x=cesd_score, y=m_rt.png
+│       │   │   │   │   ├── x=cesd_score, y=n_dp_valid.png
+│       │   │   │   │   ├── x=cesd_score, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=cesd_score, y=rrs_brooding.png
+│       │   │   │   │   ├── x=cesd_score, y=var_dp_bias.png
+│       │   │   │   │   ├── x=cesd_score, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=dp_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=luminance.png
+│       │   │   │   │   ├── x=dp_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=dp_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=dp_bias, y=m_rt.png
+│       │   │   │   │   ├── x=dp_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=dp_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=dp_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=dp_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=dp_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=luminance.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=m_rt.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=final_gaze_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=gaze_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=luminance.png
+│       │   │   │   │   ├── x=gaze_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=gaze_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=gaze_bias, y=m_rt.png
+│       │   │   │   │   ├── x=gaze_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=gaze_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=gaze_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=gaze_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=gaze_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=luminance, y=cesd_score.png
+│       │   │   │   │   ├── x=luminance, y=dp_bias.png
+│       │   │   │   │   ├── x=luminance, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=luminance, y=gaze_bias.png
+│       │   │   │   │   ├── x=luminance, y=luminance.png
+│       │   │   │   │   ├── x=luminance, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=luminance, y=m_diff_stim.png
+│       │   │   │   │   ├── x=luminance, y=m_rt.png
+│       │   │   │   │   ├── x=luminance, y=n_dp_valid.png
+│       │   │   │   │   ├── x=luminance, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=luminance, y=rrs_brooding.png
+│       │   │   │   │   ├── x=luminance, y=var_dp_bias.png
+│       │   │   │   │   ├── x=luminance, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=cesd_score.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=dp_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=luminance.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=m_diff_stim.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=m_rt.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=n_dp_valid.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=rrs_brooding.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=var_dp_bias.png
+│       │   │   │   │   ├── x=m_diff_dotloc, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=cesd_score.png
+│       │   │   │   │   ├── x=m_diff_stim, y=dp_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=gaze_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=luminance.png
+│       │   │   │   │   ├── x=m_diff_stim, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=m_diff_stim, y=m_diff_stim.png
+│       │   │   │   │   ├── x=m_diff_stim, y=m_rt.png
+│       │   │   │   │   ├── x=m_diff_stim, y=n_dp_valid.png
+│       │   │   │   │   ├── x=m_diff_stim, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=m_diff_stim, y=rrs_brooding.png
+│       │   │   │   │   ├── x=m_diff_stim, y=var_dp_bias.png
+│       │   │   │   │   ├── x=m_diff_stim, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=m_rt, y=cesd_score.png
+│       │   │   │   │   ├── x=m_rt, y=dp_bias.png
+│       │   │   │   │   ├── x=m_rt, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=m_rt, y=gaze_bias.png
+│       │   │   │   │   ├── x=m_rt, y=luminance.png
+│       │   │   │   │   ├── x=m_rt, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=m_rt, y=m_diff_stim.png
+│       │   │   │   │   ├── x=m_rt, y=m_rt.png
+│       │   │   │   │   ├── x=m_rt, y=n_dp_valid.png
+│       │   │   │   │   ├── x=m_rt, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=m_rt, y=rrs_brooding.png
+│       │   │   │   │   ├── x=m_rt, y=var_dp_bias.png
+│       │   │   │   │   ├── x=m_rt, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=cesd_score.png
+│       │   │   │   │   ├── x=n_dp_valid, y=dp_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=gaze_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=luminance.png
+│       │   │   │   │   ├── x=n_dp_valid, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=n_dp_valid, y=m_diff_stim.png
+│       │   │   │   │   ├── x=n_dp_valid, y=m_rt.png
+│       │   │   │   │   ├── x=n_dp_valid, y=n_dp_valid.png
+│       │   │   │   │   ├── x=n_dp_valid, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=n_dp_valid, y=rrs_brooding.png
+│       │   │   │   │   ├── x=n_dp_valid, y=var_dp_bias.png
+│       │   │   │   │   ├── x=n_dp_valid, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=cesd_score.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=dp_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=gaze_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=luminance.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=m_diff_stim.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=m_rt.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=n_dp_valid.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=rrs_brooding.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=var_dp_bias.png
+│       │   │   │   │   ├── x=n_gaze_valid, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=cesd_score.png
+│       │   │   │   │   ├── x=rrs_brooding, y=dp_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=gaze_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=luminance.png
+│       │   │   │   │   ├── x=rrs_brooding, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=rrs_brooding, y=m_diff_stim.png
+│       │   │   │   │   ├── x=rrs_brooding, y=m_rt.png
+│       │   │   │   │   ├── x=rrs_brooding, y=n_dp_valid.png
+│       │   │   │   │   ├── x=rrs_brooding, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=rrs_brooding, y=rrs_brooding.png
+│       │   │   │   │   ├── x=rrs_brooding, y=var_dp_bias.png
+│       │   │   │   │   ├── x=rrs_brooding, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=var_dp_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=luminance.png
+│       │   │   │   │   ├── x=var_dp_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=var_dp_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=var_dp_bias, y=m_rt.png
+│       │   │   │   │   ├── x=var_dp_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=var_dp_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=var_dp_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=var_dp_bias, y=var_dp_bias.png
+│       │   │   │   │   ├── x=var_dp_bias, y=var_gaze_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=cesd_score.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=dp_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=final_gaze_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=gaze_bias.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=luminance.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=m_diff_dotloc.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=m_diff_stim.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=m_rt.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=n_dp_valid.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=n_gaze_valid.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=rrs_brooding.png
+│       │   │   │   │   ├── x=var_gaze_bias, y=var_dp_bias.png
+│       │   │   │   │   └── x=var_gaze_bias, y=var_gaze_bias.png
+│       │   │   │   ├── density/
+│       │   │   │   │   ├── density_cesd_score.png
+│       │   │   │   │   ├── density_dp_bias.png
+│       │   │   │   │   ├── density_final_gaze_bias.png
+│       │   │   │   │   ├── density_gaze_bias.png
+│       │   │   │   │   ├── density_luminance.png
+│       │   │   │   │   ├── density_m_diff_dotloc.png
+│       │   │   │   │   ├── density_m_diff_stim.png
+│       │   │   │   │   ├── density_m_rt.png
+│       │   │   │   │   ├── density_n_dp_valid.png
+│       │   │   │   │   ├── density_n_gaze_valid.png
+│       │   │   │   │   ├── density_participant.png
+│       │   │   │   │   ├── density_rrs_brooding.png
+│       │   │   │   │   └── density_var_gaze_bias.png
+│       │   │   │   ├── dotloc_boxplot.png
+│       │   │   │   ├── rt_boxplot.png
+│       │   │   │   └── stim_boxplot.png
+│       │   │   ├── imhr/
+│       │   │   │   ├── .DS_Store
+│       │   │   │   ├── favicon/
+│       │   │   │   │   ├── favicon-114.png
+│       │   │   │   │   ├── favicon-120.png
+│       │   │   │   │   ├── favicon-144.png
+│       │   │   │   │   ├── favicon-150.png
+│       │   │   │   │   ├── favicon-152.png
+│       │   │   │   │   ├── favicon-16.png
+│       │   │   │   │   ├── favicon-160.png
+│       │   │   │   │   ├── favicon-180.png
+│       │   │   │   │   ├── favicon-192.png
+│       │   │   │   │   ├── favicon-310.png
+│       │   │   │   │   ├── favicon-32.png
+│       │   │   │   │   ├── favicon-57.png
+│       │   │   │   │   ├── favicon-60.png
+│       │   │   │   │   ├── favicon-64.png
+│       │   │   │   │   ├── favicon-70.png
+│       │   │   │   │   ├── favicon-72.png
+│       │   │   │   │   ├── favicon-76.png
+│       │   │   │   │   ├── favicon-96.png
+│       │   │   │   │   └── favicon.ico
+│       │   │   │   ├── icon.png
+│       │   │   │   ├── imhr.png
+│       │   │   │   ├── imhr.psd
+│       │   │   │   ├── imhr.svg
+│       │   │   │   ├── imhr.tif
+│       │   │   │   ├── orignal/
+│       │   │   │   │   ├── IMHR.psd
+│       │   │   │   │   └── IMHR_vector.psd
+│       │   │   │   └── tutorial.mp4
+│       │   │   ├── index.rst
+│       │   │   └── js/
+│       │   │       ├── .DS_Store
+│       │   │       ├── bokeh/
+│       │   │       │   ├── bokeh-1.0.4.min.js
+│       │   │       │   ├── bokeh-api-1.0.4.min.js
+│       │   │       │   ├── bokeh-gl-1.0.4.min.js
+│       │   │       │   ├── bokeh-tables-1.0.4.min.js
+│       │   │       │   └── bokeh-widgets-1.0.4.min.js
+│       │   │       ├── bootstrap/
+│       │   │       │   ├── bootstrap.bundle.js
+│       │   │       │   ├── bootstrap.bundle.js.map
+│       │   │       │   └── bootstrap.js
+│       │   │       ├── datatables/
+│       │   │       │   ├── .DS_Store
+│       │   │       │   ├── buttons.bootstrap.min.js
+│       │   │       │   ├── buttons.html5.min.js
+│       │   │       │   ├── dataTables.bootstrap.min.js
+│       │   │       │   ├── dataTables.buttons.min.js
+│       │   │       │   ├── dataTables.responsive.min.js
+│       │   │       │   ├── dataTables.rowGroup.min.js
+│       │   │       │   ├── dataTables.rowsGroup.js
+│       │   │       │   ├── jquery.dataTables.min.js
+│       │   │       │   ├── jszip.min.js
+│       │   │       │   └── responsive.bootstrap.min.js
+│       │   │       ├── jquery/
+│       │   │       │   ├── jquery-3.2.1.min.js
+│       │   │       │   └── jquery.simpler-sidebar.min.js
+│       │   │       ├── lodash.min.js
+│       │   │       ├── popper.js
+│       │   │       ├── prism/
+│       │   │       │   ├── prism-line-numbers.js
+│       │   │       │   ├── prism-normalize-whitespace.js
+│       │   │       │   ├── prism-python.js
+│       │   │       │   ├── prism-r.js
+│       │   │       │   └── prism.js
+│       │   │       ├── tinymce/
+│       │   │       │   ├── .DS_Store
+│       │   │       │   ├── plugins/
+│       │   │       │   │   ├── .DS_Store
+│       │   │       │   │   ├── fullpage/
+│       │   │       │   │   │   ├── .DS_Store
+│       │   │       │   │   │   └── plugin.js
+│       │   │       │   │   └── fullscreen/
+│       │   │       │   │       ├── .DS_Store
+│       │   │       │   │       └── plugin.js
+│       │   │       │   ├── semeon/
+│       │   │       │   │   ├── .DS_Store
+│       │   │       │   │   └── icons.js
+│       │   │       │   ├── tinymce-autoresize.js
+│       │   │       │   ├── tinymce-codesample.js
+│       │   │       │   ├── tinymce-mobile.js
+│       │   │       │   ├── tinymce-save.js
+│       │   │       │   ├── tinymce-silver.js
+│       │   │       │   └── tinymce.js
+│       │   │       └── user.js
+│       │   ├── workflow.gv
+│       │   └── workflow.gv.pdf
+│       └── tools/
+│           ├── .DS_Store
+│           ├── .nojekyll
+│           └── nb_to_doc.py
+├── doctree.txt
+├── HOWTO.md
+├── imhr/
+│   ├── .DS_Store
+│   ├── __init__.py
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-37.pyc
+│   │   ├── _version.cpython-37.pyc
+│   │   ├── download.cpython-37.pyc
+│   │   ├── plot.cpython-37.pyc
+│   │   └── settings.cpython-37.pyc
+│   ├── _version.py
+│   ├── dist/
+│   │   ├── .DS_Store
+│   │   ├── all/
+│   │   │   ├── .DS_Store
+│   │   │   ├── AM_201.psd
+│   │   │   ├── AM_203.psd
+│   │   │   ├── AM_204.psd
+│   │   │   ├── AM_205.psd
+│   │   │   ├── AM_206.psd
+│   │   │   ├── AM_207.psd
+│   │   │   ├── AM_208.psd
+│   │   │   ├── AM_209.psd
+│   │   │   ├── AM_210.psd
+│   │   │   ├── AM_211.psd
+│   │   │   ├── AM_212.psd
+│   │   │   ├── AM_213.psd
+│   │   │   ├── AM_214.psd
+│   │   │   ├── AM_216.psd
+│   │   │   ├── AM_218.psd
+│   │   │   ├── AM_220.psd
+│   │   │   ├── AM_221.psd
+│   │   │   ├── AM_223.psd
+│   │   │   ├── AM_224.psd
+│   │   │   ├── AM_225.psd
+│   │   │   ├── AM_227.psd
+│   │   │   ├── AM_228.psd
+│   │   │   ├── AM_230.psd
+│   │   │   ├── AM_231.psd
+│   │   │   ├── AM_232.psd
+│   │   │   ├── AM_233.psd
+│   │   │   ├── AM_234.psd
+│   │   │   ├── AM_235.psd
+│   │   │   ├── AM_236.psd
+│   │   │   ├── AM_237.psd
+│   │   │   ├── AM_238.psd
+│   │   │   ├── AM_239.psd
+│   │   │   ├── AM_240.psd
+│   │   │   ├── AM_241.psd
+│   │   │   ├── AM_243.psd
+│   │   │   ├── AM_247.psd
+│   │   │   ├── AM_248.psd
+│   │   │   ├── AM_250.psd
+│   │   │   ├── AM_252.psd
+│   │   │   ├── AM_253.psd
+│   │   │   ├── BM_002.psd
+│   │   │   ├── BM_005.psd
+│   │   │   ├── BM_018.psd
+│   │   │   ├── BM_019.psd
+│   │   │   ├── BM_021.psd
+│   │   │   ├── BM_023.psd
+│   │   │   ├── BM_026.psd
+│   │   │   ├── BM_028.psd
+│   │   │   ├── BM_030.psd
+│   │   │   ├── BM_031.psd
+│   │   │   ├── BM_032.psd
+│   │   │   ├── BM_034.psd
+│   │   │   ├── BM_036.psd
+│   │   │   ├── BM_046.psd
+│   │   │   ├── BM_203.psd
+│   │   │   ├── BM_208.psd
+│   │   │   ├── BM_209.psd
+│   │   │   ├── BM_215.psd
+│   │   │   ├── BM_218.psd
+│   │   │   ├── BM_219.psd
+│   │   │   ├── BM_221.psd
+│   │   │   ├── BM_222.psd
+│   │   │   ├── BM_225.psd
+│   │   │   ├── BM_226.psd
+│   │   │   ├── BM_227.psd
+│   │   │   ├── BM_228.psd
+│   │   │   ├── BM_229.psd
+│   │   │   ├── BM_231.psd
+│   │   │   ├── BM_234.psd
+│   │   │   ├── BM_235.psd
+│   │   │   ├── BM_237.psd
+│   │   │   ├── BM_239.psd
+│   │   │   ├── BM_240.psd
+│   │   │   ├── BM_242.psd
+│   │   │   ├── BM_243.psd
+│   │   │   ├── BM_244.psd
+│   │   │   ├── BM_247.psd
+│   │   │   ├── BM_248.psd
+│   │   │   ├── BM_249.psd
+│   │   │   ├── BM_252.psd
+│   │   │   ├── WM_001.psd
+│   │   │   ├── WM_003.psd
+│   │   │   ├── WM_006.psd
+│   │   │   ├── WM_009.psd
+│   │   │   ├── WM_011.psd
+│   │   │   ├── WM_012.psd
+│   │   │   ├── WM_013.psd
+│   │   │   ├── WM_014.psd
+│   │   │   ├── WM_015.psd
+│   │   │   ├── WM_016.psd
+│   │   │   ├── WM_018.psd
+│   │   │   ├── WM_020.psd
+│   │   │   ├── WM_022.psd
+│   │   │   ├── WM_023.psd
+│   │   │   ├── WM_024.psd
+│   │   │   ├── WM_028.psd
+│   │   │   ├── WM_029.psd
+│   │   │   ├── WM_031.psd
+│   │   │   ├── WM_032.psd
+│   │   │   ├── WM_033.psd
+│   │   │   ├── WM_034.psd
+│   │   │   ├── WM_037.psd
+│   │   │   ├── WM_040.psd
+│   │   │   ├── WM_203.psd
+│   │   │   ├── WM_204.psd
+│   │   │   ├── WM_215.psd
+│   │   │   ├── WM_217.psd
+│   │   │   ├── WM_231.psd
+│   │   │   ├── WM_232.psd
+│   │   │   ├── WM_234.psd
+│   │   │   ├── WM_237.psd
+│   │   │   ├── WM_238.psd
+│   │   │   ├── WM_239.psd
+│   │   │   ├── WM_241.psd
+│   │   │   ├── WM_248.psd
+│   │   │   ├── WM_251.psd
+│   │   │   ├── WM_252.psd
+│   │   │   ├── WM_254.psd
+│   │   │   ├── WM_256.psd
+│   │   │   └── WM_258.psd
+│   │   ├── audio/
+│   │   │   ├── error.wav
+│   │   │   ├── qbeep.wav
+│   │   │   └── type.wav
+│   │   ├── haarcascades/
+│   │   │   ├── haarcascade_eye.xml
+│   │   │   ├── haarcascade_eye_tree_eyeglasses.xml
+│   │   │   ├── haarcascade_frontalcatface.xml
+│   │   │   ├── haarcascade_frontalcatface_extended.xml
+│   │   │   ├── haarcascade_frontalface_alt.xml
+│   │   │   ├── haarcascade_frontalface_alt2.xml
+│   │   │   ├── haarcascade_frontalface_alt_tree.xml
+│   │   │   ├── haarcascade_frontalface_default.xml
+│   │   │   ├── haarcascade_fullbody.xml
+│   │   │   ├── haarcascade_lefteye_2splits.xml
+│   │   │   ├── haarcascade_licence_plate_rus_16stages.xml
+│   │   │   ├── haarcascade_lowerbody.xml
+│   │   │   ├── haarcascade_profileface.xml
+│   │   │   ├── haarcascade_righteye_2splits.xml
+│   │   │   ├── haarcascade_russian_plate_number.xml
+│   │   │   ├── haarcascade_smile.xml
+│   │   │   └── haarcascade_upperbody.xml
+│   │   ├── metadata.xlsx
+│   │   ├── pytest_requirements.txt
+│   │   ├── R/
+│   │   │   ├── .DS_Store
+│   │   │   ├── .Rhistory
+│   │   │   ├── analysis.R
+│   │   │   ├── bias.R
+│   │   │   ├── bias_behavioral.R
+│   │   │   ├── bias_eyetracking.R
+│   │   │   ├── bias_summary.pdf
+│   │   │   ├── bias_summary_report.pdf
+│   │   │   ├── factor_analysis.pdf
+│   │   │   └── old/
+│   │   │       └── _summarize_bias.R
+│   │   ├── requirements.txt
+│   │   ├── resources/
+│   │   │   ├── .DS_Store
+│   │   │   ├── Helvetica.ttf
+│   │   │   ├── nyas12705-sup-0001-text.docx
+│   │   │   ├── pylink_3.4-3.6_win.zip
+│   │   │   └── pylink_3.6_MacOSX_x64.zip
+│   │   └── roi/
+│   │       ├── .DS_Store
+│   │       ├── all/
+│   │       │   ├── .DS_Store
+│   │       │   ├── AM_201.psd
+│   │       │   ├── AM_203.psd
+│   │       │   ├── AM_204.psd
+│   │       │   ├── AM_205.psd
+│   │       │   ├── AM_206.psd
+│   │       │   ├── AM_207.psd
+│   │       │   ├── AM_208.psd
+│   │       │   ├── AM_209.psd
+│   │       │   ├── AM_210.psd
+│   │       │   ├── AM_211.psd
+│   │       │   ├── AM_212.psd
+│   │       │   ├── AM_213.psd
+│   │       │   ├── AM_214.psd
+│   │       │   ├── AM_216.psd
+│   │       │   ├── AM_218.psd
+│   │       │   ├── AM_220.psd
+│   │       │   ├── AM_221.psd
+│   │       │   ├── AM_223.psd
+│   │       │   ├── AM_224.psd
+│   │       │   ├── AM_225.psd
+│   │       │   ├── AM_227.psd
+│   │       │   ├── AM_228.psd
+│   │       │   ├── AM_230.psd
+│   │       │   ├── AM_231.psd
+│   │       │   ├── AM_232.psd
+│   │       │   ├── AM_233.psd
+│   │       │   ├── AM_234.psd
+│   │       │   ├── AM_235.psd
+│   │       │   ├── AM_236.psd
+│   │       │   ├── AM_237.psd
+│   │       │   ├── AM_238.psd
+│   │       │   ├── AM_239.psd
+│   │       │   ├── AM_240.psd
+│   │       │   ├── AM_241.psd
+│   │       │   ├── AM_243.psd
+│   │       │   ├── AM_247.psd
+│   │       │   ├── AM_248.psd
+│   │       │   ├── AM_250.psd
+│   │       │   ├── AM_252.psd
+│   │       │   ├── AM_253.psd
+│   │       │   ├── BM_002.psd
+│   │       │   ├── BM_005.psd
+│   │       │   ├── BM_018.psd
+│   │       │   ├── BM_019.psd
+│   │       │   ├── BM_021.psd
+│   │       │   ├── BM_023.psd
+│   │       │   ├── BM_026.psd
+│   │       │   ├── BM_028.psd
+│   │       │   ├── BM_030.psd
+│   │       │   ├── BM_031.psd
+│   │       │   ├── BM_032.psd
+│   │       │   ├── BM_034.psd
+│   │       │   ├── BM_036.psd
+│   │       │   ├── BM_046.psd
+│   │       │   ├── BM_203.psd
+│   │       │   ├── BM_208.psd
+│   │       │   ├── BM_209.psd
+│   │       │   ├── BM_215.psd
+│   │       │   ├── BM_218.psd
+│   │       │   ├── BM_219.psd
+│   │       │   ├── BM_221.psd
+│   │       │   ├── BM_222.psd
+│   │       │   ├── BM_225.psd
+│   │       │   ├── BM_226.psd
+│   │       │   ├── BM_227.psd
+│   │       │   ├── BM_228.psd
+│   │       │   ├── BM_229.psd
+│   │       │   ├── BM_231.psd
+│   │       │   ├── BM_234.psd
+│   │       │   ├── BM_235.psd
+│   │       │   ├── BM_237.psd
+│   │       │   ├── BM_239.psd
+│   │       │   ├── BM_240.psd
+│   │       │   ├── BM_242.psd
+│   │       │   ├── BM_243.psd
+│   │       │   ├── BM_244.psd
+│   │       │   ├── BM_247.psd
+│   │       │   ├── BM_248.psd
+│   │       │   ├── BM_249.psd
+│   │       │   ├── BM_252.psd
+│   │       │   ├── WM_001.psd
+│   │       │   ├── WM_003.psd
+│   │       │   ├── WM_006.psd
+│   │       │   ├── WM_009.psd
+│   │       │   ├── WM_011.psd
+│   │       │   ├── WM_012.psd
+│   │       │   ├── WM_013.psd
+│   │       │   ├── WM_014.psd
+│   │       │   ├── WM_015.psd
+│   │       │   ├── WM_016.psd
+│   │       │   ├── WM_018.psd
+│   │       │   ├── WM_020.psd
+│   │       │   ├── WM_022.psd
+│   │       │   ├── WM_023.psd
+│   │       │   ├── WM_024.psd
+│   │       │   ├── WM_028.psd
+│   │       │   ├── WM_029.psd
+│   │       │   ├── WM_031.psd
+│   │       │   ├── WM_032.psd
+│   │       │   ├── WM_033.psd
+│   │       │   ├── WM_034.psd
+│   │       │   ├── WM_037.psd
+│   │       │   ├── WM_040.psd
+│   │       │   ├── WM_203.psd
+│   │       │   ├── WM_204.psd
+│   │       │   ├── WM_215.psd
+│   │       │   ├── WM_217.psd
+│   │       │   ├── WM_231.psd
+│   │       │   ├── WM_232.psd
+│   │       │   ├── WM_234.psd
+│   │       │   ├── WM_237.psd
+│   │       │   ├── WM_238.psd
+│   │       │   ├── WM_239.psd
+│   │       │   ├── WM_241.psd
+│   │       │   ├── WM_248.psd
+│   │       │   ├── WM_251.psd
+│   │       │   ├── WM_252.psd
+│   │       │   ├── WM_254.psd
+│   │       │   ├── WM_256.psd
+│   │       │   └── WM_258.psd
+│   │       ├── example/
+│   │       │   ├── 2550.1.png
+│   │       │   ├── 2550.2.png
+│   │       │   ├── 2550_pre.png
+│   │       │   └── 2550_roi.png
+│   │       ├── output/
+│   │       │   ├── .DS_Store
+│   │       │   ├── bounds.ias
+│   │       │   ├── bounds.xlsx
+│   │       │   ├── data/
+│   │       │   │   ├── 2550_bounds.ias
+│   │       │   │   ├── 2550_bounds.xlsx
+│   │       │   │   ├── 2691_bounds.ias
+│   │       │   │   ├── 2691_bounds.xlsx
+│   │       │   │   ├── 4640_bounds.ias
+│   │       │   │   ├── 4640_bounds.xlsx
+│   │       │   │   ├── 9421_bounds.ias
+│   │       │   │   ├── 9421_bounds.xlsx
+│   │       │   │   ├── AM_201_bounds.ias
+│   │       │   │   ├── AM_201_bounds.xlsx
+│   │       │   │   ├── AM_203_bounds.ias
+│   │       │   │   ├── AM_203_bounds.xlsx
+│   │       │   │   ├── AM_204_bounds.ias
+│   │       │   │   ├── AM_204_bounds.xlsx
+│   │       │   │   ├── AM_223_bounds.ias
+│   │       │   │   └── AM_223_bounds.xlsx
+│   │       │   └── img/
+│   │       │       ├── .DS_Store
+│   │       │       ├── bounds/
+│   │       │       │   ├── .DS_Store
+│   │       │       │   ├── 2550.png
+│   │       │       │   ├── 2691.png
+│   │       │       │   ├── 4640.png
+│   │       │       │   ├── 9421.png
+│   │       │       │   ├── AM_201.png
+│   │       │       │   ├── AM_203.png
+│   │       │       │   ├── AM_204.png
+│   │       │       │   ├── AM_223.png
+│   │       │       │   └── roi/
+│   │       │       │       ├── 2550.1.png
+│   │       │       │       ├── 2550.2.png
+│   │       │       │       ├── 2691.1.png
+│   │       │       │       ├── 2691.2.png
+│   │       │       │       ├── 4640.1.png
+│   │       │       │       ├── 4640.2.png
+│   │       │       │       ├── 4640.3.png
+│   │       │       │       ├── 9421.1.png
+│   │       │       │       ├── 9421.2.png
+│   │       │       │       ├── 9421.3.png
+│   │       │       │       ├── AM_201.roi1.png
+│   │       │       │       ├── AM_201.roi2.png
+│   │       │       │       ├── AM_201.roi3.png
+│   │       │       │       ├── AM_201.roi4.png
+│   │       │       │       ├── AM_201.roi5.png
+│   │       │       │       ├── AM_201.roi6.png
+│   │       │       │       ├── AM_201.roi7.png
+│   │       │       │       ├── AM_201.roi8.png
+│   │       │       │       ├── AM_203.roi1.png
+│   │       │       │       ├── AM_203.roi2.png
+│   │       │       │       ├── AM_203.roi3.png
+│   │       │       │       ├── AM_203.roi4.png
+│   │       │       │       ├── AM_203.roi5.png
+│   │       │       │       ├── AM_203.roi6.png
+│   │       │       │       ├── AM_203.roi7.png
+│   │       │       │       ├── AM_203.roi8.png
+│   │       │       │       ├── AM_204.roi1.png
+│   │       │       │       ├── AM_204.roi2.png
+│   │       │       │       ├── AM_204.roi3.png
+│   │       │       │       ├── AM_204.roi4.png
+│   │       │       │       ├── AM_204.roi5.png
+│   │       │       │       ├── AM_204.roi6.png
+│   │       │       │       ├── AM_204.roi7.png
+│   │       │       │       ├── AM_204.roi8.png
+│   │       │       │       ├── AM_223.roi1.png
+│   │       │       │       ├── AM_223.roi2.png
+│   │       │       │       ├── AM_223.roi3.png
+│   │       │       │       ├── AM_223.roi4.png
+│   │       │       │       ├── AM_223.roi5.png
+│   │       │       │       ├── AM_223.roi6.png
+│   │       │       │       ├── AM_223.roi7.png
+│   │       │       │       └── AM_223.roi8.png
+│   │       │       ├── preprocessed/
+│   │       │       │   ├── 2550.png
+│   │       │       │   ├── 2691.png
+│   │       │       │   ├── 4640.png
+│   │       │       │   ├── 9421.png
+│   │       │       │   ├── AM_201.png
+│   │       │       │   ├── AM_203.png
+│   │       │       │   ├── AM_204.png
+│   │       │       │   └── AM_223.png
+│   │       │       └── raw/
+│   │       │           ├── 2550.png
+│   │       │           ├── 2691.png
+│   │       │           ├── 4640.png
+│   │       │           ├── 9421.png
+│   │       │           ├── AM_201.png
+│   │       │           ├── AM_203.png
+│   │       │           ├── AM_204.png
+│   │       │           └── AM_223.png
+│   │       └── raw/
+│   │           ├── .DS_Store
+│   │           ├── 1/
+│   │           │   ├── .DS_Store
+│   │           │   ├── AM_201.psd
+│   │           │   ├── AM_201.xcf
+│   │           │   ├── AM_203.psd
+│   │           │   ├── AM_203.xcf
+│   │           │   ├── AM_204.psd
+│   │           │   ├── AM_204.xcf
+│   │           │   ├── AM_223.psd
+│   │           │   ├── AM_223.xcf
+│   │           │   ├── metadata.xlsx
+│   │           │   └── README.md
+│   │           └── 2/
+│   │               ├── .DS_Store
+│   │               ├── 2550.psd
+│   │               ├── 2550.xcf
+│   │               ├── 2691.psd
+│   │               ├── 2691.xcf
+│   │               ├── 4640.psd
+│   │               ├── 4640.xcf
+│   │               ├── 9421.psd
+│   │               ├── 9421.xcf
+│   │               ├── metadata.xlsx
+│   │               └── README.md
+│   ├── download.py
+│   ├── eyetracking/
+│   │   ├── .DS_Store
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-37.pyc
+│   │   │   ├── _calibration.cpython-37.pyc
+│   │   │   ├── _eyelink.cpython-37.pyc
+│   │   │   └── _roi.cpython-37.pyc
+│   │   ├── _calibration.py
+│   │   ├── _eyelink.py
+│   │   ├── _roi.py
+│   │   └── pylink/
+│   │       ├── .DS_Store
+│   │       ├── __init__.py
+│   │       └── __pycache__/
+│   │           └── __init__.cpython-37.pyc
+│   ├── lib/
+│   │   ├── .DS_Store
+│   │   ├── doctree.py
+│   │   └── pipreqs/
+│   │       ├── .DS_Store
+│   │       ├── __init__.py
+│   │       ├── mapping
+│   │       ├── pipreqs.py
+│   │       └── stdlib
+│   ├── plot.py
+│   ├── r33/
+│   │   ├── .DS_Store
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-37.pyc
+│   │   │   ├── _classify.cpython-37.pyc
+│   │   │   ├── _metadata.cpython-37.pyc
+│   │   │   ├── _model.cpython-37.pyc
+│   │   │   ├── _nslr_hmm.cpython-37.pyc
+│   │   │   ├── _processing.cpython-37.pyc
+│   │   │   └── _settings.cpython-37.pyc
+│   │   ├── _classify.py
+│   │   ├── _metadata.py
+│   │   ├── _model.py
+│   │   ├── _nslr_hmm.py
+│   │   ├── _processing.py
+│   │   └── _settings.py
+│   ├── settings.py
+│   ├── tests/
+│   │   ├── .DS_Store
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-37.pyc
+│   │   │   ├── test_basic.cpython-37.pyc
+│   │   │   └── test_roi.cpython-37.pyc
+│   │   ├── test_basic.py
+│   │   └── test_roi.py
+│   └── Webgazer/
+│       ├── .DS_Store
+│       ├── __init__.py
+│       ├── __pycache__/
+│       │   ├── __init__.cpython-37.pyc
+│       │   ├── classify.cpython-37.pyc
+│       │   ├── download.cpython-37.pyc
+│       │   ├── metadata.cpython-37.pyc
+│       │   ├── model.cpython-37.pyc
+│       │   ├── nslr_hmm.cpython-37.pyc
+│       │   ├── plot.cpython-37.pyc
+│       │   ├── processing.cpython-37.pyc
+│       │   ├── raw.cpython-37.pyc
+│       │   ├── redcap.cpython-37.pyc
+│       │   └── settings.cpython-37.pyc
+│       ├── classify.py
+│       ├── download.py
+│       ├── metadata.py
+│       ├── model.py
+│       ├── nslr_hmm.py
+│       ├── plot.py
+│       ├── processing.py
+│       ├── raw.py
+│       ├── redcap.py
+│       └── settings.py
+├── imhr.egg-info/
+│   ├── dependency_links.txt
+│   ├── not-zip-safe
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
+├── LICENSE
+├── MANIFEST.in
+├── meta.yaml
+├── private.yaml
+├── pytest.ini
+├── pytest.log
+├── README.md
+├── report.html
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+├── versioneer.py
