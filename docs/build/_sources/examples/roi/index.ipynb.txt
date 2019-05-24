@@ -616,34 +616,17 @@
     "toc-hr-collapsed": false
    },
    "source": [
-    "##### Highlighted ROI from Photoshop (.psd)"
+    "#### Parameters"
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 4,
+   "cell_type": "markdown",
    "metadata": {
-    "nbsphinx": "hidden",
-    "tags": [
-     "removecell"
-    ]
-   },
-   "outputs": [],
-   "source": [
-    "%config InlineBackend.figure_format = 'retina'"
-   ]
-  },
-  {
-   "cell_type": "raw",
-   "metadata": {
-    "raw_mimetype": "text/restructuredtext",
+    "raw_mimetype": "text/markdown",
     "toc-hr-collapsed": false
    },
    "source": [
-    ".. plot:: examples/roi/roi.py\n",
-    "    :class: roi_psd\n",
-    "    \n",
-    "Highlighted ROI from Photoshop (.psd)"
+    "##### Required Parameters"
    ]
   },
   {
@@ -693,6 +676,16 @@
     "uuid : :obj:`list` or :obj:`None`\n",
     "    Create a unique id by combining a list of existing variables in the metadata. This is recommended\n",
     "    if :code:`roi_format` == `dataviewer` because of the limited variables allowed for ias files. Default :obj:`None`.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "raw_mimetype": "text/markdown",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    "##### Optional Parameters"
    ]
   },
   {
@@ -755,6 +748,20 @@
     "      - Set size of :obj:`matplotlib.pyplot` according to screensize of ROI. Default is `False`.\n",
     "    * - **image_backend** : :class:`str` {'matplotlib','PIL'}\n",
     "      - Backend for exporting image. Either `'matplotlib' <https://matplotlib.org/index.html>`__ or `'PIL' <https://pillow.readthedocs.io/en/stable/>`__. Default 'matplotlib'."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "nbsphinx": "hidden",
+    "tags": [
+     "removecell"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "%config InlineBackend.figure_format = 'retina'"
    ]
   },
   {
@@ -1282,6 +1289,39 @@
     "        ├── 2550.xcf\n",
     "        └── metadata.xlsx\n",
     "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "raw_mimetype": "text/markdown",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    "#### Sources"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "raw_mimetype": "text/markdown",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    "##### Highlighted ROI from Photoshop (.psd)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    ".. plot:: examples/roi/roi.py\n",
+    "    :class: roi_psd\n",
+    "    \n",
+    "Highlighted ROI from Photoshop (.psd)"
    ]
   },
   {
