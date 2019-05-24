@@ -1,6 +1,6 @@
 .. _index:
 
-..title:: mdl
+.. title:: mdl
 
 .. meta::
 	:description lang=en: mdl, an extensive library for the exploration, visualization, and analysis of psychological data.

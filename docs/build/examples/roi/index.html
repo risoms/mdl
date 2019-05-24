@@ -126,10 +126,10 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Document-Tree">Document Tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ROI-Detection">ROI Detection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Example">Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Document-Treee">Document Treee</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
 </ul>
 </li>
@@ -202,10 +202,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../R33/process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Document-Tree">Document Tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ROI-Detection">ROI Detection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Example">Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Document-Treee">Document Treee</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
 </ul>
 </li>
@@ -275,10 +275,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../R33/process_data.html">Process data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Region of Interest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Document-Tree">Document Tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ROI-Detection">ROI Detection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Example">Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Document-Treee">Document Treee</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
 </ul>
 </li>
@@ -513,111 +513,31 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="section" id="Region-of-Interest">
-<span id="roi"></span><h1>Region of Interest<a class="headerlink" href="#Region-of-Interest" title="Permalink to this headline">¶</a></h1>
-<div class='info'>
-    <p>
-        <span class="pre name">purpose</span>
-        <span>: Create regions of interest to export into Eyelink DataViewer or statistical resources such as R and python.</span>
-    </p>
-    <p>
-        <span class="pre name">date</span>
-        <span>: Created on Sat May 1 15:12:38 2019</span>
-    </p>
-    <p>
-        <span class="pre name">author</span>
-        <span>: Semeon Risom</span>
-    </p>
-    <p>
-        <span class="pre name">email</span>
-        <span>: semeon.risom@gmail.com</span>
-    </p>
-    <p>
-        <span class="pre name">url</span>
-        <span>: https://semeon.io/d/imhr</span>
-    </p>
-</div>
-
-<ul class="list-container">
-    <li>
-        <div class="title"><a href="#ROI-Detection">ROI Detection</a></div>
-        <ol class="list">
-            <li><a href="#Example">Example</a></li>
-            <li><a href="#Highlighted-ROI-from-Photoshop-(.psd)">Highlighted ROI from Photoshop (.psd)</a></li>
-            <li><a href="#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
-        </ol>
-    </li>
-    <li>
-        <div class="title"><a href="#Boundary-Shape">Boundary Shape</a></div>
-        <ol class="list">
-            <li><a href="#Polygon">Polygon</a></li>
-            <li><a href="#Hull">Hull</a></li>
-            <li><a href="#Circle">Circle</a></li>
-            <li><a href="#Rectangle-(rotated)">Rectangle (rotated)</a></li>
-            <li><a href="#Rectangle-(straight)">Rectangle (straight)</a></li>
-        </ol>
-    </li>
-    <li>
-        <div class="title"><a href="#Output-Format">Output-Format</a></div>
-        <ol class="list">
-            <li><a href="#Excel-(.xlsx)">Excel (.xlsx)</a></li>
-            <li><a href="#EyeLink-DataViewer-(.ias)">EyeLink DataViewer (.ias)</a></li>
-        </ol>
-    </li>
-</ul><div class="section" id="Document-Tree">
-<h2>Document Tree<a class="headerlink" href="#Document-Tree" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roi/
-├── output/
-│   ├── bounds.ias
-│   ├── bounds.xlsx
-│   ├── data/
-│   │   ├── 2550_bounds.ias
-│   │   └── 2550_bounds.xlsx
-│   └── img/
-│       ├── bounds/
-│       │   ├── 2550.png
-│       │   └── roi/
-│       │       ├── 2550.1.png
-│       │       └── 2550.2.png
-│       ├── preprocessed/
-│       │   └── 2550.png
-│       └── raw/
-│           └── 2550.png
-└── raw/
-    ├── 1/
-    │   ├── AM_201.psd
-    │   ├── AM_201.xcf
-    │   └── metadata.xlsx
-    └── 2/
-        ├── 2550.psd
-        ├── 2550.xcf
-        └── metadata.xlsx
-</pre></div>
-</div>
-<p>Description</p>
+<span id="roi"></span><h1><a class="toc-backref" href="#id1">Region of Interest</a><a class="headerlink" href="#Region-of-Interest" title="Permalink to this headline">¶</a></h1>
+<p>Identify Region/Area of Interest using machine learning and image coloring
+Uses: <a class="reference internal" href="../../api/imhr.eyetracking.html#imhr.eyetracking.ROI" title="imhr.eyetracking.ROI"><code class="xref py py-func docutils literal notranslate"><span class="pre">imhr.eyetracking.ROI()</span></code></a></p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
 <ul class="simple">
-<li>bounds.ias The…</li>
-<li>bounds.xlsx The…</li>
-<li>data/: The…<ul>
-<li>2550_bounds.ias The…</li>
-<li>2550_bounds.xlsx The…</li>
+<li><a class="reference internal" href="#Region-of-Interest" id="id1">Region of Interest</a><ul>
+<li><a class="reference internal" href="#ROI-Detection" id="id2">ROI Detection</a><ul>
+<li><a class="reference internal" href="#Example" id="id3">Example</a></li>
+<li><a class="reference internal" href="#Highlighted-ROI-from-Photoshop-(.psd)" id="id4">Highlighted ROI from Photoshop (.psd)</a></li>
+<li><a class="reference internal" href="#Document-Treee" id="id5">Document Treee</a></li>
+<li><a class="reference internal" href="#Classified-using-Haar-Cascades" id="id6">Classified using Haar Cascades</a></li>
 </ul>
 </li>
-<li>img/ The…<ul>
-<li>bounds/ The…<ul>
-<li>2550.png The…</li>
-<li>roi/ The…<ul>
-<li>2550.1.png The…</li>
-<li>2550.1.png The…</li>
+<li><a class="reference internal" href="#Boundary-Shape" id="id7">Boundary Shape</a><ul>
+<li><a class="reference internal" href="#Polygon" id="id8">Polygon</a></li>
+<li><a class="reference internal" href="#Hull" id="id9">Hull</a></li>
+<li><a class="reference internal" href="#Circle" id="id10">Circle</a></li>
+<li><a class="reference internal" href="#Rectangle-(rotated)" id="id11">Rectangle (rotated)</a></li>
+<li><a class="reference internal" href="#Rectangle-(straight)" id="id12">Rectangle (straight)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li>preprocessed/ The…<ul>
-<li>2550.png The…</li>
-</ul>
-</li>
-<li>raw/ The…<ul>
-<li>2550.png The…</li>
+<li><a class="reference internal" href="#Output-Format" id="id13">Output Format</a><ul>
+<li><a class="reference internal" href="#Excel-(.xlsx)" id="id14">Excel (.xlsx)</a></li>
+<li><a class="reference internal" href="#EyeLink-DataViewer-(.ias)" id="id15">EyeLink DataViewer (.ias)</a></li>
 </ul>
 </li>
 </ul>
@@ -625,9 +545,9 @@ div.rendered_html tbody tr:hover {
 </ul>
 </div>
 <div class="section" id="ROI-Detection">
-<h2>ROI Detection<a class="headerlink" href="#ROI-Detection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">ROI Detection</a><a class="headerlink" href="#ROI-Detection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Example">
-<h3>Example<a class="headerlink" href="#Example" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Example</a><a class="headerlink" href="#Example" title="Permalink to this headline">¶</a></h3>
 <p>Here is a brief demonstration of how the module works and produces an output. After running the following code, a few types of data will be outputted:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Dataviewer</span> <span class="n">Region</span> <span class="n">of</span> <span class="n">Interest</span> <span class="p">(</span><span class="o">.</span><span class="n">ias</span><span class="p">):</span> <span class="s1">&#39;./output/*.ias&#39;</span><span class="p">,</span> <span class="s1">&#39;./output/data/*.ias&#39;</span>
 <span class="o">*</span> <span class="n">Excel</span> <span class="n">Region</span> <span class="n">of</span> <span class="n">Interest</span> <span class="p">(</span><span class="o">.</span><span class="n">xlsx</span><span class="p">):</span> <span class="s1">&#39;./output/*.xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;./output/data/*.xlsx&#39;</span>
@@ -1116,16 +1036,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="section" id="Highlighted-ROI-from-Photoshop-(.psd)">
-<h3>Highlighted ROI from Photoshop (.psd)<a class="headerlink" href="#Highlighted-ROI-from-Photoshop-(.psd)" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">Highlighted ROI from Photoshop (.psd)</a><a class="headerlink" href="#Highlighted-ROI-from-Photoshop-(.psd)" title="Permalink to this headline">¶</a></h3>
 <p>(<a class="reference external" href="../../examples/roi/roi.py">Source code</a>)</p>
 <div class="figure">
 <img alt="../../_images/roi.png" class="roi-psd" src="../../_images/roi.png" />
 </div>
 <p>Highlighted ROI from Photoshop (.psd)</p>
-<div class="admonition note">
-<p class="admonition-title"><strong>Note:</strong></p>
-<p>Include Note Here.</p>
-</div>
 <p>Here are all of the required parameters that are part of this module:</p>
 <dl class="docutils">
 <dt>isMultiprocessing <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
@@ -1172,8 +1088,6 @@ with the only difference being compensation for the mininum enclosing area for t
 <dt>uuid <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></dt>
 <dd>Create a unique id by combining a list of existing variables in the metadata. This is recommended
 if <code class="code docutils literal notranslate"><span class="pre">roi_format</span></code> == <cite>dataviewer</cite> because of the limited variables allowed for ias files. Default <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</dd>
-<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
-<dd>Additional properties. Here’s a list of available properties:</dd>
 </dl>
 <p>Here are optional parameters, not required to run the code, but allow output tweaking:</p>
 <table border="1" class="colwidths-given kwargs docutils">
@@ -1684,14 +1598,45 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 </div></div>
 </div>
 </div>
+<div class="section" id="Document-Treee">
+<h3><a class="toc-backref" href="#id5">Document Treee</a><a class="headerlink" href="#Document-Treee" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roi/
+├── output/
+│   ├── bounds.ias
+│   ├── bounds.xlsx
+│   ├── data/
+│   │   ├── 2550_bounds.ias
+│   │   └── 2550_bounds.xlsx
+│   └── img/
+│       ├── bounds/
+│       │   ├── 2550.png
+│       │   └── roi/
+│       │       ├── 2550.1.png
+│       │       └── 2550.2.png
+│       ├── preprocessed/
+│       │   └── 2550.png
+│       └── raw/
+│           └── 2550.png
+└── raw/
+    ├── 1/
+    │   ├── AM_201.psd
+    │   ├── AM_201.xcf
+    │   └── metadata.xlsx
+    └── 2/
+        ├── 2550.psd
+        ├── 2550.xcf
+        └── metadata.xlsx
+</pre></div>
+</div>
+</div>
 <div class="section" id="Classified-using-Haar-Cascades">
-<h3>Classified using Haar Cascades<a class="headerlink" href="#Classified-using-Haar-Cascades" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Classified using Haar Cascades</a><a class="headerlink" href="#Classified-using-Haar-Cascades" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="Boundary-Shape">
-<h2>Boundary Shape<a class="headerlink" href="#Boundary-Shape" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Boundary Shape</a><a class="headerlink" href="#Boundary-Shape" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Polygon">
-<h3>Polygon<a class="headerlink" href="#Polygon" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Polygon</a><a class="headerlink" href="#Polygon" title="Permalink to this headline">¶</a></h3>
 <p>(<a class="reference external" href="../../examples/roi/polygon.py">Source code</a>)</p>
 <div class="figure">
 <img alt="../../_images/polygon.png" class="roi-psd" src="../../_images/polygon.png" />
@@ -1699,7 +1644,7 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <p class="figure-label">Polygon boundaries</p>
 </div>
 <div class="section" id="Hull">
-<h3>Hull<a class="headerlink" href="#Hull" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Hull</a><a class="headerlink" href="#Hull" title="Permalink to this headline">¶</a></h3>
 <p>(<a class="reference external" href="../../examples/roi/hull.py">Source code</a>)</p>
 <div class="figure">
 <img alt="../../_images/hull.png" class="roi-psd" src="../../_images/hull.png" />
@@ -1707,7 +1652,7 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <p class="figure-label">Hull boundaries</p>
 </div>
 <div class="section" id="Circle">
-<h3>Circle<a class="headerlink" href="#Circle" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Circle</a><a class="headerlink" href="#Circle" title="Permalink to this headline">¶</a></h3>
 <p>(<a class="reference external" href="../../examples/roi/circle.py">Source code</a>)</p>
 <div class="figure">
 <img alt="../../_images/circle.png" class="roi-psd" src="../../_images/circle.png" />
@@ -1715,7 +1660,7 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <p class="figure-label">Circular boundaries</p>
 </div>
 <div class="section" id="Rectangle-(rotated)">
-<h3>Rectangle (rotated)<a class="headerlink" href="#Rectangle-(rotated)" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Rectangle (rotated)</a><a class="headerlink" href="#Rectangle-(rotated)" title="Permalink to this headline">¶</a></h3>
 <p>(<a class="reference external" href="../../examples/roi/rotated.py">Source code</a>)</p>
 <div class="figure">
 <img alt="../../_images/rotated.png" class="roi-psd" src="../../_images/rotated.png" />
@@ -1723,7 +1668,7 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <p class="figure-label">Rotated rectangular boundaries</p>
 </div>
 <div class="section" id="Rectangle-(straight)">
-<h3>Rectangle (straight)<a class="headerlink" href="#Rectangle-(straight)" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Rectangle (straight)</a><a class="headerlink" href="#Rectangle-(straight)" title="Permalink to this headline">¶</a></h3>
 <p>(<a class="reference external" href="../../examples/roi/straight.py">Source code</a>)</p>
 <div class="figure">
 <img alt="../../_images/straight.png" class="roi-psd" src="../../_images/straight.png" />
@@ -1732,9 +1677,9 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 </div>
 </div>
 <div class="section" id="Output-Format">
-<h2>Output Format<a class="headerlink" href="#Output-Format" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Output Format</a><a class="headerlink" href="#Output-Format" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Excel-(.xlsx)">
-<h3>Excel (.xlsx)<a class="headerlink" href="#Excel-(.xlsx)" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Excel (.xlsx)</a><a class="headerlink" href="#Excel-(.xlsx)" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="20%" />
@@ -1865,7 +1810,7 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 <p>Include text here</p>
 </div>
 <div class="section" id="EyeLink-DataViewer-(.ias)">
-<h3>EyeLink DataViewer (.ias)<a class="headerlink" href="#EyeLink-DataViewer-(.ias)" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">EyeLink DataViewer (.ias)</a><a class="headerlink" href="#EyeLink-DataViewer-(.ias)" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -2125,7 +2070,7 @@ if <code class="code docutils literal notranslate"><span class="pre">roi_format<
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-23T18:08:55-05:00.</div>
+			<div>Updated 2019-05-23T19:32:07-05:00.</div>
 		</div>
 	</div>
 </footer>

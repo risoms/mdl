@@ -170,11 +170,10 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:315: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:413: WARNING: File not found: 'eyetracking.rst#imhr.eyetracking.run.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:514: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run.sample'[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:765: WARNING: Unexpected indentation.[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:769: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:774: WARNING: Unexpected indentation.[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:775: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:792: WARNING: Inline strong start-string without end-string.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:636: WARNING: Unexpected indentation.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:640: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:645: WARNING: Unexpected indentation.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:646: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.classify.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.download.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.metadata.rst: WARNING: document isn't included in any toctree[39;49;00m
