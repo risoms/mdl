@@ -51,21 +51,21 @@ class ROI():
 		Parameters
 		----------
 		isMultiprocessing : :obj:`bool`
-			Should the rois be generated using multiprocessing. Default `False`.
+			Should the rois be generated using multiprocessing. Default is **False**.
 		detection : :obj:`str` {'manual', 'haarcascade'}
-			How should the regions of interest be detected. Either manually (`manual`), through the use of highlighting layers in photo-editing
-			software, or automatically through feature detection using `haarcascade` classifers from opencv. Default `manual`.
+			How should the regions of interest be detected. Either manually (**manual**), through the use of highlighting layers in photo-editing
+			software, or automatically through feature detection using **haarcascade** classifers from opencv. Default **manual**.
 		image_path : :obj:`str`
 			Image directory path.
 		output_path : :class:`str`
 			Path to save data.
 		roi_format : :obj:`str` {'raw', 'dataviewer', 'both'}
-			Format to export ROIs. Either to 'csv' (`raw`) or to Eyelink DataViewer 'ias' (`dataviewer`) or both (`both`).
-			Default is `both`. Note: If :code:`roi_format` = `dataviewer`, :code:`shape` must be either be `circle`, `rotate`, or `straight`.
+			Format to export ROIs. Either to 'csv' (**raw**) or to Eyelink DataViewer 'ias' (**dataviewer**) or both (**both**).
+			Default is **both**. Note: If **roi_format** = **dataviewer**, **shape** must be either be **circle**, **rotated**, or **straight**.
 		metadata_source : :class:`str` or :obj:`None` {'path', 'embedded'}
 			Metadata source. If metadata is being read from a spreadsheet, :code:`metadata_source` should be equal to path the to
-			the metadata file, else if metadata is embed within the image as a layer name, :code:`metadata_source` = `embedded`.
-			Default is `embedded`. For example:
+			the metadata file, else if metadata is embed within the image as a layer name, **metadata_source** = **embedded**.
+			Default is **embedded**. For example:
 				>>> # if metadata is in PSD images
 				>>> metadata = 'embedded'
 				>>> # if metadata is an external xlsx file.
@@ -73,24 +73,26 @@ class ROI():
 			Although Photoshop PSD don't directly provide support for metadata. However if each region of interest is stored
 			as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-			be either `;` `,` `|` `\\t` or `\\s` (Delimiter type must be identified when running this code using the
-			code:`delimiter` parameter. The default is `;`.). Here's an example using `;` as a delimiter:
+			be either **;** **,** **|** **\\t** or **\\s (Delimiter type must be identified when running this code using the
+			**delimiter** parameter. The default is **;**.). Here's an example using **;** as a delimiter:
 				>>> imagename = "BM001"; roiname = 1; feature = "lefteye"
 			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.
-		shape : :obj:`str` {'polygon', 'hull', 'circle', 'rotate', 'straight'}
-			Shape of machine readable boundaries for region of interest. Default is `straight`. `polygon` creates a Contour
-			Approximation and will most closely match the orginal shape of the roi. `hull` creates a Convex Hull, which
+		shape : :obj:`str` {'polygon', 'hull', 'circle', 'rotated', 'straight'}
+			Shape of machine readable boundaries for region of interest. Default is **straight**. **polygon** creates a Contour
+			Approximation and will most closely match the orginal shape of the roi. **hull** creates a Convex Hull, which
 			is similar to but not as complex as a Contour Approximation and will include bulges for areas that are convex.
-			`circle` creates a mininum enclosing circle. Finally, both `rotate` and `straight` create a Bounding Rectangle,
-			with the only difference being compensation for the mininum enclosing area for the box when using `rotate`.
+			**circle** creates a mininum enclosing circle. Finally, both **rotated** and **straight** create a Bounding Rectangle,
+			with the only difference being compensation for the mininum enclosing area for the box when using **rotated**.
 		roicolumn : :obj:`str`
 			The name of the label for the region of interest in your metadata. For example you may want to extract the column
-			'feature' from your metadata and use this as the label. Default is `roi`.
+			'feature' from your metadata and use this as the label. Default is **roi**.
 		uuid : :obj:`list` or :obj:`None`
 			Create a unique id by combining a list of existing variables in the metadata. This is recommended
-			if :code:`roi_format` == `dataviewer` because of the limited variables allowed for ias files. Default :obj:`None`.
+			if **roi_format** == **dataviewer** because of the limited variables allowed for ias files. Default :obj:`None`.
 		**kwargs : :obj:`str` or :obj:`None`, optional
-			Additional properties. Here's a list of available properties:
+			Additional properties to control how data is exported, naming variables, exporting images are also available:
+
+			These properties control additional core parameters:
 
 			.. list-table::
 				:class: kwargs
@@ -100,28 +102,42 @@ class ROI():
 				* - Property
 				  - Description
 				* - **cores** : :class:`bool`
-				  - (if :code:`isMultiprocessing` == `True`) Number of cores to use. Default is total available cores - 1.
+				  - (if **isMultiprocessing** == **True**) Number of cores to use. Default is total available cores - 1.
 				* - **isLibrary** : :class:`bool`
-				  - Check if required packages have been installed. Default is :obj:`False`.
+				  - Check if required packages have been installed. Default is **False**.
 				* - **isDebug** : :class:`bool`
-				  - Allow flags to be visible. Default is :obj:`False`.
+				  - Allow flags to be visible. Default is **False**.
 				* - **isDemo** : :class:`bool`
-				  - Tests code with in-house images and metadata. Default is :obj:`False`.
+				  - Tests code with in-house images and metadata. Default is **False**.
 				* - **save_data** : :class:`bool`
-				  - Save coordinates. Default is :obj:`True.`
+				  - Save coordinates. Default is **True**.
 				* - **newcolumn** : :obj:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
-				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is :obj:`False.`
+				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is **False**.
 				* - **save_raw_image** : :class:`bool`
 				  - Save images. Default is True.
 				* - **append_output_name** : :class:`bool` or :class:`str`
-				  - Add appending name to all exported files (i.e. <'top_center'> IMG001_top_center.ias). Default is False.
+				  - Add appending name to all exported files (i.e. <'top_center'> IMG001_top_center.ias). Default is **False**.
 				* - **save_contour_image** : :class:`bool`
-				  - Save generated contours as images. Default is :obj:`True`.
+				  - Save generated contours as images. Default is **True**.
+				* - **scale** : :class:`int`
+				  - If image is scaled during presentation, set scale. Default is **1**.
+				* - **offset** : :class:`list` [:obj:`int`]
+				  - Center point of image, relative to screensize. Default is **[960, 540]**.
+
+			These properties control data is processed which include the type of haarcascade used, delimiters for metadata:
+
+			.. list-table::
+				:class: kwargs
+				:widths: 25 50
+				:header-rows: 1
+
+				* - Property
+				  - Description
 				* - **delimiter** : :class:`str` {';' , ',' , '|' , 'tab' , 'space'}
-				  - (if :code:`source` == `psd`) How is metadata delimited. Default is `;`.
-				* - **classifier** : :obj:`str` {'eye_tree_eyeglasses','eye','frontalface_alt_tree','frontalface_alt','frontalface_alt2',
-				    'frontalface_default','fullbody','lowerbody','profileface','smile','upperbody'}
-				  - (if :code:`detection` == `haarcascade`) Type of trained classifier to use. Default 'frontalface_default'.
+				  - (if **source** == **psd**) How is metadata delimited. Default is **;**.
+				* - **classifier** : :obj:`str` {'eye_tree_eyeglasses', 'eye', 'frontalface_alt_tree', 'frontalface_alt', 'frontalface_alt2',
+				    'frontalface_default', 'fullbody', 'lowerbody', 'profileface', 'smile', 'upperbody'}
+				  - (if **detection** == **haarcascade**) Type of trained classifier to use. Default is **frontalface_default**.
 				* - **classScaleFactor** : :obj:`float`
 				  - Parameter specifying how much the image size is reduced at each image scale.
 				* - **classMinNeighbors** : :obj:`float`
@@ -129,21 +145,32 @@ class ROI():
 				* - **classMinSize** : :obj:`tuple`
 				  - Minimum possible object size. Objects smaller than that are ignored.
 				* - **screensize** : :class:`list` [:obj:`int`]
-				  - Monitor size is being presented. Default is `[1920, 1080]`.
-				* - **scale** : :class:`int`
-				  - If image is scaled during presentation, set scale. Default is 1.
-				* - **offset** : :class:`list` [:obj:`int`]
-				  - Center point of image, relative to screensize. Default is `[960, 540]`.
+				  - Monitor size is being presented. Default is **[1920, 1080]**.
+
+			Here are properties specific to how images are exported after processing. The code can either use :class:`matplotlib` 
+			or :class:`PIL` as a backend engine:
+
+			.. list-table::
+				:class: kwargs
+				:widths: 25 50
+				:header-rows: 1
+
+				* - Property
+				  - Description
+				* - **image_backend** : :class:`str` {'matplotlib', 'PIL'}
+				  - Backend for exporting image. Either `**matplotlib** <https://matplotlib.org/index.html>`__ or `**PIL** <https://pillow.readthedocs.io/en/stable/>`__. Default is :class:`matplotlib`.
+				* - **RcParams** : :class:`bool`
+				  - A dictionary object including validation validating functions are defined and associated with rc parameters in class:`matplotlib.RcParams`. Default is **None**.
+				* - **background_color** : :class:`list`
+				  - Set background color (RGB) for exporting images. Default is **[110, 110, 110]**.
 				* - **dpi** : :class:`int` or :obj:`None`
-				  - (if :code:`save_image` == `True`) Quality of exported images, refers to 'dots per inch'. Default is `300`.
+				  - (if **save_image** == **True**) Quality of exported images, refers to 'dots per inch'. Default is **300**.
 				* - **remove_axis** : :class:`bool`
-				  - Remove axis from :obj:`matplotlib.pyplot`. Default is `False`.
+				  - Remove axis from :obj:`matplotlib.pyplot`. Default is **False**.
 				* - **tight_layout** : :class:`bool`
-				  - Remove whitespace from :obj:`matplotlib.pyplot`. Default is `False`.
+				  - Remove whitespace from :obj:`matplotlib.pyplot`. Default is **False**.
 				* - **set_size_inches** : :class:`bool`
-				  - Set size of :obj:`matplotlib.pyplot` according to screensize of ROI. Default is `False`.
-				* - **image_backend** : :class:`str` {'matplotlib','PIL'}
-				  - Backend for exporting image. Either `'matplotlib' <https://matplotlib.org/index.html>`__ or `'PIL' <https://pillow.readthedocs.io/en/stable/>`__. Default 'matplotlib'.
+				  - Set size of :obj:`matplotlib.pyplot` according to screensize of ROI. Default is **False**.
 
 		Attributes
 		----------
@@ -153,14 +180,14 @@ class ROI():
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest.
 		retval, threshold : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.threshold`. The function applies a fixed-level thresholding to a multiple-channel array.
-			`retval` provides an optimal threshold only if :ref:`cv2.THRESH_OTSU` is passed. `threshold` is an image after applying
+			**retval** provides an optimal threshold only if :ref:`cv2.THRESH_OTSU` is passed. **threshold** is an image after applying
 			a binary threshold (:ref:`cv2.THRESH_BINARY`) removing all greyscale pixels < 127. The output matches the same image
 			channel as the original image.
 			See `opencv <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`_ and
 			`leanopencv <https://www.learnopencv.com/opencv-threshold-python-cpp>`_ for more information.
 		contours, hierarchy : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.findContours`. This function returns contours from the provided binary image (threshold).
-			This is used here for later shape detection. `contours` are the detected contours, while hierarchy containing
+			This is used here for later shape detection. **contours** are the detected contours, while hierarchy containing
 			information about the image topology.
 			See `opencv <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`_
 			for more information.
@@ -182,9 +209,9 @@ class ROI():
 			>>> from imhr.roi import ROI
 			>>> s = "/dist/example/raw/"; d="/dist/example/"
 			>>> ROI(source=s, output_path=d, shape='box')
-	
+
 		.. code-block:: python
-			
+
 			>>> img.save('/Users/mdl-admin/Desktop/roi/PIL.png') #DEBUG: save PIL
 			>>> cv2.imwrite('/Users/mdl-admin/Desktop/roi/cv2.png', img_cv2) #DEBUG: save cv2
 			>>> plt.imshow(img_np); plt.savefig('/Users/mdl-admin/Desktop/roi/matplotlib.png') #DEBUG: save matplotlib
@@ -240,7 +267,7 @@ class ROI():
 		else:
 			self.newoffset = False
 		# shape
-		self.shape = shape if shape in ['polygon', 'hull', 'circle', 'rotate', 'straight'] else 'straight'
+		self.shape = shape if shape in ['polygon', 'hull', 'circle', 'rotated', 'straight'] else 'straight'
 		self.shape_d = None #dataviewer shape
 		# uuid
 		self.uuid = uuid
@@ -259,6 +286,9 @@ class ROI():
 		# save raw images
 		self.save['raw'] = kwargs['save_contour_image'] if 'save_contour_image' in kwargs else True
 
+		#-----PIL
+		self.background_color = kwargs['background_color'] if 'background_color' in kwargs else (110, 110, 110)
+
 		#-----matplotlib
 		self.image_backend = kwargs['image_backend'] if 'image_backend' in kwargs else 'matplotlib'
 		# hide/show
@@ -271,7 +301,7 @@ class ROI():
 		self.dpi = kwargs['dpi'] if 'dpi' in kwargs else 300
 		self.axis_tick_fontsize =  kwargs['axis_tick_fontsize'] if 'axis_tick_fontsize' in kwargs else 8
 		self.axis_title_fontsize =  kwargs['axis_title_fontsize'] if 'axis_title_fontsize' in kwargs else 10
-		self.figure_title_fontsize =  kwargs['figure_title_fontsize'] if 'figure_title_fontsize' in kwargs else 12
+		self.figure_title_fontsize = kwargs['figure_title_fontsize'] if 'figure_title_fontsize' in kwargs else 12
 		plt.rcParams.update({
 			#dpi
 			'figure.dpi': self.dpi,
@@ -281,6 +311,8 @@ class ROI():
 			'axes.titlesize': self.axis_title_fontsize,
 			'figure.titlesize': self.figure_title_fontsize
 		})
+		self.rcParams = kwargs['rcParams'] if 'rcParams' in kwargs else matplotlib.rcParams
+		if self.rcParams is not None: plt.rcParams.update(self.rcParams)
 
 		#-----classifiers
 		self.classifier = kwargs['classifier'] if 'classifier' in kwargs else 'frontalface_default'
@@ -395,7 +427,7 @@ class ROI():
 		return metadata, roiname
 
 	@classmethod
-	def format_image(cls, psd=None, xcf=None, TIFF=None, bitmap=None, isRaw=False):
+	def format_image(cls, psd=None, xcf=None, tiff=None, bitmap=None, isRaw=False, isPreprocessed=False, isNormal=False):
 		"""Resize image and reposition image, relative to screensize.
 
 		Parameters
@@ -404,12 +436,12 @@ class ROI():
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
 		xcf : :obj:`None` or ###, optional
 			[description], by default None
-		TIFF : :obj:`None` or ###, optional
+		tiff : :obj:`None` or ###, optional
 			[description], by default None
 		bitmap : :obj:`None` or ###, optional
 			[description], by default None
 		isRaw : :obj:`None` or ###, optional
-			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is `False`.
+			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is **False**.
 
 		Attributes
 		----------
@@ -427,7 +459,7 @@ class ROI():
 			image = psd.topil()
 		elif xcf is not None:
 			image = psd.topil()
-		elif TIFF is not None:
+		elif tiff is not None:
 			image = psd.topil()
 		elif bitmap is not None:
 			image = psd.topil()
@@ -435,13 +467,22 @@ class ROI():
 		# if returning raw image
 		if isRaw:
 			imagesize = [image.size[0], image.size[1]]
+			if cls.isDebug: cls.console('# export raw image','blue')
 			return image, imagesize
-		else:
+		# if returning raw image
+		elif isPreprocessed:
+			imagesize = [image.size[0], image.size[1]]
+			## set background
+			screen_size = cls.screensize
+			background = Image.new("RGBA", (screen_size), (110, 110, 110, 255))
+			if cls.isDebug: cls.console('# export raw image','blue')
+		elif isNormal:
 			## set background
 			screen_size = cls.screensize
 			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
 			if cls.isDebug: cls.console('# export image','blue')
-
+		# scale and move image to emulate stimulus presentation
+		if isPreprocessed or isNormal:
 			# if scale image
 			if cls.scale != 1:
 				old_imagesize = [image.size[0], image.size[1]]
@@ -607,7 +648,7 @@ class ROI():
 			_contours = image_contours
 
 		#----rotated bounding box
-		elif cls.shape == 'rotate':
+		elif cls.shape == 'rotated':
 			# cls.console('## roishape: rotated bounding box','green')
 			cls.shape_d = 'FREEHAND' # dataviewer shape
 			# contour
@@ -685,7 +726,7 @@ class ROI():
 
 		#----no shape chosen
 		else:
-			raise Exception('Please select either straight, rotate, circle, polygon, box, or hull shape.')
+			raise Exception('Please select either straight, rotated, circle, polygon, box, or hull shape.')
 
 		#cls.console('test4.6', 'red')
 
@@ -790,6 +831,7 @@ class ROI():
 			ax.imshow(_img)
 			#for _bounds in data:
 			## get bounds
+			breakpoint()
 			x0 = data['x0'].item()
 			y0 = data['y0'].item()
 			x1 = data['x1'].item()
@@ -808,9 +850,10 @@ class ROI():
 		elif source=="contours":
 			img_np = np.array(img) #convert pil to np
 			img_cv2 = cv2.cvtColor(img_np, cv2.COLOR_BGRA2RGBA) #read np as cv2 then convert to rgb
-			img.save('/Users/mdl-admin/Desktop/roi/PIL.png') #DEBUG: save PIL
-			cv2.imwrite('/Users/mdl-admin/Desktop/roi/cv2.png', img_cv2) #DEBUG: save cv2
-			plt.imshow(img_np); plt.savefig('/Users/mdl-admin/Desktop/roi/matplotlib.png') #DEBUG: save matplotlib
+#			img.save('/Users/mdl-admin/Desktop/roi/PIL.png') #DEBUG: save PIL
+#			cv2.imwrite('/Users/mdl-admin/Desktop/roi/cv2.png', img_cv2) #DEBUG: save cv2
+#			plt.imshow(img_np); plt.savefig('/Users/mdl-admin/Desktop/roi/matplotlib.png') #DEBUG: save matplotlib
+			plt.imshow(img_np)
 			## check folder
 			filepath_ = Path(filepath).parent
 			if not os.path.exists(filepath_):
@@ -835,7 +878,7 @@ class ROI():
 		newcolumn : [type], optional
 			[description], by default None
 		nested : :obj:`string` {`image`,`all`}
-			Nested order, either `image` or `all`. Default `image`.
+			Nested order, either **image** or **all**. Default is **image**.
 
 		Returns
 		-------
@@ -919,7 +962,7 @@ class ROI():
 		directory : :obj:`list`
 			[description]
 		core : :obj:`int`
-			(if isMultiprocessing) Core used for this function. Default `0`.
+			(if isMultiprocessing) Core used for this function. Default is **0**.
 		queue : :obj:`queue.Queue`
 			Constructor for a multiprocessing 'first-in, first-out' queue. Note: Queues are thread and process safe.
 
@@ -928,7 +971,6 @@ class ROI():
 		[type]
 			[description]
 		"""
-
 		#----prepare lists for all images
 		l_bounds_all = []
 		l_contours_all = []
@@ -943,7 +985,7 @@ class ROI():
 			# defaults
 			psd=None
 			xcf=None #%%!!! TODO: get working
-			TIFF=None #%%!!! TODO: get working
+			tiff=None #%%!!! TODO: get working
 			bitmap=None #%%!!! TODO: get working
 
 			# read image
@@ -958,8 +1000,8 @@ class ROI():
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
-			## else if TIFF (multiple layers) #%%!!! TODO: get working
-			elif ext == '.TIFF':
+			## else if tiff (multiple layers) #%%!!! TODO: get working
+			elif ext == '.tiff':
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
@@ -969,7 +1011,7 @@ class ROI():
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
 			else:
-				error = "Image format not valid. Acceptable image formats are: psd (photoshop), xcf (gimp), TIFF (multiple layers), or png/bmp/jpg (bitmap)."
+				error = "Image format not valid. Acceptable image formats are: psd (photoshop), xcf (gimp), tiff (multiple layers), or png/bmp/jpg (bitmap)."
 				raise Exception(error)
 
 			# clear lists
@@ -978,7 +1020,7 @@ class ROI():
 
 			#!!!----for each image, save image file
 			# raw image
-			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, TIFF=TIFF, bitmap=bitmap, isRaw=True)
+			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, tiff=tiff, bitmap=bitmap, isRaw=True)
 			## check folder
 			_folder = '%s/img/raw/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1001,7 +1043,7 @@ class ROI():
 				plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)
-			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, TIFF=TIFF, bitmap=bitmap) #%%!!! TODO: get working
+			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, tiff=tiff, bitmap=bitmap, isPreprocessed=True)
 			## check folder
 			_folder = '%s/img/preprocessed/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1031,7 +1073,7 @@ class ROI():
 			if not os.path.exists(_folderpath):
 				os.makedirs(_folderpath)
 			## for each layer in psd (if using psd)
-			#!!! TODO: get working for other image types (xcf, TIFF, bitmap)
+			#!!! TODO: get working for other image types (xcf, tiff, bitmap)
 			for layer in psd:
 				# skip if layer is main image
 				if Path(layer.name).stem == imagename:
@@ -1041,7 +1083,7 @@ class ROI():
 					metadata, roiname = cls.extract_metadata(imagename=imagename, layer=layer)
 
 					#. Resize PIL image and reposition image, relative to screensize.
-					image, imagesize = cls.format_image(psd=layer, xcf=xcf, TIFF=TIFF, bitmap=bitmap)
+					image, imagesize = cls.format_image(psd=layer, xcf=xcf, tiff=tiff, bitmap=bitmap, isNormal=True)
 
 					#. Extract cv2 bounds, contours, and coordinates from np.array(image).
 					bounds_, contours_, coord = cls.extract_contours(image=image, imagename=imagename, roiname=roiname)
@@ -1049,51 +1091,27 @@ class ROI():
 					#. Format contours as Dataframe, for exporting to xlsx or ias.
 					bounds, contours = cls.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, roinumber=roinumber,
 															bounds_=bounds_, contours_=contours_)
-					#. Draw bounds or contours.
-					## draw bounds
-					if cls.shape == 'straight':
-						## if append_output_name
-						if not (cls.append_output_name is False):
-							filepath = '%s/img/bounds/roi/%s.%s_%s.png'%(cls.output_path, imagename, roiname, cls.append_output_name)
-						else:
-							filepath = '%s/img/bounds/roi/%s.%s.png'%(cls.output_path, imagename, roiname)
-						## save image
-						if cls.image_backend == 'PIL':
-							image.save(filepath)
-						else:
-							fig = plt.figure()
-							ax = fig.gca()
-							if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
-							if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-							if cls.tight_layout: plt.tight_layout()
-							cls.draw_contours(filepath=filepath, data=bounds, source='bounds', ax=ax)
-							plt.title('Region of Interest')
-							plt.ylabel('Screen Y (pixels)')
-							plt.xlabel('Screen X (pixels)')
-							plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
-							plt.close(fig)
-					## draw contours
+					#. Draw contours
+					## if append_output_name
+					if not (cls.append_output_name is False):
+						filepath = '%s/img/bounds/roi/%s.%s_%s.png'%(cls.output_path, imagename, roiname, cls.append_output_name)
 					else:
-						## if append_output_name
-						if not (cls.append_output_name is False):
-							filepath = '%s/img/bounds/roi/%s.%s_%s.png'%(cls.output_path, imagename, roiname, cls.append_output_name)
-						else:
-							filepath = '%s/img/bounds/roi/%s.%s.png'%(cls.output_path, imagename, roiname)
-						## save image
-						if cls.image_backend == 'PIL':
-							contours.save(filepath)
-						else:
-							fig = plt.figure()
-							ax = fig.gca()
-							if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
-							if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-							if cls.tight_layout: plt.tight_layout()
-							cls.draw_contours(filepath=filepath, img=contours, source='contours', ax=ax)
-							plt.title('Region of Interest')
-							plt.ylabel('Screen Y (pixels)')
-							plt.xlabel('Screen X (pixels)')
-							plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
-							plt.close(fig)
+						filepath = '%s/img/bounds/roi/%s.%s.png'%(cls.output_path, imagename, roiname)
+					## save image
+					if cls.image_backend == 'PIL':
+						contours.save(filepath)
+					else:
+						fig = plt.figure()
+						ax = fig.gca()
+						if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+						if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+						if cls.tight_layout: plt.tight_layout()
+						cls.draw_contours(filepath=filepath, img=contours, source='contours', ax=ax)
+						plt.title('Region of Interest')
+						plt.ylabel('Screen Y (pixels)')
+						plt.xlabel('Screen X (pixels)')
+						plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
+						plt.close(fig)
 
 					#. store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
@@ -1103,55 +1121,31 @@ class ROI():
 					roinumber = roinumber + 1
 
 			#!!!----for each image
-			# draw bounds
-			if cls.shape == 'straight':
-				## if append_output_name
-				if not (cls.append_output_name is False):
-					filepath = Path('%s/img/bounds/%s_%s.png'%(cls.output_path, imagename, cls.append_output_name))
-				else:
-					filepath = '%s/img/bounds/%s.png'%(cls.output_path, imagename)
-				## save image
-				if cls.image_backend == 'PIL':
-					img_ = Image.new('RGBA', l_contours[0].size)
-					for c in l_contours:
-						img_ = Image.blend(img_, c, .5)
-					img_.save(filepath)
-				else:
-					fig = plt.figure(); ax = fig.gca()
-					if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
-					if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-					if cls.tight_layout: plt.tight_layout()
-					[cls.draw_contours(filepath=filepath, data=b, source='bounds', ax=ax) for b in l_bounds]
-					plt.title('Region of Interest')
-					plt.ylabel('Screen Y (pixels)')
-					plt.xlabel('Screen X (pixels)')
-					plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
-					plt.close(fig)
-			# draw contours
+			### if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path('%s/img/bounds/%s_%s.png'%(cls.output_path, imagename, cls.append_output_name))
 			else:
-				## img path
-				### if append_output_name
-				if not (cls.append_output_name is False):
-					filepath = Path('%s/img/bounds/%s_%s.png'%(cls.output_path, imagename, cls.append_output_name))
-				else:
-					filepath = '%s/img/bounds/%s.png'%(cls.output_path, imagename)
-				## save image
-				if cls.image_backend == 'PIL':
-					img_ = Image.new('RGBA', l_contours[0].size)
-					for c in l_contours:
-						img_ = Image.blend(img_, c, .5)
-					img_.save(filepath)
-				else:
-					fig = plt.figure(); ax = fig.gca()
-					if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
-					if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
-					if cls.tight_layout: plt.tight_layout()
-					[cls.draw_contours(filepath=filepath, img=cnt, source='contours', ax=ax) for cnt in l_contours]
-					plt.title('Region of Interest')
-					plt.ylabel('Screen Y (pixels)')
-					plt.xlabel('Screen X (pixels)')
-					plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
-					plt.close(fig)
+				filepath = '%s/img/bounds/%s.png'%(cls.output_path, imagename)
+			## save image
+			if cls.image_backend == 'PIL':
+				img_ = Image.new('RGBA', l_contours[0].size)
+				for c in l_contours:
+					#img_ = Image.blend(img_, c, 0.125)
+					img_.paste(c, mask=c)
+				# add opacity
+				img_.putalpha(110)
+				img_.save(filepath)
+			else:
+				fig = plt.figure(); ax = fig.gca()
+				if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+				if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if cls.tight_layout: plt.tight_layout()
+				[cls.draw_contours(filepath=filepath, img=cnt, source='contours', ax=ax) for cnt in l_contours]
+				plt.title('Region of Interest')
+				plt.ylabel('Screen Y (pixels)')
+				plt.xlabel('Screen X (pixels)')
+				plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
+				plt.close(fig)
 
 			# concatenate and store bounds for all rois
 			df = pd.concat(l_bounds)

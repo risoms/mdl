@@ -1,4 +1,4 @@
-# EyeLink Interest Area Set created on 2019-05-22T10:11:36-05:00.
+# EyeLink Interest Area Set created on 2019-05-24T11:23:07-05:00.
 # Interest area set file using imhr.eyetracking.ROI()
 # columns: RECTANGLE | IA number | x0 | y0 | x1 | y1 | label
 # example: RECTANGLE 1 350 172 627 286 leftcheek
@@ -7,6 +7,7 @@
 # columns: FREEHAND | IA number | x0,y0 | x1,y1 | x2,y2 | x3,y3 | label
 # example: FREEHAND 3 350,172 627,172 627,286 350,286 leftcheek
 # For more information see Section 5.10.1 of Eyelink DataViewer Users Manual (3.2.1).
-FREEHAND	1	635	575	704	610	46401center
-FREEHAND	2	1052	743	1032	782	46402center
-FREEHAND	3	610	626	539	654	46403center
+FREEHAND	1	633	879	485	783	46401rotated
+FREEHAND	2	1067	965	1015	768	46402rotated
+FREEHAND	3	531	674	486	384	46403rotated
+FREEHAND	4	894	613	660	313	46404rotated

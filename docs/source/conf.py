@@ -31,7 +31,7 @@ import time
 import datetime
 from pathlib import Path
 from pdb import set_trace as breakpoint
-
+a = __file__
 # Path setup -----------------------------------------------------------------------------------------------------------
 path = os.path.abspath(os.getcwd()+ '../../../') 
 print('path %s'%(path))
@@ -122,7 +122,6 @@ extensions = [
 ## This allows variables to be accessable by jinja
 ## https://github.com/tardyp/sphinx-jinja
 filename_ = '%s/requirements.txt'%(Path(imhr.__file__).parent.parent)
-import re
 with open(filename_, 'rb') as f:
     required = [re.sub('\n', '', line.decode('utf-8')) for line in f]
 jinja_contexts = {
@@ -131,9 +130,69 @@ jinja_contexts = {
 
 # matplotlib plot_directive settings -----------------------------------------------------------------------------------
 plot_html_show_source_link = False
-plot_html_show_source_link = True
-plot_html_show_formats = True
-plot_formats = ['png', 'hires.png']
+plot_rcparams = {'savefig.bbox':'tight', "savefig.dpi": 400, 'figure.figsize': (20,6), 'figure.facecolor': '#ffffff'}
+plot_apply_rcparams = True  # if context option is used
+plot_formats = ['png','pdf']
+plot_template = """
+{{ source_code }}
+
+{{ only_html }}
+   {% for img in images %}
+   .. figure:: {{ build_dir }}/{{ img.basename }}.{{ default_fmt }}
+      {% for option in options -%}
+      {{ option }}
+      {% endfor %}
+
+      {% if html_show_formats and multi_image -%}
+        (
+        {%- for fmt in img.formats -%}
+        {%- if not loop.first -%}, {% endif -%}
+        `{{ fmt }} <{{ dest_dir }}/{{ img.basename }}.{{ fmt }}>`__
+        {%- endfor -%}
+        )
+      {%- endif -%}
+      {{ caption }}
+   {% endfor %}
+
+   {% if source_link or (html_show_formats and not multi_image) %}
+   (
+   {%- if source_link -%}
+   `Source code <{{ source_link }}>`__
+   {%- endif -%}
+   {%- if html_show_formats and not multi_image -%}
+     {%- for img in images -%}
+       {%- for fmt in img.formats -%}
+         {%- if source_link or not loop.first -%}, {% endif -%}
+         `{{ fmt }} <{{ dest_dir }}/{{ img.basename }}.{{ fmt }}>`__
+       {%- endfor -%}
+     {%- endfor -%}
+   {%- endif -%}
+   )
+   {% endif %}
+
+{{ only_latex }}
+
+   {% for img in images %}
+   {% if 'pdf' in img.formats -%}
+   .. figure:: {{ build_dir }}/{{ img.basename }}.pdf
+      {% for option in options -%}
+      {{ option }}
+      {% endfor %}
+      {{ caption }}
+   {% endif -%}
+   {% endfor %}
+
+{{ only_texinfo }}
+
+   {% for img in images %}
+   {% if 'png' in img.formats -%}
+   .. image:: {{ build_dir }}/{{ img.basename }}.png
+      {% for option in options -%}
+      {{ option }}
+      {% endfor %}
+   {% endif -%}
+   {% endfor %}
+"""
 
 # Napoleon settings ----------------------------------------------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html

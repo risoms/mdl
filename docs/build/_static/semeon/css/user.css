@@ -418,7 +418,10 @@ code.descclassname {
 	padding-right: 0px !important;
 	color: #3e8cc1;
 }
-
+.doctree>div>pre {
+    font-size: 12px !important;
+    line-height: 15px !important;
+}
 /*--kwargs--*/
 .align-center{
 	text-align: left !important;
