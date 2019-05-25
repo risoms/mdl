@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>imhr.Webgazer.model &#8212; imhr-api 2019-05-25 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          imhr-api</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-25</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../genindex.html">Glossary</a></li>
+                <li><a href="../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_data.html">Process data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Print-message-to-console/terminal.">(Optional) Print message to console/terminal.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Drift-correction.">(Optional) Drift correction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-recording.">Start recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Example-use-of-eyetracking.sample().">Example use of eyetracking.sample().</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Stop-recording.">Stop recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/index.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Required-Parameters">Required Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Optional-Parameters">Optional Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Creating-ROI">Creating ROI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Manually-coded-images">Manually coded images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Output">Output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Bounds">Bounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Data">Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Download.html">imhr.Download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+<div class="toc col-md-3" style="width: 25%;">
+	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/api/imhr.Webgazer.model.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+	</div>
+</div>
+		<div class="col-md-9 content">
+			
+  <div class="section" id="module-imhr.Webgazer.model">
+<span id="imhr-webgazer-model"></span><h1>imhr.Webgazer.model<a class="headerlink" href="#module-imhr.Webgazer.model" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">&#64;purpose: Build models for analysis.   </div>
+<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019</div>
+<div class="line">&#64;author: Semeon Risom</div>
+<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a></div>
+<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a></div>
+</div>
+<p><strong>Functions</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.Webgazer.model.anova" title="imhr.Webgazer.model.anova"><code class="xref py py-obj docutils literal notranslate"><span class="pre">anova</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;csv,&nbsp;path,&nbsp;effects)</td>
+<td>Run analysis of variance model using rpy2, seaborn and pandas.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.Webgazer.model.logistic" title="imhr.Webgazer.model.logistic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logistic</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;me,&nbsp;exclude,&nbsp;csv,&nbsp;…)</td>
+<td>Run logistic regression model, using rpy2, seaborn and pandas.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.Webgazer.model.lmer" title="imhr.Webgazer.model.lmer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmer</span></code></a>(config,&nbsp;y,&nbsp;f,&nbsp;df,&nbsp;exclude,&nbsp;csv,&nbsp;path,&nbsp;…)</td>
+<td>Run linear mixed regression model, using rpy2, seaborn and pandas.</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="imhr.Webgazer.model.anova">
+<code class="descclassname">imhr.Webgazer.model.</code><code class="descname">anova</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>csv</em>, <em>path</em>, <em>effects</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/Webgazer/model.html#anova"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.Webgazer.model.anova" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run analysis of variance model using rpy2, seaborn and pandas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Response variable.</p>
+</dd>
+<dt><strong>f</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Formula to use for analysis.</p>
+</dd>
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>f</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">R-compatiable formula.</p>
+</dd>
+<dt><strong>csv</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Name of generated CSV file to run analysis in R.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path to save the generated files.</p>
+</dd>
+<dt><strong>effects</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of main effects.</p>
+</dd>
+<dt><strong>is_html</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Whether html should be generated.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>model</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">rpy2.robjects.methods.RS4</span></code></span></dt>
+<dd><p class="first last">Python representation of an R instance of class ‘S4’.</p>
+</dd>
+<dt><strong>df_anova</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of model output.</p>
+</dd>
+<dt><strong>get_anova</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">R script to run model.</p>
+</dd>
+<dt><strong>html</strong> <span class="classifier-delimiter">:</span> <span class="classifier">:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>str</span></dt>
+<dd><p class="first last">Html output.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://rpsychologist.com/r-guide-longitudinal-lme-lmer">https://rpsychologist.com/r-guide-longitudinal-lme-lmer</a></li>
+<li><a class="reference external" href="https://sites.ualberta.ca/~lkgray/uploads/7/3/6/2/7362679/">https://sites.ualberta.ca/~lkgray/uploads/7/3/6/2/7362679/</a><a href="#id7"><span class="problematic" id="id8">slides_</span></a>- anova_assumptions.pdf</li>
+<li><a class="reference external" href="https://rpubs.com/tmcurley/twowayanova">https://rpubs.com/tmcurley/twowayanova</a></li>
+<li><a class="reference external" href="https://rstudio-pubs-static.s3.amazonaws.com/158708_78d414c091fc47bd99f6f75e3bd8f4cb.html">https://rstudio-pubs-static.s3.amazonaws.com/158708_78d414c091fc47bd99f6f75e3bd8f4cb.html</a></li>
+<li><a class="reference external" href="https://m-clark.github.io/docs/mixedModels/anovamixed.html">https://m-clark.github.io/docs/mixedModels/anovamixed.html</a></li>
+<li><a class="reference external" href="http://dwoll.de/rexrepos/posts/anovaMixed.html">http://dwoll.de/rexrepos/posts/anovaMixed.html</a></li>
+<li><a class="reference external" href="https://stats.stackexchange.com/questions/247582/repeated-measures-anova-in-r-errorsubject-vs-errorsubject-day">https://stats.stackexchange.com/questions/247582/repeated-measures-anova-in-r-errorsubject-vs-errorsubject-day</a></li>
+<li><a class="reference external" href="https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html#post-hoc-contrasts-and-plotting">https://cran.r-project.org/web/packages/afex/vignettes/afex_anova_example.html#post-hoc-contrasts-and-plotting</a></li>
+<li><a class="reference external" href="http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/Wieling-MixedModels-2011.pdf">http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/Wieling-MixedModels-2011.pdf</a></li>
+</ul>
+</dd>
+<dt><strong>Definition</strong>:</dt>
+<dd>A test that allows one to make comparisons between the means of multiple groups of data, where two independent variables are considered.</dd>
+<dt><strong>Assumptions of ANOVA</strong></dt>
+<dd><ol class="first last arabic simple">
+<li><dl class="first docutils">
+<dt>Normal distribution (normality)</dt>
+<dd><ul class="first last">
+<li>Short: Samples are drawn from a normally distributed population (Q-Q Plot, Shapiro-Wilks Test)</li>
+<li>Detailed Definition: Residuals in data are normally distributed.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Homogeneity of variance (homoscedasticity)</dt>
+<dd><ul class="first last">
+<li>Short: Variances are equal (or similar).</li>
+<li>Detailed: Varience for a DV is constant across the sample. (residual vs fitted plot, Scale-Location plot, Levene’s test)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Independent observations</dt>
+<dd><ul class="first last">
+<li>Samples have been drawn independently of each other. No analysis needed.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+<dt><strong>Hypothesis Interpretation</strong></dt>
+<dd><ul class="first last simple">
+<li><strong>Null</strong>: The means of all levels of an IV groups are equal.</li>
+<li><strong>Alternative</strong>: The mean of at least level of an IV is different.</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="imhr.Webgazer.model.lmer">
+<code class="descclassname">imhr.Webgazer.model.</code><code class="descname">lmer</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>exclude</em>, <em>csv</em>, <em>path</em>, <em>effects</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/Webgazer/model.html#lmer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.Webgazer.model.lmer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run linear mixed regression model, using rpy2, seaborn and pandas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Response variable.</p>
+</dd>
+<dt><strong>f</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Formula to use for analysis.</p>
+</dd>
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>f</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">R-compatiable formula.</p>
+</dd>
+<dt><strong>exclude</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of participants to be excluded.</p>
+</dd>
+<dt><strong>csv</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Name of generated CSV file to run analysis in R.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path to save the generated files.</p>
+</dd>
+<dt><strong>effects</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of main effects.</p>
+</dd>
+<dt><strong>is_html</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Whether html should be generated.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>model</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">rpy2.robjects.methods.RS4</span></code></span></dt>
+<dd><p class="first last">Python representation of an R instance of class ‘S4’.</p>
+</dd>
+<dt><strong>df_lmer</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of model output.</p>
+</dd>
+<dt><strong>get_lmer</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">R script to run model.</p>
+</dd>
+<dt><strong>html</strong> <span class="classifier-delimiter">:</span> <span class="classifier">:class:<a href="#id3"><span class="problematic" id="id4">`</span></a>str</span></dt>
+<dd><p class="first last">Html output.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://rpsychologist.com/r-guide-longitudinal-lme-lmer">https://rpsychologist.com/r-guide-longitudinal-lme-lmer</a></li>
+<li><a class="reference external" href="https://stackoverflow.com/questions/47686227/poisson-regression-in-statsmodels-and-r">https://stackoverflow.com/questions/47686227/poisson-regression-in-statsmodels-and-r</a></li>
+<li><a class="reference external" href="https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/">https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/</a></li>
+<li><a class="reference external" href="https://stats.stackexchange.com/questions/311556/help-interpreting-count-data-glmm-using-lme4-glmer-and-glmer-nb-negative-binom">https://stats.stackexchange.com/questions/311556/help-interpreting-count-data-glmm-using-lme4-glmer-and-glmer-nb-negative-binom</a></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="imhr.Webgazer.model.logistic">
+<code class="descclassname">imhr.Webgazer.model.</code><code class="descname">logistic</code><span class="sig-paren">(</span><em>config</em>, <em>y</em>, <em>f</em>, <em>df</em>, <em>me</em>, <em>exclude</em>, <em>csv</em>, <em>path</em>, <em>is_html=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/Webgazer/model.html#logistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.Webgazer.model.logistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run logistic regression model, using rpy2, seaborn and pandas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Response variable.</p>
+</dd>
+<dt><strong>f</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Formula to use for analysis.</p>
+</dd>
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>me</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">List of main effects.</p>
+</dd>
+<dt><strong>exclude</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of participants to be excluded.</p>
+</dd>
+<dt><strong>csv</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Name of generated CSV file to run analysis in R.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path to save the generated files.</p>
+</dd>
+<dt><strong>is_html</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Whether html should be generated.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>model</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">rpy2.robjects.methods.RS4</span></code></span></dt>
+<dd><p class="first last">Python representation of an R instance of class ‘S4’.</p>
+</dd>
+<dt><strong>df_logit</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of model output.</p>
+</dd>
+<dt><strong>get_logit</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">R script to run model.</p>
+</dd>
+<dt><strong>html</strong> <span class="classifier-delimiter">:</span> <span class="classifier">:class:<a href="#id5"><span class="problematic" id="id6">`</span></a>str</span></dt>
+<dd><p class="first last">Html output.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt><strong>Resources</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://rpsychologist.com/r-guide-longitudinal-lme-lmer">https://rpsychologist.com/r-guide-longitudinal-lme-lmer</a></li>
+<li><a class="reference external" href="https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/">https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/</a></li>
+<li><a class="reference external" href="https://www.statisticssolutions.com/assumptions-of-logistic-regression/">https://www.statisticssolutions.com/assumptions-of-logistic-regression/</a></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+			<div>&copy; Copyright 2019, </div>
+			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
+			<div>Updated 2019-05-25T15:23:34-05:00.</div>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>

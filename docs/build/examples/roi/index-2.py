@@ -13,23 +13,22 @@ from pathlib import Path
 path = '%s/dist/roi/example/'%(Path(imhr.__file__).parent)
 # draw plot
 #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')
-fig, (axes) = plt.subplots(1, 4, sharey=True)
+fig, ax = plt.subplots()
 # names
-shape = 'raw'
-filenames = ['2550_%s.png'%(shape),'2691_%s.png'%(shape),'4640_%s.png'%(shape),'9421_%s.png'%(shape)]
-# draw and save
-for idx, itm in enumerate(zip(axes, filenames)):
-    ax, file, = itm
-    ## load roi
-    im = image.imread('%s/%s'%(path, file))
-    ax.imshow(im)
-    ax.grid(True)
-    ax.set_facecolor('#f9f9f9')
-    # labels
-    if idx == 0: ax.set_ylabel('Screen Y (pixels)', fontsize=8)
-    ax.set_xlabel('Screen X (pixels)', fontsize=8)
-    ax.tick_params(labelsize=6, width=1, length=4)
+file = 'gimp_png.png'
+## load roi
+im = image.imread('%s/%s'%(path, file))
+ax.imshow(im)
+# labels
+ax.get_xaxis().set_ticks([])
+ax.get_yaxis().set_ticks([])
 # save
-#plt.tight_layout()
+plt.tight_layout()
 plt.subplots_adjust(wspace=0.1)
+## remove frame
+ax.axis('off')
+#plt.gca().axes.get_yaxis().set_visible(False)
+#plt.gca().axes.get_xaxis().set_visible(False)
+plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='off')
+plt.box(False)
 plt.show()

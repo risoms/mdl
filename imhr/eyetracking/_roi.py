@@ -45,7 +45,7 @@ class ROI():
 	"""Generate regions of interest that can be used for data processing and analysis."""
 	@classmethod
 	def __init__(self, isMultiprocessing=False, detection='manual', image_path=None, output_path=None, metadata_source=None, 
-			  roi_format='both', shape='box', roicolumn='roi', uuid=None, **kwargs):
+			  roi_format='both', shape='box', roicolumn='roi', uuid=None, filetype='psd', **kwargs):
 		"""Generate regions of interest that can be used for data processing and analysis.
 
 		Parameters
@@ -88,7 +88,10 @@ class ROI():
 			'feature' from your metadata and use this as the label. Default is **roi**.
 		uuid : :obj:`list` or :obj:`None`
 			Create a unique id by combining a list of existing variables in the metadata. This is recommended
-			if **roi_format** == **dataviewer** because of the limited variables allowed for ias files. Default :obj:`None`.
+			if **roi_format** == **dataviewer** because of the limited variables allowed for ias files. Default is **None**.
+		filetype: :obj:`str` {'psd', 'tiff', 'DICOM', 'png', 'bmp', 'jpg'}
+			The filetype extension of the image file. Case insensitive. Default is **psd**. If **psd**, **tiff** or **DICOM**
+			the file can be read as multilayered.
 		**kwargs : :obj:`str` or :obj:`None`, optional
 			Additional properties to control how data is exported, naming variables, exporting images are also available:
 
@@ -347,6 +350,7 @@ class ROI():
 					Please use either 'circle', 'rotate', or 'straight' instead, or set roi_format == 'raw'."%(shape))
 
 		#----directory
+		self.filetype = filetype.strip('.')
 		if self.isDemo is True:
 			import imhr
 			path = Path(imhr.__file__).parent
@@ -363,7 +367,7 @@ class ROI():
 			raise Exception(error)
 		else:
 			# set directory of files
-			self.directory = [x for x in Path(self.image_path).glob("*.psd") if x.is_file()]
+			self.directory = [x for x in (Path(self.image_path).glob("*.%s"%(filetype.lower())) or Path(self.image_path).glob("*.%s"%(filetype.upper())))]
 
 		#----read metadata file (if metadata is not None)
 		if metadata_source is not "embedded":
@@ -427,14 +431,14 @@ class ROI():
 		return metadata, roiname
 
 	@classmethod
-	def format_image(cls, psd=None, xcf=None, tiff=None, bitmap=None, isRaw=False, isPreprocessed=False, isNormal=False):
+	def format_image(cls, psd=None, DICOM=None, tiff=None, bitmap=None, isRaw=False, isPreprocessed=False, isNormal=False):
 		"""Resize image and reposition image, relative to screensize.
 
 		Parameters
 		----------
 		psd : :obj:`None` or `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
-		xcf : :obj:`None` or ###, optional
+		DICOM : :obj:`None` or ###, optional
 			[description], by default None
 		tiff : :obj:`None` or ###, optional
 			[description], by default None
@@ -454,10 +458,10 @@ class ROI():
 			PIL image object class.
 		"""
 
-		## load image from PSD, xcf, or bitmap as PIL
+		## load image from PSD, DICOM, tiff, or bitmap as PIL
 		if psd is not None:
 			image = psd.topil()
-		elif xcf is not None:
+		elif DICOM is not None:
 			image = psd.topil()
 		elif tiff is not None:
 			image = psd.topil()
@@ -984,7 +988,7 @@ class ROI():
 			if cls.isDebug and cls.isMultiprocessing: cls.console('core: %s'%(core),'orange')
 			# defaults
 			psd=None
-			xcf=None #%%!!! TODO: get working
+			DICOM=None #%%!!! TODO: get working
 			tiff=None #%%!!! TODO: get working
 			bitmap=None #%%!!! TODO: get working
 
@@ -995,13 +999,14 @@ class ROI():
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
-			## else if xcf (GIMP) #%%!!! TODO: get working
-			elif ext == '.xcf':
+			## else if DICOM (GIMP) #%%!!! TODO: get working
+			elif ext == '.DICOM':
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
 			## else if tiff (multiple layers) #%%!!! TODO: get working
-			elif ext == '.tiff':
+			elif ext in ['.tiff','.tif']:
+				breakpoint()
 				psd = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
@@ -1011,7 +1016,7 @@ class ROI():
 				imagename = os.path.splitext(os.path.basename(file))[0]
 				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
 			else:
-				error = "Image format not valid. Acceptable image formats are: psd (photoshop), xcf (gimp), tiff (multiple layers), or png/bmp/jpg (bitmap)."
+				error = "Image format not valid. Acceptable image formats are: psd (photoshop), DICOM (gimp), tiff (multiple layers), or png/bmp/jpg (bitmap)."
 				raise Exception(error)
 
 			# clear lists
@@ -1020,7 +1025,7 @@ class ROI():
 
 			#!!!----for each image, save image file
 			# raw image
-			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, tiff=tiff, bitmap=bitmap, isRaw=True)
+			image, imagesize = cls.format_image(psd=psd[0], DICOM=DICOM, tiff=tiff, bitmap=bitmap, isRaw=True)
 			## check folder
 			_folder = '%s/img/raw/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1043,7 +1048,7 @@ class ROI():
 				plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)
-			image, imagesize = cls.format_image(psd=psd[0], xcf=xcf, tiff=tiff, bitmap=bitmap, isPreprocessed=True)
+			image, imagesize = cls.format_image(psd=psd[0], DICOM=DICOM, tiff=tiff, bitmap=bitmap, isPreprocessed=True)
 			## check folder
 			_folder = '%s/img/preprocessed/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1073,7 +1078,7 @@ class ROI():
 			if not os.path.exists(_folderpath):
 				os.makedirs(_folderpath)
 			## for each layer in psd (if using psd)
-			#!!! TODO: get working for other image types (xcf, tiff, bitmap)
+			#!!! TODO: get working for other image types (DICOM, tiff, bitmap)
 			for layer in psd:
 				# skip if layer is main image
 				if Path(layer.name).stem == imagename:
@@ -1083,7 +1088,7 @@ class ROI():
 					metadata, roiname = cls.extract_metadata(imagename=imagename, layer=layer)
 
 					#. Resize PIL image and reposition image, relative to screensize.
-					image, imagesize = cls.format_image(psd=layer, xcf=xcf, tiff=tiff, bitmap=bitmap, isNormal=True)
+					image, imagesize = cls.format_image(psd=layer, DICOM=DICOM, tiff=tiff, bitmap=bitmap, isNormal=True)
 
 					#. Extract cv2 bounds, contours, and coordinates from np.array(image).
 					bounds_, contours_, coord = cls.extract_contours(image=image, imagename=imagename, roiname=roiname)

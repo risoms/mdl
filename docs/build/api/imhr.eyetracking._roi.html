@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>imhr.eyetracking._roi &#8212; imhr-api 2019-05-25 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          imhr-api</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-25</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../genindex.html">Glossary</a></li>
+                <li><a href="../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/R33/process_data.html">Process data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/R33/process_data.html#start">start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Import-packages.">Import packages.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-task-parameters,-either-directly-from-PsychoPy-or-created-manually.">Set task parameters, either directly from PsychoPy or created manually.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Initialize-the-imhr.eyetracking-package.">Initialize the imhr.eyetracking package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Connect-to-the-Eyelink-Host.">Connect to the Eyelink Host.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Set-the-dominamt-eye.">Set the dominamt eye.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-calibration.">Start calibration.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Print-message-to-console/terminal.">(Optional) Print message to console/terminal.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#(Optional)-Drift-correction.">(Optional) Drift correction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Start-recording.">Start recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Example-use-of-eyetracking.sample().">Example use of eyetracking.sample().</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Stop-recording.">Stop recording.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/eyetracking/demo/eyetracking_demo.html#Close-PsychoPy.">Close PsychoPy.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/roi/index.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Required-Parameters">Required Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Optional-Parameters">Optional Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Creating-ROI">Creating ROI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Manually-coded-images">Manually coded images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Output">Output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Bounds">Bounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Data">Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Download.html">imhr.Download</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.plot.html">imhr.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+<div class="toc col-md-3" style="width: 25%;">
+	<div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imhr.html">API Reference</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/api/imhr.eyetracking._roi.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+	</div>
+</div>
+		<div class="col-md-9 content">
+			
+  <div class="section" id="module-imhr.eyetracking._roi">
+<span id="imhr-eyetracking-roi"></span><h1>imhr.eyetracking._roi<a class="headerlink" href="#module-imhr.eyetracking._roi" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><cite>&#64;purpose</cite>: Generate regions of interest that can be used for data processing and analysis.  </div>
+<div class="line"><cite>&#64;date</cite>: Created on Sat May 1 15:12:38 2019  </div>
+<div class="line"><cite>&#64;author</cite>: Semeon Risom  </div>
+<div class="line"><cite>&#64;email</cite>: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>  </div>
+<div class="line"><cite>&#64;url</cite>: <a class="reference external" href="https://semeon.io/d/imhr">https://semeon.io/d/imhr</a></div>
+</div>
+<p><strong>Classes</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI" title="imhr.eyetracking._roi.ROI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ROI</span></code></a>([isMultiprocessing,&nbsp;detection,&nbsp;…])</td>
+<td>Generate regions of interest that can be used for data processing and analysis.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="imhr.eyetracking._roi.ROI">
+<em class="property">class </em><code class="descclassname">imhr.eyetracking._roi.</code><code class="descname">ROI</code><span class="sig-paren">(</span><em>isMultiprocessing=False</em>, <em>detection='manual'</em>, <em>image_path=None</em>, <em>output_path=None</em>, <em>metadata_source=None</em>, <em>roi_format='both'</em>, <em>shape='box'</em>, <em>roicolumn='roi'</em>, <em>uuid=None</em>, <em>filetype='psd'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Generate regions of interest that can be used for data processing and analysis.</p>
+<p class="rubric">Methods</p>
+<p><strong>Methods</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.draw_contours" title="imhr.eyetracking._roi.ROI.draw_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_contours</span></code></a>(filepath[,&nbsp;data,&nbsp;ax,&nbsp;img,&nbsp;source])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.export_data" title="imhr.eyetracking._roi.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_contours" title="imhr.eyetracking._roi.ROI.extract_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_metadata" title="imhr.eyetracking._roi.ROI.extract_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_metadata</span></code></a>(imagename,&nbsp;layer)</td>
+<td>Extract metadata for each region of interest.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.finished" title="imhr.eyetracking._roi.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(df[,&nbsp;errors])</td>
+<td>Process bounds for all images.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_contours" title="imhr.eyetracking._roi.ROI.format_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_contours</span></code></a>(imagename,&nbsp;metadata,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_image" title="imhr.eyetracking._roi.ROI.format_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_image</span></code></a>([psd,&nbsp;xcf,&nbsp;tiff,&nbsp;bitmap,&nbsp;…])</td>
+<td>Resize image and reposition image, relative to screensize.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process" title="imhr.eyetracking._roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.run" title="imhr.eyetracking._roi.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
+<td>[summary]</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.draw_contours" title="imhr.eyetracking._roi.ROI.draw_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_contours</span></code></a>(filepath[,&nbsp;data,&nbsp;ax,&nbsp;img,&nbsp;source])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.export_data" title="imhr.eyetracking._roi.ROI.export_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_data</span></code></a>(df,&nbsp;path,&nbsp;filename[,&nbsp;uuid,&nbsp;…])</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_contours" title="imhr.eyetracking._roi.ROI.extract_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_contours</span></code></a>(image,&nbsp;imagename,&nbsp;roiname)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.extract_metadata" title="imhr.eyetracking._roi.ROI.extract_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_metadata</span></code></a>(imagename,&nbsp;layer)</td>
+<td>Extract metadata for each region of interest.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.finished" title="imhr.eyetracking._roi.ROI.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(df[,&nbsp;errors])</td>
+<td>Process bounds for all images.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_contours" title="imhr.eyetracking._roi.ROI.format_contours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_contours</span></code></a>(imagename,&nbsp;metadata,&nbsp;…)</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.format_image" title="imhr.eyetracking._roi.ROI.format_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_image</span></code></a>([psd,&nbsp;xcf,&nbsp;tiff,&nbsp;bitmap,&nbsp;…])</td>
+<td>Resize image and reposition image, relative to screensize.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.process" title="imhr.eyetracking._roi.ROI.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<td>[summary]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.eyetracking._roi.ROI.run" title="imhr.eyetracking._roi.ROI.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(directory[,&nbsp;core,&nbsp;queue])</td>
+<td>[summary]</td>
+</tr>
+</tbody>
+</table>
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.extract_metadata">
+<em class="property">classmethod </em><code class="descname">extract_metadata</code><span class="sig-paren">(</span><em>imagename</em>, <em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.extract_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.extract_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract metadata for each region of interest.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>layer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.format_image">
+<em class="property">classmethod </em><code class="descname">format_image</code><span class="sig-paren">(</span><em>psd=None</em>, <em>xcf=None</em>, <em>tiff=None</em>, <em>bitmap=None</em>, <em>isRaw=False</em>, <em>isPreprocessed=False</em>, <em>isNormal=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.format_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.format_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize image and reposition image, relative to screensize.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>psd</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage">psd_tools.PSDImage</a></span></dt>
+<dd><p class="first last">Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</p>
+</dd>
+<dt><strong>xcf</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>tiff</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>bitmap</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>isRaw</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> or ###, optional</span></dt>
+<dd><p class="first last">If <cite>True</cite>, the image will be returned withour resizing or placed on top of a background image. Default is <strong>False</strong>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dd><p class="first last">PIL image object class.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>image, background</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code></a></span></dt>
+<dd><p class="first last">PIL image object class.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.extract_contours">
+<em class="property">classmethod </em><code class="descname">extract_contours</code><span class="sig-paren">(</span><em>image</em>, <em>imagename</em>, <em>roiname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.extract_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.extract_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roiname</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt>Exception</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt>Exception</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.format_contours">
+<em class="property">classmethod </em><code class="descname">format_contours</code><span class="sig-paren">(</span><em>imagename</em>, <em>metadata</em>, <em>roiname</em>, <em>roinumber</em>, <em>bounds_</em>, <em>contours_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.format_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.format_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>imagename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>metadata</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roiname</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roinumber</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>roilabel</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>bounds_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>contours_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt>Exception</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.draw_contours">
+<em class="property">classmethod </em><code class="descname">draw_contours</code><span class="sig-paren">(</span><em>filepath</em>, <em>data=None</em>, <em>ax=None</em>, <em>img=None</em>, <em>source='bounds'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.draw_contours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.draw_contours" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>filepath</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>fig</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">[description], by default ‘bounds’</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.export_data">
+<em class="property">classmethod </em><code class="descname">export_data</code><span class="sig-paren">(</span><em>df</em>, <em>path</em>, <em>filename</em>, <em>uuid=None</em>, <em>newcolumn=None</em>, <em>level='image'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.export_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.export_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">Bounds.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>uuid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type], optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>newcolumn</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type], optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+<dt><strong>nested</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code></a> {<cite>image</cite>,`all`}</span></dt>
+<dd><p class="first last">Nested order, either <strong>image</strong> or <strong>all</strong>. Default is <strong>image</strong>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.run">
+<em class="property">classmethod </em><code class="descname">run</code><span class="sig-paren">(</span><em>directory</em>, <em>core=0</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>directory</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>core</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">(if isMultiprocessing) Core used for this function. Default is <strong>0</strong>.</p>
+</dd>
+<dt><strong>queue</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/queue.html#queue.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queue.Queue</span></code></a></span></dt>
+<dd><p class="first last">Constructor for a multiprocessing ‘first-in, first-out’ queue. Note: Queues are thread and process safe.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.process">
+<em class="property">classmethod </em><code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt>[type]</dt>
+<dd><p class="first last">[description]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="imhr.eyetracking._roi.ROI.finished">
+<em class="property">classmethod </em><code class="descname">finished</code><span class="sig-paren">(</span><em>df</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/eyetracking/_roi.html#ROI.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.eyetracking._roi.ROI.finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process bounds for all images.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type]</span></dt>
+<dd><p class="first last">[description]</p>
+</dd>
+<dt><strong>errors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type], optional</span></dt>
+<dd><p class="first last">[description], by default None</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+			<div>&copy; Copyright 2019, </div>
+			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
+			<div>Updated 2019-05-25T15:23:34-05:00.</div>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>

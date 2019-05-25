@@ -10,12 +10,12 @@ import matplotlib.pyplot as plt
 import matplotlib.image as image
 from pathlib import Path
 # path
-path = '%s/dist/roi/output/img/bounds/'%(Path(imhr.__file__).parent)
+path = '%s/dist/roi/example/'%(Path(imhr.__file__).parent)
 # draw plot
 #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')
 fig, (axes) = plt.subplots(1, 4, sharey=True)
 # names
-shape = 'polygon'
+shape = 'raw'
 filenames = ['2550_%s.png'%(shape),'2691_%s.png'%(shape),'4640_%s.png'%(shape),'9421_%s.png'%(shape)]
 # draw and save
 for idx, itm in enumerate(zip(axes, filenames)):
