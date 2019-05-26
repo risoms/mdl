@@ -89,7 +89,7 @@ class ROI():
 		uuid : :obj:`list` or :obj:`None`
 			Create a unique id by combining a list of existing variables in the metadata. This is recommended
 			if **roi_format** == **dataviewer** because of the limited variables allowed for ias files. Default is **None**.
-		filetype: :obj:`str` {'psd', 'tiff', 'DICOM', 'png', 'bmp', 'jpg'}
+		filetype: :obj:`str` {'psd', 'tiff', 'dcm', 'png', 'bmp', 'jpg'}
 			The filetype extension of the image file. Case insensitive. Default is **psd**. If **psd**, **tiff** or **DICOM**
 			the file can be read as multilayered.
 		**kwargs : :obj:`str` or :obj:`None`, optional
@@ -351,12 +351,12 @@ class ROI():
 
 		#----directory
 		self.filetype = filetype.strip('.')
+		import imhr
+		self.path = Path(imhr.__file__).parent
 		if self.isDemo is True:
-			import imhr
-			path = Path(imhr.__file__).parent
-			self.image_path = "%s/dist/roi/raw/1/"%(path)
-			self.output_path = "%s/dist/roi/output/"%(path)
-			metadata_source = "%s/dist/roi/raw/1/metadata.xlsx"%(path)
+			self.image_path = "%s/dist/roi/raw/1/"%(self.path)
+			self.output_path = "%s/dist/roi/output/"%(self.path)
+			metadata_source = "%s/dist/roi/raw/1/metadata.xlsx"%(self.path)
 		else:
 			self.image_path = image_path
 			self.output_path = output_path
@@ -368,6 +368,11 @@ class ROI():
 		else:
 			# set directory of files
 			self.directory = [x for x in (Path(self.image_path).glob("*.%s"%(filetype.lower())) or Path(self.image_path).glob("*.%s"%(filetype.upper())))]
+			## if no files in directory, raise exception
+			if not self.directory:
+				error = "No %s images in path: %s. Please make sure to include an image path. \
+				If you wish to run a demo, please set isDemo=True."%(filetype, self.image_path)
+				raise Exception(error.replace("\t",""))
 
 		#----read metadata file (if metadata is not None)
 		if metadata_source is not "embedded":
@@ -384,12 +389,14 @@ class ROI():
 				raise Exception('No data for file: %s'%(self.metadata_source))
 
 	@classmethod
-	def extract_metadata(cls, imagename, layer):
+	def extract_metadata(cls, imagename, imgtype, layer):
 		"""Extract metadata for each region of interest.
 
 		Parameters
 		----------
 		imagename : [type]
+			[description]
+		imgtype : [type]
 			[description]
 		layer : [type]
 			[description]
@@ -409,43 +416,44 @@ class ROI():
 			metadata.set_index('key', inplace=True)
 			metadata.loc['name']['value'] = metadata.loc['name']['value'].replace("roi","")
 			roiname = metadata.loc['name']['value']
-			roilabel = metadata.loc[cls.roicolumn]['value']
 
 		# else read metadata from file
 		else:
 			# get metadata
-			roiname = layer.name.strip(' \t\n\r') # strip whitespace
-			metadata = cls.metadata_all.loc[(cls.metadata_all['image'] == imagename) & (cls.metadata_all['roi'] == roiname)]
+			if imgtype=='psd':
+				roiname = layer.name.strip(' \t\n\r') # strip whitespace
+				metadata = cls.metadata_all.loc[(cls.metadata_all['image'] == imagename) & (cls.metadata_all['roi'] == roiname)]
+			else:
+				roiname = imagename 
+				##!!! TODO: Resolve metadata for non-layered images
+				metadata = cls.metadata_all.loc[(cls.metadata_all['image'] == imagename)]
 			# if datafame empty
 			if metadata.empty:
 				message = 'No data for %s:%s (image:roi).'%(imagename, roiname)
 				raise Exception(message)
-			else:
-				roilabel = metadata[cls.roicolumn].item()
 
 		# print results
 		if cls.isDebug:
-			cls.console('## roiname: %s'%(roiname),'blue')
-			cls.console('## roilabel: %s'%(roilabel),'green')
+			cls.console('## roiname: %s'%(roiname),'green')
 
 		return metadata, roiname
 
 	@classmethod
-	def format_image(cls, psd=None, DICOM=None, tiff=None, bitmap=None, isRaw=False, isPreprocessed=False, isNormal=False):
+	def format_image(cls, image=None, imgtype='psd', isRaw=False, isPreprocessed=False, isNormal=False, isHaar=False):
 		"""Resize image and reposition image, relative to screensize.
 
 		Parameters
 		----------
-		psd : :obj:`None` or `psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+		IMG : :obj:`None` or
+			Can be either:
+			`psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
-		DICOM : :obj:`None` or ###, optional
-			[description], by default None
-		tiff : :obj:`None` or ###, optional
-			[description], by default None
-		bitmap : :obj:`None` or ###, optional
-			[description], by default None
+		imgtype : :obj:`str` {'psd','dcm','tiff', 'bitmap'}
+			Image type.
 		isRaw : :obj:`None` or ###, optional
-			If `True`, the image will be returned withour resizing or placed on top of a background image. Default is **False**.
+			If **True**, the image will be returned without resizing or placed on top of a background image. Default is **False**.
+		isPreprocessed : :obj:`None` or ###, optional
+			If **True**, the image will be returned with resizing and placed on top of a background image. Default is **False**.
 
 		Attributes
 		----------
@@ -459,32 +467,38 @@ class ROI():
 		"""
 
 		## load image from PSD, DICOM, tiff, or bitmap as PIL
-		if psd is not None:
-			image = psd.topil()
-		elif DICOM is not None:
-			image = psd.topil()
-		elif tiff is not None:
-			image = psd.topil()
-		elif bitmap is not None:
-			image = psd.topil()
+		if imgtype == 'psd':
+			if not isHaar: image = image.topil()
+			else: image = image
+			imagesize = [image.size[0], image.size[1]]
+		elif imgtype == 'DICOM':
+			breakpoint()
+			image = image.topil()
+			imagesize = [image.size[0], image.size[1]]
+		elif imgtype == 'tiff':
+			breakpoint()
+			image = image.topil()
+			imagesize = [image.size[0], image.size[1]]
+		elif imgtype == 'bitmap':
+			breakpoint()
+			image = image
+			imagesize = [image.size[0], image.size[1]]
 
 		# if returning raw image
 		if isRaw:
-			imagesize = [image.size[0], image.size[1]]
 			if cls.isDebug: cls.console('# export raw image','blue')
 			return image, imagesize
 		# if returning raw image
 		elif isPreprocessed:
-			imagesize = [image.size[0], image.size[1]]
 			## set background
 			screen_size = cls.screensize
 			background = Image.new("RGBA", (screen_size), (110, 110, 110, 255))
-			if cls.isDebug: cls.console('# export raw image','blue')
+			if cls.isDebug: cls.console('# export preprocessed image','blue')
 		elif isNormal:
 			## set background
 			screen_size = cls.screensize
 			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
-			if cls.isDebug: cls.console('# export image','blue')
+			if cls.isDebug: cls.console('# export roi image','blue')
 		# scale and move image to emulate stimulus presentation
 		if isPreprocessed or isNormal:
 			# if scale image
@@ -594,35 +608,20 @@ class ROI():
 		image_gray = cv2.cvtColor(image_np, cv2.COLOR_BGR2GRAY)
 
 		# if drawing in PSD files
-		if cls.detection == 'manual':
-			if cls.isDebug: cls.console('manual ROI detection','blue')
-			# threshold the image
-			## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
-			_retval, threshold = cv2.threshold(src=image_gray, thresh=1, maxval=255, type=0)
+		if cls.isDebug: cls.console('manual ROI detection','blue')
+		# threshold the image
+		## note: if any pixels that have value higher than 127, assign it to 255. convert to bw for countour and store original
+		_retval, threshold = cv2.threshold(src=image_gray, thresh=1, maxval=255, type=0)
 
-			# find contours in image
-			## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
-			contours, _hierarchy = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+		# find contours in image
+		## note: if you only want to retrieve the most external contour # use cv.RETR_EXTERNAL
+		contours, _hierarchy = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-			# if contours empty raise Exception
-			if not bool(contours):
-				_err = [imagename, roiname, 'Not able to identify contours']
-				message = '%s; %s; %s'%(_err[0],_err[1],_err[2])
-				raise Exception(message)
-		# else using haar cascades
-		##%!!! TODO: Finish haarcascades
-		else:
-			if cls.isDebug: cls.console('automatic ROI detection from haar cascades','blue')
-			# load classifier
-			_classifer = cls.default_classifiers[cls.classifier]
-			haar = cv2.CascadeClassifier(_classifer)
-			contours = haar.detectMultiScale(
-			    image,
-			    scaleFactor=1.1,
-			    minNeighbors=5,
-			    minSize=(1,1),
-			    flags = cv2.CASCADE_SCALE_IMAGE
-			)
+		# if contours empty raise Exception
+		if not bool(contours):
+			_err = [imagename, roiname, 'Not able to identify contours']
+			message = '%s; %s; %s'%(_err[0],_err[1],_err[2])
+			raise Exception(message)
 
 		#------------------------------------------------------------------------for each layer: save images and contours
 		#when saving the contours below, only one drawContours function from above can be run
@@ -737,7 +736,7 @@ class ROI():
 		return _bounds, _contours, coord
 
 	@classmethod
-	def format_contours(cls, imagename, metadata, roiname, roinumber, bounds_, contours_):
+	def format_contours(cls, imagename, metadata, roiname, roinumber, bounds, coords):
 		"""[summary]
 
 		Parameters
@@ -769,40 +768,30 @@ class ROI():
 		Exception
 			[description]
 		"""
-		#----store bounds as df
-		_bounds = pd.DataFrame(bounds_)
-
-		# transpose bounds (x0, y0, x1, y1)
-		_x = _bounds[0].unique().tolist()
-		_y = _bounds[1].unique().tolist()
-
-		# check if bounding box has two x and y coordinate pairs
-		if (((len(_x) == 1) or (len(_y) == 1)) and cls.shape == 'straight'):
+		# contour bounds
+		## store bounds as df
+		bounds_ = pd.DataFrame(bounds)
+		## transpose bounds (x0, y0, x1, y1)
+		x_ = bounds_[0].unique().tolist()
+		y_ = bounds_[1].unique().tolist()
+		## check if bounding box has two x and y coordinate pairs
+		if (((len(x_) == 1) or (len(y_) == 1)) and cls.shape == 'straight'):
 			raise Exception ("Error creating bounding box for image:roi %s:%s."%(imagename, roiname))
-
-		# set as df
-		bounds = pd.DataFrame(np.column_stack([_x[0],_y[0],_x[1],_y[1]]))
-
-		# rename
+		## set as df
+		bounds = pd.DataFrame(np.column_stack([x_[0],y_[0],x_[1],y_[1]]))
+		## rename
 		bounds.columns = ['x0','y0','x1','y1']
-
-		# add index, image, roi, and shape
+		## add index, image, roi, and shape
 		bounds['image'] = imagename
 		bounds['roi'] = roiname
 		bounds['id'] = roinumber
 		bounds['shape_d'] = cls.shape_d
-
-		# clean-up
 		## convert to int
 		bounds[['x0','y0','x1','y1']] = bounds[['x0','y0','x1','y1']].astype(int)
 
-		#----save image:roi level image bounds and con
-		#----save roi contours
-		#!! get working: draw exact contours as coordinates
-		if cls.save['contours']:
-			contours = contours_
-		# combine metadata with coordinates
-		##!!! get working
+		#contour coords
+		coords = pd.DataFrame(coords, columns = ['x','y'])
+		coords[['image','roi','shape']] = pd.DataFrame([[imagename, roiname, cls.shape]], index=coords.index)
 
 		#----save roi df
 		# combine metadata with bounds
@@ -810,10 +799,10 @@ class ROI():
 			bounds = pd.merge(bounds, metadata, on=['image','roi'], how='outer')
 
 		# finish
-		return bounds, contours
+		return bounds, coords
 
 	@classmethod
-	def draw_contours(cls, filepath, data=None, ax=None, img=None, source='bounds'):
+	def draw_contours(cls, filepath, img=None):
 		"""[summary]
 
 		Parameters
@@ -827,43 +816,15 @@ class ROI():
 		source : str, optional
 			[description], by default 'bounds'
 		"""
-		## create blank image and draw to figure
-		_img = Image.new("RGBA", (cls.screensize[0], cls.screensize[1]), (0, 0, 0, 0))
-
-		## for each bound draw on figure
-		if source=="bounds":
-			ax.imshow(_img)
-			#for _bounds in data:
-			## get bounds
-			breakpoint()
-			x0 = data['x0'].item()
-			y0 = data['y0'].item()
-			x1 = data['x1'].item()
-			y1 = data['y1'].item()
-			_width = x1 - x0
-			_height = y1 - y0
-			_color = random.choice(cls.rgb)
-			ax.add_patch(patches.Rectangle((x0, y0), _width, _height, color=_color, alpha=0.5))
-			## check folder
-			filepath_ = Path(filepath).parent
-			if not os.path.exists(filepath_):
-				os.makedirs(filepath_)
-			## save
-			if cls.isDebug: cls.console('## image saved @: %s'%(filepath),'blue')
-		## for each contour draw on figure
-		elif source=="contours":
-			img_np = np.array(img) #convert pil to np
-			img_cv2 = cv2.cvtColor(img_np, cv2.COLOR_BGRA2RGBA) #read np as cv2 then convert to rgb
-#			img.save('/Users/mdl-admin/Desktop/roi/PIL.png') #DEBUG: save PIL
-#			cv2.imwrite('/Users/mdl-admin/Desktop/roi/cv2.png', img_cv2) #DEBUG: save cv2
-#			plt.imshow(img_np); plt.savefig('/Users/mdl-admin/Desktop/roi/matplotlib.png') #DEBUG: save matplotlib
-			plt.imshow(img_np)
-			## check folder
-			filepath_ = Path(filepath).parent
-			if not os.path.exists(filepath_):
-				os.makedirs(filepath_)
-			## save
-			if cls.isDebug: cls.console('## image saved @: %s'%(filepath),'blue')
+		# convert pil to np
+		img_np = np.array(img)
+		plt.imshow(img_np)
+		## check folder
+		filepath_ = Path(filepath).parent
+		if not os.path.exists(filepath_):
+			os.makedirs(filepath_)
+		## save
+		if cls.isDebug: cls.console('## image saved @: %s'%(filepath),'blue')
 
 	@classmethod
 	def export_data(cls, df, path, filename, uuid=None, newcolumn=None, level='image'):
@@ -958,7 +919,7 @@ class ROI():
 		return df
 
 	@classmethod
-	def run(cls, directory, core=0, queue=None):
+	def manual_detection(cls, directory, core=0, queue=None):
 		"""[summary]
 
 		Parameters
@@ -978,6 +939,7 @@ class ROI():
 		#----prepare lists for all images
 		l_bounds_all = []
 		l_contours_all = []
+		l_coords_all = []
 		l_error = []
 
 		#!!!----for each image
@@ -987,45 +949,35 @@ class ROI():
 			# console
 			if cls.isDebug and cls.isMultiprocessing: cls.console('core: %s'%(core),'orange')
 			# defaults
-			psd=None
-			DICOM=None #%%!!! TODO: get working
-			tiff=None #%%!!! TODO: get working
-			bitmap=None #%%!!! TODO: get working
+			imgtype='psd'
 
 			# read image
 			ext = (Path(file).suffix).lower()
 			## if psd
 			if ext == '.psd':
-				psd = psd_tools.PSDImage.open(file)
+				imgtype = 'psd'
+				layered_image = psd_tools.PSDImage.open(file)
 				imagename = os.path.splitext(os.path.basename(file))[0]
-				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
-			## else if DICOM (GIMP) #%%!!! TODO: get working
-			elif ext == '.DICOM':
-				psd = psd_tools.PSDImage.open(file)
-				imagename = os.path.splitext(os.path.basename(file))[0]
-				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
-			## else if tiff (multiple layers) #%%!!! TODO: get working
-			elif ext in ['.tiff','.tif']:
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'green')
+			## else if DICOM (GIMP) 
+			##!!! TODO: get working
+			elif ext == '.dcm':
 				breakpoint()
-				psd = psd_tools.PSDImage.open(file)
+				imgtype = 'DICOM'
+				layered_image = Image.open('%s'%(file))
 				imagename = os.path.splitext(os.path.basename(file))[0]
-				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
-			## else if bitmap #%%!!! TODO: get working
-			elif ext in ['.bmp','.jpeg','.jpg','.png']:
-				psd = psd_tools.PSDImage.open(file)
-				imagename = os.path.splitext(os.path.basename(file))[0]
-				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'blue')
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'green')
 			else:
-				error = "Image format not valid. Acceptable image formats are: psd (photoshop), DICOM (gimp), tiff (multiple layers), or png/bmp/jpg (bitmap)."
+				error = "Image format not valid. Acceptable image formats are: psd (Photoshop) or dcm (DICOM)."
 				raise Exception(error)
 
 			# clear lists
-			l_bounds = [] #list of bounds
-			l_contours = [] #list of contours
-
+			l_bounds = [] #list of bounds (data)
+			l_contours = [] #list of contours (image)
+			l_coords = [] #list of coordinates (data)
 			#!!!----for each image, save image file
 			# raw image
-			image, imagesize = cls.format_image(psd=psd[0], DICOM=DICOM, tiff=tiff, bitmap=bitmap, isRaw=True)
+			image, imagesize = cls.format_image(image=layered_image, imgtype=imgtype, isRaw=True)
 			## check folder
 			_folder = '%s/img/raw/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1048,7 +1000,7 @@ class ROI():
 				plt.close(fig)
 
 			# preprocessed imaage (image with relevant screensize and position)
-			image, imagesize = cls.format_image(psd=psd[0], DICOM=DICOM, tiff=tiff, bitmap=bitmap, isPreprocessed=True)
+			image, imagesize = cls.format_image(image=layered_image, imgtype=imgtype, isPreprocessed=True)
 			## check folder
 			_folder = '%s/img/preprocessed/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1077,25 +1029,25 @@ class ROI():
 			_folderpath = '%s/img/bounds/roi/'%(cls.output_path)
 			if not os.path.exists(_folderpath):
 				os.makedirs(_folderpath)
+
 			## for each layer in psd (if using psd)
-			#!!! TODO: get working for other image types (DICOM, tiff, bitmap)
-			for layer in psd:
+			#!!! TODO: get working for other image types (DICOM)
+			for layer in layered_image:
 				# skip if layer is main image
-				if Path(layer.name).stem == imagename:
+				if ((imgtype=='psd') and (Path(layer.name).stem == imagename)):
 					continue
 				else:
 					#. Extract metadata for each region of interest.
-					metadata, roiname = cls.extract_metadata(imagename=imagename, layer=layer)
+					metadata, roiname = cls.extract_metadata(imagename=imagename, layer=layer, imgtype=imgtype)
 
 					#. Resize PIL image and reposition image, relative to screensize.
-					image, imagesize = cls.format_image(psd=layer, DICOM=DICOM, tiff=tiff, bitmap=bitmap, isNormal=True)
+					image, imagesize = cls.format_image(image=layer, imgtype=imgtype, isNormal=True)
 
 					#. Extract cv2 bounds, contours, and coordinates from np.array(image).
-					bounds_, contours_, coord = cls.extract_contours(image=image, imagename=imagename, roiname=roiname)
+					bounds, contours, coords = cls.extract_contours(image=image, imagename=imagename, roiname=roiname)
 
 					#. Format contours as Dataframe, for exporting to xlsx or ias.
-					bounds, contours = cls.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, roinumber=roinumber,
-															bounds_=bounds_, contours_=contours_)
+					bounds, coords = cls.format_contours(imagename=imagename, metadata=metadata, roiname=roiname, roinumber=roinumber, bounds=bounds, coords=coords)
 					#. Draw contours
 					## if append_output_name
 					if not (cls.append_output_name is False):
@@ -1107,11 +1059,10 @@ class ROI():
 						contours.save(filepath)
 					else:
 						fig = plt.figure()
-						ax = fig.gca()
 						if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
 						if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
 						if cls.tight_layout: plt.tight_layout()
-						cls.draw_contours(filepath=filepath, img=contours, source='contours', ax=ax)
+						cls.draw_contours(filepath=filepath, img=contours)
 						plt.title('Region of Interest')
 						plt.ylabel('Screen Y (pixels)')
 						plt.xlabel('Screen X (pixels)')
@@ -1121,6 +1072,7 @@ class ROI():
 					#. store processed bounds and contours to combine across image
 					l_bounds.append(bounds)
 					l_contours.append(contours)
+					l_coords.append(coords)
 
 					#. update counter
 					roinumber = roinumber + 1
@@ -1141,22 +1093,22 @@ class ROI():
 				img_.putalpha(110)
 				img_.save(filepath)
 			else:
-				fig = plt.figure(); ax = fig.gca()
+				fig = plt.figure()
 				if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
 				if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
 				if cls.tight_layout: plt.tight_layout()
-				[cls.draw_contours(filepath=filepath, img=cnt, source='contours', ax=ax) for cnt in l_contours]
+				[cls.draw_contours(filepath=filepath, img=cnt) for cnt in l_contours]
 				plt.title('Region of Interest')
 				plt.ylabel('Screen Y (pixels)')
 				plt.xlabel('Screen X (pixels)')
 				plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
 				plt.close(fig)
 
-			# concatenate and store bounds for all rois
+			# bounds
+			## concatenate and store bounds for all rois
 			df = pd.concat(l_bounds)
 			l_bounds_all.append(df)
-
-			# export data
+			## export data
 			_filename = "%s_bounds"%(imagename)
 			_folder = '%s/data/'%(cls.output_path)
 			if not os.path.exists(_folder):
@@ -1164,17 +1116,211 @@ class ROI():
 			df = cls.export_data(df=df, path=_folder, filename=_filename, uuid=cls.uuid, newcolumn=cls.newcolumn, level='image')
 
 			# contours
-			##!!! create roi file for complex shapes (not with dataviewer)
+			# concatenate and store contours for all rois
+			df = pd.concat(l_coords)
+			l_coords_all.append(df)
+			## export data
+			_filename = "%s_contours"%(imagename)
+			_folder = '%s/data/'%(cls.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			filepath = Path("%s/%s.h5"%(_folder, _filename))
+			df.to_hdf("%s"%(filepath), key='df', format='table', mode='w', data_columns=['image','roi'])
 
 		#!!!----finished for all images
 		# store
 		## if multiprocessing, store in queue
 		if cls.isMultiprocessing:
-			queue.put(l_bounds_all)
+			queue.put(l_bounds_all, l_coords_all)
 			pass
 		# if not multiprocessing, return
 		else:
-			return l_bounds_all, l_contours_all, l_error
+			return l_bounds_all, l_contours_all, l_coords_all, l_error
+
+	@classmethod
+	def haarcascade(cls, directory, core=0, queue=None):
+		"""[summary]
+		
+		Parameters
+		----------
+		directory : [type]
+			[description]
+		core : int, optional
+			[description], by default 0
+		queue : [type], optional
+			[description], by default None
+		
+		Returns
+		-------
+		[type]
+			[description]
+		
+		Raises
+		------
+		Exception
+			[description]
+		"""
+		#!!!----for each image
+		cls.console('starting()','purple')
+		if cls.isDebug: cls.console('for each image','purple')
+		l_coords_all = []
+		l_error = []
+		for file in directory:
+			# console
+			if cls.isDebug and cls.isMultiprocessing: cls.console('core: %s'%(core),'orange')
+			# defaults
+			imgtype='psd'
+
+			# read image
+			ext = (Path(file).suffix).lower()
+			## if psd
+			if ext == '.psd':
+				imgtype = 'psd'
+				image = Image.open('%s'%(file))
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'green')
+			## else if DICOM (GIMP) 
+			elif ext == '.dcm':
+				breakpoint()
+				imgtype = 'DICOM'
+				image = Image.open('%s'%(file))
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'green')
+			## else if tiff
+			elif ext in ['.tiff','.tif']:
+				breakpoint()
+				imgtype = 'tiff'
+				image = Image.open('%s'%(file))
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'green')
+			## else if bitmap 
+			elif ext in ['.bmp','.jpeg','.jpg','.png']:
+				imgtype = 'bitmap'
+				image = Image.open('%s'%(file))
+				imagename = os.path.splitext(os.path.basename(file))[0]
+				if cls.isDebug: cls.console('\n# file: %s'%(imagename),'green')
+			else:
+				error = "Image format not valid. Acceptable image formats are: psd (photoshop), dcm (DICOM), tiff (multiple layers), or png/bmp/jpg (bitmap)."
+				raise Exception(error)
+
+			# clear lists
+			l_coords = [] #list of coordinates (data)
+			#!!!----for each image, save image file
+			# raw image
+			image, imagesize = cls.format_image(image=image, imgtype=imgtype, isRaw=True, isHaar=True)
+			## check folder
+			_folder = '%s/img/raw/'%(cls.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			## if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path("%s/%s_%s.png"%(_folder, imagename, cls.append_output_name))
+			else:
+				filepath = '%s/%s.png'%(_folder, imagename)
+			## save raw
+			if cls.image_backend == 'PIL':
+				image.save(filepath)
+			else:
+				fig = plt.figure()
+				if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+				if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if cls.tight_layout: plt.tight_layout()
+				plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
+				plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
+				plt.close(fig)
+
+			# preprocessed imaage (image with relevant screensize and position)
+			image, imagesize = cls.format_image(image=image, imgtype=imgtype, isPreprocessed=True, isHaar=True)
+			## check folder
+			_folder = '%s/img/preprocessed/'%(cls.output_path)
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			## if append_output_name
+			if not (cls.append_output_name is False):
+				filepath = Path("%s/%s_%s.png"%(_folder, imagename, cls.append_output_name))
+			else:
+				filepath = '%s/%s.png'%(_folder, imagename)
+			## save raw
+			if cls.image_backend == 'PIL':
+				image.save(filepath)
+			else:
+				fig = plt.figure()
+				if cls.set_size_inches is not None: fig.set_size_inches(cls.screensize[0]/cls.dpi, cls.screensize[1]/cls.dpi)
+				if cls.remove_axis: fig.tight_layout(pad=0); plt.axis('off')
+				if cls.tight_layout: plt.tight_layout()
+				plt.imshow(image, zorder=1, interpolation='bilinear', alpha=1)
+				plt.savefig(filepath, dpi=cls.dpi, bbox_inches='tight')
+				plt.close(fig)
+
+			# The image is read and converted to grayscale
+			cv2_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+			gray = np.array(image.convert("L"))#; cv2.imwrite(greypath, gray)
+
+			# creates the cascade classifcation from file
+			## face
+			_classifer = cls.default_classifiers['frontalface_default']
+			face_cascade = cv2.CascadeClassifier('%s/dist/haarcascade/%s'%(cls.path,_classifer))
+			## eyes
+			_classifer = cls.default_classifiers['eye']
+			eye_cascade = cv2.CascadeClassifier('%s/dist/haarcascade/%s'%(cls.path,_classifer))
+			## body
+			_classifer = cls.default_classifiers['fullbody']
+			body_cascade = cv2.CascadeClassifier('%s/dist/haarcascade/%s'%(cls.path,_classifer))
+
+			# face cascade
+			faces = face_cascade.detectMultiScale(gray, scaleFactor=1.01, minNeighbors=5, minSize=(100,100), flags=cv2.CASCADE_SCALE_IMAGE)
+			for idx, (x, y, w, h) in enumerate(faces):
+				# store coords
+				l_coords.append([x, y, x+x+w/2, y+y+h/2, 'face', idx, imagename])
+				# draw face
+				cv2.rectangle(img=cv2_image, pt1=(x,y), pt2=(x+w,y+h), color=(0,255,0), thickness=3)
+				roi_gray = gray[y:y + h, x:x + w]
+				roi_color = cv2_image[y:y + h, x:x + w]
+				# eyes
+				eyes = eye_cascade.detectMultiScale(roi_gray, scaleFactor=1.02, minNeighbors=5, minSize=(50, 50))
+				for (ex, ey, ew, eh) in eyes:
+					l_coords.append([x, y, x+x+w/2, y+y+h/2, 'eyes', idx, imagename])
+					cv2.rectangle(roi_color,pt1=(ex, ey), pt2=(ex+ew, ey+eh), color=(255,0,0), thickness=3)
+
+			# body cascade
+			body = body_cascade.detectMultiScale(gray, scaleFactor=1.01, minNeighbors=5, minSize=(100,100), flags=cv2.CASCADE_SCALE_IMAGE)
+			for idx, (x, y, w, h) in enumerate(body):
+				# store coords
+				l_coords.append([x, y, x+x+w/2, y+y+h/2, 'body', idx, imagename])
+				#draw body
+				cv2.rectangle(img=cv2_image, pt1=(x,y), pt2=(x+w,y+h), color=(0,0,255), thickness=3)
+
+			# save image
+			_folder = '%s/img/cascades/'%(cls.output_path)
+			_filepath = '%s/%s.png'%(_folder, imagename)
+			## check folder
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			## save
+			cv2.imwrite(_filepath, cv2_image)
+
+			# save data
+			_folder = '%s/data/'%(cls.output_path)
+			_filepath = '%s/%s_cascades.xlsx'%(_folder, imagename)
+			## check folder
+			if not os.path.exists(_folder):
+				os.makedirs(_folder)
+			## save
+			df = pd.DataFrame(l_coords, columns=['x0', 'y0', 'x1', 'y1', 'feature', 'id', 'image'])
+			df.to_excel(_filepath, index=False)
+
+			# store coords
+			l_coords_all.append(df)
+
+		#!!!----finished for all images
+		# store
+		## if multiprocessing, store in queue
+		if cls.isMultiprocessing:
+			queue.put(l_coords_all)
+			pass
+		# if not multiprocessing, return
+		else:
+			return l_coords_all, l_error
 
 	@classmethod
 	def process(cls):
@@ -1220,10 +1366,14 @@ class ROI():
 		#----prepare to run
 		# if not multiprocessing
 		if not cls.isMultiprocessing:
-			l_bounds_all, l_contours_all, l_error = cls.run(cls.directory)
-
-			# finish
-			df, error = cls.finished(df=l_bounds_all)
+			if cls.detection == "haarcascade":
+				l_coords_all, _ = cls.haarcascade(cls.directory)
+				# finish
+				df, error = cls.finished(df=l_coords_all)
+			else:
+				l_bounds_all, _, _, _ = cls.manual_detection(cls.directory)
+				# finish
+				df, error = cls.finished(df=l_bounds_all)
 
 		# else if multiprocessing
 		else:
@@ -1231,7 +1381,10 @@ class ROI():
 			queue = multiprocessing.Queue()
 
 			# prepare threads
-			process = [multiprocessing.Process(target=cls.run, args=(l_directory[core].tolist(), core, queue,)) for core in range(cls.cores)]
+			if cls.detection == "haarcascade":
+				process = [multiprocessing.Process(target=cls.haarcascade, args=(l_directory[core].tolist(), core, queue,)) for core in range(cls.cores)]
+			else:
+				process = [multiprocessing.Process(target=cls.manual_detection, args=(l_directory[core].tolist(), core, queue,)) for core in range(cls.cores)]
 
             # start each thread
 			for p in process:
@@ -1276,10 +1429,16 @@ class ROI():
 			df = pd.concat(df)
 
 		#!!!----combine all rois across images
-		# export to csv or dataviewer
-		_folder = '%s/'%(cls.output_path)
-		_filename = "bounds"
-		df = cls.export_data(df=df, path=_folder, filename=_filename, uuid=cls.uuid, level='all')
+		if cls.detection=='manual':
+			# export to xlsx or ias
+			_folder = '%s/data/'%(cls.output_path)
+			_filename = "bounds"
+			df = cls.export_data(df=df, path=_folder, filename=_filename, uuid=cls.uuid, level='all')
+		elif cls.detection=='haarcascade':
+			# export to xlsx
+			_folder = '%s/data/'%(cls.output_path)
+			_filepath = "%s/cascades.xlsx"%(_folder)
+			df.to_excel(_filepath, index=False)
 
 		#!!!----error log
 		if bool(errors):

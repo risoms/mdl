@@ -15,7 +15,7 @@ path = '%s/dist/roi/example/'%(Path(imhr.__file__).parent)
 #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')
 fig, ax = plt.subplots()
 # names
-file = 'gimp_png.png'
+file = 'photoshop_dicom.png'
 ## load roi
 im = image.imread('%s/%s'%(path, file))
 ax.imshow(im)

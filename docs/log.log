@@ -60,15 +60,15 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking.Calibration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking.Eyelink'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking.ROI'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.run:34: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.run:34: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.run:34: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.run:34: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.process:24: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.process:24: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.process:24: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.process:24: WARNING: Duplicate explicit target name: "pylink.chm".[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:29: WARNING: Unexpected indentation.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:33: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:38: WARNING: Unexpected indentation.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:39: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.run:34: WARNING: Duplicate explicit target name: "opencv".[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI.process:24: WARNING: Duplicate explicit target name: "opencv".[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._calibration.Calibration.alert_printf'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._calibration.Calibration.clear_cal_display'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_calibration.py:docstring of imhr.eyetracking._calibration.Calibration:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._calibration.Calibration.draw_cal_target'[39;49;00m
@@ -113,8 +113,9 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.finished'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.format_contours'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.format_image'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.haarcascade'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.manual_detection'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.process'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:7: WARNING: toctree references unknown document 'api/imhr.eyetracking._roi.ROI.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33.Model'[39;49;00m
@@ -170,9 +171,9 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:315: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:413: WARNING: File not found: 'eyetracking.rst#imhr.eyetracking.run.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:514: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run.sample'[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:178: WARNING: Unexpected indentation.[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:181: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:508: WARNING: Error in "raw" directive:
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:179: WARNING: Unexpected indentation.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:182: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:498: WARNING: Error in "raw" directive:
 1 argument(s) required, 0 supplied.
 
 .. raw::[39;49;00m
@@ -192,6 +193,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-7.pdf'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-8.png'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-8.pdf'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:958: WARNING: File not found: 'examples/roi/contours.h5'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.classify.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.download.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.metadata.rst: WARNING: document isn't included in any toctree[39;49;00m
@@ -281,15 +283,16 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.set_eye_used'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.start_recording'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_eyelink.py:docstring of imhr.eyetracking._eyelink.Eyelink:34:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._eyelink.Eyelink.stop_recording'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.draw_contours'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.export_data'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.extract_contours'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.extract_metadata'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.finished'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.format_contours'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.format_image'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.process'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:32:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.run'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.draw_contours'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.export_data'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.extract_contours'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.extract_metadata'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.finished'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.format_contours'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.format_image'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.haarcascade'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.manual_detection'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/_roi.py:docstring of imhr.eyetracking._roi.ROI:33:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking._roi.ROI.process'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.Velocity'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_classify.py:docstring of imhr.r33._classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._classify.Classify.VisualAngle'[39;49;00m
