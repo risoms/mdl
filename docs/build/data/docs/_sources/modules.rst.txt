@@ -1,0 +1,21 @@
+.. _api_ref:
+
+Modules
+=======
+
+.. _relational_api:
+
+.. currentmodule:: mdl
+
+.. autosummary::
+    :toctree:
+
+   mdl.classify
+   mdl.download
+   mdl.model
+   mdl.nslr_hmm
+   mdl.plot
+   mdl.processing
+   mdl.raw
+   mdl.redcap
+   mdl.settings

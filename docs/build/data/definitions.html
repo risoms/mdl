@@ -1,0 +1,373 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <title>dotprobe analysis</title>
+    <!--no cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!--icons-->
+    <link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+    <meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+    <!--all-->
+    <script type="text/javascript" language="javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.bundle.js"></script>
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.bootstrap.min.css">
+    <!--user-->
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <!--dataTables-->
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowsGroup.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jszip.min.js"></script>
+    <!--user-->
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script>source="definitions"</script>
+    <!--prism-->
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+    <link rel="stylesheet" type="text/css" href="css/prism-line-numbers.css">
+    <script type="text/javascript" language="javascript" src="js/prism.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-r.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-python.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-line-numbers.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-normalize-whitespace.js"></script>
+    </head>
+
+<body id="body" class="overflow: scroll">
+<div class="container-large definitions" style="">
+<div class="container" style="">
+<div class="dashboard-main">
+<div class="table-container definitions">
+<div class="title"><b>Table 1.</b> Task Variables and Definitions.</div>
+<div class="date"> Last Updated: 2019-03-26 10:54:50
+<span class="link" id="code">code</span>
+<span class="link" id="csv">csv</span>
+</div>
+<div class="dataTables_wrapper form-inline dt-bootstrap">
+<!--script-->
+
+<table id="table" class="table definitions table-striped table-bordered                 hover dt-responsive nowrap" cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable</th>
+      <th>group</th>
+      <th>type</th>
+      <th>example</th>
+      <th>definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>init_gaze_bias</td>
+      <td>bias</td>
+      <td>float64</td>
+      <td>-0.0858586</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>final_gaze_bias</td>
+      <td>bias</td>
+      <td>float64</td>
+      <td>-0.0151515</td>
+      <td>Index giving the final direction of gaze as the dot probe is presented.</td>
+    </tr>
+    <tr>
+      <td>gaze_bias</td>
+      <td>bias</td>
+      <td>float64</td>
+      <td>0.137121</td>
+      <td>Trial level gaze bias score, using the weighted method. from the itrak package.</td>
+    </tr>
+    <tr>
+      <td>n_gaze_valid</td>
+      <td>bias</td>
+      <td>int64</td>
+      <td>198</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>dp_bias</td>
+      <td>bias</td>
+      <td>float64</td>
+      <td>-0.0164632</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>var_dp_bias</td>
+      <td>bias</td>
+      <td>float64</td>
+      <td>0.181472</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>n_dp_valid</td>
+      <td>bias</td>
+      <td>int64</td>
+      <td>175</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>race</td>
+      <td>demographic</td>
+      <td>object</td>
+      <td>Asian</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>is_normalvision</td>
+      <td>demographic</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>is_student</td>
+      <td>demographic</td>
+      <td>int64</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>m_rt</td>
+      <td>behavioral</td>
+      <td>float64</td>
+      <td>863</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>accuracy</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>196</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>m_diff_stim</td>
+      <td>behavioral</td>
+      <td>float64</td>
+      <td>38.5</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>m_diff_dotloc</td>
+      <td>behavioral</td>
+      <td>float64</td>
+      <td>79</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>trialType_</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>iaps</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>cesd_score</td>
+      <td>clinical</td>
+      <td>int64</td>
+      <td>23</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>cesd_group</td>
+      <td>clinical</td>
+      <td>object</td>
+      <td>High</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>rrs_brooding</td>
+      <td>clinical</td>
+      <td>int64</td>
+      <td>13</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>os</td>
+      <td>device</td>
+      <td>object</td>
+      <td>macos</td>
+      <td>Operating system used. Data parsed from os_version.</td>
+    </tr>
+    <tr>
+      <td>os_version</td>
+      <td>device</td>
+      <td>object</td>
+      <td>10.12.6</td>
+      <td>The operating system and version used. Uses User-Agent request header.</td>
+    </tr>
+    <tr>
+      <td>gpu</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Intel HD Graphics 6000</td>
+      <td>Returns the GPU onboard the computer. Uses WebGL API.</td>
+    </tr>
+    <tr>
+      <td>gpu_type</td>
+      <td>device</td>
+      <td>object</td>
+      <td>integrated</td>
+      <td>Category identifying the GPU as either separate from the CPU or intergrated. Uses WebGL API. Data parsed from</td>
+    </tr>
+    <tr>
+      <td>browser</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Chrome</td>
+      <td>Browser used. Data parsed from browser_version.</td>
+    </tr>
+    <tr>
+      <td>browser_version</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Chrome 60</td>
+      <td>The browser and version. Derived from User-Agent request header.</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>device</td>
+      <td>float64</td>
+      <td>1</td>
+      <td>The ratio between physical pixels and device independent pixels in the current display. Uses Window.devicePixelRatio from Web API.</td>
+    </tr>
+    <tr>
+      <td>monitorSize</td>
+      <td>device</td>
+      <td>object</td>
+      <td>1440x900</td>
+      <td>Returns the width and height of the screen. Uses Window.screen.height [and width] from Web API.</td>
+    </tr>
+    <tr>
+      <td>windowSize</td>
+      <td>device</td>
+      <td>object</td>
+      <td>1440x900</td>
+      <td>Returns the width and height of the browser window. Uses Window.innerHeight [and innerHeight] from Web API.</td>
+    </tr>
+    <tr>
+      <td>heap.used</td>
+      <td>device</td>
+      <td>object</td>
+      <td>109MB</td>
+      <td>The total bytes used by JavaScript on the task. Uses window.performance.memory from Google.</td>
+    </tr>
+    <tr>
+      <td>heap.limit</td>
+      <td>device</td>
+      <td>object</td>
+      <td>2190MB</td>
+      <td>Maximum size a JavaScript heap accessable by the task. Uses window.performance.memory from Google.</td>
+    </tr>
+    <tr>
+      <td>WebcamMessage</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Success</td>
+      <td>String indicating the success or failure of accessing the webcam and the reason for it (i.e. getUserMediaFailed).</td>
+    </tr>
+    <tr>
+      <td>webcamSize</td>
+      <td>device</td>
+      <td>object</td>
+      <td>1280x720</td>
+      <td>Returns the width and height of the webcam. Uses the HTMLVideoElement API.</td>
+    </tr>
+    <tr>
+      <td>webcam_brand</td>
+      <td>device</td>
+      <td>object</td>
+      <td>FaceTime</td>
+      <td>Returns the brand of webcam being used. Uses the MediaStream API.</td>
+    </tr>
+    <tr>
+      <td>luminance</td>
+      <td>device</td>
+      <td>float64</td>
+      <td>0.486275</td>
+      <td>The perceived brightness distribution or "luminosity" within an image, normalized from 0 (black) to 1 (white).</td>
+    </tr>
+    <tr>
+      <td>isPageVisible</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Returns whether or not the task has been minimized or a new tab has been open and is visible. Uses the Page Visibility API.</td>
+    </tr>
+    <tr>
+      <td>is_calibrated</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Whether or not the task was calibrated.</td>
+    </tr>
+    <tr>
+      <td>is_eyetracking</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Whether or not the webcam was initiated.</td>
+    </tr>
+    <tr>
+      <td>isFullscreen</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Uses the following calculation to determine if fullscreen (window.innerHeight &lt; (.85*window.screen.height)) &amp;&amp; (window.innerWidth &lt; (.85*window.screen.width)).</td>
+    </tr>
+    <tr>
+      <td>nested</td>
+      <td>other</td>
+      <td>object</td>
+      <td>subject</td>
+      <td>How the data should be collapsed for analysis. Either 'subject' or 'trialType' level.</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="footnote">
+None</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+<footer>
+<script>
+$(document).ready(function(){
+getLogitTable()
+})
+</script>
+</footer>
+</html>

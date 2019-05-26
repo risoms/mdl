@@ -1,0 +1,823 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <title>dotprobe analysis</title>
+    <!--no cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!--icons-->
+    <link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+    <meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+    <!--all-->
+    <script type="text/javascript" language="javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.bundle.js"></script>
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.bootstrap.min.css">
+    <!--user-->
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <!--dataTables-->
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowsGroup.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jszip.min.js"></script>
+    <!--user-->
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script>source="device"</script>
+    <!--prism-->
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+    <link rel="stylesheet" type="text/css" href="css/prism-line-numbers.css">
+    <script type="text/javascript" language="javascript" src="js/prism.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-r.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-python.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-line-numbers.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-normalize-whitespace.js"></script>
+    </head>
+
+<body id="body" class="overflow: scroll">
+<div class="container-large device" style="">
+<div class="container" style="">
+<div class="dashboard-main">
+<div class="table-container device">
+<div class="title"><b>Table 1.</b> Device characteristics (N = 208).</div>
+<div class="date"> Last Updated: 2019-03-25 12:04:28
+<span class="link" id="code">code</span>
+<span class="link" id="csv">csv</span>
+</div>
+<div class="dataTables_wrapper form-inline dt-bootstrap">
+<!--script-->
+
+<table id="table" class="table device table-striped table-bordered                 hover dt-responsive nowrap" cellspacing="0"width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ID</th>
+      <th>Group</th>
+      <th>Statistic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Operating System</td>
+      <td>macOS</td>
+      <td>113 (54.3)</td>
+    </tr>
+    <tr>
+      <td>Operating System</td>
+      <td>Microsoft Windows</td>
+      <td>90 (43.3)</td>
+    </tr>
+    <tr>
+      <td>Operating System</td>
+      <td>Chrome OS</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System</td>
+      <td>None</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10</td>
+      <td>85 (40.9)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.12.6</td>
+      <td>22 (10.6)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13.6</td>
+      <td>13 (6.2)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.11.6</td>
+      <td>11 (5.3)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13.4</td>
+      <td>11 (5.3)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13.2</td>
+      <td>10 (4.8)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.10.5</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.14</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13.5</td>
+      <td>5 (2.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13.1</td>
+      <td>5 (2.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13.3</td>
+      <td>5 (2.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.12</td>
+      <td>4 (1.9)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.9.5</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>8.1</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.11</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>7</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.12.5</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.13</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.14.1</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10032.86</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>Linux</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10452.85</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.12.2</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.12.3</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>11021.56</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Operating System version</td>
+      <td>10.11.4</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Browser</td>
+      <td>Chrome</td>
+      <td>196 (94.2)</td>
+    </tr>
+    <tr>
+      <td>Browser</td>
+      <td>Firefox</td>
+      <td>11 (5.3)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 63</td>
+      <td>42 (20.2)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 70</td>
+      <td>41 (19.7)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 65</td>
+      <td>30 (14.4)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 64</td>
+      <td>18 (8.6)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 62</td>
+      <td>17 (8.2)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 67</td>
+      <td>15 (7.2)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 69</td>
+      <td>12 (5.8)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 61</td>
+      <td>9 (4.3)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 66</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Firefox 59</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Firefox 57</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 71</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Firefox 58</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Firefox 61</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 60</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Firefox 62</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 49</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Firefox 63</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Browser version</td>
+      <td>Chrome 68</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU type</td>
+      <td>integrated</td>
+      <td>176 (84.6)</td>
+    </tr>
+    <tr>
+      <td>GPU type</td>
+      <td>dedicated</td>
+      <td>31 (14.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 6000</td>
+      <td>29 (13.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 620</td>
+      <td>20 (9.6)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 520</td>
+      <td>14 (6.7)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Graphics 6100</td>
+      <td>14 (6.7)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Plus Graphics 640</td>
+      <td>12 (5.8)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 5000</td>
+      <td>10 (4.8)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics</td>
+      <td>8 (3.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 630</td>
+      <td>7 (3.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris</td>
+      <td>7 (3.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 5500</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 530</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Graphics 650</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Graphics 550</td>
+      <td>5 (2.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon Pro 555</td>
+      <td>4 (1.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Pro</td>
+      <td>4 (1.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Google SwiftShader</td>
+      <td>4 (1.9)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel UHD Graphics 620</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Graphics 540</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 1070</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 4600</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 4000</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon Pro 555X</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 770</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon R7 Graphics</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon R9 M370X</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 5300</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon Pro 450</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon Vega 8 Graphics</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 400 (Braswell)</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon Pro 560</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon HD 6770M</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon Pro 455</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 970</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon R5 340X</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GT 640M</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 1060 3GB</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon R4 Graphics</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>AMD Radeon HD 7340 Graphics</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 1080 Ti</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel Iris Plus Graphics 655</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 615</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel HD Graphics 515</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Intel UHD Graphics 630</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GT 650M</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 1060 6GB</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>NVIDIA GeForce GTX 1060</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>GPU model</td>
+      <td>Quadro K620/PCIe/SSE2</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>0.89</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>1.00</td>
+      <td>82 (39.4)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>1.25</td>
+      <td>23 (11.1)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>1.50</td>
+      <td>18 (8.6)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>1.80</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>2.00</td>
+      <td>72 (34.6)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>2.50</td>
+      <td>7 (3.4)</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>3.00</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1440x900</td>
+      <td>68 (32.7)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1536x864</td>
+      <td>27 (13.0)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1920x1080</td>
+      <td>26 (12.5)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1280x800</td>
+      <td>25 (12.0)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1280x720</td>
+      <td>24 (11.5)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1366x768</td>
+      <td>15 (7.2)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1680x1050</td>
+      <td>11 (5.3)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1500x1000</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1600x900</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1504x1003</td>
+      <td>2 (1.0)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>2560x1440</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1620x1080</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>1200x800</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Display resolution</td>
+      <td>3840x2160</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam message</td>
+      <td>Success</td>
+      <td>166 (79.8)</td>
+    </tr>
+    <tr>
+      <td>Webcam message</td>
+      <td>NotFoundError</td>
+      <td>20 (9.6)</td>
+    </tr>
+    <tr>
+      <td>Webcam message</td>
+      <td>NotAllowedError</td>
+      <td>18 (8.6)</td>
+    </tr>
+    <tr>
+      <td>Webcam message</td>
+      <td>PermissionDismissedError</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam message</td>
+      <td>NotReadableError</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam message</td>
+      <td>OverconstrainedError</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>FaceTime</td>
+      <td>97 (46.6)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>Integrated</td>
+      <td>18 (8.6)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>HP</td>
+      <td>17 (8.2)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>EasyCamera</td>
+      <td>7 (3.4)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>USB2.0</td>
+      <td>6 (2.9)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>HD</td>
+      <td>5 (2.4)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>Microsoft</td>
+      <td>5 (2.4)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>USB</td>
+      <td>4 (1.9)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>Lenovo</td>
+      <td>3 (1.4)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>720p</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>WebCam</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>WEB</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam brand</td>
+      <td>Real</td>
+      <td>1 (0.5)</td>
+    </tr>
+    <tr>
+      <td>Webcam resolution</td>
+      <td>1280x720</td>
+      <td>136 (65.4)</td>
+    </tr>
+    <tr>
+      <td>Webcam resolution</td>
+      <td>640x480</td>
+      <td>15 (7.2)</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="footnote">
+<div class="description">
+During data collection, participants screen resolution were multiplied by the pixel density ratio, or            <a class="ref" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio"><i>devicePixelRatio</i></a>            (i.e. width = screen.width / devicePixelRatio = 1920 * 1.5). This was done with the intent of storing true device             physical resolution. However to simplify analysis using webgazer, which uses the same initial value             to calculate gaze location, participants screen resolution is reverted back to its original value.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+<footer>
+<script>
+$(document).ready(function(){
+getLogitTable()
+})
+</script>
+</footer>
+</html>

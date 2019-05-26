@@ -1,0 +1,8 @@
+mdl.model
+---------
+
+.. automodule:: mdl.model
+   :members:
+   :private-members:
+   :undoc-members:
+   

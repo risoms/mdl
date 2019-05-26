@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <title>dotprobe analysis</title>
+    <!--no cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!--icons-->
+    <link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+    <meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+    <!--all-->
+    <script type="text/javascript" language="javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.bundle.js"></script>
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.bootstrap.min.css">
+    <!--user-->
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <!--dataTables-->
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowsGroup.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jszip.min.js"></script>
+    <!--user-->
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script>source="plots"</script>
+    <!--prism-->
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+    <link rel="stylesheet" type="text/css" href="css/prism-line-numbers.css">
+    <script type="text/javascript" language="javascript" src="js/prism.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-r.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-python.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-line-numbers.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-normalize-whitespace.js"></script>
+    </head>
+
+<body id="body" class="overflow: scroll">
+<div class="container" style="">
+<div class="container-figure other" style="">
+<div class="intro ">The kernel density estimate (kde) is used here as a quick check of normality for each of the variables of     interest in the model. All data here has been nested by subject. To reduce the influence of outliers, 30 (18.0%) participants were excluded due to 'Dotloc' or 'Stimulus Onset Errors' 3 SD above the median.</div>
+<div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 1.</b> Kernel Density Estimate for participant.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_participant.png">
+<img class="figure" src="img\density/density_participant.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 2.</b> Kernel Density Estimate for m_rt.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_m_rt.png">
+<img class="figure" src="img\density/density_m_rt.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 3.</b> Kernel Density Estimate for m_diff_dotloc.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_m_diff_dotloc.png">
+<img class="figure" src="img\density/density_m_diff_dotloc.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 4.</b> Kernel Density Estimate for m_diff_stim.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_m_diff_stim.png">
+<img class="figure" src="img\density/density_m_diff_stim.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 5.</b> Kernel Density Estimate for luminance.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_luminance.png">
+<img class="figure" src="img\density/density_luminance.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 6.</b> Kernel Density Estimate for rrs_brooding.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_rrs_brooding.png">
+<img class="figure" src="img\density/density_rrs_brooding.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 7.</b> Kernel Density Estimate for cesd_score.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_cesd_score.png">
+<img class="figure" src="img\density/density_cesd_score.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 8.</b> Kernel Density Estimate for dp_bias.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_dp_bias.png">
+<img class="figure" src="img\density/density_dp_bias.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 9.</b> Kernel Density Estimate for n_dp_valid.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_n_dp_valid.png">
+<img class="figure" src="img\density/density_n_dp_valid.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 10.</b> Kernel Density Estimate for gaze_bias.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_gaze_bias.png">
+<img class="figure" src="img\density/density_gaze_bias.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 11.</b> Kernel Density Estimate for n_gaze_valid.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_n_gaze_valid.png">
+<img class="figure" src="img\density/density_n_gaze_valid.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 12.</b> Kernel Density Estimate for var_gaze_bias.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_var_gaze_bias.png">
+<img class="figure" src="img\density/density_var_gaze_bias.png">
+</a>
+<div class="footnote"></div>
+</div><div class="figure" style="max-width:800px;">
+<div class="title"><b>Figure 13.</b> Kernel Density Estimate for final_gaze_bias.</div>
+<div class="date"> Last Updated: 2019-03-25 09:26:39</div>
+<a href="img\density/density_final_gaze_bias.png">
+<img class="figure" src="img\density/density_final_gaze_bias.png">
+</a>
+<div class="footnote"></div>
+</div></div>
+</div>
+</body>
+</html>

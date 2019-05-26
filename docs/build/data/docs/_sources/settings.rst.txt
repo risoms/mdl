@@ -1,0 +1,7 @@
+mdl.settings
+------------
+
+.. automodule:: mdl.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:

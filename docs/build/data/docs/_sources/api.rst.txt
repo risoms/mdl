@@ -1,0 +1,66 @@
+.. _api_ref:
+
+API
+===
+
+.. _relational_api:
+
+Accesesing Raw Data
+-------------------
+
+.. currentmodule:: mdl.raw
+
+.. autosummary::
+    :toctree:
+
+    raw.download
+
+.. currentmodule:: mdl.redcap
+
+.. autosummary::
+    :toctree:
+
+    redcap.cesd
+    redcap.demographics
+    redcap.mmpi
+
+Preprocessing
+-------------
+
+.. currentmodule:: mdl.processing
+
+.. autosummary::
+    :toctree:
+
+    processing.preprocess
+    processing.run
+
+Data analysis
+-------------
+
+.. currentmodule:: mdl
+
+.. autosummary::
+    :toctree:
+
+    model.anova
+    model.glmer_nb
+    model.logistic
+
+Relational plots
+----------------
+
+.. currentmodule:: mdl
+
+.. autosummary::
+    :toctree:
+
+    plot.bokeh_calibration
+    plot.bokeh_trial
+    plot.cooks_plot
+    plot.corr_matrix
+    plot.density_plot
+    plot.logit_plot
+    plot.onset_diff_plot
+    plot.qq_plot_r
+    plot.residual_plot_r

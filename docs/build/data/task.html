@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <title>dotprobe analysis</title>
+    <!--no cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!--icons-->
+    <link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+    <meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+    <!--all-->
+    <script type="text/javascript" language="javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.bundle.js"></script>
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.bootstrap.min.css">
+    <!--user-->
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <!--dataTables-->
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowsGroup.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jszip.min.js"></script>
+    <!--user-->
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script>source="task"</script>
+    <!--prism-->
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+    <link rel="stylesheet" type="text/css" href="css/prism-line-numbers.css">
+    <script type="text/javascript" language="javascript" src="js/prism.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-r.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-python.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-line-numbers.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-normalize-whitespace.js"></script>
+    </head>
+
+<body id="body" class="overflow: scroll">
+<div class="container-large task" style="">
+<div class="container" style="">
+<div class="dashboard-main">
+<div class="table-container task">
+<div class="title"><b>Table 1.</b> Schedule of Assessments.</div>
+<div class="date"> Last Updated: 2019-03-26 16:29:43
+<span class="link" id="code">code</span>
+<span class="link" id="csv">csv</span>
+</div>
+<div class="dataTables_wrapper form-inline dt-bootstrap">
+<!--script-->
+
+<table id="table" class="table task table-striped table-bordered                 hover dt-responsive wrap" cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ID</th>
+      <th>Group</th>
+      <th>CESD < 16 <span class="nval">(n=134)</span></th>
+      <th>CESD ≥ 16 <span class="nval">(n=73)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pre-Questionnaire</td>
+      <td>Demographics</td>
+      <td>134 (100.0)</td>
+      <td>73 (100.0)</td>
+    </tr>
+    <tr>
+      <td>Pre-Questionnaire</td>
+      <td>CES-D, RRS</td>
+      <td>134 (100.0)</td>
+      <td>73 (100.0)</td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td>Task</td>
+      <td>134 (100.0)</td>
+      <td>73 (100.0)</td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td>Eyetracking</td>
+      <td>105 (78.4)</td>
+      <td>61 (83.6)</td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td>Calibrated</td>
+      <td>96 (71.6)</td>
+      <td>53 (72.6)</td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td>Behavioral</td>
+      <td>29 (21.6)</td>
+      <td>12 (16.4)</td>
+    </tr>
+    <tr>
+      <td>Post-Questionnaire</td>
+      <td>MMPI</td>
+      <td>131 (97.8)</td>
+      <td>73 (100.0)</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="footnote">
+<div class="paragraph"><a class="note" name="1"><sup>1</sup></a>Data were collected from 2017-11-03 to 2018-12-09. Participants unable to meet the eyetracking device requirements (e.g. Chrome and Firefox, webcam, laptop or desktop) were placed in the behavioral version of dotprobe. Reasons include: participant dropout, <a tabindex="0" class="popover-anchor" link-id="iaps" data-toggle="popover" data-content="NotFoundError"             title="WebcamMessage">no webcam present on the device</a> (n=20, 10%) and <a tabindex="0" class="popover-anchor" link-id="iaps" data-toggle="popover" data-content="NotAllowedError"             title="WebcamMessage">blocked access of the webcam</a> by the participants browser (n=19, 9%).</div><div class="paragraph">Once completing the <i>Pre-Questionnaire</i> on REDCap, participants are redirected to the task. Possible reasons for the drop off between <i>Pre-Questionnaire</i> (n=285)             and <i>Task</i> (n=208) samples can be due to: Technical error during redirect, and disinterest in continuing to participate in the experiment. </div></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+<footer>
+<script>
+$(document).ready(function(){
+getLogitTable()
+popover()
+})
+</script>
+</footer>
+</html>

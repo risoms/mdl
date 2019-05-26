@@ -18,7 +18,7 @@ metadata_source = '%s/dist/roi/raw/2/metadata.xlsx'%(path)
 position = 'straight'
 # initiate
 roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isDemo=False,
-    detection='haarcascade', roi_format='both', shape=position, scale=1,
+    detection='manual', roi_format='both', shape=position, scale=1,
     image_path=image_path, output_path=output_path, metadata_source=metadata_source,
     screensize=[1920,1080], recenter=[(1920*.50),(1080*.50)], filetype='PSD',
     newcolumn={'position': position}, uuid=['image','roi','position'],

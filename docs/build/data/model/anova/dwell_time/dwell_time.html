@@ -1,0 +1,512 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+	<title>dotprobe analysis</title>
+	<!--no cache-->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+	<!--icons-->
+	<link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+	<!--dataTables-->
+	<link rel="stylesheet" type="text/css" href="css/user.css">
+	<!--prism--><link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables/responsive.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables/buttons.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/prism/prism.css">
+	<link rel="stylesheet" type="text/css" href="css/prism/prism-line-numbers.css">
+	<script type="text/javascript" language="javascript" src="js/prism/prism.js"></script>
+	<script type="text/javascript" language="javascript" src="js/prism/prism-r.js"></script>
+	<script type="text/javascript" language="javascript" src="js/prism/prism-python.js"></script>
+	<script type="text/javascript" language="javascript" src="js/prism/prism-line-numbers.js"></script>
+	<script type="text/javascript" language="javascript" src="js/prism/prism-normalize-whitespace.js"></script><!--all-->
+	<script type="text/javascript" language="javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/bootstrap/bootstrap.bundle.js"></script>
+	<!--user-->
+	<!--dataTables-->
+	<script type="text/javascript" language="javascript" src="js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.rowsGroup.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.rowGroup.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/buttons.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/responsive.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/jszip.min.js"></script>
+	<!--user-->
+	<script type="text/javascript" language="javascript" src="js/user.js"></script>
+	<script>source="anova"</script>
+	<!--tinymce-->
+	<script type="text/javascript" language="javascript" src="js/tinymce/tinymce.js"></script>
+	<script type="text/javascript" language="javascript" src="js/tinymce/tinymce-codesample.js"></script>
+	<script type="text/javascript" language="javascript" src="js/tinymce/tinymce-silver.js"></script>
+	<script type="text/javascript" language="javascript" src="js/tinymce/tinymce-mobile.js"></script>
+	<script type="text/javascript" language="javascript" src="js/tinymce/tinymce-save.js"></script>
+	<script type="text/javascript" language="javascript" src="js/tinymce/tinymce-autoresize.js"></script>
+</head>
+<body id="body" class="overflow: scroll">
+<div class="container-large anova" style="">
+<div class="container" style="">
+<div class="dashboard-main">
+<div class="table-container anova">
+<div class="title"><b>Table 1.</b> Repeated Measures ANOVA for [Dwell Time] (N = 138).</div>
+<div class="date"> Last Updated: 2019-04-05 15:37:35
+<span class="link" id="code">code</span>
+<span class="link" id="csv">csv</span>
+</div>
+<div class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="code-container" style="display: none">
+<pre id="editor" class="line-numbers">
+<code class="lang-r">
+#!/usr/bin/env Rscript3.5.1
+rm(list=ls());
+#----library
+# core
+library(tidyverse);
+library(broom);
+# analysis
+library(lme4); library(lmerTest);
+# plot
+library(ggplot2);
+# estimated marginal means
+library(emmeans); library(multcomp);
+    
+#----repeated measures anova model
+anova_ <- function(){
+    #----load data
+    path <- "/Users/mdl-admin/Desktop/mdl-R33-analysis/output/analysis/html/model/anova/dwell_time/csv/"
+    df <- read.csv(file=file.path(path, 'dwell_data.csv'), header=TRUE)
+    
+    #----set type
+    df$trialType <- factor(df$trialType)
+    df$cesd_group <- factor(df$cesd_group)
+    df$participant <- factor(df$participant)
+    
+    #----run model
+    lmer_ <- lmerTest::lmer(dwell_time ~ cesd_group + aoi + trialType + (1|participant), data=df)
+    aov_ <- stats::anova(lmer_)
+    
+    #----Estimated Marginal Means (Least-Squares Means) of all factor levels
+    pair_ <- emmeans::emmeans(lmer_, c('cesd_group','aoi','trialType'),
+                              type = "response", adjust = "tukey")
+    # Comparison of Differences Between Levels of Factor
+    lsmeans_ <- summary(emmeans::as.glht(pairs(pair_)), test=adjusted("free")) %>% 
+       broom::tidy()
+    
+    #----getting x,y coordinates for qqplot
+    # create plot
+    gg <- ggplot(lmer_) + 
+      ggplot2::stat_qq(aes(sample = .resid, colour = factor(trialType))) + 
+      ggplot2::geom_abline(linetype = "dotted")
+    
+    # convert to tibble
+    gg <- ggplot_build(gg)[["data"]][[1]] %>% 
+      dplyr::select(sample, theoretical)
+    
+    #----creating residuals tibble from model
+    # including raw data, residuals vs fitted)
+    # .resid=residuals, .fitted=predicted values .estimate=estimate of fixed effect
+    residuals <- broom::augment(lmer_) %>% 
+       dplyr::select(participant, dwell_time, cesd_group, aoi, trialType, .resid, .fitted)
+    
+    #----merge residuals and qq tibble
+    residuals <- as.data.frame(merge(x=residuals, y=gg, by.x=".resid", by.y="sample", all.x = TRUE))
+    
+    #----prepare data for export
+    # convert model output to tibble
+    output <- broom::tidy(aov_)
+    # convert model summary to tibble
+    summary <- broom::glance(lmer_)
+    
+    #----return model output, model, residuals, lsmeans, model summary
+    return(list(output, lmer_, residuals, lsmeans_, summary))
+}
+</code>
+</pre>
+</div>
+
+<table id="table" data-file="dwell_time" class="table anova table-striped table-bordered                 hover dt-responsive nowrap"\ cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>term</th>
+      <th>SS</th>
+      <th>MS</th>
+      <th>N</th>
+      <th>DF</th>
+      <th>F</th>
+      <th>Pr(&gt;|F|)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>cesd_group</td>
+      <td>0.000156</td>
+      <td>0.000156</td>
+      <td>1</td>
+      <td>135.999999</td>
+      <td>0.074957</td>
+      <td>0.7847</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>aoi</td>
+      <td>0.041991</td>
+      <td>0.041991</td>
+      <td>1</td>
+      <td>412.000001</td>
+      <td>20.155594</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>trialType</td>
+      <td>0.000944</td>
+      <td>0.000944</td>
+      <td>1</td>
+      <td>412.000001</td>
+      <td>0.453030</td>
+      <td>0.5013</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="footnote">
+<table id="table1" class="table anova table-striped table-bordered hover dt-responsive nowrap"\ cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>sigma</th>
+      <th>logLik</th>
+      <th>AIC</th>
+      <th>BIC</th>
+      <th>deviance</th>
+      <th>df.residual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.045643</td>
+      <td>730.979201</td>
+      <td>-1449.958402</td>
+      <td>-1424.077113</td>
+      <td>-1495.248944</td>
+      <td>546</td>
+    </tr>
+  </tbody>
+</table><p><b>Type III Analysis of Variance Table with Satterthwaite's method</b> ['<a href="https://www.rdocumentation.org/packages/stats/versions/3.5.3/topics/anova" class="anchor">anova</a>']. <div class='paragraph'><div>The assumptions for the model are:</div><ul class="number-list"><li>[nd] {qq}.</li><li>[hv] {rf}.</li><li>[io]</li></ul></div><div class='paragraph'><div>The following post-hoc analysis were run:</div><ul class="number-list"><li><a href="#lsmean" class="anchor">Estimated Marginal Means</a>. ({boxplot})</li><li><a href="#qq" class="anchor">Q-Q Plot</a>.</li><li><a href="#rf" class="anchor">Residual vs Fitted Plot</a>.</li></ul></div><p> To reduce the influence of outliers, 31 (18.7%) participants were excluded due to 'Dotloc' or 'Stimulus Onset Errors' 3 SD above the median. The resulting data were analysed by fitting a repeated measures ANOVA in 'R', using the stats::anova function ([anova]). The dependent variable was [dwell_time]. The random effect was participant. The main effects were [cesd_group]. [aoi]. [trialType]. For our analysis of [dwell_time], our results revealed no main effect for [cesd_group] (F(1, 135) = 0.075, p=0.7847). [aoi] (F(1, 412) = 20.1556, p=0.00E+00), and [trialType] (F(1, 412) = 0.453, p=0.5013).</div>
+<div class="figure anova" id="lsmean"><div class="title"><b>Table 2.</b> Pairwise Comparisons of Estimated Marginal Means.</div>
+<div class="date"> Last Updated: 2019-04-05 15:37:35</div><div class="dataTables_wrapper form-inline dt-bootstrap">
+<!--script-->
+<table id="table2" data-file="dwell_time" class="table anova table-striped table-bordered                                 hover dt-responsive nowrap"\ cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>Contrasts</th>
+      <th>estimate</th>
+      <th>SE</th>
+      <th>t</th>
+      <th>Pr(&gt;|t|)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>High,neutral,iaps - Low,neutral,iaps</td>
+      <td>-0.003953</td>
+      <td>0.014439</td>
+      <td>-0.273783</td>
+      <td>0.8636</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>High,neutral,iaps - High,sad,iaps</td>
+      <td>-0.017444</td>
+      <td>0.003885</td>
+      <td>-4.489498</td>
+      <td>0.0001</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>High,neutral,iaps - Low,sad,iaps</td>
+      <td>-0.021397</td>
+      <td>0.014952</td>
+      <td>-1.430982</td>
+      <td>0.3677</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>High,neutral,iaps - High,neutral,pofa</td>
+      <td>-0.002615</td>
+      <td>0.003885</td>
+      <td>-0.673075</td>
+      <td>0.7785</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>High,neutral,iaps - Low,neutral,pofa</td>
+      <td>-0.006568</td>
+      <td>0.014952</td>
+      <td>-0.439278</td>
+      <td>0.8046</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>High,neutral,iaps - High,sad,pofa</td>
+      <td>-0.020059</td>
+      <td>0.005495</td>
+      <td>-3.650491</td>
+      <td>0.0019</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>High,neutral,iaps - Low,sad,pofa</td>
+      <td>-0.024012</td>
+      <td>0.015449</td>
+      <td>-1.554265</td>
+      <td>0.3093</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Low,neutral,iaps - High,sad,iaps</td>
+      <td>-0.013490</td>
+      <td>0.014952</td>
+      <td>-0.902226</td>
+      <td>0.6605</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Low,neutral,iaps - Low,sad,iaps</td>
+      <td>-0.017444</td>
+      <td>0.003885</td>
+      <td>-4.489498</td>
+      <td>0.0001</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Low,neutral,iaps - High,neutral,pofa</td>
+      <td>0.001338</td>
+      <td>0.014952</td>
+      <td>0.089478</td>
+      <td>0.9288</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Low,neutral,iaps - Low,neutral,pofa</td>
+      <td>-0.002615</td>
+      <td>0.003885</td>
+      <td>-0.673075</td>
+      <td>0.7785</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Low,neutral,iaps - High,sad,pofa</td>
+      <td>-0.016106</td>
+      <td>0.015449</td>
+      <td>-1.042504</td>
+      <td>0.5767</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Low,neutral,iaps - Low,sad,pofa</td>
+      <td>-0.020059</td>
+      <td>0.005495</td>
+      <td>-3.650491</td>
+      <td>0.0018</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>High,sad,iaps - Low,sad,iaps</td>
+      <td>-0.003953</td>
+      <td>0.014439</td>
+      <td>-0.273783</td>
+      <td>0.8636</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>High,sad,iaps - High,neutral,pofa</td>
+      <td>0.014828</td>
+      <td>0.005495</td>
+      <td>2.698619</td>
+      <td>0.0307</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>High,sad,iaps - Low,neutral,pofa</td>
+      <td>0.010875</td>
+      <td>0.015449</td>
+      <td>0.703948</td>
+      <td>0.7785</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>High,sad,iaps - High,sad,pofa</td>
+      <td>-0.002615</td>
+      <td>0.003885</td>
+      <td>-0.673075</td>
+      <td>0.7785</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>High,sad,iaps - Low,sad,pofa</td>
+      <td>-0.006568</td>
+      <td>0.014952</td>
+      <td>-0.439278</td>
+      <td>0.8046</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Low,sad,iaps - High,neutral,pofa</td>
+      <td>0.018782</td>
+      <td>0.015449</td>
+      <td>1.215709</td>
+      <td>0.4892</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Low,sad,iaps - Low,neutral,pofa</td>
+      <td>0.014828</td>
+      <td>0.005495</td>
+      <td>2.698619</td>
+      <td>0.0312</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Low,sad,iaps - High,sad,pofa</td>
+      <td>0.001338</td>
+      <td>0.014952</td>
+      <td>0.089478</td>
+      <td>0.9288</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Low,sad,iaps - Low,sad,pofa</td>
+      <td>-0.002615</td>
+      <td>0.003885</td>
+      <td>-0.673075</td>
+      <td>0.7785</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>High,neutral,pofa - Low,neutral,pofa</td>
+      <td>-0.003953</td>
+      <td>0.014439</td>
+      <td>-0.273783</td>
+      <td>0.8636</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>High,neutral,pofa - High,sad,pofa</td>
+      <td>-0.017444</td>
+      <td>0.003885</td>
+      <td>-4.489498</td>
+      <td>0.0001</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>High,neutral,pofa - Low,sad,pofa</td>
+      <td>-0.021397</td>
+      <td>0.014952</td>
+      <td>-1.430982</td>
+      <td>0.3677</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Low,neutral,pofa - High,sad,pofa</td>
+      <td>-0.013490</td>
+      <td>0.014952</td>
+      <td>-0.902226</td>
+      <td>0.6605</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Low,neutral,pofa - Low,sad,pofa</td>
+      <td>-0.017444</td>
+      <td>0.003885</td>
+      <td>-4.489498</td>
+      <td>0.0001</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>High,sad,pofa - Low,sad,pofa</td>
+      <td>-0.003953</td>
+      <td>0.014439</td>
+      <td>-0.273783</td>
+      <td>0.8636</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<div class="footnote">The 'Estimated Marginal Means' table provides a list pairwise comparisons for each level and factor in our model (<a class='anchor' href='https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html'>emmeans package, Version 1.3.2</a>).</div></div>
+
+<div class="figure anova" id="boxplot">
+<div class="title"><b>Figure 1.</b> Pairwise Comparisons Plot.</div>
+<div class="date"> Last Updated: 2019-04-05 15:37:35</div>
+<a class="img" href="img\cesd_group_boxplot.png">
+<img class="img" src="img\cesd_group_boxplot.png">
+</a>
+<div class="footnote">This boxplot provides a comparison of [cesd_group] and across both IAPS and POFA stimuli.             Both IAPS and POFA plots were nornalized to allow direct comparison.</div>
+</div>
+<div class="figure anova" id="boxplot">
+<div class="title"><b>Figure 2.</b> Pairwise Comparisons Plot.</div>
+<div class="date"> Last Updated: 2019-04-05 15:37:35</div>
+<a class="img" href="img\aoi_boxplot.png">
+<img class="img" src="img\aoi_boxplot.png">
+</a>
+<div class="footnote">This boxplot provides a comparison of [aoi] and across both IAPS and POFA stimuli.             Both IAPS and POFA plots were nornalized to allow direct comparison.</div>
+</div>
+<div class="figure anova" id="qq">
+<div class="title"><b>Figure 3.</b> Q-Q Plot (<a class='cat iaps'>[iaps]</a>, <a class='cat pofa'>[pofa]</a>).</div>
+<div class="date"> Last Updated: 2019-04-05 15:37:35</div>
+<a class="img" href="img\dwell_time_qq.png">
+<img class="img" src="img\dwell_time_qq.png">
+</a>
+<div class="footnote">The Normal Q-Q plot compares the standardized residuals against the theoretical quantiles from a standard normal distribution. If the model residuals are normally distributed, then the points on this graph will be plotted in a generally straight line.</div>
+</div>
+<div class="figure anova" id="rf">
+<div class="title"><b>Figure 4.</b> Residuals vs Fitted Plot (<a class='cat iaps'>[iaps]</a>, <a class='cat pofa'>[pofa]</a>).</div>
+<div class="date"> Last Updated: 2019-04-05 15:37:35</div>
+<a class="img" href="img\dwell_time_residuals.png">
+<img class="img" src="img\dwell_time_residuals.png">
+</a>
+<div class="footnote">The Residuals vs Fitted plot is used to identify residual distribution. If residuals are following a visible trend on the graph, then the homogeneity assumption was violated.</div>
+</div></div>
+</div>
+</div>
+</div>
+</body>
+
+<footer>
+<script>
+$(document).ready(function(){
+getLogitTable()
+additionalTable()
+popover()
+getTinyMCE("anova")
+})
+</script>
+</footer>
+</html>

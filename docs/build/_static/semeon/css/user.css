@@ -6,9 +6,8 @@ html, body {
 	overflow-x: hidden;
 	background: #5b96be !important;
 	color: #444444;
-    font-weight: 500;
-	font-size: 14px;
-    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: 400;
+	font-size: 13px;
 }
 body{
 	/* height: 100%; */
@@ -480,6 +479,15 @@ div.table-of-contents a{
 	color: #666666;
 	font-weight: 600;
 }
+
+/* paragraph, sections */
+.studies-container{
+	padding-bottom: 24px;
+}
+.studies-container>div>div>pre {
+    white-space: normal;
+}
+
 /*--code--*/
 table.field-list{
 	margin-bottom: 0px !important;

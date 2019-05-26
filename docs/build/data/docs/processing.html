@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mdl.processing &#8212; mdl-R33-analysis 2019-03-26 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="mdl.plot" href="plot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          mdl-R33-analysis</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-03-26</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="genindex.html">Glossary</a></li>
+                <li><a href="install.html">Install</a></li>
+                <li><a href="api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">mdl.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nslr_hmm.html">mdl.nslr_hmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot.html">mdl.plot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mdl.processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raw.html">mdl.raw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/demographics.html">imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/demographics.html#initalize">initalize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create_plots.html">imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create_plots.html#initalize">initalize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create_plots.html#single-subject-bokeh-coordinates-(all-trials)">single subject bokeh coordinates (all trials)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create_plots.html#density-plot">density plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create_plots.html#correlation-matrix">correlation matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create_plots.html#boxplot">boxplot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/build_model.html">Resources:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/build_model.html#imports">imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/build_model.html#initalize-code">initalize code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/build_model.html#Analysis-of-Variance:-dwell-time">Analysis of Variance: dwell time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/build_model.html#Negative-Binomial-Poisson-Regression:-stimulus/dotloc-onset-error">Negative-Binomial Poisson Regression: stimulus/dotloc onset error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/build_model.html#generalized-linear-mixed-effects-logistic-model-with-random-effects:-cesd_group">generalized linear mixed-effects logistic model with random effects: cesd_group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="redcap.html">mdl.redcap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">mdl.settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">mdl.processing</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-mdl.processing">
+<span id="mdl-processing"></span><h1>mdl.processing<a class="headerlink" href="#module-mdl.processing" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">&#64;purpose: Hub for running processing and analysis.   </div>
+<div class="line">&#64;date: Created on Sat May 1 15:12:38 2019   </div>
+<div class="line">&#64;author: Semeon Risom   </div>
+<div class="line">&#64;email: <a class="reference external" href="mailto:semeon&#46;risom&#37;&#52;&#48;gmail&#46;com">semeon<span>&#46;</span>risom<span>&#64;</span>gmail<span>&#46;</span>com</a>   </div>
+<div class="line">&#64;url: <a class="reference external" href="https://semeon.io/d/R33-analysis">https://semeon.io/d/R33-analysis</a>   </div>
+</div>
+<dl class="class">
+<dt id="mdl.processing.processing">
+<em class="property">class </em><code class="descclassname">mdl.processing.</code><code class="descname">processing</code><span class="sig-paren">(</span><em>config, filters=[['SavitzkyGolay', 'sg']]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processing raw eyetracking, behavioral, and clinical data.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.append_classify" title="mdl.processing.processing.append_classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_classify</span></code></a>(df,&nbsp;cg_df)</td>
+<td>Appending classification to Dataframe.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.classify" title="mdl.processing.processing.classify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify</span></code></a>(config,&nbsp;df[,&nbsp;ctype,&nbsp;filter_type,&nbsp;…])</td>
+<td>I-DT algorithm takes into account the distribution or spatial proximity of eye position points in the eye-movement trace.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.debug" title="mdl.processing.processing.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a>(message[,&nbsp;source])</td>
+<td>Get timing information for function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.dwell" title="mdl.processing.processing.dwell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dwell</span></code></a>(df[,&nbsp;cores])</td>
+<td>Calculate dwell time for sad and neutral images.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.filter_data" title="mdl.processing.processing.filter_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data</span></code></a>(df,&nbsp;filter_type,&nbsp;config,&nbsp;**kwargs)</td>
+<td>Butterworth: Design an Nth-order digital or analog Butterworth filter and return the filter coefficients.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.font" title="mdl.processing.processing.font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">font</span></code></a>()</td>
+<td>add Helvetica to matplotlib</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.getData" title="mdl.processing.processing.getData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getData</span></code></a>([path])</td>
+<td>preparing data for use in analysis</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.getEstimatedMonitor" title="mdl.processing.processing.getEstimatedMonitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEstimatedMonitor</span></code></a>(diagonal,&nbsp;window)</td>
+<td>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.onset_diff" title="mdl.processing.processing.onset_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onset_diff</span></code></a>(df0[,&nbsp;merge,&nbsp;cores])</td>
+<td>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.preprocess" title="mdl.processing.processing.preprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess</span></code></a>(df,&nbsp;window)</td>
+<td>Initial data cleaning.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.process" title="mdl.processing.processing.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(window,&nbsp;filters,&nbsp;gxy_df,&nbsp;trial[,&nbsp;…])</td>
+<td>Plotting and preparing data for classification.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.pydoc" title="mdl.processing.processing.pydoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pydoc</span></code></a>([path,&nbsp;source,&nbsp;build,&nbsp;copy])</td>
+<td>Generate pydoc docmentation</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.roi" title="mdl.processing.processing.roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roi</span></code></a>([filters,&nbsp;flt,&nbsp;df,&nbsp;manual,&nbsp;monitorSize])</td>
+<td>Check if fixation is within bounds.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.run" title="mdl.processing.processing.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(path[,&nbsp;task_type,&nbsp;single_subject,&nbsp;…])</td>
+<td>Processing of data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.single_subject" title="mdl.processing.processing.single_subject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single_subject</span></code></a>(df,&nbsp;path)</td>
+<td>Create single subject scatterplot using seaborn and pandas.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mdl.processing.processing.subject_metadata" title="mdl.processing.processing.subject_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subject_metadata</span></code></a>(fpath,&nbsp;spath)</td>
+<td>Collect all subjects metadata.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mdl.processing.processing.variables" title="mdl.processing.processing.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>(df)</td>
+<td>Output list of variables for easy html viewing.</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mdl.processing.processing.dir">
+<code class="descname">dir</code><em class="property"> = '/Users/mdl-admin/Desktop/mdl-R33-analysis/py/mdl'</em><a class="headerlink" href="#mdl.processing.processing.dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.font">
+<code class="descname">font</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.font"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.font" title="Permalink to this definition">¶</a></dt>
+<dd><p>add Helvetica to matplotlib</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.pydoc">
+<code class="descname">pydoc</code><span class="sig-paren">(</span><em>path=None</em>, <em>source=None</em>, <em>build=None</em>, <em>copy=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.pydoc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.pydoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pydoc docmentation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Location to save the pydoc to.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.debug">
+<code class="descname">debug</code><span class="sig-paren">(</span><em>message</em>, <em>source='debug'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get timing information for function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>message</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Log message.</p>
+</dd>
+<dt><strong>source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Origin of call. Either debug or timestamp.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.getEstimatedMonitor">
+<code class="descname">getEstimatedMonitor</code><span class="sig-paren">(</span><em>diagonal</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.getEstimatedMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.getEstimatedMonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate estimate monitor size (w,h;cm) using estimated diagonal monitor (hypotenuse; cm).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df_raw</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of subjects.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.preprocess">
+<code class="descname">preprocess</code><span class="sig-paren">(</span><em>df</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.preprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial data cleaning.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt>
+<dd><p class="first last">horizontal, vertical resolution</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt>remove_missing:</dt>
+<dd>Remove samples with null values.</dd>
+<dt>remove_bounds:</dt>
+<dd>Remove samples outside of window bounds (1920,1080).</dd>
+<dt>remove_spikes:</dt>
+<dd>remove one-sample spikes if x and y-axis delta is greater than 5.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>m_delta</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">Maxinum one-sample change in velocity</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.getData">
+<code class="descname">getData</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.getData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.getData" title="Permalink to this definition">¶</a></dt>
+<dd><p>preparing data for use in analysis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path of the subject data</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">list of files used for analysis.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>You can either get data from all subjects within a directory, or from a specific subject (subject_session).</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#if using path:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_raw</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#if getting data for single subject:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_raw</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span><span class="n">subject_session</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1099&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Specific directory path used.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.filter_data">
+<code class="descname">filter_data</code><span class="sig-paren">(</span><em>df</em>, <em>filter_type</em>, <em>config</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.filter_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.filter_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Butterworth: Design an Nth-order digital or analog Butterworth filter and return
+the filter coefficients.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>filter_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>filter_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Filter type: ‘butterworth’</p>
+</dd>
+<dt><strong>attr2</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</span></dt>
+<dd><p class="first last">Description of <cite>attr2</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.classify">
+<code class="descname">classify</code><span class="sig-paren">(</span><em>config</em>, <em>df</em>, <em>ctype='ivt'</em>, <em>filter_type=None</em>, <em>v_th=None</em>, <em>dr_th=None</em>, <em>di_th=None</em>, <em>missing=None</em>, <em>maxdist=None</em>, <em>mindur=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>I-DT algorithm takes into account the distribution or spatial proximity of
+eye position points in the eye-movement trace.</p>
+<p>In the I-VT model, the velocity value is computed for every eye position
+sample. The velocity value is then compared to the threshold. If the
+sampled velocity is less than the threshold, the corresponding eye-position
+sample is marked as part of a fixation, otherwise it is marked as a part of
+a saccade.</p>
+<p>The simple model detects fixations, defined as consecutive samples with an
+inter-sample distance of less than a set amount of pixels (disregarding missing data)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>config</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt>
+<dd><p class="first last">Configuration data. i.e. trial number, location.</p>
+</dd>
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of classified data.</p>
+</dd>
+<dt><strong>ctype</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Classification type: ‘ivt’</p>
+</dd>
+<dt><strong>filter_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[type], optional</span></dt>
+<dd><p class="first last">Filter type: ‘butter’</p>
+</dd>
+<dt><strong>ctype</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</span></dt>
+<dd><p class="first last">velocity threshold (ivt), dispersion threshold (idt; used by
+SR-Research and Tobii), or simple</p>
+</dd>
+<dt><strong>v_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Velocity threshold in pix/sec (ivt)</p>
+</dd>
+<dt><strong>dr_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Fixation duration threshold in pix/msec (idt)</p>
+</dd>
+<dt><strong>di_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Dispersion threshold in pixels (idt)</p>
+</dd>
+<dt><strong>missing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">value to be used for missing data (simple)</p>
+</dd>
+<dt><strong>maxdist</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">maximal inter sample distance in pixels (simple)</p>
+</dd>
+<dt><strong>mindur</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">minimal duration of a fixation in milliseconds; detected fixation
+cadidates will be disregarded if they are below this duration  (simple)</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of classified data.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ValueError</strong></dt>
+<dd><p class="first last">Unknown classification type.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.roi">
+<code class="descname">roi</code><span class="sig-paren">(</span><em>filters=[['SavitzkyGolay', 'sg']], flt=None, df=None, manual=False, monitorSize=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if fixation is within bounds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of classified data.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>manual</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Whether or not processing.roi() is access manually.</p>
+</dd>
+<dt><strong>monitorSize</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">Monitor size.</p>
+</dd>
+<dt><strong>filters</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">Filter parameters.</p>
+</dd>
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of classified data.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>window</em>, <em>filters</em>, <em>gxy_df</em>, <em>trial</em>, <em>_classify=True</em>, <em>ctype='simple'</em>, <em>_param=''</em>, <em>log=False</em>, <em>draw_plot=False</em>, <em>draw_heatmap=False</em>, <em>draw_gazeplot=False</em>, <em>draw_fixplot=False</em>, <em>v_th=20</em>, <em>dr_th=200</em>, <em>di_th=20</em>, <em>_missing=0.0</em>, <em>_maxdist=25</em>, <em>_mindur=50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plotting and preparing data for classification. Combined plot of each filter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>window</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">horizontal, vertical resolution</p>
+</dd>
+<dt><strong>filters</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of filters along with short-hand names.</p>
+</dd>
+<dt><strong>gxy_df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data. Unfiltered raw data.</p>
+</dd>
+<dt><strong>trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Trial number.</p>
+</dd>
+<dt><strong>_classify</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">parameter to include classification</p>
+</dd>
+<dt><strong>ctype</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">classification type. simple, idt, ivt</p>
+</dd>
+<dt><strong>_param</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">[description] (the default is ‘’, which [default_description])</p>
+</dd>
+<dt><strong>log</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">[description] (the default is False, which [default_description])</p>
+</dd>
+<dt><strong>draw_plot</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">[description] (the default is False, which [default_description])</p>
+</dd>
+<dt><strong>draw_heatmap</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">[description] (the default is False, which [default_description])</p>
+</dd>
+<dt><strong>draw_gazeplot</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">[description] (the default is False, which [default_description])</p>
+</dd>
+<dt><strong>draw_fixplot</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">[description] (the default is False, which [default_description])</p>
+</dd>
+<dt><strong>v_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Velocity threshold in px/sec (ivt)</p>
+</dd>
+<dt><strong>dr_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Fixation duration threshold in px/msec (idt)</p>
+</dd>
+<dt><strong>di_th</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Dispersion threshold in px (idt)</p>
+</dd>
+<dt><strong>_missing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">value to be used for missing data (simple)</p>
+</dd>
+<dt><strong>_maxdist</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">maximal inter sample distance in pixels (simple)</p>
+</dd>
+<dt><strong>_mindur</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">minimal duration of a fixation in milliseconds; detected fixation
+cadidates will be disregarded if they are below this duration  (simple)
+(default = 100)</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>_fgxy_df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of filtered data.</p>
+</dd>
+<dt><strong>c_xy</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of classified data.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>_fxy_df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data. Filtered data. Subset of _fgxy_df.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.append_classify">
+<code class="descname">append_classify</code><span class="sig-paren">(</span><em>df</em>, <em>cg_df</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.append_classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.append_classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appending classification to Dataframe.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>gxy_df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data of classification events.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>path</em>, <em>task_type='eyetracking'</em>, <em>single_subject=False</em>, <em>single_trial=False</em>, <em>subject=0</em>, <em>trial=0</em>, <em>isMultiprocessing=True</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processing of data. Steps here include: cleaning data, fixation identification, and exporting data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code></a></span></dt>
+<dd><p class="first last">Path of raw data.</p>
+</dd>
+<dt><strong>task_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code></a></span></dt>
+<dd><p class="first last">Running analysis on <cite>eyetracking</cite> or <cite>behavioral</cite> data.</p>
+</dd>
+<dt><strong>single_subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Whether to run function with all or single subject.</p>
+</dd>
+<dt><strong>single_trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Whether to run function with all or single trial.</p>
+</dd>
+<dt><strong>subject</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">Subject number. Only if single_subject = True.</p>
+</dd>
+<dt><strong>trial</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">Trial number. Only if single_trial = True.</p>
+</dd>
+<dt><strong>isMultiprocessing</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Whether multiprocessing of data will be used. Only if single_subject = False.</p>
+</dd>
+<dt><strong>cores</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">Number of cores to use for multiprocessing. Only if single_subject = False &amp; isMultiprocessing=True.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>process</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt>
+<dd><p class="first last">Process all data for export.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.subject_metadata">
+<code class="descname">subject_metadata</code><span class="sig-paren">(</span><em>fpath</em>, <em>spath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.subject_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.subject_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect all subjects metadata.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>fpath</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path of all participant data.</p>
+</dd>
+<dt><strong>spath</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path of all participant data.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of subject metadata.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.single_subject">
+<code class="descname">single_subject</code><span class="sig-paren">(</span><em>df</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.single_subject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.single_subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create single subject scatterplot using seaborn and pandas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path to save the bokeh or seaborn plot.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>cm</strong></dt>
+<dd><p class="first last">Bokeh or seaborn plot.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.variables">
+<code class="descname">variables</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output list of variables for easy html viewing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data. This is used as a filter to prevent unused participants from being included in the data.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">The directory path save and read the hdf5 dataframe.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df_definitions</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.dwell">
+<code class="descname">dwell</code><span class="sig-paren">(</span><em>df</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.dwell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.dwell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate dwell time for sad and neutral images.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data. This is used as a filter to prevent unused participants from being included in the data.</p>
+</dd>
+<dt><strong>cores</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">Number of cores to use for multiprocessing.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe with dwell time.</p>
+</dd>
+<dt><strong>error</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of participants that were not included in dataframe.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mdl.processing.processing.onset_diff">
+<code class="descname">onset_diff</code><span class="sig-paren">(</span><em>df0</em>, <em>merge=None</em>, <em>cores=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mdl/processing.html#processing.onset_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mdl.processing.processing.onset_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate differences in onset presentation (stimulus, dotloc) using bokeh, seaborn, and pandas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>df0</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe of raw data. This is used to merge variables that may be useful for analysis.</p>
+</dd>
+<dt><strong>merge</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or <cite>None</cite></span></dt>
+<dd><p class="first last">Variables to merge into returned df.</p>
+</dd>
+<dt><strong>cores</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span></dt>
+<dd><p class="first last">Number of cores to use for multiprocessing.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df1</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Pandas dataframe.</p>
+</dd>
+<dt><strong>error</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></span></dt>
+<dd><p class="first last">Dataframe of each participants and the amount trials included in their data.</p>
+</dd>
+<dt><strong>drop</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></span></dt>
+<dd><p class="first last">List of participants that are 3 SD from median.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/processing.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright .<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <title>dotprobe analysis</title>
+    <!--no cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!--continue-->
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="img/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="img/favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="docs/favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="img/favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="img/favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="img/favicon/favicon-144.png">
+    <meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+    <!--all-->
+    <script type="text/javascript" language="javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script src="js/lodash.min.js" language="javascript"></script>
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowsGroup.js"></script>    
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowGroup.min.js"></script>    
+    <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jszip.min.js"></script>
+    <!--user-->
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script>source="plots"</script>    <!--code-->
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+    <link rel="stylesheet" type="text/css" href="css/prism-line-numbers.css">
+    <script type="text/javascript" language="javascript" src="js/prism.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-r.js"></script>    
+    <script type="text/javascript" language="javascript" src="js/prism-python.js"></script>    
+    <script type="text/javascript" language="javascript" src="js/prism-line-numbers.js"></script>
+</head>
+<body id="body" class="overflow: scroll">
+    <div class="container figure" style="height: min-content !important;">
+        <div class="figure">
+            <div class="title"></div>
+            <div class="date"></div>
+            <div>
+                <a class="image">
+                    <img class="figure" style="max-width: 800px;">
+                </a>
+            <div class="footnote"></div>
+        </div>
+</body>
+<footer>
+    <script>
+        //get uri
+        uri = window.location.search.split('?')[1]
+        luri = uri.split(',')
+        href = luri[0]+", "+luri[1] 
+        //set title
+        $('.title').html("<b>Figure 1. </b> Scatterplot ("+href+").")
+        //set date
+        var date = function(){
+            var date = new Date()
+            var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+            var offset = date.getTimezoneOffset() / 60;
+            var hours = date.getHours();
+            newDate.setHours(hours - offset);
+            var now = newDate.toISOString()
+            now = now.replace(/\.[0-9]{3}/, '').replace("T"," ").replace("Z","");
+            return now;   
+        }
+        $('.date').html("Last Updated: " + date())
+        //set image and figure
+        $(".image").attr("href", "img/corr/"+href+".png")
+        $(".figure").attr("src", "img/corr/"+href+".png")
+    </script>
+</footer>
+</html>

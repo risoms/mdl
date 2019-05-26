@@ -1,0 +1,262 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <title>dotprobe analysis</title>
+    <!--no cache-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <!--icons-->
+    <link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+    <meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+    <!--all-->
+    <script type="text/javascript" language="javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.bundle.js"></script>
+    <!--dataTables-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.bootstrap.min.css">
+    <!--user-->
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <!--dataTables-->
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowsGroup.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jszip.min.js"></script>
+    <!--user-->
+    <script type="text/javascript" language="javascript" src="js/user.js"></script>
+    <script>source="demographic"</script>
+    <!--prism-->
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+    <link rel="stylesheet" type="text/css" href="css/prism-line-numbers.css">
+    <script type="text/javascript" language="javascript" src="js/prism.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-r.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-python.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-line-numbers.js"></script>
+    <script type="text/javascript" language="javascript" src="js/prism-normalize-whitespace.js"></script>
+    </head>
+
+<body id="body" class="overflow: scroll">
+<div class="container-large demographic" style="">
+<div class="container" style="">
+<div class="dashboard-main">
+<div class="table-container demographic">
+<div class="title"><b>Table 1.</b> Participant characteristics (N = 166).</div>
+<div class="date"> Last Updated: 2019-03-26 16:29:32
+<span class="link" id="code">code</span>
+<span class="link" id="csv">csv</span>
+</div>
+<div class="dataTables_wrapper form-inline dt-bootstrap">
+<!--script-->
+
+<table id="table" class="table demographic table-striped table-bordered                 hover dt-responsive wrap" cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ID</th>
+      <th>Group</th>
+      <th>CESD < 16<span class="nval">(n=105)</span></th>
+      <th>CESD ≥ 16<span class="nval">(n=61)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Age</td>
+      <td>(SD)</td>
+      <td>19.4 (1.3)</td>
+      <td>19.6 (1.3)</td>
+    </tr>
+    <tr>
+      <td>Vision</td>
+      <td>Normal</td>
+      <td>66 (62.9)</td>
+      <td>34 (55.7)</td>
+    </tr>
+    <tr>
+      <td>Vision</td>
+      <td>Corrective</td>
+      <td>37 (35.2)</td>
+      <td>27 (44.3)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Dark Brown</td>
+      <td>44 (41.9)</td>
+      <td>26 (42.6)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Light Brown</td>
+      <td>16 (15.2)</td>
+      <td>9 (14.8)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Black</td>
+      <td>14 (13.3)</td>
+      <td>10 (16.4)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Blue-Green</td>
+      <td>7 (6.7)</td>
+      <td>2 (3.3)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Hazel</td>
+      <td>7 (6.7)</td>
+      <td>5 (8.2)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Green</td>
+      <td>7 (6.7)</td>
+      <td>1 (1.6)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Light Blue</td>
+      <td>5 (4.8)</td>
+      <td>4 (6.6)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Gray</td>
+      <td>2 (1.9)</td>
+      <td>1 (1.6)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Amber</td>
+      <td>2 (1.9)</td>
+      <td>0 (0.0)</td>
+    </tr>
+    <tr>
+      <td>Eye Color</td>
+      <td>Blue</td>
+      <td>1 (0.9)</td>
+      <td>3 (4.9)</td>
+    </tr>
+    <tr>
+      <td>Handedness (Right)</td>
+      <td>Right</td>
+      <td>101 (96.2)</td>
+      <td>57 (93.4)</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>Female</td>
+      <td>54 (51.4)</td>
+      <td>30 (49.2)</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>Male</td>
+      <td>51 (48.6)</td>
+      <td>28 (45.9)</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>Other</td>
+      <td>0 (0.0)</td>
+      <td>3 (4.9)</td>
+    </tr>
+    <tr>
+      <td>Hispanic or Latino</td>
+      <td>(%)</td>
+      <td>30 (28.6)</td>
+      <td>15 (24.6)</td>
+    </tr>
+    <tr>
+      <td>Race</td>
+      <td>White</td>
+      <td>45 (42.9)</td>
+      <td>30 (49.2)</td>
+    </tr>
+    <tr>
+      <td>Race</td>
+      <td>Asian</td>
+      <td>31 (29.5)</td>
+      <td>22 (36.1)</td>
+    </tr>
+    <tr>
+      <td>Race</td>
+      <td>None of the Above</td>
+      <td>14 (13.3)</td>
+      <td>3 (4.9)</td>
+    </tr>
+    <tr>
+      <td>Race</td>
+      <td>Black or African American</td>
+      <td>11 (10.5)</td>
+      <td>3 (4.9)</td>
+    </tr>
+    <tr>
+      <td>Race</td>
+      <td>Two or More Races</td>
+      <td>3 (2.9)</td>
+      <td>1 (1.6)</td>
+    </tr>
+    <tr>
+      <td>Race</td>
+      <td>American Indian or Alaska Native</td>
+      <td>1 (0.9)</td>
+      <td>2 (3.3)</td>
+    </tr>
+    <tr>
+      <td>Center for Epidemiologic Studies Depression Scale</td>
+      <td>(SD)</td>
+      <td>7.3 (3.7)</td>
+      <td>24.9 (7.5)</td>
+    </tr>
+    <tr>
+      <td>Ruminative Response Scale</td>
+      <td>(SD)</td>
+      <td>8.6 (2.7)</td>
+      <td>12.1 (2.9)</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="footnote">
+<div id='note'>N = Sample size of eyetracking participants. Total participants = 208.</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+<footer>
+<script>
+$(document).ready(function(){
+getLogitTable()
+})
+</script>
+</footer>
+</html>

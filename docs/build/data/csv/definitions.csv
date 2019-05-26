@@ -1,0 +1,39 @@
+variable,group,type,example,definition
+init_gaze_bias,bias,float64,-0.0858585858585858,
+final_gaze_bias,bias,float64,-0.0151515151515151,Index giving the final direction of gaze as the dot probe is presented.
+gaze_bias,bias,float64,0.1371212121212121,"Trial level gaze bias score, using the weighted method. from the itrak package."
+n_gaze_valid,bias,int64,198.0,
+dp_bias,bias,float64,-0.0164632006286014,
+var_dp_bias,bias,float64,0.1814716980820246,
+n_dp_valid,bias,int64,175.0,
+race,demographic,object,Asian,
+is_normalvision,demographic,bool,True,
+is_student,demographic,int64,1,
+m_rt,behavioral,float64,863.0,
+accuracy,behavioral,int64,196.0,
+m_diff_stim,behavioral,float64,38.5,
+m_diff_dotloc,behavioral,float64,79.0,
+trialType_,behavioral,object,iaps,
+cesd_score,clinical,int64,23,
+cesd_group,clinical,object,High,
+rrs_brooding,clinical,int64,13,
+os,device,object,macos,Operating system used. Data parsed from os_version.
+os_version,device,object,10.12.6,The operating system and version used. Uses User-Agent request header.
+gpu,device,object,Intel HD Graphics 6000,Returns the GPU onboard the computer. Uses WebGL API.
+gpu_type,device,object,integrated,Category identifying the GPU as either separate from the CPU or intergrated. Uses WebGL API. Data parsed from 
+browser,device,object,Chrome,Browser used. Data parsed from browser_version.
+browser_version,device,object,Chrome 60,The browser and version. Derived from User-Agent request header.
+devicePixelRatio,device,float64,1.0,The ratio between physical pixels and device independent pixels in the current display. Uses Window.devicePixelRatio from Web API.
+monitorSize,device,object,1440x900,Returns the width and height of the screen. Uses Window.screen.height [and width] from Web API.
+windowSize,device,object,1440x900,Returns the width and height of the browser window. Uses Window.innerHeight [and innerHeight] from Web API.
+heap.used,device,object,109MB,The total bytes used by JavaScript on the task. Uses window.performance.memory from Google.
+heap.limit,device,object,2190MB,Maximum size a JavaScript heap accessable by the task. Uses window.performance.memory from Google.
+WebcamMessage,device,object,Success,String indicating the success or failure of accessing the webcam and the reason for it (i.e. getUserMediaFailed).
+webcamSize,device,object,1280x720,Returns the width and height of the webcam. Uses the HTMLVideoElement API.
+webcam_brand,device,object,FaceTime,Returns the brand of webcam being used. Uses the MediaStream API.
+luminance,device,float64,0.4862745098039216,"The perceived brightness distribution or ""luminosity"" within an image, normalized from 0 (black) to 1 (white)."
+isPageVisible,device,bool,True,Returns whether or not the task has been minimized or a new tab has been open and is visible. Uses the Page Visibility API.
+is_calibrated,device,bool,True,Whether or not the task was calibrated.
+is_eyetracking,device,bool,True,Whether or not the webcam was initiated.
+isFullscreen,device,bool,True,Uses the following calculation to determine if fullscreen (window.innerHeight < (.85*window.screen.height)) && (window.innerWidth < (.85*window.screen.width)).
+nested,other,object,subject,How the data should be collapsed for analysis. Either 'subject' or 'trialType' level.

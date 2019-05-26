@@ -1,0 +1,6 @@
+mdl.nslr_hmm
+------------
+
+.. automodule:: mdl.nslr_hmm
+   :members:
+   :undoc-members:

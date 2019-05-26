@@ -177,23 +177,8 @@
 1 argument(s) required, 0 supplied.
 
 .. raw::[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-1.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-1.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-2.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-2.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-3.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-3.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-4.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-4.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-5.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-5.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-6.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-6.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-7.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-7.pdf'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-8.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:13: WARNING: File not found: 'examples/roi/index-8.pdf'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:958: WARNING: File not found: 'examples/roi/contours.h5'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/studies/index.rst:21: WARNING: Content block expected for the "container" directive; none found.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.classify.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.download.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.metadata.rst: WARNING: document isn't included in any toctree[39;49;00m

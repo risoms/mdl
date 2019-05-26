@@ -1,0 +1,8 @@
+ID,Group,"CESD < 16 <span class=""nval"">(n=134)</span>","CESD ≥ 16 <span class=""nval"">(n=73)</span>"
+Pre-Questionnaire,Demographics,134 (100.0),73 (100.0)
+Pre-Questionnaire,"CES-D, RRS",134 (100.0),73 (100.0)
+Task,Task,134 (100.0),73 (100.0)
+Task,Eyetracking,105 (78.4),61 (83.6)
+Task,Calibrated,96 (71.6),53 (72.6)
+Task,Behavioral,29 (21.6),12 (16.4)
+Post-Questionnaire,MMPI,131 (97.8),73 (100.0)

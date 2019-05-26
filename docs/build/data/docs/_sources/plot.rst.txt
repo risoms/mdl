@@ -1,0 +1,7 @@
+mdl.plot
+--------
+
+.. automodule:: mdl.plot
+   :members:
+   :private-members:
+   :undoc-members:
