@@ -200,7 +200,6 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._settings.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst: WARNING: document isn't included in any toctree[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/tasks/index.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Velocity'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.VisualAngle'[39;49;00m
@@ -310,7 +309,6 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.py:docstring of imhr.r33._settings.Settings:24:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._settings.Settings.definitions'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst:8: WARNING: toctree contains reference to document 'examples/analysis/Webgazer' that doesn't have a title: no link will be generated[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:69: WARNING: undefined label: intro.rst (if the link has no caption the label must precede a section header)[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:69: WARNING: undefined label: install.rst (if the link has no caption the label must precede a section header)[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:69: WARNING: undefined label: examples/index.rst (if the link has no caption the label must precede a section header)[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:69: WARNING: undefined label: api/imhr.rst (if the link has no caption the label must precede a section header)[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:70: WARNING: undefined label: intro.rst (if the link has no caption the label must precede a section header)[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:70: WARNING: undefined label: install.rst (if the link has no caption the label must precede a section header)[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:70: WARNING: undefined label: api/imhr.rst (if the link has no caption the label must precede a section header)[39;49;00m

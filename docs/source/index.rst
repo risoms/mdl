@@ -16,6 +16,7 @@
 	Features <features.rst>
 	Guides <examples/index.rst>
 	Studies <studies/index.rst>
+	Tasks <tasks/index.rst>
 	Dashboard <dashboard.rst>
 	API Reference <api/imhr.rst>
 
@@ -67,10 +68,10 @@ in part by funding of NIMH grant `5R33MH109600-03 <https://projectreporter.nih.g
 	   Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014
 
 For a brief introduction to the ideas behind the library, you can read the :ref:`introduction <intro.rst>`. Visit the 
-:ref:`installation page <install.rst>` to see how you can download the package. You can browse the :ref:`examples <examples/index.rst>` 
+:ref:`installation page <install.rst>` to see how you can download the package. You can browse the `examples <examples/index.rst>`__ 
 to see what you can do with this package, and then check out the :ref:`API reference <api/imhr.rst>` to find out how.
 
-To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl>`_ repository.
+To see the code or report a bug, please visit the `github <https://github.com/risoms/mdl>`__ repository.
 
 .. raw:: html
 
@@ -101,7 +102,7 @@ To see the code or report a bug, please visit the `github <https://github.com/ri
 							<li><a href="examples/R33/process_data.html">Process data</a></li>
 							<li><a href="examples/analysis/index.html">Lab analysis</a></li>
 							<li><a href="examples/eyetracking/demo/eyetracking_demo.html">Run Eyelink</a></li>
-							<li><a href="examples/roi/index.html">Regions of Interest</a></li>
+							<li><a href="examples/roi/index.html">Regions of interest</a></li>
 						</ul>
 					</div>
 				</div>
