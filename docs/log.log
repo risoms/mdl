@@ -200,6 +200,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._settings.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/tasks/index.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Velocity'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.VisualAngle'[39;49;00m
