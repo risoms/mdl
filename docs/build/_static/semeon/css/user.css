@@ -237,21 +237,33 @@ ul.current.nav>li.current>a.current{
     display: flex !important;
     align-items: center;
 }
+p.h1,
 .content>.section>h1,
 .content>.section>h1>a{
     font-size: 40px !important;
     line-height: 50px !important;
+	font-weight: 500 !important;
 }
-
+p.h2,
 .content>.section>.section>h2,
 .content>.section>.section>h2>a{
     font-size: 30px !important;
     line-height: 38px !important;
+	font-weight: 500 !important;
 }
+p.h3,
 .content>.section>.section>.section>h3,
 .content>.section>.section>.section>h3>a{
     font-size: 20px !important;
     line-height: 25px !important;
+	font-weight: 700 !important;
+}
+p.h4,
+.content>.section>.section>.section>.section>h4,
+.content>.section>.section>.section>.section>h4>a{
+    font-size: 18px !important;
+    line-height: 20px !important;
+	font-weight: 700 !important;
 }
 
 /*--class and methods--*/
@@ -281,7 +293,9 @@ dd {
     margin-top: 0px !important;
     margin-bottom: 10px;
 }
-.viewcode-link,.reference.external{
+.viewcode-link,
+.reference.internal,
+.reference.external{
 	color: #42aef7;
 	font-size: 13px;
 }
@@ -297,7 +311,7 @@ span.pre,
 .simple>li>.reference.external>code>span.pre,
 .reference.external>code>span.pre{
     font-weight: 700 !important;
-	font-size: 12px !important;
+	font-size: 13px !important;
 	color: #42aef7 !important;
 	font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
 }
@@ -487,8 +501,17 @@ div.table-of-contents a{
 .studies-container>div>div>pre {
     white-space: normal;
 }
+div.section#model a{
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    color: #42aef7 !important;
+    font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
+}
 
 /*--code--*/
+.code-param-whitespace>div>pre{
+    white-space: pre-wrap;
+}
 table.field-list{
 	margin-bottom: 0px !important;
 	margin-top: 10px;

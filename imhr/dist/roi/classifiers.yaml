@@ -1,0 +1,100 @@
+eye:
+  file: haarcascade_eye.xml
+  minNeighbors: 2
+  minSize:
+  - 10
+  - 10
+  path: /dist/haarcascade/haarcascade_eye.xml
+  scaleFactor: 1.05
+  thickness: 3
+  type: eye
+smile:
+  file: haarcascade_smile.xml
+  minNeighbors: 5
+  minSize:
+  - 50
+  - 50
+  path: /dist/haarcascade/haarcascade_smile.xml
+  scaleFactor: 1.1
+  thickness: 3
+  type: smile
+frontalface_alt:
+  file: haarcascade_frontalface_alt.xml
+  minNeighbors: 5
+  minSize:
+  - 50
+  - 50
+  path: /dist/haarcascade/haarcascade_frontalface_alt.xml
+  scaleFactor: 1.1
+  thickness: 3
+  type: frontalface_alt
+frontalface_alt2:
+  file: haarcascade_frontalface_alt2.xml
+  minNeighbors: 5
+  minSize:
+  - 50
+  - 50
+  path: /dist/haarcascade/haarcascade_frontalface_alt2.xml
+  scaleFactor: 1.1
+  thickness: 3
+  type: frontalface_alt2
+frontalface_alt_tree:
+  file: haarcascade_frontalface_alt_tree.xml
+  minNeighbors: 5
+  minSize:
+  - 50
+  - 50
+  path: /dist/haarcascade/haarcascade_frontalface_alt_tree.xml
+  scaleFactor: 1.1
+  thickness: 3
+  type: frontalface_alt_tree
+frontalface_default:
+  file: haarcascade_frontalface_default.xml
+  minNeighbors: 5
+  minSize:
+  - 50
+  - 50
+  path: /dist/haarcascade/haarcascade_frontalface_default.xml
+  scaleFactor: 1.1
+  thickness: 3
+  type: frontalface_default
+profileface:
+  file: haarcascade_profileface.xml
+  minNeighbors: 5
+  minSize:
+  - 50
+  - 50
+  path: /dist/haarcascade/haarcascade_profileface.xml
+  scaleFactor: 1.1
+  thickness: 3
+  type: profileface
+lowerbody:
+  file: haarcascade_lowerbody.xml
+  minNeighbors: 8
+  minSize:
+  - 100
+  - 100
+  path: /dist/haarcascade/haarcascade_lowerbody.xml
+  scaleFactor: 1.3
+  thickness: 3
+  type: lowerbody
+upperbody:
+  file: haarcascade_upperbody.xml
+  minNeighbors: 8
+  minSize:
+  - 100
+  - 100
+  path: /dist/haarcascade/haarcascade_upperbody.xml
+  scaleFactor: 1.3
+  thickness: 3
+  type: upperbody
+fullbody:
+  file: haarcascade_fullbody.xml
+  minNeighbors: 8
+  minSize:
+  - 100
+  - 100
+  path: /dist/haarcascade/haarcascade_fullbody.xml
+  scaleFactor: 1.3
+  thickness: 3
+  type: fullbody

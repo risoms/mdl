@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking &#8212; imhr-api 2019-05-26 documentation</title>
+    <title>imhr.eyetracking &#8212; imhr-api 0.3.28 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-28-0.3.28</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -137,7 +137,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Creating-ROI">Creating ROI</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Manually-coded-images">Manually coded images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/roi/index.html#Output">Output</a><ul>
@@ -1068,7 +1067,7 @@ software, or automatically through feature detection using <strong>haarcascade</
 Default is <strong>both</strong>. Note: If <strong>roi_format</strong> = <strong>dataviewer</strong>, <strong>shape</strong> must be either be <strong>circle</strong>, <strong>rotated</strong>, or <strong>straight</strong>.</p>
 </dd>
 <dt><strong>metadata_source</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> {‘path’, ‘embedded’}</span></dt>
-<dd><p class="first">Metadata source. If metadata is being read from a spreadsheet, <code class="code docutils literal notranslate"><span class="pre">metadata_source</span></code> should be equal to path the to
+<dd><p class="first">Metadata source. If metadata is being read from a spreadsheet, <strong>metadata_source</strong> should be equal to path the to
 the metadata file, else if metadata is embed within the image as a layer name, <strong>metadata_source</strong> = <strong>embedded</strong>.
 Default is <strong>embedded</strong>. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># if metadata is in PSD images</span>
@@ -1080,9 +1079,9 @@ Default is <strong>embedded</strong>. For example:</p>
 <p>Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
 as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-be either <strong>;</strong> <strong>,</strong> <strong>|</strong> <strong>t</strong> or <strong>s (Delimiter type must be identified when running this code using the
-**delimiter</strong> parameter. The default is <strong>;</strong>.). Here’s an example using <strong>;</strong> as a delimiter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span> <span class="o">=</span> <span class="s2">&quot;BM001&quot;</span><span class="p">;</span> <span class="n">roiname</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">feature</span> <span class="o">=</span> <span class="s2">&quot;lefteye&quot;</span>
+be either <strong>;</strong> <strong>,</strong> <strong>|</strong> <strong>t</strong> or <strong>s</strong> (Delimiter type must be identified when running this code using the
+<strong>delimiter</strong> parameter. The default is <strong>;</strong>.). Here’s an example using <strong>;</strong> as a delimiter:</p>
+<div class="code-param-whitespace highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span> <span class="o">=</span> <span class="s2">&quot;BM001&quot;</span><span class="p">;</span> <span class="n">roiname</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">feature</span> <span class="o">=</span> <span class="s2">&quot;lefteye&quot;</span>
 </pre></div>
 </div>
 <p class="last">Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</p>
@@ -1108,7 +1107,7 @@ the file can be read as multilayered.</p>
 </dd>
 <dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt>
 <dd><p class="first">Additional properties to control how data is exported, naming variables, exporting images are also available:</p>
-<p>These properties control additional core parameters:</p>
+<p>These properties control additional core parameters for the API:</p>
 <table border="1" class="colwidths-given kwargs docutils">
 <colgroup>
 <col width="33%" />
@@ -1120,38 +1119,41 @@ the file can be read as multilayered.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>cores</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-even"><td><strong>cores</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>(if <strong>isMultiprocessing</strong> == <strong>True</strong>) Number of cores to use. Default is total available cores - 1.</td>
 </tr>
-<tr class="row-odd"><td><strong>isLibrary</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-odd"><td><strong>isLibrary</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Check if required packages have been installed. Default is <strong>False</strong>.</td>
 </tr>
-<tr class="row-even"><td><strong>isDebug</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-even"><td><strong>isDebug</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Allow flags to be visible. Default is <strong>False</strong>.</td>
 </tr>
-<tr class="row-odd"><td><strong>isDemo</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-odd"><td><strong>isDemo</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Tests code with in-house images and metadata. Default is <strong>False</strong>.</td>
 </tr>
-<tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-even"><td><strong>save_data</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save coordinates. Default is <strong>True</strong>.</td>
 </tr>
 <tr class="row-odd"><td><strong>newcolumn</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a></td>
 <td>Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is <strong>False</strong>.</td>
 </tr>
-<tr class="row-even"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-even"><td><strong>save_raw_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save images. Default is True.</td>
 </tr>
-<tr class="row-odd"><td><strong>append_output_name</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="row-odd"><td><strong>append_output_name</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 <td>Add appending name to all exported files (i.e. &lt;’top_center’&gt; IMG001_top_center.ias). Default is <strong>False</strong>.</td>
 </tr>
-<tr class="row-even"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="row-even"><td><strong>save_contour_image</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>Save generated contours as images. Default is <strong>True</strong>.</td>
 </tr>
-<tr class="row-odd"><td><strong>scale</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="row-odd"><td><strong>scale</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 <td>If image is scaled during presentation, set scale. Default is <strong>1</strong>.</td>
 </tr>
-<tr class="row-even"><td><strong>offset</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<tr class="row-even"><td><strong>offset</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
 <td>Center point of image, relative to screensize. Default is <strong>[960, 540]</strong>.</td>
+</tr>
+<tr class="row-odd"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
+<td>Monitor size is being presented. Default is <strong>[1920, 1080]</strong>.</td>
 </tr>
 </tbody>
 </table>
@@ -1167,29 +1169,31 @@ the file can be read as multilayered.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {‘;’ , ‘,’ , ‘|’ , ‘tab’ , ‘space’}</td>
+<tr class="row-even"><td><strong>delimiter</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘;’ , ‘,’ , ‘|’ , ‘tab’ , ‘space’}</td>
 <td>(if <strong>source</strong> == <strong>psd</strong>) How is metadata delimited. Default is <strong>;</strong>.</td>
 </tr>
-<tr class="row-odd"><td><strong>classifier</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> {‘eye_tree_eyeglasses’, ‘eye’, ‘frontalface_alt_tree’, ‘frontalface_alt’, ‘frontalface_alt2’,
-‘frontalface_default’, ‘fullbody’, ‘lowerbody’, ‘profileface’, ‘smile’, ‘upperbody’}</td>
-<td>(if <strong>detection</strong> == <strong>haarcascade</strong>) Type of trained classifier to use. Default is <strong>frontalface_default</strong>.</td>
-</tr>
-<tr class="row-even"><td><strong>classScaleFactor</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#float" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
-<td>Parameter specifying how much the image size is reduced at each image scale.</td>
-</tr>
-<tr class="row-odd"><td><strong>classMinNeighbors</strong> : <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#float" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
-<td>Parameter specifying how many neighbors each candidate rectangle should have to retain it.</td>
-</tr>
-<tr class="row-even"><td><strong>classMinSize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></td>
-<td>Minimum possible object size. Objects smaller than that are ignored.</td>
-</tr>
-<tr class="row-odd"><td><strong>screensize</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageMath.html#int" title="(in Pillow (PIL Fork) v6.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</td>
-<td>Monitor size is being presented. Default is <strong>[1920, 1080]</strong>.</td>
+<tr class="row-odd"><td><strong>classifiers</strong> : <code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code> or :obj:list of :obj:dict</td>
+<td><p class="first">(if <strong>detection</strong> == <strong>haarcascade</strong>) Trained classifiers to use. Default is {‘eye_tree_eyeglasses’, ‘eye’, ‘frontalface_alt_tree’, ‘frontalface_alt’, ‘frontalface_alt2’,’frontalface_default’, ‘fullbody’, ‘lowerbody’, ‘profileface’, ‘smile’, ‘upperbody’}. Parameters are stored <a class="reference external" href="imhr.eyetracking.ROI.haar_parameters">here</a>. If you want to use custom classifiers, you can pass a list of classifiers and their arguments using the following format:</p>
+<div class="code-param highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="p">[{</span><span class="s1">&#39;custom_cascade&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="go">        ...   &#39;file&#39;: &#39;haarcascade_eye.xml&#39;,</span>
+<span class="go">        ...   &#39;type&#39;: &#39;eye&#39;,</span>
+<span class="go">        ...   &#39;path&#39;: &#39;./haarcascade_eye.xml&#39;,</span>
+<span class="go">        ...   &#39;minN&#39;: 5,</span>
+<span class="go">        ...   &#39;minS&#39;: (100,100),</span>
+<span class="go">        ...   &#39;sF&#39;: 1.01 }</span>
+<span class="go">        ...  }]</span>
+</pre></div>
+</div>
+<p>You can also pass custom arguments by calling them after initiation:</p>
+<div class="code-param-whitespace last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">roi</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">ROI</span><span class="p">(</span><span class="n">detection</span><span class="o">=</span><span class="s1">&#39;manual.....)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">roi</span><span class="o">.</span><span class="n">default_classifiers</span><span class="p">[</span><span class="s1">&#39;eye&#39;</span><span class="p">][</span><span class="s1">&#39;minNeighbors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Here are properties specific to how images are exported after processing. The code can either use <code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib</span></code> 
-or <code class="xref py py-class docutils literal notranslate"><span class="pre">PIL</span></code> as a backend engine:</p>
+<p>Here are properties specific to how images are exported after processing. The code can either use <code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">PIL</span></code> as a backend engine:</p>
 <table border="1" class="colwidths-given kwargs last docutils">
 <colgroup>
 <col width="33%" />
@@ -1202,7 +1206,7 @@ or <code class="xref py py-class docutils literal notranslate"><span class="pre"
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><strong>image_backend</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> {‘matplotlib’, ‘PIL’}</td>
-<td>Backend for exporting image. Either <a class="reference external" href="https://matplotlib.org/index.html">**matplotlib**</a> or <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">**PIL**</a>. Default is <code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib</span></code>.</td>
+<td>Backend for exporting image. Either <code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">PIL</span></code>. Default is <code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib</span></code>.</td>
 </tr>
 <tr class="row-odd"><td><strong>RcParams</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 <td>A dictionary object including validation validating functions are defined and associated with rc parameters in class:<cite>matplotlib.RcParams</cite>. Default is <strong>None</strong>.</td>
@@ -1734,7 +1738,7 @@ Photoshop PSD/PSB file object. The file should include one layer for each region
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-26T21:24:17-05:00.</div>
+			<div>Updated 2019-05-28T18:30:45-05:00.</div>
 		</div>
 	</div>
 </footer>

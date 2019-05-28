@@ -74,9 +74,11 @@ copyright = u'{}, '.format(time.strftime("%Y"))
 #datetime = datetime.datetime.now().replace(microsecond=0).replace(second=0).isoformat()
 date = datetime.date.today().isoformat()
 # The short X.Y version
-version = '%s'%(date)
+from imhr._version import get_versions
+v = get_versions()['version'][:6]
+release = v
 # The full version, including alpha/beta/rc tags
-release = version
+version = '%s-%s'%(date, v)
 # 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
 isodate = iso()
 html_last_updated_fmt = '%s'%(isodate)

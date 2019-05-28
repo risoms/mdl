@@ -16,7 +16,9 @@ Studies
 
 	<div class="studies-container">
 
-**Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial** (`data <R33/index.rst>`__)
+.. rst-class:: h3
+
+**Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial**
 
 .. container:: studies
 
@@ -24,7 +26,9 @@ Studies
 
 	Hsu, K. J., Caffey, K., Pisner, D., Shumake, J., Risom, S., Ray, K. L., . . . Beevers, C. G. (2018). 
 	    Attentional bias modification treatment for depression: Study protocol for a randomized controlled trial. 
-	    Contemporary Clinical Trials, 75, 59-66. doi:https://doi.org/10.1016/j.cct.2018.10.014.
+	    Contemporary Clinical Trials, 75, 59-66. doi:.
+
+**Resources**: `data <R33/index.rst>`__ | `article <https://doi.org/10.1016/j.cct.2018.10.014>`__ 
 
 Although negatively biased attention has a central theoretical and empirical role in the maintenance of depression, 
 there are few behavioral treatments that successfully target and improve this deficit. The current proposal builds upon 
@@ -38,13 +42,16 @@ maintained by negative attention bias.
 	</div>
 	<div class="studies-container">
 
-**Assessing attention bias with a web-based eyetracker: A preliminary investigation** (`data <Webgazer/index.rst>`__)
+.. rst-class:: h3
+
+**Assessing attention bias with a web-based eyetracker: A preliminary investigation**
 
 .. code-block:: md
 
 	Stewart, R., Risom, S., Beevers, C. (2019, March). Assessing attention bias with a web-based eye tracker: 
 		A preliminary investigation, In Anxiety and Depression Association of America, Chicago, 2019-29-03.
 
+**Resources**: `data <Webgazer/index.rst>`__
 
 Cognitive models of depression suggest depression is associated with negatively biased attention, a potential risk and maintenance 
 factor. Previous studies utilizing the emotional variant of the dot-probe task have shown that depressed individuals selectively 

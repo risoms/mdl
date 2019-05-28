@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking._roi &#8212; imhr-api 2019-05-26 documentation</title>
+    <title>imhr.eyetracking._roi &#8212; imhr-api 0.3.28 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           imhr-api</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-26</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-28-0.3.28</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -135,7 +135,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/index.html#Creating-ROI">Creating ROI</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Manually-coded-images">Manually coded images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/index.html#Output">Output</a><ul>
@@ -312,7 +311,7 @@
 <span class="sd">			Format to export ROIs. Either to &#39;csv&#39; (**raw**) or to Eyelink DataViewer &#39;ias&#39; (**dataviewer**) or both (**both**).</span>
 <span class="sd">			Default is **both**. Note: If **roi_format** = **dataviewer**, **shape** must be either be **circle**, **rotated**, or **straight**.</span>
 <span class="sd">		metadata_source : :class:`str` or :obj:`None` {&#39;path&#39;, &#39;embedded&#39;}</span>
-<span class="sd">			Metadata source. If metadata is being read from a spreadsheet, :code:`metadata_source` should be equal to path the to</span>
+<span class="sd">			Metadata source. If metadata is being read from a spreadsheet, **metadata_source** should be equal to path the to</span>
 <span class="sd">			the metadata file, else if metadata is embed within the image as a layer name, **metadata_source** = **embedded**.</span>
 <span class="sd">			Default is **embedded**. For example:</span>
 <span class="sd">				&gt;&gt;&gt; # if metadata is in PSD images</span>
@@ -322,9 +321,13 @@
 <span class="sd">			Although Photoshop PSD don&#39;t directly provide support for metadata. However if each region of interest is stored</span>
 <span class="sd">			as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has</span>
 <span class="sd">			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can</span>
-<span class="sd">			be either **;** **,** **|** **\\t** or **\\s (Delimiter type must be identified when running this code using the</span>
+<span class="sd">			be either **;** **,** **|** **\\t** or **\\s** (Delimiter type must be identified when running this code using the</span>
 <span class="sd">			**delimiter** parameter. The default is **;**.). Here&#39;s an example using **;** as a delimiter:</span>
+
+<span class="sd">			.. rst-class:: code-param-whitespace</span>
+
 <span class="sd">				&gt;&gt;&gt; imagename = &quot;BM001&quot;; roiname = 1; feature = &quot;lefteye&quot;</span>
+
 <span class="sd">			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.</span>
 <span class="sd">		shape : :obj:`str` {&#39;polygon&#39;, &#39;hull&#39;, &#39;circle&#39;, &#39;rotated&#39;, &#39;straight&#39;}</span>
 <span class="sd">			Shape of machine readable boundaries for region of interest. Default is **straight**. **polygon** creates a Contour</span>
@@ -344,7 +347,7 @@
 <span class="sd">		**kwargs : :obj:`str` or :obj:`None`, optional</span>
 <span class="sd">			Additional properties to control how data is exported, naming variables, exporting images are also available:</span>
 
-<span class="sd">			These properties control additional core parameters:</span>
+<span class="sd">			These properties control additional core parameters for the API:</span>
 
 <span class="sd">			.. list-table::</span>
 <span class="sd">				:class: kwargs</span>
@@ -353,28 +356,30 @@
 
 <span class="sd">				* - Property</span>
 <span class="sd">				  - Description</span>
-<span class="sd">				* - **cores** : :class:`bool`</span>
+<span class="sd">				* - **cores** : :obj:`bool`</span>
 <span class="sd">				  - (if **isMultiprocessing** == **True**) Number of cores to use. Default is total available cores - 1.</span>
-<span class="sd">				* - **isLibrary** : :class:`bool`</span>
+<span class="sd">				* - **isLibrary** : :obj:`bool`</span>
 <span class="sd">				  - Check if required packages have been installed. Default is **False**.</span>
-<span class="sd">				* - **isDebug** : :class:`bool`</span>
+<span class="sd">				* - **isDebug** : :obj:`bool`</span>
 <span class="sd">				  - Allow flags to be visible. Default is **False**.</span>
-<span class="sd">				* - **isDemo** : :class:`bool`</span>
+<span class="sd">				* - **isDemo** : :obj:`bool`</span>
 <span class="sd">				  - Tests code with in-house images and metadata. Default is **False**.</span>
-<span class="sd">				* - **save_data** : :class:`bool`</span>
+<span class="sd">				* - **save_data** : :obj:`bool`</span>
 <span class="sd">				  - Save coordinates. Default is **True**.</span>
 <span class="sd">				* - **newcolumn** : :obj:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`</span>
 <span class="sd">				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is **False**.</span>
-<span class="sd">				* - **save_raw_image** : :class:`bool`</span>
+<span class="sd">				* - **save_raw_image** : :obj:`bool`</span>
 <span class="sd">				  - Save images. Default is True.</span>
-<span class="sd">				* - **append_output_name** : :class:`bool` or :class:`str`</span>
+<span class="sd">				* - **append_output_name** : :obj:`bool` or :obj:`str`</span>
 <span class="sd">				  - Add appending name to all exported files (i.e. &lt;&#39;top_center&#39;&gt; IMG001_top_center.ias). Default is **False**.</span>
-<span class="sd">				* - **save_contour_image** : :class:`bool`</span>
+<span class="sd">				* - **save_contour_image** : :obj:`bool`</span>
 <span class="sd">				  - Save generated contours as images. Default is **True**.</span>
-<span class="sd">				* - **scale** : :class:`int`</span>
+<span class="sd">				* - **scale** : :obj:`int`</span>
 <span class="sd">				  - If image is scaled during presentation, set scale. Default is **1**.</span>
-<span class="sd">				* - **offset** : :class:`list` [:obj:`int`]</span>
+<span class="sd">				* - **offset** : :obj:`list` [:obj:`int`]</span>
 <span class="sd">				  - Center point of image, relative to screensize. Default is **[960, 540]**.</span>
+<span class="sd">				* - **screensize** : :obj:`list` [:obj:`int`]</span>
+<span class="sd">				  - Monitor size is being presented. Default is **[1920, 1080]**.</span>
 
 <span class="sd">			These properties control data is processed which include the type of haarcascade used, delimiters for metadata:</span>
 
@@ -385,22 +390,35 @@
 
 <span class="sd">				* - Property</span>
 <span class="sd">				  - Description</span>
-<span class="sd">				* - **delimiter** : :class:`str` {&#39;;&#39; , &#39;,&#39; , &#39;|&#39; , &#39;tab&#39; , &#39;space&#39;}</span>
+<span class="sd">				* - **delimiter** : :obj:`str` {&#39;;&#39; , &#39;,&#39; , &#39;|&#39; , &#39;tab&#39; , &#39;space&#39;}</span>
 <span class="sd">				  - (if **source** == **psd**) How is metadata delimited. Default is **;**.</span>
-<span class="sd">				* - **classifier** : :obj:`str` {&#39;eye_tree_eyeglasses&#39;, &#39;eye&#39;, &#39;frontalface_alt_tree&#39;, &#39;frontalface_alt&#39;, &#39;frontalface_alt2&#39;,</span>
-<span class="sd">				    &#39;frontalface_default&#39;, &#39;fullbody&#39;, &#39;lowerbody&#39;, &#39;profileface&#39;, &#39;smile&#39;, &#39;upperbody&#39;}</span>
-<span class="sd">				  - (if **detection** == **haarcascade**) Type of trained classifier to use. Default is **frontalface_default**.</span>
-<span class="sd">				* - **classScaleFactor** : :obj:`float`</span>
-<span class="sd">				  - Parameter specifying how much the image size is reduced at each image scale.</span>
-<span class="sd">				* - **classMinNeighbors** : :obj:`float`</span>
-<span class="sd">				  - Parameter specifying how many neighbors each candidate rectangle should have to retain it.</span>
-<span class="sd">				* - **classMinSize** : :obj:`tuple`</span>
-<span class="sd">				  - Minimum possible object size. Objects smaller than that are ignored.</span>
-<span class="sd">				* - **screensize** : :class:`list` [:obj:`int`]</span>
-<span class="sd">				  - Monitor size is being presented. Default is **[1920, 1080]**.</span>
+<span class="sd">				* - **classifiers** : :obj:`default` or :obj:list of :obj:dict</span>
+<span class="sd">				  - (if **detection** == **haarcascade**) Trained classifiers to use. Default is {&#39;eye_tree_eyeglasses&#39;, &#39;eye&#39;, &#39;frontalface_alt_tree&#39;, &#39;frontalface_alt&#39;, &#39;frontalface_alt2&#39;,&#39;frontalface_default&#39;, &#39;fullbody&#39;, &#39;lowerbody&#39;, &#39;profileface&#39;, &#39;smile&#39;, &#39;upperbody&#39;}. Parameters are stored `here &lt;imhr.eyetracking.ROI.haar_parameters&gt;`__. If you want to use custom classifiers, you can pass a list of classifiers and their arguments using the following format:</span>
 
-<span class="sd">			Here are properties specific to how images are exported after processing. The code can either use :class:`matplotlib` </span>
-<span class="sd">			or :class:`PIL` as a backend engine:</span>
+<span class="sd">				    .. rst-class:: code-param</span>
+
+<span class="sd">				    .. code-block:: python</span>
+
+<span class="sd">				    	&gt;&gt;&gt;  [{&#39;custom_cascade&#39;: {</span>
+<span class="sd">						...   &#39;file&#39;: &#39;haarcascade_eye.xml&#39;,</span>
+<span class="sd">						...   &#39;type&#39;: &#39;eye&#39;,</span>
+<span class="sd">						...   &#39;path&#39;: &#39;./haarcascade_eye.xml&#39;,</span>
+<span class="sd">						...   &#39;minN&#39;: 5,</span>
+<span class="sd">						...   &#39;minS&#39;: (100,100),</span>
+<span class="sd">						...   &#39;sF&#39;: 1.01 }</span>
+<span class="sd">						...  }]</span>
+
+<span class="sd">				    You can also pass custom arguments by calling them after initiation:</span>
+
+<span class="sd">				    .. rst-class:: code-param-whitespace</span>
+
+<span class="sd">				    .. code-block:: python</span>
+
+<span class="sd">				    	&gt;&gt;&gt; roi = imhr.eyetracking.ROI(detection=&#39;manual.....)</span>
+<span class="sd">				    	&gt;&gt;&gt; roi.default_classifiers[&#39;eye&#39;][&#39;minNeighbors&#39;] = 10</span>
+
+
+<span class="sd">			Here are properties specific to how images are exported after processing. The code can either use :class:`matplotlib` or :class:`PIL` as a backend engine:</span>
 
 <span class="sd">			.. list-table::</span>
 <span class="sd">				:class: kwargs</span>
@@ -410,7 +428,7 @@
 <span class="sd">				* - Property</span>
 <span class="sd">				  - Description</span>
 <span class="sd">				* - **image_backend** : :class:`str` {&#39;matplotlib&#39;, &#39;PIL&#39;}</span>
-<span class="sd">				  - Backend for exporting image. Either `**matplotlib** &lt;https://matplotlib.org/index.html&gt;`__ or `**PIL** &lt;https://pillow.readthedocs.io/en/stable/&gt;`__. Default is :class:`matplotlib`.</span>
+<span class="sd">				  - Backend for exporting image. Either :class:`matplotlib` or :class:`PIL`. Default is :class:`matplotlib`.</span>
 <span class="sd">				* - **RcParams** : :class:`bool`</span>
 <span class="sd">				  - A dictionary object including validation validating functions are defined and associated with rc parameters in class:`matplotlib.RcParams`. Default is **None**.</span>
 <span class="sd">				* - **background_color** : :class:`list`</span>
@@ -435,13 +453,13 @@
 <span class="sd">			**retval** provides an optimal threshold only if :ref:`cv2.THRESH_OTSU` is passed. **threshold** is an image after applying</span>
 <span class="sd">			a binary threshold (:ref:`cv2.THRESH_BINARY`) removing all greyscale pixels &lt; 127. The output matches the same image</span>
 <span class="sd">			channel as the original image.</span>
-<span class="sd">			See `opencv &lt;https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57&gt;`_ and</span>
-<span class="sd">			`leanopencv &lt;https://www.learnopencv.com/opencv-threshold-python-cpp&gt;`_ for more information.</span>
+<span class="sd">			See `opencv &lt;https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57&gt;`__ and</span>
+<span class="sd">			`leanopencv &lt;https://www.learnopencv.com/opencv-threshold-python-cpp&gt;`__ for more information.</span>
 <span class="sd">		contours, hierarchy : :obj:`numpy.ndarray`</span>
 <span class="sd">			Returns from :ref:`cv2.findContours`. This function returns contours from the provided binary image (threshold).</span>
 <span class="sd">			This is used here for later shape detection. **contours** are the detected contours, while hierarchy containing</span>
 <span class="sd">			information about the image topology.</span>
-<span class="sd">			See `opencv &lt;https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07&gt;`_</span>
+<span class="sd">			See `opencv &lt;https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07&gt;`__</span>
 <span class="sd">			for more information.</span>
 <span class="sd">		image_contours : :obj:`numpy.ndarray`</span>
 <span class="sd">			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.</span>
@@ -481,6 +499,9 @@
 <span class="sd">				* To understand how bounds are created:</span>
 <span class="sd">					* See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html</span>
 <span class="sd">		&quot;&quot;&quot;</span>
+		<span class="kn">import</span> <span class="nn">imhr</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">imhr</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+
 		<span class="c1"># get console and time</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">console</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">console</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">time</span>
@@ -567,23 +588,14 @@
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rcParams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rcParams</span><span class="p">)</span>
 
 		<span class="c1">#-----classifiers</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classifier&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classifier&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;frontalface_default&#39;</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">classScaleFactor</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classScaleFactor&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classScaleFactor&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">1.1</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">classMinNeighbors</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classMinNeighbors&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classMinNeighbors&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">5</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">classMinSize</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classMinSize&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;classMinSize&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">default_classifiers</span> <span class="o">=</span> <span class="p">{</span>
-			<span class="s1">&#39;eye_tree_eyeglasses&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_eye_tree_eyeglasses.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;eye&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_eye.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;frontalface_alt_tree&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_alt_tree.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;frontalface_alt&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_alt.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;frontalface_alt2&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_alt2.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;frontalface_default&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_frontalface_default.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;fullbody&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_fullbody.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;lowerbody&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_lowerbody.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;profileface&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_profileface.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;smile&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_smile.xml&#39;</span><span class="p">,</span>
-			<span class="s1">&#39;upperbody&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_upperbody.xml&#39;</span><span class="p">,</span>
-		<span class="p">}</span>
+		<span class="kn">import</span> <span class="nn">yaml</span>
+		<span class="k">if</span> <span class="p">(</span><span class="s1">&#39;classifiers&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classifiers&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;default&#39;</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">classifiers</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;classifiers&#39;</span><span class="p">]</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/roi/classifiers.yaml&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">_file</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">classifiers</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">_file</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifiers</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">classifiers</span><span class="p">[</span><span class="n">item</span><span class="p">][</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifiers</span><span class="p">[</span><span class="n">item</span><span class="p">][</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
 
 		<span class="c1">#-----colors</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">hex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#2179F1&#39;</span><span class="p">,</span><span class="s1">&#39;#331AE5&#39;</span><span class="p">,</span><span class="s1">&#39;#96E421&#39;</span><span class="p">,</span><span class="s1">&#39;#C56D88&#39;</span><span class="p">,</span><span class="s1">&#39;#61CAC5&#39;</span><span class="p">,</span><span class="s1">&#39;#4980EC&#39;</span><span class="p">,</span><span class="s1">&#39;#2E3400&#39;</span><span class="p">,</span><span class="s1">&#39;#E0DB68&#39;</span><span class="p">,</span><span class="s1">&#39;#C4EC5C&#39;</span><span class="p">,</span><span class="s1">&#39;#D407D7&#39;</span><span class="p">,</span><span class="s1">&#39;#FBB61B&#39;</span><span class="p">,</span>
@@ -600,8 +612,6 @@
 
 		<span class="c1">#----directory</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">filetype</span> <span class="o">=</span> <span class="n">filetype</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-		<span class="kn">import</span> <span class="nn">imhr</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">imhr</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDemo</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">image_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/dist/roi/raw/1/&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/dist/roi/output/&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
@@ -695,7 +705,7 @@
 <span class="sd">		----------</span>
 <span class="sd">		IMG : :obj:`None` or</span>
 <span class="sd">			Can be either:</span>
-<span class="sd">			`psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`_</span>
+<span class="sd">			`psd_tools.PSDImage &lt;https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage&gt;`__</span>
 <span class="sd">			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None</span>
 <span class="sd">		imgtype : :obj:`str` {&#39;psd&#39;,&#39;dcm&#39;,&#39;tiff&#39;, &#39;bitmap&#39;}</span>
 <span class="sd">			Image type.</span>
@@ -721,15 +731,12 @@
 			<span class="k">else</span><span class="p">:</span> <span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
 			<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 		<span class="k">elif</span> <span class="n">imgtype</span> <span class="o">==</span> <span class="s1">&#39;DICOM&#39;</span><span class="p">:</span>
-			<span class="n">breakpoint</span><span class="p">()</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
 			<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 		<span class="k">elif</span> <span class="n">imgtype</span> <span class="o">==</span> <span class="s1">&#39;tiff&#39;</span><span class="p">:</span>
-			<span class="n">breakpoint</span><span class="p">()</span>
-			<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">topil</span><span class="p">()</span>
+			<span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
 			<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 		<span class="k">elif</span> <span class="n">imgtype</span> <span class="o">==</span> <span class="s1">&#39;bitmap&#39;</span><span class="p">:</span>
-			<span class="n">breakpoint</span><span class="p">()</span>
 			<span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
 			<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 
@@ -748,17 +755,16 @@
 			<span class="n">screen_size</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">screensize</span>
 			<span class="n">background</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 			<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">cls</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;# export roi image&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
 		<span class="c1"># scale and move image to emulate stimulus presentation</span>
 		<span class="k">if</span> <span class="n">isPreprocessed</span> <span class="ow">or</span> <span class="n">isNormal</span><span class="p">:</span>
 			<span class="c1"># if scale image</span>
 			<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">scale</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
 				<span class="n">old_imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 				<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">cls</span><span class="o">.</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">cls</span><span class="o">.</span><span class="n">scale</span><span class="p">)]</span>
-				<span class="c1"># image = image.resize(imagesize, Image.ANTIALIAS)</span>
+				<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">imagesize</span><span class="p">))</span>
 				<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span>
-					<span class="bp">cls</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">, scaled to: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">old_imagesize</span><span class="p">,</span> <span class="n">imagesize</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
-				<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
-				<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">cls</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">imagesize</span><span class="p">))</span>
+					<span class="bp">cls</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image size: </span><span class="si">%s</span><span class="s1">, scaled to: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">old_imagesize</span><span class="p">,</span> <span class="n">imagesize</span><span class="p">))</span>
 			<span class="c1"># else unscaled</span>
 			<span class="k">else</span><span class="p">:</span>
 				<span class="n">imagesize</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
@@ -768,19 +774,15 @@
 			<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">newoffset</span><span class="p">:</span>
 				<span class="n">offset_center</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">recenter</span>
 				<span class="c1"># calculate upper-left coordinate for drawing into image</span>
-				<span class="c1"># x-bound &lt;offset_x center&gt; - &lt;1/2 image_x width&gt;</span>
-				<span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">cls</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-				<span class="c1"># y-bound &lt;offset_y center&gt; - &lt;1/2 image_y width&gt;</span>
-				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">cls</span><span class="o">.</span><span class="n">scale</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># x-bound &lt;offset_x center&gt; - &lt;1/2 image_x width&gt;</span>
+				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># y-bound &lt;offset_y center&gt; - &lt;1/2 image_y width&gt;</span>
 				<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 				<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">cls</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image centered at: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">offset_center</span><span class="p">))</span>
 			<span class="c1"># else not offsetting</span>
 			<span class="k">else</span><span class="p">:</span>
 				<span class="c1"># calculate upper-left coordinate for drawing into image</span>
-				<span class="c1"># x-bound &lt;screen_x center&gt; - &lt;1/2 image_x width&gt;</span>
-				<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-				<span class="c1"># y-bound &lt;screen_y center&gt; - &lt;1/2 image_y width&gt;</span>
-				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># x-bound &lt;screen_x center&gt; - &lt;1/2 image_x width&gt;</span>
+				<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">imagesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># y-bound &lt;screen_y center&gt; - &lt;1/2 image_y width&gt;</span>
 				<span class="n">left_xy</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 				<span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">isDebug</span><span class="p">:</span> <span class="bp">cls</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;image centered at: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">([</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">screen_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">]))</span>
 
@@ -1389,7 +1391,7 @@
 <div class="viewcode-block" id="ROI.haarcascade"><a class="viewcode-back" href="../../../api/imhr.eyetracking._roi.html#imhr.eyetracking.ROI.haarcascade">[docs]</a>	<span class="nd">@classmethod</span>
 	<span class="k">def</span> <span class="nf">haarcascade</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;[summary]</span>
-<span class="sd">		</span>
+
 <span class="sd">		Parameters</span>
 <span class="sd">		----------</span>
 <span class="sd">		directory : [type]</span>
@@ -1398,12 +1400,12 @@
 <span class="sd">			[description], by default 0</span>
 <span class="sd">		queue : [type], optional</span>
 <span class="sd">			[description], by default None</span>
-<span class="sd">		</span>
+
 <span class="sd">		Returns</span>
 <span class="sd">		-------</span>
 <span class="sd">		[type]</span>
 <span class="sd">			[description]</span>
-<span class="sd">		</span>
+
 <span class="sd">		Raises</span>
 <span class="sd">		------</span>
 <span class="sd">		Exception</span>
@@ -1505,39 +1507,28 @@
 			<span class="n">cv2_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2BGR</span><span class="p">)</span>
 			<span class="n">gray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">))</span><span class="c1">#; cv2.imwrite(greypath, gray)</span>
 
-			<span class="c1"># creates the cascade classifcation from file</span>
-			<span class="c1">## face</span>
-			<span class="n">_classifer</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">default_classifiers</span><span class="p">[</span><span class="s1">&#39;frontalface_default&#39;</span><span class="p">]</span>
-			<span class="n">face_cascade</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/haarcascade/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">path</span><span class="p">,</span><span class="n">_classifer</span><span class="p">))</span>
-			<span class="c1">## eyes</span>
-			<span class="n">_classifer</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">default_classifiers</span><span class="p">[</span><span class="s1">&#39;eye&#39;</span><span class="p">]</span>
-			<span class="n">eye_cascade</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/haarcascade/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">path</span><span class="p">,</span><span class="n">_classifer</span><span class="p">))</span>
-			<span class="c1">## body</span>
-			<span class="n">_classifer</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">default_classifiers</span><span class="p">[</span><span class="s1">&#39;fullbody&#39;</span><span class="p">]</span>
-			<span class="n">body_cascade</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/dist/haarcascade/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">path</span><span class="p">,</span><span class="n">_classifer</span><span class="p">))</span>
-
-			<span class="c1"># face cascade</span>
-			<span class="n">faces</span> <span class="o">=</span> <span class="n">face_cascade</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">scaleFactor</span><span class="o">=</span><span class="mf">1.01</span><span class="p">,</span> <span class="n">minNeighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minSize</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">flags</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CASCADE_SCALE_IMAGE</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">faces</span><span class="p">):</span>
-				<span class="c1"># store coords</span>
-				<span class="n">l_coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;face&#39;</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">imagename</span><span class="p">])</span>
-				<span class="c1"># draw face</span>
-				<span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="n">cv2_image</span><span class="p">,</span> <span class="n">pt1</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">pt2</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-				<span class="n">roi_gray</span> <span class="o">=</span> <span class="n">gray</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span>
-				<span class="n">roi_color</span> <span class="o">=</span> <span class="n">cv2_image</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span>
-				<span class="c1"># eyes</span>
-				<span class="n">eyes</span> <span class="o">=</span> <span class="n">eye_cascade</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">roi_gray</span><span class="p">,</span> <span class="n">scaleFactor</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">minNeighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minSize</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-				<span class="k">for</span> <span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">,</span> <span class="n">ew</span><span class="p">,</span> <span class="n">eh</span><span class="p">)</span> <span class="ow">in</span> <span class="n">eyes</span><span class="p">:</span>
-					<span class="n">l_coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;eyes&#39;</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">imagename</span><span class="p">])</span>
-					<span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">roi_color</span><span class="p">,</span><span class="n">pt1</span><span class="o">=</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">),</span> <span class="n">pt2</span><span class="o">=</span><span class="p">(</span><span class="n">ex</span><span class="o">+</span><span class="n">ew</span><span class="p">,</span> <span class="n">ey</span><span class="o">+</span><span class="n">eh</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-			<span class="c1"># body cascade</span>
-			<span class="n">body</span> <span class="o">=</span> <span class="n">body_cascade</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">scaleFactor</span><span class="o">=</span><span class="mf">1.01</span><span class="p">,</span> <span class="n">minNeighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minSize</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">flags</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CASCADE_SCALE_IMAGE</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
-				<span class="c1"># store coords</span>
-				<span class="n">l_coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">imagename</span><span class="p">])</span>
-				<span class="c1">#draw body</span>
-				<span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="n">cv2_image</span><span class="p">,</span> <span class="n">pt1</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">pt2</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+			<span class="c1"># for each requested classifier</span>
+			<span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">classifiers</span><span class="p">:</span>
+				<span class="n">classifier</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">classifiers</span><span class="p">[</span><span class="n">ctype</span><span class="p">]</span>
+				<span class="c1">## parameters</span>
+				<span class="n">color</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">rgb</span><span class="p">)</span>
+				<span class="n">cregion</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+				<span class="n">sF</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">[</span><span class="s1">&#39;scaleFactor&#39;</span><span class="p">]</span>
+				<span class="n">minN</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">[</span><span class="s1">&#39;minNeighbors&#39;</span><span class="p">]</span>
+				<span class="n">minS</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">classifier</span><span class="p">[</span><span class="s1">&#39;minSize&#39;</span><span class="p">])</span>
+				<span class="n">thickness</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span>
+				<span class="n">cpath_</span> <span class="o">=</span>  <span class="n">Path</span><span class="p">(</span><span class="n">classifier</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+				<span class="c1">## setup classifier</span>
+				<span class="n">haar</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">cpath_</span><span class="p">))</span>
+				<span class="c1">## detect</span>
+				<span class="n">roi</span> <span class="o">=</span> <span class="n">haar</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">scaleFactor</span><span class="o">=</span><span class="n">sF</span><span class="p">,</span> <span class="n">minNeighbors</span><span class="o">=</span><span class="n">minN</span><span class="p">,</span> <span class="n">minSize</span><span class="o">=</span><span class="n">minS</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CASCADE_SCALE_IMAGE</span><span class="p">)</span>
+				<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">roi</span><span class="p">):</span>
+					<span class="c1"># store coords</span>
+					<span class="n">l_coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cregion</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">imagename</span><span class="p">])</span>
+					<span class="c1"># draw region</span>
+					<span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="n">cv2_image</span><span class="p">,</span> <span class="n">pt1</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">pt2</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+					<span class="n">roi_gray</span> <span class="o">=</span> <span class="n">gray</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span>
+					<span class="n">roi_color</span> <span class="o">=</span> <span class="n">cv2_image</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span>
 
 			<span class="c1"># save image</span>
 			<span class="n">_folder</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/img/cascades/&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
@@ -1732,7 +1723,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-26T21:24:17-05:00.</div>
+			<div>Updated 2019-05-28T18:30:45-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -63,7 +63,7 @@ class ROI():
 			Format to export ROIs. Either to 'csv' (**raw**) or to Eyelink DataViewer 'ias' (**dataviewer**) or both (**both**).
 			Default is **both**. Note: If **roi_format** = **dataviewer**, **shape** must be either be **circle**, **rotated**, or **straight**.
 		metadata_source : :class:`str` or :obj:`None` {'path', 'embedded'}
-			Metadata source. If metadata is being read from a spreadsheet, :code:`metadata_source` should be equal to path the to
+			Metadata source. If metadata is being read from a spreadsheet, **metadata_source** should be equal to path the to
 			the metadata file, else if metadata is embed within the image as a layer name, **metadata_source** = **embedded**.
 			Default is **embedded**. For example:
 				>>> # if metadata is in PSD images
@@ -73,9 +73,13 @@ class ROI():
 			Although Photoshop PSD don't directly provide support for metadata. However if each region of interest is stored
 			as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 			to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-			be either **;** **,** **|** **\\t** or **\\s (Delimiter type must be identified when running this code using the
+			be either **;** **,** **|** **\\t** or **\\s** (Delimiter type must be identified when running this code using the
 			**delimiter** parameter. The default is **;**.). Here's an example using **;** as a delimiter:
+
+			.. rst-class:: code-param-whitespace
+
 				>>> imagename = "BM001"; roiname = 1; feature = "lefteye"
+
 			Note: whitespace should be avoided from from each layer name. Whitespaces may cause errors during parsing.
 		shape : :obj:`str` {'polygon', 'hull', 'circle', 'rotated', 'straight'}
 			Shape of machine readable boundaries for region of interest. Default is **straight**. **polygon** creates a Contour
@@ -95,7 +99,7 @@ class ROI():
 		**kwargs : :obj:`str` or :obj:`None`, optional
 			Additional properties to control how data is exported, naming variables, exporting images are also available:
 
-			These properties control additional core parameters:
+			These properties control additional core parameters for the API:
 
 			.. list-table::
 				:class: kwargs
@@ -104,28 +108,30 @@ class ROI():
 
 				* - Property
 				  - Description
-				* - **cores** : :class:`bool`
+				* - **cores** : :obj:`bool`
 				  - (if **isMultiprocessing** == **True**) Number of cores to use. Default is total available cores - 1.
-				* - **isLibrary** : :class:`bool`
+				* - **isLibrary** : :obj:`bool`
 				  - Check if required packages have been installed. Default is **False**.
-				* - **isDebug** : :class:`bool`
+				* - **isDebug** : :obj:`bool`
 				  - Allow flags to be visible. Default is **False**.
-				* - **isDemo** : :class:`bool`
+				* - **isDemo** : :obj:`bool`
 				  - Tests code with in-house images and metadata. Default is **False**.
-				* - **save_data** : :class:`bool`
+				* - **save_data** : :obj:`bool`
 				  - Save coordinates. Default is **True**.
 				* - **newcolumn** : :obj:`dict` {:obj:`str`, :obj:`str`} or :obj:`False`
 				  - Add additional column to metadata. This must be in the form of a dict in this form {key: value}. Default is **False**.
-				* - **save_raw_image** : :class:`bool`
+				* - **save_raw_image** : :obj:`bool`
 				  - Save images. Default is True.
-				* - **append_output_name** : :class:`bool` or :class:`str`
+				* - **append_output_name** : :obj:`bool` or :obj:`str`
 				  - Add appending name to all exported files (i.e. <'top_center'> IMG001_top_center.ias). Default is **False**.
-				* - **save_contour_image** : :class:`bool`
+				* - **save_contour_image** : :obj:`bool`
 				  - Save generated contours as images. Default is **True**.
-				* - **scale** : :class:`int`
+				* - **scale** : :obj:`int`
 				  - If image is scaled during presentation, set scale. Default is **1**.
-				* - **offset** : :class:`list` [:obj:`int`]
+				* - **offset** : :obj:`list` [:obj:`int`]
 				  - Center point of image, relative to screensize. Default is **[960, 540]**.
+				* - **screensize** : :obj:`list` [:obj:`int`]
+				  - Monitor size is being presented. Default is **[1920, 1080]**.
 
 			These properties control data is processed which include the type of haarcascade used, delimiters for metadata:
 
@@ -136,22 +142,35 @@ class ROI():
 
 				* - Property
 				  - Description
-				* - **delimiter** : :class:`str` {';' , ',' , '|' , 'tab' , 'space'}
+				* - **delimiter** : :obj:`str` {';' , ',' , '|' , 'tab' , 'space'}
 				  - (if **source** == **psd**) How is metadata delimited. Default is **;**.
-				* - **classifier** : :obj:`str` {'eye_tree_eyeglasses', 'eye', 'frontalface_alt_tree', 'frontalface_alt', 'frontalface_alt2',
-				    'frontalface_default', 'fullbody', 'lowerbody', 'profileface', 'smile', 'upperbody'}
-				  - (if **detection** == **haarcascade**) Type of trained classifier to use. Default is **frontalface_default**.
-				* - **classScaleFactor** : :obj:`float`
-				  - Parameter specifying how much the image size is reduced at each image scale.
-				* - **classMinNeighbors** : :obj:`float`
-				  - Parameter specifying how many neighbors each candidate rectangle should have to retain it.
-				* - **classMinSize** : :obj:`tuple`
-				  - Minimum possible object size. Objects smaller than that are ignored.
-				* - **screensize** : :class:`list` [:obj:`int`]
-				  - Monitor size is being presented. Default is **[1920, 1080]**.
+				* - **classifiers** : :obj:`default` or :obj:list of :obj:dict
+				  - (if **detection** == **haarcascade**) Trained classifiers to use. Default is {'eye_tree_eyeglasses', 'eye', 'frontalface_alt_tree', 'frontalface_alt', 'frontalface_alt2','frontalface_default', 'fullbody', 'lowerbody', 'profileface', 'smile', 'upperbody'}. Parameters are stored `here <imhr.eyetracking.ROI.haar_parameters>`__. If you want to use custom classifiers, you can pass a list of classifiers and their arguments using the following format:
 
-			Here are properties specific to how images are exported after processing. The code can either use :class:`matplotlib` 
-			or :class:`PIL` as a backend engine:
+				    .. rst-class:: code-param
+
+				    .. code-block:: python
+
+				    	>>>  [{'custom_cascade': {
+						...   'file': 'haarcascade_eye.xml',
+						...   'type': 'eye',
+						...   'path': './haarcascade_eye.xml',
+						...   'minN': 5,
+						...   'minS': (100,100),
+						...   'sF': 1.01 }
+						...  }]
+
+				    You can also pass custom arguments by calling them after initiation:
+
+				    .. rst-class:: code-param-whitespace
+
+				    .. code-block:: python
+
+				    	>>> roi = imhr.eyetracking.ROI(detection='manual.....)
+				    	>>> roi.default_classifiers['eye']['minNeighbors'] = 10
+
+
+			Here are properties specific to how images are exported after processing. The code can either use :class:`matplotlib` or :class:`PIL` as a backend engine:
 
 			.. list-table::
 				:class: kwargs
@@ -161,7 +180,7 @@ class ROI():
 				* - Property
 				  - Description
 				* - **image_backend** : :class:`str` {'matplotlib', 'PIL'}
-				  - Backend for exporting image. Either `**matplotlib** <https://matplotlib.org/index.html>`__ or `**PIL** <https://pillow.readthedocs.io/en/stable/>`__. Default is :class:`matplotlib`.
+				  - Backend for exporting image. Either :class:`matplotlib` or :class:`PIL`. Default is :class:`matplotlib`.
 				* - **RcParams** : :class:`bool`
 				  - A dictionary object including validation validating functions are defined and associated with rc parameters in class:`matplotlib.RcParams`. Default is **None**.
 				* - **background_color** : :class:`list`
@@ -186,13 +205,13 @@ class ROI():
 			**retval** provides an optimal threshold only if :ref:`cv2.THRESH_OTSU` is passed. **threshold** is an image after applying
 			a binary threshold (:ref:`cv2.THRESH_BINARY`) removing all greyscale pixels < 127. The output matches the same image
 			channel as the original image.
-			See `opencv <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`_ and
-			`leanopencv <https://www.learnopencv.com/opencv-threshold-python-cpp>`_ for more information.
+			See `opencv <https://docs.opencv.org/4.0.1/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57>`__ and
+			`leanopencv <https://www.learnopencv.com/opencv-threshold-python-cpp>`__ for more information.
 		contours, hierarchy : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.findContours`. This function returns contours from the provided binary image (threshold).
 			This is used here for later shape detection. **contours** are the detected contours, while hierarchy containing
 			information about the image topology.
-			See `opencv <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`_
+			See `opencv <https://docs.opencv.org/4.0.1/d3/dc0/group__imgproc__shape.html#gadf1ad6a0b82947fa1fe3c3d497f260e07>`__
 			for more information.
 		image_contours : :obj:`numpy.ndarray`
 			Returns from :ref:`cv2.drawContours`. This draws filled contours from the image.
@@ -232,6 +251,9 @@ class ROI():
 				* To understand how bounds are created:
 					* See https://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html
 		"""
+		import imhr
+		self.path = Path(imhr.__file__).parent
+
 		# get console and time
 		self.console = settings.console
 		self.now = settings.time
@@ -318,23 +340,14 @@ class ROI():
 		if self.rcParams is not None: plt.rcParams.update(self.rcParams)
 
 		#-----classifiers
-		self.classifier = kwargs['classifier'] if 'classifier' in kwargs else 'frontalface_default'
-		self.classScaleFactor = kwargs['classScaleFactor'] if 'classScaleFactor' in kwargs else 1.1
-		self.classMinNeighbors = kwargs['classMinNeighbors'] if 'classMinNeighbors' in kwargs else 5
-		self.classMinSize = kwargs['classMinSize'] if 'classMinSize' in kwargs else (1,1)
-		self.default_classifiers = {
-			'eye_tree_eyeglasses': 'haarcascade_eye_tree_eyeglasses.xml',
-			'eye': 'haarcascade_eye.xml',
-			'frontalface_alt_tree': 'haarcascade_frontalface_alt_tree.xml',
-			'frontalface_alt': 'haarcascade_frontalface_alt.xml',
-			'frontalface_alt2': 'haarcascade_frontalface_alt2.xml',
-			'frontalface_default': 'haarcascade_frontalface_default.xml',
-			'fullbody': 'haarcascade_fullbody.xml',
-			'lowerbody': 'haarcascade_lowerbody.xml',
-			'profileface': 'haarcascade_profileface.xml',
-			'smile': 'haarcascade_smile.xml',
-			'upperbody': 'haarcascade_upperbody.xml',
-		}
+		import yaml
+		if ('classifiers' in kwargs) and (kwargs['classifiers'] is not 'default'):
+			self.classifiers = kwargs['classifiers']
+		else:
+			with open('%s/dist/roi/classifiers.yaml'%(self.path), 'r') as _file:
+				self.classifiers = yaml.safe_load(_file)
+			for item in self.classifiers:
+				self.classifiers[item]['path'] = '%s/%s'%(self.path, self.classifiers[item]['path'])
 
 		#-----colors
 		self.hex = ['#2179F1','#331AE5','#96E421','#C56D88','#61CAC5','#4980EC','#2E3400','#E0DB68','#C4EC5C','#D407D7','#FBB61B',
@@ -351,8 +364,6 @@ class ROI():
 
 		#----directory
 		self.filetype = filetype.strip('.')
-		import imhr
-		self.path = Path(imhr.__file__).parent
 		if self.isDemo is True:
 			self.image_path = "%s/dist/roi/raw/1/"%(self.path)
 			self.output_path = "%s/dist/roi/output/"%(self.path)
@@ -446,7 +457,7 @@ class ROI():
 		----------
 		IMG : :obj:`None` or
 			Can be either:
-			`psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`_
+			`psd_tools.PSDImage <https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.html#psd_tools.PSDImage>`__
 			Photoshop PSD/PSB file object. The file should include one layer for each region of interest, by default None
 		imgtype : :obj:`str` {'psd','dcm','tiff', 'bitmap'}
 			Image type.
@@ -472,15 +483,12 @@ class ROI():
 			else: image = image
 			imagesize = [image.size[0], image.size[1]]
 		elif imgtype == 'DICOM':
-			breakpoint()
-			image = image.topil()
+			image = image
 			imagesize = [image.size[0], image.size[1]]
 		elif imgtype == 'tiff':
-			breakpoint()
-			image = image.topil()
+			image = image
 			imagesize = [image.size[0], image.size[1]]
 		elif imgtype == 'bitmap':
-			breakpoint()
 			image = image
 			imagesize = [image.size[0], image.size[1]]
 
@@ -499,17 +507,16 @@ class ROI():
 			screen_size = cls.screensize
 			background = Image.new("RGBA", (screen_size), (0, 0, 0, 0))
 			if cls.isDebug: cls.console('# export roi image','blue')
+
 		# scale and move image to emulate stimulus presentation
 		if isPreprocessed or isNormal:
 			# if scale image
 			if cls.scale != 1:
 				old_imagesize = [image.size[0], image.size[1]]
 				imagesize = [int(image.size[0] * cls.scale), int(image.size[1] * cls.scale)]
-				# image = image.resize(imagesize, Image.ANTIALIAS)
+				image = image.resize(tuple(imagesize))
 				if cls.isDebug:
-					cls.console('image size: %s, scaled to: %s'%(old_imagesize, imagesize), 'green')
-				imagesize = [int(image.size[0]), int(image.size[1])]
-				if cls.isDebug: cls.console('image size: %s'%(imagesize))
+					cls.console('image size: %s, scaled to: %s'%(old_imagesize, imagesize))
 			# else unscaled
 			else:
 				imagesize = [int(image.size[0]), int(image.size[1])]
@@ -519,19 +526,15 @@ class ROI():
 			if cls.newoffset:
 				offset_center = cls.recenter
 				# calculate upper-left coordinate for drawing into image
-				# x-bound <offset_x center> - <1/2 image_x width>
-				x = ((offset_center[0] * cls.scale) - (imagesize[0]/2))
-				# y-bound <offset_y center> - <1/2 image_y width>
-				y = (offset_center[1] * cls.scale) - (imagesize[1]/2)
+				x = ((offset_center[0]) - (imagesize[0]/2)) # x-bound <offset_x center> - <1/2 image_x width>
+				y = (offset_center[1]) - (imagesize[1]/2) # y-bound <offset_y center> - <1/2 image_y width>
 				left_xy = (int(x),int(y))
 				if cls.isDebug: cls.console('image centered at: %s'%(offset_center))
 			# else not offsetting
 			else:
 				# calculate upper-left coordinate for drawing into image
-				# x-bound <screen_x center> - <1/2 image_x width>
-				x = (screen_size[0]/2) - (imagesize[0]/2)
-				# y-bound <screen_y center> - <1/2 image_y width>
-				y = (screen_size[1]/2) - (imagesize[1]/2)
+				x = (screen_size[0]/2) - (imagesize[0]/2) # x-bound <screen_x center> - <1/2 image_x width>
+				y = (screen_size[1]/2) - (imagesize[1]/2) # y-bound <screen_y center> - <1/2 image_y width>
 				left_xy = (int(x),int(y))
 				if cls.isDebug: cls.console('image centered at: %s'%([screen_size[0]/2,screen_size[1]/2]))
 
@@ -1140,7 +1143,7 @@ class ROI():
 	@classmethod
 	def haarcascade(cls, directory, core=0, queue=None):
 		"""[summary]
-		
+
 		Parameters
 		----------
 		directory : [type]
@@ -1149,12 +1152,12 @@ class ROI():
 			[description], by default 0
 		queue : [type], optional
 			[description], by default None
-		
+
 		Returns
 		-------
 		[type]
 			[description]
-		
+
 		Raises
 		------
 		Exception
@@ -1256,39 +1259,28 @@ class ROI():
 			cv2_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 			gray = np.array(image.convert("L"))#; cv2.imwrite(greypath, gray)
 
-			# creates the cascade classifcation from file
-			## face
-			_classifer = cls.default_classifiers['frontalface_default']
-			face_cascade = cv2.CascadeClassifier('%s/dist/haarcascade/%s'%(cls.path,_classifer))
-			## eyes
-			_classifer = cls.default_classifiers['eye']
-			eye_cascade = cv2.CascadeClassifier('%s/dist/haarcascade/%s'%(cls.path,_classifer))
-			## body
-			_classifer = cls.default_classifiers['fullbody']
-			body_cascade = cv2.CascadeClassifier('%s/dist/haarcascade/%s'%(cls.path,_classifer))
-
-			# face cascade
-			faces = face_cascade.detectMultiScale(gray, scaleFactor=1.01, minNeighbors=5, minSize=(100,100), flags=cv2.CASCADE_SCALE_IMAGE)
-			for idx, (x, y, w, h) in enumerate(faces):
-				# store coords
-				l_coords.append([x, y, x+x+w/2, y+y+h/2, 'face', idx, imagename])
-				# draw face
-				cv2.rectangle(img=cv2_image, pt1=(x,y), pt2=(x+w,y+h), color=(0,255,0), thickness=3)
-				roi_gray = gray[y:y + h, x:x + w]
-				roi_color = cv2_image[y:y + h, x:x + w]
-				# eyes
-				eyes = eye_cascade.detectMultiScale(roi_gray, scaleFactor=1.02, minNeighbors=5, minSize=(50, 50))
-				for (ex, ey, ew, eh) in eyes:
-					l_coords.append([x, y, x+x+w/2, y+y+h/2, 'eyes', idx, imagename])
-					cv2.rectangle(roi_color,pt1=(ex, ey), pt2=(ex+ew, ey+eh), color=(255,0,0), thickness=3)
-
-			# body cascade
-			body = body_cascade.detectMultiScale(gray, scaleFactor=1.01, minNeighbors=5, minSize=(100,100), flags=cv2.CASCADE_SCALE_IMAGE)
-			for idx, (x, y, w, h) in enumerate(body):
-				# store coords
-				l_coords.append([x, y, x+x+w/2, y+y+h/2, 'body', idx, imagename])
-				#draw body
-				cv2.rectangle(img=cv2_image, pt1=(x,y), pt2=(x+w,y+h), color=(0,0,255), thickness=3)
+			# for each requested classifier
+			for ctype in cls.classifiers:
+				classifier = cls.classifiers[ctype]
+				## parameters
+				color = random.choice(cls.rgb)
+				cregion = classifier['type']
+				sF = classifier['scaleFactor']
+				minN = classifier['minNeighbors']
+				minS = tuple(classifier['minSize'])
+				thickness = classifier['thickness']
+				cpath_ =  Path(classifier['path'])
+				## setup classifier
+				haar = cv2.CascadeClassifier('%s'%(cpath_))
+				## detect
+				roi = haar.detectMultiScale(gray, scaleFactor=sF, minNeighbors=minN, minSize=minS, flags=cv2.CASCADE_SCALE_IMAGE)
+				for idx, (x, y, w, h) in enumerate(roi):
+					# store coords
+					l_coords.append([x, y, x+x+w/2, y+y+h/2, cregion, idx, imagename])
+					# draw region
+					cv2.rectangle(img=cv2_image, pt1=(x,y), pt2=(x+w,y+h), color=color, thickness=thickness)
+					roi_gray = gray[y:y + h, x:x + w]
+					roi_color = cv2_image[y:y + h, x:x + w]
 
 			# save image
 			_folder = '%s/img/cascades/'%(cls.output_path)

@@ -9,33 +9,27 @@ Tasks
 
 	<div class="studies-container">
 
+.. rst-class:: h3
+
 **Sustained Attention to Response Task**
 
-.. image:: https://img.shields.io/pypi/pyversions/3.svg
-	:alt: PyPI - Python Version
+.. raw:: html
 
-.. image:: https://img.shields.io/static/v1.svg?label=os&message=Windows,_macos&color=blue
-	:alt: PyPI - Python Version
+	<p>
+		<a><img alt="version" src="https://img.shields.io/badge/version-v0.9-blue.svg"></a>
+		<a><img alt="os" src="https://img.shields.io/badge/platform-macos%20|%20windows-orange.svg"></a>
+		<a><img alt="os" src="https://img.shields.io/badge/type-mri%20|%20behavioral-orange.svg"></a>
+	</p>
 
-include image shields indicating: python/javascript, compatibility, type (mri, eeg), github source, example (if javascript), paper citations
+**Resources**: Download | Example
 
-Also include brief description (similar to studies page)
+Include: code (python/javascript), compatibility, type (mri, eeg), github source, example (if javascript), paper citations,
+brief description (similar to studies page)
 
 .. raw:: html
 
 	</div>
 
-.. raw:: html
 
-	<div class="studies-container">
 
-**dotprobe**
-[![doi](https://img.shields.io/badge/DOI-10.1016%2Fj.cct.2018.10.014-blue.svg?style=flat-square)](https://doi.org/10.1016/j.cct.2018.10.014)
 
-include image shields indicating: python/javascript, compatibility, type (mri, eeg), github source, example (if javascript), paper citations
-
-Also include brief description (similar to studies page)
-
-.. raw:: html
-
-	</div>
