@@ -147,7 +147,7 @@ class ROI():
 				* - **classifiers** : :obj:`default` or :obj:list of :obj:dict
 				  - (if **detection** == **haarcascade**) Trained classifiers to use. Default is {'eye_tree_eyeglasses', 'eye', 'frontalface_alt_tree', 'frontalface_alt', 'frontalface_alt2','frontalface_default', 'fullbody', 'lowerbody', 'profileface', 'smile', 'upperbody'}. Parameters are stored `here <imhr.eyetracking.ROI.haar_parameters>`__. If you want to use custom classifiers, you can pass a list of classifiers and their arguments using the following format:
 
-				    .. rst-class:: code-param
+				    .. rst-class:: code-param-whitespace
 
 				    .. code-block:: python
 

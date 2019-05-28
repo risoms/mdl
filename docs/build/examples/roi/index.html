@@ -614,8 +614,8 @@ the metadata file, else if metadata is embed within the image as a layer name, <
 Although Photoshop PSD don’t directly provide support for metadata. However if each region of interest is stored
 as a seperate layer within a PSD, the layer name can be used to store metadata. To do this, the layer name has
 to be written as delimited text. Our code can read this data and extract relevant metadata. The delimiter can
-be either <strong>;</strong> <strong>,</strong> <strong>|</strong> <strong>\t</strong> or <strong>\s (Delimiter type must be identified when running this code using the
-**delimiter</strong> parameter. The default is <strong>;</strong>.). Here’s an example using <strong>;</strong> as a delimiter:</p>
+be either <strong>;</strong> <strong>,</strong> <strong>|</strong> <strong>\t</strong> or <strong>\s</strong> (Delimiter type must be identified when running this code using the
+<strong>delimiter</strong> parameter. The default is <strong>;</strong>.). Here’s an example using <strong>;</strong> as a delimiter:</p>
 <div class="code-param-whitespace highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imagename</span> <span class="o">=</span> <span class="s2">&quot;BM001&quot;</span><span class="p">;</span> <span class="n">roiname</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">feature</span> <span class="o">=</span> <span class="s2">&quot;lefteye&quot;</span>
 </pre></div>
 </div>
@@ -716,7 +716,7 @@ the file can be read as multilayered</td>
 </tr>
 <tr class="row-odd"><td><strong>classifiers</strong> : <code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code> or :obj:list of :obj:dict</td>
 <td><p class="first">(if <strong>detection</strong> == <strong>haarcascade</strong>) Trained classifiers to use. Default is {‘eye_tree_eyeglasses’, ‘eye’, ‘frontalface_alt_tree’, ‘frontalface_alt’, ‘frontalface_alt2’,’frontalface_default’, ‘fullbody’, ‘lowerbody’, ‘profileface’, ‘smile’, ‘upperbody’}. Parameters are stored <a class="reference external" href="imhr.eyetracking.ROI.haar_parameters'">here</a>. If you want to use custom classifiers, you can pass a list of classifiers and their arguments using the following format:</p>
-<div class="code-param highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="p">[{</span><span class="s1">&#39;custom_cascade&#39;</span><span class="p">:</span> <span class="p">{</span>
+<div class="code-param-whitespace highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="p">[{</span><span class="s1">&#39;custom_cascade&#39;</span><span class="p">:</span> <span class="p">{</span>
 <span class="gp">... </span>  <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="s1">&#39;haarcascade_eye.xml&#39;</span><span class="p">,</span>
 <span class="gp">... </span>  <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;profileface&#39;</span><span class="p">,</span>
 <span class="gp">... </span>  <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;./haarcascade_eye.xml&#39;</span><span class="p">,</span>
@@ -1364,7 +1364,7 @@ or <code class="xref py py-class docutils literal notranslate"><span class="pre"
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-28T18:30:45-05:00.</div>
+			<div>Updated 2019-05-28T18:33:39-05:00.</div>
 		</div>
 	</div>
 </footer>
