@@ -28,6 +28,8 @@ prune imhr/dist/output
 # global-include
 global-include __init__.py
 # global-exclude
+global-exclude *.dcm
+global-exclude *.tif
 global-exclude .ipynb_checkpoints
 global-exclude .pytest_cache
 global-exclude .spyproject
