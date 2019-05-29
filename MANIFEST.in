@@ -22,6 +22,7 @@ prune env
 prune imhr.egg-info
 prune __pycache__
 prune imhr/dist/all
+prune imhr/dist/roi/all
 prune imhr/dist/experiments
 prune imhr/dist/output
 # global-include
