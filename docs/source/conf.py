@@ -67,7 +67,7 @@ def iso():
 	return isoname
 
 # Project information --------------------------------------------------------------------------------------------------
-project = 'imhr-api'
+project = 'imhr'
 author = 'Semeon Risom'
 copyright = u'{}, '.format(time.strftime("%Y"))
 
@@ -134,13 +134,14 @@ jinja_contexts = {
 plot_html_show_source_link = False
 plot_rcparams = {'savefig.bbox':'tight', "savefig.dpi": 400, 'figure.figsize': (20,6), 'figure.facecolor': '#ffffff'}
 plot_apply_rcparams = True  # if context option is used
-plot_formats = ['png','pdf']
+plot_formats = [('png',400)]
 plot_template = """
 {{ source_code }}
 
 {{ only_html }}
    {% for img in images %}
    .. figure:: {{ build_dir }}/{{ img.basename }}.{{ default_fmt }}
+      :target: {{ dest_dir }}/{{ img.basename }}.{{ fmt }}
       {% for option in options -%}
       {{ option }}
       {% endfor %}
@@ -177,6 +178,7 @@ plot_template = """
    {% for img in images %}
    {% if 'pdf' in img.formats -%}
    .. figure:: {{ build_dir }}/{{ img.basename }}.pdf
+      :target: {{ dest_dir }}/{{ img.basename }}.pdf
       {% for option in options -%}
       {{ option }}
       {% endfor %}
@@ -189,6 +191,7 @@ plot_template = """
    {% for img in images %}
    {% if 'png' in img.formats -%}
    .. image:: {{ build_dir }}/{{ img.basename }}.png
+      :target: {{ dest_dir }}/{{ img.basename }}.png
       {% for option in options -%}
       {{ option }}
       {% endfor %}
