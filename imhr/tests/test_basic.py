@@ -41,7 +41,7 @@ def test_lazy_imports():
 	import imhr\n\
 	import imhr.eyetracking\n\
 	import imhr.lib\n\
-	import imhr.plot\n\
+	import imhr.data\n\
 	import imhr.r33\n\
 	import imhr.settings\n\
 	import imhr.tests")
