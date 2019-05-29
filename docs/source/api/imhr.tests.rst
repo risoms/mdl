@@ -20,5 +20,6 @@ imhr.tests
 		
 		imhr.tests.test_basic
 		imhr.tests.test_roi
+		imhr.tests.test_eyetracking
 
 

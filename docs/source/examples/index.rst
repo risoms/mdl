@@ -12,7 +12,8 @@ Guide
    Download data <R33/download_data>
    Run models <R33/run_models>
    Create plots <R33/create_plots>
-   Process data <R33/process_data>
-   Eyetracking demo <eyetracking/demo/eyetracking_demo>
+   Process data <R33/process_data>>
+   PsychoPy Builder <eyetracking/_psychopy/index>
+   Eyetracking demo <eyetracking/demo/index>
    Region of Interest <roi/index>
    

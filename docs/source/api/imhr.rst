@@ -14,15 +14,14 @@ imhr
 
 .. automodule:: imhr
 	:member-order: bysource
-	:exclude-members: Download
+	:exclude-members:
 
 	.. toctree::
 		:maxdepth: 2
 		:hidden:
 		
-		imhr.Download <imhr.Download>
+		imhr.data
 		imhr.eyetracking
-		imhr.plot
 		imhr.r33
 		imhr.tests
 		imhr.settings
@@ -30,9 +29,8 @@ imhr
 
 .. autosummary::
 
-	imhr.Download <imhr.Download>
+	imhr.data
 	imhr.eyetracking
-	imhr.plot
 	imhr.r33
 	imhr.tests
 	imhr.settings

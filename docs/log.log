@@ -5,7 +5,6 @@
 [31;01mWARNING: while setting up extension autodocsumm: directive 'autoattribute' is already registered, it will be overridden[39;49;00m
 [31;01mWARNING: while setting up extension autodocsumm: directive 'automodule' is already registered, it will be overridden[39;49;00m
 [31;01mWARNING: while setting up extension autodocsumm: directive 'autoclass' is already registered, it will be overridden[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Download.rst:23: WARNING: toctree contains reference to nonexisting document 'api/imhr.download.Download'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.Classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.Metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
@@ -56,6 +55,37 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.redcap.redcap.demographics'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.redcap.redcap.mmpi'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/settings.py:docstring of imhr.Webgazer.settings.Settings:7: WARNING: toctree references unknown document 'api/imhr.Webgazer.settings.Settings.definitions'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.data.rst:19: WARNING: toctree contains reference to nonexisting document 'api/`imhr.data.Download <api/imhr.data.download.rst>`__'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.data.rst:19: WARNING: toctree contains reference to nonexisting document 'api/`imhr.data.Plot <api/imhr.data.plot.rst>`__'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Download.REDCap:11: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Download.REDCap:16: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Download.REDCap:21: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Plot.html:50: WARNING: The "list-table" directive is empty; content required.
+
+.. list-table::[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Plot.html:51: WARNING: Explicit markup ends without a blank line; unexpected unindent.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:7: WARNING: toctree references unknown document 'api/imhr.data.download.Download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:7: WARNING: toctree references unknown document 'api/imhr.data.download.Download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:7: WARNING: toctree references unknown document 'api/imhr.data.download.Download.box'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download.REDCap:11: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download.REDCap:16: WARNING: Unexpected indentation.[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download.REDCap:21: WARNING: Unexpected indentation.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.bokeh_calibration'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.bokeh_trial'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.boxplot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.cooks_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.corr_matrix'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.density_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.html'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.logit_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.onset_diff_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.qq_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.residual_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.single_subject'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot.html:50: WARNING: The "list-table" directive is empty; content required.
+
+.. list-table::[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot.html:51: WARNING: Explicit markup ends without a blank line; unexpected unindent.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to excluded document 'api/imhr.eyetracking.pylink'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking.Calibration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to nonexisting document 'api/imhr.eyetracking.Eyelink'[39;49;00m
@@ -150,54 +180,35 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.subject_metadata'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.py:docstring of imhr.r33._settings.Settings:7: WARNING: toctree references unknown document 'api/imhr.r33._settings.Settings.definitions'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst:4: WARNING: toctree contains reference to excluded document 'api/setup'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst:4: WARNING: toctree contains reference to excluded document 'api/versioneer'[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/docs/source/dashboard.rst:12: WARNING: Unknown target name: "github<https://github.com/risoms/mdl-dashboard>".[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:113: WARNING: File not found: 'examples/eyetracking/demo/demo.html#import'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:123: WARNING: File not found: 'examples/eyetracking/demo/demo.html#init'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:133: WARNING: File not found: 'examples/eyetracking/demo/demo.html#connect'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:143: WARNING: File not found: 'examples/eyetracking/demo/demo.html#eye'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:153: WARNING: File not found: 'examples/eyetracking/demo/demo.html#calibration'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:163: WARNING: File not found: 'examples/eyetracking/demo/demo.html#start'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:173: WARNING: File not found: 'examples/eyetracking/demo/demo.html#stop'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:183: WARNING: File not found: 'examples/eyetracking/demo/demo.html#finish'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:219: WARNING: File not found: 'examples/eyetracking/demo/demo.html#drift'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:229: WARNING: File not found: 'examples/eyetracking/demo/demo.html#gc'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:239: WARNING: File not found: 'examples/eyetracking/demo/demo.html#sample'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:249: WARNING: File not found: 'examples/eyetracking/demo/demo.html#message'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:315: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:413: WARNING: File not found: 'eyetracking.rst#imhr.eyetracking.run.start_recording'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/eyetracking_demo.ipynb:514: WARNING: File not found: 'eyetracking.html#imhr.eyetracking.run.sample'[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:527: WARNING: Error in "raw" directive:
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/index.ipynb:342: WARNING: Unknown directive type "section".
+
+.. section:: Example use of eyetracking.sample()[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to nonexisting document 'examples/R33/process_data>'[39;49;00m
+[31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:526: WARNING: Error in "raw" directive:
 1 argument(s) required, 0 supplied.
 
 .. raw::[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:300: WARNING: File not found: "examples/roi/imhr.eyetracking.ROI.haar_parameters'"[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-1.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-1.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-1.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-2.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-2.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-2.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-3.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-3.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-3.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-4.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-4.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-4.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-5.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-5.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-5.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-6.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-6.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-6.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-7.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-7.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-7.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-8.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:14: WARNING: File not found: 'examples/roi/index-8.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-8.png'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:990: WARNING: File not found: 'examples/roi/contours.h5'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:299: WARNING: File not found: "examples/roi/imhr.eyetracking.ROI.haar_parameters'"[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-1.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-2.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-3.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-4.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-5.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-6.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:: WARNING: File not found: 'examples/roi/index-7.'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:962: WARNING: File not found: 'examples/roi/contours.h5'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:11: WARNING: failed to import Download.SFTP[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:11: WARNING: failed to import Download.REDCap[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:11: WARNING: failed to import Download.box[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.bokeh_calibration[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.bokeh_trial[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.cooks_plot[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.corr_matrix[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.density_plot[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.logit_plot[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.onset_diff_plot[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.qq_plot[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.residual_plot[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/docs/source/studies/index.rst:23: WARNING: Content block expected for the "container" directive; none found.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.classify.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.download.rst: WARNING: document isn't included in any toctree[39;49;00m
@@ -209,6 +220,8 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.raw.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.redcap.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.Webgazer.settings.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.data.download.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.data.plot.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._calibration.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._eyelink.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking._roi.rst: WARNING: document isn't included in any toctree[39;49;00m
@@ -218,7 +231,7 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._nslr_hmm.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._processing.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._settings.rst: WARNING: document isn't included in any toctree[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/modules.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/R33/process_data.ipynb: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Velocity'[39;49;00m
@@ -255,6 +268,21 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.redcap.redcap.demographics'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/redcap.py:docstring of imhr.Webgazer.redcap.redcap:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.redcap.redcap.mmpi'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/settings.py:docstring of imhr.Webgazer.settings.Settings:24:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.settings.Settings.definitions'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.download.Download.REDCap'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.download.Download.SFTP'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.download.Download.box'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.bokeh_calibration'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.bokeh_trial'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.boxplot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.cooks_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.corr_matrix'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.density_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.html'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.logit_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.onset_diff_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.qq_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.residual_plot'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:35:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.data.plot.Plot.single_subject'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:171: WARNING: undefined label: cv2.threshold (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:171: WARNING: undefined label: cv2.thresh_otsu (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/eyetracking/__init__.py:docstring of imhr.eyetracking.ROI:171: WARNING: undefined label: cv2.thresh_binary (if the link has no caption the label must precede a section header)[39;49;00m

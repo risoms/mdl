@@ -265,7 +265,13 @@ p.h4,
     line-height: 20px !important;
 	font-weight: 700 !important;
 }
-
+h1>code, h2>code, h3>code, h4>code, h5>code,
+h1>code>span.pre, h2>code>span.pre, h3>code>span.pre, h4>code>span.pre, h5>code>span.pre,
+h1>a>code>span.pre, h2>a>code>span.pre, h3>a>code>span.pre, h4>a>code>span.pre, h5>a>code>span.pre{
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+}
 /*--class and methods--*/
 .class>dd>.docutils {
     /* background-color: #ededed; */
@@ -307,11 +313,19 @@ dd {
 	color: #1c75b1;
 }
 span.pre,
+a.toc-backref>code,
+code.xref.py.py-func.docutils.literal.notranslate,
+p>code.xref.py.py-obj, p>code.xref.py.py-class,
+td>code.xref.py.py-obj, td>code.xref.py.py-class,
+a.reference.external>code.xref.py.py-obj, a.reference.external>code.xref.py.py-class{
+	padding: 0px !important;
+}
+span.pre,
 .simple>li>.reference.external,
 .simple>li>.reference.external>code>span.pre,
 .reference.external>code>span.pre{
-    font-weight: 700 !important;
-	font-size: 13px !important;
+    font-weight: 700;
+	font-size: 13px;
 	color: #42aef7 !important;
 	font-family: "Segoe UI","Helvetica","-apple-system",".SFNSDisplay-Regular",Verdana !important;
 }
@@ -485,9 +499,14 @@ div.table-of-contents {
 div.table-of-contents>ul.simple{
 	padding-left: 20px;
 }
-div.table-of-contents a{
-	color: #4070a0;
-	font-weight: 600;
+div.table-of-contents.eyelink>ul.simple{
+    list-style-type: none;
+    padding-left: 0px;
+}
+div.table-of-contents a.reference.internal{
+	color: #212121;
+    font-size: 14px;
+    font-weight: 500;
 }
 .table-of-contents>.section > h3 a, h4 a, h5 a {
 	color: #666666;

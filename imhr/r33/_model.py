@@ -24,7 +24,7 @@ import datetime
 os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resources/"
 
 # local libraries
-from .. import plot
+from ..data import Plot
 from .. import settings
 
 class Model():

@@ -19,41 +19,27 @@ import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
-import pylink
+from . import pylink
 from ..settings import copyInherit
-from ._roi import ROI as _ROI
-from ._eyelink import Eyelink as _Eyelink
-from ._calibration import Calibration as _Calibration
-
-# set as namespace package
-# see https://stackoverflow.com/questions/41621131/python-namespace-packages-in-python3
-try:
-    import pkg_resources
-    pkg_resources.declare_namespace(__name__)
-    del pkg_resources
-except ImportError:
-    import pkgutil
-    __path__ = pkgutil.extend_path(__path__, __name__)
-    del pkgutil
+from ._roi import ROI
+from ._calibration import Calibration
+from ._eyelink import Eyelink
 
 # classes
-class Eyelink(_Eyelink):
+class Eyelink(Eyelink):
 	"""Interface for the SR Research Eyelink eyetracking system."""
-	__doc__ = _Eyelink.__init__.__doc__
+	__doc__ = Eyelink.__init__.__doc__
 	def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
 		super().__init__(window, timer, isPsychopy=True, subject=None, **kwargs)
 
-class Calibration(_Calibration):
+class Calibration(Calibration):
 	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
-	__doc__ = _Calibration.__init__.__doc__
+	__doc__ = Calibration.__init__.__doc__
 	def __init__(self, w, h, tracker, window):
 		super().__init__(w, h, tracker, window)
 
-class ROI(_ROI):
+class ROI(ROI):
 	"""Generate regions of interest that can be used for data processing and analysis."""
-	__doc__ = _ROI.__init__.__doc__
+	__doc__ = ROI.__init__.__doc__
 	def __init__(self, image_path=None, output_path=None, metadata_path=None, shape='box', **kwargs):
 		super().__init__(image_path=image_path, output_path=output_path, metadata_path=metadata_path, shape=shape, **kwargs)
-
-# finished 
-#del copyInherit, os, sys, _ROI, _Eyelink, _Calibration

@@ -157,22 +157,6 @@ plot_template = """
       {{ caption }}
    {% endfor %}
 
-   {% if source_link or (html_show_formats and not multi_image) %}
-   (
-   {%- if source_link -%}
-   `Source code <{{ source_link }}>`__
-   {%- endif -%}
-   {%- if html_show_formats and not multi_image -%}
-     {%- for img in images -%}
-       {%- for fmt in img.formats -%}
-         {%- if source_link or not loop.first -%}, {% endif -%}
-         `{{ fmt }} <{{ dest_dir }}/{{ img.basename }}.{{ fmt }}>`__
-       {%- endfor -%}
-     {%- endfor -%}
-   {%- endif -%}
-   )
-   {% endif %}
-
 {{ only_latex }}
 
    {% for img in images %}

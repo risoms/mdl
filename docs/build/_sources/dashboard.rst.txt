@@ -9,12 +9,11 @@ Dashboard
 
    <div class="col-md-9">
 
-To view the dashboard you'll need to download the mdl-dashboard standalone app directly from 
-`github<https://github.com/risoms/mdl-dashboard>`_.
+To view the dashboard you'll need to download the mdl-data-science app from `github <https://github.com/risoms/mdl-data-science>`__,
 
-Or install into your local version of python using ``pip``::
+Or download using your console/terminal and **pip**::
 
-    pip install git+https://github.com/risoms/mdl-dashboard.git
+    pip install git+https://github.com/risoms/mdl-data-science.git
 
 .. raw:: html
 

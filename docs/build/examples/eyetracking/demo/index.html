@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Eyelink Demo &#8212; imhr 0.3.29 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/semeon/css/user.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/semeon/js/clipboard.js"></script>
+    <script type="text/javascript" src="../../../_static/semeon/js/user.js"></script>
+    <script type="text/javascript" src="../../../_static/semeon/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../../_static/imhr.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Region of Interest" href="../../roi/index.html" />
+    <link rel="prev" title="Example setup for Eyelink 1000 Plus, using PsychoPy 3.0 Builder." href="../_psychopy/index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+<meta name="author" content="Semeon Risom">
+<meta name="email" content="semeon.risom@gmail.com">
+<meta name="robots" content="index,follow">
+<meta name="AdsBot-Google" content="noindex">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          imhr</a>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-29-0.3.29</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../genindex.html">Glossary</a></li>
+                <li><a href="../../../install.html">Install</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#accesesing-raw-data">Accesesing Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../features.html#relational-plots">Relational plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../R33/process_demographics.html">Process demographics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#get-metadata">get metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#prepare-data">prepare data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#demographic-statistics">demographic statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#list-of-variables">list of variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#descriptive-device">descriptive device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#descriptive-task">descriptive task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/process_demographics.html#summary-data">summary data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/download_data.html">Download data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/download_data.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/download_data.html#raw-data-(UTWeb)">raw data (UTWeb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/download_data.html#REDCap">REDCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../R33/download_data.html#box">box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_psychopy/index.html">PsychoPy Builder</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Before-Running-the-Participant">Before Running the Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Import-package">Import package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Initialize-imhr.eyetracking.Eyelink">Initialize <code class="docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Connect-to-the-Eyelink-Host">Connect to the Eyelink Host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Preparing-the-Participant">Preparing the Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Set-the-dominant-eye">Set the dominant eye</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Start-calibration">Start calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Print-message-to-console/terminal">(Optional) Print message to console/terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Drift-correction">(Optional) Drift correction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Task-Starting">Task Starting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Start-recording">Start recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Initiate-gaze-contigent-event">(Optional) Initiate gaze contigent event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Collect-real-time-gaze-coordinates-from-Eyelink">(Optional) Collect real-time gaze coordinates from Eyelink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Send-messages-to-Eyelink">(Optional) Send messages to Eyelink</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Task-Ending">Task Ending</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Stop-recording">Stop recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Finish-recording">Finish recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Close-PsychoPy">Close PsychoPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../roi/index.html">Region of Interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../roi/index.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../roi/index.html#Parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Required-Parameters">Required Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Optional-Parameters">Optional Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../roi/index.html#Creating-ROI">Creating ROI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Manually-coded-images">Manually coded images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../roi/index.html#Output">Output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Bounds">Bounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../roi/index.html#Data">Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/index.html">Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../studies/R33/index.html">R33</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../studies/Webgazer/index.html">Webgazer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks/index.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/imhr.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.data.html">imhr.data</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.eyetracking.html">imhr.eyetracking</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.r33.html">imhr.r33</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.tests.html">imhr.tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_basic.html">imhr.tests.test_basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_roi.html">imhr.tests.test_roi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/imhr.tests.test_eyetracking.html">imhr.tests.test_eyetracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.settings.html">imhr.settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/imhr.Webgazer.html">imhr.Webgazer</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../R33/process_demographics.html">Process demographics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/download_data.html">Download data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_psychopy/index.html">PsychoPy Builder</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Before-Running-the-Participant">Before Running the Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Import-package">Import package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Initialize-imhr.eyetracking.Eyelink">Initialize <code class="docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Connect-to-the-Eyelink-Host">Connect to the Eyelink Host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Preparing-the-Participant">Preparing the Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Set-the-dominant-eye">Set the dominant eye</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Start-calibration">Start calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Print-message-to-console/terminal">(Optional) Print message to console/terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Drift-correction">(Optional) Drift correction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Task-Starting">Task Starting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Start-recording">Start recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Initiate-gaze-contigent-event">(Optional) Initiate gaze contigent event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Collect-real-time-gaze-coordinates-from-Eyelink">(Optional) Collect real-time gaze coordinates from Eyelink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Send-messages-to-Eyelink">(Optional) Send messages to Eyelink</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Task-Ending">Task Ending</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Stop-recording">Stop recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Finish-recording">Finish recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Close-PsychoPy">Close PsychoPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../roi/index.html">Region of Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks/index.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/imhr.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+	<div class="imhr-bars">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div class="row">
+<div class="toc col-md-3" style="width: 25%;">
+	<div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../R33/process_demographics.html">Process demographics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/download_data.html">Download data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/run_models.html">Run models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../R33/create_plots.html">Create plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_psychopy/index.html">PsychoPy Builder</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Before-Running-the-Participant">Before Running the Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Import-package">Import package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Initialize-imhr.eyetracking.Eyelink">Initialize <code class="docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Connect-to-the-Eyelink-Host">Connect to the Eyelink Host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Preparing-the-Participant">Preparing the Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Set-the-dominant-eye">Set the dominant eye</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Start-calibration">Start calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Print-message-to-console/terminal">(Optional) Print message to console/terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Drift-correction">(Optional) Drift correction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Task-Starting">Task Starting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Start-recording">Start recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Initiate-gaze-contigent-event">(Optional) Initiate gaze contigent event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Collect-real-time-gaze-coordinates-from-Eyelink">(Optional) Collect real-time gaze coordinates from Eyelink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Send-messages-to-Eyelink">(Optional) Send messages to Eyelink</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Task-Ending">Task Ending</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Stop-recording">Stop recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Finish-recording">Finish recording</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Close-PsychoPy">Close PsychoPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../roi/index.html">Region of Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../studies/index.html">Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tasks/index.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/imhr.html">API Reference</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../../../_sources/examples/eyetracking/demo/index.ipynb.txt"
+     rel="nofollow">Source</a>
+</div>
+	</div>
+</div>
+		<div class="col-md-9 content">
+			
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 7ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Example-setup-for-Eyelink-1000-Plus,-using-PsychoPy-3.0.">
+<span id="eyelink-demo"></span><h1>Example setup for Eyelink 1000 Plus, using PsychoPy 3.0.<a class="headerlink" href="#Example-setup-for-Eyelink-1000-Plus,-using-PsychoPy-3.0." title="Permalink to this headline">¶</a></h1>
+<p>Sample code to run SR Research Eyelink eyetracking system. Code is optimized for the Eyelink 1000 Plus (5.0), but should be compatiable with earlier systems.</p>
+<div class="contents local table-of-contents eyelink topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#Before-Running-the-Participant" id="id1">Before Running the Participant</a><ul>
+<li><a class="reference internal" href="#Import-package" id="id2">Import package</a></li>
+<li><a class="reference internal" href="#Initialize-imhr.eyetracking.Eyelink" id="id3">Initialize <code class="docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink</span></code></a></li>
+<li><a class="reference internal" href="#Connect-to-the-Eyelink-Host" id="id4">Connect to the Eyelink Host</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Preparing-the-Participant" id="id5">Preparing the Participant</a><ul>
+<li><a class="reference internal" href="#Set-the-dominant-eye" id="id6">Set the dominant eye</a></li>
+<li><a class="reference internal" href="#Start-calibration" id="id7">Start calibration</a></li>
+<li><a class="reference internal" href="#(Optional)-Print-message-to-console/terminal" id="id8">(Optional) Print message to console/terminal</a></li>
+<li><a class="reference internal" href="#(Optional)-Drift-correction" id="id9">(Optional) Drift correction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Task-Starting" id="id10">Task Starting</a><ul>
+<li><a class="reference internal" href="#Start-recording" id="id11">Start recording</a></li>
+<li><a class="reference internal" href="#(Optional)-Initiate-gaze-contigent-event" id="id12">(Optional) Initiate gaze contigent event</a></li>
+<li><a class="reference internal" href="#(Optional)-Collect-real-time-gaze-coordinates-from-Eyelink" id="id13">(Optional) Collect real-time gaze coordinates from Eyelink</a></li>
+<li><a class="reference internal" href="#(Optional)-Send-messages-to-Eyelink" id="id14">(Optional) Send messages to Eyelink</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Task-Ending" id="id15">Task Ending</a><ul>
+<li><a class="reference internal" href="#Stop-recording" id="id16">Stop recording</a></li>
+<li><a class="reference internal" href="#Finish-recording" id="id17">Finish recording</a></li>
+<li><a class="reference internal" href="#Close-PsychoPy" id="id18">Close PsychoPy</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Before-Running-the-Participant">
+<h2><a class="toc-backref" href="#id1">Before Running the Participant</a><a class="headerlink" href="#Before-Running-the-Participant" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Import-package">
+<h3><a class="toc-backref" href="#id2">Import package</a><a class="headerlink" href="#Import-package" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">imhr</span>
+</pre></div>
+</div>
+</div>
+<p>Set task parameters, either directly from PsychoPy or created manually.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">expInfo</span> <span class="o">=</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;even&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;participant&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;dominant eye&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;corrective&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;False&#39;</span><span class="p">}</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="n">expInfo</span><span class="p">[</span><span class="s1">&#39;participant&#39;</span><span class="p">]</span>
+<span class="n">dominant_eye</span> <span class="o">=</span> <span class="n">expInfo</span><span class="p">[</span><span class="s1">&#39;dominant eye&#39;</span><span class="p">]</span>
+<span class="c1"># `psychopy.core.Clock.CountdownTimer` instance</span>
+<span class="n">routineTimer</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">CountdownTimer</span><span class="p">()</span>
+<span class="c1"># `psychopy.visual.window.Window` instance</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">],</span> <span class="n">fullscr</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allowGUI</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pyglet&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">110</span><span class="p">],</span> <span class="n">colorSpace</span><span class="o">=</span><span class="s1">&#39;rgb255&#39;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Initialize-imhr.eyetracking.Eyelink">
+<h3><a class="toc-backref" href="#id3">Initialize <code class="docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink</span></code></a><a class="headerlink" href="#Initialize-imhr.eyetracking.Eyelink" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before initializing <a class="reference internal" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.start_recording" title="imhr.eyetracking.Eyelink.start_recording"><code class="xref py py-func docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink.start_recording()</span></code></a>, make sure code is placed after PsychoPy window instance has been created in the experiment file. This window will be used in the calibration function.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Initialize imhr.eyetracking.run()</span>
+<span class="n">eyetracking</span> <span class="o">=</span> <span class="n">imhr</span><span class="o">.</span><span class="n">eyetracking</span><span class="o">.</span><span class="n">Eyelink</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">libraries</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">timer</span><span class="o">=</span><span class="n">routineTimer</span><span class="p">,</span> <span class="n">demo</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Connect-to-the-Eyelink-Host">
+<h3><a class="toc-backref" href="#id4">Connect to the Eyelink Host</a><a class="headerlink" href="#Connect-to-the-Eyelink-Host" title="Permalink to this headline">¶</a></h3>
+<p>This controls the parameters to be used when running the eyetracker.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">param</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">calibration_type</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Preparing-the-Participant">
+<h2><a class="toc-backref" href="#id5">Preparing the Participant</a><a class="headerlink" href="#Preparing-the-Participant" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Set-the-dominant-eye">
+<h3><a class="toc-backref" href="#id6">Set the dominant eye</a><a class="headerlink" href="#Set-the-dominant-eye" title="Permalink to this headline">¶</a></h3>
+<p>This step is required for recieving gaze coordinates from Eyelink-&gt;PsychoPy.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">eye_used</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">set_eye_used</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="n">dominant_eye</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Start-calibration">
+<h3><a class="toc-backref" href="#id7">Start calibration</a><a class="headerlink" href="#Start-calibration" title="Permalink to this headline">¶</a></h3>
+<p>When calibration has been completed, it returns <strong>True</strong>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># start calibration</span>
+<span class="n">calibration</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">calibration</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"># Enter the key “o” on the calibration instance. This will begin the task.
+# The Calibration, Validation, ‘task-start’ events are controlled by the keyboard.
+# Calibration (“c”), Validation (“v”), task-start (“o”) respectively.</p>
+</div>
+</div>
+<div class="section" id="(Optional)-Print-message-to-console/terminal">
+<h3><a class="toc-backref" href="#id8">(Optional) Print message to console/terminal</a><a class="headerlink" href="#(Optional)-Print-message-to-console/terminal" title="Permalink to this headline">¶</a></h3>
+<p>Allows printing color coded messages to console/terminal/cmd. This may be useful for debugging issues.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">eyetracking</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.calibration() started&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="(Optional)-Drift-correction">
+<h3><a class="toc-backref" href="#id9">(Optional) Drift correction</a><a class="headerlink" href="#(Optional)-Drift-correction" title="Permalink to this headline">¶</a></h3>
+<p>This can be done at any point after calibration, including before and after <a class="reference internal" href="../../../api/imhr.eyetracking.html#imhr.eyetracking.Eyelink.start_recording" title="imhr.eyetracking.Eyelink.start_recording"><code class="xref py py-func docutils literal notranslate"><span class="pre">imhr.eyetracking.Eyelink.start_recording()</span></code></a> has started. When drift correction has been completed, it returns <strong>True</strong>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">drift</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">drift_correction</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Task-Starting">
+<h2><a class="toc-backref" href="#id10">Task Starting</a><a class="headerlink" href="#Task-Starting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Start-recording">
+<h3><a class="toc-backref" href="#id11">Start recording</a><a class="headerlink" href="#Start-recording" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This should be run at the start of the trial. Also, there is an intentional delay of 150 msec to allow the Eyelink to buffer gaze samples that will show up in your data.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create stimulus (demonstration purposes only).</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;8380.bmp&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/stimuli/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">)</span> <span class="c1">#image size</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#positioning image at center of screen</span>
+<span class="n">stimulus</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">ImageStim</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stimulus&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                            <span class="n">flipHoriz</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">flipVert</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">texRes</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">stimulus</span><span class="o">.</span><span class="n">setAutoDraw</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># start recording</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">trial</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="(Optional)-Initiate-gaze-contigent-event">
+<h3><a class="toc-backref" href="#id12">(Optional) Initiate gaze contigent event</a><a class="headerlink" href="#(Optional)-Initiate-gaze-contigent-event" title="Permalink to this headline">¶</a></h3>
+<p>This is used for realtime data collection from Eyelink-&gt;PsychoPy.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># In the example, a participant is required to look at the bounding cross for a duration</span>
+<span class="c1"># of 2000 msec before continuing the task. If this doesn&#39;t happen and a maxinum duration of</span>
+<span class="c1"># 10000 msec has occured, drift correction will be initiated.</span>
+<span class="n">bound</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">448</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">156</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1472</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">924</span><span class="p">)</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">gc</span><span class="p">(</span><span class="n">bound</span><span class="o">=</span><span class="n">bound</span><span class="p">,</span> <span class="n">t_min</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="(Optional)-Collect-real-time-gaze-coordinates-from-Eyelink">
+<h3><a class="toc-backref" href="#id13">(Optional) Collect real-time gaze coordinates from Eyelink</a><a class="headerlink" href="#(Optional)-Collect-real-time-gaze-coordinates-from-Eyelink" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Samples need to be collected at an interval of 1000/(sampling rate) msec to prevent oversampling.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gxy</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span> <span class="c1"># get gaze coordinates, pupil size, and sample</span>
+</pre></div>
+</div>
+</div>
+<p>##### Example use of <code class="xref py py-obj docutils literal notranslate"><span class="pre">eyetracking.sample</span></code></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># In our example, the sampling rate of our device (Eyelink 1000 Plus) is 500Hz.</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># set current time to 0</span>
+<span class="n">lgxy</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># create list of gaze coordinates (demonstration purposes only)</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># initial timestamp</span>
+<span class="c1"># repeat</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># if difference between starting and current time is greater than &gt; 2.01 msec, collect new sample</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;=</span> <span class="o">.</span><span class="mo">00201</span><span class="p">:</span>
+        <span class="n">gxy</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">eyetracking</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span> <span class="c1"># get gaze coordinates, pupil size, and sample</span>
+        <span class="n">lgxy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gxy</span><span class="p">)</span> <span class="c1"># store in list (not required; demonstration purposes only)</span>
+        <span class="n">s0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="c1"># update starting time</span>
+    <span class="c1">#else set current time</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+
+    <span class="c1">#break `while` statement if list of gaze coordiantes &gt;= 20 (not required; demonstration purposes only)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lgxy</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">:</span> <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="(Optional)-Send-messages-to-Eyelink">
+<h3><a class="toc-backref" href="#id14">(Optional) Send messages to Eyelink</a><a class="headerlink" href="#(Optional)-Send-messages-to-Eyelink" title="Permalink to this headline">¶</a></h3>
+<p>This allows post-hoc processing of event markers (i.e. “stimulus onset”).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Sending message &quot;stimulus onset&quot;.</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;stimulus onset&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Task-Ending">
+<h2><a class="toc-backref" href="#id15">Task Ending</a><a class="headerlink" href="#Task-Ending" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Stop-recording">
+<h3><a class="toc-backref" href="#id16">Stop recording</a><a class="headerlink" href="#Stop-recording" title="Permalink to this headline">¶</a></h3>
+<p>Also (optional) provides trial-level variables to Eyelink.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Variables sent are optional. If they being included, they must be in <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> format.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Prepare variables to be sent to Eyelink</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">trial_type</span><span class="o">=</span><span class="s1">&#39;encoding&#39;</span><span class="p">,</span> <span class="n">race</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="c1"># Stop recording</span>
+<span class="n">eyetracking</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">(</span><span class="n">trial</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Finish-recording">
+<h3><a class="toc-backref" href="#id17">Finish recording</a><a class="headerlink" href="#Finish-recording" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">eyetracking</span><span class="o">.</span><span class="n">finish_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Close-PsychoPy">
+<h3><a class="toc-backref" href="#id18">Close PsychoPy</a><a class="headerlink" href="#Close-PsychoPy" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+		</div>
+		  
+	</div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<div>
+			<div>&copy; Copyright 2019, </div>
+			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
+			<div>Updated 2019-05-29T17:37:55-05:00.</div>
+		</div>
+	</div>
+</footer>
+  </body>
+</html>
