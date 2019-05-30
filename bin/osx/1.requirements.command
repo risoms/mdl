@@ -7,4 +7,5 @@ cd "$(dirname "$0")"
 cd ../
 
 # run pipreqs
-./imhr/lib/pipreqs/pipreqs.py imhr/ --encoding=iso-8859-1 --debug --force --version=greater --exclude=rpy2,pylink,mdl,imhr,win32api,wmi,pyglet,pyobjc,AppKit,pip --include=pytest --savepath=requirements.txt
+./imhr/lib/pipreqs/pipreqs.py imhr/ --encoding=iso-8859-1 --debug --force --version=greater --exclude=rpy2,pylink,mdl,imhr,win32api,wmi,pyglet,pyobjc,AppKit,pip,psychopy,
+PyYAML --include=pytest --savepath=requirements.txt
