@@ -10,6 +10,9 @@
 # allowed imports
 __all__ = ['Eyelink']
 
+# required external libraries
+__required__ = ['psychopy','pandas']
+
 # core
 import time
 import os
@@ -74,12 +77,24 @@ class Eyelink():
 			6) Blank the display, stop recording after an additional 100 milliseconds of data has been collected.
 			7) Report the trial result, and return an appropriate error code.
 		"""
+		#----imports
 		# psychopy
 		from psychopy import visual, core, event
 		from psychopy.constants import (NOT_STARTED, STARTED, FINISHED)
 
+		#----constants
+		# core
+		self.console = settings.console
+		# psychopy
+		self.visual = visual
+		self.core = core
+		self.event = event
+		self.STARTED = STARTED
+		self.FINISHED = FINISHED
+		self.NOT_STARTED = NOT_STARTED
+		
 		#----introduction
-		settings.console(msg="imhr.eyetracking() found.", c='green')
+		self.console("imhr.eyetracking() found.",'green')
 
 		#----screen size
 		if isPsychopy:
@@ -97,7 +112,7 @@ class Eyelink():
 				# get width, height
 				self.w = int(GetSystemMetrics(0))
 				self.h = int(GetSystemMetrics(1))
-				settings.console(msg="imhr.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
+				self.console("imhr.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
 			# else if osx
 			elif platform.system() == 'Darwin':
 				## try to import
@@ -110,11 +125,12 @@ class Eyelink():
 				# get width, height
 				self.w = int(NSScreen.mainScreen().frame().size.width)
 				self.h = int(NSScreen.mainScreen().frame().size.height)
-				settings.console(msg="imhr.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
+				self.console("imhr.eyetracking(): screensize [%s, %s]."%(self.w, self.h))
 
 		#----parameters
 		# instants
 		self.window = window
+		self.Calibration = ''
 		# flags
 		self.isConnected = False
 		self.isStarted = False
@@ -249,11 +265,11 @@ class Eyelink():
 		try:
 			self.tracker = pylink.EyeLink(self.ip)
 			self.isConnected = True
-			settings.console(c='blue', msg="Eyelink Connected")
+			self.console("Eyelink Connected", "blue")
 		except RuntimeError:
 			self.tracker = pylink.EyeLink(None)
 			self.isConnected = False
-			settings.console(c='red', msg="Eyelink not detected at %s"%(self.ip))
+			self.console("Eyelink not detected at %s"%(self.ip), 'red')
 
 		#----tracker metadata
 		# get eyelink version
@@ -397,13 +413,13 @@ class Eyelink():
 		>>> dominant_eye = 'left'
 		>>> eye_used = eyetracking.set_eye_used(eye=dominant_eye)
 		"""
-		settings.console(msg="eyetracking.set_eye_used()")
+		self.console("eyetracking.set_eye_used()")
 		eye_entered = str(eye)
 		if eye_entered in ('Left', 'LEFT', 'left', 'l', 'L'):
-			settings.console(c="blue", msg="eye_entered = %s('left')" %(eye_entered))
+			self.console("eye_entered = %s('left')" %(eye_entered), 'blue')
 			self.eye_used = self.left_eye
 		else:
-			settings.console(c="blue", msg="eye_entered = %s('right')" %(eye_entered))
+			self.console("eye_entered = %s('right')" %(eye_entered), 'blue')
 			self.eye_used = self.right_eye
 
 		return self.eye_used
@@ -424,16 +440,16 @@ class Eyelink():
 		# calibration
 		from . import Calibration
 
-		settings.console(msg="eyetracking.calibration()")
+		self.console("eyetracking.calibration()")
 
 		#----if connected to eyetracker
 		if self.isConnected or (not self.isFlag):
 			# put the tracker in offline mode before we change its configurations
 			self.tracker.setOfflineMode()
 			# Generate custom calibration stimuli
-			self.genv = Calibration(w=self.w, h=self.h, tracker=self.tracker, window=self.window)
+			self.Calibration = Calibration(w=self.w, h=self.h, tracker=self.tracker, window=self.window)
 			# execute custom calibration display
-			pylink.openGraphicsEx(self.genv)
+			pylink.openGraphicsEx(self.Calibration)
 			# calibrate
 			self.tracker.doTrackerSetup(self.w, self.h)
 			#flip screen after finishing
@@ -441,9 +457,9 @@ class Eyelink():
 
 		#----finished
 		self.isCalibration = True
-		settings.console(c="blue", msg="eyetracking.calibration() finished")
+		self.console("eyetracking.calibration() finished", 'blue')
 
-		return self.isCalibration
+		return self.Calibration
 
 	def _drift_message(self):
 		#----prepare to start Routine 'drift_message'
@@ -453,12 +469,12 @@ class Eyelink():
 		frameN = -1
 		continueRoutine = True
 		# update component parameters for each repeat
-		drift_response = event.BuilderKeyResponse()
+		drift_response = self.event.BuilderKeyResponse()
 		# keep track of which components have finished
 		drift_message_components = [drift_response, self.drift_text]
 		for thisComponent in drift_message_components:
 			if hasattr(thisComponent, 'status'):
-				thisComponent.status = NOT_STARTED
+				thisComponent.status = self.NOT_STARTED
 
 		# -------Start Routine "drift_message"-------
 		while continueRoutine:
@@ -468,15 +484,15 @@ class Eyelink():
 			# update/draw components on each frame
 
 			# *drift_response* updates
-			if t >= 0.0 and drift_response.status == NOT_STARTED:
+			if t >= 0.0 and drift_response.status == self.NOT_STARTED:
 				# keep track of start time/frame for later
 				drift_response.tStart = t
 				drift_response.frameNStart = frameN  # exact frame index
-				drift_response.status = STARTED
+				drift_response.status = self.STARTED
 				# keyboard checking is just starting
-				event.clearEvents(eventType='keyboard')
-			if drift_response.status == STARTED:
-				theseKeys = event.getKeys()
+				self.event.clearEvents(eventType='keyboard')
+			if drift_response.status == self.STARTED:
+				theseKeys = self.event.getKeys()
 
 				# check for quit:
 				if "escape" in theseKeys:
@@ -486,22 +502,22 @@ class Eyelink():
 					continueRoutine = False
 
 			# *drift_text* updates
-			if t >= 0.0 and self.drift_text.status == NOT_STARTED:
+			if t >= 0.0 and self.drift_text.status == self.NOT_STARTED:
 				# keep track of start time/frame for later
 				self.drift_text.tStart = t
 				self.drift_text.frameNStart = frameN  # exact frame index
 				self.drift_text.setAutoDraw(True)
 
 			# check for quit (typically the Esc key)
-			if endExpNow or event.getKeys(keyList=["escape"]):
-				core.quit()
+			if endExpNow or self.event.getKeys(keyList=["escape"]):
+				self.core.quit()
 
 			# check if all components have finished
 			if not continueRoutine:  # a component has requested a forced-end of Routine
 				break
 			continueRoutine = False  # will revert to True if at least one component still running
 			for thisComponent in drift_message_components:
-				if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+				if hasattr(thisComponent, "status") and thisComponent.status != self.FINISHED:
 					continueRoutine = True
 					break  # at least one component has not yet finished
 
@@ -541,7 +557,7 @@ class Eyelink():
 		--------
 		>>> eyetracking.drift_correction()
 		"""
-		settings.console(msg="eyetracking.drift_correction()")
+		self.console("eyetracking.drift_correction()")
 
 		#----present drift correction message (only if manually accessing)
 		if origin=='call':
@@ -580,7 +596,7 @@ class Eyelink():
 		   self.tracker.doTrackerSetup()
 
 		#----finished
-		settings.console(c="blue", msg="eyetracking.drift_correction() finished")
+		self.console("eyetracking.drift_correction() finished", "blue")
 
 		return self.isDriftCorrection
 
@@ -628,7 +644,7 @@ class Eyelink():
 		--------
 		>>> eyetracking.start_recording(trial=1, block=1)
 		"""
-		settings.console(msg="eyetracking.start_recording()")
+		self.console("eyetracking.start_recording()")
 
 		# indicates start of trial
 		self.tracker.sendMessage('TRIALID %s' % (str(trial)))
@@ -687,7 +703,7 @@ class Eyelink():
 				height = (bound['bottom'] - bound['top']) + line
 				center = ((bound['left'] - line) + width/2, bound['top'] + height/2)
 				color = [0,255,0]
-				box = visual.Rect(win=self.window, name="bound", units='pix',
+				box = self.visual.Rect(win=self.window, name="bound", units='pix',
 								  width=width, height=height, pos=(0,0), colorSpace='rgb255',
 								  lineWidth=6, lineColor=color, lineColorSpace='rgb255',
 								  opacity=1, depth=0.0, interpolate=True)
@@ -717,7 +733,7 @@ class Eyelink():
 					# has mininum time for gc window occured
 					duration = (time.clock() - current_time) * 1000
 					if duration > min_:
-						settings.console(c='blue', msg="eyetracking.gc() success in %d msec"%((time.clock() - start_time) * 1000))
+						self.console("eyetracking.gc() success in %d msec"%((time.clock() - start_time) * 1000), "blue")
 						self.send_message(msg='gc window success')
 						# clear bounding box (if demo)
 						if self.isDemo:
@@ -736,7 +752,7 @@ class Eyelink():
 					# has maxinum time for gc window occured
 					duration = (time.clock() - start_time) * 1000
 					if duration > max_:
-						settings.console(c='blue', msg="eyetracking.gc() failed, drift correction started")
+						self.console("eyetracking.gc() failed, drift correction started", "blue")
 						self.send_message(msg='gc window failed')
 						# clear bounding box (if demo)
 						if self.isDemo:
@@ -745,7 +761,7 @@ class Eyelink():
 						self.drift_correction(origin='gc')
 						break
 		else:
-			settings.console(c='red', msg="eyetracker not recording")
+			self.console("eyetracker not recording", "red")
  
 	def sample(self):
 		"""
@@ -797,7 +813,7 @@ class Eyelink():
 
 		Examples
 		--------
-		>>> eyetracking.console(c="blue", msg="eyetracking.calibration() started")
+		>>> eyetracking.console(msg="eyetracking.calibration() started", color="blue")
 		"""
 		self.tracker.sendMessage(msg)
 
@@ -816,9 +832,9 @@ class Eyelink():
 				self.tracker.sendMessage(msg)
 				pylink.msecDelay(1)
 			# finished
-			settings.console(msg="variables sent")
+			self.console("variables sent")
 		else:
-			settings.console(c="red", msg="no variables entered")
+			self.console("no variables entered", "red")
 
 	def stop_recording(self, trial=None, block=None, variables=None):
 		"""
@@ -876,7 +892,7 @@ class Eyelink():
 		>>> variables = dict(stimulus='face.png', event='stimulus')
 		>>> eyetracking.stop_recording(trial=trial, block=block, variables=variables)
 		"""
-		settings.console(msg="eyetracking.stop_recording()")
+		self.console("eyetracking.stop_recording()")
 
 		# end of trial message
 		self.tracker.sendMessage('end recording')
@@ -947,7 +963,7 @@ class Eyelink():
 		>>> #end recording session
 		>>> eyetracking.finish_recording()
 		"""
-		settings.console(msg="eyetracking.finish_recording()")
+		self.console("eyetracking.finish_recording()")
 
 		#clear host display
 		self.tracker.sendCommand('clear_screen 0') 
@@ -972,7 +988,7 @@ class Eyelink():
 		else:
 			destination = path
 		self.tracker.receiveDataFile(self.fname, destination)
-		settings.console(c="blue", msg="File saved at: %s"%(Path(destination)))
+		self.console("File saved at: %s"%(Path(destination)), "blue")
 
 		# sends a disconnect message to the EyeLink tracker
 		self.tracker.close()

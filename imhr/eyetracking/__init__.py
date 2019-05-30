@@ -20,7 +20,6 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
 from . import pylink
-from ..settings import copyInherit
 from ._roi import ROI
 from ._calibration import Calibration
 from ._eyelink import Eyelink
@@ -30,7 +29,7 @@ class Eyelink(Eyelink):
 	"""Interface for the SR Research Eyelink eyetracking system."""
 	__doc__ = Eyelink.__init__.__doc__
 	def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
-		super().__init__(window, timer, isPsychopy=True, subject=None, **kwargs)
+		super().__init__(window, timer, isPsychopy, subject, **kwargs)
 
 class Calibration(Calibration):
 	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""

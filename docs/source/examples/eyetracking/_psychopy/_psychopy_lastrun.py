@@ -43,7 +43,7 @@ filename = _thisDir + os.sep + 'data/%s'%(expInfo['participant'])
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\mdl-admin\\Desktop\\mdl\\docs\\source\\examples\\eyetracking\\_psychopy\\_psychopy.py',
+    originPath='C:\\Users\\mdl-admin\\Desktop\\mdl\\docs\\source\\examples\\eyetracking\\_psychopy\\_psychopy_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info

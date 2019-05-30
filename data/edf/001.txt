@@ -1,0 +1,14 @@
+index,category,value
+0,tracker_version,3
+1,host_version,5
+2,select_parser_configuration,0
+3,saccade_acceleration_threshold,9500
+4,saccade_velocity_threshold,35
+5,recording_parse_type,GAZE
+6,enable_search_limits,YES
+7,automatic_calibration_pacing,1000
+8,file_event_filter,"LEFT,RIGHT,FIXATION,SACCADE,BLINK,MESSAGE,BUTTON,INPUT"
+9,file_sample_data,"LEFT,RIGHT,GAZE,AREA,GAZERES,STATUS,HTARGET,INPUT"
+10,link_event_filter,"LEFT,RIGHT,FIXATION,FIXUPDATE,SACCADE,BLINK,BUTTON,INPUT"
+11,link_sample_data,"LEFT,RIGHT,GAZE,GAZERES,AREA,STATUS,HTARGET,INPUT"
+12,calibration_type,13

@@ -7,16 +7,19 @@
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/imhr
 """
+# debug
+from pdb import set_trace as breakpoint
+
 # allowed imports
 __all__ = ['Calibration']
 
 # core
-from pdb import set_trace as breakpoint
 import os
 import string
 import array
 from math import sin, cos, pi
 from PIL import Image
+from pathlib import Path
 import numpy as np
 
 # local libraries
@@ -26,20 +29,24 @@ from . import pylink
 class Calibration(pylink.EyeLinkCustomDisplay):
 	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
 	def __init__(self, w, h, tracker, window):
-		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction..
+		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction.
 
-        Parameters
-        ----------
-        w,h : :class:`int`
-            Screen width, height.
-        tracker : :class:`object`
-            Eyelink tracker instance.
-        window :  `psychopy.visual.Window <https://www.psychopy.org/api/visual/window.html#window>`_
-            PsychoPy window instance.
-        """
+		Parameters
+		----------
+		w,h : :class:`int`
+			Screen width, height.
+		tracker : :class:`object`
+			Eyelink tracker instance.
+		window :  `psychopy.visual.Window <https://www.psychopy.org/api/visual/window.html#window>`__
+			PsychoPy window instance.
+		"""
 		# import psychopy
 		from psychopy import visual, event, sound
 
+		#----constants
+		# core
+		self.console = settings.console
+		# psychopy
 		self.visual = visual
 		self.event = event
 		self.sound = sound
@@ -67,10 +74,11 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		self.last_mouse_state = -1
 
 		#----sound
-		self.path = os.path.dirname(os.path.abspath(__file__)) + "\\"
-		self.__target_beep__ = self.sound.Sound(self.path + "dist\\audio\\type.wav", secs=-1, loops=0)
-		self.__target_beep__done__ = self.sound.Sound(self.path + "dist\\audio\\qbeep.wav", secs=-1, loops=0)
-		self.__target_beep__error__ = self.sound.Sound(self.path + "dist\\audio\\error.wav", secs=-1, loops=0)
+		import imhr
+		self.path = Path(imhr.__file__).parent
+		self.__target_beep__ = self.sound.Sound("%s/dist/audio/type.wav"%(self.path), secs=-1, loops=0)
+		self.__target_beep__done__ = self.sound.Sound("%s/dist/audio/qbeep.wav"%(self.path), secs=-1, loops=0)
+		self.__target_beep__error__ = self.sound.Sound("%s/dist/audio/qbeep.wav"%(self.path), secs=-1, loops=0)
 
 		#----color, image
 		self.pal = None
@@ -87,7 +95,7 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		self.title = visual.TextStim(win=self.window, text='', pos=(0,-self.size[1]/2-self.msgHeight), 
 									units='pix', height=self.msgHeight, bold=False, color='black', 
 									colorSpace='rgb', opacity=1, alignVert='center', wrapWidth=self.w)
-		self.title.fontFiles = [self.path + "dist\\utils\\Helvetica.ttf"]
+		self.title.fontFiles = ["%s/dist/resources/Helvetica.ttf"%(self.path)]
 		self.title.font = 'Helvetica'
 
 		#----menu
@@ -97,7 +105,7 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		self.menu = visual.TextStim(win=self.window, text=menu, pos=(-(self.w *.48), 0), units='pix', 
 									height=38, bold=False, color='black', colorSpace='rgb', 
 									opacity=1, alignHoriz='left', alignVert='center')
-		self.menu.fontFiles = [self.path + "dist\\utils\\Helvetica.ttf"]
+		self.menu.fontFiles = ["%s/dist/resources/Helvetica.ttf"%(self.path)]
 		self.menu.font = 'Helvetica'
 
 		#----fixation
@@ -108,6 +116,10 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 							lineColor=[1,1,1], units='pix')
 		self.inside = visual.Circle(win=self.window, pos=(0,0), radius=3, fillColor=[-1,-1,-1], 
 							lineColor=[-1,-1,-1], units='pix') 
+	
+	def record_abort_hide(self):
+		"""This function is called if aborted."""
+		print('record_abort_hide')
 
 	def setup_cal_display(self):
 		"""
@@ -115,20 +127,22 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 
 		Notes
 		-----
-		This function is called to setup calibration/validation display. This will be called just before we enter into 
-		the calibration or validataion or drift correction mode. Any allocation per calibration or validation drift 
-		correction can be done here. Also, it is normal to clear the display in this call. 
+		This function is called to setup calibration/validation display. This will be
+		called just before we enter into the calibration or validataion or drift correction
+		mode. Any allocation per calibration or validation drift correction can be done
+		here. Also, it is normal to clear the display in this call. 
 
 		"""
-		print('setup_cal_display')
+		self.console('Displaying Calibration Setup.','green')
 		self.window.clearBuffer()
-		if self.is_calibration:
-			self.menu.autoDraw = True
+		self.menu.autoDraw = True
+		self.title.autoDraw = True
+		self.setup_image_display('384','320')
 		self.window.flip()
 
 	def clear_cal_display(self):
 		"""Clear the 'Camera Setup' screen along with menu options."""
-		print('clear_cal_display')
+		self.console('Clearing calibration dot.','orange')
 		self.menu.autoDraw = False
 		self.title.autoDraw = False
 		self.window.clearBuffer()
@@ -137,27 +151,15 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 
 	def exit_cal_display(self):
 		"""Exit the 'Camera Setup' screen along with menu options."""
-		print('exit_cal_display')
+		self.console('Exit Camera Setup screen.','green')
 		self.window.setUnits(self.units)
 		self.clear_cal_display()
-		self.menu.autoDraw = False
-		self.title.autoDraw = False
 		#----flag
 		self.is_calibration = False
-    
-	def record_abort_hide(self):
-		"""This function is called if aborted"""
-		print('record_abort_hide')
-
-	def erase_cal_target(self):
-		"""Erase the calibration/validation target."""
-		print('erase_cal_target')
-		self.clear_cal_display()
-		#self.window.flip()
-        
+		
 	def draw_cal_target(self, x, y):
 		"""Draw the calibration/validation target."""
-		print('draw_cal_target')
+		self.console('Draw the calibration/validation target.','orange')
 		self.clear_cal_display()
 		# convert to psychopy coordinates
 		x = x - (self.w / 2)
@@ -172,15 +174,24 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		self.inside.draw()
 		self.window.flip()
 
+	def erase_cal_target(self):
+		"""Erase the calibration/validation target."""
+		self.console('Erase the calibration/validation target.','blue')
+		self.clear_cal_display()
+
 	def play_beep(self, beepid):
-		""" Play a sound during calibration/drift correction."""
+		"""Play a sound during calibration/drift correction."""
+		self.console('Play a sound during calibration/drift correction.','blue')
 		if beepid == pylink.CAL_TARG_BEEP or beepid == pylink.DC_TARG_BEEP:
+			self.console('CAL_TARG_BEEP', 'purple')
 			self.__target_beep__.play()
-		if beepid == pylink.CAL_ERR_BEEP or beepid == pylink.DC_ERR_BEEP:
+		elif beepid == pylink.CAL_ERR_BEEP or beepid == pylink.DC_ERR_BEEP:
+			self.console('CAL_ERR_BEEP', 'purple')
 			self.__target_beep__error__.play()
-		if beepid in [pylink.CAL_GOOD_BEEP, pylink.DC_GOOD_BEEP]:
+		elif beepid in [pylink.CAL_GOOD_BEEP, pylink.DC_GOOD_BEEP]:
+			self.console('CAL_ERR_BEEP', 'purple')
 			self.__target_beep__done__.play()
-        
+		
 	def getColorFromIndex(self, colorindex):
 		"""Return psychopy colors for elements in the camera image."""
 		if colorindex   ==  pylink.CR_HAIR_COLOR:          return (1,1,1)
@@ -189,7 +200,7 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		elif colorindex ==  pylink.SEARCH_LIMIT_BOX_COLOR: return (1,-1,-1)
 		elif colorindex ==  pylink.MOUSE_CURSOR_COLOR:     return (1,-1,-1)
 		else:                                              return (0,0,0)
-        
+		
 	def draw_line(self, x1, y1, x2, y2, colorindex):
 		"""Draw a line. This is used for drawing crosshairs/squares."""
 		y1 = (-y1  + self.size[1]/2)* self.img_scaling_factor
@@ -204,7 +215,8 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 
 	def draw_lozenge(self, x, y, width, height, colorindex):
 		"""
-		Draw a lozenge to show the defined search limits (x,y) is top-left corner of the bounding box.
+		Draw a lozenge to show the defined search limits (x,y) is top-left corner of the
+		bounding box.
 		"""
 		width = width * self.img_scaling_factor
 		height = height * self.img_scaling_factor
@@ -230,7 +242,7 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		vertices = list(zip(Xs1+Xs2, Ys1+Ys2))
 		lozenge = self.visual.ShapeStim(self.window, vertices=vertices, lineWidth=2.0, lineColor=color, closeShape=True, units='pix')
 		lozenge.draw()
-    
+	
 	def get_mouse_state(self):
 		"""Get the current mouse position and status"""
 		X, Y = self.mouse.getPos()
@@ -250,10 +262,10 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 			mX = mX *2; mY = mY*2
 
 		return ((mX, mY), state)
-    
+	
 	def get_input_key(self):
 		"""
-		This function will be constantly pools, update the stimuli here is you need
+		This function will constantly pool, update the stimuli here is you need
 		dynamic calibration target.
 		"""
 		ky=[]
@@ -283,23 +295,25 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 			elif keycode in string.ascii_letters: k = ord(keycode)
 			elif k== pylink.JUNK_KEY: k = 0
 
-		# plus/equal & minux signs for CR adjustment
-		if keycode in ['num_add', 'equal']: k = ord('+')
-		if keycode in ['num_subtract', 'minus']: k = ord('-')
-
-		if modifier['alt']==True: mod = 256
-		else: mod = 0
-
-		ky.append(pylink.KeyInput(k, mod))
+			# plus/equal & minux signs for CR adjustment
+			if keycode in ['num_add', 'equal']: k = ord('+')
+			if keycode in ['num_subtract', 'minus']: k = ord('-')
+	
+			if modifier['alt']==True: mod = 256
+			else: mod = 0
+	
+			ky.append(pylink.KeyInput(k, mod))
 
 		return ky
 
 	def exit_image_display(self):
 		"""Clear the camera image."""
-		print('exit_image_display')
+		self.console('Clear the camera image and title.','blue')
 
 		self.clear_cal_display()
 		self.menu.autoDraw = True
+		self.title.autoDraw = False
+		self.window.flip()
 		self.window.flip()
 
 	def alert_printf(self, msg):
@@ -308,16 +322,15 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 
 	def setup_image_display(self, width, height):
 		"""Set up the camera image, for newer APIs, the size is 384 x 320 pixels."""
-		print('setup_image_display')
-
+		self.console('Set up the camera image.','blue')
 		self.last_mouse_state = -1
 		self.size = ('384', '320')
 		self.menu.autoDraw = True
 		self.title.autoDraw = True
 
 	def image_title(self, text):
-		print('image_title')
 		"""Display or update Pupil/CR info on image screen."""
+		self.console('Display or update Pupil/CR info on image screen.','blue')
 		self.title.text = text
 
 	def draw_image_line(self, width, line, totlines, buff):
@@ -339,10 +352,12 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 			self.window.flip()
 			self.imagebuffer = array.array(self.imgBuffInitType)
 
-	def set_image_palette(self, r,g,b):
-		"""Given a set of RGB colors, create a list of 24bit numbers representing the pallet.
-		I.e., RGB of (1,64,127) would be saved as 82047, or the number 00000001 01000000 011111111"""
-
+	def set_image_palette(self, r, g, b):
+		"""
+		Given a set of RGB colors, create a list of 24bit numbers representing the
+		pallet. Example: RGB of (1,64,127) would be saved as 82047, or the number 00000001
+		01000000 011111111
+		"""
 		self.imagebuffer = array.array(self.imgBuffInitType)
 		self.resizeImagebuffer = array.array(self.imgBuffInitType)
 		sz = len(r)

@@ -78,7 +78,7 @@ from imhr._version import get_versions
 v = get_versions()['version'][:6]
 release = v
 # The full version, including alpha/beta/rc tags
-version = '%s-%s'%(date, v)
+version = '%s.%s'%(date, v)
 # 'Last updated on:' timestamp is inserted at every page bottom, using the given strftime format.
 isodate = iso()
 html_last_updated_fmt = '%s'%(isodate)
