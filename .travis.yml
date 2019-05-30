@@ -58,8 +58,8 @@ before_install: |
   # test with non-ascii in path.
   if [[ $TRAVIS_OS_NAME != 'osx' ]]; then
     export PATH=/usr/lib/ccache:$PATH
-    which python
-    python --version
+    which python3
+    python3 --version
   fi
 
 # command to install dependencies and package
@@ -69,28 +69,28 @@ install:
     git describe --tags
   - |
     # Set up virtualenv.
-    python -m venv env
+    python3 -m venv env
     source env/bin/activate
   - |
     # Make virtualenv as default python.
     PYTHONPATH=$PYTHONPATH:$('env')
   - |
     # Path of python used.
-    which python
+    which python3
   - |
     # Python version.
-    python --version
+    python3 --version
   - |
     # Upgrade pip, setuptools, wheel to get as clean an install as possible.
-    python -m pip install --upgrade pip setuptools wheel
+    python3 -m pip install --upgrade pip setuptools wheel
   - |
     # Install from PyPI.
     # Install package dependencies.
-    python -m pip install --quiet --requirement requirements.txt
+    python3 -m pip install --quiet --requirement requirements.txt
     # Install pytest dependencies.
-    python -m pip install --quiet --requirement imhr/dist/pytest_requirements.txt
+    python3 -m pip install --quiet --requirement imhr/dist/pytest_requirements.txt
     # Install other required packages.
-    python -m pip install --quiet certifi
+    python3 -m pip install --quiet certifi
 
 before_script: 
   - |
@@ -112,7 +112,7 @@ script:
   # to fail travis need to be the last thing called.
   - |
     # Install package.
-    python setup.py install --quiet
+    python3 setup.py install --quiet
   - |
     # Run pytest.
     pytest --pyargs imhr.tests --html=report.html --self-contained-html
