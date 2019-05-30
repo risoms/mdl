@@ -1,16 +1,15 @@
-#!/bin/bash
-# https://packaging.python.org/tutorials/packaging-projects/
-# Generating distribution archives
+REM # https://packaging.python.org/tutorials/packaging-projects/
+REM # Generating distribution archives
 
-# set path as current location
-cd "$(dirname "$0")"
-cd ../
+REM # set path as current location
+cd ../../
 
-# remove folder from previous archive
-rm -rf build
-rm -rf dist 
-rm -rf imhr.egg-info
+REM # remove folder from previous archive
+rmdir /s "./build"
+rmdir /s "./dist"
+rmdir /s "./imhr.egg-info"
 
-# create archive
-python -m pip install --upgrade pip setuptools wheel tqdm twine #check updates
+REM # create archive
+REM ## check updates
+python -m pip install --upgrade pip setuptools wheel tqdm twine
 python setup.py sdist bdist_wheel

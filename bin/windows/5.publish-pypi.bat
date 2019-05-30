@@ -1,15 +1,13 @@
-#!/bin/bash
-# https://packaging.python.org/tutorials/packaging-projects/
-# upload to pypi
+REM # https://packaging.python.org/tutorials/packaging-projects/
+REM # upload to pypi
 
-# set path as current location
-cd "$(dirname "$0")"
-cd ../
+REM # set path as current location
+cd ../../
 
-# uploading
-## make sure twine is available
+REM # uploading
+REM ## make sure twine is available
 pip install --user --upgrade twine
-## check for issues
+REM ## check for issues
 python -m twine check dist/*
-## upload
+REM ## upload
 python -m twine upload dist/* --verbose -u risoms -p samboi10
