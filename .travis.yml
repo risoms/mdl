@@ -42,6 +42,16 @@ matrix:
         pip: false
         directories:
           - $HOME/Library/Caches/pip
+    - name: "Python 3.6 on Windows"
+      python: 3.6
+      sudo: true
+      os: windows
+      # https://github.com/travis-ci/travis-ci/issues/2312
+      language: shell
+      only: master
+      before_install:
+        - choco install python3
+        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
 
 # before install
 before_install: |
