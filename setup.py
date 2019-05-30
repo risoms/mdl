@@ -6,7 +6,7 @@ but should be compatiable with earlier systems.
 @`date`: Created on Sat May 1 15:12:38 2019
 @`author`: Semeon Risom
 @`email`: semeon.risom@gmail.com
-@`url`: https://semeon.io/d/imhr
+@`url`: http://mdl.psy.utexas.edu/a/imhr
 """
 if __name__ == '__main__':
 	import os
@@ -17,7 +17,7 @@ if __name__ == '__main__':
 	versioneer.VCS = "git"
 
 	# description
-	description = 'mdl - psychology and data science suite.'
+	description = 'imhr: psychology and data science suite.'
 	long_description_content_type = 'text/markdown'
 	with open('README.md') as f:
 		long_description = f.read()
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 	path = '%s/%s'%(os.path.dirname(os.path.realpath(__file__)), 'requirements.txt')
 	with open(path) as f:
 		required = f.read().splitlines()
-	required = required + ["win32api; sys_platform == 'pywin32'"] + ["pyobjc; sys_platform == 'darwin'"]
+	required = required + ["win32api; sys_platform == 'pywin32'"] + ["pyobjc; sys_platform == 'darwin'"] + ["certifi; sys_platform == 'darwin'"]
 
 	# sphinx pydoc - if this is the master version from github, add sphinx requirements
 	# sphinx==1.85 - prevents parameters to be rendered as <dl> instead of <th>
@@ -53,8 +53,8 @@ if __name__ == '__main__':
 	maintainer_email = 'semeon.risom@gmail.com'
 	version = versioneer.get_version()
 	cmdclass = versioneer.get_cmdclass()
-	url = 'http://mdl.psy.utexas.edu/a/mdl'
-	download_url = 'https://github.com/risoms/mdl/'
+	url = 'http://mdl.psy.utexas.edu/a/imhr'
+	download_url = 'https://github.com/risoms/imhr/'
 	classifiers = [
 		'Intended Audience :: Science/Research',
 		'Programming Language :: Python :: 3.6',
@@ -68,8 +68,8 @@ if __name__ == '__main__':
 		'Operating System :: Microsoft :: Windows'
 	]
 	project_urls = {
-		'Documentation': 'http://mdl.psy.utexas.edu/a/mdl',
-		'Source': 'https://github.com/risoms/mdl/'
+		'Documentation': 'http://mdl.psy.utexas.edu/a/imhr',
+		'Source': 'https://github.com/risoms/imhr/'
 	},
 	#namespace_packages=['mdl']
 

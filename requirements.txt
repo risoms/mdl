@@ -15,4 +15,3 @@ psd_tools>=1.8.14
 Pillow!=6.0.0
 paramiko>=2.4.2
 scikit_learn>=0.21.0
-certifi>=2019.3.9
