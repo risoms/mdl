@@ -13,14 +13,6 @@ __all__ = ['Eyelink']
 # required external libraries
 __required__ = ['psychopy','pandas']
 
-# core
-import time
-import os
-import re
-import platform
-import pandas as pd
-from pathlib import Path
-
 # debug
 from pdb import set_trace as breakpoint
 
@@ -28,6 +20,21 @@ from pdb import set_trace as breakpoint
 from .. import settings
 from . import Calibration
 from . import pylink
+
+# check if psychopy is available
+try:
+	# core
+	import time
+	import os
+	import re
+	import platform
+	import pandas as pd
+	from pathlib import Path
+except ImportError as e:
+	pkg = e.name
+	x = {'psychopy':'psychopy','pandas':'pandas'}
+	pkg = x[pkg] if pkg in x else pkg
+	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg),'red')
 
 class Eyelink():
 	"""Interface for the SR Research Eyelink eyetracking system."""

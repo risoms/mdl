@@ -13,18 +13,26 @@ from pdb import set_trace as breakpoint
 # allowed imports
 __all__ = ['Calibration']
 
-# core
-import os
-import string
-import array
-from math import sin, cos, pi
-from PIL import Image
-from pathlib import Path
-import numpy as np
-
 # local libraries
 from .. import settings
 from . import pylink
+
+# check if psychopy is available
+try:
+	# core
+	import os
+	import strimg
+	import array
+	import psychopy
+	from math import sin, cos, pi
+	from PIL import Image
+	from pathlib import Path
+	import numpy as np
+except ImportError as e:
+	pkg = e.name
+	x = {'psychopy':'psychopy','numpy':'numpy','pandas':'pandas','PIL':'Pillow'}
+	pkg = x[pkg] if pkg in x else pkg
+	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg),'red')
 
 class Calibration(pylink.EyeLinkCustomDisplay):
 	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""

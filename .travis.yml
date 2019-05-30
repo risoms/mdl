@@ -42,16 +42,16 @@ matrix:
         pip: false
         directories:
           - $HOME/Library/Caches/pip
-    - name: "Python 3.6 on Windows"
-      python: 3.6
-      sudo: true
-      os: windows
-      # https://github.com/travis-ci/travis-ci/issues/2312
-      language: shell
-      only: master
-      before_install:
-        - choco install python3
-        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+    # - name: "Python 3.6 on Windows"
+    #   python: 3.6
+    #   sudo: true
+    #   os: windows
+    #   # https://github.com/travis-ci/travis-ci/issues/2312
+    #   language: shell
+    #   only: master
+    #   before_install:
+    #     - choco install python3
+    #     - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
 
 # before install
 before_install: |
@@ -69,28 +69,28 @@ install:
     git describe --tags
   - |
     # Set up virtualenv.
-    python3 -m venv env
+    python -m venv env
     source env/bin/activate
   - |
     # Make virtualenv as default python.
     PYTHONPATH=$PYTHONPATH:$('env')
   - |
     # Path of python used.
-    which python3
+    which python
   - |
     # Python version.
-    python3 --version
+    python --version
   - |
     # Upgrade pip, setuptools, wheel to get as clean an install as possible.
-    python3 -m pip install --upgrade pip setuptools wheel
+    python -m pip install --upgrade pip setuptools wheel
   - |
     # Install from PyPI.
     # Install package dependencies.
-    python3 -m pip install --quiet --requirement requirements.txt
+    python -m pip install --quiet --requirement requirements.txt
     # Install pytest dependencies.
-    python3 -m pip install --quiet --requirement imhr/dist/pytest_requirements.txt
+    python -m pip install --quiet --requirement imhr/dist/pytest_requirements.txt
     # Install other required packages.
-    python3 -m pip install --quiet certifi
+    python -m pip install --quiet certifi
 
 before_script: 
   - |
@@ -112,7 +112,7 @@ script:
   # to fail travis need to be the last thing called.
   - |
     # Install package.
-    python3 setup.py install --quiet
+    python setup.py install --quiet
   - |
     # Run pytest.
     pytest --pyargs imhr.tests --html=report.html --self-contained-html
