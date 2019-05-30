@@ -26,7 +26,7 @@ link = settings.link
 
 # rpy2
 ##set path
-os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resources/"
+#os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resources/"
 
 #-------Notes
 # Resources:

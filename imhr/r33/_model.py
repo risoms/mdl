@@ -11,9 +11,6 @@
 # available classes and functions
 __all__ = ['Model']
 
-# required external libraries
-__required__ = ['rpy2','pandas']
-
 # global
 from pdb import set_trace as breakpoint
 import os, re
@@ -21,7 +18,7 @@ import datetime
 
 # rpy2
 #set path
-os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resources/"
+# os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Versions/Current/Resources/"
 
 # local libraries
 from ..data import Plot
