@@ -8,7 +8,7 @@
 | `@url`: https://semeon.io/d/imhr
 """
 # allowed imports
-__all__ = ['test_simple','test_lazy_imports','test_generate_roi']
+__all__ = ['test_simple','test_lazy_imports','test_generate_roi', 'test_run_eyetracking']
 
 # core
 from pdb import set_trace as breakpoint
@@ -22,3 +22,4 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 from .test_basic import test_simple
 from .test_basic import test_lazy_imports
 from .test_roi import test_generate_roi
+from .test_eyetracking import test_run_eyetracking
