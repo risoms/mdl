@@ -6,7 +6,7 @@
 | `@author`: Semeon Risom  
 | `@email`: semeon.risom@gmail.com  
 | `@url`: https://semeon.io/d/imhr
-"""
+""" 
 # allowed imports
 __all__ = ['Eyelink']
 
