@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.eyetracking._eyelink &#8212; imhr 0.3.29 documentation</title>
+    <title>imhr.eyetracking._eyelink &#8212; imhr 0.3.36 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           imhr</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-29-0.3.29</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-31.0.3.36</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -103,7 +103,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/run_models.html">Run models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/create_plots.html">Create plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/_psychopy/index.html">PsychoPy Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/_psychopy/index.html">PsychoPy Builder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/_psychopy/index.html#Before-Running-the-Participant">Before Running the Participant</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Before-Running-the-Participant">Before Running the Participant</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Import-package">Import package</a></li>
@@ -129,6 +132,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Stop-recording">Stop recording</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Finish-recording">Finish recording</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Close-PsychoPy">Close PsychoPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Other-Resources">Other Resources</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Calculate-Visual-Angle">Calculate Visual Angle</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -144,8 +151,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/index.html#Creating-ROI">Creating ROI</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Manually-coded-images">Manually coded images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Manual-coding">Manual coding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Haar-Cascades">Haar Cascades</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/index.html#Output">Output</a><ul>
@@ -265,25 +272,37 @@
 <span class="sd">| `@author`: Semeon Risom  </span>
 <span class="sd">| `@email`: semeon.risom@gmail.com  </span>
 <span class="sd">| `@url`: https://semeon.io/d/imhr</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span> 
 <span class="c1"># allowed imports</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Eyelink&#39;</span><span class="p">]</span>
 
-<span class="c1"># core</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">platform</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="c1"># required external libraries</span>
+<span class="n">__required__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;psychopy&#39;</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">]</span>
 
 <span class="c1"># debug</span>
 <span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
 
 <span class="c1"># local libraries</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">Calibration</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pylink</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+	<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pylink</span>
+
+<span class="c1"># check if psychopy is available</span>
+<span class="k">try</span><span class="p">:</span>
+	<span class="c1"># core</span>
+	<span class="kn">import</span> <span class="nn">time</span>
+	<span class="kn">import</span> <span class="nn">os</span>
+	<span class="kn">import</span> <span class="nn">re</span>
+	<span class="kn">import</span> <span class="nn">psychopy</span>
+	<span class="kn">import</span> <span class="nn">platform</span>
+	<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+	<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+	<span class="n">pkg</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">name</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;psychopy&#39;</span><span class="p">:</span><span class="s1">&#39;psychopy&#39;</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">:</span><span class="s1">&#39;pandas&#39;</span><span class="p">}</span>
+	<span class="n">pkg</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">pkg</span><span class="p">]</span> <span class="k">if</span> <span class="n">pkg</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="n">pkg</span>
+	<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No module named &#39;</span><span class="si">%s</span><span class="s2">&#39;. Please install from PyPI before continuing.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">pkg</span><span class="p">),</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Eyelink"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink">[docs]</a><span class="k">class</span> <span class="nc">Eyelink</span><span class="p">():</span>
 	<span class="sd">&quot;&quot;&quot;Interface for the SR Research Eyelink eyetracking system.&quot;&quot;&quot;</span>
@@ -333,12 +352,24 @@
 <span class="sd">			6) Blank the display, stop recording after an additional 100 milliseconds of data has been collected.</span>
 <span class="sd">			7) Report the trial result, and return an appropriate error code.</span>
 <span class="sd">		&quot;&quot;&quot;</span>
+		<span class="c1">#----imports</span>
 		<span class="c1"># psychopy</span>
 		<span class="kn">from</span> <span class="nn">psychopy</span> <span class="k">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">event</span>
 		<span class="kn">from</span> <span class="nn">psychopy.constants</span> <span class="k">import</span> <span class="p">(</span><span class="n">NOT_STARTED</span><span class="p">,</span> <span class="n">STARTED</span><span class="p">,</span> <span class="n">FINISHED</span><span class="p">)</span>
 
+		<span class="c1">#----constants</span>
+		<span class="c1"># core</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">console</span>
+		<span class="c1"># psychopy</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">visual</span> <span class="o">=</span> <span class="n">visual</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">=</span> <span class="n">core</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">event</span> <span class="o">=</span> <span class="n">event</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">STARTED</span> <span class="o">=</span> <span class="n">STARTED</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">FINISHED</span> <span class="o">=</span> <span class="n">FINISHED</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">NOT_STARTED</span> <span class="o">=</span> <span class="n">NOT_STARTED</span>
+		
 		<span class="c1">#----introduction</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;imhr.eyetracking() found.&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;imhr.eyetracking() found.&quot;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
 		<span class="c1">#----screen size</span>
 		<span class="k">if</span> <span class="n">isPsychopy</span><span class="p">:</span>
@@ -356,7 +387,7 @@
 				<span class="c1"># get width, height</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">GetSystemMetrics</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-				<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;imhr.eyetracking(): screensize [</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">].&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">))</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;imhr.eyetracking(): screensize [</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">].&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">))</span>
 			<span class="c1"># else if osx</span>
 			<span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
 				<span class="c1">## try to import</span>
@@ -369,11 +400,12 @@
 				<span class="c1"># get width, height</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">NSScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">frame</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">NSScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">frame</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
-				<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;imhr.eyetracking(): screensize [</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">].&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">))</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;imhr.eyetracking(): screensize [</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">].&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">))</span>
 
 		<span class="c1">#----parameters</span>
 		<span class="c1"># instants</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">Calibration</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 		<span class="c1"># flags</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">isConnected</span> <span class="o">=</span> <span class="kc">False</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="o">=</span> <span class="kc">False</span>
@@ -508,11 +540,11 @@
 		<span class="k">try</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span> <span class="o">=</span> <span class="n">pylink</span><span class="o">.</span><span class="n">EyeLink</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">isConnected</span> <span class="o">=</span> <span class="kc">True</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Eyelink Connected&quot;</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;Eyelink Connected&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 		<span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span> <span class="o">=</span> <span class="n">pylink</span><span class="o">.</span><span class="n">EyeLink</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">isConnected</span> <span class="o">=</span> <span class="kc">False</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Eyelink not detected at </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">))</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;Eyelink not detected at </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
 		<span class="c1">#----tracker metadata</span>
 		<span class="c1"># get eyelink version</span>
@@ -656,13 +688,13 @@
 <span class="sd">		&gt;&gt;&gt; dominant_eye = &#39;left&#39;</span>
 <span class="sd">		&gt;&gt;&gt; eye_used = eyetracking.set_eye_used(eye=dominant_eye)</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.set_eye_used()&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.set_eye_used()&quot;</span><span class="p">)</span>
 		<span class="n">eye_entered</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
 		<span class="k">if</span> <span class="n">eye_entered</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;LEFT&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">):</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eye_entered = </span><span class="si">%s</span><span class="s2">(&#39;left&#39;)&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">eye_entered</span><span class="p">))</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eye_entered = </span><span class="si">%s</span><span class="s2">(&#39;left&#39;)&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">eye_entered</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_eye</span>
 		<span class="k">else</span><span class="p">:</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eye_entered = </span><span class="si">%s</span><span class="s2">(&#39;right&#39;)&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">eye_entered</span><span class="p">))</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eye_entered = </span><span class="si">%s</span><span class="s2">(&#39;right&#39;)&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">eye_entered</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_eye</span>
 
 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">eye_used</span></div>
@@ -683,16 +715,16 @@
 		<span class="c1"># calibration</span>
 		<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">Calibration</span>
 
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.calibration()&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.calibration()&quot;</span><span class="p">)</span>
 
 		<span class="c1">#----if connected to eyetracker</span>
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isConnected</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isFlag</span><span class="p">):</span>
 			<span class="c1"># put the tracker in offline mode before we change its configurations</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">setOfflineMode</span><span class="p">()</span>
 			<span class="c1"># Generate custom calibration stimuli</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">genv</span> <span class="o">=</span> <span class="n">Calibration</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">Calibration</span> <span class="o">=</span> <span class="n">Calibration</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
 			<span class="c1"># execute custom calibration display</span>
-			<span class="n">pylink</span><span class="o">.</span><span class="n">openGraphicsEx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genv</span><span class="p">)</span>
+			<span class="n">pylink</span><span class="o">.</span><span class="n">openGraphicsEx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Calibration</span><span class="p">)</span>
 			<span class="c1"># calibrate</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">doTrackerSetup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
 			<span class="c1">#flip screen after finishing</span>
@@ -700,9 +732,9 @@
 
 		<span class="c1">#----finished</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">isCalibration</span> <span class="o">=</span> <span class="kc">True</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.calibration() finished&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.calibration() finished&quot;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">isCalibration</span></div>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Calibration</span></div>
 
 	<span class="k">def</span> <span class="nf">_drift_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="c1">#----prepare to start Routine &#39;drift_message&#39;</span>
@@ -712,12 +744,12 @@
 		<span class="n">frameN</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 		<span class="n">continueRoutine</span> <span class="o">=</span> <span class="kc">True</span>
 		<span class="c1"># update component parameters for each repeat</span>
-		<span class="n">drift_response</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">BuilderKeyResponse</span><span class="p">()</span>
+		<span class="n">drift_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">BuilderKeyResponse</span><span class="p">()</span>
 		<span class="c1"># keep track of which components have finished</span>
 		<span class="n">drift_message_components</span> <span class="o">=</span> <span class="p">[</span><span class="n">drift_response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">drift_text</span><span class="p">]</span>
 		<span class="k">for</span> <span class="n">thisComponent</span> <span class="ow">in</span> <span class="n">drift_message_components</span><span class="p">:</span>
 			<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thisComponent</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">):</span>
-				<span class="n">thisComponent</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">NOT_STARTED</span>
+				<span class="n">thisComponent</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NOT_STARTED</span>
 
 		<span class="c1"># -------Start Routine &quot;drift_message&quot;-------</span>
 		<span class="k">while</span> <span class="n">continueRoutine</span><span class="p">:</span>
@@ -727,15 +759,15 @@
 			<span class="c1"># update/draw components on each frame</span>
 
 			<span class="c1"># *drift_response* updates</span>
-			<span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">drift_response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">NOT_STARTED</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">drift_response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">NOT_STARTED</span><span class="p">:</span>
 				<span class="c1"># keep track of start time/frame for later</span>
 				<span class="n">drift_response</span><span class="o">.</span><span class="n">tStart</span> <span class="o">=</span> <span class="n">t</span>
 				<span class="n">drift_response</span><span class="o">.</span><span class="n">frameNStart</span> <span class="o">=</span> <span class="n">frameN</span>  <span class="c1"># exact frame index</span>
-				<span class="n">drift_response</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">STARTED</span>
+				<span class="n">drift_response</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STARTED</span>
 				<span class="c1"># keyboard checking is just starting</span>
-				<span class="n">event</span><span class="o">.</span><span class="n">clearEvents</span><span class="p">(</span><span class="n">eventType</span><span class="o">=</span><span class="s1">&#39;keyboard&#39;</span><span class="p">)</span>
-			<span class="k">if</span> <span class="n">drift_response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">STARTED</span><span class="p">:</span>
-				<span class="n">theseKeys</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">clearEvents</span><span class="p">(</span><span class="n">eventType</span><span class="o">=</span><span class="s1">&#39;keyboard&#39;</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">drift_response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">STARTED</span><span class="p">:</span>
+				<span class="n">theseKeys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">getKeys</span><span class="p">()</span>
 
 				<span class="c1"># check for quit:</span>
 				<span class="k">if</span> <span class="s2">&quot;escape&quot;</span> <span class="ow">in</span> <span class="n">theseKeys</span><span class="p">:</span>
@@ -745,22 +777,22 @@
 					<span class="n">continueRoutine</span> <span class="o">=</span> <span class="kc">False</span>
 
 			<span class="c1"># *drift_text* updates</span>
-			<span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">drift_text</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">NOT_STARTED</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">drift_text</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">NOT_STARTED</span><span class="p">:</span>
 				<span class="c1"># keep track of start time/frame for later</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">drift_text</span><span class="o">.</span><span class="n">tStart</span> <span class="o">=</span> <span class="n">t</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">drift_text</span><span class="o">.</span><span class="n">frameNStart</span> <span class="o">=</span> <span class="n">frameN</span>  <span class="c1"># exact frame index</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">drift_text</span><span class="o">.</span><span class="n">setAutoDraw</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 			<span class="c1"># check for quit (typically the Esc key)</span>
-			<span class="k">if</span> <span class="n">endExpNow</span> <span class="ow">or</span> <span class="n">event</span><span class="o">.</span><span class="n">getKeys</span><span class="p">(</span><span class="n">keyList</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;escape&quot;</span><span class="p">]):</span>
-				<span class="n">core</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+			<span class="k">if</span> <span class="n">endExpNow</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">getKeys</span><span class="p">(</span><span class="n">keyList</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;escape&quot;</span><span class="p">]):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 
 			<span class="c1"># check if all components have finished</span>
 			<span class="k">if</span> <span class="ow">not</span> <span class="n">continueRoutine</span><span class="p">:</span>  <span class="c1"># a component has requested a forced-end of Routine</span>
 				<span class="k">break</span>
 			<span class="n">continueRoutine</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># will revert to True if at least one component still running</span>
 			<span class="k">for</span> <span class="n">thisComponent</span> <span class="ow">in</span> <span class="n">drift_message_components</span><span class="p">:</span>
-				<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thisComponent</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">thisComponent</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="n">FINISHED</span><span class="p">:</span>
+				<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">thisComponent</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">thisComponent</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FINISHED</span><span class="p">:</span>
 					<span class="n">continueRoutine</span> <span class="o">=</span> <span class="kc">True</span>
 					<span class="k">break</span>  <span class="c1"># at least one component has not yet finished</span>
 
@@ -800,7 +832,7 @@
 <span class="sd">		--------</span>
 <span class="sd">		&gt;&gt;&gt; eyetracking.drift_correction()</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.drift_correction()&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.drift_correction()&quot;</span><span class="p">)</span>
 
 		<span class="c1">#----present drift correction message (only if manually accessing)</span>
 		<span class="k">if</span> <span class="n">origin</span><span class="o">==</span><span class="s1">&#39;call&#39;</span><span class="p">:</span>
@@ -839,7 +871,7 @@
 		   <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">doTrackerSetup</span><span class="p">()</span>
 
 		<span class="c1">#----finished</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.drift_correction() finished&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.drift_correction() finished&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 
 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDriftCorrection</span></div>
 
@@ -887,7 +919,7 @@
 <span class="sd">		--------</span>
 <span class="sd">		&gt;&gt;&gt; eyetracking.start_recording(trial=1, block=1)</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.start_recording()&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.start_recording()&quot;</span><span class="p">)</span>
 
 		<span class="c1"># indicates start of trial</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;TRIALID </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trial</span><span class="p">)))</span>
@@ -946,7 +978,7 @@
 				<span class="n">height</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">bound</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">line</span>
 				<span class="n">center</span> <span class="o">=</span> <span class="p">((</span><span class="n">bound</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">line</span><span class="p">)</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">bound</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 				<span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-				<span class="n">box</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bound&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span>
+				<span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bound&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span>
 								  <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">colorSpace</span><span class="o">=</span><span class="s1">&#39;rgb255&#39;</span><span class="p">,</span>
 								  <span class="n">lineWidth</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">lineColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lineColorSpace</span><span class="o">=</span><span class="s1">&#39;rgb255&#39;</span><span class="p">,</span>
 								  <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -976,7 +1008,7 @@
 					<span class="c1"># has mininum time for gc window occured</span>
 					<span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">current_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>
 					<span class="k">if</span> <span class="n">duration</span> <span class="o">&gt;</span> <span class="n">min_</span><span class="p">:</span>
-						<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.gc() success in </span><span class="si">%d</span><span class="s2"> msec&quot;</span><span class="o">%</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+						<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.gc() success in </span><span class="si">%d</span><span class="s2"> msec&quot;</span><span class="o">%</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 						<span class="bp">self</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;gc window success&#39;</span><span class="p">)</span>
 						<span class="c1"># clear bounding box (if demo)</span>
 						<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDemo</span><span class="p">:</span>
@@ -995,7 +1027,7 @@
 					<span class="c1"># has maxinum time for gc window occured</span>
 					<span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>
 					<span class="k">if</span> <span class="n">duration</span> <span class="o">&gt;</span> <span class="n">max_</span><span class="p">:</span>
-						<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.gc() failed, drift correction started&quot;</span><span class="p">)</span>
+						<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.gc() failed, drift correction started&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 						<span class="bp">self</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;gc window failed&#39;</span><span class="p">)</span>
 						<span class="c1"># clear bounding box (if demo)</span>
 						<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDemo</span><span class="p">:</span>
@@ -1004,7 +1036,7 @@
 						<span class="bp">self</span><span class="o">.</span><span class="n">drift_correction</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;gc&#39;</span><span class="p">)</span>
 						<span class="k">break</span>
 		<span class="k">else</span><span class="p">:</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracker not recording&quot;</span><span class="p">)</span></div>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracker not recording&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span></div>
  
 <div class="viewcode-block" id="Eyelink.sample"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.sample">[docs]</a>	<span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
@@ -1056,7 +1088,7 @@
 
 <span class="sd">		Examples</span>
 <span class="sd">		--------</span>
-<span class="sd">		&gt;&gt;&gt; eyetracking.console(c=&quot;blue&quot;, msg=&quot;eyetracking.calibration() started&quot;)</span>
+<span class="sd">		&gt;&gt;&gt; eyetracking.console(msg=&quot;eyetracking.calibration() started&quot;, color=&quot;blue&quot;)</span>
 <span class="sd">		&quot;&quot;&quot;</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 
@@ -1075,9 +1107,9 @@
 				<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 				<span class="n">pylink</span><span class="o">.</span><span class="n">msecDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 			<span class="c1"># finished</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;variables sent&quot;</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;variables sent&quot;</span><span class="p">)</span>
 		<span class="k">else</span><span class="p">:</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;no variables entered&quot;</span><span class="p">)</span></div>
+			<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;no variables entered&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Eyelink.stop_recording"><a class="viewcode-back" href="../../../api/imhr.eyetracking._eyelink.html#imhr.eyetracking.Eyelink.stop_recording">[docs]</a>	<span class="k">def</span> <span class="nf">stop_recording</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;</span>
@@ -1135,7 +1167,7 @@
 <span class="sd">		&gt;&gt;&gt; variables = dict(stimulus=&#39;face.png&#39;, event=&#39;stimulus&#39;)</span>
 <span class="sd">		&gt;&gt;&gt; eyetracking.stop_recording(trial=trial, block=block, variables=variables)</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.stop_recording()&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.stop_recording()&quot;</span><span class="p">)</span>
 
 		<span class="c1"># end of trial message</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;end recording&#39;</span><span class="p">)</span>
@@ -1206,7 +1238,7 @@
 <span class="sd">		&gt;&gt;&gt; #end recording session</span>
 <span class="sd">		&gt;&gt;&gt; eyetracking.finish_recording()</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;eyetracking.finish_recording()&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;eyetracking.finish_recording()&quot;</span><span class="p">)</span>
 
 		<span class="c1">#clear host display</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">sendCommand</span><span class="p">(</span><span class="s1">&#39;clear_screen 0&#39;</span><span class="p">)</span> 
@@ -1231,7 +1263,7 @@
 		<span class="k">else</span><span class="p">:</span>
 			<span class="n">destination</span> <span class="o">=</span> <span class="n">path</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">receiveDataFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;File saved at: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)))</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s2">&quot;File saved at: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 
 		<span class="c1"># sends a disconnect message to the EyeLink tracker</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1252,7 +1284,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-29T17:37:55-05:00.</div>
+			<div>Updated 2019-05-31T13:47:46-05:00.</div>
 		</div>
 	</div>
 </footer>

@@ -15,27 +15,31 @@ __all__ = ['Calibration']
 
 # local libraries
 from .. import settings
-from . import pylink
 
 # check if psychopy is available
 try:
 	# core
-	import os
-	import strimg
+	import string
 	import array
 	import psychopy
 	from math import sin, cos, pi
 	from PIL import Image
 	from pathlib import Path
-	import numpy as np
+	import numpy as np	
 except ImportError as e:
 	pkg = e.name
 	x = {'psychopy':'psychopy','numpy':'numpy','pandas':'pandas','PIL':'Pillow'}
 	pkg = x[pkg] if pkg in x else pkg
-	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg),'red')
+	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg))
+
+if __name__ == "__main__":
+	from . import pylink
 
 class Calibration(pylink.EyeLinkCustomDisplay):
 	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
+	# add base class
+	from . import pylink
+	object.__class__ = pylink.EyeLinkCustomDisplay
 	def __init__(self, w, h, tracker, window):
 		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction.
 
@@ -48,6 +52,9 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		window :  `psychopy.visual.Window <https://www.psychopy.org/api/visual/window.html#window>`__
 			PsychoPy window instance.
 		"""
+		# inheritance
+		from . import pylink
+		
 		# import psychopy
 		from psychopy import visual, event, sound
 
@@ -58,9 +65,11 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		self.visual = visual
 		self.event = event
 		self.sound = sound
+		# pylink
+		self.pylink = pylink
 
 		#---setup display
-		pylink.EyeLinkCustomDisplay.__init__(self)
+		self.pylink.EyeLinkCustomDisplay.__init__(self)
 
 		#----flags
 		self.is_calibration = True
@@ -70,7 +79,7 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		self.bg_color = self.window.color
 		self.w = w
 		self.h = h
-		self.pylinkMinorVer = pylink.__version__.split('.')[1] # minor version 1-Mac, 11-Win/Linux
+		self.pylinkMinorVer = self.pylink.__version__.split('.')[1] # minor version 1-Mac, 11-Win/Linux
 
 		#----check the screen units of Psychopy, forcing the screen to use 'pix'
 		self.units = self.window.units
@@ -190,23 +199,23 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 	def play_beep(self, beepid):
 		"""Play a sound during calibration/drift correction."""
 		self.console('Play a sound during calibration/drift correction.','blue')
-		if beepid == pylink.CAL_TARG_BEEP or beepid == pylink.DC_TARG_BEEP:
+		if beepid == self.pylink.CAL_TARG_BEEP or beepid == self.pylink.DC_TARG_BEEP:
 			self.console('CAL_TARG_BEEP', 'purple')
 			self.__target_beep__.play()
-		elif beepid == pylink.CAL_ERR_BEEP or beepid == pylink.DC_ERR_BEEP:
+		elif beepid == self.pylink.CAL_ERR_BEEP or beepid == self.pylink.DC_ERR_BEEP:
 			self.console('CAL_ERR_BEEP', 'purple')
 			self.__target_beep__error__.play()
-		elif beepid in [pylink.CAL_GOOD_BEEP, pylink.DC_GOOD_BEEP]:
+		elif beepid in [self.pylink.CAL_GOOD_BEEP, self.pylink.DC_GOOD_BEEP]:
 			self.console('CAL_ERR_BEEP', 'purple')
 			self.__target_beep__done__.play()
 		
 	def getColorFromIndex(self, colorindex):
 		"""Return psychopy colors for elements in the camera image."""
-		if colorindex   ==  pylink.CR_HAIR_COLOR:          return (1,1,1)
-		elif colorindex ==  pylink.PUPIL_HAIR_COLOR:       return (1,1,1)
-		elif colorindex ==  pylink.PUPIL_BOX_COLOR:        return (-1,1,-1)
-		elif colorindex ==  pylink.SEARCH_LIMIT_BOX_COLOR: return (1,-1,-1)
-		elif colorindex ==  pylink.MOUSE_CURSOR_COLOR:     return (1,-1,-1)
+		if colorindex   ==  self.pylink.CR_HAIR_COLOR:          return (1,1,1)
+		elif colorindex ==  self.pylink.PUPIL_HAIR_COLOR:       return (1,1,1)
+		elif colorindex ==  self.pylink.PUPIL_BOX_COLOR:        return (-1,1,-1)
+		elif colorindex ==  self.pylink.SEARCH_LIMIT_BOX_COLOR: return (1,-1,-1)
+		elif colorindex ==  self.pylink.MOUSE_CURSOR_COLOR:     return (1,-1,-1)
 		else:                                              return (0,0,0)
 		
 	def draw_line(self, x1, y1, x2, y2, colorindex):
@@ -278,30 +287,30 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 		"""
 		ky=[]
 		for keycode, modifier in self.event.getKeys(modifiers=True):
-			k = pylink.JUNK_KEY
-			if keycode   == 'f1': k = pylink.F1_KEY
-			elif keycode == 'f2': k = pylink.F2_KEY
-			elif keycode == 'f3': k = pylink.F3_KEY
-			elif keycode == 'f4': k = pylink.F4_KEY
-			elif keycode == 'f5': k = pylink.F5_KEY
-			elif keycode == 'f6': k = pylink.F6_KEY
-			elif keycode == 'f7': k = pylink.F7_KEY
-			elif keycode == 'f8': k = pylink.F8_KEY
-			elif keycode == 'f9': k = pylink.F9_KEY
-			elif keycode == 'f10': k = pylink.F10_KEY
-			elif keycode == 'pageup': k = pylink.PAGE_UP
-			elif keycode == 'pagedown': k = pylink.PAGE_DOWN
-			elif keycode == 'up': k = pylink.CURS_UP
-			elif keycode == 'down': k = pylink.CURS_DOWN
-			elif keycode == 'left': k = pylink.CURS_LEFT
-			elif keycode == 'right': k = pylink.CURS_RIGHT
+			k = self.pylink.JUNK_KEY
+			if keycode   == 'f1': k = self.pylink.F1_KEY
+			elif keycode == 'f2': k = self.pylink.F2_KEY
+			elif keycode == 'f3': k = self.pylink.F3_KEY
+			elif keycode == 'f4': k = self.pylink.F4_KEY
+			elif keycode == 'f5': k = self.pylink.F5_KEY
+			elif keycode == 'f6': k = self.pylink.F6_KEY
+			elif keycode == 'f7': k = self.pylink.F7_KEY
+			elif keycode == 'f8': k = self.pylink.F8_KEY
+			elif keycode == 'f9': k = self.pylink.F9_KEY
+			elif keycode == 'f10': k = self.pylink.F10_KEY
+			elif keycode == 'pageup': k = self.pylink.PAGE_UP
+			elif keycode == 'pagedown': k = self.pylink.PAGE_DOWN
+			elif keycode == 'up': k = self.pylink.CURS_UP
+			elif keycode == 'down': k = self.pylink.CURS_DOWN
+			elif keycode == 'left': k = self.pylink.CURS_LEFT
+			elif keycode == 'right': k = self.pylink.CURS_RIGHT
 			elif keycode == 'backspace': k = ord('\b')
-			elif keycode == 'return': k = pylink.ENTER_KEY
+			elif keycode == 'return': k = self.pylink.ENTER_KEY
 			elif keycode == 'space': k = ord(' ')
-			elif keycode == 'escape': k = pylink.ESC_KEY
+			elif keycode == 'escape': k = self.pylink.ESC_KEY
 			elif keycode == 'tab': k = ord('\t')
 			elif keycode in string.ascii_letters: k = ord(keycode)
-			elif k== pylink.JUNK_KEY: k = 0
+			elif k== self.pylink.JUNK_KEY: k = 0
 
 			# plus/equal & minux signs for CR adjustment
 			if keycode in ['num_add', 'equal']: k = ord('+')
@@ -310,7 +319,7 @@ class Calibration(pylink.EyeLinkCustomDisplay):
 			if modifier['alt']==True: mod = 256
 			else: mod = 0
 	
-			ky.append(pylink.KeyInput(k, mod))
+			ky.append(self.pylink.KeyInput(k, mod))
 
 		return ky
 

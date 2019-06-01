@@ -19,23 +19,24 @@ import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 # imports
-from . import pylink
 from ._roi import ROI
-from ._calibration import Calibration
 from ._eyelink import Eyelink
 
-# classes
+# classes	
+if __name__ == "__main__":
+	from . import pylink
+	from ._calibration import Calibration
+	class Calibration(Calibration):
+		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
+		__doc__ = Calibration.__init__.__doc__
+		def __init__(self, w, h, tracker, window):
+			super().__init__(w, h, tracker, window)
+		
 class Eyelink(Eyelink):
 	"""Interface for the SR Research Eyelink eyetracking system."""
 	__doc__ = Eyelink.__init__.__doc__
 	def __init__(self, window, timer, isPsychopy=True, subject=None, **kwargs):
 		super().__init__(window, timer, isPsychopy, subject, **kwargs)
-
-class Calibration(Calibration):
-	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
-	__doc__ = Calibration.__init__.__doc__
-	def __init__(self, w, h, tracker, window):
-		super().__init__(w, h, tracker, window)
 
 class ROI(ROI):
 	"""Generate regions of interest that can be used for data processing and analysis."""

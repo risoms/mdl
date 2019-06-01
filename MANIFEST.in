@@ -27,6 +27,7 @@ prune imhr/dist/roi/all
 # global-include
 global-include __init__.py
 # global-exclude
+global-exclude private.yaml
 global-exclude *.dcm
 global-exclude *.tif
 global-exclude .ipynb_checkpoints

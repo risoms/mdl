@@ -19,7 +19,7 @@
 
 # passwords and keys
 id_travis_rsa
-
+docs/**/private.yaml
 
 # logs and databases
 *.sql

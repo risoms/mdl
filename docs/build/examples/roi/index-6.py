@@ -15,7 +15,7 @@ path = '%s/dist/roi/output/img/bounds/'%(Path(imhr.__file__).parent)
 #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')
 fig, (axes) = plt.subplots(1, 4, sharey=True)
 # names
-shape = 'rotated'
+shape = 'hull'
 filenames = ['2550_%s.png'%(shape),'2691_%s.png'%(shape),'4640_%s.png'%(shape),'9421_%s.png'%(shape)]
 # draw and save
 for idx, itm in enumerate(zip(axes, filenames)):

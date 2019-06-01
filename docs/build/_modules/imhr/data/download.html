@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.data.download &#8212; imhr 0.3.29 documentation</title>
+    <title>imhr.data.download &#8212; imhr 0.3.36 documentation</title>
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           imhr</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-29-0.3.29</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-05-31.0.3.36</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -103,7 +103,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/run_models.html">Run models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/R33/create_plots.html">Create plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/_psychopy/index.html">PsychoPy Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/_psychopy/index.html">PsychoPy Builder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/_psychopy/index.html#Before-Running-the-Participant">Before Running the Participant</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html">Eyetracking demo</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Before-Running-the-Participant">Before Running the Participant</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Import-package">Import package</a></li>
@@ -129,6 +132,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Stop-recording">Stop recording</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Finish-recording">Finish recording</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Close-PsychoPy">Close PsychoPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Other-Resources">Other Resources</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../examples/eyetracking/demo/index.html#Calculate-Visual-Angle">Calculate Visual Angle</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -144,8 +151,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/index.html#Creating-ROI">Creating ROI</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Manually-coded-images">Manually coded images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Classified-using-Haar-Cascades">Classified using Haar Cascades</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Manual-coding">Manual coding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/roi/index.html#Haar-Cascades">Haar Cascades</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/roi/index.html#Output">Output</a><ul>
@@ -270,14 +277,25 @@
 <span class="c1"># available functions</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Download&#39;</span><span class="p">]</span>
 
+<span class="c1"># required = </span>
+<span class="n">__required__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">,</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">]</span>
 <span class="c1"># core</span>
 <span class="kn">from</span> <span class="nn">pdb</span> <span class="k">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">breakpoint</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
 
 <span class="c1"># local libraries</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">settings</span>
+
+<span class="c1"># check if psychopy is available</span>
+<span class="k">try</span><span class="p">:</span>
+	<span class="c1"># core</span>
+	<span class="kn">import</span> <span class="nn">os</span>
+	<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+	<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+	<span class="n">pkg</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">name</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;psychopy&#39;</span><span class="p">:</span><span class="s1">&#39;psychopy&#39;</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">:</span><span class="s1">&#39;pandas&#39;</span><span class="p">}</span>
+	<span class="n">pkg</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">pkg</span><span class="p">]</span> <span class="k">if</span> <span class="n">pkg</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="n">pkg</span>
+	<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No module named &#39;</span><span class="si">%s</span><span class="s2">&#39;. Please install from PyPI before continuing.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">pkg</span><span class="p">),</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Download"><a class="viewcode-back" href="../../../api/imhr.data.download.html#imhr.data.Download">[docs]</a><span class="k">class</span> <span class="nc">Download</span><span class="p">():</span>
 	<span class="sd">&quot;&quot;&quot;Download raw data from apache, Box, or REDCap servers.&quot;&quot;&quot;</span>
@@ -660,91 +678,81 @@
 
 		<span class="k">return</span> <span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span></div>
 
-
-<div class="viewcode-block" id="Download.box"><a class="viewcode-back" href="../../../api/imhr.data.download.html#imhr.data.Download.box">[docs]</a>	<span class="nd">@classmethod</span>
-	<span class="k">def</span> <span class="nf">box</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-		<span class="sd">&quot;&quot;&quot;Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).</span>
+<div class="viewcode-block" id="Download.SQL"><a class="viewcode-back" href="../../../api/imhr.data.download.html#imhr.data.Download.SQL">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">SQL</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">database</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		[summary]</span>
 
 <span class="sd">		Parameters</span>
 <span class="sd">		----------</span>
-<span class="sd">		source : :obj:`str`</span>
-<span class="sd">			The remoate path on box to retrieve data.</span>
-<span class="sd">		destination : :obj:`str`</span>
-<span class="sd">			The local path to download data.</span>
-<span class="sd">		server : :obj:`str`</span>
-<span class="sd">			Name of box server.</span>
+<span class="sd">		type : :obj:`str` {&#39;MySQL&#39;,&#39;MSSQL&#39;}</span>
+<span class="sd">			The type of SQL server. Either **MySQL** or **MSSQL**.</span>
+<span class="sd">		hostname : :obj:`str`</span>
+<span class="sd">			The host name or IP address of the sql server.</span>
 <span class="sd">		username : :obj:`str`</span>
-<span class="sd">			Box account email address.</span>
+<span class="sd">			The user name used to authenticate with the sql server.</span>
 <span class="sd">		password : :obj:`str`</span>
-<span class="sd">			Box account password.</span>
+<span class="sd">			The password to authenticate the user with the sql server.</span>
+<span class="sd">		database : :obj:`str`</span>
+<span class="sd">			The database name to use when connecting with the sql server.</span>
+<span class="sd">		table : :obj:`str`</span>
+<span class="sd">			The table name to use when connecting with the sql server.</span>
+<span class="sd">		**kwargs : :obj:`str` or :obj:`None`, optional</span>
+<span class="sd">			Additional properties, relevent for specific content types. Here&#39;s a list of available properties:</span>
 
-<span class="sd">		Notes</span>
-<span class="sd">		-----</span>
-<span class="sd">		- The username and password must be seperate from your &#39;Secure Sign On&#39; associated with your UT login.</span>
-<span class="sd">		- box only allows connections via FTPS for downloading and uploading data.</span>
-<span class="sd">		- For more information: https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050</span>
+<span class="sd">			.. list-table::</span>
+<span class="sd">				:class: kwargs</span>
+<span class="sd">				:widths: 25 50</span>
+<span class="sd">				:header-rows: 1</span>
 
+<span class="sd">				* - Property</span>
+<span class="sd">				  - Description</span>
+<span class="sd">				* - **port** : :obj:`int`</span>
+<span class="sd">				  - (report, record) The report ID number provided next to the report name on the report list page.</span>
+
+<span class="sd">		Returns</span>
+<span class="sd">		-------</span>
+<span class="sd">		connection : :obj:`mysql.connector.connect &lt;https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html&gt;`__</span>
+<span class="sd">			MySQL connector instance.</span>
 <span class="sd">		&quot;&quot;&quot;</span>
-		<span class="kn">import</span> <span class="nn">openpyxl</span>
-		<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-		<span class="kn">import</span> <span class="nn">ftplib</span>
+		<span class="c1"># parameters</span>
+		<span class="n">config</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;config&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span>
+		<span class="n">port</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;port&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">False</span>
+		<span class="n">cnx</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
-		<span class="c1">#----constants, lists to prepare</span>
-		<span class="n">ldate</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#list of dates</span>
-		<span class="n">file_num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#file counter</span>
-		<span class="c1"># bool</span>
-		<span class="n">log</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#log of events</span>
-		<span class="n">start</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
-		<span class="n">end</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#most recent file</span>
-		<span class="c1"># path</span>
+		<span class="c1"># start</span>
+		<span class="n">config</span> <span class="o">=</span> <span class="kc">None</span>
+		<span class="kn">import</span> <span class="nn">mysql.connector</span>
+		<span class="kn">from</span> <span class="nn">mysql.connector</span> <span class="k">import</span> <span class="n">errorcode</span>
+		<span class="kn">from</span> <span class="nn">mysql.connector.constants</span> <span class="k">import</span> <span class="n">ClientFlag</span>
 
-		<span class="c1">## log</span>
-		<span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
-		<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;/</span><span class="si">%s</span><span class="s2">.xlsx&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-		<span class="c1">## destination</span>
-		<span class="n">destination</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+		<span class="c1"># if configuration</span>
+		<span class="k">if</span> <span class="n">config</span><span class="p">:</span>
+			<span class="k">pass</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+			    <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+			    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
+			    <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span>
+				<span class="s1">&#39;database&#39;</span><span class="p">:</span> <span class="n">database</span><span class="p">,</span>
+				<span class="s1">&#39;get_warnings&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+			    <span class="s1">&#39;client_flags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">ClientFlag</span><span class="o">.</span><span class="n">SSL</span><span class="p">],</span>
+			<span class="p">}</span>
+			<span class="c1"># if port</span>
+			<span class="k">if</span> <span class="n">port</span><span class="p">:</span>
+				<span class="n">config</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">port</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="n">cnx</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+			<span class="n">cur</span> <span class="o">=</span> <span class="n">cnx</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+		<span class="k">except</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+		  <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errorcode</span><span class="o">.</span><span class="n">ER_ACCESS_DENIED_ERROR</span><span class="p">:</span>
+		    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is wrong with your user name or password&quot;</span><span class="p">)</span>
+		  <span class="k">elif</span> <span class="n">err</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errorcode</span><span class="o">.</span><span class="n">ER_BAD_DB_ERROR</span><span class="p">:</span>
+		    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database does not exist&quot;</span><span class="p">)</span>
+		  <span class="k">else</span><span class="p">:</span>
+		    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;connecting to sftp&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-
-		<span class="c1">#----make sure local path exists</span>
-		<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)):</span>
-			<span class="n">settings</span><span class="o">.</span><span class="n">console</span><span class="p">(</span><span class="s1">&#39;creating local folder: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-			<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span>
-
-		<span class="c1">#----start ftplib</span>
-		<span class="n">ftps</span> <span class="o">=</span> <span class="n">ftplib</span><span class="o">.</span><span class="n">FTP_TLS</span><span class="p">()</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">set_debuglevel</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-		<span class="c1"># connect to host and authorize</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">server</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">990</span><span class="p">)</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">set_pasv</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">auth</span><span class="p">()</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">prot_p</span><span class="p">()</span>
-
-		<span class="c1"># login</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-
-		<span class="c1">#check path</span>
-		<span class="n">path</span> <span class="o">=</span> <span class="n">ftps</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
-
-		<span class="c1">#get files in directory</span>
-		<span class="n">files</span> <span class="o">=</span> <span class="n">ftps</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
-
-		<span class="c1"># file to send</span>
-		<span class="c1"># file = open(&#39;kitten.jpg&#39;,&#39;rb&#39;)</span>
-		<span class="c1"># send the file</span>
-		<span class="c1"># session.storbinary(&#39;STOR kitten.jpg&#39;, file)</span>
-
-		<span class="c1"># logout</span>
-		<span class="n">ftps</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-		<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-		<span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-		<span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-		<span class="n">now</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-
-		<span class="k">return</span> <span class="n">log</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">now</span></div></div>
+		<span class="k">return</span> <span class="n">cnx</span></div></div>
 </pre></div>
 
 		</div>
@@ -756,7 +764,7 @@
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-29T17:37:55-05:00.</div>
+			<div>Updated 2019-05-31T13:47:46-05:00.</div>
 		</div>
 	</div>
 </footer>

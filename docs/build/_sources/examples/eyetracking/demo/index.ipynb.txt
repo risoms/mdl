@@ -1,22 +1,6 @@
 {
  "cells": [
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "nbsphinx": "hidden",
-    "tags": [
-     "removecell"
-    ]
-   },
-   "outputs": [],
-   "source": [
-    "import os\n",
-    "os.chdir('/Users/mdl-admin/Desktop/mdl/')\n",
-    "import imhr"
-   ]
-  },
-  {
    "cell_type": "raw",
    "metadata": {
     "raw_mimetype": "text/restructuredtext"
@@ -79,6 +63,24 @@
   {
    "cell_type": "code",
    "execution_count": null,
+   "metadata": {
+    "nbsphinx": "hidden",
+    "tags": [
+     "removecell"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "from pathlib import Path\n",
+    "os.chdir('C:\\\\Users\\\\mdl-admin\\\\Desktop\\\\mdl')\n",
+    "import imhr\n",
+    "root = Path(imhr.__file__).parent"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -100,7 +102,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "expInfo = {u'condition': u'even', u'participant': u'001', u'dominant eye': u'left', u'corrective': u'False'}\n",
+    "from psychopy import visual, core\n",
+    "expInfo = {'condition': 'even', u'participant': '001', 'dominant eye': 'left', 'corrective': 'False'}\n",
     "subject = expInfo['participant']\n",
     "dominant_eye = expInfo['dominant eye']\n",
     "# `psychopy.core.Clock.CountdownTimer` instance\n",
@@ -238,6 +241,44 @@
    ]
   },
   {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    ".. cssclass: figure\n",
+    "\n",
+    "**Figure:** Sample calibration.\n",
+    "\n",
+    ".. plot::\n",
+    "\n",
+    "    # create image\n",
+    "    import matplotlib.pyplot as plt\n",
+    "    import matplotlib.image as image\n",
+    "    from pathlib import Path\n",
+    "    # path\n",
+    "    # draw plot\n",
+    "    #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')\n",
+    "    fig, ax = plt.subplots()\n",
+    "    ## load roi\n",
+    "    im = image.imread('/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/img/calibration.png')\n",
+    "    ax.imshow(im)\n",
+    "    # labels\n",
+    "    ax.get_xaxis().set_ticks([])\n",
+    "    ax.get_yaxis().set_ticks([])\n",
+    "    # save\n",
+    "    plt.tight_layout()\n",
+    "    plt.subplots_adjust(wspace=0.1)\n",
+    "    ## remove frame\n",
+    "    ax.axis('off')\n",
+    "    #plt.gca().axes.get_yaxis().set_visible(False)\n",
+    "    #plt.gca().axes.get_xaxis().set_visible(False)\n",
+    "    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='off')\n",
+    "    plt.box(False)\n",
+    "    plt.show()\n"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {
     "raw_mimetype": "text/restructuredtext"
@@ -259,7 +300,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "eyetracking.console(c=\"blue\", msg=\"eyetracking.calibration() started\")"
+    "eyetracking.console(\"eyetracking.calibration() started\", \"blue\")"
    ]
   },
   {
@@ -300,6 +341,44 @@
    ]
   },
   {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    ".. cssclass: figure\n",
+    "\n",
+    "**Figure:** Sample trial.\n",
+    "\n",
+    ".. plot::\n",
+    "\n",
+    "    # create image\n",
+    "    import matplotlib.pyplot as plt\n",
+    "    import matplotlib.image as image\n",
+    "    from pathlib import Path\n",
+    "    # path\n",
+    "    # draw plot\n",
+    "    #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')\n",
+    "    fig, ax = plt.subplots()\n",
+    "    ## load roi\n",
+    "    im = image.imread('/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/img/stimulus.png')\n",
+    "    ax.imshow(im)\n",
+    "    # labels\n",
+    "    ax.get_xaxis().set_ticks([])\n",
+    "    ax.get_yaxis().set_ticks([])\n",
+    "    # save\n",
+    "    plt.tight_layout()\n",
+    "    plt.subplots_adjust(wspace=0.1)\n",
+    "    ## remove frame\n",
+    "    ax.axis('off')\n",
+    "    #plt.gca().axes.get_yaxis().set_visible(False)\n",
+    "    #plt.gca().axes.get_xaxis().set_visible(False)\n",
+    "    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='off')\n",
+    "    plt.box(False)\n",
+    "    plt.show()\n"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {
     "raw_mimetype": "text/restructuredtext"
@@ -325,12 +404,14 @@
    "source": [
     "# Create stimulus (demonstration purposes only).\n",
     "filename = \"8380.bmp\"\n",
-    "path = os.getcwd() + \"/stimuli/\" + filename\n",
+    "path = '%s/dist/stimuli/%s'%(root, filename)\n",
     "size = (1024, 768) #image size\n",
     "pos = (window.size[0]/2, window.size[1]/2) #positioning image at center of screen\n",
-    "stimulus = visual.ImageStim(win=window, name=\"stimulus\", units='pix', image=path, pos=(0,0), size=size,\n",
-    "                            flipHoriz=False, flipVert=False, texRes=128, interpolate=True, depth=-1.0)\n",
+    "stimulus = visual.ImageStim(win=window, name=\"stimulus\", units='pix', image=path, \n",
+    "            pos=(0,0), size=size, flipHoriz=False, flipVert=False, texRes=128, \n",
+    "            interpolate=True, depth=-1.0)\n",
     "stimulus.setAutoDraw(True)\n",
+    "# Note: PsychoPy requires two filps when displaying a new image. The first to clear the screen and the second to update it.\n",
     "window.flip()\n",
     "window.flip()"
    ]
@@ -547,6 +628,33 @@
    "source": [
     "window.close()"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    "### Other Resources"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext",
+    "toc-hr-collapsed": true
+   },
+   "source": [
+    "#### Calculate Visual Angle"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

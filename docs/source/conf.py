@@ -141,7 +141,7 @@ plot_template = """
 {{ only_html }}
    {% for img in images %}
    .. figure:: {{ build_dir }}/{{ img.basename }}.{{ default_fmt }}
-      :target: {{ dest_dir }}/{{ img.basename }}.{{ fmt }}
+      :target: {{ dest_dir }}/{{ img.basename }}.{{ default_fmt }}
       {% for option in options -%}
       {{ option }}
       {% endfor %}

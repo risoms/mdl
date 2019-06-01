@@ -496,7 +496,7 @@ div.table-of-contents {
 .table-of-contents>p.topic-title.first {
 	display: none;
 }
-div.table-of-contents.eyelink>ul.simple{
+div.table-of-contents>ul.simple{
     list-style-type: none;
     padding-left: 0px;
 }

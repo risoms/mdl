@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="3.0.7">
+<PsychoPy2experiment encoding="utf-8" version="3.0.0b11">
   <Settings>
     <Param name="Completed URL" updates="None" val="" valType="str"/>
     <Param name="Data filename" updates="None" val="'data/%s'%(expInfo['participant'])" valType="code"/>
@@ -214,13 +214,52 @@
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="import imhr&amp;#10;root = Path(imhr.__file__).parent&amp;#10;&amp;#10;# get parameters from PsychoPy&amp;#10;subject = expInfo['participant']&amp;#10;dominant_eye = expInfo['dominant eye']&amp;#10;&amp;#10;# Initialize the Eyelink.r&amp;#10;eyetracking = imhr.eyetracking.Eyelink(window=win, libraries=True, subject=subject, &amp;#10;timer=routineTimer, demo=True)&amp;#10;&amp;#10;&amp;#10;# Connect to the Eyelink Host.&amp;#10;param = eyetracking.connect(calibration_type=13)&amp;#10;&amp;#10;# Set the dominant eye&amp;#10;eye_used = eyetracking.set_eye_used(eye=dominant_eye)&amp;#10;&amp;#10;# Start calibration.&amp;#10;calibration = eyetracking.calibration()" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if calibration == True:&amp;#10;    continueRoutine = False" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="name" updates="None" val="calibration_code" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="drift_correction">
+      <GratingComponent name="drift_fixation">
+        <Param name="blendmode" updates="constant" val="avg" valType="str"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="circle" valType="str"/>
+        <Param name="name" updates="constant" val="drift_fixation" valType="code"/>
+        <Param name="opacity" updates="constant" val=".7" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="phase" updates="constant" val="0.0" valType="code"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="sf" updates="constant" val="40" valType="code"/>
+        <Param name="size" updates="constant" val="[16,16]" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="tex" updates="constant" val="sin" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </GratingComponent>
+      <CodeComponent name="drift_code">
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# drift correction&amp;#10;eyetracking.drift_correction()" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="name" updates="None" val="drift_code" valType="code"/>
       </CodeComponent>
     </Routine>
   </Routines>
@@ -238,6 +277,7 @@
       <Param name="name" updates="None" val="block" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="drift_correction"/>
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('stimText', 'red'), ('stimColor', 'red'), ('corrAns', 'left'), ('congruent', 1)]), OrderedDict([('stimText', 'red'), ('stimColor', 'green'), ('corrAns', 'down'), ('congruent', 0)]), OrderedDict([('stimText', 'green'), ('stimColor', 'green'), ('corrAns', 'down'), ('congruent', 1)]), OrderedDict([('stimText', 'green'), ('stimColor', 'blue'), ('corrAns', 'right'), ('congruent', 0)]), OrderedDict([('stimText', 'blue'), ('stimColor', 'blue'), ('corrAns', 'right'), ('congruent', 1)]), OrderedDict([('stimText', 'blue'), ('stimColor', 'red'), ('corrAns', 'left'), ('congruent', 0)])]" valType="str"/>

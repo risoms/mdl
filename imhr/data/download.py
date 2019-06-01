@@ -11,14 +11,25 @@
 # available functions
 __all__ = ['Download']
 
+# required = 
+__required__ = ['openpyxl','openpyxl']
 # core
 from pdb import set_trace as breakpoint
-import os
-from datetime import datetime
-from pathlib import Path
 
 # local libraries
 from .. import settings
+
+# check if psychopy is available
+try:
+	# core
+	import os
+	from datetime import datetime
+	from pathlib import Path
+except ImportError as e:
+	pkg = e.name
+	x = {'psychopy':'psychopy','pandas':'pandas'}
+	pkg = x[pkg] if pkg in x else pkg
+	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg),'red')
 
 class Download():
 	"""Download raw data from apache, Box, or REDCap servers."""
@@ -401,88 +412,78 @@ class Download():
 
 		return log, start, end, now
 
-
 	@classmethod
-	def box(cls, source, destination, server, username, password):
-		"""Connect to Box cloud cloud storage service, using File Transfer Protocol over SSL (FTPS).
+	def SQL(cls, driver, destination, hostname, username, password, database, table, **kwargs):
+		"""
+		[summary]
 
 		Parameters
 		----------
-		source : :obj:`str`
-			The remoate path on box to retrieve data.
-		destination : :obj:`str`
-			The local path to download data.
-		server : :obj:`str`
-			Name of box server.
+		type : :obj:`str` {'MySQL','MSSQL'}
+			The type of SQL server. Either **MySQL** or **MSSQL**.
+		hostname : :obj:`str`
+			The host name or IP address of the sql server.
 		username : :obj:`str`
-			Box account email address.
+			The user name used to authenticate with the sql server.
 		password : :obj:`str`
-			Box account password.
+			The password to authenticate the user with the sql server.
+		database : :obj:`str`
+			The database name to use when connecting with the sql server.
+		table : :obj:`str`
+			The table name to use when connecting with the sql server.
+		**kwargs : :obj:`str` or :obj:`None`, optional
+			Additional properties, relevent for specific content types. Here's a list of available properties:
 
-		Notes
-		-----
-		- The username and password must be seperate from your 'Secure Sign On' associated with your UT login.
-		- box only allows connections via FTPS for downloading and uploading data.
-		- For more information: https://community.box.com/t5/Upload-and-Download-Files-and/Using-Box-with-FTP-or-FTPS/ta-p/26050
+			.. list-table::
+				:class: kwargs
+				:widths: 25 50
+				:header-rows: 1
 
+				* - Property
+				  - Description
+				* - **port** : :obj:`int`
+				  - (report, record) The report ID number provided next to the report name on the report list page.
+
+		Returns
+		-------
+		connection : :obj:`mysql.connector.connect <https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html>`__
+			MySQL connector instance.
 		"""
-		import openpyxl
-		import pandas as pd
-		import ftplib
+		# parameters
+		config = kwargs["config"] if "config" in kwargs else False
+		port = kwargs["port"] if "port" in kwargs else False
+		cnx = ''
 
-		#----constants, lists to prepare
-		ldate = [] #list of dates
-		file_num = 0 #file counter
-		# bool
-		log = None #log of events
-		start = None #most recent file
-		end = None #most recent file
-		# path
+		# start
+		config = None
+		import mysql.connector
+		from mysql.connector import errorcode
+		from mysql.connector.constants import ClientFlag
 
-		## log
-		name = Path(destination).name
-		log_path = os.path.abspath(os.path.dirname(destination)) + "/%s.xlsx"%(name)
-		## destination
-		destination = Path(destination)
+		# if configuration
+		if config:
+			pass
+		else:
+			config = {
+			    'user': username,
+			    'password': password,
+			    'host': host,
+				'database': database,
+				'get_warnings': True,
+			    'client_flags': [ClientFlag.SSL],
+			}
+			# if port
+			if port:
+				config['port'] = port
+		try:
+			cnx = mysql.connector.connect(**config)
+			cur = cnx.cursor(buffered=True)
+		except mysql.connector.Error as err:
+		  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+		    print("Something is wrong with your user name or password")
+		  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+		    print("Database does not exist")
+		  else:
+		    print(err)
 
-		settings.console('connecting to sftp', 'blue')
-
-		#----make sure local path exists
-		settings.console('local folder: %s'%(Path(destination)), 'blue')
-		if not os.path.exists(Path(destination)):
-			settings.console('creating local folder: %s'%(Path(destination)), 'blue')
-			os.makedirs(Path(destination))
-
-		#----start ftplib
-		ftps = ftplib.FTP_TLS()
-		ftps.set_debuglevel(2)
-
-		# connect to host and authorize
-		ftps.connect(host=server, port=990)
-		ftps.set_pasv(True)
-		ftps.auth()
-		ftps.prot_p()
-
-		# login
-		ftps.login(username, password)
-
-		#check path
-		path = ftps.pwd()
-
-		#get files in directory
-		files = ftps.dir()
-
-		# file to send
-		# file = open('kitten.jpg','rb')
-		# send the file
-		# session.storbinary('STOR kitten.jpg', file)
-
-		# logout
-		ftps.quit()
-
-		log = ''
-		start = ''
-		end = ''
-		now = ''
-
-		return log, start, end, now
+		return cnx

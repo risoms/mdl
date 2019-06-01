@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #222f3e } 
+	</style>
+	<g id="icomoon-ignore">
+	</g>
+	<path id="Layer" class="shp0" d="M12,10.5v6.79l2.44,-2.44l0.56,0.56l-3.37,3.38l-3.37,-3.37l0.56,-0.56l2.44,2.44v-6.79h-10.5v8.26c0,0.82 0.67,1.49 1.49,1.49h18.76c0.83,0 1.49,-0.67 1.49,-1.5v-8.25h-10.5zM22.5,9.75v-1.5c0,-0.83 -0.67,-1.5 -1.5,-1.5h-9l-1.5,-3h-8.25c-0.83,0 -1.5,0.67 -1.5,1.49v4.51z" />
+</svg>

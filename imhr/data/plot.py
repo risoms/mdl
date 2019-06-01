@@ -25,6 +25,7 @@ import pandas as pd
 import numpy as np
 
 # seaborn
+from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import seaborn as sns
@@ -55,26 +56,29 @@ class Plot():
 	@classmethod
 	def __font__(cls):
 		"""Add Helvetica to matplotlib."""
+		import imhr
+		from pathlib import Path
 		from matplotlib import matplotlib_fname, rcParams
 		import matplotlib.font_manager as font_manager
 
-		directory = matplotlib_fname().replace("/matplotlibrc/", "")
-		destination = f'{directory}/fonts/ttf'
-		file = settings.path['home'] + "/dist/resources/Helvetica.ttf"
+		directory = matplotlib_fname().replace("/matplotlibrc", "")
+		root = Path(imhr.__file__).parent
+		source_ = "%s/dist/resources/Helvetica.ttf"%(root)
+		destination_ = f'{directory}/fonts/ttf'
 
 		#add to matplotlib font folder
-		shutil.copy(file, destination)
+		shutil.copy(source_, destination_)
 
 		#add to computer font folder
 		##if running osx
 		if sys.platform == "darwin":
-			shutil.copy(file, '/Library/Fonts/')
+			shutil.copy(source_, '/Library/Fonts/')
 		##if running win32
 		if sys.platform == "win32":
-			shutil.copy(file, 'c:\\windows\\fonts')
+			shutil.copy(source_, 'c:\\windows\\fonts')
 
 		#rebuild fonts
-		prop = font_manager.FontProperties(fname=file)
+		prop = font_manager.FontProperties(fname=source_)
 		prop.set_weight = 'light'
 		rcParams['font.family'] = prop.get_name()
 		rcParams['font.weight'] = 'light'
@@ -1567,12 +1571,14 @@ class Plot():
 		return lmp
 
 	@classmethod
-	def html(cls, config, df=None, raw_data=None, name=None, path=None, plots=None, source=None, title=None, intro=None, footnote=None, script="", **kwargs):
+	def html(cls, destination=None, df=None, raw_data=None, name=None, path=None, plots=None, source=None, title=None, intro=None, footnote=None, script="", **kwargs):
 		"""
 		Create HTML output.
 
 		Parameters
 		----------
+		destination : :obj:`str`
+			Path to save file to.
 		df : :class:`pandas.DataFrame`
 			Pandas dataframe of analysis results data.
 		raw_data : :class:`pandas.DataFrame`
@@ -1626,7 +1632,7 @@ class Plot():
 			String of html code.
 		"""
 		#----initiate fonts
-		__font__()
+		cls.__font__()
 		
 		#timestamp
 		date = datetime.datetime.now().replace(microsecond=0).strftime('%Y-%m-%d %H:%M:%S')
@@ -1635,12 +1641,15 @@ class Plot():
 		console('running plot.html()', 'blue')
 		
 		#---copy csv, imhr, js files to each model
-		if ((source == "logit") or (source == "onset") or (source == "anova")):
-			#copy files
-			for folder in ['css','imhr','js']:
-				source_ = config['path']['output'] + "/analysis/html/" + folder + "/"
-				dest_ = os.path.dirname(path) + "/" + folder + "/"
-				dir_util.copy_tree(src=source_, dst=dest_)
+		#copy files
+		for folder in ['css','imhr','js']:
+			import imhr
+			p_ = str(Path(imhr.__file__).parent.parent)
+			s_ = '%s/docs/source/_templates/html/%s/'%(p_, folder)
+			d_ = '%s/%s/'%(os.path.dirname(path), folder)
+			#shutil.move(s_, d_)
+			import distutils
+			distutils.dir_util.copy_tree(s_, d_)
 		
 		#----if creating html file from bokeh
 		if ((source=='bokeh') or (source=='methods')):
@@ -1921,10 +1930,11 @@ class Plot():
 						wrap = "nowrap"
 					# save table to csv for downloading
 					## check if paths exist
-					p_ = config['path']['output'] + '/analysis/html/csv/'
-					if not os.path.exists(p_):
-						os.makedirs(p_)
-					df.to_csv(p_ + '%s.csv'%(name), index=False)
+					_folder = '%s/csv'%(Path(path).parent)
+					p_ = '%s/%s.csv'%(_folder, name)
+					if not os.path.exists(_folder):
+						os.makedirs(_folder)
+					df.to_csv(p_, index=False)
 					#get table
 					table = df.to_html(index=False, index_names=True).replace('<table border="1" class="dataframe">',
 					'<table id="table" class="table '+source+' table-striped table-bordered \
@@ -1936,7 +1946,11 @@ class Plot():
 					width = pd.get_option('display.max_colwidth')
 					pd.set_option('display.max_colwidth', -1)
 					##save table to csv for downloading
-					df.to_csv(config['path']['output'] + '/analysis/html/csv/%s.csv'%(name), index=False)
+					_folder = '%s/csv'%(Path(path).parent)
+					p_ = '%s/%s.csv'%(_folder, name)
+					if not os.path.exists(_folder):
+						os.makedirs(_folder)
+					df.to_csv(p_, index=False)
 					#get table
 					table = df.to_html(index=False, index_names=True).replace('<table border="1" class="dataframe">',
 					'<table id="table" class="table '+source+' table-striped table-bordered \
@@ -1948,18 +1962,41 @@ class Plot():
 					width = pd.get_option('display.max_colwidth')
 					pd.set_option('display.max_colwidth', -1)
 					##save table to csv for downloading #here saving raw data for future analysis
-					raw_data.to_csv(config['path']['output'] + '/analysis/html/csv/%s.csv'%(name), index=False)
+					_folder = '%s/csv'%(Path(path).parent)
+					p_ = '%s/%s.csv'%(_folder, name)
+					if not os.path.exists(_folder):
+						os.makedirs(_folder)
+					raw_data.to_csv(p_, index=False)
 					#get table
 					table = df.to_html(index=True, index_names=True).replace('<table border="1" class="dataframe">',
 					'<table id="table" data-file="'+ name +'" class="table '+source+' table-striped table-bordered \
 					hover dt-responsive nowrap" cellspacing="0" width="100%">')
 					#reset
 					pd.set_option('display.max_colwidth', width)
+				elif (source == "full_summary"):
+					#wordwrap
+					wrap = "nowrap"
+					#prevent trucating strings
+					width = pd.get_option('display.max_colwidth')
+					pd.set_option('display.max_colwidth', -1)
+					##save table to csv for downloading
+					_folder = '%s/csv'%(Path(path).parent)
+					p_ = '%s/%s.csv'%(_folder, name)
+					if not os.path.exists(_folder):
+						os.makedirs(_folder)
+					df.to_csv(p_, index=False)
+					#get table
+					table = df.to_html(index=False, index_names=True).replace('<table border="1" class="dataframe">',
+					'<table id="table" class="table '+source+' table-striped table-bordered \
+					hover dt-responsive '+wrap+'" cellspacing="0" width="100%">')   
+					#reset
+					pd.set_option('display.max_colwidth', width)
 				else:
 					##check if paths exist
-					p_ = config['path']['output'] + '/analysis/html/csv/'
-					if not os.path.exists(p_):
-						os.makedirs(p_)
+					_folder = '%s/csv'%(Path(path).parent)
+					p_ = '%s/%s.csv'%(_folder, name)
+					if not os.path.exists(_folder):
+						os.makedirs(_folder)
 					# save table to csv for downloading
 					df.to_csv(p_ + '%s.csv'%(name), index=False)
 					#get table

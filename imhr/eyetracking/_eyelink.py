@@ -18,8 +18,9 @@ from pdb import set_trace as breakpoint
 
 # local libraries
 from .. import settings
-from . import Calibration
-from . import pylink
+
+if __name__ == "__main__":
+	from . import pylink
 
 # check if psychopy is available
 try:
@@ -27,6 +28,7 @@ try:
 	import time
 	import os
 	import re
+	import psychopy
 	import platform
 	import pandas as pd
 	from pathlib import Path

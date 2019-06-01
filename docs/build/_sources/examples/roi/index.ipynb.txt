@@ -102,12 +102,17 @@
     "metadata_source = '%s/dist/roi/raw/2/metadata.xlsx'%(path)\n",
     "position = 'topcenter'\n",
     "# initiate\n",
-    "roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True, isDemo=False,\n",
-    "    detection='manual', roi_format='both', shape='straight', scale=.75,\n",
+    "roi = imhr.eyetracking.ROI(isMultiprocessing=False, isDebug=True,\n",
+    "    # roi detection method and contour shape\n",
+    "    detection='manual', shape='straight',\n",
+    "    # path to read and export data\n",
     "    image_path=image_path, output_path=output_path, metadata_source=metadata_source,\n",
-    "    screensize=[1920,1080], recenter=[(1920*.50),(1080*.25)], filetype='PSD',\n",
-    "    newcolumn={'position': position}, uuid=['image','roi','position'],\n",
-    "\tappend_output_name=position, image_backend='PIL')\n",
+    "    # stimuli size and screen size\n",
+    "    screensize=[1920,1080], recenter=[(1920*.50),(1080*.50)], scale=.75,\n",
+    "    # applying new id, renaming variables and output\n",
+    "    newcolumn={'position': position}, uuid=['image','roi','position'], append_output_name=position, \n",
+    "    # image backend\n",
+    "    image_backend='PIL')\n",
     "# run\n",
     "df, error = roi.process()"
    ]
@@ -414,7 +419,7 @@
     "toc-hr-collapsed": false
    },
    "source": [
-    "##### Manually coded images"
+    "##### Manual coding"
    ]
   },
   {
@@ -447,6 +452,8 @@
    },
    "source": [
     ".. cssclass: figure\n",
+    "\n",
+    "**Figure:** Example **psd** in Adobe Photoshop.\n",
     "\n",
     ".. plot::\n",
     "\n",
@@ -483,9 +490,7 @@
     "    #plt.gca().axes.get_xaxis().set_visible(False)\n",
     "    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='off')\n",
     "    plt.box(False)\n",
-    "    plt.show()\n",
-    "\n",
-    "**Figure:** Example **psd** in Adobe Photoshop.\n"
+    "    plt.show()\n"
    ]
   },
   {
@@ -496,6 +501,8 @@
    },
    "source": [
     ".. cssclass: figure\n",
+    "\n",
+    "**Figure:** Example **DICOM** in Adobe Photoshop.\n",
     "\n",
     ".. plot::\n",
     "\n",
@@ -532,9 +539,7 @@
     "    #plt.gca().axes.get_xaxis().set_visible(False)\n",
     "    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='off')\n",
     "    plt.box(False)\n",
-    "    plt.show()\n",
-    "\n",
-    "**Figure:** Example **DICOM** in Adobe Photoshop.\n"
+    "    plt.show()\n"
    ]
   },
   {
@@ -543,7 +548,65 @@
     "raw_mimetype": "text/restructuredtext"
    },
    "source": [
-    "##### Classified using Haar Cascades"
+    "##### Haar Cascades"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "Another method for creating ROI's is by using automated feature extraction using [haar cascades](https://en.wikipedia.org/wiki/Haar-like_feature) feature classifiers. This is done by using machine-training to identify unique features (eyes, smile) from an image."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    ".. cssclass: figure\n",
+    "\n",
+    "**Figure:** Example face, eye, and smile identfication using haar cascades.\n",
+    "\n",
+    ".. plot::\n",
+    "\n",
+    "    import sys\n",
+    "    # add source\n",
+    "    sys.path.insert(0, os.path.abspath('./sphinxext'))\n",
+    "    sys.path.append('/Users/mdl-admin/Desktop/mdl')\n",
+    "    # import package\n",
+    "    import imhr\n",
+    "\n",
+    "    # create image\n",
+    "    import matplotlib.pyplot as plt\n",
+    "    import matplotlib.image as image\n",
+    "    from pathlib import Path\n",
+    "    # path\n",
+    "    path = '%s/dist/roi/example/'%(Path(imhr.__file__).parent)\n",
+    "    # draw plot\n",
+    "    #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')\n",
+    "    fig, ax = plt.subplots()\n",
+    "    # names\n",
+    "    file = 'haar_example.png'\n",
+    "    ## load roi\n",
+    "    im = image.imread('%s/%s'%(path, file))\n",
+    "    ax.imshow(im)\n",
+    "    # labels\n",
+    "    ax.get_xaxis().set_ticks([])\n",
+    "    ax.get_yaxis().set_ticks([])\n",
+    "    # save\n",
+    "    plt.tight_layout()\n",
+    "    plt.subplots_adjust(wspace=0.1)\n",
+    "    ## remove frame\n",
+    "    ax.axis('off')\n",
+    "    #plt.gca().axes.get_yaxis().set_visible(False)\n",
+    "    #plt.gca().axes.get_xaxis().set_visible(False)\n",
+    "    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='off')\n",
+    "    plt.box(False)\n",
+    "    plt.show()\n"
    ]
   },
   {
@@ -608,7 +671,7 @@
     "    * Dataviewer Region of Interest (**ias**): './output/*.ias', './output/data/*.ias'  \n",
     "* Data\n",
     "    * Dataviewer Region of Interest (**ias**): './output/*.ias', './output/data/*.ias'  \n",
-    "    * Excel Region of Interest (**testxlsx**): './output/*.xlsx', './output/data/*.xlsx'  \n",
+    "    * Excel Region of Interest (**xlsx**): './output/*.xlsx', './output/data/*.xlsx'  \n",
     "\n",
     "In addition, for each image, their corresponding ROIs will be drawn to a png file (./img/bounds). Individual ROIs are also drawn ('./img/bounds/roi').  "
    ]
@@ -630,6 +693,66 @@
    },
    "source": [
     "Bounds can be created for each region of interest with different levels of granularity. The list below provides an example of each, in order of granularity."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    ".. rst-class:: caption\n",
+    "\n",
+    "**Figure:** Original images before contour extraction."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext",
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    ".. cssclass: figure\n",
+    "\n",
+    ".. plot::\n",
+    "\n",
+    "    import sys\n",
+    "    # add source\n",
+    "    sys.path.insert(0, os.path.abspath('./sphinxext'))\n",
+    "    sys.path.append('/Users/mdl-admin/Desktop/mdl')\n",
+    "    # import package\n",
+    "    import imhr\n",
+    "\n",
+    "    # create image\n",
+    "    import matplotlib.pyplot as plt\n",
+    "    import matplotlib.image as image\n",
+    "    from pathlib import Path\n",
+    "    # path\n",
+    "    path = '%s/dist/roi/example/'%(Path(imhr.__file__).parent)\n",
+    "    # draw plot\n",
+    "    #plt.figure(figsize=(20,6), dpi=400, facecolor='#ffffff')\n",
+    "    fig, (axes) = plt.subplots(1, 4, sharey=True)\n",
+    "    # names\n",
+    "    shape = 'raw'\n",
+    "    filenames = ['2550_%s.png'%(shape),'2691_%s.png'%(shape),'4640_%s.png'%(shape),'9421_%s.png'%(shape)]\n",
+    "    # draw and save\n",
+    "    for idx, itm in enumerate(zip(axes, filenames)):\n",
+    "        ax, file, = itm\n",
+    "        ## load roi\n",
+    "        im = image.imread('%s/%s'%(path, file))\n",
+    "        ax.imshow(im)\n",
+    "        ax.grid(True)\n",
+    "        ax.set_facecolor('#f9f9f9')\n",
+    "        # labels\n",
+    "        if idx == 0: ax.set_ylabel('Screen Y (pixels)', fontsize=8)\n",
+    "        ax.set_xlabel('Screen X (pixels)', fontsize=8)\n",
+    "        ax.tick_params(labelsize=6, width=1, length=4)\n",
+    "    # save\n",
+    "    #plt.tight_layout()\n",
+    "    plt.subplots_adjust(wspace=0.1)\n",
+    "    plt.show()"
    ]
   },
   {
