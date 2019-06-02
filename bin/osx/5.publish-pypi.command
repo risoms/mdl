@@ -4,7 +4,7 @@
 
 # set path as current location
 cd "$(dirname "$0")"
-cd ../
+cd ../../
 
 # uploading
 ## make sure twine is available

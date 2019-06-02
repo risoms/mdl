@@ -4,7 +4,7 @@
 
 # set path as current location
 cd "$(dirname "$0")"
-cd ../
+cd ../../
 
 # remove folder from previous archive
 rm -rf build

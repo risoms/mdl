@@ -4,7 +4,7 @@
 
 # set path as current location
 cd "$(dirname "$0")"
-cd ../
+cd ../../
 
 # upload to TestPyPI
 python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*  --verbose -u risoms -p samboi10

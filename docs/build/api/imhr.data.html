@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>imhr.data &#8212; imhr 0.3.36 documentation</title>
+    <title>imhr.data &#8212; imhr 0.3.37 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           imhr</a>
-        <span class="navbar-text navbar-version pull-left"><b>2019-05-31.0.3.36</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>2019-06-02.0.3.37</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -623,7 +623,7 @@ For example:</p>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.data.Plot.density_plot" title="imhr.data.Plot.density_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">density_plot</span></code></a>(config,&nbsp;df,&nbsp;title)</td>
 <td>Create density plot (draws kernel density estimate), using seaborn and pandas.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#imhr.data.Plot.html" title="imhr.data.Plot.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">html</span></code></a>(config[,&nbsp;df,&nbsp;raw_data,&nbsp;name,&nbsp;path,&nbsp;…])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#imhr.data.Plot.html" title="imhr.data.Plot.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">html</span></code></a>([destination,&nbsp;df,&nbsp;raw_data,&nbsp;name,&nbsp;…])</td>
 <td>Create HTML output.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#imhr.data.Plot.logit_plot" title="imhr.data.Plot.logit_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logit_plot</span></code></a>(config,&nbsp;df,&nbsp;path,&nbsp;param)</td>
@@ -855,13 +855,16 @@ For example:</p>
 
 <dl class="classmethod">
 <dt id="imhr.data.Plot.html">
-<em class="property">classmethod </em><code class="descname">html</code><span class="sig-paren">(</span><em>config</em>, <em>df=None</em>, <em>raw_data=None</em>, <em>name=None</em>, <em>path=None</em>, <em>plots=None</em>, <em>source=None</em>, <em>title=None</em>, <em>intro=None</em>, <em>footnote=None</em>, <em>script=''</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/data/plot.html#Plot.html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.data.Plot.html" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">html</code><span class="sig-paren">(</span><em>destination=None</em>, <em>df=None</em>, <em>raw_data=None</em>, <em>name=None</em>, <em>path=None</em>, <em>plots=None</em>, <em>source=None</em>, <em>title=None</em>, <em>intro=None</em>, <em>footnote=None</em>, <em>script=''</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imhr/data/plot.html#Plot.html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imhr.data.Plot.html" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create HTML output.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>destination</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></span></dt>
+<dd><p class="first last">Path to save file to.</p>
+</dd>
 <dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt>
 <dd><p class="first last">Pandas dataframe of analysis results data.</p>
 </dd>
@@ -1184,7 +1187,7 @@ For example:</p>
 		<div>
 			<div>&copy; Copyright 2019, </div>
 			<div><a href="https://semeon.io/">Semeon Risom</a>.</div>
-			<div>Updated 2019-05-31T13:47:46-05:00.</div>
+			<div>Updated 2019-06-02T17:29:49-05:00.</div>
 		</div>
 	</div>
 </footer>

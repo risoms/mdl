@@ -9,12 +9,10 @@ Webgazer
 
 **descrptive data**
 
-* `definitions <https://risoms.github.io/mdl/docs/build/data/definitions.html>`__
-* `demographics <https://risoms.github.io/mdl/docs/build/data/demographics.html>`__
-* `device <https://risoms.github.io/mdl/docs/build/data/device.html>`__
-* `task <https://risoms.github.io/mdl/docs/build/data/task.html>`__
-* `summary <https://risoms.github.io/mdl/docs/build/data/summary.html>`__
-* `methods <https://risoms.github.io/mdl/docs/build/data/methods.html>`__
+* `definitions <https://mdl.psy.utexas.edu/imhr/studies/webgazer/definitions.html>`__
+* `device <https://mdl.psy.utexas.edu/imhr/studies/webgazer/device.html>`__
+* `task <https://mdl.psy.utexas.edu/imhr/studies/webgazer/task.html>`__
+* `summary <https://mdl.psy.utexas.edu/imhr/studies/webgazer/summary.html>`__
 
 .. rst-class:: h3
 
@@ -22,32 +20,34 @@ Webgazer
 
 **single subject**
 
-* `calibration <https://risoms.github.io/mdl/docs/build/data/cv/shellie_0_3_calibration.html>`__
-* `validation <https://risoms.github.io/mdl/docs/build/data/cv/shellie_0_3_validation.html>`__
-* `trial <https://risoms.github.io/mdl/docs/build/data/trial/31_0_0.html>`__
+* `calibration <https://mdl.psy.utexas.edu/imhr/studies/webgazer/cv/shellie_0_3_calibration.html>`__
+* `validation <https://mdl.psy.utexas.edu/imhr/studies/webgazer/cv/shellie_0_3_validation.html>`__
+* `trial <https://mdl.psy.utexas.edu/imhr/studies/webgazer/trial/31_0_0.html>`__
 
 **all subjects**
 
-* `kernel density estimate <https://risoms.github.io/mdl/docs/build/data/density.html>`__
-* `correlation matrix <https://risoms.github.io/mdl/docs/build/data/corr_matrix.html>`__ 
+* `kernel density estimate <https://mdl.psy.utexas.edu/imhr/studies/webgazer/density.html>`__
+* `correlation matrix <https://mdl.psy.utexas.edu/imhr/studies/webgazer/corr_matrix.html>`__ 
 
 .. rst-class:: h3
 
 **model**
 
-`dwell time <https://risoms.github.io/mdl/docs/build/data/model/anova/dwell_time.html>`__
+.. rst-class:: h4
+
+** dwell time <https://mdl.psy.utexas.edu/imhr/studies/webgazer/model/anova/dwell_time.html>`__
 
 .. rst-class:: h4
 
 **error**
 
-* `stimulus onset error <https://risoms.github.io/mdl/docs/build/data/model/lmer/diff_stim_error.html>`__
-* `dotloc onset error <https://risoms.github.io/mdl/docs/build/data/model/lmer/diff_dotloc_error.html>`__
+* `stimulus onset error <https://mdl.psy.utexas.edu/imhr/studies/webgazer/model/lmer/diff_stim_error.html>`__
+* `dotloc onset error <https://mdl.psy.utexas.edu/imhr/studies/webgazer/model/lmer/diff_dotloc_error.html>`__
 
 .. rst-class:: h4
 
 **bias score**
 
-* `gaze bias <https://risoms.github.io/mdl/docs/build/data/model/anova/gaze_bias.html>`__
-* `dotprobe bias <https://risoms.github.io/mdl/docs/build/data/model/anova/dp_bias.html>`__
+* `gaze bias <https://mdl.psy.utexas.edu/imhr/studies/webgazer/model/anova/gaze_bias.html>`__
+* `dotprobe bias <https://mdl.psy.utexas.edu/imhr/studies/webgazer/model/anova/dp_bias.html>`__
 

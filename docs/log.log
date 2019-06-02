@@ -61,10 +61,10 @@
 [31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Download.REDCap:16: WARNING: Unexpected indentation.[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Download.REDCap:21: WARNING: Unexpected indentation.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Download.SQL:53: WARNING: Mismatch: both interpreted text role prefix and reference suffix.[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Plot.html:50: WARNING: The "list-table" directive is empty; content required.
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Plot.html:53: WARNING: The "list-table" directive is empty; content required.
 
 .. list-table::[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Plot.html:51: WARNING: Explicit markup ends without a blank line; unexpected unindent.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/__init__.py:docstring of imhr.data.Plot.html:54: WARNING: Explicit markup ends without a blank line; unexpected unindent.[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:7: WARNING: toctree references unknown document 'api/imhr.data.download.Download.REDCap'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:7: WARNING: toctree references unknown document 'api/imhr.data.download.Download.SFTP'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/download.py:docstring of imhr.data.download.Download:7: WARNING: toctree references unknown document 'api/imhr.data.download.Download.SQL'[39;49;00m
@@ -84,10 +84,10 @@
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.qq_plot'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.residual_plot'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot:7: WARNING: toctree references unknown document 'api/imhr.data.plot.Plot.single_subject'[39;49;00m
-[31m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot.html:50: WARNING: The "list-table" directive is empty; content required.
+[31m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot.html:53: WARNING: The "list-table" directive is empty; content required.
 
 .. list-table::[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot.html:51: WARNING: Explicit markup ends without a blank line; unexpected unindent.[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/data/plot.py:docstring of imhr.data.plot.Plot.html:54: WARNING: Explicit markup ends without a blank line; unexpected unindent.[39;49;00m
 [31;01mWARNING: missing attribute mentioned in :members: or __all__: module imhr.eyetracking, attribute Calibration[39;49;00m
 [31;01mWARNING: missing attribute mentioned in :members: or __all__: module imhr.eyetracking, attribute pylink[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.eyetracking.rst:19: WARNING: toctree contains reference to excluded document 'api/imhr.eyetracking.pylink'[39;49;00m
@@ -171,21 +171,13 @@ NameError: name 'pylink' is not defined
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:7: WARNING: toctree references unknown document 'api/imhr.r33._nslr_hmm.ObservationModel.classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:7: WARNING: toctree references unknown document 'api/imhr.r33._nslr_hmm.ObservationModel.dist'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:7: WARNING: toctree references unknown document 'api/imhr.r33._nslr_hmm.ObservationModel.liks'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.append_classify'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.classify'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.dwell'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.filter_data'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.getData'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.getEstimatedMonitor'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.onset_diff'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.preprocess'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.process'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.roi'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.run'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.subject_metadata'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.demographics'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.device'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.html'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.preprocessing'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.summary'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:7: WARNING: toctree references unknown document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.py:docstring of imhr.r33._settings.Settings:7: WARNING: toctree references unknown document 'api/imhr.r33._settings.Settings.definitions'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst:8: WARNING: toctree contains reference to nonexisting document 'examples/analysis/Webgazer'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/_psychopy/index.ipynb:: WARNING: File not found: 'examples/eyetracking/_psychopy/index-1.png'[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/index.ipynb:419: WARNING: Unknown directive type "section".
 
@@ -193,6 +185,7 @@ NameError: name 'pylink' is not defined
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/index.ipynb:: WARNING: File not found: 'examples/eyetracking/demo/index-1.png'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/eyetracking/demo/index.ipynb:: WARNING: File not found: 'examples/eyetracking/demo/index-2.png'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to nonexisting document 'examples/R33/process_data>'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/index.rst:8: WARNING: toctree contains reference to nonexisting document 'examples/R33/R33>'[39;49;00m
 [31m/Users/mdl-admin/Desktop/mdl/docs/source/examples/roi/index.ipynb:585: WARNING: Error in "raw" directive:
 1 argument(s) required, 0 supplied.
 
@@ -211,6 +204,8 @@ NameError: name 'pylink' is not defined
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:11: WARNING: failed to import Download.SFTP[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:11: WARNING: failed to import Download.REDCap[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:11: WARNING: failed to import Download.box[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:22: WARNING: failed to import Processing.preprocess[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:22: WARNING: failed to import Processing.run[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.bokeh_calibration[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.bokeh_trial[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/features.rst:43: WARNING: failed to import plot.cooks_plot[39;49;00m
@@ -242,9 +237,9 @@ NameError: name 'pylink' is not defined
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._nslr_hmm.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._processing.rst: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/api/imhr.r33._settings.rst: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/R33/R33.ipynb: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/R33/process_data.ipynb: WARNING: document isn't included in any toctree[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/index.rst: WARNING: document isn't included in any toctree[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/analysis/webgazer.ipynb: WARNING: document isn't included in any toctree[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/docs/source/examples/webgazer/webgazer.ipynb: WARNING: document isn't included in any toctree[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Acceleration'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.Velocity'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/Webgazer/classify.py:docstring of imhr.Webgazer.classify.Classify:31:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.Webgazer.classify.Classify.VisualAngle'[39;49;00m
@@ -337,19 +332,12 @@ NameError: name 'pylink' is not defined
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.classify'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.dist'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_nslr_hmm.py:docstring of imhr.r33._nslr_hmm.ObservationModel:26:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._nslr_hmm.ObservationModel.liks'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.append_classify'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.classify'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.dwell'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.filter_data'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.getData'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.getEstimatedMonitor'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.onset_diff'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.preprocess'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.process'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.roi'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.run'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.subject_metadata'[39;49;00m
-[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:36:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:29:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.demographics'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:29:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.device'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:29:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.html'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:29:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.preprocessing'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:29:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.summary'[39;49;00m
+[31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_processing.py:docstring of imhr.r33._processing.Processing:29:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._processing.Processing.variables'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/imhr/r33/_settings.py:docstring of imhr.r33._settings.Settings:24:<autosummary>:: WARNING: toctree contains reference to nonexisting document 'api/imhr.r33._settings.Settings.definitions'[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:70: WARNING: undefined label: intro.rst (if the link has no caption the label must precede a section header)[39;49;00m
 [31;01m/Users/mdl-admin/Desktop/mdl/docs/source/index.rst:70: WARNING: undefined label: install.rst (if the link has no caption the label must precede a section header)[39;49;00m
