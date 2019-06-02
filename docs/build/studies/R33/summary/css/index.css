@@ -1,0 +1,95 @@
+body{
+	width: 100vw !important;
+	height: 100vh !important;
+	background-color: #3c4956 !important;
+}
+/* container */
+@media (max-width: 800px) {
+	.container{
+		height: 100vh;
+		width: 100vw !important;
+		display: table-cell;
+		vertical-align: middle;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	a{
+		font-family: Segoe UI, -apple-system, "Helvetica Neue",Helvetica !important;
+		color: #fff !important;
+		font-weight: 300 !important;
+		font-size: 32px !important;
+		text-decoration: none !important;
+		cursor: default;
+	}
+}
+@media (min-width: 800px) {
+	.container{
+		height: 100vh !important;
+		width: calc(.33 * 100vw) !important;
+		display: table-cell;
+		vertical-align: middle;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	a{
+		font-family: Segoe UI, -apple-system, "Helvetica Neue",Helvetica !important;
+		color: #fff !important;
+		font-weight: 300 !important;
+		font-size: 32px !important;
+		text-decoration: none !important;
+		cursor: default;
+	}
+}
+/* group */
+h4{
+	/* display: none; */
+	display: block;
+}
+.group{
+	width: fit-content;
+}
+.group.child{
+	width: fit-content;
+	/* padding-left: 20px; */
+}
+.group-header{
+	display: block;
+	color: #d3dae0 !important;
+}
+.group-header-child{
+	color: #d3dae0 !important;
+}
+.group-header-child-content{
+	padding-left: 30px;
+}
+.group:active > h4, .group:hover > h4{
+	display: block;
+}
+.row{
+	display: table;
+}
+a.content:hover, a.content:active { 
+	color: #f8afae !important;
+	cursor: pointer;
+}
+a.content.header:hover, a.content.header:active { 
+	color: #fff !important;
+	cursor: default;
+}
+.content{
+	padding-left: 30px;
+}
+.content.header{
+	cursor: default;
+}
+.content.list{
+	padding-left: 0px;
+}
+
+
+
+

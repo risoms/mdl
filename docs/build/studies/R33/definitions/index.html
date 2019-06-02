@@ -1,0 +1,424 @@
+<html>
+<head>
+<title>imhr: Participant characteristics</title>
+	<meta name="title" content="imhr: Participant characteristics">
+	<meta name="description" content="Results from our feasibility study for in-browser eyetracking.">
+	<meta name="author" content="Semeon Risom">
+	<meta name="email" content="semeon.risom@gmail.com">
+	<meta name="robots" content="index,follow">
+	<meta name="AdsBot-Google" content="noindex">
+	<!--size-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+	<!--no cache-->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="imhr/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="docs/favicon/browserconfig.xml">
+	<!--icons-->
+	<link rel="shortcut icon" href="imhr/favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="imhr/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="imhr/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="imhr/favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="imhr/favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="imhr/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="imhr/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="imhr/favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="imhr/favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="imhr/favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="imhr/favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="imhr/favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="imhr/favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="imhr/favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="imhr/favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="imhr/favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="imhr/favicon/favicon-180.png">
+	<!--dataTables-->
+	<link rel="stylesheet" type="text/css" href="css/user.css"><link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables/responsive.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables/buttons.bootstrap.min.css"><!--all-->
+	<script type="text/javascript" language="javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/lodash.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/bootstrap/bootstrap.bundle.js"></script>
+	<!--user-->
+	<!--dataTables-->
+	<script type="text/javascript" language="javascript" src="js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.rowsGroup.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.rowGroup.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/buttons.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/responsive.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatables/jszip.min.js"></script>
+	<!--user-->
+	<script type="text/javascript" language="javascript" src="js/user.js"></script>
+	<script>source="definitions"</script>
+</head>
+<body id="body">
+<div class="container-large definitions" style="">
+	<div class="container" style="">
+	<div class="dashboard-main">
+	<div class="table-container definitions">
+	<div class="title"><b>Table 1.</b> Task Variables and Definitions.</div>
+	<div class="date"> Last Updated: 2019-06-02 14:16:56
+	<span class="link" id="code">code</span>
+	<span class="link" id="csv">csv</span>
+	</div>
+	<div class="dataTables_wrapper form-inline dt-bootstrap">
+	<!--script-->
+	<table id="table" class="table definitions table-striped table-bordered 				hover dt-responsive nowrap" cellspacing="0" width="100%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable</th>
+      <th>group</th>
+      <th>type</th>
+      <th>example</th>
+      <th>definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>trialNumTask</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>0</td>
+      <td>Trial Number, from 0-197.</td>
+    </tr>
+    <tr>
+      <td>trialID</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>p8</td>
+      <td>The trial id (p=pofa, i=iaps).</td>
+    </tr>
+    <tr>
+      <td>DotLoc</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>LeftS</td>
+      <td>Location and valience of the DotLoc (RightS = right-side, sad).</td>
+    </tr>
+    <tr>
+      <td>LEmotion</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>Sad</td>
+      <td>The valience of the left-side stimulus.</td>
+    </tr>
+    <tr>
+      <td>LStim</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>p0036.jpg</td>
+      <td>The left-side stimulus.</td>
+    </tr>
+    <tr>
+      <td>LDescription</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>36</td>
+      <td>The description of the left-side stimulus.</td>
+    </tr>
+    <tr>
+      <td>REmotion</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>Neutral</td>
+      <td>The valience of the right-side stimulus.</td>
+    </tr>
+    <tr>
+      <td>RStim</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>p0041.jpg</td>
+      <td>The right-side stimulus.</td>
+    </tr>
+    <tr>
+      <td>RDescription</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>41</td>
+      <td>The description of the right-side stimulus.</td>
+    </tr>
+    <tr>
+      <td>trialType</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>pofa</td>
+      <td>The type of trial ran. Either iaps or pofa.</td>
+    </tr>
+    <tr>
+      <td>isCongruent</td>
+      <td>behavioral</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Are the DotLoc and stimulus in congruent locations.</td>
+    </tr>
+    <tr>
+      <td>event</td>
+      <td>behavioral</td>
+      <td>object</td>
+      <td>Fixation</td>
+      <td>Trial event (practice, task).</td>
+    </tr>
+    <tr>
+      <td>KeyRespRt</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>666</td>
+      <td>Response time (trial-level; msec).</td>
+    </tr>
+    <tr>
+      <td>KeyRespAcc</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>1</td>
+      <td>Accuracy (trial-level).</td>
+    </tr>
+    <tr>
+      <td>mRT</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>722</td>
+      <td>Median response time (session-level; msec).</td>
+    </tr>
+    <tr>
+      <td>sAcc</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>1</td>
+      <td>Session accuracy (0-198).</td>
+    </tr>
+    <tr>
+      <td>dotLocOnset</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>4594</td>
+      <td>DotLoc onset time (msec).</td>
+    </tr>
+    <tr>
+      <td>stimOnset</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>1555</td>
+      <td>Stimulus onset time (msec).</td>
+    </tr>
+    <tr>
+      <td>diffDotLoc</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>94</td>
+      <td>Difference between DotLoc estimated and true onset time (trial-level; msec).</td>
+    </tr>
+    <tr>
+      <td>diffStim</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>55</td>
+      <td>Difference between stimulus estimated and true onset time (trial-level).</td>
+    </tr>
+    <tr>
+      <td>mDiffDotLoc</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>62</td>
+      <td>Median difference between DotLoc estimated and true onset time (subject-level; msec).</td>
+    </tr>
+    <tr>
+      <td>mDiffStim</td>
+      <td>behavioral</td>
+      <td>int64</td>
+      <td>32</td>
+      <td>Median difference between stimulus estimated and true onset time (subject-level).</td>
+    </tr>
+    <tr>
+      <td>sampleNum</td>
+      <td>eyetracking</td>
+      <td>int64</td>
+      <td>0</td>
+      <td>Sample number in trial.</td>
+    </tr>
+    <tr>
+      <td>sampleTime</td>
+      <td>eyetracking</td>
+      <td>int64</td>
+      <td>93</td>
+      <td>Time since trial start (msec).</td>
+    </tr>
+    <tr>
+      <td>x</td>
+      <td>eyetracking</td>
+      <td>int64</td>
+      <td>-141</td>
+      <td>Gaze x-coordinates.</td>
+    </tr>
+    <tr>
+      <td>y</td>
+      <td>eyetracking</td>
+      <td>int64</td>
+      <td>1779</td>
+      <td>Gaze y-coordinates.</td>
+    </tr>
+    <tr>
+      <td>gpuFullName</td>
+      <td>device</td>
+      <td>object</td>
+      <td>NVIDIA GeForce GTX 780M</td>
+      <td>Returns the GPU onboard the computer. Uses WebGL API.</td>
+    </tr>
+    <tr>
+      <td>gpuType</td>
+      <td>device</td>
+      <td>object</td>
+      <td>dedicated</td>
+      <td>Category identifying the GPU as either separate from the CPU or intergrated. Uses WebGL API. Data parsed from gpuFullName.</td>
+    </tr>
+    <tr>
+      <td>browserFullName</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Chrome 59</td>
+      <td>The browser brand and version. Derived from User-Agent request header.</td>
+    </tr>
+    <tr>
+      <td>browserBrand</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Chrome</td>
+      <td>Browser Brand. Data parsed from browserFullName.</td>
+    </tr>
+    <tr>
+      <td>browserVersion</td>
+      <td>device</td>
+      <td>int64</td>
+      <td>59</td>
+      <td>Browser Version. Data parsed from browserFullName.</td>
+    </tr>
+    <tr>
+      <td>osFullName</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Mac OS X 10.9.5</td>
+      <td>Operating system used. Data parsed from osFullName.</td>
+    </tr>
+    <tr>
+      <td>osBrand</td>
+      <td>device</td>
+      <td>object</td>
+      <td>macOS</td>
+      <td>Operating system used. Data parsed from osFullName</td>
+    </tr>
+    <tr>
+      <td>osVersion</td>
+      <td>device</td>
+      <td>object</td>
+      <td>10.9.5</td>
+      <td>The operating system and version used. Uses User-Agent request header.</td>
+    </tr>
+    <tr>
+      <td>heap.used</td>
+      <td>device</td>
+      <td>object</td>
+      <td>26MB</td>
+      <td>The total bytes used by JavaScript on the task. Uses window.performance.memory from Google.</td>
+    </tr>
+    <tr>
+      <td>heap.limit</td>
+      <td>device</td>
+      <td>object</td>
+      <td>2190MB</td>
+      <td>Maximum size a JavaScript heap accessable by the task. Uses window.performance.memory from Google.</td>
+    </tr>
+    <tr>
+      <td>isWebcamUsed</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Whether or not the webcam was initiated.</td>
+    </tr>
+    <tr>
+      <td>WebcamMessage</td>
+      <td>device</td>
+      <td>object</td>
+      <td>Success</td>
+      <td>String indicating the success or failure of accessing the webcam and the reason for it (i.e. getUserMediaFailed).</td>
+    </tr>
+    <tr>
+      <td>webcamSize</td>
+      <td>device</td>
+      <td>object</td>
+      <td>0x0</td>
+      <td>Returns the width and height of the webcam. Uses the HTMLVideoElement API.</td>
+    </tr>
+    <tr>
+      <td>luminance</td>
+      <td>device</td>
+      <td>float64</td>
+      <td>0.392157</td>
+      <td>The perceived brightness distribution or "luminosity" within an image, normalized from 0 (black) to 1 (white).</td>
+    </tr>
+    <tr>
+      <td>monitorSize</td>
+      <td>device</td>
+      <td>object</td>
+      <td>2560x1440</td>
+      <td>Returns the width and height of the screen. Uses Window.screen.height [and width] from Web API.</td>
+    </tr>
+    <tr>
+      <td>windowSize</td>
+      <td>device</td>
+      <td>object</td>
+      <td>2560x1440</td>
+      <td>Returns the width and height of the browser window. Uses Window.innerHeight [and innerHeight] from Web API.</td>
+    </tr>
+    <tr>
+      <td>devicePixelRatio</td>
+      <td>device</td>
+      <td>int64</td>
+      <td>1</td>
+      <td>The ratio between physical pixels and device independent pixels in the current display. Uses Window.devicePixelRatio from Web API.</td>
+    </tr>
+    <tr>
+      <td>isPageVisible</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Returns whether or not the task has been minimized or a new tab has been open and is visible. Uses the Page Visibility API.</td>
+    </tr>
+    <tr>
+      <td>isFullscreen</td>
+      <td>device</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Uses the following calculation to determine if fullscreen (window.innerHeight &lt; (.85*window.screen.height)) &amp;&amp; (window.innerWidth &lt; (.85*window.screen.width)).</td>
+    </tr>
+    <tr>
+      <td>scaling</td>
+      <td>device</td>
+      <td>float64</td>
+      <td>0.890714</td>
+      <td>Precentage screen was scaled from default. This is to allow all elements in task to fit in smaller screens (width=1366).</td>
+    </tr>
+  </tbody>
+</table>
+	</div>
+	<div class="footnote">
+None</div>
+	
+	</div>
+	</div>
+	</div>
+	</div>
+</body>
+<foot>
+<script>
+	$(document).ready(function(){
+	getLogitTable();
+	})
+	</script>
+</foot>
+</html>

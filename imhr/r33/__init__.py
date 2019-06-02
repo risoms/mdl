@@ -54,8 +54,8 @@ class Model(_Model):
 class Processing(_Processing):
 	"""Hub for running processing and analyzing raw data."""
 	__doc__ = _Processing.__init__.__doc__
-	def __init__(self, config, isLibrary=False):
-		super().__init__(config, isLibrary=False)
+	def __init__(self):
+		super().__init__()
 
 class Settings(_Settings):
 	"""Default settings for imhr.r33.Processing"""

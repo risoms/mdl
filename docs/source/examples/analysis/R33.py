@@ -14,7 +14,10 @@
 # ## local import
 from pdb import set_trace as breakpoint
 from imhr import settings, data
+from imhr.r33 import Processing
 from datetime import datetime
+from pathlib import Path
+import os
 ## parameters
 console = settings.console
 #%% [markdown]
@@ -55,55 +58,43 @@ d = '/Users/mdl-admin/Desktop/r33/data/redcap/'
 token = p['r33']['redcap']['token']
 url = p['r33']['redcap']['url']
 content = 'report'
-report_id = '4717'
+report_id = '6766'
 # export
 log, start, end, now = data.Download.REDCap(path=d, token=token, url=url, content=content, report_id=report_id)
 #%% [markdown]
-# ##### create summary data
-#%% 
-import processing
+# ##### Preprocessing
+# Clean up variable names, correct screensize for processing.
+#%%
+source = '/Users/mdl-admin/Desktop/r33/data/raw/full/'
+errors = Processing.preprocessing(source=source, isMultiprocessing=True, cores=6)
+#%% [markdown]
+# ##### Summary data
+#%%
 # parameters
-source = "/Users/mdl-admin/Desktop/r33/data/raw/full/"
+source = "/Users/mdl-admin/Desktop/r33/data/preprocessed/"
 destination = "/Users/mdl-admin/Desktop/r33/data/processed/summary.xlsx"
 metadata = "/Users/mdl-admin/Desktop/r33/data/metadata.csv"
-# run
-df, errors = processing.summary(source=source, destination=destination, metadata=metadata, isHTML=True)
+# Processing
+df, errors, _ = Processing.summary(source=source, destination=destination, metadata=metadata, isHTML=True)
 #%% [markdown]
-# ##### create summary data
+# ##### Definitions
 #%% 
+source = "/Users/mdl-admin/Desktop/r33/data/preprocessed/53_0abc.csv"
 destination = "/Users/mdl-admin/Desktop/r33/data/processed/variables.xlsx"
-df_variables = processing.variables(df=df, destination=destination)
-
-#%%    
-## create html
-html_name = 'definitions'
-html_path = path_['output'] + "/analysis/html/%s.html"%(html_name)
-title = '<b>Table 1.</b> Task Variables and Definitions.'
-html = plot.html(config=config, df=df_variables, path=html_path, name=html_name, source="definitions", title=title)
-
-
-
-
-
-
-
+df_variables, _ = Processing.variables(source=source, destination=destination, isHTML=True)
+#%% [markdown]
+# ##### Device characteristics
+#%% 
+source = "/Users/mdl-admin/Desktop/r33/data/processed/summary.xlsx"
+destination = "/Users/mdl-admin/Desktop/r33/data/processed/device.xlsx"
+df_device, _ = Processing.device(source=source, destination=destination, isHTML=True)
 
 #%% [markdown]
-# ##### total sessions per subject
-# summary path
-summary_path = "/Users/mdl-admin/Desktop/r33/data/processed/summary.xlsx"
-# load summary
-import pandas as pd
-df_ = pd.read_excel(summary_path)
-
-# drop 
-## missing rows
-df = df[~df['participant'].isnull()]
-## duplicate participant listings, keep first and last
-df_first = df.drop_duplicates(subset="participant", keep="first").reset_index(drop=True)
-df_last = df.drop_duplicates(subset="participant", keep="first").reset_index(drop=True)
-df[['participant','session']].groupby(['participant','session']).agg(['mean', 'count'])
-
+# ##### demographics characteristics
+#%% 
+source = "/Users/mdl-admin/Desktop/r33/data/redcap/report.xlsx"
+destination = "/Users/mdl-admin/Desktop/r33/data/processed/demographics.xlsx"
+df_demographics = Processing.demographics(source=source, destination=destination, isHTML=True)
 
 
 

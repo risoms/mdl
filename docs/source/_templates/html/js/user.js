@@ -288,11 +288,13 @@ function additionalTable(){
 
 // logit table
 function getLogitTable(){
-	if(source=="summary"){
+	var no_hover;
+	if(source=="demographic"){
+		no_hover = true
 		//row group
 		//https://datatables.net/extensions/rowgroup/
 		console.log(source)
-		logit_table = $('#table').DataTable({
+		table_ = $('#table').DataTable({
 			searching: false, 
 			paging: false, 
 			info: false,
@@ -301,106 +303,34 @@ function getLogitTable(){
 			aaSorting: [],
 			bSort: false,
 			ordering: false,
-			autoWidth: true,
-			columnDefs: [{targets: 0, visible: false}],
+			columnDefs: [{targets: 0, visible: false}, {'width': '60%', 'targets': 1}],
 			rowGroup: {
 				dataSrc: 0,
 				endRender: null,
 				startRender: function (rows, group) {
-					//for each row within group
-					rows.nodes().each(function (r) {
-						console.log(group)
-						console.log(r)
-					}); 
-					return $('<tr/>')
-						.append('<td class="table-group-content">' + group +' (SD)</td>')
-						.attr('data-name', group);
-				}
-			},
-			buttons: [{extend: 'csv', title: 'task'}],
-			initComplete: function (settings) {
-				//generate code
-				//codeComplete()
-				//download csv file
-				$("#csv").on("click", function() {
-					console.log('clicked')
-					$('#table').DataTable().button('.buttons-csv').trigger();
-				});
-			}
-		})
-	//normal
-	} else if(source=="demographic"){
-		//row group
-		//https://datatables.net/extensions/rowgroup/
-		console.log(source)
-		logit_table = $('#table').DataTable({
-			searching: false, 
-			paging: false, 
-			info: false,
-			lengthChange: false,
-			responsive: true,
-			aaSorting: [],
-			bSort: true,
-			ordering: false,
-			columnDefs: [{targets: 0, visible: false}, {'width': '50%', 'targets': 1}],
-			rowGroup: {
-				dataSrc: 0,
-				endRender: null,
-				startRender: function (rows, group) {
-					//if only single row within group
-					if ((group=='Hispanic or Latino')||(group=='Handedness (Right)')){
+					if ((group=='Smartphone User (%)') || (group=='Right-Handed (%)') || (group=='Austin Resident (%)')){
 						//for each row within group
 						rows.nodes().each(function (r) {
 							r.style.display = 'none';
 							row = r
 						});    
 						return $('<tr/>')
-							.append('<td class="table-group-content">' + group + ' (%)</td><td class="table-group-value">'+$(row).children()[1].textContent+'</td><td class="table-group-value">'+$(row).children()[2].textContent+'</td>')
+							.append('<td class="table-group-content">' + group + '</td><td class="table-group-value">'+$(row).children()[1].textContent+'</td>')
 							.attr('data-name', group);
-							//if only single row within group
-					} else if ((group=='Age')){
+					//if gpu model, Browser version, Operating System version, Webcam brand, Display resolution
+					} else if ((group=='Vision') || (group=='Race') || (group=='Gender') ){
 						//for each row within group
 						rows.nodes().each(function (r) {
+							test = r
 							r.style.display = 'none';
-							row = r
-						});    
+							//append class
+							class_ = r.className;
+							r.className = class_ + " group-item";
+							//set new attribute
+							r.setAttribute("type", group)
+						}); 
 						return $('<tr/>')
-							.append('<td class="table-group-content">' + group + ' (SD)</td><td class="table-group-value">'+$(row).children()[1].textContent+'</td><td class="table-group-value">'+$(row).children()[2].textContent+'</td>')
-							.attr('data-name', group);
-					//if only single row within group and cesd, rrs
-					} else if ((group=='Ruminative Response Scale')||(group=='Center for Epidemiologic Studies Depression Scale')){
-						//for each row within group
-						rows.nodes().each(function (r) {
-							r.style.display = 'none';
-							row = r
-						});    
-						return $('<tr/>')
-							.append('<td class="table-group-content">' + group + ' (SD)</td><td class="table-group-value">'+$(row).children()[1].textContent+'</td><td class="table-group-value">'+$(row).children()[2].textContent+'</td>')
-							.attr('data-name', group);
-					//if eye color
-					} else if (group=='Eye Color'){
-							//for each row within group
-							rows.nodes().each(function (r) {
-								test = r
-								r.style.display = 'none';
-								//append class
-								class_ = r.className;
-								r.className = class_ + " group-item";
-								//set new attribute
-								r.setAttribute("type", group)
-							}); 
-							return $('<tr/>')
-								.append('<td group="'+group+'" class="table-group-content large-group">' + group +' (%)</td>')
-								.attr('data-name', group);
-					//if cesd
-					} else if (group=='Center for Epidemiologic Studies Depression Scale'){
-						//for each row within group
-						rows.nodes().each(function (r) {
-							console.log(group); 
-							console.log(r);
-						});    
-						return $('<tr/>')
-							.append('<td colspan="2" class="table-group-content">' + group + '</td>')
+							.append('<td group="'+group+'" class="table-group-content large-group">' + group +' (%)</td>')
 							.attr('data-name', group);
 					//if normal
 					} else {
@@ -433,22 +363,24 @@ function getLogitTable(){
 				});
 			}
 		})
-	} else if(source=="full_summary"){
+	} else if(source=="summary"){
+		no_hover = true
 		//row group
 		//https://datatables.net/extensions/rowgroup/
 		console.log(source)
-		logit_table = $('#table').DataTable({
+		table_ = $('#table').DataTable({
+			lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
 			searching: true, 
-			paging: false, 
+			paging: true, 
 			info: false,
 			lengthChange: false,
 			responsive: true,
 			autoWidth: true,
 			//https://datatables.net/extensions/responsive/classes
-			columns: [
-				{data: "participant", className:"all"},
-				{data: "session", className:"all"}
-			],
+			// columns: [
+			// 	{data: "participant", className:"all"},
+			// 	{data: "session", className:"all"}
+			// ],
 			buttons: [{extend: 'csv', title: source}],
 			initComplete: function (settings) {
 				//hide/show columns
@@ -470,11 +402,12 @@ function getLogitTable(){
 			}
 		})
 	} else if(source=="definitions"){
+		no_hover = true
 		//row group
 		//https://datatables.net/extensions/rowgroup/
 		console.log(source)
-		logit_table = $('#table').DataTable({
-			searching: true, 
+		table_ = $('#table').DataTable({
+			searching: false, 
 			paging: false, 
 			info: false,
 			lengthChange: false,
@@ -498,10 +431,11 @@ function getLogitTable(){
 		})
 	//device
 	} else if(source=="device"){
+		no_hover = true
 		//row group
 		//https://datatables.net/extensions/rowgroup/
 		console.log(source)
-		logit_table = $('#table').DataTable({
+		table_ = $('#table').DataTable({
 			searching: false, 
 			paging: false, 
 			info: false,
@@ -526,7 +460,7 @@ function getLogitTable(){
 							.attr('data-name', group);
 					//if gpu model, Browser version, Operating System version, Webcam brand, Display resolution
 					} else if ((group=='GPU model') || (group=='Browser version') || (group=='Operating System version') || (group=='Webcam brand') || (group=='devicePixelRatio') ||
-					(group=='Display resolution') || (group=='Operating System') || (group=='Browser') || (group=='GPU type') || (group=='Webcam resolution') || (group=='Webcam message') ){
+					(group=='Display resolution') || (group=='Operating System') || (group=='Browser brand') || (group=='GPU type') || (group=='Webcam resolution') || (group=='Webcam message') ){
 						//for each row within group
 						rows.nodes().each(function (r) {
 							test = r
@@ -575,10 +509,11 @@ function getLogitTable(){
 		})
 	//task
 	} else if(source=="task"){
+		no_hover = true
 		//row group
 		//https://datatables.net/extensions/rowgroup/
 		console.log(source)
-		logit_table = $('#table').DataTable({
+		table_ = $('#table').DataTable({
 			searching: false, 
 			paging: false, 
 			info: false,
@@ -652,154 +587,10 @@ function getLogitTable(){
 			}
 		})
 	//normal
-	} else if(source=="logit"){
-		console.log(source)
-		logit_table = $('#table').DataTable({
-			lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
-			searching: false, 
-			paging: false, 
-			info: false,
-			lengthChange: false,
-			responsive: true,
-			autoWidth: true,
-			//https://datatables.net/extensions/responsive/classes
-			columns: [
-				{data: "term", className:"all"},
-				{data: "B", className:"desktop"},
-				{data: "SE", className:"desktop"},
-				{data: "z", className:"desktop"},
-				{data: "Pr(>|z|)", className:"all"},
-				{data: "OR", className:"all"},
-				{data: "95% CI", className:"all"},
-			],
-			// columnDefs: [
-			// 	{responsivePriority: 1, targets: 0},
-			// 	{responsivePriority: 2, targets: 1},
-			// 	{responsivePriority: 2, targets: 3}
-			// ],
-			buttons: [{extend: 'csv', title: 'logit'}],
-			initComplete: function (settings) {
-				//generate code
-				codeComplete()
-				//get data source from #table
-				filename = $('#table').attr("data-file")
-				//download csv file
-				$("#csv").on("click", function() {
-					console.log('download')
-					getCSV(filename)
-				});
-			}
-		}).rows().every(function(rowIdx, tableLoop, rowLoop) {
-			var data = this.data();
-			if(source=="logit"){
-				if ((data[data.length-3] < 0.06) && (data[data.length-3] > 0.01)){
-					data[data.length-3] = '<b>' + data[data.length-3] + '</b>';
-					this.data(data);
-				} else if (data[data.length-3] < 0.0001) {
-					data[data.length-3] = '<b>< 0.0001</b>';
-					this.data(data);
-				} else {
-					data[data.length-3] = data[data.length-3];
-					this.data(data);
-				}
-			}
-		})
-	} else if(source=="anova"){
-		console.log(source)
-		logit_table = $('#table').DataTable({
-			lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
-			searching: false, 
-			paging: false, 
-			info: false,
-			lengthChange: false,
-			responsive: true,
-			autoWidth: true,
-			columns: [
-				{data: "index", responsivePriority:1},
-				{data: "term", responsivePriority:1},
-				{data: "SS", responsivePriority:2},
-				{data: "MS", responsivePriority:2},
-				{data: "N", responsivePriority:3},
-				{data: "DF", responsivePriority:3},
-				{data: "f", responsivePriority:1},
-				{data: "Pr(>|f|)", responsivePriority:1},
-			],
-			buttons: [{extend: 'csv', title: 'onset'}],
-			initComplete: function (settings) {
-				//generate code
-				codeComplete()
-				//get data source from #table
-				filename = $('#table').attr("data-file")
-				//download csv file
-				$("#csv").on("click", function() {
-					console.log('download')
-					getCSV(filename)
-				});
-			}
-		}).rows().every(function(rowIdx, tableLoop, rowLoop) {
-			var data = this.data();
-			if(source=="anova"){
-				if ((data['Pr(>|f|)'] < 0.06) && (data['Pr(>|f|)'] > 0.01)){
-					data['Pr(>|f|)'] = '<b>' + data['Pr(>|f|)'] + '</b>';
-					this.data(data);
-				} else if (data['Pr(>|f|)'] < 0.0001) {
-					data['Pr(>|t|)'] = '<b>< 0.0001</b>';
-					this.data(data);
-				} else {
-					data['Pr(>|f|)'] = data['Pr(>|f|)'];
-					this.data(data);
-				}
-			}
-		})
-	} else if(source=="onset"){
-		console.log(source)
-		logit_table = $('#table').DataTable({
-			lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
-			searching: false, 
-			paging: false, 
-			info: false,
-			lengthChange: false,
-			responsive: true,
-			autoWidth: true,
-			columns: [
-				{data: "index", responsivePriority:1},
-				{data: "term", responsivePriority:1},
-				{data: "B", responsivePriority:2},
-				{data: "SE", responsivePriority:3},
-				{data: "DF", responsivePriority:3},
-				{data: "t", responsivePriority:1},
-				{data: "Pr(>|t|)", responsivePriority:1},
-			],
-			buttons: [{extend: 'csv', title: 'onset'}],
-			initComplete: function (settings) {
-				//generate code
-				codeComplete()
-				//get data source from #table
-				filename = $('#table').attr("data-file")
-				//download csv file
-				$("#csv").on("click", function() {
-					console.log('download')
-					getCSV(filename)
-				});
-			}
-		}).rows().every(function(rowIdx, tableLoop, rowLoop) {
-			var data = this.data();
-			if(source=="onset"){
-				if ((data['Pr(>|t|)'] < 0.06) && (data['Pr(>|t|)'] > 0.01)){
-					data['Pr(>|t|)'] = '<b>' + data['Pr(>|t|)'] + '</b>';
-					this.data(data);
-				} else if (data['Pr(>|t|)'] < 0.0001) {
-					data['Pr(>|t|)'] = '<b>< 0.0001</b>';
-					this.data(data);
-				} else {
-					data['Pr(>|t|)'] = data['Pr(>|t|)'];
-					this.data(data);
-				}
-			}
-		})
 	} else {
+		no_hover = true
 		console.log(source)
-		logit_table = $('#table').DataTable({
+		table = $('#table').DataTable({
 			lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "All"]],
 			searching: false, 
 			paging: false, 
@@ -811,12 +602,12 @@ function getLogitTable(){
 		})
 	}
 	//hover
-	if((source!="full_summary") && (source!="demographic") && (source!="device") && (source!="logit") && (source!="onset") && (source!="anova") && (source!="definitions") && (source!="task") && (source!="summary")){	
+	if(no_hover=true){	
 		//highlight table on hover
 		$('#table').on('mouseenter', 'td', function () {
-			var rowIdx = logit_table.cell(this).index().row;
-			$(logit_table.rows().nodes()).removeClass('highlight');
-			$(logit_table.rows(rowIdx).nodes()).addClass('highlight');
+			var rowIdx = table_.cell(this).index().row;
+			$(table_.rows().nodes()).removeClass('highlight');
+			$(table_.rows(rowIdx).nodes()).addClass('highlight');
 		});
 	};
 }
