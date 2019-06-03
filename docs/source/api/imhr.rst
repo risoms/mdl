@@ -17,15 +17,14 @@ imhr
 	:exclude-members:
 
 	.. toctree::
-		:maxdepth: 2
+		:maxdepth: 3
 		:hidden:
-		
-		imhr.data
-		imhr.eyetracking
-		imhr.r33
-		imhr.tests
-		imhr.settings
-		imhr.Webgazer
+
+		.. jinja:: required
+
+			{% for item in methods %}
+				- {{ item }}
+			{%- endfor %}
 
 .. autosummary::
 
