@@ -120,7 +120,7 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
 ]
 
-# sphinx-jinja: Adding constants ---------------------------------------------------------------------------------------
+# sphinx-jinja: Adding requirements ---------------------------------------------------------------------------------------
 ## This allows variables to be accessable by jinja
 ## https://github.com/tardyp/sphinx-jinja
 filename_ = '%s/requirements.txt'%(Path(imhr.__file__).parent.parent)
@@ -129,7 +129,11 @@ with open(filename_, 'rb') as f:
 jinja_contexts = {
     'required': {'packages': required}
 }
+# sphinx-jinja: Adding methods ---------------------------------------------------------------------------------------
+methods = dir(imhr)
+jinja_contexts['methods'] = {'methods': methods}
 
+## This allows all method to be included in api/imhr.rst
 # matplotlib plot_directive settings -----------------------------------------------------------------------------------
 plot_html_show_source_link = False
 plot_rcparams = {'savefig.bbox':'tight', "savefig.dpi": 400, 'figure.figsize': (20,6), 'figure.facecolor': '#ffffff'}
