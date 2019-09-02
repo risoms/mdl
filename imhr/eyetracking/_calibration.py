@@ -32,14 +32,13 @@ except ImportError as e:
 	pkg = x[pkg] if pkg in x else pkg
 	raise Exception("No module named '%s'. Please install from PyPI before continuing."%(pkg))
 
-if __name__ == "__main__":
-	from . import pylink
+from . import pylink
 
 class Calibration(pylink.EyeLinkCustomDisplay):
 	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
 	# add base class
 	from . import pylink
-	object.__class__ = pylink.EyeLinkCustomDisplay
+	#object.__class__ = pylink.EyeLinkCustomDisplay
 	def __init__(self, w, h, tracker, window):
 		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction.
 

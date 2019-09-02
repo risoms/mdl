@@ -23,14 +23,13 @@ from ._roi import ROI
 from ._eyelink import Eyelink
 
 # classes	
-if __name__ == "__main__":
-	from . import pylink
-	from ._calibration import Calibration
-	class Calibration(Calibration):
-		"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
-		__doc__ = Calibration.__init__.__doc__
-		def __init__(self, w, h, tracker, window):
-			super().__init__(w, h, tracker, window)
+from . import pylink
+from ._calibration import Calibration
+class Calibration(Calibration):
+	"""Allow imhr.eyetracking.Eyelink to initiate calibration/validation/drift correction."""
+	__doc__ = Calibration.__init__.__doc__
+	def __init__(self, w, h, tracker, window):
+		super().__init__(w, h, tracker, window)
 		
 class Eyelink(Eyelink):
 	"""Interface for the SR Research Eyelink eyetracking system."""

@@ -18,9 +18,7 @@ from pdb import set_trace as breakpoint
 
 # local libraries
 from .. import settings
-
-if __name__ == "__main__":
-	from . import pylink
+from . import pylink
 
 # check if psychopy is available
 try:
@@ -272,11 +270,12 @@ class Eyelink():
 		#----initiate connection with eyetracker
 		self.ip = ip
 		try:
+			from . import pylink
 			self.tracker = pylink.EyeLink(self.ip)
 			self.isConnected = True
 			self.console("Eyelink Connected", "blue")
 		except RuntimeError:
-			self.tracker = pylink.EyeLink(None)
+			self.tracker = None
 			self.isConnected = False
 			self.console("Eyelink not detected at %s"%(self.ip), 'red')
 
@@ -359,7 +358,7 @@ class Eyelink():
 		if self.tracker_version >= 2:
 			self.tracker.sendCommand("select_parser_configuration %d" % (
 				self.select_parser_configuration))
-			# turn of scene link
+			# turn off scene link
 			if self.tracker_version == 2:
 				self.tracker.sendCommand("scene_camera_gazemap = NO")
 		else:
@@ -447,6 +446,7 @@ class Eyelink():
 		>>> eyetracking.calibration()
 		"""
 		# calibration
+		from . import pylink
 		from . import Calibration
 
 		self.console("eyetracking.calibration()")
@@ -680,13 +680,17 @@ class Eyelink():
 
 		return self.isRecording
 
-	def gc(self, bound, min_, max_=None):
+	def gc(self, image=None, text=None, bound=None, min_=None, max_=None, **kwargs):
 		"""
-		Creates gaze contigent event. This function needs to be run while recording.
+		Creates gaze contigent event. Note: This function needs to be run while recording.
 
 		Parameters
 		----------
-		bound : :obj:`dict` [:obj:`str`, :obj:`int`]:
+		image : :obj:`str` or :obj:`None`
+			Image to display on screen during gc event (if type = image).
+		text : :obj:`str` or :obj:`None`
+			Text to display on screen during gc event (if type = text).
+		bound : :obj:`dict` [:obj:`str`, :obj:`int`] or :obj:`None`:
 			Dictionary of the bounding box for each region of interest. Keys are each side of the 
 			bounding box and values are their corresponding coordinates in pixels.
 		min_ : :obj:`int`
@@ -694,6 +698,32 @@ class Eyelink():
 			the task to continue.
 		max_ : :obj:`int` or :obj:`None`
 			Maxinum duration (msec) before task is forced to go into drift correction. 
+		**kwargs : :obj:`str` or :obj:`None`, optional
+			Here's a list of available properties:
+
+			.. list-table::
+				:class: kwargs
+				:widths: 25 50
+				:header-rows: 1
+
+				* - Property
+				  - Description
+				* - **font** : :obj:`str`
+				  - Stimulus font. Default is `Arial`.
+				* - **name** : :obj:`str`
+				  - Stimulus name. Default is `fixation`.
+				* - **pos** : :obj:`list`
+				  - Stimulus position. Default is `[0, 0]`.
+				* - **size** : :obj:`list`
+				  - Stimulus image size. Default is `[100, 100]`.
+				* - **height** : :obj:`float`
+				  - Stimulus text height. Default is `0.13`.
+				* - **color** : :obj:`str`
+				  - Stimulus text color. Default is `black`.
+				* - **opacity** : :obj:`int`
+				  - Stimulus text opacity. Default is `1`.
+				* - **depth** : :obj:`float`
+				  - Stimulus text depth. Default is `0.0`.
 
 		Examples
 		--------
@@ -702,34 +732,64 @@ class Eyelink():
 		>>> region = dict(left=860, top=440, right=1060, bottom=640)
 		>>> eyetracking.gc(bound=bound, min_=2000, max_=10000)
 		"""
+		# kwargs
+		font = kwargs['font'] if 'font' in kwargs else 'Arial'
+		name = kwargs['name'] if 'name' in kwargs else "fixation"
+		pos = kwargs['pos'] if 'pos' in kwargs else [2, 0]
+		size = kwargs['size'] if 'size' in kwargs else [100, 100]
+		height = kwargs['height'] if 'height' in kwargs else 0.13
+		color = kwargs['color'] if 'color' in kwargs else 'black'
+		opacity = kwargs['opacity'] if 'opacity' in kwargs else 1
+		depth = kwargs['depth'] if 'depth' in kwargs else 0.0
+		# constants
+		status = 'Started'
+		self.console("eyetracking.gc() started", "blue")
 
 		#if eyetracker is recording
 		if self.isRecording or (not self.isFlag):
-			# if demo
+			# fixation box (if demo)
 			if self.isDemo:
 				line = 6
 				width = (bound['right'] - bound['left']) + line
 				height = (bound['bottom'] - bound['top']) + line
-				center = ((bound['left'] - line) + width/2, bound['top'] + height/2)
-				color = [0,255,0]
+				color = [255,0,0]
 				box = self.visual.Rect(win=self.window, name="bound", units='pix',
-								  width=width, height=height, pos=(0,0), colorSpace='rgb255',
-								  lineWidth=6, lineColor=color, lineColorSpace='rgb255',
-								  opacity=1, depth=0.0, interpolate=True)
+									width=width, height=height, pos=(0,0), colorSpace='rgb255',
+									lineWidth=6, lineColor=color, lineColorSpace='rgb255',
+									opacity=1, depth=0.0, interpolate=True)
 				box.setAutoDraw(True)
 
-			# draw box
-			self.tracker.sendCommand('draw_box %d %d %d %d 6'% (bound['left'],bound['top'],bound['right'],bound['bottom']))
+
+			#fixation
+			if image is not None:
+				# image
+				fixation = self.visual.ImageStim(win=self.window, name=name, units="pix",
+					image=image, pos=pos, size=size)
+			else:
+				# text
+				if text is None:
+					text = "+"
+				fixation = self.visual.TextStim(win=self.window, name=name, alignVert='center', 
+					alignHoriz='center', text=text, font=font, pos=pos, height=height, 
+					wrapWidth=2, ori=0, color=color, colorSpace='rgb255', opacity=opacity, 
+					depth=depth)
+			# display
+			fixation.setAutoDraw(True)
+
+			# finish
+			self.window.flip()
+			# draw box on EyeLink display
+			#[see `EyeLink Programmer’s Guide, Chapter 15: Tracker Feedback Graphics <../manual/EyeLink%20Programmers%20Guide.pdf>`_]
+			self.tracker.sendCommand('draw_filled_box %d %d %d %d 15'% (bound['left'],bound['top'],bound['right'],bound['bottom']))
 
 			#get start time
 			start_time = time.clock()
+
 			#get current time
 			current_time = time.clock()
 
 			#----check gc window
-			while True:    
-				#flip screen
-				self.window.flip()
+			while True:
 
 				#get gaze sample
 				gxy, ps, s = self.sample()
@@ -738,16 +798,22 @@ class Eyelink():
 				if ((bound['left'] < gxy[0] < bound['right']) and (bound['top'] < gxy[1] < bound['bottom'])):
 					# if demo
 					if self.isDemo:
-						box.lineColor = [0,255,0]
+						box.lineColor = [255,0,0]
 					# has mininum time for gc window occured
 					duration = (time.clock() - current_time) * 1000
 					if duration > min_:
 						self.console("eyetracking.gc() success in %d msec"%((time.clock() - start_time) * 1000), "blue")
 						self.send_message(msg='gc window success')
-						# clear bounding box (if demo)
+						# clear bounding box 
+						self.tracker.sendCommand('clear_screen 0')
+						# clear fixation
+						fixation.setAutoDraw(False)
+						# (if demo)
 						if self.isDemo:
 							box.setAutoDraw(False)
-						break
+						# finished-success
+						status = 'Finished'
+						break 
 				# not in window
 				else:
 					# if demo
@@ -763,14 +829,22 @@ class Eyelink():
 					if duration > max_:
 						self.console("eyetracking.gc() failed, drift correction started", "blue")
 						self.send_message(msg='gc window failed')
+						self.tracker.sendCommand('clear_screen 0')
+						# clear fixation
+						fixation.setAutoDraw(False)
 						# clear bounding box (if demo)
 						if self.isDemo:
 							box.setAutoDraw(False)
 						# start drift correction
 						self.drift_correction(origin='gc')
+						status = 'Finished'
 						break
+			
+			return status
 		else:
 			self.console("eyetracker not recording", "red")
+			status = 'Finished'
+			return status
  
 	def sample(self):
 		"""
@@ -974,7 +1048,7 @@ class Eyelink():
 		"""
 		self.console("eyetracking.finish_recording()")
 
-		#clear host display
+		# clear host display
 		self.tracker.sendCommand('clear_screen 0') 
 
 		# double check realtime mode has ended
