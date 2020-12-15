@@ -168,7 +168,7 @@ $(document).ready(function() {
 	$('.trial>.title').on('click', '.dropdown-menu>a', function(){
 		console.log('a');
 		var select = $(this).text();
-		window.location.href = 'https://risoms.github.io/mdl/docs/build/data/trial' + '31_0_' + select + '.html' 
+		window.location.href = 'https://risoms.github.io/mdl/docs/build/data/trial/' + '31_0_' + select + '.html' 
 	});
 
 	//for calibration/validation
