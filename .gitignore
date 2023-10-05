@@ -38,7 +38,6 @@ pytest.log
 
 # directories
 # build
-build/**
 conda/**
 dist/**
 env/**
