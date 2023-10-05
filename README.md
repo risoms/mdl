@@ -26,7 +26,7 @@ This package was created at [the Institute for Mental Health Research](http://md
 
 Documentation
 -------------
-Online documentation is available at [risoms.github.io/mdl](https://risoms.github.io/mdl/docs/build/index.html). Documentation include [examples](https://risoms.github.io/mdl/docs/build/examples/index.html), [API reference](https://risoms.github.io/mdl/docs/build/api/mdl.html), and other useful information.
+Online documentation is available at [risoms.github.io/mdl](https://risoms.github.io/mdl/index.html). Documentation include [examples](https://risoms.github.io/mdl/docs/build/examples/index.html), [API reference](https://risoms.github.io/mdl/docs/build/api/mdl.html), and other useful information.
 
 Dependencies
 ------------
