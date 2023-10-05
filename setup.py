@@ -47,7 +47,7 @@ if __name__ == '__main__':
 	author = 'Semeon Risom'
 	packages = find_packages()
 	platforms = 'Darwin, Windows'
-	python_requires = '~=3.6'
+	python_requires = '~=3.7'
 	author_email = 'semeon.risom@gmail.com'
 	maintainer = 'Semeon Risom'
 	maintainer_email = 'semeon.risom@gmail.com'
