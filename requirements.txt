@@ -1,5 +1,5 @@
 yarg>=0.1.9
-opencv_python>=4.1.0.25
+opencv_python>=4.13.0.92
 bokeh>=1.2.0
 paramiko>=2.4.2
 openpyxl>=2.6.2
