@@ -1,6 +1,6 @@
 yarg>=0.1.9
 opencv_python>=4.1.0.25
-bokeh>=1.2.0
+bokeh>=3.4.3
 paramiko>=2.4.2
 openpyxl>=2.6.2
 requests>=2.21.0
